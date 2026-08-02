@@ -1,0 +1,962 @@
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+
+const resources = {
+  sv: {
+    translation: {
+      nav: {
+        home: "Hem",
+        orbis: "Orbis",
+        portfolio: "Portfölj",
+        services: "Tjänster",
+        about: "Om oss",
+        contact: "Kontakt",
+        getStarted: "Börja nu"
+      },
+      hero: {
+        badge: "DIGITAL AFFÄRSTRANSFORMATION & AI-ARKITEKTUR",
+        titlePrefix: "Transformera med ",
+        titleGradient: "AI-driven",
+        titleSuffix: " design och teknik",
+        subtitle: "",
+        getStarted: "Kom igång",
+        explore: "Utforska kapabiliteter",
+        card1Title: "AI-Driven Automation",
+        card1Sub: "Intelligenta arbetsflöden & agenter",
+        card2Title: "Blixtsnabb Prestanda",
+        card2Sub: "100/100 Google Lighthouse & SEO",
+        card3Title: "Skräddarsydd Kod",
+        card3Sub: "Unik arkitektur utan mallar"
+      },
+      brands: {
+        badge: "FÖRETAGSTEKNISK EKOSYSTEM",
+        title: "Arkitektoniserad med verktyg och varumärken vi arbetar med",
+        subtitle: "Vi integrerar över 250+ ledande molntjänster, AI-plattformar och designverktyg i vårt utvecklingsarbetsflöde.",
+        auditBtn: "Starta teknikaudit",
+        exploreBtn: "Utforska teknikstack"
+      },
+      features: {
+        badge: "FUNKTIONSHÖJDPUNKTER",
+        title: "Nästa generations arkitektur inbyggd i varje lösning",
+        subtitle: "Upplev staplad prestanda, företagssäkerhet och tokeniserad designsystemarkitektur från start.",
+        bullet1: "ISO 27001-certifierad säkerhet & Zero-Trust åtkomst",
+        bullet2: "Tokeniserat React-komponentbibliotek för flera varumärken",
+        bullet3: "Realtids händelsedrivna mikro-frontends och analys",
+        exploreBtn: "Utforska lösningsarkitektur",
+        viewSpecBtn: "Visa hela specifikationen"
+      },
+      searchVisibility: {
+        badge: "SÖKSYNLIGHET & GOOGLE-RANKING",
+        titlePrefix: "Din webbplats visas ",
+        titleGradient: "högst upp på Google",
+        titleSuffix: " i sökresultaten",
+        subtitle: "Med Diaras blixtsnabba prestanda, SEO-optimerade kod och automatiska indexering rankar din webbplats överst och blir det första valet för dina kunder.",
+        bullet1: "Topplaceringar på Google och sökmoduler",
+        bullet2: "Blixtsnabb laddningstid (100/100 Lighthouse-poäng)",
+        bullet3: "Automatisk SEO-struktur och rika sökresultat",
+        button: "Förbättra din sökplacering"
+      },
+      businessAnalysis: {
+        badge: "STRATEGISK BUSINESS-ANALYS & SKRÄDDARSYDD UTVECKLING",
+        titlePrefix: "Vi analyserar ditt företag & bygger",
+        titleGradient: "SKRÄDDARSYDDA LÖSNINGAR",
+        titleSuffix: "för dina behov",
+        subtitle: "Varje företag är unikt. Diara analyserar er affärsmodell, identifierar flaskhalsar och bygger kundanpassad mjukvara för maximal lönsamhet och tillväxt.",
+        bullet1: "Djupgående analys av affärsmodell & användarresor",
+        bullet2: "Skräddarsydd kod- och produktarkitektur utan mallar",
+        bullet3: "Automatiserade arbetsflöden & kontinuerlig mätbarhet",
+        button: "Boka skräddarsydd analys"
+      },
+      customSolution: {
+        badge: "AFFÄRSANALYS & SKRÄDDARSYDD UTVECKLING",
+        titlePrefix: "Vi analyserar ditt företag & bygger",
+        titleGradient: "SKRÄDDARSYDDA WEBBPLATSER & APPAR",
+        titleSuffix: "för din tillväxt",
+        subtitle: "Inga färdiga mallar. Vi analyserar er affärsmodell på djupet och skapar kundanpassad mjukvara, webbplatser och mobilapplikationer som är direkt optimerade för er lönsamhet och tillväxt.",
+        feature1Title: "Djupgående affärsanalys",
+        feature1Desc: "Vi identifierar er målgrupp och arbetsflöden innan vi påbörjar kodningen.",
+        feature2Title: "Skräddarsydda webbplatser & appar",
+        feature2Desc: "Unik kod och arkitektur byggd exakt efter er verksamhets specifika behov.",
+        feature3Title: "Konstruerad för mätbar tillväxt",
+        feature3Desc: "Högpresterande lösningar som ökar konverteringen och driver er affär framåt.",
+        getStartedBtn: "Starta ert skräddarsydda projekt",
+        exploreBtn: "Utforska våra tjänster"
+      },
+      connectWithUs: {
+        badge: "FLERSPRÅKIG SUPPORT & RÅDGIVNING",
+        titlePrefix: "Ta kontakt med oss —",
+        titleGradient: "SUPPORT PÅ 4 SPRÅK",
+        titleSuffix: "(Svenska, Engelska, Farsi & Arabiska)",
+        subtitle: "Vårt ledarteam ger dig direkt rådgivning på det språk du föredrar. Vi eliminerar alla språkbarriärer så att dina projektkrav blir 100% förstådda och perfekt utförda.",
+        langSvTitle: "Svensk Support",
+        langSvDesc: "Direkt kommunikation med vårt lokala svenska team för alla dina affärs- och teknikfrågor.",
+        langEnTitle: "English Support",
+        langEnDesc: "Global enterprise consultation and technical support for international teams.",
+        langFaTitle: "پشتیبانی فارسی",
+        langFaDesc: "ارتباط مستقیم و هم‌زبانی برای درک کامل نیازها و پیاده‌سازی دقیق پروژه.",
+        langArTitle: "الدعم باللغة العربية",
+        langArDesc: "استشارات وخدمات دعم فني مباشرة باللغة العربية لتلبية متطلبات مشروعك بدقة متناهية.",
+        contactBtn: "Kontakta oss nu",
+        bookCallBtn: "Boka ett strategimöte"
+      },
+      salesAndSeo: {
+        badge: "FÖRSÄLJNINGSTILLVÄXT & GOOGLE-RANKING",
+        titlePrefix: "Öka din försäljning &",
+        titleGradient: "DOMINERA SÖKRESULTATEN",
+        titleSuffix: "på internet",
+        subtitle: "Vi kombinerar blixtsnabb prestanda, konverteringsoptimering (CRO) och avancerad Google-SEO för att säkerställa att ditt företag syns överst och förvandlar besökare till betalande kunder.",
+        highlight1Title: "Maximerad försäljning & konvertering",
+        highlight1Desc: "Strategisk UX och kraftfulla köpflöden som driver er omsättning framåt.",
+        highlight2Title: "Topplacering på Google och sökmoduler",
+        highlight2Desc: "Nå رتبه اول i sökresultaten med automatiserad SEO-arkitektur och snabb indexering.",
+        highlight3Title: "Blixtsnabb prestanda & laddtid",
+        highlight3Desc: "Sub-sekund laddtider som får besökare att stanna kvar och köpa mer.",
+        boostBtn: "Öka din försäljning & SEO nu",
+        exploreBtn: "Utforska våra kapabiliteter"
+      },
+      mobileApp: {
+        badge: "MOBILAPPUTVECKLING & APP STORE-PUBLICERING",
+        titlePrefix: "Skräddarsydda mobilappar publicerade på",
+        titleGradient: "APP STORE & GOOGLE PLAY",
+        titleSuffix: "",
+        subtitle: "Nå dina kunder direkt i mobilen. Vi utvecklar högpresterande mobilapplikationer för iOS och Android samt hanterar hela publiceringsprocessen på Apple App Store och Google Play Store.",
+        feature1Title: "Högpresterande iOS & Android-appar",
+        feature1Desc: "Smidiga och blixtsnabba mobilgränssnitt med 60fps prestanda och modern arkitektur.",
+        feature2Title: "Komplett publicering på App Store & Google Play",
+        feature2Desc: "Vi hanterar godkännande, riktlinjer och smidig lansering i båda appbutikerna.",
+        feature3Title: "Push-notiser & Offlineläge",
+        feature3Desc: "Håll dina kunder engagerade med realtidsnotiser och funktioner utan internetuppkoppling.",
+        buildBtn: "Bygg din mobilapp nu",
+        exploreBtn: "Utforska våra tjänster"
+      },
+      whoWeAre: {
+        badge: "VILKA VI ÄR",
+        title: "Möt vårt ledarteam på 5 personer",
+        subtitle: "Vi är en elitgrupp av seniöra arkitekter, produktdesigners och säkerhetsingenjörer dedikerade till att transformera komplexa digitala produkter.",
+        calloutTitle: "Vill du samarbeta direkt med våra 5 huvudpartners?",
+        calloutSub: "Boka en teknisk upptäcktsblandning med våra kärnteamledare idag.",
+        bookBtn: "Boka upptäcktsmöte",
+        team: [
+          {
+            name: "Morteza",
+            designation: "CEO & Grundare",
+            quote: "Med många års erfarenhet av att bygga startups i olika länder, tror jag på att skapa produkter som verkligen löser globala problem genom innovation och uthållighet."
+          },
+          {
+            name: "Bella",
+            designation: "Marknads- & Reklamchef",
+            quote: "Att skapa fängslande berättelser och bygga starka varumärken är min passion. Min långa erfarenhet inom reklam har lärt mig hur man kopplar samman produkter med rätt målgrupp."
+          },
+          {
+            name: "Sam",
+            designation: "Senior Full-Stack Webbutvecklare",
+            quote: "Jag har byggt robusta applikationer och webbplatser med olika ramverk. Mitt mål är alltid att leverera skalbara, högpresterande webblösningar som överträffar förväntningarna."
+          },
+          {
+            name: "Mina",
+            designation: "Affärsanalytiker & Rådgivare",
+            quote: "Efter att ha varit konsult för stora globala företag som Ericsson specialiserar jag mig på arbetsflödesoptimering, strategisk analys och att driva mätbar affärstillväxt."
+          },
+          {
+            name: "Milad",
+            designation: "Senior Full-Stack Utvecklare",
+            quote: "Från komplexa backend-arkitekturer till sömlösa frontend-gränssnitt, jag drivs av att konstruera robusta mjukvarusystem som driver moderna digitala upplevelser."
+          }
+        ]
+      },
+      ourWork: {
+        badge: "VÅRT SENASTE ARBETE",
+        titlePrefix: "Skala ditt företag genom ",
+        titleGradient: "strategisk produktinnovation",
+        subtitle: "Transformera er företagspotential genom högpresterande mjukvara och precisionsdesign.",
+        bullet1: "4M+ aktiva företagsanvändare som stöds",
+        bullet2: "Under 20ms transaktions- och analysprestanda",
+        bullet3: "Tokeniserat modulärt React-komponentdesignsystem",
+        explorePortfolio: "Utforska hela portföljen",
+        startProject: "Starta ditt projekt"
+      },
+      brandGrid: {
+        badge: "VARUMÄRKE & PRODUKTGALLERI",
+        title: "Designprecision och varumärkesmaterial",
+        subtitle: "Utforska hur vi förenar digitala gränssnitt med fysiskt material, tokeniserade designsystem och företagsvarumärke.",
+        requestKit: "Begär varumärkespaket"
+      },
+      testimonials: {
+        badge: "KUNDRECENSIONER OCH FEEDBACK",
+        title: "Betrodd av 140+ produktledare",
+        rating: "5.0 / 5.0 Betyg",
+        reviews: {
+          r1: "DESIGN+LOGIC transformerade vår gamla stambankspanel till en mikrofrontendsarkitektur med under 20 ms svarstid.",
+          r2: "Designsystemet från deras team ökade vår utvecklingshastighet för flera plattformar med 300 %.",
+          r3: "Felfri leverans utan avbrott. Deras DevOps-team byggde vår molndistributionspipeline på rekordtid.",
+          r4: "Enastående visuell estetik kombinerat med rigorösa prestandamått. Rekommenderas varmt!",
+          r5: "De integrerade skräddarsydda generativa AI-flöden i vår webbapplikation helt sömlöst.",
+          r6: "Det tokeniserade designsystemet är så rent och enkelt att underhålla för både mobil- och webbteam.",
+          r7: "ISO 27001-efterlevnad och nollförtroendesäkerhet levererade utan att kompromissa med användarupplevelsen.",
+          r8: "Konverteringsgraden ökade med 48 % inom två månader efter lanseringen av den nya UI-designen.",
+          r9: "Framstående teknisk precision. Den rörliga telemetridashbaorden ger oss komplett operativ översikt.",
+          r10: "Att arbeta med deras seniöra 5-mannateam kändes som en direkt förlängning av våra egna grundare.",
+          r11: "Skalade vårt spårningssystem i realtid till miljontals samtidiga anrop utan problem.",
+          r12: "Vacker UI-design och skottsäker backend-kod. De överträffade alla våra företagsmål.",
+          r13: "Latens under 20 ms bibehölls även under maximala spikar i företagsgrafiken.",
+          r14: "Ren visuell perfektion. 3D-animationerna och mikro-interaktionerna gläder våra användare varje dag.",
+          r15: "Levererade vår komplexa webbapplikation före tidsplanen med 100 % testtäckning.",
+          r16: "Designsystemet förenklade vår internationalisering över 12 språk.",
+          r17: "Intuitiva instrumentpaneler för komplexa AI-algoritmer. Våra användare älskar den nya upplevelsen.",
+          r18: "Högsta nivå av professionalism och teknisk kompetens. En sann 5-stjärnig partner.",
+          r19: "Extremt ren kodstruktur. Deras React & Vite-arkitektur gjorde introduktionen av nya utvecklare busenkel.",
+          r20: "De förvandlade vår varumärkesidentitet och webbapplikation till ett riktmärke för branschen."
+        }
+      },
+      ctaBanner: {
+        title: "Redo att bygga er nästa högpresterande produkt?",
+        subtitle: "Boka ett strategisamtal med vårt huvudsakliga design- och ingenjörsteam idag.",
+        button: "Inled strategisk brief"
+      },
+      footer: {
+        description: "Bryggan mellan noggrann affärsanalys och banbrytande produktutveckling.",
+        navigation: "Navigering",
+        capabilities: "Kapabiliteter",
+        stayUpdated: "Håll dig uppdaterad",
+        newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
+        emailPlaceholder: "Ange arbetsemail",
+        rights: "© 2026 DESIGN+LOGIC Agency. Alla rättigheter förbehållna."
+      },
+      modal: {
+        badge: "INLED PRODUKTUPPTÄCKT",
+        title: "Starta ditt projekt",
+        subtitle: "Direkt upptäcktsmöte med våra 5 huvudpartners.",
+        name: "Namn",
+        email: "Arbetsemail",
+        focus: "Huvudfokus",
+        budget: "Uppskattad budget",
+        overview: "Kort översikt",
+        submit: "Skicka upptäcktsbegäran",
+        submittedTitle: "Brief skickad!",
+        submittedSub: "Tack för att du inledde din brief. Vårt ledarteam kontaktar dig inom 4 timmar.",
+        done: "Klar"
+      }
+    }
+  },
+  en: {
+    translation: {
+      nav: {
+        home: "Home",
+        orbis: "Orbis",
+        portfolio: "Portfolio",
+        services: "Services",
+        about: "About Us",
+        contact: "Contact",
+        getStarted: "Get Started"
+      },
+      hero: {
+        badge: "DIGITAL BUSINESS TRANSFORMATION & AI ARCHITECTURE",
+        titlePrefix: "Transforming Business with ",
+        titleGradient: "AI-Powered",
+        titleSuffix: " Design & Tech",
+        subtitle: "",
+        getStarted: "Get Started",
+        explore: "Explore Capabilities",
+        card1Title: "AI-Driven Automation",
+        card1Sub: "Intelligent workflows & AI agents",
+        card2Title: "Lightning Speed",
+        card2Sub: "100/100 Google Lighthouse & SEO",
+        card3Title: "Tailor-Made Code",
+        card3Sub: "Custom architecture without templates"
+      },
+      brands: {
+        badge: "ENTERPRISE TECH ECOSYSTEM",
+        title: "Architected with Enterprise Tools & Brands We Work With",
+        subtitle: "We integrate over 250+ top-tier cloud services, AI platforms, and design tools directly into our engineering workflow for seamless scalability.",
+        auditBtn: "Initiate Technology Audit",
+        exploreBtn: "Explore Tech Stack"
+      },
+      features: {
+        badge: "FEATURE HIGHLIGHTS",
+        title: "Next-Gen Architecture Built into Every Solution",
+        subtitle: "Experience stacked performance, enterprise security, and tokenized design system architecture out-of-the-box. We build software that stays fast at scale.",
+        bullet1: "ISO 27001 Certified Security & Zero-Trust Access",
+        bullet2: "Tokenized Multi-Brand React Component Library",
+        bullet3: "Real-Time Event-Driven Micro-frontends & Analytics",
+        exploreBtn: "Explore Solution Architecture",
+        viewSpecBtn: "View Full Tech Spec"
+      },
+      searchVisibility: {
+        badge: "SEARCH VISIBILITY & GOOGLE RANKING",
+        titlePrefix: "Your Website Ranks ",
+        titleGradient: "#1 on Google",
+        titleSuffix: " Search Results",
+        subtitle: "With Diara's ultra-fast architecture, automated SEO optimization, and instant indexing, your website dominates search engines and becomes the first choice for your customers.",
+        bullet1: "Top Rankings in Google Search Results",
+        bullet2: "Sub-Second Load Times (100/100 Lighthouse Score)",
+        bullet3: "Automated SEO Structure & Rich Snippets",
+        button: "Boost Your Search Ranking"
+      },
+      businessAnalysis: {
+        badge: "STRATEGIC BUSINESS ANALYSIS & CUSTOM ENGINEERING",
+        titlePrefix: "We Analyze Your Business & Build",
+        titleGradient: "TAILOR-MADE SOLUTIONS",
+        titleSuffix: "Designed for Your Needs",
+        subtitle: "Every business is unique. Diara analyzes your workflow, identifies bottlenecks, and crafts custom software engineered specifically for your growth and revenue.",
+        bullet1: "Deep Business Model & User Journey Audits",
+        bullet2: "Tailor-Made Architecture Built Without Generic Templates",
+        bullet3: "Automated Workflows & Measurable Growth Metrics",
+        button: "Request Custom Analysis"
+      },
+      customSolution: {
+        badge: "BUSINESS ANALYSIS & CUSTOM DEVELOPMENT",
+        titlePrefix: "We Analyze Your Business & Build",
+        titleGradient: "TAILOR-MADE WEBSITES & APPS",
+        titleSuffix: "Built for Your Growth",
+        subtitle: "No generic templates. We deeply analyze your business model, audience, and goals to build custom web and mobile applications specifically engineered to drive your revenue and growth.",
+        feature1Title: "Deep Business Analysis",
+        feature1Desc: "Auditing your exact customer journey and workflows before writing a single line of code.",
+        feature2Title: "Bespoke Web & Mobile Applications",
+        feature2Desc: "Unique architecture and custom software engineered precisely for your business needs.",
+        feature3Title: "Driven for Scalable Growth",
+        feature3Desc: "High-performance digital products crafted to maximize conversion rates and enterprise scale.",
+        getStartedBtn: "Start Your Custom Project",
+        exploreBtn: "Explore Our Services"
+      },
+      connectWithUs: {
+        badge: "MULTILINGUAL SUPPORT & CONSULTING",
+        titlePrefix: "Connect With Us —",
+        titleGradient: "4-LANGUAGE SUPPORT",
+        titleSuffix: "(Swedish, English, Farsi & Arabic)",
+        subtitle: "Our leadership squad provides direct consultation in your preferred language. We eliminate communication barriers to ensure your exact product requirements are understood and executed with precision.",
+        langSvTitle: "Swedish Support",
+        langSvDesc: "Direct communication with our local team for all business and technical strategy.",
+        langEnTitle: "English Support",
+        langEnDesc: "Global enterprise consultation and technical architecture support for international teams.",
+        langFaTitle: "Farsi Support",
+        langFaDesc: "Direct consultation in Farsi to thoroughly understand your business vision and requirements.",
+        langArTitle: "Arabic Support",
+        langArDesc: "Direct consultation in Arabic to ensure complete understanding and execution of your project needs.",
+        contactBtn: "Connect With Us Now",
+        bookCallBtn: "Book Strategy Session"
+      },
+      salesAndSeo: {
+        badge: "REVENUE ACCELERATION & SEARCH VISIBILITY",
+        titlePrefix: "Supercharge Your Sales &",
+        titleGradient: "DOMINATE SEARCH RANKINGS",
+        titleSuffix: "Online",
+        subtitle: "We combine ultra-fast web performance, targeted conversion rate optimization (CRO), and advanced Google SEO architecture to ensure your brand gets noticed and converts traffic into revenue.",
+        highlight1Title: "Maximized Conversion & Sales Growth",
+        highlight1Desc: "Persuasive UX and optimized checkout funnels that turn visitors into loyal customers.",
+        highlight2Title: "Dominant #1 Google Search Positions",
+        highlight2Desc: "Reach top rankings in Google with structured SEO metadata and instant search indexing.",
+        highlight3Title: "Ultra-Fast Speed & High Engagement",
+        highlight3Desc: "Sub-second page load speeds (100/100 Lighthouse) keeping users hooked and buying.",
+        boostBtn: "Boost Your Sales & SEO Now",
+        exploreBtn: "Explore Capabilities"
+      },
+      mobileApp: {
+        badge: "iOS & ANDROID MOBILE APP ENGINEERING",
+        titlePrefix: "Bespoke Mobile Apps Published on",
+        titleGradient: "APP STORE & GOOGLE PLAY",
+        titleSuffix: "",
+        subtitle: "Expand your brand into your customers' pockets. We engineer high-performance iOS and Android mobile applications, handling full design, architecture, and seamless publishing on the Apple App Store and Google Play Store.",
+        feature1Title: "High-Performance iOS & Android Apps",
+        feature1Desc: "Silky smooth mobile user interfaces with 60fps performance and modular architecture.",
+        feature2Title: "Full Publishing on App Store & Google Play",
+        feature2Desc: "We manage 100% of store compliance, approval guidelines, and global deployment.",
+        feature3Title: "Push Notifications & Offline Capabilities",
+        feature3Desc: "Re-engage customers in real-time with push alerts and offline data synchronization.",
+        buildBtn: "Build Your Mobile App Now",
+        exploreBtn: "Explore Our Services"
+      },
+      whoWeAre: {
+        badge: "WHO WE ARE",
+        title: "Meet Our 5-Member Leadership Squad",
+        subtitle: "We are an elite squad of senior architects, product designers, and security engineers dedicated to transforming complex digital products.",
+        calloutTitle: "Want to partner directly with our 5 principal partners?",
+        calloutSub: "Schedule a technical discovery session with our core team leaders today.",
+        bookBtn: "Book Discovery Call",
+        team: [
+          {
+            name: "Morteza",
+            designation: "CEO & Founder",
+            quote: "With years of experience building startups across various countries, I believe in creating products that truly solve global problems through innovation and resilience."
+          },
+          {
+            name: "Bella",
+            designation: "Head of Marketing & Advertising",
+            quote: "Crafting compelling narratives and building strong brands is my passion. My long history in advertising has taught me how to connect products with the right audience."
+          },
+          {
+            name: "Sam",
+            designation: "Senior Full-Stack Web Developer",
+            quote: "I've built robust applications and websites using diverse frameworks. My goal is always to deliver scalable, high-performance web solutions that exceed expectations."
+          },
+          {
+            name: "Mina",
+            designation: "Business Analyst & Advisor",
+            quote: "Having consulted for major global corporations like Ericsson, I specialize in workflow optimization, strategic analysis, and driving measurable business growth."
+          },
+          {
+            name: "Milad",
+            designation: "Senior Full-Stack Developer",
+            quote: "From complex backend architectures to seamless frontend interfaces, I thrive on engineering resilient software systems that power modern digital experiences."
+          }
+        ]
+      },
+      ourWork: {
+        badge: "OUR LATEST WORK",
+        titlePrefix: "Scale Your Business Through ",
+        titleGradient: "Strategic Product Innovation",
+        subtitle: "Transform your enterprise potential through high-performance software and precision user design.",
+        bullet1: "4M+ Active Enterprise Users Supported",
+        bullet2: "Sub-20ms Transaction & Analytics Performance",
+        bullet3: "Tokenized Modular React Component Design System",
+        explorePortfolio: "Explore Full Portfolio",
+        startProject: "Start Your Project"
+      },
+      brandGrid: {
+        badge: "BRAND & PRODUCT GALLERY",
+        title: "Design Precision & Brand Collateral",
+        subtitle: "Explore how we unify digital interfaces with physical collateral, tokenized design systems, and enterprise product branding.",
+        requestKit: "Request Brand Kit"
+      },
+      testimonials: {
+        badge: "CLIENT TESTIMONIALS & REVIEWS",
+        title: "Trusted by 140+ Industry Leaders",
+        rating: "5.0 / 5.0 Overall Rating",
+        reviews: {
+          r1: "DESIGN+LOGIC transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.",
+          r2: "The design system provided by their team increased our multi-platform dev velocity by 300%.",
+          r3: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.",
+          r4: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!",
+          r5: "They integrated custom generative AI pipelines into our web application seamlessly.",
+          r6: "The tokenized design system is so clean and easy to maintain across mobile and web teams.",
+          r7: "ISO 27001 compliance and zero-trust security standards delivered without compromising user experience.",
+          r8: "Conversion rate increased by 48% within two months of releasing the new UI redesign.",
+          r9: "Outstanding engineering rigor. The real-time telemetry dashboard gives us complete operational visibility.",
+          r10: "Working with their senior 5-member team felt like an inline extension of our own core founders.",
+          r11: "Scaled our real-time tracking system to millions of concurrent requests effortlessly.",
+          r12: "Beautiful UI design and bulletproof backend code. They exceeded all our corporate targets.",
+          r13: "Sub-20ms latency maintained even under peak enterprise traffic spikes.",
+          r14: "Pure visual perfection. The 3D animations and micro-interactions delight our users every day.",
+          r15: "Delivered our complex web application ahead of schedule with 100% test coverage.",
+          r16: "The design system simplified our internationalization efforts across 12 languages.",
+          r17: "Intuitive dashboards for complex AI algorithms. Our users love the new experience.",
+          r18: "Highest level of professionalism and technical competence. A true 5-star partner.",
+          r19: "Extremely clean code structure. Their React & Vite architecture made onboarding new devs a breeze.",
+          r20: "They transformed our brand identity and web application into an industry benchmark."
+        }
+      },
+      ctaBanner: {
+        title: "Ready to Build Your Next High-Impact Product?",
+        subtitle: "Schedule a strategy call with our principal design & engineering team today.",
+        button: "Initiate Strategic Brief"
+      },
+      footer: {
+        description: "Bridging the gap between rigorous business analysis and cutting-edge product development.",
+        navigation: "Navigation",
+        capabilities: "Capabilities",
+        stayUpdated: "Stay Updated",
+        newsletterSub: "Get quarterly strategic insights and technical briefs.",
+        emailPlaceholder: "Enter work email",
+        rights: "© 2026 DESIGN+LOGIC Agency. All rights reserved."
+      },
+      modal: {
+        badge: "INITIATE PROJECT DISCOVERY",
+        title: "Start Your Project",
+        subtitle: "Direct discovery call with our 5 principal partners.",
+        name: "Name",
+        email: "Work Email",
+        focus: "Primary Focus",
+        budget: "Est. Budget Range",
+        overview: "Brief Overview",
+        submit: "Submit Discovery Request",
+        submittedTitle: "Brief Submitted!",
+        submittedSub: "Thank you for initiating your brief. Our senior leadership team will contact you within 4 hours.",
+        done: "Done"
+      }
+    }
+  },
+  fa: {
+    translation: {
+      nav: {
+        home: "خانه",
+        orbis: "اوربیس",
+        portfolio: "نمونه‌کارها",
+        services: "خدمات",
+        about: "درباره ما",
+        contact: "تماس با ما",
+        getStarted: "شروع کنید"
+      },
+      hero: {
+        badge: "تحول دیجیتال کسب‌وکار و معماری هوش مصنوعی",
+        titlePrefix: "تحول کسب‌وکار با فناوری ",
+        titleGradient: "هوش مصنوعی",
+        titleSuffix: "",
+        subtitle: "",
+        getStarted: "شروع کنید",
+        explore: "بررسی قابلیت‌ها",
+        card1Title: "اتوماسیون هوش مصنوعی",
+        card1Sub: "فرآیندهای هوشمند و ایجنت‌های کاربردی",
+        card2Title: "سرعت فوق‌العاده و سئو",
+        card2Sub: "امتیاز ۱۰۰/۱۰۰ گوگل و رتبه اول",
+        card3Title: "توسعه اختصاصی",
+        card3Sub: "معماری سفارشی بدون قالب‌های عمومی"
+      },
+      brands: {
+        badge: "اکوسیستم فناوری سازمانی",
+        title: "معماری‌شده با ابزارها و برندهای معتبر جهانی",
+        subtitle: "ما بیش از ۲۵۰ سرویس ابری، پلتفرم هوش مصنوعی و ابزار طراحی مطرح را مستقیماً در گردش کار مهندسی خود ادغام می‌کنیم.",
+        auditBtn: "شروع ممیزی فنی",
+        exploreBtn: "بررسی تکنولوژی‌ها"
+      },
+      features: {
+        badge: "ویژگی‌های برجسته",
+        title: "معماری نسل جدید در تمام راهکارهای نرم‌افزاری",
+        subtitle: "سرعت فوق‌العاده، امنیت سازمانی و دیزاین سیستم توکن‌شده را به همراه پشتیبانی کامل تجربه کنید.",
+        bullet1: "امنیت دارنده گواهینامه ISO 27001 و دسترسی Zero-Trust",
+        bullet2: "کتابخانه کامپوننت‌های ری‌اکت توکن‌شده برای چند برند",
+        bullet3: "میکرو-فرانت‌اندها و تحلیل‌های آنی رویدادمحور",
+        exploreBtn: "بررسی معماری راهکارها",
+        viewSpecBtn: "مشاهده مشخصات فنی کامل"
+      },
+      searchVisibility: {
+        badge: "دیدپذیری در گوگل و سئو",
+        titlePrefix: "وب‌سایت شما در ",
+        titleGradient: "رتبه ۱ گوگل",
+        titleSuffix: " قرار می‌گیرد",
+        subtitle: "با معماری فوق‌سریع دیارا، بهینه‌سازی خودکار سئو و ایندکس آنی، وب‌سایت شما در صدر نتایج گوگل می‌درخشد و نخستین انتخاب مشتریان خواهد بود.",
+        bullet1: "رتبه‌بندی برتر در نتایج جستجوی گوگل",
+        bullet2: "سرعت بارگذاری فوق‌العاده (امتیاز ۱۰۰/۱۰۰ لایت‌هاوس)",
+        bullet3: "ساختار استاندارد سئو و ایندکس سریع صفحات",
+        button: "ارتقای رتبه در گوگل"
+      },
+      businessAnalysis: {
+        badge: "تحلیل استراتژیک کسب‌وکار و توسعه اختصاصی",
+        titlePrefix: "ما کسب‌وکار شما را تحلیل کرده و",
+        titleGradient: "راهکارهای کاملاً اختصاصی",
+        titleSuffix: "می‌سازیم",
+        subtitle: "هر کسب‌وکاری منحصر به‌فرد است. دیارا مدل کاری شما را بررسی کرده، گلوگاه‌ها را شناسایی می‌کند و نرم‌افزار اختصاصی متناسب با اهداف دقیق شما می‌سازد.",
+        bullet1: "تحلیل عمیق مدل کسب‌وکار و مسیر مشتریان",
+        bullet2: "توسعه نرم‌افزار اختصاصی بدون استفاده از قالب‌های عمومی",
+        bullet3: "خودکارسازی فرآیندها و ارتقای ملموس بازدهی مالی",
+        button: "درخواست تحلیل اختصاصی"
+      },
+      customSolution: {
+        badge: "تحلیل استراتژیک کسب‌وکار و توسعه اختصاصی",
+        titlePrefix: "ما کسب‌وکار شما را تحلیل کرده و",
+        titleGradient: "وب‌سایت و اپلیکیشن اختصاصی",
+        titleSuffix: "متناسب با نیازتان می‌سازیم",
+        subtitle: "بدون استفاده از قالب‌های عمومی. دیارا اهداف، مخاطبان و فرآیندهای کسب‌وکار شما را به دقت تحلیل کرده و وب‌سایت یا اپلیکیشن اختصاصی برای ارتقای بازدهی و رشد مستمر شما طراحی می‌کند.",
+        feature1Title: "تحلیل دقیق نیازها و کسب‌وکار",
+        feature1Desc: "بررسی کامل مسیر مشتریان و گلوگاه‌های کاری پیش از آغاز کدنویسی.",
+        feature2Title: "طراحی اختصاصی وب‌سایت و اپلیکیشن",
+        feature2Desc: "توسعه نرم‌افزار و وب‌سایت با معماری کاملاً سفارشی و بدون محدودیت.",
+        feature3Title: "مهندسی‌شده برای رشد و افزایش درآمد",
+        feature3Desc: "محصولات دیجیتال پرسرعت و بهینه‌سازی‌شده برای جذب حداکثری مشتریان.",
+        getStartedBtn: "شروع پروژه اختصاصی شما",
+        exploreBtn: "بررسی خدمات ما"
+      },
+      connectWithUs: {
+        badge: "پشتیبانی چندزبانه و مشاوره تخصصی",
+        titlePrefix: "با ما در ارتباط باشید —",
+        titleGradient: "پشتیبانی به ۴ زبان زنده",
+        titleSuffix: "(سوئدی، انگلیسی، فارسی و عربی)",
+        subtitle: "تیم ارشد ما آماده ارائه مشاوره مستقیم به زبان دلخواه شماست. ما تمامی موانع زبانی را از بین برده‌ایم تا نیازمندی‌های دقیق پروژه شما با بالاترین کیفیت پیاده‌سازی شود.",
+        langSvTitle: "پشتیبانی زبان سوئدی",
+        langSvDesc: "ارتباط مستقیم برای پروژه‌های فعال در سوئد و حوزه اسکاندیناوی.",
+        langEnTitle: "پشتیبانی زبان انگلیسی",
+        langEnDesc: "مشاوره بین‌المللی و توسعه نرم‌افزار برای تیم‌ها و شرکت‌های جهانی.",
+        langFaTitle: "پشتیبانی کامل زبان فارسی",
+        langFaDesc: "هم‌زبانی و مشاوره دقیق برای انتقال کامل ایده و پیاده‌سازی بدون ابهام.",
+        langArTitle: "پشتیبانی کامل زبان عربی",
+        langArDesc: "ارتباط مستقیم و مشاوره به زبان عربی برای پوشش کامل نیازها و اجرای دقیق پروژه.",
+        contactBtn: "تماس با ما",
+        bookCallBtn: "رزرو جلسه مشاوره استراتژیک"
+      },
+      salesAndSeo: {
+        badge: "افزایش فروش و دیدپذیری در گوگل",
+        titlePrefix: "فروش خود را افزایش دهید و",
+        titleGradient: "رتبه اول نتایج گوگل",
+        titleSuffix: "را تصاحب کنید",
+        subtitle: "ما سرعت فوق‌العاده، بهینه‌سازی نرخ تبدیل مشتری (CRO) و سئوی پیشرفته گوگل را با هم ترکیب می‌کنیم تا برند شما در اینترنت به بهترین شکل دیده شده و بازدیدکنندگان به مشتریان واقعی تبدیل شوند.",
+        highlight1Title: "افزایش چشمگیر فروش و تبدیل مشتری",
+        highlight1Desc: "طراحی مسیرهای هوشمند و متقاعدکننده برای ارتقای نرخ خرید کاربران.",
+        highlight2Title: "تصاحب رتبه ۱ در نتایج جستجوی گوگل",
+        highlight2Desc: "درخشش در صدر نتایج گوگل با ایندکس سریع و ساختار استاندارد سئو.",
+        highlight3Title: "سرعت فوق‌العاده و تجربه کاربری بی‌نظیر",
+        highlight3Desc: "بارگذاری زیر ۱ ثانیه (امتیاز ۱۰۰/۱۰۰) برای حفظ کاربران و افزایش رضایت خرید.",
+        boostBtn: "افزایش فروش و سئوی وب‌سایت",
+        exploreBtn: "بررسی قابلیت‌های سیستم"
+      },
+      mobileApp: {
+        badge: "توسعه اپلیکیشن موبایل و انتشار در استورها",
+        titlePrefix: "طراحی اپلیکیشن موبایل و انتشار در",
+        titleGradient: "اپ استور و گوگل پلی",
+        titleSuffix: "",
+        subtitle: "کسب‌وکار خود را مستقیماً به تلفن همراه مشتریان ببرید. ما اپلیکیشن‌های پرسرعت iOS و Android می‌سازیم و صفر تا صد مراحل تایید و انتشار در اپ استور اپل (App Store) و گوگل پلی (Google Play) را انجام می‌دهیم.",
+        feature1Title: "اپلیکیشن‌های فوق‌العاده iOS و Android",
+        feature1Desc: "رابط کاربری نرم و پرسرعت (۶۰ فریم) با جدیدترین فریم‌ورک‌های توسعه موبایل.",
+        feature2Title: "انتشار کامل در App Store و Google Play",
+        feature2Desc: "انجام کامل مراحل تایید فنی، قوانین استورها و انتشار رسمی اپلیکیشن شما.",
+        feature3Title: "ارسال نوتیفیکیشن و قابلیت آفلاین",
+        feature3Desc: "تعامل آنی با مشتریان از طریق پوش‌نوتیفیکیشن و امکان استفاده بدون اینترنت.",
+        buildBtn: "ساخت اپلیکیشن موبایل اختصاصی",
+        exploreBtn: "بررسی خدمات توسعه"
+      },
+      whoWeAre: {
+        badge: "درباره تیم ما",
+        title: "ملاقات با تیم ۵ نفره رهبری ارشد",
+        subtitle: "ما یک تیم زبده از معماران ارشد سیستم، طراحان محصول و مهندسان امنیت هستیم که روی ساخت محصولات دیجیتال پیچیده تمرکز داریم.",
+        calloutTitle: "می‌خواهید مستقیماً با ۵ شریک اصلی ما همکاری کنید؟",
+        calloutSub: "همین امروز یک جلسه بررسی فنی با رهبران اصلی تیم ما رزرو کنید.",
+        bookBtn: "رزرو جلسه مشاوره",
+        team: [
+          {
+            name: "Morteza",
+            designation: "مدیرعامل و هم‌بنیان‌گذار",
+            quote: "با سال‌ها تجربه در راه‌اندازی استارتاپ‌ها در کشورهای مختلف، من به ساخت محصولاتی اعتقاد دارم که با نوآوری و تاب‌آوری مشکلات جهانی را حل کنند."
+          },
+          {
+            name: "Bella",
+            designation: "مدیر بازاریابی و تبلیغات",
+            quote: "خلق روایت‌های جذاب و ساخت برندهای قدرتمند اشتیاق من است. سابقه طولانی من در تبلیغات به من آموخته که چگونه محصولات را به مخاطبان هدف متصل کنم."
+          },
+          {
+            name: "Sam",
+            designation: "توسعه‌دهنده ارشد فول‌استک وب",
+            quote: "من برنامه‌ها و وب‌سایت‌های قدرتمندی را با فریم‌ورک‌های مختلف ساخته‌ام. هدف من همیشه ارائه راهکارهای وب مقیاس‌پذیر و با کارایی بالا است که فراتر از انتظارات باشند."
+          },
+          {
+            name: "Mina",
+            designation: "تحلیل‌گر و مشاور کسب‌وکار",
+            quote: "با تجربه مشاوره در شرکت‌های بزرگ جهانی مانند اریکسون، تخصص من در بهینه‌سازی جریان کاری، تحلیل استراتژیک و ایجاد رشد ملموس در کسب‌وکار است."
+          },
+          {
+            name: "Milad",
+            designation: "توسعه‌دهنده ارشد فول‌استک",
+            quote: "از معماری‌های پیچیده بک‌اند تا رابط‌های کاربری یکپارچه، تخصص من مهندسی سیستم‌های نرم‌افزاری مقیاس‌پذیر است که تجربیات دیجیتال مدرن را قدرت می‌بخشند."
+          }
+        ]
+      },
+      ourWork: {
+        badge: "جدیدترین نمونه‌کارهای ما",
+        titlePrefix: "مقیاس‌پذیری کسب‌وکار با ",
+        titleGradient: "نوآوری استراتژیک در محصول",
+        subtitle: "پتانسیل سازمان خود را با نرم‌افزارهای پرسرعت و طراحی دقیق کاربرمحور ارتقا دهید.",
+        bullet1: "پشتیبانی از بیش از ۴ میلیون کاربر فعال سازمانی",
+        bullet2: "زمان پاسخگویی تراکنش و تحلیل زیر ۲۰ میلی‌ثانیه",
+        bullet3: "دیزاین سیستم کامپوننتی ماژولار ری‌اکت توکن‌شده",
+        explorePortfolio: "مشاهده تمام نمونه‌کارها",
+        startProject: "شروع پروژه شما"
+      },
+      brandGrid: {
+        badge: "گالری برند و محصولات",
+        title: "دقت در طراحی و اقلام هویت بصری",
+        subtitle: "مشاهده کنید چگونه واسط‌های دیجیتال را با اقلام فیزیکی، دیزاین سیستم‌ها و برندینگ سازمانی یکپارچه می‌کنیم.",
+        requestKit: "درخواست پکیج برند"
+      },
+      testimonials: {
+        badge: "نظرات و رضایت مشتریان",
+        title: "مورد اعتماد بیش از ۱۴۰ مدیر ارشد محصول",
+        rating: "امتیاز ۵.۰ از ۵.۰",
+        reviews: {
+          r1: "دیارا داشبورد قدیمی بانکداری سازمانی ما را به یک معماری میکروفرانت‌اند فوق‌سریع با زمان پاسخ زیر ۲۰ میلی‌ثانیه تبدیل کرد.",
+          r2: "سیستم دیزاین ارائه‌شده توسط تیم آن‌ها، سرعت توسعه چندپلتفرمی ما را تا ۳۰۰٪ افزایش داد.",
+          r3: "اجرای بی‌نقص و بدون یک ثانیه قطعی. تیم DevOps آن‌ها پایپ‌لاین استقرار چندابری ما را در زمانی حدنصاب ساخت.",
+          r4: "زیبایی بصری فوق‌العاده همراه با معیارهای سنجش عملکرد دقیق. کاملاً پیشنهادی و عالی!",
+          r5: "آن‌ها پایپ‌لاین‌های هوش مصنوعی مولد اختصاصی را به صورت کاملاً یکپارچه در وب‌اپلیکیشن ما ادغام کردند.",
+          r6: "سیستم دیزاین توکن‌شده آن‌ها به قدری تمیز است که مدیریت آن بین تیم‌های وب و موبایل بسیار آسان شده است.",
+          r7: "انطباق با استاندارد ISO 27001 و امنیت Zero-Trust بدون کوچک‌ترین افت در تجربه کاربری تحویل داده شد.",
+          r8: "تنها طی دو ماه پس از بازطراحی رابط کاربری جدید، نرخ تبدیل مشتریان ما ۴۸٪ افزایش یافت.",
+          r9: "دقت مهندسی فوق‌العاده. داشبورد دورسنجی آنلاین، دید کامل عملیاتی را در اختیار ما قرار داد.",
+          r10: "همکاری با تیم ۵ نفره ارشد آن‌ها مانند داشتن یک تیم هم‌بنیان‌گذار مستقیم در کنار خودمان بود.",
+          r11: "سیستم ردیابی آنلاین ما را بدون هیچ زحمتی برای پاسخگویی به میلیون‌ها درخواست هم‌زمان مقیاس‌پذیر کردند.",
+          r12: "طراحی رابط کاربری بسیار زیبا و کدبیس بک‌اند ضدگلوله. آن‌ها از تمامی اهداف تعیین‌شده ما فراتر رفتند.",
+          r13: "زمان تاخیر زیر ۲۰ میلی‌ثانیه حتی در اوج ترافیک سنگین سازمانی به طور کامل حفظ شد.",
+          r14: "کمال محض در زیبایی بصری. انیمیشن‌های سه‌بعدی و ریزتعامل‌ها هر روز کاربران ما را شگفت‌زده می‌کنند.",
+          r15: "وب‌اپلیکیشن پیچیده ما را زودتر از موعد مقرر و با پوشش تست ۱۰۰٪ تحویل دادند.",
+          r16: "سیستم دیزاین آن‌ها فرآیند بین‌المللی‌سازی و چندزبانه کردن پلتفرم ما را به ۱۲ زبان بسیار ساده کرد.",
+          r17: "داشبوردهای بسیار آسان و هوشمند برای الگوریتم‌های پیچیده هوش مصنوعی. کاربران ما عاشق تجربه جدید شده‌اند.",
+          r18: "بالاترین سطح حرفه‌ای‌گری و صلاحیت فنی. یک شریک واقعی ۵ ستاره برای ما.",
+          r19: "ساختار کد فوق‌العاده تمیز. معماری React & Vite آن‌ها اضافه شدن برنامه‌نویسان جدید به تیم را بسیار آسان کرد.",
+          r20: "آن‌ها هویت برند و وب‌اپلیکیشن ما را به یک استاندارد برتر در صنعت تبدیل کردند."
+        }
+      },
+      ctaBanner: {
+        title: "آماده ساخت محصول بعدی خود هستید؟",
+        subtitle: "همین امروز یک جلسه مشاوره استراتژیک با تیم ارشد طراحی و مهندسی ما تنظیم کنید.",
+        button: "شروع ثبت پروپوزال"
+      },
+      footer: {
+        description: "پل ارتباطی میان تحلیل دقیق کسب‌وکار و توسعه محصولات دیجیتال پیشرفته.",
+        navigation: "ناوبری",
+        capabilities: "قابلیت‌ها",
+        stayUpdated: "به‌روز بمانید",
+        newsletterSub: "دریافت تحلیل‌های استراتژیک و خبرنامه‌های فنی سه ماهه.",
+        emailPlaceholder: "ایمیل کاری خود را وارد کنید",
+        rights: "© ۲۰۲۶ آژانس DESIGN+LOGIC. تمامی حقوق محفوظ است."
+      },
+      modal: {
+        badge: "شروع بررسی پروژه",
+        title: "پروژه خود را آغاز کنید",
+        subtitle: "جلسه مشاوره مستقیم با ۵ شریک ارشد آژانس.",
+        name: "نام کامل",
+        email: "ایمیل کاری",
+        focus: "حوزه اصلی پروژه",
+        budget: "حدود بودجه پیشنهادی",
+        overview: "توضیحات کوتاه پروژه",
+        submit: "ارسال درخواست بررسی",
+        submittedTitle: "درخواست شما ثبت شد!",
+        submittedSub: "با تشکر از ارسال اطلاعات. تیم رهبری ارشد ما ظرف ۴ ساعت کاری با شما تماس خواهند گرفت.",
+        done: "تایید"
+      }
+    }
+  },
+  ar: {
+    translation: {
+      nav: {
+        home: "الرئيسية",
+        orbis: "أوربيس",
+        portfolio: "أعمالنا",
+        services: "خدماتنا",
+        about: "من نحن",
+        contact: "تواصل معنا",
+        getStarted: "ابدأ الآن"
+      },
+      hero: {
+        badge: "التحول الرقمي للأعمال وهندسة الذكاء الاصطناعي",
+        titlePrefix: "تحول نحو النمو بـ ",
+        titleGradient: "الذكاء الاصطناعي",
+        titleSuffix: " والتصميم المبتكر",
+        subtitle: "",
+        getStarted: "ابدأ الآن",
+        explore: "استكشف إمكانياتنا",
+        card1Title: "أتمتة قائمة على الذكاء الاصطناعي",
+        card1Sub: "سير عمل ذكي ووكلاء ذكاء اصطناعي",
+        card2Title: "سرعة فائقة للأداء",
+        card2Sub: "100/100 في اختبارات Google Lighthouse و SEO",
+        card3Title: "كود برمجي مخصص",
+        card3Sub: "معمارية فريدة بدون قوالب جاهزة"
+      },
+      brands: {
+        badge: "منظومة التقنية للمؤسسات",
+        title: "مصممة بأحدث الأدوات والحلول التقنية العالمية",
+        subtitle: "نحن ندمج أكثر من 250+ خدمة سحابية ومنصة ذكاء اصطناعي وأداة تصميم مباشرة في مسار عملنا الهندسي.",
+        auditBtn: "ابدأ التدقيق التقني",
+        exploreBtn: "استكشف البنية التقنية"
+      },
+      features: {
+        badge: "أبرز الميزات",
+        title: "جيل جديد من المعمارية البرمجية في كل حل نقدمه",
+        subtitle: "استمتع بأداء متفوق وأمان المؤسسات ومعمارية أنظمة التصميم المرمزة جاهزة للاستخدام.",
+        bullet1: "أمان معتمد بشهادة ISO 27001 ووصول قائم على الثقة الصفرية Zero-Trust",
+        bullet2: "مكتبة مكونات React رمزيّة ومتعددة العلامات التجارية",
+        bullet3: "واجهات ميكرو أنيّة مدعومة بالأحداث والتحليلات المباشرة",
+        exploreBtn: "استكشف معمارية الحلول",
+        viewSpecBtn: "عرض المواصفات التقنية الكاملة"
+      },
+      searchVisibility: {
+        badge: "الظهور في محركات البحث وترتيب جوجل",
+        titlePrefix: "موقعك الإلكتروني يتصدر ",
+        titleGradient: "المرتبة الأولى على جوجل",
+        titleSuffix: " في نتائج البحث",
+        subtitle: "بفضل أداء ديارا الفائق وكودها المحسّن لمحركات البحث والأرشفة التلقائية، سيتصدر موقعك نتائج البحث ليكون الخيار الأول لعملائك.",
+        bullet1: "المراكز الأولى في نتائج بحث جوجل ووحدات البحث",
+        bullet2: "سرعة تحميل فائقة (100/100 في تقييم Lighthouse)",
+        bullet3: "بنية SEO تلقائية ونتائج بحث غنية بالأشكال المميزة",
+        button: "حسّن ترتيبك في البحث الآن"
+      },
+      businessAnalysis: {
+        badge: "تحليل الأعمال الاستراتيجي والتطوير المخصص",
+        titlePrefix: "نحن نحلل أعمالك ونبني",
+        titleGradient: "حلولاً مخصصة بالكامل",
+        titleSuffix: "لتلبية احتياجاتك",
+        subtitle: "كل شركة فريدة من نوعها. تقوم ديارا بتحليل نموذج أعمالك وتحديد العقبات وبناء برمجيات مخصصة لتحقيق أعلى درجات الربحية والنمو.",
+        bullet1: "تحليل عميق لنموذج الأعمال ورحلات المستخدم",
+        bullet2: "معمارية برمجية مخصصة بدون قوالب جاهزة",
+        bullet3: "سير عمل مؤتمت ومقاييس نمو قابلة للقياس باستمرار",
+        button: "طلب تحليل مخصص"
+      },
+      customSolution: {
+        badge: "تحليل الأعمال والتطوير المخصص",
+        titlePrefix: "نحن نحلل أعمالك ونبني",
+        titleGradient: "مواقع وتطبيقات مخصصة",
+        titleSuffix: "لتنمو وتزدهر",
+        subtitle: "لا نستخدم قوالب جاهزة. نحن ندرس نموذج أعمالك وعملاءك بعمق لنصمم برمجيات ومواقع وتطبيقات هاتف مخصصة ومصممة خصيصاً لزيادة أرباحك وتوسيع نطاق أعمالك.",
+        feature1Title: "تحليل عميق للأعمال",
+        feature1Desc: "ندرس مسار عملائك وسير عملياتك بدقة قبل كتابة أي سطر برمجيات.",
+        feature2Title: "مواقع وتطبيقات جوال مخصصة",
+        feature2Desc: "كود ومعمارية فريدة مبنية تماماً وفق متطلبات مؤسستك الخاصة.",
+        feature3Title: "مصممة للنمو القابل للقياس",
+        feature3Desc: "حلول فائقة الأداء تزيد من معدلات التحويل وتدفع أعمالك للأمام.",
+        getStartedBtn: "ابدأ مشروعك المخصص",
+        exploreBtn: "استكشف خدماتنا"
+      },
+      connectWithUs: {
+        badge: "الدعم الاستشاري متعدد اللغات",
+        titlePrefix: "تواصل معنا —",
+        titleGradient: "دعم بـ 4 لغات",
+        titleSuffix: "(السويدية، الإنجليزية، الفارسية والعربية)",
+        subtitle: "يقدم لك فريقنا القيادي استشارات مباشرة باللغة التي تفضلها. نحن نزيل جميع الحواجز اللغوية لضمان فهم متطلبات مشروعك وتنفيذها بدقة 100%.",
+        langSvTitle: "الدعم بالسويدية",
+        langSvDesc: "تواصل مباشر مع فريقنا السويدي المحلي لجميع استفساراتك التقنية والتجارية.",
+        langEnTitle: "English Support",
+        langEnDesc: "استشارات وتطوير تقني متقدم للشركات والمؤسسات الدولية.",
+        langFaTitle: "پشتیبانی فارسی",
+        langFaDesc: "ارتباط مستقیم و هم‌زبانی برای درک کامل نیازها و پیاده‌سازی دقیق پروژه.",
+        langArTitle: "الدعم باللغة العربية",
+        langArDesc: "تواصل مباشر واستشارات باللغة العربية لفهم كافة متطلبات مشروعك وتنفيذها بدقة عالية.",
+        contactBtn: "تواصل معنا الآن",
+        bookCallBtn: "احجز جلسة استراتيجية"
+      },
+      salesAndSeo: {
+        badge: "نمو المبيعات وتصدر نتائج البحث",
+        titlePrefix: "ضاعف مبيعاتك و",
+        titleGradient: "سيطر على نتائج البحث",
+        titleSuffix: "عبر الإنترنت",
+        subtitle: "نحن نجمع بين الأداء السريع، تحسين معدل التحويل (CRO)، وهندسة SEO المتقدمة من جوجل لضمان ظهور موقعك في المقدمة وتحويل الزوار إلى عملاء دائمين.",
+        highlight1Title: "أعلى معدلات تحويل ونمو المبيعات",
+        highlight1Desc: "تجربة مستخدم استراتيجية ومسارات شراء قوية تزيد من إيراداتك.",
+        highlight2Title: "المرتبة الأولى في جوجل ومحركات البحث",
+        highlight2Desc: "احصل على أعلى المراكز في البحث بأرشفة سريعة وبنية SEO متطورة.",
+        highlight3Title: "سرعة تحميل فائقة وأداء مذهل",
+        highlight3Desc: "سرعة تحميل أقل من ثانية تبقي الزوار وتزيد من تفاعلهم وشراء المنتجات.",
+        boostBtn: "زد مبيعاتك وحسّن SEO الآن",
+        exploreBtn: "استكشف إمكانياتنا"
+      },
+      mobileApp: {
+        badge: "تطوير تطبيقات الجوال ونشرها",
+        titlePrefix: "تطبيقات جوال مخصصة منشورة على",
+        titleGradient: "APP STORE & GOOGLE PLAY",
+        titleSuffix: "",
+        subtitle: "صل إلى عملائك مباشرة على هواتفهم. نحن نطور تطبيقات جوال عالية الأداء لنظامي iOS و Android ونتولى عمليات النشر الكاملة على متجري Apple App Store و Google Play Store.",
+        feature1Title: "تطبيقات iOS و Android عالية الأداء",
+        feature1Desc: "واجهات جوال سلسة وسريعة للغاية بأداء 60 إطاراً في الثانية ومعمارية حديثة.",
+        feature2Title: "نشر كامل على App Store و Google Play",
+        feature2Desc: "ندير جميع شروط الموافقة والإرشادات والاطلاق السلس في المتجرين.",
+        feature3Title: "إشعارات فوريّة وضع العمل بدون إنترنت",
+        feature3Desc: "حافظ على تفاعل عملائك بإشعارات في الوقت الفعلي وميزات تعمل بدون اتصال بالإنترنت.",
+        buildBtn: "ابنِ تطبيق الجوال الخاص بك الآن",
+        exploreBtn: "استكشف خدماتنا"
+      },
+      whoWeAre: {
+        badge: "من نحن",
+        title: "تعرّف على فريق القيادة المكون من 5 خبراء",
+        subtitle: "نحن فريق نخبة من كبار المهندسين المعماريين، مصممي المنتجات، ومهندسي الأمان المكرسين لتحويل المنتجات الرقمية المعقدة.",
+        calloutTitle: "هل ترغب في التعاون مباشرة مع شركائنا الخمسة الأساسيين؟",
+        calloutSub: "احجز جلسة استكشاف تقني مع قادة فريقنا اليوم.",
+        bookBtn: "احجز جلسة استكشاف",
+        team: [
+          {
+            name: "Morteza",
+            designation: "الرئيس التنفيذي والمؤسس المشارك",
+            quote: "من خلال سنوات من الخبرة في بناء الشركات الناشئة في دول مختلفة، أؤمن بإنشاء منتجات تحل المشكلات العالمية حقاً من خلال الابتكار والمرونة."
+          },
+          {
+            name: "Bella",
+            designation: "مديرة التسويق والإعلان",
+            quote: "إنشاء قصص جذابة وبناء علامات تجارية قوية هو شغفي. علمتني خبرتي الطويلة في الإعلان كيفية ربط المنتجات بالمجموعات المستهدفة المناسبة."
+          },
+          {
+            name: "Sam",
+            designation: "مطور وب ارشد Full-Stack",
+            quote: "لقد بنيت تطبيقات ومواقع قوية باستخدام أطر عمل مختلفة. هدفي دائماً هو تقديم حلول وب مقياسة وعالية الأداء تتجاوز التوقعات."
+          },
+          {
+            name: "Mina",
+            designation: "محللة ومستشارة أعمال",
+            quote: "بعد تقديم الاستشارات لكبرى الشركات العالمية مثل إريكسون، أتخصص في بهينة سير العمل، التحليل الاستراتيجي، وتحقيق نمو ملموس للأعمال."
+          },
+          {
+            name: "Milad",
+            designation: "مطور ارشد Full-Stack",
+            quote: "من المعماريات الخلفية المعقدة إلى الواجهات الأمامية السلسة، أنشط في هندسة أنظمة برمجية قوية تمنح الطاقة للتجارب الرقمية الحديثة."
+          }
+        ]
+      },
+      ourWork: {
+        badge: "أحدث أعمالنا",
+        titlePrefix: "وسّع نطاق عملك من خلال ",
+        titleGradient: "الابتكار الاستراتيجي للمنتجات",
+        subtitle: "حوّل إمكانيات مؤسستك من خلال برمجيات عالية الأداء وتصميم عالي الدقة.",
+        bullet1: "دعم أكثر من 4 مليون کاربر نشط في المؤسسات",
+        bullet2: "أداء معاملات وتحليلات في أقل من 20 ملي ثانية",
+        bullet3: "نظام تصميم مكونات React مرمزة وماجولار",
+        explorePortfolio: "استكشف المعرض بالكامل",
+        startProject: "ابدأ مشروعك الآن"
+      },
+      brandGrid: {
+        badge: "معرض العلامة التجارية والمنتجات",
+        title: "دقة التصميم ومواد الهوية البصرية",
+        subtitle: "استكشف كيف ندمج الواجهات الرقمية مع المواد الملموسة وأنظمة التصميم المرمزة والهوية البصرية.",
+        requestKit: "طلب حزمة العلامة التجارية"
+      },
+      testimonials: {
+        badge: "آراء ورضا العملاء",
+        title: "موثوق بنا من قبل أكثر من 140 قائد منتج",
+        rating: "تقييم 5.0 من 5.0",
+        reviews: {
+          r1: "قامت ديارا بتحويل لوحة تحكم الخدمات المصرفية القديمة لدينا إلى معمارية ميكرو فرونت إند فائقة السرعة بزمن استجابة أقل من 20 ملي ثانية.",
+          r2: "نظام التصميم المقدم من فريقهم زاد من سرعة التطوير متعدد المنصات لدينا بنسبة 300%.",
+          r3: "تنفيذ لا تشوبه شائبة وبدون انقطاع واحد. قام فريق DevOps الخاص بهم بإنشاء خط أنابيب النشر السحابي في وقت قياسي.",
+          r4: "جماليات بصرية مذهلة ومقاييس أداء دقيقة. موصى به بشدة!",
+          r5: "لقد قاموا بدمج مسارات الذكاء الاصطناعي التوليدي المخصصة بشكل سلس تماماً في تطبيق الويب الخاص بنا.",
+          r6: "نظام التصميم المرمز رائع للغاية ومنظم لدرجة أن إدارته بين فريقي الويب والجوال أصبحت سهلة للغاية.",
+          r7: "تم تسليم الامتثال لأعلى معايير ISO 27001 وأمان Zero-Trust دون أي تأثير على تجربة المستخدم.",
+          r8: "ارتفع معدل التحويل لدينا بنسبة 48% خلال شهرين فقط من إطلاق الواجهة الجديدة.",
+          r9: "دقة هندسية استثنائية. منحتنا لوحة التحكم المباشرة رؤية تشغيلية كاملة.",
+          r10: "العمل مع فريقهم القيادي المكون من 5 خبراء كان بمثابة العمل مع فريق مؤسس مشارك معنا مباشرة.",
+          r11: "قاموا بتوسيع نظام التتبع المباشر لدينا ليتعامل مع ملايين الطلبات المتزامنة بكل سهولة.",
+          r12: "تصميم واجهة مستخدم جميل وكود برمدي خلفي متين للغاية. لقد تجاوزوا كل أهدافنا.",
+          r13: "حافظ الموقع على زمن استجابة أقل من 20 ملي ثانية حتى أثناء ذروة الحركة والترافيك العالي.",
+          r14: "كمال بصري تام. الرسوم المتحركة ثلاثية الأبعاد والتفاعلات الدقيقة تسعد مستخدمينا كل يوم.",
+          r15: "تم تسليم تطبيق الويب المعقد قبل الموعد المحدد وبنسبة تغطية اختبار 100%.",
+          r16: "بسّط نظام التصميم الخاص بهم عملية تدويل المنصة وترجمتها إلى 12 لغة.",
+          r17: "لوحات تحكم ذكية وسلسة لخوارزميات الذكاء الاصطناعي المعقدة. يعشق مستخدمونا التجربة الجديدة.",
+          r18: "أعلى مستويات الاحترافية والكفاءة التقنية. شريك حقيقي من فئة 5 نجوم.",
+          r19: "هيكل كود برمدي نظيف للغاية. جعلت معمارية React & Vite انضمام المطورين الجدد سهلاً وسريعاً.",
+          r20: "لقد حولوا هوية علامتنا التجارية وتطبيق الويب إلى معيار رائد في قطاع الصناعة."
+        }
+      },
+      ctaBanner: {
+        title: "هل أنت مستعد لبناء منتجك القادم؟",
+        subtitle: "احجز جلسة استشارية استراتيجية مع فريق التصميم والهندسة الرئيسي اليوم.",
+        button: "ابدأ تقديم المقترح"
+      },
+      footer: {
+        description: "جسر التواصل بين التحليل الدقيق للأعمال وتطوير المنتجات الرقمية المتقدمة.",
+        navigation: "التنقل",
+        capabilities: "القدرات",
+        stayUpdated: "كن على اطلاع",
+        newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
+        emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
+        rights: "© 2026 وكالة DESIGN+LOGIC. جميع الحقوق محفوظة."
+      },
+      modal: {
+        badge: "بدء استكشاف المشروع",
+        title: "ابدأ مشروعك الآن",
+        subtitle: "جلسة استشارية مباشرة مع شركائنا الـ 5 الرئيسيّين.",
+        name: "الاسم الكامل",
+        email: "بريد العمل",
+        focus: "المجال الرئيسي للمشروع",
+        budget: "الميزانية المقترحة",
+        overview: "نظرة عامة مختصرة",
+        submit: "إرسال طلب الاستكشاف",
+        submittedTitle: "تم تسجيل طلبك بنجاح!",
+        submittedSub: "شكراً لإرسال معلوماتك. سيتواصل معك فريق القيادة لدينا خلال 4 ساعات عمل.",
+        done: "تأكيد"
+      }
+    }
+  }
+};
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources,
+    lng: 'sv', // Default Language is Swedish (sv)
+    fallbackLng: 'sv',
+    interpolation: {
+      escapeValue: false
+    }
+  });
+
+export default i18n;

@@ -1,0 +1,80 @@
+@keyframes glass-shine-blue {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.hero-grid-bg {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 22% 45%, black 35%, transparent 88%);
+  mask-image: radial-gradient(ellipse 70% 75% at 22% 45%, black 35%, transparent 88%);
+}
+
+.hero-divider {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(56, 189, 248, 0.5) 18%,
+    rgba(56, 189, 248, 0.5) 82%,
+    transparent 100%
+  );
+}
+
+@keyframes hero-scan {
+  0% {
+    top: 6%;
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    top: 94%;
+    opacity: 0;
+  }
+}
+
+.hero-scanline {
+  animation: hero-scan 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scanline {
+    animation: none;
+    opacity: 0.2;
+    top: 50%;
+  }
+}
+
+.glass-text-shine {
+  background: linear-gradient(
+    115deg,
+    #0369a1 0%,
+    #0284c7 25%,
+    #7dd3fc 42%,
+    #ffffff 50%,
+    #7dd3fc 58%,
+    #0284c7 75%,
+    #0369a1 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glass-shine-blue 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 2px 10px rgba(2, 132, 199, 0.18));
+  padding-top: 0.2em;
+  padding-bottom: 0.15em;
+  display: inline-block;
+}
+

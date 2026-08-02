@@ -1,0 +1,25 @@
+/* Dedicated Styles for SearchVisibilityShowcase component */
+
+.search-visibility-section {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .search-visibility-section {
+    min-height: 560px;
+  }
+}
+
+.search-visibility-title {
+  line-height: 1.38 !important;
+  letter-spacing: -0.02em;
+}
+
+.search-visibility-subtitle {
+  line-height: 1.65;
+  color: #475569;
+}

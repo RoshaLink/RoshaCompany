@@ -1,0 +1,34 @@
+/* Styles for TestimonialsColumn Marquee Animation */
+
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-down {
+  animation: marquee-down 40s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-up:hover,
+.animate-marquee-down:hover {
+  animation-play-state: paused;
+}

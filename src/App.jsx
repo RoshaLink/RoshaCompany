@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import GetStartedModal from './components/GetStartedModal/GetStartedModal';
-import DiaraChatWidget from './components/DiaraChatWidget/DiaraChatWidget';
+import RoshaChatWidget from './components/RoshaChatWidget/RoshaChatWidget';
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import ServicesPage from './pages/ServicesPage/ServicesPage';
@@ -115,7 +115,7 @@ export default function App() {
         onClose={() => setIsGetStartedOpen(false)} 
       />
 
-      <DiaraChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+      <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
     </div>
   );
 }

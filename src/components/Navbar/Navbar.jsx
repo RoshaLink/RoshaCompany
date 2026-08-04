@@ -152,7 +152,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
       <nav className="navbar-container">
         <div className="navbar-wrapper">
 
-          {/* Brand Logo - Diara Head Icon */}
+          {/* Brand Logo - Rosha Head Icon */}
           <div
             onClick={() => setActivePage('home')}
             className="navbar-logo"
@@ -164,7 +164,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Diara Head Outer Frame */}
+                {/* Rosha Head Outer Frame */}
                 <rect x="2" y="2" width="28" height="28" rx="8" stroke="currentColor" strokeWidth="3" />
                 {/* Left Eye */}
                 <rect x="10.5" y="10" width="3" height="12" rx="1.5" fill="currentColor" />

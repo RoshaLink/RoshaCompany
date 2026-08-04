@@ -11,7 +11,7 @@ import MobileAppShowcase from '../../components/MobileAppShowcase/MobileAppShowc
 import ConnectWithUsShowcase from '../../components/ConnectWithUsShowcase/ConnectWithUsShowcase';
 import WhoWeAre from '../../components/WhoWeAre/WhoWeAre';
 import TestimonialsColumn from '../../components/TestimonialsColumn/TestimonialsColumn';
-import diaraConnectImage from '../../assets/Diara/ConnectWthUS/DiaraConnectWithUs.png';
+import roshaConnectImage from '../../assets/Rosha/ConnectWthUS/RoshaConnectWithUs.png';
 import './HomePage.css';
 
 export default function HomePage({ onOpenGetStarted, setActivePage }) {
@@ -101,20 +101,20 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
       {/* Integrated Testimonials Column Marquee */}
       <TestimonialsColumn />
 
-      {/* Bottom CTA Banner with DiaraConnectWithUs Image */}
+      {/* Bottom CTA Banner with RoshaConnectWithUs Image */}
       <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
         <div className="rounded-3xl p-8 sm:p-12 md:p-14 border border-sky-200/80 bg-gradient-to-br from-white via-sky-50/60 to-blue-50/40 shadow-xl relative overflow-hidden">
           <div className="ambient-glow-cyan -top-20 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
 
-            {/* Diara Image side */}
+            {/* Rosha Image side */}
             <div className={`lg:col-span-5 flex justify-center ${isRTL ? 'lg:order-last' : 'lg:order-first'}`}>
               <div className="relative group max-w-[320px] w-full">
                 <div className="absolute -inset-3 bg-gradient-to-r from-sky-400/20 to-blue-500/20 rounded-3xl blur-xl group-hover:opacity-100 transition duration-500" />
                 <div className="relative rounded-2xl overflow-hidden bg-white/80 backdrop-blur-md border border-slate-200/80 p-4 shadow-md">
                   <img
-                    src={diaraConnectImage}
+                    src={roshaConnectImage}
                     alt="Connect With RoshaLink"
                     className="w-full h-auto object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-500"
                   />

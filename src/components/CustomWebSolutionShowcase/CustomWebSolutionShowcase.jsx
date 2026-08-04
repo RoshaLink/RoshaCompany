@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, BarChart3, Layout, Rocket, Sparkles } from 'lucide-react';
-import diaraAnalysisImage from '../../assets/Diara/AnalyisYourBusiness/DiaraAnalyisYourBusiness.png';
+import roshaAnalysisImage from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
 import './CustomWebSolutionShowcase.css';
 
 export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActivePage }) {
@@ -40,7 +40,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* Image Side (Diara Analyzing Business Graphic with Floating Cards) */}
+          {/* Image Side (Rosha Analyzing Business Graphic with Floating Cards) */}
           <div className={`lg:col-span-6 relative flex justify-center ${isRTL ? 'lg:order-last' : 'lg:order-first'}`}>
             <div className="relative w-full max-w-[540px] group">
 
@@ -50,7 +50,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
               {/* Image Frame Card */}
               <div className="relative rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_rgba(14,165,233,0.12)] p-4 sm:p-6 transition-all duration-300 group-hover:border-sky-300">
                 <img
-                  src={diaraAnalysisImage}
+                  src={roshaAnalysisImage}
                   alt="RoshaLink Analyzing Business"
                   className="w-full h-auto object-contain rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                 />

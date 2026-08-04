@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { ArrowRight, RotateCcw, Volume2, VolumeX, Play, Pause, Cpu, Zap, ShieldCheck } from "lucide-react";
-import videoEnglish from "../../assets/Diara/Herosection/DiaraHeroSectionEnglish.mp4";
-import videoFarsi from "../../assets/Diara/Herosection/DiaraHeroSectionFarsi.mp4";
-import videoSwedish from "../../assets/Diara/Herosection/DiaraHeroSectionSwedish.mp4";
-import videoArabic from "../../assets/Diara/Herosection/DiaraHeroSectionArabic.mp4";
+import videoEnglish from "../../assets/Rosha/Herosection/RoshaHeroSectionEnglish.mp4";
+import videoFarsi from "../../assets/Rosha/Herosection/RoshaHeroSectionFarsi.mp4";
+import videoSwedish from "../../assets/Rosha/Herosection/RoshaHeroSectionSwedish.mp4";
+import videoArabic from "../../assets/Rosha/Herosection/RoshaHeroSectionArabic.mp4";
 import "./HeroSection.css";
 
 export default function HeroSection({ onOpenGetStarted, setActivePage }) {

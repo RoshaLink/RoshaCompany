@@ -49,7 +49,7 @@ Two things that catch people out:
 
 ## The Rosha chat assistant
 
-The widget lives in `src/components/DiaraChatWidget/` and is backed by
+The widget lives in `src/components/RoshaChatWidget/` and is backed by
 `api/chat.js`, which calls OpenAI server-side so the key never reaches the
 browser. Rosha replies in whatever language the visitor writes in, not only
 the four the site UI is translated into.

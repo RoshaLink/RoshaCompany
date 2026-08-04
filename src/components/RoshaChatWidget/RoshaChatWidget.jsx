@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, Loader2, RotateCcw, ArrowRight, Sparkles } from 'lucide-react';
-import roshaChatVideo from '../../assets/Diara/ChatWithus/Diarachatwithus.mp4';
-import './DiaraChatWidget.css';
+import roshaChatVideo from '../../assets/Rosha/ChatWithus/Roshachatwithus.mp4';
+import './RoshaChatWidget.css';
 
 // How many prior messages travel with each request. The server caps this too;
 // this is about payload size and cost, not trust.
@@ -24,7 +24,7 @@ function errorKeyFor(status, code) {
   return 'chat.errorGeneric';
 }
 
-export default function DiaraChatWidget({ onOpenGetStarted }) {
+export default function RoshaChatWidget({ onOpenGetStarted }) {
   const { t, i18n } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);

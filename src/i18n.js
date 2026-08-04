@@ -234,7 +234,26 @@ const resources = {
         submit: "Skicka upptäcktsbegäran",
         submittedTitle: "Brief skickad!",
         submittedSub: "Tack för att du inledde din brief. Vårt ledarteam kontaktar dig inom 4 timmar.",
-        done: "Klar"
+        done: "Klar",
+        sending: "Skickar...",
+        error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund."
+      },
+      chat: {
+        title: "Rosha AI-assistent",
+        status: "Online",
+        hoverLabel: "Chatta med Rosha",
+        greeting: "Hej! Jag är Rosha. Hur kan jag hjälpa dig med ditt projekt idag?",
+        placeholder: "Skriv ditt meddelande...",
+        send: "Skicka meddelande",
+        close: "Stäng chatten",
+        typing: "Rosha skriver",
+        retry: "Försök igen",
+        cta: "Boka ett kostnadsfritt möte",
+        disclaimer: "Rosha är en AI-assistent och kan göra misstag.",
+        errorNetwork: "Jag kunde inte nå servern. Kontrollera din uppkoppling och försök igen.",
+        errorRateLimit: "Du skickar meddelanden lite för snabbt. Vänta ett ögonblick och försök igen.",
+        errorTooLong: "Det meddelandet är för långt. Kan du korta ner det lite?",
+        errorGeneric: "Något gick fel på min sida. Försök gärna igen om en stund."
       }
     }
   },
@@ -470,7 +489,26 @@ const resources = {
         submit: "Submit Discovery Request",
         submittedTitle: "Brief Submitted!",
         submittedSub: "Thank you for initiating your brief. Our senior leadership team will contact you within 4 hours.",
-        done: "Done"
+        done: "Done",
+        sending: "Sending...",
+        error: "We couldn't send your request. Please try again in a moment."
+      },
+      chat: {
+        title: "Rosha AI Assistant",
+        status: "Online",
+        hoverLabel: "Chat with Rosha",
+        greeting: "Hi! I'm Rosha. How can I help you with your project today?",
+        placeholder: "Type a message...",
+        send: "Send message",
+        close: "Close chat",
+        typing: "Rosha is typing",
+        retry: "Try again",
+        cta: "Book a free discovery call",
+        disclaimer: "Rosha is an AI assistant and can make mistakes.",
+        errorNetwork: "I couldn't reach the server. Please check your connection and try again.",
+        errorRateLimit: "You're sending messages a little too quickly. Please wait a moment and try again.",
+        errorTooLong: "That message is too long. Could you shorten it a little?",
+        errorGeneric: "Something went wrong on my end. Please try again in a moment."
       }
     }
   },
@@ -706,7 +744,26 @@ const resources = {
         submit: "ارسال درخواست بررسی",
         submittedTitle: "درخواست شما ثبت شد!",
         submittedSub: "با تشکر از ارسال اطلاعات. تیم رهبری ارشد ما ظرف ۴ ساعت کاری با شما تماس خواهند گرفت.",
-        done: "تایید"
+        done: "تایید",
+        sending: "در حال ارسال...",
+        error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید."
+      },
+      chat: {
+        title: "دستیار هوشمند روشا",
+        status: "آنلاین",
+        hoverLabel: "گفتگو با روشا",
+        greeting: "سلام! من روشا هستم. چطور می‌توانم امروز در مورد پروژه‌تان کمکتان کنم؟",
+        placeholder: "پیام خود را بنویسید...",
+        send: "ارسال پیام",
+        close: "بستن گفتگو",
+        typing: "روشا در حال نوشتن است",
+        retry: "تلاش دوباره",
+        cta: "رزرو جلسه مشاوره رایگان",
+        disclaimer: "روشا یک دستیار هوش مصنوعی است و ممکن است اشتباه کند.",
+        errorNetwork: "نتوانستم به سرور متصل شوم. لطفاً اتصال اینترنت خود را بررسی کرده و دوباره تلاش کنید.",
+        errorRateLimit: "پیام‌ها را کمی سریع ارسال می‌کنید. لطفاً چند لحظه صبر کنید و دوباره تلاش کنید.",
+        errorTooLong: "این پیام بسیار طولانی است. می‌توانید کمی کوتاه‌ترش کنید؟",
+        errorGeneric: "مشکلی از سمت من پیش آمد. لطفاً کمی بعد دوباره تلاش کنید."
       }
     }
   },
@@ -942,7 +999,26 @@ const resources = {
         submit: "إرسال طلب الاستكشاف",
         submittedTitle: "تم تسجيل طلبك بنجاح!",
         submittedSub: "شكراً لإرسال معلوماتك. سيتواصل معك فريق القيادة لدينا خلال 4 ساعات عمل.",
-        done: "تأكيد"
+        done: "تأكيد",
+        sending: "جاري الإرسال...",
+        error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل."
+      },
+      chat: {
+        title: "مساعد روشا الذكي",
+        status: "متصل",
+        hoverLabel: "تحدث مع روشا",
+        greeting: "مرحباً! أنا روشا. كيف يمكنني مساعدتك في مشروعك اليوم؟",
+        placeholder: "اكتب رسالتك هنا...",
+        send: "إرسال الرسالة",
+        close: "إغلاق المحادثة",
+        typing: "روشا تكتب الآن",
+        retry: "حاول مرة أخرى",
+        cta: "احجز استشارة مجانية",
+        disclaimer: "روشا مساعد ذكاء اصطناعي وقد يقع في الأخطاء.",
+        errorNetwork: "لم أتمكن من الوصول إلى الخادم. يرجى التحقق من اتصالك والمحاولة مرة أخرى.",
+        errorRateLimit: "أنت ترسل الرسائل بسرعة كبيرة. يرجى الانتظار لحظة ثم المحاولة مرة أخرى.",
+        errorTooLong: "هذه الرسالة طويلة جداً. هل يمكنك اختصارها قليلاً؟",
+        errorGeneric: "حدث خطأ من جانبي. يرجى المحاولة مرة أخرى بعد قليل."
       }
     }
   }

@@ -115,7 +115,7 @@ export default function App() {
         onClose={() => setIsGetStartedOpen(false)} 
       />
 
-      <DiaraChatWidget />
+      <DiaraChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
     </div>
   );
 }

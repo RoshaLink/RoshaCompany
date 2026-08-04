@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Send, Bot, Loader2, RotateCcw, CalendarCheck } from 'lucide-react';
+import { X, Send, Bot, Loader2, RotateCcw, ArrowRight, Sparkles } from 'lucide-react';
 import roshaChatVideo from '../../assets/Diara/ChatWithus/Diarachatwithus.mp4';
 import './DiaraChatWidget.css';
 
@@ -169,14 +169,17 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
                 dir={isRTL ? 'rtl' : 'ltr'}
-                className={`w-[320px] sm:w-[360px] bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_20px_50px_rgba(14,165,233,0.2)] mb-4 overflow-hidden pointer-events-auto ${
+                className={`relative w-[340px] sm:w-[380px] bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-3xl shadow-[0_20px_50px_rgba(56,189,248,0.15)] mb-4 overflow-hidden pointer-events-auto ${
                   isRTL ? 'text-right' : 'text-left'
                 }`}
               >
+                {/* Ambient orb, same treatment the marketing sections use */}
+                <div className="absolute -top-16 -right-10 w-48 h-48 bg-sky-300/20 rounded-full blur-[80px] pointer-events-none" />
+
                 {/* Header */}
-                <div className="bg-gradient-to-r from-sky-500 to-blue-600 p-4 text-white flex items-center justify-between">
-                  <div className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-white/80 bg-white shrink-0">
+                <div className="relative bg-gradient-to-b from-sky-50/80 to-white/40 border-b border-slate-200/80 p-4 flex items-start justify-between gap-3">
+                  <div className="flex items-center space-x-3 rtl:space-x-reverse min-w-0">
+                    <div className="relative w-11 h-11 rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-sm shrink-0">
                       <video
                         src={roshaChatVideo}
                         autoPlay
@@ -186,10 +189,12 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                         className="w-full h-full object-contain p-0.5"
                       />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-sm leading-tight">{t('chat.title')}</h4>
-                      <span className="flex items-center space-x-1 rtl:space-x-reverse text-[11px] text-sky-100">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <div className="min-w-0">
+                      <h4 className="text-sm font-bold font-headline-md text-slate-900 leading-tight tracking-tight truncate">
+                        {t('chat.title')}
+                      </h4>
+                      <span className="flex items-center space-x-1.5 rtl:space-x-reverse text-[11px] font-label-sm text-slate-500 mt-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         <span>{t('chat.status')}</span>
                       </span>
                     </div>
@@ -198,10 +203,18 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                   <button
                     onClick={closeChat}
                     aria-label={t('chat.close')}
-                    className="p-1.5 rounded-full hover:bg-white/20 transition-colors cursor-pointer text-white/90 hover:text-white"
+                    className="p-1.5 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
                   >
-                    <X className="w-5 h-5" />
+                    <X className="w-4 h-4" />
                   </button>
+                </div>
+
+                {/* Badge strip — mirrors the eyebrow badge every site section uses */}
+                <div className="relative px-4 pt-3">
+                  <span className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[10px] font-label-sm text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
+                    <Sparkles className="w-3 h-3" />
+                    <span>{t('chat.badge')}</span>
+                  </span>
                 </div>
 
                 {/* Messages */}
@@ -209,18 +222,18 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                   ref={scrollRef}
                   role="log"
                   aria-live="polite"
-                  className="p-4 h-[320px] max-h-[45vh] overflow-y-auto space-y-3 bg-slate-50/50"
+                  className="relative p-4 h-[320px] max-h-[45vh] overflow-y-auto space-y-3"
                 >
                   {/* The greeting is rendered rather than stored in `messages`:
                       it retranslates instantly on a language switch, and never
                       takes up a slot in the history sent to the model. */}
                   <div className="flex items-start space-x-2 rtl:space-x-reverse">
-                    <div className="p-1.5 rounded-lg bg-sky-100 text-sky-600 shrink-0 mt-0.5">
+                    <div className="p-2 rounded-xl bg-slate-100/90 text-sky-600 shrink-0 mt-0.5">
                       <Bot className="w-4 h-4" />
                     </div>
                     <div
                       dir="auto"
-                      className="bg-white border border-slate-200/80 rounded-2xl p-3 text-xs text-slate-700 shadow-sm max-w-[85%] leading-relaxed"
+                      className="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl px-3.5 py-2.5 text-sm font-body-md text-slate-600 shadow-sm max-w-[85%] leading-relaxed text-start"
                     >
                       {t('chat.greeting')}
                     </div>
@@ -229,7 +242,7 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                   {messages.map((m) =>
                     m.role === 'assistant' ? (
                       <div key={m.id} className="flex items-start space-x-2 rtl:space-x-reverse">
-                        <div className="p-1.5 rounded-lg bg-sky-100 text-sky-600 shrink-0 mt-0.5">
+                        <div className="p-2 rounded-xl bg-slate-100/90 text-sky-600 shrink-0 mt-0.5">
                           <Bot className="w-4 h-4" />
                         </div>
                         {/* dir="auto" per bubble: Rosha replies in whatever
@@ -238,7 +251,7 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                             infers direction from the first strong character. */}
                         <div
                           dir="auto"
-                          className="bg-white border border-slate-200/80 rounded-2xl p-3 text-xs text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap"
+                          className="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl px-3.5 py-2.5 text-sm font-body-md text-slate-600 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap text-start"
                         >
                           {m.content}
                         </div>
@@ -247,7 +260,7 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                       <div key={m.id} className="flex justify-end">
                         <div
                           dir="auto"
-                          className="bg-sky-500 text-white rounded-2xl p-3 text-xs shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap"
+                          className="bg-sky-500 text-white rounded-2xl px-3.5 py-2.5 text-sm font-body-md shadow-[0_4px_20px_rgba(56,189,248,0.35)] max-w-[85%] leading-relaxed whitespace-pre-wrap text-start"
                         >
                           {m.content}
                         </div>
@@ -257,10 +270,10 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
 
                   {isSending && (
                     <div className="flex items-start space-x-2 rtl:space-x-reverse">
-                      <div className="p-1.5 rounded-lg bg-sky-100 text-sky-600 shrink-0 mt-0.5">
+                      <div className="p-2 rounded-xl bg-slate-100/90 text-sky-600 shrink-0 mt-0.5">
                         <Bot className="w-4 h-4" />
                       </div>
-                      <div className="bg-white border border-slate-200/80 rounded-2xl px-3 py-2.5 shadow-sm flex items-center space-x-1.5 rtl:space-x-reverse">
+                      <div className="bg-white/80 backdrop-blur-md border border-slate-200/90 rounded-2xl px-3.5 py-3 shadow-sm flex items-center space-x-1.5 rtl:space-x-reverse">
                         <span className="sr-only">{t('chat.typing')}</span>
                         <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-bounce [animation-delay:-0.3s]" />
                         <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-bounce [animation-delay:-0.15s]" />
@@ -270,12 +283,12 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                   )}
 
                   {errorKey && (
-                    <div className="flex flex-col items-start space-y-2 bg-rose-50 border border-rose-200 rounded-2xl p-3">
-                      <p className="text-[11px] text-rose-700 leading-relaxed">{t(errorKey)}</p>
+                    <div className="flex flex-col items-start space-y-2 bg-rose-50/90 backdrop-blur-md border border-rose-200 rounded-2xl px-3.5 py-3">
+                      <p className="text-xs font-body-md text-rose-700 leading-relaxed">{t(errorKey)}</p>
                       <button
                         type="button"
                         onClick={handleRetry}
-                        className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-[11px] font-bold text-rose-700 hover:text-rose-900 transition-colors cursor-pointer"
+                        className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs font-label-sm font-bold text-rose-700 hover:text-rose-900 transition-colors cursor-pointer"
                       >
                         <RotateCcw className="w-3 h-3" />
                         <span>{t('chat.retry')}</span>
@@ -287,10 +300,10 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                     <button
                       type="button"
                       onClick={onOpenGetStarted}
-                      className="w-full inline-flex items-center justify-center space-x-2 rtl:space-x-reverse bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 text-[11px] font-bold rounded-xl py-2.5 transition-colors cursor-pointer"
+                      className="w-full inline-flex items-center justify-center space-x-2 rtl:space-x-reverse bg-sky-500 hover:bg-sky-600 text-white text-xs font-label-md font-bold rounded-lg py-3 transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] cursor-pointer"
                     >
-                      <CalendarCheck className="w-3.5 h-3.5" />
                       <span>{t('chat.cta')}</span>
+                      <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180" />
                     </button>
                   )}
                 </div>
@@ -302,7 +315,7 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                     when they press Enter to accept a candidate. */}
                 <form
                   onSubmit={handleSubmit}
-                  className="p-3 bg-white border-t border-slate-200/80 flex items-center gap-2"
+                  className="relative p-3 bg-white/60 border-t border-slate-200/80 flex items-center gap-2"
                 >
                   <input
                     type="text"
@@ -312,13 +325,13 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                     maxLength={MAX_MESSAGE_CHARS}
                     aria-label={t('chat.placeholder')}
                     placeholder={t('chat.placeholder')}
-                    className="flex-grow bg-slate-100 text-slate-800 text-xs px-3.5 py-2.5 rounded-full border border-transparent focus:border-sky-400 focus:bg-white outline-none transition-all disabled:opacity-60"
+                    className="flex-grow bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm font-body-md text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 transition-colors disabled:opacity-60"
                   />
                   <button
                     type="submit"
                     disabled={!canSend}
                     aria-label={t('chat.send')}
-                    className="p-2.5 rounded-full bg-sky-500 hover:bg-sky-600 text-white transition-all shadow-md active:scale-95 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500"
+                    className="p-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] active:scale-95 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500 disabled:shadow-none"
                   >
                     {isSending ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -328,7 +341,7 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
                   </button>
                 </form>
 
-                <p className="px-3 pb-2.5 -mt-1 text-[10px] text-slate-400 leading-snug bg-white">
+                <p className="relative px-3 pb-3 -mt-0.5 text-[10px] font-body-md text-slate-400 leading-snug bg-white/60">
                   {t('chat.disclaimer')}
                 </p>
               </motion.div>
@@ -349,23 +362,32 @@ export default function DiaraChatWidget({ onOpenGetStarted }) {
               aria-label={t('chat.hoverLabel')}
               title={t('chat.hoverLabel')}
             >
-              {/* Outer Glow Ring */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-500 group-hover:scale-105 animate-pulse" />
+              {/* Soft ambient halo, matching the blurred orbs used site-wide */}
+              <div className="absolute -inset-3 bg-gradient-to-r from-sky-400/25 to-blue-500/25 rounded-3xl blur-2xl opacity-80 group-hover:opacity-100 transition duration-500" />
 
-              {/* Inner Video Container */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full p-0.5 bg-gradient-to-br from-sky-400 via-blue-500 to-sky-300 shadow-2xl overflow-hidden border-2 border-white transition-transform duration-300 group-hover:scale-105">
+              {/* Avatar card — rounded-3xl and the glass border used by the
+                  site's cards, rather than a circle that matches nothing else.
+                  The sky wash keeps it from disappearing against the white
+                  sections it floats over. */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-sky-50/95 to-white/85 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_rgba(56,189,248,0.2)] overflow-hidden transition-all duration-300 group-hover:border-sky-300 group-hover:-translate-y-0.5">
                 <video
                   src={roshaChatVideo}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-contain p-0.5 bg-white rounded-full"
+                  className="w-full h-full object-contain p-1"
                 />
               </div>
 
-              {/* Hover Badge Label */}
-              <span className="absolute right-full rtl:right-auto rtl:left-full mr-3 rtl:mr-0 rtl:ml-3 px-3 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md text-white text-xs font-bold whitespace-nowrap shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              {/* Live dot, echoing the "Online" indicator in the panel header */}
+              <span className="absolute top-1 right-1 rtl:right-auto rtl:left-1 flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 border-2 border-white" />
+              </span>
+
+              {/* Hover Label — same white pill the showcase sections use */}
+              <span className="absolute right-full rtl:right-auto rtl:left-full mr-3 rtl:mr-0 rtl:ml-3 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 text-slate-700 text-xs font-label-sm font-bold whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {t('chat.hoverLabel')}
               </span>
             </button>

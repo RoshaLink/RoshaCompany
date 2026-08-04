@@ -18,7 +18,7 @@ export default function AboutPage({ onOpenGetStarted }) {
         <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
           <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>ABOUT DESIGN+LOGIC</span>
+            <span>ABOUT ROSHALINK</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
             Architecting the Next Generation of Digital Products

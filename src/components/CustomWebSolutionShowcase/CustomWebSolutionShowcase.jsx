@@ -51,7 +51,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
               <div className="relative rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_rgba(14,165,233,0.12)] p-4 sm:p-6 transition-all duration-300 group-hover:border-sky-300">
                 <img
                   src={diaraAnalysisImage}
-                  alt="Diara Analyzing Business"
+                  alt="RoshaLink Analyzing Business"
                   className="w-full h-auto object-contain rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                 />
 

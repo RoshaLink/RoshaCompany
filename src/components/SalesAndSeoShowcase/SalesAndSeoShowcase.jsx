@@ -110,7 +110,7 @@ export default function SalesAndSeoShowcase({ onOpenGetStarted, setActivePage })
               <div className="relative rounded-3xl overflow-hidden bg-white/70 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_rgba(16,185,129,0.12)] p-4 sm:p-6 transition-all duration-300 group-hover:border-emerald-300">
                 <img
                   src={diaraSalesImage}
-                  alt="Diara Increases Sales and SEO"
+                  alt="RoshaLink Increases Sales and SEO"
                   className="w-full h-auto object-contain rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                 />
 

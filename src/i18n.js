@@ -50,7 +50,7 @@ const resources = {
         titlePrefix: "Din webbplats visas ",
         titleGradient: "högst upp på Google",
         titleSuffix: " i sökresultaten",
-        subtitle: "Med Diaras blixtsnabba prestanda, SEO-optimerade kod och automatiska indexering rankar din webbplats överst och blir det första valet för dina kunder.",
+        subtitle: "Med RoshaLinks blixtsnabba prestanda, SEO-optimerade kod och automatiska indexering rankar din webbplats överst och blir det första valet för dina kunder.",
         bullet1: "Topplaceringar på Google och sökmoduler",
         bullet2: "Blixtsnabb laddningstid (100/100 Lighthouse-poäng)",
         bullet3: "Automatisk SEO-struktur och rika sökresultat",
@@ -61,7 +61,7 @@ const resources = {
         titlePrefix: "Vi analyserar ditt företag & bygger",
         titleGradient: "SKRÄDDARSYDDA LÖSNINGAR",
         titleSuffix: "för dina behov",
-        subtitle: "Varje företag är unikt. Diara analyserar er affärsmodell, identifierar flaskhalsar och bygger kundanpassad mjukvara för maximal lönsamhet och tillväxt.",
+        subtitle: "Varje företag är unikt. RoshaLink analyserar er affärsmodell, identifierar flaskhalsar och bygger kundanpassad mjukvara för maximal lönsamhet och tillväxt.",
         bullet1: "Djupgående analys av affärsmodell & användarresor",
         bullet2: "Skräddarsydd kod- och produktarkitektur utan mallar",
         bullet3: "Automatiserade arbetsflöden & kontinuerlig mätbarhet",
@@ -186,7 +186,7 @@ const resources = {
         title: "Betrodd av 140+ produktledare",
         rating: "5.0 / 5.0 Betyg",
         reviews: {
-          r1: "DESIGN+LOGIC transformerade vår gamla stambankspanel till en mikrofrontendsarkitektur med under 20 ms svarstid.",
+          r1: "RoshaLink transformerade vår gamla stambankspanel till en mikrofrontendsarkitektur med under 20 ms svarstid.",
           r2: "Designsystemet från deras team ökade vår utvecklingshastighet för flera plattformar med 300 %.",
           r3: "Felfri leverans utan avbrott. Deras DevOps-team byggde vår molndistributionspipeline på rekordtid.",
           r4: "Enastående visuell estetik kombinerat med rigorösa prestandamått. Rekommenderas varmt!",
@@ -220,7 +220,7 @@ const resources = {
         stayUpdated: "Håll dig uppdaterad",
         newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
         emailPlaceholder: "Ange arbetsemail",
-        rights: "© 2026 DESIGN+LOGIC Agency. Alla rättigheter förbehållna."
+        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna."
       },
       modal: {
         badge: "INLED PRODUKTUPPTÄCKT",
@@ -239,6 +239,7 @@ const resources = {
         error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund."
       },
       chat: {
+        badge: "AI-ASSISTENT",
         title: "Rosha AI-assistent",
         status: "Online",
         hoverLabel: "Chatta med Rosha",
@@ -305,7 +306,7 @@ const resources = {
         titlePrefix: "Your Website Ranks ",
         titleGradient: "#1 on Google",
         titleSuffix: " Search Results",
-        subtitle: "With Diara's ultra-fast architecture, automated SEO optimization, and instant indexing, your website dominates search engines and becomes the first choice for your customers.",
+        subtitle: "With RoshaLink's ultra-fast architecture, automated SEO optimization, and instant indexing, your website dominates search engines and becomes the first choice for your customers.",
         bullet1: "Top Rankings in Google Search Results",
         bullet2: "Sub-Second Load Times (100/100 Lighthouse Score)",
         bullet3: "Automated SEO Structure & Rich Snippets",
@@ -316,7 +317,7 @@ const resources = {
         titlePrefix: "We Analyze Your Business & Build",
         titleGradient: "TAILOR-MADE SOLUTIONS",
         titleSuffix: "Designed for Your Needs",
-        subtitle: "Every business is unique. Diara analyzes your workflow, identifies bottlenecks, and crafts custom software engineered specifically for your growth and revenue.",
+        subtitle: "Every business is unique. RoshaLink analyzes your workflow, identifies bottlenecks, and crafts custom software engineered specifically for your growth and revenue.",
         bullet1: "Deep Business Model & User Journey Audits",
         bullet2: "Tailor-Made Architecture Built Without Generic Templates",
         bullet3: "Automated Workflows & Measurable Growth Metrics",
@@ -441,7 +442,7 @@ const resources = {
         title: "Trusted by 140+ Industry Leaders",
         rating: "5.0 / 5.0 Overall Rating",
         reviews: {
-          r1: "DESIGN+LOGIC transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.",
+          r1: "RoshaLink transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.",
           r2: "The design system provided by their team increased our multi-platform dev velocity by 300%.",
           r3: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.",
           r4: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!",
@@ -475,7 +476,7 @@ const resources = {
         stayUpdated: "Stay Updated",
         newsletterSub: "Get quarterly strategic insights and technical briefs.",
         emailPlaceholder: "Enter work email",
-        rights: "© 2026 DESIGN+LOGIC Agency. All rights reserved."
+        rights: "© 2026 RoshaLink. All rights reserved."
       },
       modal: {
         badge: "INITIATE PROJECT DISCOVERY",
@@ -494,6 +495,7 @@ const resources = {
         error: "We couldn't send your request. Please try again in a moment."
       },
       chat: {
+        badge: "AI ASSISTANT",
         title: "Rosha AI Assistant",
         status: "Online",
         hoverLabel: "Chat with Rosha",
@@ -560,7 +562,7 @@ const resources = {
         titlePrefix: "وب‌سایت شما در ",
         titleGradient: "رتبه ۱ گوگل",
         titleSuffix: " قرار می‌گیرد",
-        subtitle: "با معماری فوق‌سریع دیارا، بهینه‌سازی خودکار سئو و ایندکس آنی، وب‌سایت شما در صدر نتایج گوگل می‌درخشد و نخستین انتخاب مشتریان خواهد بود.",
+        subtitle: "با معماری فوق‌سریع روشالینک، بهینه‌سازی خودکار سئو و ایندکس آنی، وب‌سایت شما در صدر نتایج گوگل می‌درخشد و نخستین انتخاب مشتریان خواهد بود.",
         bullet1: "رتبه‌بندی برتر در نتایج جستجوی گوگل",
         bullet2: "سرعت بارگذاری فوق‌العاده (امتیاز ۱۰۰/۱۰۰ لایت‌هاوس)",
         bullet3: "ساختار استاندارد سئو و ایندکس سریع صفحات",
@@ -571,7 +573,7 @@ const resources = {
         titlePrefix: "ما کسب‌وکار شما را تحلیل کرده و",
         titleGradient: "راهکارهای کاملاً اختصاصی",
         titleSuffix: "می‌سازیم",
-        subtitle: "هر کسب‌وکاری منحصر به‌فرد است. دیارا مدل کاری شما را بررسی کرده، گلوگاه‌ها را شناسایی می‌کند و نرم‌افزار اختصاصی متناسب با اهداف دقیق شما می‌سازد.",
+        subtitle: "هر کسب‌وکاری منحصر به‌فرد است. روشالینک مدل کاری شما را بررسی کرده، گلوگاه‌ها را شناسایی می‌کند و نرم‌افزار اختصاصی متناسب با اهداف دقیق شما می‌سازد.",
         bullet1: "تحلیل عمیق مدل کسب‌وکار و مسیر مشتریان",
         bullet2: "توسعه نرم‌افزار اختصاصی بدون استفاده از قالب‌های عمومی",
         bullet3: "خودکارسازی فرآیندها و ارتقای ملموس بازدهی مالی",
@@ -582,7 +584,7 @@ const resources = {
         titlePrefix: "ما کسب‌وکار شما را تحلیل کرده و",
         titleGradient: "وب‌سایت و اپلیکیشن اختصاصی",
         titleSuffix: "متناسب با نیازتان می‌سازیم",
-        subtitle: "بدون استفاده از قالب‌های عمومی. دیارا اهداف، مخاطبان و فرآیندهای کسب‌وکار شما را به دقت تحلیل کرده و وب‌سایت یا اپلیکیشن اختصاصی برای ارتقای بازدهی و رشد مستمر شما طراحی می‌کند.",
+        subtitle: "بدون استفاده از قالب‌های عمومی. روشالینک اهداف، مخاطبان و فرآیندهای کسب‌وکار شما را به دقت تحلیل کرده و وب‌سایت یا اپلیکیشن اختصاصی برای ارتقای بازدهی و رشد مستمر شما طراحی می‌کند.",
         feature1Title: "تحلیل دقیق نیازها و کسب‌وکار",
         feature1Desc: "بررسی کامل مسیر مشتریان و گلوگاه‌های کاری پیش از آغاز کدنویسی.",
         feature2Title: "طراحی اختصاصی وب‌سایت و اپلیکیشن",
@@ -696,7 +698,7 @@ const resources = {
         title: "مورد اعتماد بیش از ۱۴۰ مدیر ارشد محصول",
         rating: "امتیاز ۵.۰ از ۵.۰",
         reviews: {
-          r1: "دیارا داشبورد قدیمی بانکداری سازمانی ما را به یک معماری میکروفرانت‌اند فوق‌سریع با زمان پاسخ زیر ۲۰ میلی‌ثانیه تبدیل کرد.",
+          r1: "روشالینک داشبورد قدیمی بانکداری سازمانی ما را به یک معماری میکروفرانت‌اند فوق‌سریع با زمان پاسخ زیر ۲۰ میلی‌ثانیه تبدیل کرد.",
           r2: "سیستم دیزاین ارائه‌شده توسط تیم آن‌ها، سرعت توسعه چندپلتفرمی ما را تا ۳۰۰٪ افزایش داد.",
           r3: "اجرای بی‌نقص و بدون یک ثانیه قطعی. تیم DevOps آن‌ها پایپ‌لاین استقرار چندابری ما را در زمانی حدنصاب ساخت.",
           r4: "زیبایی بصری فوق‌العاده همراه با معیارهای سنجش عملکرد دقیق. کاملاً پیشنهادی و عالی!",
@@ -730,7 +732,7 @@ const resources = {
         stayUpdated: "به‌روز بمانید",
         newsletterSub: "دریافت تحلیل‌های استراتژیک و خبرنامه‌های فنی سه ماهه.",
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
-        rights: "© ۲۰۲۶ آژانس DESIGN+LOGIC. تمامی حقوق محفوظ است."
+        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است."
       },
       modal: {
         badge: "شروع بررسی پروژه",
@@ -749,6 +751,7 @@ const resources = {
         error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید."
       },
       chat: {
+        badge: "دستیار هوشمند",
         title: "دستیار هوشمند روشا",
         status: "آنلاین",
         hoverLabel: "گفتگو با روشا",
@@ -815,7 +818,7 @@ const resources = {
         titlePrefix: "موقعك الإلكتروني يتصدر ",
         titleGradient: "المرتبة الأولى على جوجل",
         titleSuffix: " في نتائج البحث",
-        subtitle: "بفضل أداء ديارا الفائق وكودها المحسّن لمحركات البحث والأرشفة التلقائية، سيتصدر موقعك نتائج البحث ليكون الخيار الأول لعملائك.",
+        subtitle: "بفضل أداء روشالينك الفائق وكودها المحسّن لمحركات البحث والأرشفة التلقائية، سيتصدر موقعك نتائج البحث ليكون الخيار الأول لعملائك.",
         bullet1: "المراكز الأولى في نتائج بحث جوجل ووحدات البحث",
         bullet2: "سرعة تحميل فائقة (100/100 في تقييم Lighthouse)",
         bullet3: "بنية SEO تلقائية ونتائج بحث غنية بالأشكال المميزة",
@@ -826,7 +829,7 @@ const resources = {
         titlePrefix: "نحن نحلل أعمالك ونبني",
         titleGradient: "حلولاً مخصصة بالكامل",
         titleSuffix: "لتلبية احتياجاتك",
-        subtitle: "كل شركة فريدة من نوعها. تقوم ديارا بتحليل نموذج أعمالك وتحديد العقبات وبناء برمجيات مخصصة لتحقيق أعلى درجات الربحية والنمو.",
+        subtitle: "كل شركة فريدة من نوعها. تقوم روشالينك بتحليل نموذج أعمالك وتحديد العقبات وبناء برمجيات مخصصة لتحقيق أعلى درجات الربحية والنمو.",
         bullet1: "تحليل عميق لنموذج الأعمال ورحلات المستخدم",
         bullet2: "معمارية برمجية مخصصة بدون قوالب جاهزة",
         bullet3: "سير عمل مؤتمت ومقاييس نمو قابلة للقياس باستمرار",
@@ -951,7 +954,7 @@ const resources = {
         title: "موثوق بنا من قبل أكثر من 140 قائد منتج",
         rating: "تقييم 5.0 من 5.0",
         reviews: {
-          r1: "قامت ديارا بتحويل لوحة تحكم الخدمات المصرفية القديمة لدينا إلى معمارية ميكرو فرونت إند فائقة السرعة بزمن استجابة أقل من 20 ملي ثانية.",
+          r1: "قامت روشالينك بتحويل لوحة تحكم الخدمات المصرفية القديمة لدينا إلى معمارية ميكرو فرونت إند فائقة السرعة بزمن استجابة أقل من 20 ملي ثانية.",
           r2: "نظام التصميم المقدم من فريقهم زاد من سرعة التطوير متعدد المنصات لدينا بنسبة 300%.",
           r3: "تنفيذ لا تشوبه شائبة وبدون انقطاع واحد. قام فريق DevOps الخاص بهم بإنشاء خط أنابيب النشر السحابي في وقت قياسي.",
           r4: "جماليات بصرية مذهلة ومقاييس أداء دقيقة. موصى به بشدة!",
@@ -985,7 +988,7 @@ const resources = {
         stayUpdated: "كن على اطلاع",
         newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
-        rights: "© 2026 وكالة DESIGN+LOGIC. جميع الحقوق محفوظة."
+        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة."
       },
       modal: {
         badge: "بدء استكشاف المشروع",
@@ -1004,6 +1007,7 @@ const resources = {
         error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل."
       },
       chat: {
+        badge: "مساعد ذكي",
         title: "مساعد روشا الذكي",
         status: "متصل",
         hoverLabel: "تحدث مع روشا",

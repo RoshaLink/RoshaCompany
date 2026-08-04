@@ -30,7 +30,7 @@ export default function Footer({ setActivePage }) {
               </svg>
             </div>
             <span className="font-headline-md font-extrabold text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
-              Diara
+              RoshaLink
             </span>
           </div>
           <p className="text-slate-600 text-sm leading-relaxed max-w-sm">

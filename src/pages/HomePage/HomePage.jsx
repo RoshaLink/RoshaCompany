@@ -115,7 +115,7 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
                 <div className="relative rounded-2xl overflow-hidden bg-white/80 backdrop-blur-md border border-slate-200/80 p-4 shadow-md">
                   <img
                     src={diaraConnectImage}
-                    alt="Diara Connect With Us"
+                    alt="Connect With RoshaLink"
                     className="w-full h-auto object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

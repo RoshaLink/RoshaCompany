@@ -1,103 +1,194 @@
-import React from 'react';
-import { Sparkles, ArrowRight, ExternalLink } from 'lucide-react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { ArrowRight, ExternalLink, Lock, X, ShieldCheck, Monitor, Smartphone, Tablet, MousePointer } from 'lucide-react';
+import HeroSectionPortfolio from '../../components/HeroSectionPortfolio/HeroSectionPortfolio';
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
 
 export default function PortfolioPage({ onOpenGetStarted }) {
+  const { t, i18n } = useTranslation();
+  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+  const [activePreview, setActivePreview] = useState(null);
+  const [deviceMode, setDeviceMode] = useState('desktop');
+
   const projects = [
     {
-      title: "Vanguard Global Banking Platform",
-      category: "FinTech & Real-Time Analytics",
-      desc: "Re-architected core dashboard for 4M+ active enterprise users with sub-20ms transaction speeds.",
-      img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-      metrics: "+420% Speed Improvement"
+      id: "perspolis-restaurant",
+      translationKey: "perspolisProject",
+      title: "Perspolis Restaurant Platform",
+      category: "Food & Hospitality Web App",
+      desc: "Comprehensive digital web application for Perspolis Restaurant featuring interactive digital menus, online table reservation system, multi-language UI, and sleek responsive design.",
+      img: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/PerspolisResturant/",
+      isFeatured: true,
+      features: [
+        "Interactive Digital Menu & Customization",
+        "Table Reservation & Booking Management",
+        "Responsive Multi-Language UI Engine"
+      ]
     },
     {
-      title: "Apex AI Predictive Engine Suite",
-      category: "AI & Machine Learning",
-      desc: "Integrated real-time machine learning telemetry and predictive data dashboards for SaaS enterprise clients.",
-      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-      metrics: "99.99% Uptime SLA"
+      id: "ffstech",
+      translationKey: "ffstechProject",
+      title: "FFSTECH Integrated Infrastructure Platform",
+      category: "Building Systems & Enterprise Tech",
+      desc: "High-performance digital enterprise application engineered for FFSTECH, featuring mission-critical building infrastructure management, intelligent fire & safety systems, smart access control, and low-voltage system architecture.",
+      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://morinocode.github.io/FFSTECH/",
+      isFeatured: true,
+      features: [
+        "Fire & Life Safety Ecosystems",
+        "Smart Access Control & IP Surveillance",
+        "Integrated AV & Communication Backbone"
+      ]
     },
     {
-      title: "BioPulse Health Intelligence",
-      category: "HealthTech & Telemetry",
-      desc: "ISO 27001 compliant patient monitoring interface with tokenized component architecture.",
-      img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop",
-      metrics: "100% Security Pass"
-    },
-    {
-      title: "OmniCore SaaS Design System",
-      category: "Enterprise Design System",
-      desc: "Multi-brand design system with over 400+ production React components used by 12 internal dev squads.",
-      img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop",
-      metrics: "300% Velocity Increase"
+      id: "dentist-clinic",
+      translationKey: "dentistProject",
+      title: "Tandläkaren – Dental Clinic Platform",
+      category: "Dental & Healthcare Web App",
+      desc: "Comprehensive digital healthcare web application engineered for Dental Clinics, featuring online patient appointment booking, interactive treatment overview, patient portal, and responsive multi-language design.",
+      img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/Dentist/",
+      isFeatured: true,
+      features: [
+        "Online Patient Appointment Booking",
+        "Interactive Dental Care & Services",
+        "Patient Portal & Fast Responsive UI"
+      ]
     }
   ];
 
   return (
-    <div className="space-y-20 pb-20 bg-[#f8fafc]">
+    <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-300 pb-20 overflow-hidden">
       
-      {/* Header */}
-      <section className="relative pt-28 pb-20 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
-        <div className="ambient-glow-cyan top-0 right-1/3 opacity-25 pointer-events-none" />
-        <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>FEATURED PORTFOLIO & CASE STUDIES</span>
+      {/* Integrated Standalone HeroSectionPortfolio Component */}
+      <HeroSectionPortfolio
+        onOpenGetStarted={onOpenGetStarted}
+      />
+
+      {/* Projects Grid Section (Pure White Background) */}
+      <section className="w-full bg-white text-slate-900 py-12 px-4 md:px-12">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((p, i) => (
+              <ProjectCard
+                key={p.id || i}
+                project={p}
+                onPreview={setActivePreview}
+              />
+            ))}
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
-            High-Impact Software Shipped to Production
-          </h1>
-          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-body-lg">
-            Explore our portfolio of enterprise web applications, AI platforms, and design systems built for market leaders.
+        </div>
+      </section>
+
+      {/* Call To Action Section */}
+      <section className="px-4 md:px-12 max-w-[1280px] mx-auto pt-16">
+        <div className="glass-card rounded-3xl p-10 md:p-14 text-center space-y-6 border border-sky-300 bg-gradient-to-r from-sky-50/80 via-white to-indigo-50/80 shadow-2xl">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+            {t('portfolioHero.ctaTitle')}
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            {t('portfolioHero.ctaSubtitle')}
           </p>
-        </div>
-      </section>
-
-      {/* Grid */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((p, i) => (
-            <div key={i} className="glass-card rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm hover:border-sky-400 transition-all group">
-              <div className="h-64 overflow-hidden relative">
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-sky-600 border border-slate-200 shadow-sm">
-                  {p.metrics}
-                </div>
-              </div>
-              <div className="p-8 space-y-3">
-                <span className="text-xs font-label-sm text-sky-600 uppercase font-semibold">{p.category}</span>
-                <h3 className="text-2xl font-bold text-slate-900 font-headline-md">{p.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{p.desc}</p>
-                <div className="pt-2">
-                  <button 
-                    onClick={onOpenGetStarted}
-                    className="text-sky-600 font-bold text-xs flex items-center space-x-1 hover:text-sky-700 transition-colors cursor-pointer"
-                  >
-                    <span>View Case Study Detail</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="glass-card rounded-2xl p-10 text-center space-y-6 border border-sky-300 bg-gradient-to-r from-sky-50 via-white to-slate-100 shadow-lg">
-          <h2 className="text-2xl md:text-4xl font-bold font-headline-md text-slate-900">Have a High-Impact Product in Mind?</h2>
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-2">
             <button
               onClick={onOpenGetStarted}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold px-8 py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center space-x-2 cursor-pointer"
+              className="bg-sky-500 hover:bg-sky-600 text-white font-bold text-base px-9 py-4 rounded-xl transition-all shadow-[0_4px_25px_rgba(56,189,248,0.4)] flex items-center gap-3 cursor-pointer transform hover:-translate-y-0.5"
             >
-              <span>Build Your Product</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>{t('portfolioHero.ctaBtn')}</span>
+              <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
           </div>
         </div>
       </section>
+
+      {/* FULLSCREEN INTERACTIVE BROWSER MOCKUP MODAL */}
+      {activePreview && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in">
+          <div className="bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl w-full max-w-6xl h-[92vh] flex flex-col overflow-hidden">
+            
+            {/* Browser Header Bar */}
+            <div className="bg-slate-800 px-4 sm:px-5 py-3 border-b border-slate-700 flex items-center justify-between gap-4 shrink-0">
+              
+              {/* Traffic Lights */}
+              <div className="flex items-center gap-2">
+                <button 
+                  onClick={() => setActivePreview(null)}
+                  className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center group cursor-pointer"
+                  title="Close Modal"
+                >
+                  <X className="w-2.5 h-2.5 text-rose-950 opacity-0 group-hover:opacity-100" />
+                </button>
+                <span className="w-3.5 h-3.5 rounded-full bg-amber-500 opacity-80" />
+                <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 opacity-80" />
+              </div>
+
+              {/* Viewport Device Mode Switcher & Close Button */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center bg-slate-900 border border-slate-700 rounded-xl p-0.5">
+                  <button 
+                    onClick={() => setDeviceMode('desktop')} 
+                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'desktop' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    title="Desktop Mode (100%)"
+                  >
+                    <Monitor className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={() => setDeviceMode('tablet')} 
+                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'tablet' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    title="Tablet Mode (768px)"
+                  >
+                    <Tablet className="w-4 h-4" />
+                  </button>
+                  <button 
+                    onClick={() => setDeviceMode('mobile')} 
+                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'mobile' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    title="Mobile Mode (380px)"
+                  >
+                    <Smartphone className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <button 
+                  onClick={() => setActivePreview(null)}
+                  className="text-slate-400 hover:text-white p-1 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
+                  title="Close Preview"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+            </div>
+
+            {/* Modal Iframe Viewport Container */}
+            <div className="flex-1 bg-slate-950 flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
+              <div 
+                className={`h-full transition-all duration-300 relative rounded-2xl overflow-hidden bg-white shadow-2xl border border-slate-800 ${
+                  deviceMode === 'mobile' ? 'w-[380px] max-w-full' : deviceMode === 'tablet' ? 'w-[768px] max-w-full' : 'w-full'
+                }`}
+              >
+                {activePreview.liveUrl ? (
+                  <iframe 
+                    src={activePreview.liveUrl} 
+                    title={activePreview.title}
+                    className="w-full h-full border-0 select-none bg-white"
+                  />
+                ) : (
+                  <img 
+                    src={activePreview.img} 
+                    alt={activePreview.title}
+                    className="w-full h-auto object-top select-none"
+                  />
+                )}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

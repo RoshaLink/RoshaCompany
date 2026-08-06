@@ -102,14 +102,6 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
       iconColor: "text-sky-600",
     },
     {
-      id: 'orbis',
-      label: t('nav.orbis'),
-      icon: Globe,
-      href: '#',
-      gradient: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(52,211,153,0.08) 50%, rgba(255,255,255,0) 100%)",
-      iconColor: "text-emerald-600",
-    },
-    {
       id: 'portfolio',
       label: t('nav.portfolio'),
       icon: Briefcase,

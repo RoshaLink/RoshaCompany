@@ -30,7 +30,7 @@ export default function Footer({ setActivePage }) {
               </svg>
             </div>
             <span className="font-headline-md font-extrabold text-2xl tracking-tight text-slate-900 group-hover:text-sky-600 transition-colors">
-              Diara
+              RoshaLink
             </span>
           </div>
           <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
@@ -54,7 +54,6 @@ export default function Footer({ setActivePage }) {
           <h4 className="text-slate-900 font-bold text-xs uppercase tracking-widest text-sky-600">{t('footer.navigation')}</h4>
           <ul className="space-y-2 text-sm text-slate-600">
             <li><button onClick={() => setActivePage('home')} className="hover:text-sky-600 transition-colors cursor-pointer">{t('nav.home')}</button></li>
-            <li><button onClick={() => setActivePage('orbis')} className="hover:text-emerald-600 transition-colors cursor-pointer font-semibold">{t('nav.orbis')}</button></li>
             <li><button onClick={() => setActivePage('portfolio')} className="hover:text-sky-600 transition-colors cursor-pointer">{t('nav.portfolio')}</button></li>
             <li><button onClick={() => setActivePage('services')} className="hover:text-sky-600 transition-colors cursor-pointer">{t('nav.services')}</button></li>
             <li><button onClick={() => setActivePage('about')} className="hover:text-sky-600 transition-colors cursor-pointer">{t('nav.about')}</button></li>

@@ -6,7 +6,6 @@ const resources = {
     translation: {
       nav: {
         home: "Hem",
-        orbis: "Orbis",
         portfolio: "Portfölj",
         services: "Tjänster",
         about: "Om oss",
@@ -164,6 +163,56 @@ const resources = {
           }
         ]
       },
+      perspolisProject: {
+        category: "RESTAURANG & GÄSTFRIHET",
+        title: "Perspolis Restaurangplattform",
+        desc: "En modern och högpresterande webbapplikation för Perspolis Restaurang med interaktiv digital meny, online bordsbokningssystem, flerspråkigt stöd och responsiv design.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Interaktiv digital meny & rätter",
+        feature2: "Bordsbokningssystem online",
+        feature3: "Flerspråkig UI & snabb laddtid",
+        previewBtn: "Utforska interaktiv förhandsgranskning"
+      },
+      ffstechProject: {
+        category: "INTEGRERADE BYGGNADSSYSTEM & NÄTVERK",
+        title: "FFSTECH Digital Plattform & Infrastruktur",
+        desc: "Högpresterande digital webbapplikation utvecklad för FFSTECH med fokus på intelligenta brand- och säkerhetssystem, passersystem, övervakning, AV-nätverk och integrerad digital infrastruktur.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Intelligenta brand- och säkerhetssystem",
+        feature2: "Smarta passersystem & IP-övervakning",
+        feature3: "Integrerad AV & nätverksinfrastruktur",
+        previewBtn: "Utforska interaktiv förhandsgranskning"
+      },
+      dentistProject: {
+        category: "TANDVÅRD & HÄLSO- OCH SJUKVÅRD",
+        title: "Tandläkaren – Digital Tandvårdsplattform",
+        desc: "En modern och omhändertagande digital webbapplikation för Tandläkarkliniken med online tidsbokning, interaktiv behandlingsoversikt, patientportal och flerspråkigt stöd.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Online tidsbokningssystem för patienter",
+        feature2: "Interaktiv behandlings- och vårdkatalog",
+        feature3: "Patientportal & snabb responsiv UI",
+        previewBtn: "Utforska interaktiv förhandsgranskning"
+      },
+      portfolioHero: {
+        badge: "VÅR PORTFÖLJ & KUNDCASES",
+        pillTitle: "100% Skräddarsydda Lösningar",
+        pillSubtitle: "Idéer för varje affärsmodell",
+        titlePrefix: "Utforska våra framgångsrika ",
+        titleGradient: "PROJEKT & LÖSNINGAR",
+        titleSuffix: " för alla branscher",
+        subtitle: "Vi täcker alla affärsområden och industrier. Oavsett vilken affärsmodell eller nisch ditt företag har, skapar vi skräddarsydda digitala produkter, mjukvaror och appar som driver mätbar tillväxt.",
+        feature1Title: "Skräddarsydda idéer för varje affärsmodell",
+        feature1Desc: "Varje bransch kräver en unik strategi. Vi analyserar er nisch och skapar exakt anpassade koncept.",
+        feature2Title: "Mångsidiga projekt i olika branscher",
+        feature2Desc: "Från E-handel, FinTech och Restaurang till AI-plattformar och komplexa SaaS-system.",
+        feature3Title: "Konstruerad för mätbar försäljning & SEO",
+        feature3Desc: "Blixtsnabb kod och optimerad UX som rankar högt på Google och konverterar besökare till kunder.",
+        exploreBtn: "Utforska portföljen",
+        buildBtn: "Starta ditt skräddarsydda projekt",
+        ctaTitle: "Har du en idé om en högpresterande produkt?",
+        ctaSubtitle: "Samarbeta med vårt team för att designa, utveckla och lansera högpresterande digitala applikationer anpassade för dina affärsmål.",
+        ctaBtn: "Bygg din produkt"
+      },
       ourWork: {
         badge: "VÅRT SENASTE ARBETE",
         titlePrefix: "Skala ditt företag genom ",
@@ -220,7 +269,7 @@ const resources = {
         stayUpdated: "Håll dig uppdaterad",
         newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
         emailPlaceholder: "Ange arbetsemail",
-        rights: "© 2026 DESIGN+LOGIC Agency. Alla rättigheter förbehållna."
+        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna."
       },
       modal: {
         badge: "INLED PRODUKTUPPTÄCKT",
@@ -242,7 +291,6 @@ const resources = {
     translation: {
       nav: {
         home: "Home",
-        orbis: "Orbis",
         portfolio: "Portfolio",
         services: "Services",
         about: "About Us",
@@ -400,6 +448,56 @@ const resources = {
           }
         ]
       },
+      perspolisProject: {
+        category: "FOOD & HOSPITALITY WEB APP",
+        title: "Perspolis Restaurant Platform",
+        desc: "Comprehensive digital web application engineered for Perspolis Restaurant featuring interactive digital menus, online table reservation system, multi-language UI, and sleek responsive design.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Interactive Digital Menu & Customization",
+        feature2: "Online Table Booking System",
+        feature3: "Multi-Language & Theme Engine",
+        previewBtn: "View Interactive Live Preview"
+      },
+      ffstechProject: {
+        category: "BUILDING SYSTEMS & ENTERPRISE TECH",
+        title: "FFSTECH Integrated Infrastructure Platform",
+        desc: "High-performance digital enterprise application engineered for FFSTECH, featuring mission-critical building infrastructure management, intelligent fire & safety systems, smart access control, and low-voltage system architecture.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Fire & Life Safety Ecosystems",
+        feature2: "Smart Access Control & IP Surveillance",
+        feature3: "Integrated AV & Communication Backbone",
+        previewBtn: "View Interactive Live Preview"
+      },
+      dentistProject: {
+        category: "DENTAL & HEALTHCARE WEB APP",
+        title: "Tandläkaren – Dental Clinic Platform",
+        desc: "Comprehensive digital healthcare web application engineered for Dental Clinics, featuring online patient appointment booking, interactive treatment overview, patient portal, and responsive multi-language design.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Online Patient Appointment Booking",
+        feature2: "Interactive Dental Care & Services",
+        feature3: "Patient Portal & Fast Responsive UI",
+        previewBtn: "View Interactive Live Preview"
+      },
+      portfolioHero: {
+        badge: "OUR PORTFOLIO & CASE STUDIES",
+        pillTitle: "100% Customized Solutions",
+        pillSubtitle: "Ideas for Every Business Model",
+        titlePrefix: "Explore Our Diverse ",
+        titleGradient: "PRODUCTION PROJECTS",
+        titleSuffix: " & Custom Solutions",
+        subtitle: "Explore our live projects built across multiple industries and fields. No matter your business model or niche, we engineer tailored ideas and high-performing digital applications built for scalable growth.",
+        feature1Title: "Custom Ideas for Every Business Model",
+        feature1Desc: "Every industry requires a tailored strategy. We analyze your niche and construct dedicated concepts.",
+        feature2Title: "Multi-Industry Diverse Portfolio",
+        feature2Desc: "From Hospitality, E-Commerce, and FinTech to AI Engines and Enterprise SaaS Systems.",
+        feature3Title: "Built for Revenue Growth & SEO Ranking",
+        feature3Desc: "Sub-second load times and optimized UX engineered to rank #1 on Google and boost sales.",
+        exploreBtn: "Explore Portfolio",
+        buildBtn: "Build Your Custom Product",
+        ctaTitle: "Have a High-Impact Product in Mind?",
+        ctaSubtitle: "Partner with our team to design, engineer, and deploy high-performing digital applications tailored to your business goals.",
+        ctaBtn: "Build Your Product"
+      },
       ourWork: {
         badge: "OUR LATEST WORK",
         titlePrefix: "Scale Your Business Through ",
@@ -456,7 +554,7 @@ const resources = {
         stayUpdated: "Stay Updated",
         newsletterSub: "Get quarterly strategic insights and technical briefs.",
         emailPlaceholder: "Enter work email",
-        rights: "© 2026 DESIGN+LOGIC Agency. All rights reserved."
+        rights: "© 2026 RoshaLink. All rights reserved."
       },
       modal: {
         badge: "INITIATE PROJECT DISCOVERY",
@@ -478,7 +576,6 @@ const resources = {
     translation: {
       nav: {
         home: "خانه",
-        orbis: "اوربیس",
         portfolio: "نمونه‌کارها",
         services: "خدمات",
         about: "درباره ما",
@@ -636,6 +733,56 @@ const resources = {
           }
         ]
       },
+      perspolisProject: {
+        category: "پلتفرم دیجیتال رستوران و گردشگری",
+        title: "پلتفرم آنلاین رستوران پرسپولیس",
+        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی رستوران پرسپولیس مجهز به منوی دیجیتال تعاملی، سیستم آنلاین رزرو میز، پشتیبانی از چند زبان و سرعت فوق‌العاده.",
+        featuredBadge: "★ پروژه برجسته شاخص",
+        feature1: "منوی دیجیتال تعاملی و سفارش‌گیری",
+        feature2: "سیستم آنلاین رزرو میز و صندلی",
+        feature3: "موتور چندزبانه و پوسته هوشمند",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+      },
+      ffstechProject: {
+        category: "سیستم‌های هوشمند و زیرساخت دیجیتال",
+        title: "پلتفرم جامع و هوشمند FFSTECH",
+        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی شرکت FFSTECH مجهز به سیستم‌های هوشمند ساختمان، شبکه اعلام و اطفای حریق، دوربین‌های مداربسته IP، کنترل دسترسی و زیرساخت دیجیتال.",
+        featuredBadge: "★ پروژه برجسته شاخص",
+        feature1: "سیستم‌های اعلام و اطفای حریق هوشمند",
+        feature2: "کنترل دسترسی و دوربین مداربسته IP",
+        feature3: "سیستم‌های صوتی-تصویری و شبکه‌های ساختمانی",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+      },
+      dentistProject: {
+        category: "پلتفرم خدمات دندانپزشکی و سلامت",
+        title: "پلتفرم آنلاین کلینیک دندانپزشکی",
+        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی کلینیک دندانپزشکی مجهز به سیستم نوبت‌دهی آنلاین بیماران، معرفی تعاملی خدمات درمانی، پورتال آنلاین و طراحی چندزبانه.",
+        featuredBadge: "★ پروژه برجسته شاخص",
+        feature1: "سیستم آنلاین نوبت‌دهی بیماران",
+        feature2: "کاتالوگ تعاملی خدمات دندانپزشکی",
+        feature3: "پورتال بیماران و سرعت فوق‌العاده",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+      },
+      portfolioHero: {
+        badge: "نمونه‌کارها و پروژه‌های اجرا شده",
+        pillTitle: "۱۰۰٪ راهکارهای اختصاصی",
+        pillSubtitle: "ایده برای هر مدل کسب‌وکار",
+        titlePrefix: "مشاهده نمونه‌کارهای موفق در ",
+        titleGradient: "حوزه‌های مختلف کسب‌وکار",
+        titleSuffix: "",
+        subtitle: "مجموعه پروژه‌های اجرا شده ما را در صنایع و حوزه‌های گوناگون بررسی کنید. برای هر مدل کسب‌وکار و هر ایده‌ای، راهکار و معماری اختصاصی و ایده‌آل طراحی و پیاده‌سازی می‌کنیم.",
+        feature1Title: "ایده و راهکار اختصاصی برای هر مدل کسب‌وکار",
+        feature1Desc: "هر صنعتی نیاز به استراتژی خاص خود دارد؛ ما نیازهای حوزه کاری شما را تحلیل و پیاده‌سازی می‌کنیم.",
+        feature2Title: "پروژه‌های متنوع در انواع صنایع",
+        feature2Desc: "از رستوران‌داری و فروشگاهی تا سیستم‌های مالی FinTech، هوش مصنوعی و پلتفرم‌های ابری SaaS.",
+        feature3Title: "بهینه‌سازی شده برای افزایش فروش و سئو",
+        feature3Desc: "سرعت فوق‌العاده و طراحی رابط کاربری جذاب که رتبه گوگل را ارتقا داده و مشتریان را جذب می‌کند.",
+        exploreBtn: "بررسی نمونه‌کارها",
+        buildBtn: "شروع پروژه اختصاصی",
+        ctaTitle: "آیا ایده‌ای برای توسعه یک محصول برجسته دارید؟",
+        ctaSubtitle: "با تیم متخصص ما همراه شوید تا اپلیکیشن‌ها و محصولات دیجیتالی پرسرعت و مقیاس‌پذیر، دقیقا متناسب با اهداف کسب‌وکارتان طراحی و پیاده‌سازی کنیم.",
+        ctaBtn: "شروع ساخت محصول شما"
+      },
       ourWork: {
         badge: "جدیدترین نمونه‌کارهای ما",
         titlePrefix: "مقیاس‌پذیری کسب‌وکار با ",
@@ -692,7 +839,7 @@ const resources = {
         stayUpdated: "به‌روز بمانید",
         newsletterSub: "دریافت تحلیل‌های استراتژیک و خبرنامه‌های فنی سه ماهه.",
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
-        rights: "© ۲۰۲۶ آژانس DESIGN+LOGIC. تمامی حقوق محفوظ است."
+        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است."
       },
       modal: {
         badge: "شروع بررسی پروژه",
@@ -714,7 +861,6 @@ const resources = {
     translation: {
       nav: {
         home: "الرئيسية",
-        orbis: "أوربيس",
         portfolio: "أعمالنا",
         services: "خدماتنا",
         about: "من نحن",
@@ -872,6 +1018,56 @@ const resources = {
           }
         ]
       },
+      perspolisProject: {
+        category: "منصة إلكترونية للمطاعم والضيافة",
+        title: "منصة مطعم برسبوليس الرقمية",
+        desc: "تطبيق ويب متكامل ومخصص لمطعم برسبوليس يتميز بقائمة طعام رقمية تفاعلية، نظام حجز الطاولات عبر الإنترنت، دعم متعدد اللغات، وتصميم عصري سريع للغاية.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "قائمة طعام رقمية تفاعلية",
+        feature2: "نظام حجز الطاولات إلكترونياً",
+        feature3: "دعم متعدد اللغات وواجهة حديثة",
+        previewBtn: "عرض المعاينة التفاعلية للموقع"
+      },
+      ffstechProject: {
+        category: "الأنظمة الذكية والبنية التحتية الرقمية",
+        title: "منصة FFSTECH للأنظمة والبنية التحتية",
+        desc: "تطبيق ويب متكامل ومخصص لشركة FFSTECH متخصص في الأنظمة الذكية للمباني، شبكات السلامة وإدارة الحريق، مراقبة الفيديو، أنظمة التحكم بالدخول، والبنية التحتية الرقمية.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "أنظمة السلامة وإدارة الحريق الذكية",
+        feature2: "التحكم بالدخول ومراقبة الفيديو IP",
+        feature3: "الأنظمة الصوتية والمرئية وشبكات الاتصال",
+        previewBtn: "عرض المعاينة التفاعلية للموقع"
+      },
+      dentistProject: {
+        category: "منصة الرعاية الصحية وطب الأسنان",
+        title: "منصة عيادة طب الأسنان الرقمية",
+        desc: "تطبيق ويب متكامل ومخصص لعيادات طب الأسنان يتميز بنظام حجز المواعيد إلكترونياً للمرضى، استعراض الخدمات العلاجية التفاعلية، وبوابة المرضى الرقمية.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "نظام حجز المواعيد إلكترونياً للمرضى",
+        feature2: "دليل الخدمات التفاعلي لطب الأسنان",
+        feature3: "بوابة المرضى الرقمية وواجهة حديثة",
+        previewBtn: "عرض المعاينة التفاعلية للموقع"
+      },
+      portfolioHero: {
+        badge: "معرض أعمالنا والدراسات الميدانية",
+        pillTitle: "حلول مخصصة بنسبة 100%",
+        pillSubtitle: "أفكار لكل نموذج عمل",
+        titlePrefix: "استكشف مشاريعنا الناجحة في ",
+        titleGradient: "مختلف قطاعات الأعمال",
+        titleSuffix: "",
+        subtitle: "استكشف مجموعة مشاريعنا المنفذة عبر مختلف القطاعات والمجالات. مهما كان نموذج عملك أو مجال اختصاصك، ننفذ أفكاراً وحلولاً رقمية مخصصة تضمن نمواً مستداماً لمؤسستك.",
+        feature1Title: "أفكار وحلول مخصصة لكل نموذج عمل",
+        feature1Desc: "كل قطاع يتطلب استراتيجية فريدة؛ نحن نحت تحليل متطلبات مجالك ونبني حلولاً مخصصة بالكامل.",
+        feature2Title: "مشاريع متنوّعة في مختلف الصناعات",
+        feature2Desc: "من المطاعم والتجارة الإلكترونية والتكنولوجيا المالية إلى منصات الذكاء الاصطناعي وأنظمة SaaS.",
+        feature3Title: "مصممة لزيادة المبيعات والتصدّر في نتائج البحث",
+        feature3Desc: "سرعة تحميل فائقة وتجربة مستخدم محسّنة للتصدّر في Google وتحويل الزوار إلى عملاء دائمين.",
+        exploreBtn: "استكشف أعمالنا",
+        buildBtn: "ابدأ مشروعك المخصص",
+        ctaTitle: "هل لديك فكرة لمنتج رقمي فريد ومتميز؟",
+        ctaSubtitle: "تعاون مع فريقنا الخبير لتصميم وهندسة وإطلاق تطبيقات رقمية عالية الأداء مصممة خصيصاً لتحقيق أهداف عملك.",
+        ctaBtn: "ابدأ بناء منتجك الآن"
+      },
       ourWork: {
         badge: "أحدث أعمالنا",
         titlePrefix: "وسّع نطاق عملك من خلال ",
@@ -928,7 +1124,7 @@ const resources = {
         stayUpdated: "كن على اطلاع",
         newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
-        rights: "© 2026 وكالة DESIGN+LOGIC. جميع الحقوق محفوظة."
+        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة."
       },
       modal: {
         badge: "بدء استكشاف المشروع",

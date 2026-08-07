@@ -37,7 +37,7 @@ export default function DiaraChatWidget() {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end pointer-events-none select-none">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
           
           {/* Chat Window Modal (Placeholder Box) */}
           <AnimatePresence>
@@ -47,7 +47,7 @@ export default function DiaraChatWidget() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.25, ease: "easeOut" }}
-                className={`w-[320px] sm:w-[360px] bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_20px_50px_rgba(14,165,233,0.2)] mb-4 overflow-hidden pointer-events-auto ${
+                className={`w-[calc(100vw-2rem)] max-w-[360px] bg-white/95 backdrop-blur-2xl border border-slate-200/90 rounded-3xl shadow-[0_20px_50px_rgba(14,165,233,0.2)] mb-3 sm:mb-4 overflow-hidden pointer-events-auto ${
                   isRTL ? 'text-right' : 'text-left'
                 }`}
               >

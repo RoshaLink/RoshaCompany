@@ -89,9 +89,9 @@ export default function ConnectWithUsShowcase({ onOpenGetStarted, setActivePage 
                 />
 
                 {/* Bottom Floating Language Flags Pill */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 px-4 py-2 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl">
-                  <span className="text-xs font-bold text-slate-600">Supported:</span>
-                  <div className="flex items-center gap-2">
+                <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-xl max-w-[90%] justify-center">
+                  <span className="text-[10px] sm:text-xs font-bold text-slate-600">Supported:</span>
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     <SwedenFlag />
                     <UkFlag />
                     <IranFlag />

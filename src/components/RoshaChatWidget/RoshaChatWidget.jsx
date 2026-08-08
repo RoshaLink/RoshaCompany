@@ -158,7 +158,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end pointer-events-none select-none">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
 
           {/* Chat Window */}
           <AnimatePresence>
@@ -169,7 +169,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
                 dir={isRTL ? 'rtl' : 'ltr'}
-                className={`relative w-[340px] sm:w-[380px] bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-3xl shadow-[0_20px_50px_rgba(56,189,248,0.15)] mb-4 overflow-hidden pointer-events-auto ${
+                className={`relative w-[calc(100vw-2rem)] max-w-[380px] bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-3xl shadow-[0_20px_50px_rgba(56,189,248,0.15)] mb-3 sm:mb-4 overflow-hidden pointer-events-auto ${
                   isRTL ? 'text-right' : 'text-left'
                 }`}
               >

@@ -9,7 +9,6 @@ import AboutPage from './pages/AboutPage/AboutPage';
 import ServicesPage from './pages/ServicesPage/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
 import ContactPage from './pages/ContactPage/ContactPage';
-import OrbisPage from './pages/OrbisPage/OrbisPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,7 +28,7 @@ export default function App() {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('theme');
     if (saved) return saved === 'dark';
-    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return false; // Default to light mode on load
   });
 
   useEffect(() => {
@@ -50,7 +49,6 @@ export default function App() {
   const getActivePage = () => {
     const path = location.pathname.toLowerCase();
     if (path === '/' || path === '/home') return 'home';
-    if (path.includes('orbis')) return 'orbis';
     if (path.includes('about')) return 'about';
     if (path.includes('services')) return 'services';
     if (path.includes('portfolio')) return 'portfolio';
@@ -87,7 +85,6 @@ export default function App() {
             path="/home" 
             element={<HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 
           />
-          <Route path="/orbis" element={<OrbisPage />} />
           <Route 
             path="/about" 
             element={<AboutPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 

@@ -91,7 +91,7 @@ export default function DiaraChatWidget() {
                       {isArabic
                         ? 'مرحباً! أنا ديارا. كيف يمكنني مساعدتك في مشروعك اليوم؟'
                         : isRTL 
-                        ? 'سلام! من دیارا هستم. چطور می‌توانم در مورد پروژه‌تان به شما کمک کنم؟'
+                        ? 'سلام! من دیارا هستم. چطور می‌توانم در ساخت یا ارتقای وب‌سایت شما کمکتان کنم؟'
                         : i18n.language === 'sv'
                         ? 'Hej! Jag är Diara. Hur kan jag hjälpa dig med ditt projekt idag?'
                         : 'Hi! I am Diara. How can I assist you with your project today?'

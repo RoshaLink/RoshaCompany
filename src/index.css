@@ -1,10 +1,19 @@
 /* White Smokey Theme - Clean, Crisp & Modern Glassmorphism */
 
+html,
 body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
   background-color: #ffffff;
   color: #0f172a;
   font-family: 'Inter', sans-serif;
   transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 h1,

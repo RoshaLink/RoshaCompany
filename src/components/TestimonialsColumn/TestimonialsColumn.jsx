@@ -5,7 +5,7 @@ import TestimonialCard from '../TestimonialCard/TestimonialCard';
 import './TestimonialsColumn.css';
 
 const REVIEWS = [
-  { name: "Alex Morgan", role: "CTO, FinTech Global", comment: "DESIGN+LOGIC transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" },
+  { name: "Alex Morgan", role: "CTO, FinTech Global", comment: "RoshaLink transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" },
   { name: "Elena Rostova", role: "VP of Product, HealthTech", comment: "The design system provided by their team increased our multi-platform dev velocity by 300%.", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop" },
   { name: "Marcus Vance", role: "Head of Infrastructure, CloudScale", comment: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop" },
   { name: "Sarah Jenkins", role: "Director of UX, E-Commerce Empire", comment: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop" },

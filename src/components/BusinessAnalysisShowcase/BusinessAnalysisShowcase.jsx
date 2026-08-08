@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sparkles, CheckCircle2, ArrowRight, Laptop, BarChart3 } from 'lucide-react';
-import videoSource from '../../assets/Diara/HoldingLaptop/DiaraHoldingLaptop.mp4';
+import videoSource from '../../assets/Rosha/HoldingLaptop/RoshaHoldingLaptop.mp4';
 import './BusinessAnalysisShowcase.css';
 
 export default function BusinessAnalysisShowcase({ onOpenGetStarted, setActivePage }) {

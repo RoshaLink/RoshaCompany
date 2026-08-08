@@ -1,13 +1,40 @@
 import React, { useState } from 'react';
-import { Sparkles, Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
-  const handleSubmit = (e) => {
+  // Previously this only called setSubmitted(true), so every brief was shown a
+  // confirmation and then discarded. Success is now contingent on the server
+  // actually accepting the lead.
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: 'contact', ...formData })
+      });
+
+      if (!res.ok) {
+        setError(true);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -141,12 +168,23 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg px-3 py-2">
+                      We couldn&apos;t send your brief. Please try again in a moment.
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <span>Submit Strategic Brief</span>
-                    <Send className="w-4 h-4" />
+                    <span>{isSubmitting ? 'Sending...' : 'Submit Strategic Brief'}</span>
+                    {isSubmitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
                   </button>
                 </form>
               )}

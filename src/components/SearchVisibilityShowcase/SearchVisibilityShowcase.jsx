@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import videoSource from '../../assets/Diara/YourWebsiteHere/DiaraYourWebsiteHere.mp4';
+import videoSource from '../../assets/Rosha/YourWebsiteHere/RoshaYourWebsiteHere.mp4';
 import './SearchVisibilityShowcase.css';
 
 export default function SearchVisibilityShowcase({ onOpenGetStarted, setActivePage }) {

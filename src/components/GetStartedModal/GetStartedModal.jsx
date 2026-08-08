@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { X, Sparkles, Send, CheckCircle2 } from 'lucide-react';
+import { X, Sparkles, Send, CheckCircle2, Loader2 } from 'lucide-react';
 import './GetStartedModal.css';
 
 export default function GetStartedModal({ isOpen, onClose }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,9 +18,42 @@ export default function GetStartedModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  // This used to call setSubmitted(true) and nothing else, so every enquiry
+  // was shown a success screen and then silently discarded. Only show success
+  // once the server has actually accepted the lead.
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          source: 'get-started',
+          lang: i18n.language,
+          name: formData.name,
+          email: formData.email,
+          budget: formData.budget,
+          service: formData.service,
+          message: formData.details
+        })
+      });
+
+      if (!res.ok) {
+        setError(true);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -134,13 +169,24 @@ export default function GetStartedModal({ isOpen, onClose }) {
               </div>
             </div>
 
+            {error && (
+              <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg px-3 py-2">
+                {t('modal.error')}
+              </p>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 rtl:space-x-reverse cursor-pointer mt-2"
+              disabled={isSubmitting}
+              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 rtl:space-x-reverse cursor-pointer mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              <span>{t('modal.submit')}</span>
-              <Send className="w-4 h-4 rtl:rotate-180" />
+              <span>{isSubmitting ? t('modal.sending') : t('modal.submit')}</span>
+              {isSubmitting ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Send className="w-4 h-4 rtl:rotate-180" />
+              )}
             </button>
           </form>
         )}

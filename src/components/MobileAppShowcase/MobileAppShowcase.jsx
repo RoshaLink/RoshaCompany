@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Smartphone, Share2, BellRing } from 'lucide-react';
-import mobileVideoSource from '../../assets/Diara/holdingMobile/DiaraHoldingMobile.mp4';
-import appleLogo from '../../assets/Diara/logos/apple.png';
-import googleLogo from '../../assets/Diara/logos/google.png';
+import mobileVideoSource from '../../assets/Rosha/holdingMobile/RoshaHoldingMobile.mp4';
+import appleLogo from '../../assets/Rosha/logos/apple.png';
+import googleLogo from '../../assets/Rosha/logos/google.png';
 import './MobileAppShowcase.css';
 
 export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
@@ -41,7 +41,7 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          {/* Video Side (Diara Holding Mobile Video Graphic with App Store Floating Badges) */}
+          {/* Video Side (Rosha Holding Mobile Video Graphic with App Store Floating Badges) */}
           <div className={`lg:col-span-6 relative flex justify-center ${isRTL ? 'lg:order-last' : 'lg:order-last'}`}>
             <div className="relative w-full max-w-[520px] group">
 

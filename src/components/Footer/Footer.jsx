@@ -99,7 +99,7 @@ export default function Footer({ setActivePage }) {
       <div className="max-w-[1280px] mx-auto border-t border-slate-200 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 space-y-2 sm:space-y-0">
         <div>{t('footer.rights')}</div>
         <div className="flex space-x-6 rtl:space-x-reverse">
-          <a href="#" className="hover:text-sky-600 transition-colors">Privacy Policy</a>
+          <button onClick={() => setActivePage('privacy')} className="hover:text-sky-600 transition-colors cursor-pointer">{t('footer.privacyPolicy', 'Privacy Policy')}</button>
           <a href="#" className="hover:text-sky-600 transition-colors">Terms of Service</a>
           <a href="#" className="hover:text-sky-600 transition-colors">Security Specification</a>
         </div>

@@ -1,35 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Smartphone, Share2, BellRing } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import mobileVideoSource from '../../assets/Rosha/holdingMobile/RoshaHoldingMobile.mp4';
 import appleLogo from '../../assets/Rosha/logos/apple.png';
 import googleLogo from '../../assets/Rosha/logos/google.png';
+import MobileAppModal from './MobileAppModal';
 import './MobileAppShowcase.css';
 
 export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
-
-  const features = [
-    {
-      icon: Smartphone,
-      title: t('mobileApp.feature1Title'),
-      desc: t('mobileApp.feature1Desc'),
-      color: "from-sky-500 to-indigo-600"
-    },
-    {
-      icon: Share2,
-      title: t('mobileApp.feature2Title'),
-      desc: t('mobileApp.feature2Desc'),
-      color: "from-indigo-600 to-purple-600"
-    },
-    {
-      icon: BellRing,
-      title: t('mobileApp.feature3Title'),
-      desc: t('mobileApp.feature3Desc'),
-      color: "from-purple-500 to-pink-600"
-    }
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative w-full py-16 lg:py-24 bg-gradient-to-b from-white via-indigo-50/40 to-white overflow-hidden select-none">
@@ -38,11 +19,11 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-sky-200/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div className="w-full px-6 lg:px-12 xl:px-20 2xl:px-28 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
 
           {/* Video Side (Rosha Holding Mobile Video Graphic with App Store Floating Badges) */}
-          <div className={`lg:col-span-6 relative flex justify-center ${isRTL ? 'lg:order-last' : 'lg:order-last'}`}>
+          <div className={`order-1 lg:col-span-5 relative flex justify-center ${isRTL ? 'lg:justify-end lg:order-last' : 'lg:justify-end lg:order-last'}`}>
             <div className="relative w-full max-w-[520px] group">
 
               {/* Glow backdrop behind video card */}
@@ -95,57 +76,35 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
           </div>
 
           {/* Content Side */}
-          <div className={`lg:col-span-6 space-y-6 ${isRTL ? 'text-right lg:order-first' : 'text-left lg:order-first'}`}>
+          <div className={`order-2 lg:col-span-7 space-y-5 lg:space-y-6 ${isRTL ? 'text-right lg:order-first' : 'text-left lg:order-first'}`}>
 
             {/* Headline */}
-            <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] font-black font-headline-xl text-slate-900 leading-snug sm:leading-tight tracking-tight">
+            <h2 className="uppercase text-[1.1rem] min-[360px]:text-xl min-[400px]:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black font-headline-xl text-slate-900 leading-snug sm:leading-tight tracking-tight text-balance break-words">
               <span className="block mb-1">{t('mobileApp.titlePrefix')}</span>
-              <span className="inline-block uppercase text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-sky-600 to-purple-600 mb-1">
+              <span className="uppercase text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-sky-600 to-purple-600 mb-1 break-words">
                 {t('mobileApp.titleGradient')}
               </span>
-              {t('mobileApp.titleSuffix') && <span className="block">{t('mobileApp.titleSuffix')}</span>}
+              <span className="block">{t('mobileApp.titleSuffix')}</span>
             </h2>
 
             {/* Subtitle */}
-            <p className="text-slate-600 text-sm sm:text-base font-body-lg leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base lg:text-xl xl:text-2xl font-body-lg leading-relaxed mt-4 text-pretty max-w-3xl">
               {t('mobileApp.subtitle')}
             </p>
 
-            {/* Features List */}
-            <div className="space-y-4 pt-2">
-              {features.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div key={idx} className="flex items-start gap-4 group/item">
-                    <div className={`p-2.5 rounded-xl bg-gradient-to-br ${item.color} text-white shadow-md shadow-indigo-500/15 shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-slate-500 leading-relaxed mt-0.5">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
             {/* Action Buttons */}
-            <div className={`pt-4 flex flex-wrap items-center gap-4 ${isRTL ? 'justify-start' : 'justify-start'}`}>
+            <div className={`pt-6 lg:pt-8 flex flex-nowrap sm:flex-wrap items-stretch justify-center sm:justify-start gap-2 sm:gap-4 ${isRTL ? 'justify-start' : 'justify-start'}`}>
               <button
                 onClick={onOpenGetStarted}
-                className="bg-gradient-to-r from-indigo-600 via-purple-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold font-label-md px-7 py-3.5 rounded-full shadow-[0_4px_25px_rgba(99,102,241,0.4)] transition-all duration-300 flex items-center justify-center space-x-2.5 rtl:space-x-reverse active:scale-95 cursor-pointer text-xs sm:text-sm border border-indigo-400/40 hover:shadow-[0_6px_30px_rgba(99,102,241,0.6)]"
+                className="flex-1 sm:flex-none bg-gradient-to-r from-indigo-600 via-purple-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold font-label-md px-2 py-3 sm:px-8 sm:py-4 lg:px-10 lg:py-4 rounded-xl sm:rounded-full shadow-[0_4px_20px_rgba(99,102,241,0.4)] transition-all duration-300 flex items-center justify-center space-x-1 sm:space-x-2.5 rtl:space-x-reverse active:scale-95 cursor-pointer border border-indigo-400/40 text-[10px] xs:text-[11px] sm:text-base lg:text-lg hover:shadow-[0_6px_25px_rgba(99,102,241,0.6)] text-center leading-tight"
               >
                 <span>{t('mobileApp.buildBtn')}</span>
-                <ArrowRight className="w-4 h-4 text-white rtl:rotate-180" />
+
               </button>
 
               <button
-                onClick={() => setActivePage ? setActivePage('services') : null}
-                className="bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold font-label-md text-xs sm:text-sm py-3.5 px-6 rounded-full cursor-pointer transition-all duration-300 hover:border-indigo-500 shadow-sm hover:shadow-md"
+                onClick={() => setIsModalOpen(true)}
+                className="flex-1 sm:flex-none bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold font-label-md text-[10px] xs:text-[11px] sm:text-base lg:text-lg py-3 px-2 sm:py-4 sm:px-7 lg:px-9 lg:py-4 rounded-xl sm:rounded-full cursor-pointer transition-all duration-300 hover:border-indigo-500 shadow-sm hover:shadow-md text-center leading-tight flex items-center justify-center"
               >
                 <span>{t('mobileApp.exploreBtn')}</span>
               </button>
@@ -155,6 +114,9 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
 
         </div>
       </div>
+
+      {/* Modal */}
+      <MobileAppModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

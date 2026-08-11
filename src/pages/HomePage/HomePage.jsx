@@ -18,12 +18,6 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
 
-  const metrics = [
-    { value: "$2.4B+", label: "Client Enterprise Value Created" },
-    { value: "99.99%", label: "System Reliability & Uptime" },
-    { value: "140+", label: "Enterprise Projects Shipped" },
-    { value: "98%", label: "Long-term Client Retention" }
-  ];
 
   return (
     <div className="space-y-24 pb-20 bg-white">
@@ -82,21 +76,6 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
         onOpenGetStarted={onOpenGetStarted}
       />
 
-      {/* Impact Metrics Banner */}
-      <section className="bg-slate-100 border-y border-slate-200 py-16 px-4 md:px-12 relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {metrics.map((metric, idx) => (
-            <div key={idx} className="space-y-2">
-              <div className="text-3xl md:text-5xl font-bold font-headline-xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">
-                {metric.value}
-              </div>
-              <div className="text-xs md:text-sm text-slate-600 font-label-md">
-                {metric.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Integrated Testimonials Column Marquee */}
       <TestimonialsColumn />

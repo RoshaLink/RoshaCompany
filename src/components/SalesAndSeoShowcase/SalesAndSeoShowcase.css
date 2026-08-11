@@ -1,4 +1,32 @@
-/* SalesAndSeoShowcase Styles */
+/* Dedicated Styles for SalesAndSeoShowcase component */
+
+@keyframes emerald-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.emerald-text-shine {
+  background: linear-gradient(
+    115deg,
+    #059669 0%,     /* emerald-600 */
+    #0d9488 25%,    /* teal-600 */
+    #6ee7b7 45%,    /* light emerald shine */
+    #ffffff 50%,    /* white core */
+    #6ee7b7 55%,    /* light emerald shine */
+    #0284c7 75%,    /* sky-600 */
+    #059669 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: emerald-shine 6s ease-in-out infinite;
+  white-space: nowrap;
+}
 .sales-glow-orb {
   filter: blur(80px);
 }

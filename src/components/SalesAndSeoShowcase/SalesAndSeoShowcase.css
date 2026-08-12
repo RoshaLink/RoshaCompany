@@ -206,7 +206,7 @@
 .sales-btn-primary {
   flex: 1 1 0%;
   background-image: linear-gradient(to right, var(--color-emerald-500), var(--color-teal-600), var(--color-sky-600));
-  color: var(--color-white);
+  color: var(--color-slate-900);
   font-weight: 700;
   font-family: var(--font-mono);
   padding: 0.75rem 0.5rem; /* py-3 px-2 */

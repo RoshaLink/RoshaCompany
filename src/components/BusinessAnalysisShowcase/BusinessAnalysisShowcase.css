@@ -1,1 +1,28 @@
 /* Styles for BusinessAnalysisShowcase component */
+
+@keyframes blue-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.blue-text-shine {
+  background: linear-gradient(
+    115deg,
+    #0284c7 0%,     /* sky-600 */
+    #1d4ed8 25%,    /* blue-700 */
+    #93c5fd 45%,    /* light blue shine */
+    #ffffff 50%,    /* white core */
+    #93c5fd 55%,    /* light blue shine */
+    #4338ca 75%,    /* indigo-700 */
+    #0284c7 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: blue-shine 6s ease-in-out infinite;
+}

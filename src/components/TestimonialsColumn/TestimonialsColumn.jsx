@@ -49,12 +49,9 @@ export default function TestimonialsColumn() {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm rtl:space-x-reverse">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{t('testimonials.badge')}</span>
-          </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold font-headline-md text-slate-900">
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-headline-md text-slate-900">
             {t('testimonials.title')}
           </h2>
 

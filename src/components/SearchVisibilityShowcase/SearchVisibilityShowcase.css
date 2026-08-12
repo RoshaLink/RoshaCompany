@@ -23,3 +23,31 @@
   line-height: 1.65;
   color: #475569;
 }
+
+@keyframes blue-shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.blue-text-shine {
+  background: linear-gradient(
+    115deg,
+    #0284c7 0%,     
+    #2563eb 25%,    
+    #bae6fd 45%,    
+    #ffffff 50%,    
+    #bae6fd 55%,    
+    #4f46e5 75%,    
+    #0284c7 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: blue-shine 6s ease-in-out infinite;
+  white-space: nowrap;
+}

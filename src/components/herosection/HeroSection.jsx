@@ -171,7 +171,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
           </div>
 
           {/* Interactive Controls */}
-          <div className={`hero-controls ${rtlClass}`}>
+          <div className={`hero-video-controls ${rtlClass}`}>
             <button
               onClick={togglePlayPause}
               title={isPlaying ? "Pause Video" : "Play Video"}

@@ -288,3 +288,27 @@
   animation: blue-shine 6s ease-in-out infinite;
   white-space: nowrap;
 }
+
+/* Dark Mode Extensions */
+html.dark .search-visibility-wrapper {
+  background-color: #0b1120;
+  background-image: linear-gradient(to bottom, #0b1120, rgba(255, 237, 213, 0.05), #0b1120);
+}
+html.dark .search-visibility-title { color: var(--color-slate-100); }
+html.dark .search-visibility-subtitle { color: var(--color-slate-400); }
+html.dark .search-btn-secondary {
+  background-color: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-slate-200);
+}
+html.dark .search-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .search-video-frame {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+html.dark .search-glow-1 { background-color: rgba(249, 115, 22, 0.15); }
+html.dark .search-glow-2 { background-color: rgba(244, 63, 94, 0.15); }
+html.dark .search-btn-primary { color: var(--color-white); }

@@ -255,3 +255,27 @@
 [dir="rtl"] .cta-button-icon, .is-rtl .cta-button-icon {
   transform: rotate(180deg);
 }
+
+/* Dark Mode Extensions for HomePage */
+html.dark .homepage-container {
+  background-color: #0b1120;
+}
+
+html.dark .cta-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-image: linear-gradient(to bottom right, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.6));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .cta-image-inner {
+  background-color: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .cta-title {
+  color: var(--color-slate-100);
+}
+
+html.dark .cta-subtitle {
+  color: var(--color-slate-400);
+}

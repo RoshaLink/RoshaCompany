@@ -86,3 +86,17 @@
   margin-top: 0.125rem;
   margin-bottom: 0;
 }
+
+/* Dark Mode Extensions */
+html.dark .testimonial-card {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+html.dark .testimonial-card:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+}
+html.dark .testimonial-card-comment { color: var(--color-slate-300); }
+html.dark .testimonial-card-author { border-color: rgba(255, 255, 255, 0.1); }
+html.dark .testimonial-card-name { color: var(--color-slate-100); }
+html.dark .testimonial-card-avatar { border-color: rgba(255, 255, 255, 0.1); }

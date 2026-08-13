@@ -179,3 +179,25 @@
   pointer-events: none;
   z-index: 10;
 }
+
+/* Dark Mode Extensions */
+html.dark .testimonial-col-section {
+  background-color: #0b1120;
+  background-image: linear-gradient(to bottom, #0b1120, rgba(241, 245, 249, 0.05), #0b1120);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .testimonial-col-header-subtitle { color: var(--color-slate-400); }
+html.dark .testimonial-col-title { color: var(--color-slate-100); }
+html.dark .testimonial-col-rating-text { color: var(--color-slate-300); }
+html.dark .testimonial-col-fade-top {
+  background-image: linear-gradient(to bottom, #0b1120, rgba(11, 17, 32, 0.7), transparent);
+}
+html.dark .testimonial-col-fade-bottom {
+  background-image: linear-gradient(to top, #0b1120, rgba(11, 17, 32, 0.7), transparent);
+}
+html.dark .testimonial-col-fade-top {
+  background-image: linear-gradient(to bottom, #0b1120, rgba(11, 17, 32, 0.7), transparent);
+}
+html.dark .testimonial-col-fade-bottom {
+  background-image: linear-gradient(to top, #0b1120, rgba(11, 17, 32, 0.7), transparent);
+}

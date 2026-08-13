@@ -294,3 +294,34 @@
 @media (min-width: 1024px) {
   .brands-fade-left, .brands-fade-right { width: 16rem; }
 }
+
+/* Dark Mode Extensions */
+html.dark .brands-section {
+  background-image: linear-gradient(to bottom, #0b1120, rgba(15, 23, 42, 0.8), #0b1120);
+}
+html.dark .brands-title { color: var(--color-slate-100); }
+html.dark .brands-subtitle { color: var(--color-slate-400); }
+html.dark .brands-btn-secondary {
+  background-color: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-slate-200);
+}
+html.dark .brands-card-primary { border-color: rgba(255, 255, 255, 0.1); }
+html.dark .brands-card-secondary { border-color: rgba(255, 255, 255, 0.1); }
+html.dark .brands-card img[alt="Next.js"],
+html.dark .brands-card img[alt="GitHub"] {
+  filter: invert(1) brightness(2);
+}
+html.dark .brands-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .brands-card {
+  background-color: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .brands-fade-left {
+  background-image: linear-gradient(to right, #0b1120, transparent);
+}
+html.dark .brands-fade-right {
+  background-image: linear-gradient(to left, #0b1120, transparent);
+}

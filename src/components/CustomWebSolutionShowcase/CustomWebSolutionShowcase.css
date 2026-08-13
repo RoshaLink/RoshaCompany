@@ -268,7 +268,7 @@
 
 .custom-title {
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 0.70rem; /* Reduced by 30% from 1.1rem */
   font-weight: 900; /* font-black */
   font-family: var(--font-headline);
   color: var(--color-slate-900);
@@ -279,13 +279,13 @@
   margin: 0;
 }
 
-@media (min-width: 360px) { .custom-title { font-size: 1.25rem; } }
-@media (min-width: 400px) { .custom-title { font-size: 1.5rem; } }
-@media (min-width: 640px) { .custom-title { font-size: 1.875rem; line-height: 1.25; } }
-@media (min-width: 768px) { .custom-title { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .custom-title { font-size: 2.25rem; } } /* lg:text-4xl */
-@media (min-width: 1280px) { .custom-title { font-size: 3rem; } }
-@media (min-width: 1536px) { .custom-title { font-size: 3.75rem; } }
+@media (min-width: 360px) { .custom-title { font-size: 0.875rem; } }
+@media (min-width: 400px) { .custom-title { font-size: 1.05rem; } }
+@media (min-width: 640px) { .custom-title { font-size: 1.3125rem; line-height: 1.25; } }
+@media (min-width: 768px) { .custom-title { font-size: 1.575rem; } }
+@media (min-width: 1024px) { .custom-title { font-size: 1.575rem; } }
+@media (min-width: 1280px) { .custom-title { font-size: 2.1rem; } }
+@media (min-width: 1536px) { .custom-title { font-size: 2.625rem; } }
 
 .custom-title-line {
   display: block;
@@ -407,3 +407,32 @@
 @media (min-width: 1024px) {
   .custom-btn-secondary { padding: 1rem 2.25rem; font-size: 1.125rem; }
 }
+
+/* Dark Mode Extensions */
+html.dark .custom-section {
+  background-color: #0b1120;
+  background-image: linear-gradient(to bottom, #0b1120, rgba(254, 243, 199, 0.05), #0b1120);
+}
+html.dark .custom-title { color: var(--color-slate-100); }
+html.dark .custom-subtitle { color: var(--color-slate-400); }
+html.dark .custom-btn-secondary {
+  background-color: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-slate-200);
+}
+html.dark .custom-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .custom-image-frame {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+html.dark .custom-stat-pill {
+  background-color: rgba(15, 23, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .custom-stat-text-1 { color: var(--color-slate-100); }
+html.dark .custom-stat-title-2 { color: var(--color-slate-100); }
+html.dark .custom-glow-1 { background-color: rgba(16, 185, 129, 0.15); }
+html.dark .custom-btn-primary { color: var(--color-white); }

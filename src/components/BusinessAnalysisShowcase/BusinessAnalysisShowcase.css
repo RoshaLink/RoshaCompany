@@ -131,7 +131,7 @@
 @media (min-width: 640px) { .business-title { font-size: 1.875rem; } }
 @media (min-width: 768px) { .business-title { font-size: 2.25rem; } }
 @media (min-width: 1024px) { .business-title { font-size: 3rem; line-height: 1.5; } }
-@media (min-width: 1280px) { .business-title { font-size: 3.75rem; } }
+@media (min-width: 1280px) { .business-title { font-size: 3.2rem; } }
 
 .business-subtitle {
   color: var(--color-slate-600);
@@ -317,3 +317,26 @@
 
 @media (min-width: 1024px) { .business-video { max-height: 460px; } }
 @media (min-width: 1280px) { .business-video { max-height: 520px; } }
+
+/* Dark Mode Extensions */
+html.dark .business-section {
+  background-color: #0b1120;
+  background-image: linear-gradient(to bottom, #0b1120, rgba(14, 165, 233, 0.05), #0b1120);
+}
+html.dark .business-title { color: var(--color-slate-100); }
+html.dark .business-subtitle { color: var(--color-slate-400); }
+html.dark .business-btn-primary { color: var(--color-white); }
+html.dark .business-btn-secondary {
+  background-color: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-slate-200);
+}
+html.dark .business-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+html.dark .business-video-frame {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+html.dark .business-glow-1 { background-color: rgba(56, 189, 248, 0.15); }

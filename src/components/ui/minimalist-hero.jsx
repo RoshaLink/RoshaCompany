@@ -13,9 +13,52 @@ export const MinimalistHero = ({
   onOpenGetStarted,
   className,
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentMember = teamMembers[currentIndex] || teamMembers[0];
   const theme = currentMember.theme || "sky";
+  const isRTL = ['fa', 'ar'].includes((i18n?.language || '').toLowerCase());
+  const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
+
+  const renderControls = (extraClass = '') => (
+    <div className={`hero-controls ${extraClass}`}>
+      {/* Index Counter & Clickable Navigation Dots */}
+      <div className="hero-dots-wrap">
+        <div className="hero-counter">
+          <span className="hero-counter-current">0{currentIndex + 1}</span>
+          <span className="hero-counter-slash">/</span>
+          <span>0{teamMembers.length}</span>
+        </div>
+        <div className="hero-dots">
+          {teamMembers.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => onSelectIndex(idx)}
+              className={`hero-dot ${idx === currentIndex ? 'is-active' : ''}`}
+              title={`Go to team member ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Left & Right Arrow Buttons */}
+      <div className="hero-arrows">
+        <button
+          onClick={onPrev}
+          className="hero-btn-arrow"
+          title="Previous Member"
+        >
+          <ChevronLeft className="hero-arrow-icon" />
+        </button>
+        <button
+          onClick={onNext}
+          className="hero-btn-arrow"
+          title="Next Member"
+        >
+          <ChevronRight className="hero-arrow-icon" />
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <div
@@ -29,7 +72,7 @@ export const MinimalistHero = ({
       <div className="hero-grid">
 
         {/* Left Side: Description/Quote & CTA Button */}
-        <div className="hero-content-col is-ltr">
+        <div className={`hero-content-col ${rtlClass}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={`left-${currentIndex}`}
@@ -44,17 +87,12 @@ export const MinimalistHero = ({
               <div className="hero-quote-box group">
                 {/* Top Glass Highlight Specular Line */}
                 <div className="hero-quote-hl-top" />
-                
+
                 {/* Bottom subtle edge highlight */}
                 <div className="hero-quote-hl-bottom" />
 
                 {/* Corner Glass Ambient Glow */}
                 <div className="hero-quote-ambient" />
-
-                {/* Glass Badge Icon */}
-                <div className="hero-quote-icon-wrap">
-                  <Quote className="hero-quote-icon" />
-                </div>
 
                 {/* Quote Content */}
                 <p className="hero-quote-text">
@@ -62,14 +100,17 @@ export const MinimalistHero = ({
                 </p>
               </div>
 
-              {/* Action Button */}
-              <div>
+              {/* Action Area: Button & Mobile Slide Controls in 1 Line */}
+              <div className="hero-action-row">
                 <button
                   onClick={onOpenGetStarted}
                   className="hero-btn-action"
                 >
                   <span>{t('whoWeAre.bookBtn') || 'Boka ett möte'}</span>
                 </button>
+
+                {/* Mobile controls rendered side-by-side on max-width 767px */}
+                {renderControls('hero-controls-mobile')}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -103,7 +144,7 @@ export const MinimalistHero = ({
         </div>
 
         {/* Right Side: Name & Navigation Controls */}
-        <div className="hero-info-col is-ltr">
+        <div className={`hero-info-col ${rtlClass}`}>
           <AnimatePresence mode="wait">
             <motion.div
               key={`right-${currentIndex}`}
@@ -122,47 +163,8 @@ export const MinimalistHero = ({
             </motion.div>
           </AnimatePresence>
 
-          {/* Controls: Member Counter & Left/Right Arrow Buttons */}
-          <div className="hero-controls">
-
-            {/* Index Counter & Clickable Navigation Dots */}
-            <div className="hero-dots-wrap">
-              <div className="hero-counter">
-                <span className="hero-counter-current">0{currentIndex + 1}</span>
-                <span className="hero-counter-slash">/</span>
-                <span>0{teamMembers.length}</span>
-              </div>
-              <div className="hero-dots">
-                {teamMembers.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => onSelectIndex(idx)}
-                    className={`hero-dot ${idx === currentIndex ? 'is-active' : ''}`}
-                    title={`Go to team member ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Left & Right Arrow Buttons */}
-            <div className="hero-arrows">
-              <button
-                onClick={onPrev}
-                className="hero-btn-arrow"
-                title="Previous Member"
-              >
-                <ChevronLeft className="hero-arrow-icon" />
-              </button>
-              <button
-                onClick={onNext}
-                className="hero-btn-arrow"
-                title="Next Member"
-              >
-                <ChevronRight className="hero-arrow-icon" />
-              </button>
-            </div>
-
-          </div>
+          {/* Desktop controls rendered here on >= 768px */}
+          {renderControls('hero-controls-desktop')}
 
         </div>
 
@@ -170,4 +172,3 @@ export const MinimalistHero = ({
     </div>
   );
 };
-

@@ -283,7 +283,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
                 {isDark ? 'Dark Mode' : 'Light Mode'}
               </span>
-              <ThemeSwitch isDark={isDark} onToggle={onToggleTheme} size="12px" />
+              <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
             </div>
 
             <button

@@ -25,26 +25,6 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved === 'dark';
-    return false; // Default to light mode on load
-  });
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
   // Map route path to active page id for navigation components
   const getActivePage = () => {
     const path = location.pathname.toLowerCase();
@@ -71,8 +51,6 @@ export default function App() {
         activePage={activePage} 
         setActivePage={handlePageChange} 
         onOpenGetStarted={() => setIsGetStartedOpen(true)} 
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
       />
 
       <main className="flex-grow">

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ExternalLink, Lock, X, ShieldCheck, Monitor, Smartphone, Tablet, MousePointer } from 'lucide-react';
+import { ArrowRight, X, Monitor, Smartphone, Tablet } from 'lucide-react';
 import HeroSectionPortfolio from '../../components/HeroSectionPortfolio/HeroSectionPortfolio';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import './PortfolioPage.css';
 
 export default function PortfolioPage({ onOpenGetStarted }) {
   const { t, i18n } = useTranslation();
@@ -58,21 +59,53 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         "Interactive Dental Care & Services",
         "Patient Portal & Fast Responsive UI"
       ]
+    },
+    {
+      id: "shirazi-associates",
+      translationKey: "shiraziProject",
+      title: "Shirazi Associates – Legal & Advisory Platform",
+      category: "Legal & Immigration Advisory Platform",
+      desc: "High-end digital legal platform engineered for Shirazi Associates, specializing in corporate law, immigration advisory, online consultation scheduling, and a responsive multi-language portal.",
+      img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/shirazi-associates/",
+      isFeatured: true,
+      features: [
+        "Online Consultation Booking & Legal Advisory",
+        "Corporate Law & Visa Immigration Services",
+        "Secure Case Handling & Multi-Language UX"
+      ]
+    },
+    {
+      id: "pars-law-firm",
+      translationKey: "parsLawProject",
+      title: "Pars Law Firm – Premium Legal Practice",
+      category: "Law Practice & Legal Services Web App",
+      desc: "Comprehensive digital enterprise web application crafted for Pars Law Firm, featuring client consultation scheduling, practice area overview, client case submission, and rapid responsive UI.",
+      img: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/pars-law-firm/",
+      isFeatured: true,
+      features: [
+        "Client Appointment Booking & Consultation",
+        "Comprehensive Legal Practice Areas",
+        "Rapid Performance & Trust-Building UX"
+      ]
     }
   ];
 
   return (
-    <div className="relative min-h-screen bg-white text-slate-900 transition-colors duration-300 pb-20 overflow-hidden">
-      
+    <div className="portfolio-page-wrapper">
+
       {/* Integrated Standalone HeroSectionPortfolio Component */}
       <HeroSectionPortfolio
         onOpenGetStarted={onOpenGetStarted}
       />
 
-      {/* Projects Grid Section (Pure White Background) */}
-      <section className="w-full bg-white text-slate-900 py-12 px-4 md:px-12">
-        <div className="max-w-[1280px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Projects Grid Section */}
+      <section className="portfolio-grid-section">
+        <div className="portfolio-grid-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 2xl:gap-14">
             {projects.map((p, i) => (
               <ProjectCard
                 key={p.id || i}
@@ -85,21 +118,21 @@ export default function PortfolioPage({ onOpenGetStarted }) {
       </section>
 
       {/* Call To Action Section */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto pt-16">
-        <div className="glass-card rounded-3xl p-10 md:p-14 text-center space-y-6 border border-sky-300 bg-gradient-to-r from-sky-50/80 via-white to-indigo-50/80 shadow-2xl">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+      <section className="portfolio-cta-container">
+        <div className="portfolio-cta-card space-y-6">
+          <h2 className="portfolio-cta-title">
             {t('portfolioHero.ctaTitle')}
           </h2>
-          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="portfolio-cta-subtitle">
             {t('portfolioHero.ctaSubtitle')}
           </p>
           <div className="flex justify-center pt-2">
             <button
               onClick={onOpenGetStarted}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-bold text-base px-9 py-4 rounded-xl transition-all shadow-[0_4px_25px_rgba(56,189,248,0.4)] flex items-center gap-3 cursor-pointer transform hover:-translate-y-0.5"
+              className="bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-lg hover:shadow-sky-500/30 flex items-center gap-2.5 transition-all cursor-pointer transform hover:-translate-y-0.5"
             >
               <span>{t('portfolioHero.ctaBtn')}</span>
-              <ArrowRight className={`w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
+              <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
           </div>
         </div>
@@ -108,14 +141,14 @@ export default function PortfolioPage({ onOpenGetStarted }) {
       {/* FULLSCREEN INTERACTIVE BROWSER MOCKUP MODAL */}
       {activePreview && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in">
-          <div className="bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl w-full max-w-6xl h-[92vh] flex flex-col overflow-hidden">
-            
+          <div className="bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl w-full max-w-7xl h-[92vh] flex flex-col overflow-hidden">
+
             {/* Browser Header Bar */}
             <div className="bg-slate-800 px-4 sm:px-5 py-3 border-b border-slate-700 flex items-center justify-between gap-4 shrink-0">
-              
+
               {/* Traffic Lights */}
               <div className="flex items-center gap-2">
-                <button 
+                <button
                   onClick={() => setActivePreview(null)}
                   className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center group cursor-pointer"
                   title="Close Modal"
@@ -129,22 +162,22 @@ export default function PortfolioPage({ onOpenGetStarted }) {
               {/* Viewport Device Mode Switcher & Close Button */}
               <div className="flex items-center gap-3">
                 <div className="flex items-center bg-slate-900 border border-slate-700 rounded-xl p-0.5">
-                  <button 
-                    onClick={() => setDeviceMode('desktop')} 
+                  <button
+                    onClick={() => setDeviceMode('desktop')}
                     className={`p-2 rounded-lg transition-colors ${deviceMode === 'desktop' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Desktop Mode (100%)"
                   >
                     <Monitor className="w-4 h-4" />
                   </button>
-                  <button 
-                    onClick={() => setDeviceMode('tablet')} 
+                  <button
+                    onClick={() => setDeviceMode('tablet')}
                     className={`p-2 rounded-lg transition-colors ${deviceMode === 'tablet' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Tablet Mode (768px)"
                   >
                     <Tablet className="w-4 h-4" />
                   </button>
-                  <button 
-                    onClick={() => setDeviceMode('mobile')} 
+                  <button
+                    onClick={() => setDeviceMode('mobile')}
                     className={`p-2 rounded-lg transition-colors ${deviceMode === 'mobile' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Mobile Mode (380px)"
                   >
@@ -152,7 +185,7 @@ export default function PortfolioPage({ onOpenGetStarted }) {
                   </button>
                 </div>
 
-                <button 
+                <button
                   onClick={() => setActivePreview(null)}
                   className="text-slate-400 hover:text-white p-1 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
                   title="Close Preview"
@@ -165,20 +198,19 @@ export default function PortfolioPage({ onOpenGetStarted }) {
 
             {/* Modal Iframe Viewport Container */}
             <div className="flex-1 bg-slate-950 flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
-              <div 
-                className={`h-full transition-all duration-300 relative rounded-2xl overflow-hidden bg-white shadow-2xl border border-slate-800 ${
-                  deviceMode === 'mobile' ? 'w-[380px] max-w-full' : deviceMode === 'tablet' ? 'w-[768px] max-w-full' : 'w-full'
-                }`}
+              <div
+                className={`h-full transition-all duration-300 relative rounded-2xl overflow-hidden bg-white shadow-2xl border border-slate-800 ${deviceMode === 'mobile' ? 'w-[380px] max-w-full' : deviceMode === 'tablet' ? 'w-[768px] max-w-full' : 'w-full'
+                  }`}
               >
                 {activePreview.liveUrl ? (
-                  <iframe 
-                    src={activePreview.liveUrl} 
+                  <iframe
+                    src={activePreview.liveUrl}
                     title={activePreview.title}
                     className="w-full h-full border-0 select-none bg-white"
                   />
                 ) : (
-                  <img 
-                    src={activePreview.img} 
+                  <img
+                    src={activePreview.img}
                     alt={activePreview.title}
                     className="w-full h-auto object-top select-none"
                   />

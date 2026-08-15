@@ -1,0 +1,402 @@
+/* Styles for HeroSectionPortfolio */
+
+.portfolio-hero-section {
+  position: relative;
+  width: 100%;
+  padding-top: 8.5rem;
+  padding-bottom: 3.5rem;
+  background-color: var(--color-white);
+  overflow: hidden;
+  user-select: none;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-section {
+    padding-top: 9.5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-section {
+    padding-top: 11.5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-section {
+    padding-top: 13rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Background Ambient Glows */
+.portfolio-hero-glow-1 {
+  position: absolute;
+  top: 15%;
+  left: -5%;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(224, 242, 254, 0.6);
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+  .portfolio-hero-glow-1 {
+    width: 40rem;
+    height: 40rem;
+    filter: blur(140px);
+  }
+}
+
+.portfolio-hero-glow-2 {
+  position: absolute;
+  bottom: -5%;
+  right: -5%;
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(238, 242, 255, 0.5);
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+@media (min-width: 1280px) {
+  .portfolio-hero-glow-2 {
+    width: 40rem;
+    height: 40rem;
+    filter: blur(140px);
+  }
+}
+
+/* Full Width Flex Container */
+.portfolio-hero-container {
+  width: 100%;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-container {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio-hero-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-container {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+
+/* Flex Row Layout with justify-content: space-between */
+.portfolio-hero-flex-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-flex-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .portfolio-hero-flex-wrapper.is-rtl {
+    flex-direction: row-reverse;
+  }
+}
+
+.portfolio-hero-content-side {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-content-side {
+    flex: 1 1 0%;
+    max-width: 680px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio-hero-content-side {
+    max-width: 760px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-content-side {
+    max-width: 860px;
+  }
+}
+
+.portfolio-hero-image-side {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-image-side {
+    flex: 1 1 0%;
+    justify-content: flex-end;
+  }
+
+  .is-rtl .portfolio-hero-image-side {
+    justify-content: flex-start;
+  }
+}
+
+/* Glassmorphic Frame Card around Image */
+.portfolio-hero-card-frame {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-3xl);
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15);
+  padding: 0.75rem;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-card-frame {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-card-frame {
+    padding: 1.5rem;
+    border-radius: 2rem;
+  }
+}
+
+.portfolio-hero-card-frame:hover {
+  border-color: var(--color-sky-300);
+}
+
+/* Floating Glassmorphic Pill */
+.portfolio-hero-floating-pill {
+  position: absolute;
+  bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-xl);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: var(--shadow-lg);
+  max-width: calc(100% - 1.5rem);
+  transition: all 300ms ease;
+  z-index: 20;
+}
+
+.portfolio-hero-floating-pill.is-ltr {
+  left: 0.75rem;
+}
+
+.portfolio-hero-floating-pill.is-rtl {
+  right: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-floating-pill {
+    bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-2xl);
+  }
+
+  .portfolio-hero-floating-pill.is-ltr {
+    left: 1.25rem;
+  }
+
+  .portfolio-hero-floating-pill.is-rtl {
+    right: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-floating-pill {
+    bottom: 1.5rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .portfolio-hero-floating-pill.is-ltr {
+    left: 1.5rem;
+  }
+
+  .portfolio-hero-floating-pill.is-rtl {
+    right: 1.5rem;
+  }
+}
+
+/* Floating Pill Typography Scaling */
+.portfolio-hero-pill-title {
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.portfolio-hero-pill-subtitle {
+  font-size: 9px;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-pill-title {
+    font-size: 11px;
+  }
+
+  .portfolio-hero-pill-subtitle {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-pill-title {
+    font-size: 12px;
+  }
+
+  .portfolio-hero-pill-subtitle {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-pill-title {
+    font-size: 13px;
+  }
+
+  .portfolio-hero-pill-subtitle {
+    font-size: 12px;
+  }
+}
+
+/* Title & Subtitle */
+.portfolio-hero-title {
+  color: var(--color-slate-900);
+  transition: color 300ms ease;
+  font-size: 2.25rem;
+  line-height: 1.15;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-hero-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .portfolio-hero-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-title {
+    font-size: 4.25rem;
+  }
+}
+
+.portfolio-hero-subtitle {
+  color: var(--color-slate-600);
+  transition: color 300ms ease;
+  font-size: 0.95rem;
+  line-height: 1.625;
+}
+
+@media (min-width: 640px) {
+  .portfolio-hero-subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .portfolio-hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.75;
+  }
+}
+
+
+/* ==========================================
+   DARK MODE STYLES FOR PORTFOLIO HERO
+   ========================================== */
+
+html.dark .portfolio-hero-section {
+  background-color: #0b1120;
+  color: var(--color-slate-100);
+}
+
+html.dark .portfolio-hero-glow-1 {
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+html.dark .portfolio-hero-glow-2 {
+  background-color: rgba(99, 102, 241, 0.12);
+}
+
+html.dark .portfolio-hero-card-frame {
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+html.dark .portfolio-hero-card-frame:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+html.dark .portfolio-hero-floating-pill {
+  background-color: rgba(15, 23, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .portfolio-hero-pill-title {
+  color: var(--color-slate-100) !important;
+}
+
+html.dark .portfolio-hero-title {
+  color: var(--color-slate-50);
+}
+
+html.dark .portfolio-hero-subtitle {
+  color: var(--color-slate-400);
+}

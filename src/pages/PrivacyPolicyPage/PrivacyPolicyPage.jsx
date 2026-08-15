@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Lock, Globe, FileText, CheckCircle2, Server, Scale, KeyRound, Eye, Mail, Clock, RefreshCw, Zap, BookOpen } from 'lucide-react';
+import './PrivacyPolicyPage.css';
 
 export default function PrivacyPolicyPage() {
   const { i18n } = useTranslation();
@@ -652,74 +653,74 @@ Material revisions will be notified via prominent website banners or email prior
   const currentShort = shortVersion[selectedLang] || shortVersion.sv;
 
   return (
-    <div className={`space-y-16 pb-20 bg-[#f8fafc] text-slate-900 ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`privacy-policy-container ${isRTL ? 'rtl' : 'ltr'}`}>
       
       {/* Header Banner */}
-      <section className="relative pt-28 pb-16 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
-        <div className="ambient-glow-cyan top-0 right-1/4 opacity-25 pointer-events-none" />
-        <div className="max-w-[1100px] mx-auto text-center space-y-6 relative z-10">
+      <section className="privacy-header-section">
+        <div className="ambient-glow-cyan privacy-header-glow" />
+        <div className="privacy-header-inner">
           
-          <div className="inline-flex items-center space-x-2 rtl:space-x-reverse bg-sky-50 px-4 py-1.5 rounded-full border border-sky-200 text-xs font-semibold text-sky-700 shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-sky-600" />
+          <div className="privacy-badge">
+            <ShieldCheck className="privacy-badge-icon" />
             <span>{currentFull.badge}</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="privacy-main-title">
             {viewMode === 'short' ? currentShort.title : currentFull.title}
           </h1>
 
-          <p className="text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="privacy-subtitle">
             {currentFull.subtitle}
           </p>
 
-          <div className="text-xs text-slate-500 font-medium">
+          <div className="privacy-updated-tag">
             {currentFull.updated}
           </div>
 
           {/* Mode & Language Dual Control Bar */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="privacy-control-bar">
             
             {/* View Version Toggle (Short vs Full) */}
-            <div className="inline-flex items-center p-1 bg-slate-200/80 border border-slate-300 rounded-2xl shadow-sm text-xs font-semibold">
+            <div className="privacy-toggle-group">
               <button
                 onClick={() => setViewMode('short')}
-                className={`flex items-center space-x-1.5 rtl:space-x-reverse px-4 py-2 rounded-xl transition-all ${viewMode === 'short' ? 'bg-slate-900 text-white shadow' : 'text-slate-700 hover:text-slate-900'}`}
+                className={`privacy-toggle-btn ${viewMode === 'short' ? 'active-short' : ''}`}
               >
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
+                <Zap className="privacy-btn-icon-amber" />
                 <span>Short Version (Quick Read)</span>
               </button>
               <button
                 onClick={() => setViewMode('full')}
-                className={`flex items-center space-x-1.5 rtl:space-x-reverse px-4 py-2 rounded-xl transition-all ${viewMode === 'full' ? 'bg-sky-500 text-white shadow font-bold' : 'text-slate-700 hover:text-slate-900'}`}
+                className={`privacy-toggle-btn ${viewMode === 'full' ? 'active-full' : ''}`}
               >
-                <BookOpen className="w-3.5 h-3.5" />
+                <BookOpen className="privacy-btn-icon" />
                 <span>Full Legal Policy</span>
               </button>
             </div>
 
             {/* Language Selector Pill */}
-            <div className="inline-flex items-center p-1 bg-white border border-slate-200 rounded-2xl shadow-sm space-x-1 rtl:space-x-reverse text-xs font-medium">
+            <div className="privacy-lang-group">
               <button
                 onClick={() => setSelectedLang('sv')}
-                className={`px-3.5 py-1.5 rounded-xl transition-all ${selectedLang === 'sv' ? 'bg-sky-500 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`privacy-lang-btn ${selectedLang === 'sv' ? 'active' : ''}`}
               >
                 🇸🇪 Svenska
               </button>
               <button
                 onClick={() => setSelectedLang('en')}
-                className={`px-3.5 py-1.5 rounded-xl transition-all ${selectedLang === 'en' ? 'bg-sky-500 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`privacy-lang-btn ${selectedLang === 'en' ? 'active' : ''}`}
               >
                 🇬🇧 English
               </button>
               <button
                 onClick={() => setSelectedLang('fa')}
-                className={`px-3.5 py-1.5 rounded-xl transition-all ${selectedLang === 'fa' ? 'bg-sky-500 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`privacy-lang-btn ${selectedLang === 'fa' ? 'active' : ''}`}
               >
                 🇮🇷 فارسی
               </button>
               <button
                 onClick={() => setSelectedLang('ar')}
-                className={`px-3.5 py-1.5 rounded-xl transition-all ${selectedLang === 'ar' ? 'bg-sky-500 text-white font-bold shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}
+                className={`privacy-lang-btn ${selectedLang === 'ar' ? 'active' : ''}`}
               >
                 🇦🇪 العربية
               </button>
@@ -731,18 +732,18 @@ Material revisions will be notified via prominent website banners or email prior
       </section>
 
       {/* Main Content Render */}
-      <section className="px-4 md:px-12 max-w-[1100px] mx-auto">
+      <section className="privacy-content-section">
         
         {viewMode === 'short' ? (
           /* SHORT VERSION VIEW */
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="privacy-short-grid">
             {currentShort.points.map((pt, i) => (
-              <div key={i} className="glass-card rounded-2xl p-6 bg-white border border-slate-200/90 shadow-sm space-y-2">
-                <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-sky-600 font-bold text-base">
-                  <CheckCircle2 className="w-5 h-5 shrink-0" />
+              <div key={i} className="privacy-short-card">
+                <div className="privacy-short-card-header">
+                  <CheckCircle2 className="privacy-icon-green" />
                   <span>{pt.title}</span>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="privacy-short-card-desc">
                   {pt.desc}
                 </p>
               </div>
@@ -750,24 +751,24 @@ Material revisions will be notified via prominent website banners or email prior
           </div>
         ) : (
           /* FULL VERSION VIEW */
-          <div className="space-y-8">
+          <div className="privacy-full-list">
             {currentFull.sections.map((section, idx) => {
               const IconComponent = section.icon;
               return (
                 <div 
                   key={idx} 
-                  className="glass-card rounded-2xl p-6 md:p-8 bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden"
+                  className="privacy-full-card"
                 >
-                  <div className="flex items-start space-x-4 rtl:space-x-reverse">
-                    <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center shrink-0 text-sky-600 shadow-sm">
-                      <IconComponent className="w-6 h-6" />
+                  <div className="privacy-full-card-inner">
+                    <div className="privacy-full-card-icon-box">
+                      <IconComponent className="privacy-card-icon" />
                     </div>
 
-                    <div className="space-y-3 flex-grow">
-                      <h2 className="text-xl md:text-2xl font-bold text-slate-900 flex items-center">
+                    <div className="privacy-full-card-content">
+                      <h2 className="privacy-full-card-title">
                         {section.title}
                       </h2>
-                      <div className="text-slate-600 text-sm md:text-base leading-relaxed whitespace-pre-line font-body-md">
+                      <div className="privacy-full-card-text">
                         {section.text}
                       </div>
                     </div>
@@ -781,21 +782,21 @@ Material revisions will be notified via prominent website banners or email prior
       </section>
 
       {/* Footer DPO Banner */}
-      <section className="px-4 md:px-12 max-w-[1100px] mx-auto pt-6">
-        <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-8 text-white space-y-4 shadow-lg text-center md:text-left rtl:md:text-right flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center space-x-2 rtl:space-x-reverse text-sky-400 text-xs font-bold uppercase tracking-wider">
-              <Lock className="w-4 h-4" />
+      <section className="privacy-dpo-section">
+        <div className="privacy-dpo-banner">
+          <div className="privacy-dpo-info">
+            <div className="privacy-dpo-badge">
+              <Lock className="privacy-dpo-icon" />
               <span>Data Protection Officer (DPO)</span>
             </div>
-            <h3 className="text-xl font-bold">Questions about GDPR or data privacy?</h3>
-            <p className="text-slate-300 text-sm max-w-xl">
+            <h3 className="privacy-dpo-title">Questions about GDPR or data privacy?</h3>
+            <p className="privacy-dpo-text">
               Our privacy engineering team normally responds within 24 hours. Reach out directly at privacy@roshalink.com.
             </p>
           </div>
           <a
             href="mailto:privacy@roshalink.com"
-            className="shrink-0 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition-all shadow-md text-sm cursor-pointer"
+            className="privacy-dpo-btn"
           >
             Contact DPO
           </a>

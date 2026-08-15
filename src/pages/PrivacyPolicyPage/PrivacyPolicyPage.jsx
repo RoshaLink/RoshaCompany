@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Lock, Globe, FileText, CheckCircle2, Server, Scale, KeyRound, Eye, Mail, Clock, RefreshCw, Zap, BookOpen } from 'lucide-react';
-import PrivacyFullCard from './PrivacyFullCard';
+import PrivacyShortVersion from './PrivacyShortVersion';
+import PrivacyFullVersion from './PrivacyFullVersion';
 import './PrivacyPolicyPage.css';
 
 export default function PrivacyPolicyPage() {
@@ -702,31 +703,11 @@ Material revisions will be notified via prominent website banners or email prior
 
       {/* Main Content Render */}
       <section className="privacy-content-section">
-        
         {viewMode === 'short' ? (
-          /* SHORT VERSION VIEW */
-          <div className="privacy-short-grid">
-            {currentShort.points.map((pt, i) => (
-              <div key={i} className="privacy-short-card">
-                <div className="privacy-short-card-header">
-                  <CheckCircle2 className="privacy-icon-green" />
-                  <span>{pt.title}</span>
-                </div>
-                <p className="privacy-short-card-desc">
-                  {pt.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+          <PrivacyShortVersion points={currentShort.points} />
         ) : (
-          /* FULL VERSION VIEW */
-          <div className="privacy-full-list">
-            {currentFull.sections.map((section, idx) => (
-              <PrivacyFullCard key={idx} section={section} />
-            ))}
-          </div>
+          <PrivacyFullVersion sections={currentFull.sections} />
         )}
-
       </section>
 
       {/* Footer DPO Banner */}

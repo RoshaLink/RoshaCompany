@@ -1,60 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, CheckCircle2, ArrowRight, Laptop, BarChart3 } from 'lucide-react';
-import videoSource from '../../assets/Diara/HoldingLaptop/DiaraHoldingLaptop.mp4';
+import { ArrowRight } from 'lucide-react';
+import videoSource from '../../assets/Rosha/HoldingLaptop/RoshaHoldingLaptop.mp4';
+import BusinessAnalysisModal from './BusinessAnalysisModal';
 import './BusinessAnalysisShowcase.css';
 
 export default function BusinessAnalysisShowcase({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+  const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
 
-  const bullets = [
-    t('businessAnalysis.bullet1'),
-    t('businessAnalysis.bullet2'),
-    t('businessAnalysis.bullet3'),
-  ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative w-full min-h-[580px] md:min-h-[660px] overflow-hidden bg-white text-slate-900 my-8 flex items-center select-none">
+    <section className="business-section">
 
-      {/* Full Background Video - Aligned to Left */}
-      <div className={`absolute inset-0 w-full h-full overflow-hidden z-0 bg-white flex items-center ${isRTL ? 'justify-end lg:pl-12 xl:pl-24' : 'justify-start lg:pl-12 xl:pl-24'}`}>
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full max-h-[85vh] lg:max-h-[95vh] lg:max-w-[65%] xl:max-w-[60%] object-contain object-left"
-        >
-          <source src={videoSource} type="video/mp4" />
-        </video>
-      </div>
+      {/* Sky Blue Ambient Glow Orb */}
+      <div className={`business-glow-1 ${rtlClass}`} />
 
+      <div className="business-container">
+        <div className="business-grid">
 
+          {/* Content Side */}
+          <div className={`business-content-col ${rtlClass}`}>
 
-      {/* Content Area - Overlay Text (Positioned to the right) */}
-      <div className="relative z-10 max-w-[1280px] mx-auto w-full px-4 sm:px-8 md:px-12 py-12 flex items-center pointer-events-none">
-        <div className="w-full max-w-[380px] sm:max-w-[460px] md:max-w-[540px] lg:max-w-[580px] space-y-4 md:space-y-6 pointer-events-auto text-right mr-0 ml-auto pr-0 sm:pr-2">
+            {/* Headline */}
+            <h2 className="business-title">
+              {t('businessAnalysis.titlePrefix')}{' '}
+              <span className="uppercase blue-text-shine break-words">
+                {t('businessAnalysis.titleGradient')}
+              </span>{' '}
+              {t('businessAnalysis.titleSuffix')}
+            </h2>
 
+            {/* Subtitle */}
+            <p className="business-subtitle">
+              {t('businessAnalysis.subtitle')}
+            </p>
 
-          {/* Headline */}
-          <h2 className="text-2xl sm:text-3xl lg:text-[32px] xl:text-[35px] font-black font-headline-xl text-slate-900 leading-snug sm:leading-tight tracking-tight drop-shadow-[0_2px_12px_rgba(255,255,255,0.95)]">
-            <span className="block mb-1">{t('businessAnalysis.titlePrefix')}</span>
-            <span className="inline-block uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-700 to-indigo-700 mb-1">
-              {t('businessAnalysis.titleGradient')}
-            </span>
-            <span className="block">{t('businessAnalysis.titleSuffix')}</span>
-          </h2>
+            {/* Action Buttons */}
+            <div className="business-action">
+              <button
+                onClick={onOpenGetStarted}
+                className="business-btn-primary"
+              >
+                <span>{t('businessAnalysis.button')}</span>
+              </button>
 
-          {/* Subtitle */}
-          <p className="text-xs sm:text-sm md:text-base font-body-lg text-slate-800 font-semibold leading-relaxed drop-shadow-[0_1px_8px_rgba(255,255,255,0.95)]">
-            {t('businessAnalysis.subtitle')}
-          </p>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="business-btn-secondary"
+              >
+                <span>{t('businessAnalysis.exploreBtn')}</span>
+              </button>
+            </div>
 
+          </div>
 
+          {/* Video Side (Blue Glassmorphic Border Card Frame) */}
+          <div className={`business-video-col ${rtlClass}`}>
+            <div className="business-video-card-wrapper group">
+
+              {/* Outer Glow Ring */}
+              <div className="business-video-glow" />
+
+              {/* Glassmorphic Frame Card */}
+              <div className="business-video-frame">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="business-video"
+                >
+                  <source src={videoSource} type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
+
+      {/* Modal */}
+      <BusinessAnalysisModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }

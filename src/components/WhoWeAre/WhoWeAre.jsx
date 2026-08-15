@@ -10,11 +10,26 @@ import MinaPortrait from '../../assets/OurPictures/MinaPortrait.png';
 import MiladPortrait from '../../assets/OurPictures/MiladPortrait.png';
 
 const TEAM_IMAGES = [
-  { src: MortezaPortrait },
-  { src: BellaPortrait },
-  { src: SohrabPortrait },
-  { src: MinaPortrait },
-  { src: MiladPortrait },
+  { 
+    src: MortezaPortrait,
+    theme: "sky"
+  },
+  { 
+    src: BellaPortrait,
+    theme: "emerald"
+  },
+  { 
+    src: SohrabPortrait,
+    theme: "indigo"
+  },
+  { 
+    src: MinaPortrait,
+    theme: "pink"
+  },
+  { 
+    src: MiladPortrait,
+    theme: "amber"
+  },
 ];
 
 export default function WhoWeAre({ setActivePage, onOpenGetStarted }) {
@@ -60,17 +75,17 @@ export default function WhoWeAre({ setActivePage, onOpenGetStarted }) {
   };
 
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section className="whoweare-section">
       
       {/* Background Ambient Glows */}
-      <div className="ambient-glow-purple top-1/2 right-1/4 -translate-y-1/2 opacity-25 pointer-events-none" />
-      <div className="ambient-glow-cyan bottom-10 left-1/4 opacity-20 pointer-events-none" />
+      <div className="whoweare-glow-1" />
+      <div className="whoweare-glow-2" />
 
-      <div className="w-full h-full relative z-10">
+      <div className="whoweare-container">
         <div
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="w-full h-full"
+          className="whoweare-wrapper"
         >
           <MinimalistHero
             teamMembers={teamMembers}

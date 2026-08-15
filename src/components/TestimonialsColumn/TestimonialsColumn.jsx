@@ -5,7 +5,7 @@ import TestimonialCard from '../TestimonialCard/TestimonialCard';
 import './TestimonialsColumn.css';
 
 const REVIEWS = [
-  { name: "Alex Morgan", role: "CTO, FinTech Global", comment: "DESIGN+LOGIC transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" },
+  { name: "Alex Morgan", role: "CTO, FinTech Global", comment: "RoshaLink transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" },
   { name: "Elena Rostova", role: "VP of Product, HealthTech", comment: "The design system provided by their team increased our multi-platform dev velocity by 300%.", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop" },
   { name: "Marcus Vance", role: "Head of Infrastructure, CloudScale", comment: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop" },
   { name: "Sarah Jenkins", role: "Director of UX, E-Commerce Empire", comment: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop" },
@@ -28,7 +28,9 @@ const REVIEWS = [
 ];
 
 export default function TestimonialsColumn() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+  const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
 
   const translatedReviews = REVIEWS.map((review, idx) => ({
     ...review,
@@ -40,53 +42,49 @@ export default function TestimonialsColumn() {
   const col3 = translatedReviews.slice(14, 20);
 
   return (
-    <section className="relative py-24 px-4 md:px-12 bg-[#f8fafc] overflow-hidden border-y border-slate-200">
+    <section className="testimonial-col-section">
       
       {/* Ambient background glow */}
-      <div className="ambient-glow-purple top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none" />
+      <div className="testimonial-col-glow" />
 
-      <div className="max-w-[1280px] mx-auto space-y-12 relative z-10">
+      <div className="testimonial-col-container">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm rtl:space-x-reverse">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{t('testimonials.badge')}</span>
-          </div>
+        <div className="testimonial-col-header">
 
-          <h2 className="text-3xl md:text-5xl font-bold font-headline-md text-slate-900">
+          <h2 className="testimonial-col-title">
             {t('testimonials.title')}
           </h2>
 
-          <div className="flex items-center justify-center space-x-1 pt-1 rtl:space-x-reverse">
+          <div className={`testimonial-col-rating ${rtlClass}`}>
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-5 h-5 text-amber-400 fill-amber-400" />
+              <Star key={i} className="testimonial-col-star" />
             ))}
-            <span className="text-slate-800 text-sm font-bold ml-2 rtl:mr-2 rtl:ml-0">{t('testimonials.rating')}</span>
+            <span className="testimonial-col-rating-text">{t('testimonials.rating')}</span>
           </div>
         </div>
 
         {/* Marquee Columns */}
-        <div className="relative h-[650px] overflow-hidden">
+        <div className="testimonial-col-marquee-wrapper">
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
+          <div className="testimonial-col-grid">
             
             {/* Column 1 */}
-            <div className="flex flex-col gap-6 animate-marquee-up">
+            <div className="testimonial-col-track animate-marquee-up">
               {[...col1, ...col1].map((review, idx) => (
                 <TestimonialCard key={`c1-${idx}`} {...review} />
               ))}
             </div>
 
             {/* Column 2 */}
-            <div className="hidden md:flex flex-col gap-6 animate-marquee-down">
+            <div className="testimonial-col-track-2 animate-marquee-down">
               {[...col2, ...col2].map((review, idx) => (
                 <TestimonialCard key={`c2-${idx}`} {...review} />
               ))}
             </div>
 
             {/* Column 3 */}
-            <div className="hidden lg:flex flex-col gap-6 animate-marquee-up">
+            <div className="testimonial-col-track-3 animate-marquee-up">
               {[...col3, ...col3].map((review, idx) => (
                 <TestimonialCard key={`c3-${idx}`} {...review} />
               ))}
@@ -95,8 +93,8 @@ export default function TestimonialsColumn() {
           </div>
 
           {/* Fade Masks */}
-          <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#f8fafc] via-[#f8fafc]/70 to-transparent pointer-events-none z-10" />
-          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#f8fafc] via-[#f8fafc]/70 to-transparent pointer-events-none z-10" />
+          <div className="testimonial-col-fade-top" />
+          <div className="testimonial-col-fade-bottom" />
 
         </div>
 

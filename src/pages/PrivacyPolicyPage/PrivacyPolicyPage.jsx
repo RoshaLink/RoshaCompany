@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck, Lock, Zap, BookOpen } from 'lucide-react';
-import PrivacyShortVersion from './PrivacyShortVersion';
-import PrivacyFullVersion from './PrivacyFullVersion';
+import { ShieldCheck, Lock, Zap, BookOpen, CheckCircle2, FileText, Server, Scale, KeyRound, Eye, Mail, Clock, RefreshCw, Globe } from 'lucide-react';
 import './PrivacyPolicyPage.css';
+
+const ICON_MAP = {
+  ShieldCheck,
+  FileText,
+  CheckCircle2,
+  Scale,
+  Server,
+  Globe,
+  Clock,
+  KeyRound,
+  Eye,
+  Lock,
+  Mail,
+  RefreshCw
+};
 
 export default function PrivacyPolicyPage() {
   const { t, i18n } = useTranslation();
-  
-  // Determine active language direction from global i18n setting
+  const [viewMode, setViewMode] = useState('full'); // 'short' | 'full'
+
   const activeLang = i18n.language ? i18n.language.toLowerCase() : 'sv';
   const isRTL = activeLang.startsWith('fa') || activeLang.startsWith('ar');
-
-  const [viewMode, setViewMode] = useState('full'); // 'short' | 'full'
 
   const shortTitle = t('privacyPolicy.shortTitle');
   const shortPoints = t('privacyPolicy.shortPoints', { returnObjects: true }) || [];
@@ -40,7 +51,7 @@ export default function PrivacyPolicyPage() {
             {viewMode === 'short' ? shortTitle : fullTitle}
           </h1>
 
-          <p className="privacy-subtitle">
+          <p className="privacy-subtitle font-body-md">
             {fullSubtitle}
           </p>
 
@@ -77,9 +88,45 @@ export default function PrivacyPolicyPage() {
       {/* Main Content Render */}
       <section className="privacy-content-section">
         {viewMode === 'short' ? (
-          <PrivacyShortVersion points={Array.isArray(shortPoints) ? shortPoints : []} />
+          <div className="privacy-short-grid">
+            {Array.isArray(shortPoints) && shortPoints.map((pt, i) => (
+              <div key={i} className="privacy-short-card">
+                <div className="privacy-short-card-header">
+                  <CheckCircle2 className="privacy-icon-green" />
+                  <span>{pt.title}</span>
+                </div>
+                <p className="privacy-short-card-desc">
+                  {pt.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         ) : (
-          <PrivacyFullVersion sections={Array.isArray(fullSections) ? fullSections : []} />
+          <div className="privacy-full-list">
+            {Array.isArray(fullSections) && fullSections.map((section, idx) => {
+              const IconComponent = typeof section.icon === 'string' ? ICON_MAP[section.icon] : section.icon;
+              return (
+                <div key={idx} className="privacy-full-card">
+                  <div className="privacy-full-card-inner">
+                    {IconComponent && (
+                      <div className="privacy-full-card-icon-box">
+                        <IconComponent className="privacy-card-icon" />
+                      </div>
+                    )}
+
+                    <div className="privacy-full-card-content">
+                      <h2 className="privacy-full-card-title">
+                        {section.title}
+                      </h2>
+                      <div className="privacy-full-card-text">
+                        {section.text}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         )}
       </section>
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Lock, Globe, FileText, CheckCircle2, Server, Scale, KeyRound, Eye, Mail, Clock, RefreshCw, Zap, BookOpen } from 'lucide-react';
 import PrivacyFullCard from './PrivacyFullCard';
@@ -7,8 +7,8 @@ import './PrivacyPolicyPage.css';
 export default function PrivacyPolicyPage() {
   const { i18n } = useTranslation();
   
-  // Set default language based on active i18n language
-  const getInitialLang = () => {
+  // Determine active language from global i18n setting
+  const getActiveLang = () => {
     const lang = i18n.language ? i18n.language.toLowerCase() : 'sv';
     if (lang.startsWith('sv')) return 'sv';
     if (lang.startsWith('fa')) return 'fa';
@@ -16,12 +16,8 @@ export default function PrivacyPolicyPage() {
     return 'en';
   };
 
-  const [selectedLang, setSelectedLang] = useState(getInitialLang);
+  const selectedLang = getActiveLang();
   const [viewMode, setViewMode] = useState('full'); // 'short' | 'full'
-
-  useEffect(() => {
-    setSelectedLang(getInitialLang());
-  }, [i18n.language]);
 
   const isRTL = selectedLang === 'fa' || selectedLang === 'ar';
 
@@ -678,7 +674,7 @@ Material revisions will be notified via prominent website banners or email prior
             {currentFull.updated}
           </div>
 
-          {/* Mode & Language Dual Control Bar */}
+          {/* Mode Control Bar */}
           <div className="privacy-control-bar">
             
             {/* View Version Toggle (Short vs Full) */}
@@ -696,34 +692,6 @@ Material revisions will be notified via prominent website banners or email prior
               >
                 <BookOpen className="privacy-btn-icon" />
                 <span>Full Legal Policy</span>
-              </button>
-            </div>
-
-            {/* Language Selector Pill */}
-            <div className="privacy-lang-group">
-              <button
-                onClick={() => setSelectedLang('sv')}
-                className={`privacy-lang-btn ${selectedLang === 'sv' ? 'active' : ''}`}
-              >
-                🇸🇪 Svenska
-              </button>
-              <button
-                onClick={() => setSelectedLang('en')}
-                className={`privacy-lang-btn ${selectedLang === 'en' ? 'active' : ''}`}
-              >
-                🇬🇧 English
-              </button>
-              <button
-                onClick={() => setSelectedLang('fa')}
-                className={`privacy-lang-btn ${selectedLang === 'fa' ? 'active' : ''}`}
-              >
-                🇮🇷 فارسی
-              </button>
-              <button
-                onClick={() => setSelectedLang('ar')}
-                className={`privacy-lang-btn ${selectedLang === 'ar' ? 'active' : ''}`}
-              >
-                🇦🇪 العربية
               </button>
             </div>
 

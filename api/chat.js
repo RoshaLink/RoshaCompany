@@ -45,6 +45,20 @@ function isParamShapeError(status, body) {
   return /max_tokens|max_completion_tokens|temperature|unsupported_parameter/i.test(body);
 }
 
+/**
+ * The subset of the OpenAI chat-completions response this handler reads.
+ * Declared so the optional-chaining below is type-checked rather than being
+ * an unchecked reach into `unknown` (see `npm run typecheck`).
+ *
+ * @typedef  {{choices?: Array<{message?: {content?: string}}>}} ChatCompletion
+ */
+
+/**
+ * @param   {string} model
+ * @param   {Array<{role: string, content: string}>} messages
+ * @param   {AbortSignal} signal
+ * @returns {Promise<{ok: true, data: ChatCompletion} | {ok: false, status: number, body: string}>}
+ */
 async function callOpenAI(model, messages, signal) {
   const attempt = async (legacy) =>
     fetch(OPENAI_URL, {
@@ -79,7 +93,7 @@ async function callOpenAI(model, messages, signal) {
     }
   }
 
-  return { ok: true, data: await response.json() };
+  return { ok: true, data: /** @type {ChatCompletion} */ (await response.json()) };
 }
 
 export default async function handler(req, res) {
@@ -158,7 +172,10 @@ export default async function handler(req, res) {
 
     return send(res, 200, { reply });
   } catch (err) {
-    if (err.name === 'AbortError') {
+    // `instanceof Error` before reading .name: a throw of a non-Error value
+    // would otherwise crash the catch block itself and turn a handled timeout
+    // into an unhandled rejection.
+    if (err instanceof Error && err.name === 'AbortError') {
       console.error('[chat] upstream timeout after', UPSTREAM_TIMEOUT_MS, 'ms');
       return send(res, 504, { error: 'timeout' });
     }

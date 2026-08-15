@@ -135,7 +135,10 @@ export default async function handler(req, res) {
 
     return send(res, 200, { ok: true });
   } catch (err) {
-    if (err.name === 'AbortError') {
+    // `instanceof Error` before reading .name: a throw of a non-Error value
+    // would otherwise crash the catch block itself and turn a handled timeout
+    // into an unhandled rejection.
+    if (err instanceof Error && err.name === 'AbortError') {
       console.error('[lead] upstream timeout');
       return send(res, 504, { error: 'timeout' });
     }

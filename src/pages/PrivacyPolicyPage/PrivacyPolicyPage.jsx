@@ -3,29 +3,25 @@ import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Lock, Zap, BookOpen } from 'lucide-react';
 import PrivacyShortVersion from './PrivacyShortVersion';
 import PrivacyFullVersion from './PrivacyFullVersion';
-import { shortVersion } from './privacyShortData';
-import { fullVersion } from './privacyFullData';
 import './PrivacyPolicyPage.css';
 
 export default function PrivacyPolicyPage() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   
-  // Determine active language from global i18n setting
-  const getActiveLang = () => {
-    const lang = i18n.language ? i18n.language.toLowerCase() : 'sv';
-    if (lang.startsWith('sv')) return 'sv';
-    if (lang.startsWith('fa')) return 'fa';
-    if (lang.startsWith('ar')) return 'ar';
-    return 'en';
-  };
+  // Determine active language direction from global i18n setting
+  const activeLang = i18n.language ? i18n.language.toLowerCase() : 'sv';
+  const isRTL = activeLang.startsWith('fa') || activeLang.startsWith('ar');
 
-  const selectedLang = getActiveLang();
   const [viewMode, setViewMode] = useState('full'); // 'short' | 'full'
 
-  const isRTL = selectedLang === 'fa' || selectedLang === 'ar';
+  const shortTitle = t('privacyPolicy.shortTitle');
+  const shortPoints = t('privacyPolicy.shortPoints', { returnObjects: true }) || [];
 
-  const currentFull = fullVersion[selectedLang] || fullVersion.sv;
-  const currentShort = shortVersion[selectedLang] || shortVersion.sv;
+  const fullBadge = t('privacyPolicy.badge');
+  const fullTitle = t('privacyPolicy.fullTitle');
+  const fullUpdated = t('privacyPolicy.updated');
+  const fullSubtitle = t('privacyPolicy.subtitle');
+  const fullSections = t('privacyPolicy.fullSections', { returnObjects: true }) || [];
 
   return (
     <div className={`privacy-policy-container ${isRTL ? 'rtl' : 'ltr'}`}>
@@ -37,19 +33,19 @@ export default function PrivacyPolicyPage() {
           
           <div className="privacy-badge">
             <ShieldCheck className="privacy-badge-icon" />
-            <span>{currentFull.badge}</span>
+            <span>{fullBadge}</span>
           </div>
 
           <h1 className="privacy-main-title">
-            {viewMode === 'short' ? currentShort.title : currentFull.title}
+            {viewMode === 'short' ? shortTitle : fullTitle}
           </h1>
 
           <p className="privacy-subtitle">
-            {currentFull.subtitle}
+            {fullSubtitle}
           </p>
 
           <div className="privacy-updated-tag">
-            {currentFull.updated}
+            {fullUpdated}
           </div>
 
           {/* Mode Control Bar */}
@@ -81,9 +77,9 @@ export default function PrivacyPolicyPage() {
       {/* Main Content Render */}
       <section className="privacy-content-section">
         {viewMode === 'short' ? (
-          <PrivacyShortVersion points={currentShort.points} />
+          <PrivacyShortVersion points={Array.isArray(shortPoints) ? shortPoints : []} />
         ) : (
-          <PrivacyFullVersion sections={currentFull.sections} />
+          <PrivacyFullVersion sections={Array.isArray(fullSections) ? fullSections : []} />
         )}
       </section>
 

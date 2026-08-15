@@ -1,0 +1,54 @@
+name: CI
+
+# Runs on every PR into main, plus main itself after merge (so a bad merge
+# commit doesn't sit undetected). This is the check branch protection on
+# `main` should require before allowing a merge.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Build, test, lint, audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Hard gate: the app must actually build. Catches broken imports, bad
+      # env-var assumptions, syntax errors, etc.
+      - name: Build
+        run: npm run build
+
+      # Hard gate: unit tests for the shared api/_lib helpers (rate limiting,
+      # request parsing, origin checks).
+      - name: Test
+        run: npm test
+
+      # Report-only for now: main currently has ~83 pre-existing lint errors
+      # (mostly leftover `React` imports from before React 19's JSX
+      # transform, plus a few hook-dependency warnings worth a human look).
+      # This step surfaces lint results on every PR without blocking merges
+      # until that backlog is cleared. Flip `continue-on-error` to false
+      # once it's clean.
+      - name: Lint (report only, not yet blocking)
+        run: npm run lint
+        continue-on-error: true
+
+      # Report-only for now: fixing the current high-severity advisories
+      # pulls in an unrelated major Vite upgrade (rolldown-based build).
+      # That's a real change that deserves its own PR, not something to
+      # silently ride in on a CI-setup change. Flip `continue-on-error` to
+      # false once resolved.
+      - name: Dependency audit (report only, not yet blocking)
+        run: npm audit --audit-level=high
+        continue-on-error: true

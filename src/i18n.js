@@ -372,6 +372,12 @@ const resources = {
         errorGeneric: "Något gick fel på min sida. Försök gärna igen om en stund."
       },
       privacyPolicy: {
+        toggleShort: "Kort version (Snabböversikt)",
+        toggleFull: "Komplett juridisk policy",
+        dpoBadge: "Dataskyddsombud (DPO)",
+        dpoTitle: "Frågor om GDPR eller dataskydd?",
+        dpoText: "Vårt dataskyddsteam svarar normalt inom 24 timmar. Kontakta oss direkt på privacy@roshalink.com.",
+        dpoBtn: "Kontakta DPO",
         shortTitle: "Kort sammanfattning av Dataskyddspolicyn (Snabböversikt)",
         shortPoints: [
           { title: "Dataskydd i fokus", desc: "Vi respekterar din integritet och skyddar dina personuppgifter enligt EU:s GDPR och den svenska dataskyddslagen (2018:218)." },
@@ -772,6 +778,12 @@ const resources = {
         errorGeneric: "Something went wrong on my end. Please try again in a moment."
       },
       privacyPolicy: {
+        toggleShort: "Short Version (Quick Read)",
+        toggleFull: "Full Legal Policy",
+        dpoBadge: "Data Protection Officer (DPO)",
+        dpoTitle: "Questions about GDPR or data privacy?",
+        dpoText: "Our privacy engineering team normally responds within 24 hours. Reach out directly at privacy@roshalink.com.",
+        dpoBtn: "Contact DPO",
         shortTitle: "Privacy Policy Short Summary (Quick Read)",
         shortPoints: [
           { title: "Data Privacy First", desc: "We respect your privacy and protect your personal data in full compliance with EU GDPR and the Swedish Data Protection Act (2018:218)." },
@@ -1172,6 +1184,12 @@ const resources = {
         errorGeneric: "مشکلی از سمت من پیش آمد. لطفاً کمی بعد دوباره تلاش کنید."
       },
       privacyPolicy: {
+        toggleShort: "نسخه کوتاه (مرور سریع)",
+        toggleFull: "نسخه کامل حقوقی",
+        dpoBadge: "مسئول حفاظت از داده‌ها (DPO)",
+        dpoTitle: "سوالی درباره GDPR یا حریم خصوصی دارید؟",
+        dpoText: "تیم مهندسی حریم خصوصی ما معمولاً ظرف ۲۴ ساعت پاسخ می‌دهد. مستقیماً با privacy@roshalink.com تماس بگیرید.",
+        dpoBtn: "ارتباط با DPO",
         shortTitle: "خلاصه‌ی سریع سیاست حفظ حریم خصوصی",
         shortPoints: [
           { title: "حفاظت از داده‌ها", desc: "ما به حریم خصوصی شما احترام می‌گذاریم و داده‌های شما را بر اساس مقررات GDPR اتحادیه اروپا و قانون سوئد (2018:218) محافظت می‌کنیم." },
@@ -1563,6 +1581,12 @@ const resources = {
         errorGeneric: "حدث خطأ من جانبي. يرجى المحاولة مرة أخرى بعد قليل."
       },
       privacyPolicy: {
+        toggleShort: "نسخة مختصرة (قراءة سريعة)",
+        toggleFull: "النسخة القانونية الكاملة",
+        dpoBadge: "مسؤول حماية البيانات (DPO)",
+        dpoTitle: "أسئلة حول لائحة GDPR أو حماية البيانات؟",
+        dpoText: "فريق هندسة الخصوصية لدينا يجيب عادة خلال ۲۴ ساعة. تواصل مباشرة عبر privacy@roshalink.com.",
+        dpoBtn: "التواصل مع DPO",
         shortTitle: "ملخص سريع لسياسة الخصوصية",
         shortPoints: [
           { title: "حماية البيانات أولاً", desc: "نحن نحترم خصوصيتك ونحمي بياناتك الشخصية وفقاً للائحة حماية البيانات (GDPR) وقانون حماية البيانات السويدي (2018:218)." },

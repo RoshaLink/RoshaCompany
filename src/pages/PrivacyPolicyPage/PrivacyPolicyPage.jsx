@@ -34,6 +34,13 @@ export default function PrivacyPolicyPage() {
   const fullSubtitle = t('privacyPolicy.subtitle');
   const fullSections = t('privacyPolicy.fullSections', { returnObjects: true }) || [];
 
+  const toggleShort = t('privacyPolicy.toggleShort');
+  const toggleFull = t('privacyPolicy.toggleFull');
+  const dpoBadge = t('privacyPolicy.dpoBadge');
+  const dpoTitle = t('privacyPolicy.dpoTitle');
+  const dpoText = t('privacyPolicy.dpoText');
+  const dpoBtn = t('privacyPolicy.dpoBtn');
+
   return (
     <div className={`privacy-policy-container ${isRTL ? 'rtl' : 'ltr'}`}>
       
@@ -69,14 +76,14 @@ export default function PrivacyPolicyPage() {
                 className={`privacy-toggle-btn ${viewMode === 'short' ? 'active-short' : ''}`}
               >
                 <Zap className="privacy-btn-icon-amber" />
-                <span>Short Version (Quick Read)</span>
+                <span>{toggleShort}</span>
               </button>
               <button
                 onClick={() => setViewMode('full')}
                 className={`privacy-toggle-btn ${viewMode === 'full' ? 'active-full' : ''}`}
               >
                 <BookOpen className="privacy-btn-icon" />
-                <span>Full Legal Policy</span>
+                <span>{toggleFull}</span>
               </button>
             </div>
 
@@ -136,18 +143,18 @@ export default function PrivacyPolicyPage() {
           <div className="privacy-dpo-info">
             <div className="privacy-dpo-badge">
               <Lock className="privacy-dpo-icon" />
-              <span>Data Protection Officer (DPO)</span>
+              <span>{dpoBadge}</span>
             </div>
-            <h3 className="privacy-dpo-title">Questions about GDPR or data privacy?</h3>
+            <h3 className="privacy-dpo-title">{dpoTitle}</h3>
             <p className="privacy-dpo-text">
-              Our privacy engineering team normally responds within 24 hours. Reach out directly at privacy@roshalink.com.
+              {dpoText}
             </p>
           </div>
           <a
             href="mailto:privacy@roshalink.com"
             className="privacy-dpo-btn"
           >
-            Contact DPO
+            {dpoBtn}
           </a>
         </div>
       </section>

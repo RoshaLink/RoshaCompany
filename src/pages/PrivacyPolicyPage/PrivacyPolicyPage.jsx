@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Lock, Globe, FileText, CheckCircle2, Server, Scale, KeyRound, Eye, Mail, Clock, RefreshCw, Zap, BookOpen } from 'lucide-react';
+import PrivacyFullCard from './PrivacyFullCard';
 import './PrivacyPolicyPage.css';
 
 export default function PrivacyPolicyPage() {
@@ -752,30 +753,9 @@ Material revisions will be notified via prominent website banners or email prior
         ) : (
           /* FULL VERSION VIEW */
           <div className="privacy-full-list">
-            {currentFull.sections.map((section, idx) => {
-              const IconComponent = section.icon;
-              return (
-                <div 
-                  key={idx} 
-                  className="privacy-full-card"
-                >
-                  <div className="privacy-full-card-inner">
-                    <div className="privacy-full-card-icon-box">
-                      <IconComponent className="privacy-card-icon" />
-                    </div>
-
-                    <div className="privacy-full-card-content">
-                      <h2 className="privacy-full-card-title">
-                        {section.title}
-                      </h2>
-                      <div className="privacy-full-card-text">
-                        {section.text}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {currentFull.sections.map((section, idx) => (
+              <PrivacyFullCard key={idx} section={section} />
+            ))}
           </div>
         )}
 

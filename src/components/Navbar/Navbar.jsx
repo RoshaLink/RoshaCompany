@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Menu, X, Sparkles, Home, Globe, Briefcase, Layers, Users, Mail, ChevronDown } from 'lucide-react';
 import { MenuBar } from '../ui/glow-menu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
+import { useTheme } from '../../context/ThemeContext';
 import './Navbar.css';
 
 const SwedenFlag = () => (
@@ -48,7 +49,8 @@ const LANGUAGES = [
   { code: 'ar', label: 'العربية', Flag: ArabicFlag },
 ];
 
-export default function Navbar({ activePage, setActivePage, onOpenGetStarted, isDark, onToggleTheme }) {
+export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) {
+  const { isDark, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -186,7 +188,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
 
           {/* Language Switcher & CTA Button */}
           <div className="navbar-actions">
-            <ThemeSwitch isDark={isDark} onToggle={onToggleTheme} size="12px" />
+            <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
 
             {/* Language Switcher Dropdown */}
             <div className="relative">
@@ -230,7 +232,12 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
 
           {/* Mobile Hamburger & Lang Switcher Toggle */}
           <div className="navbar-mobile-toggle">
-            <ThemeSwitch isDark={isDark} onToggle={onToggleTheme} size="11px" />
+            <div className="navbar-theme-wrapper">
+              <ThemeSwitch 
+                isDark={isDark} 
+                onToggle={toggleTheme} 
+              />
+            </div>
             <button
               onClick={() => {
                 const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
@@ -276,7 +283,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, is
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
                 {isDark ? 'Dark Mode' : 'Light Mode'}
               </span>
-              <ThemeSwitch isDark={isDark} onToggle={onToggleTheme} size="12px" />
+              <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
             </div>
 
             <button

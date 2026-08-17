@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage/AboutPage';
 import ServicesPage from './pages/ServicesPage/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
 import ContactPage from './pages/ContactPage/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
     if (path.includes('services')) return 'services';
     if (path.includes('portfolio')) return 'portfolio';
     if (path.includes('contact')) return 'contact';
+    if (path.includes('privacy')) return 'privacy';
     return 'home';
   };
 
@@ -76,6 +78,8 @@ export default function App() {
             element={<PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 
           />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route 
             path="*" 
             element={<HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 

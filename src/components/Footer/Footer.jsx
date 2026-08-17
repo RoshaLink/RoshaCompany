@@ -102,7 +102,7 @@ export default function Footer({ setActivePage }) {
       <div className="footer-bottom">
         <div>{t('footer.rights')}</div>
         <div className="footer-bottom-links">
-          <a href="#" className="footer-bottom-link">Privacy Policy</a>
+          <button onClick={() => setActivePage('privacy')} className="footer-bottom-link cursor-pointer">{t('footer.privacyPolicy', 'Privacy Policy')}</button>
           <a href="#" className="footer-bottom-link">Terms of Service</a>
           <a href="#" className="footer-bottom-link">Security Specification</a>
         </div>

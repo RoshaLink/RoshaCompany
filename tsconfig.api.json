@@ -1,0 +1,27 @@
+{
+  // Type-checks the serverless functions in api/ from their existing JSDoc
+  // annotations. There is no TypeScript in this project and this config does
+  // not introduce any: `noEmit` means nothing is ever generated, and no .ts
+  // file is added. It only makes the type information already written in the
+  // JSDoc comments enforceable.
+  //
+  // Scoped to api/ on purpose. The React code in src/ has no JSDoc coverage,
+  // so checking it would produce hundreds of implicit-any errors that say
+  // nothing useful about correctness.
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022"],
+    "types": ["node"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true
+  },
+  "include": ["api/**/*.js"],
+  "exclude": ["api/**/*.test.js"]
+}

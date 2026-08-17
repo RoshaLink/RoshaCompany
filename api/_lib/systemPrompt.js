@@ -9,9 +9,10 @@ import { COMPANY_FACTS } from './companyFacts.js';
  * To change what Rosha *knows*, edit `companyFacts.js`.
  * To change how she *behaves*, edit the sections below.
  *
- * @param {object}  options
- * @param {string}  options.uiLang - The language the site UI is currently in.
- *                                   Only a tiebreaker; see the LANGUAGE block.
+ * @param {object}  [options]
+ * @param {string}  [options.uiLang='sv'] - The language the site UI is
+ *                                   currently in. Only a tiebreaker; see the
+ *                                   LANGUAGE block.
  */
 export function buildSystemPrompt({ uiLang = 'sv' } = {}) {
   return `

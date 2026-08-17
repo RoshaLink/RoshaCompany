@@ -84,11 +84,14 @@ export default function Footer({ setActivePage }) {
                 placeholder={t('footer.emailPlaceholder')}
                 className="footer-input"
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="footer-submit"
+                // Icon-only button: without this a screen reader announces
+                // just "button" with no indication of what it does.
+                aria-label={t('footer.subscribe')}
               >
-                <ArrowUpRight className="footer-submit-icon" />
+                <ArrowUpRight className="footer-submit-icon" aria-hidden="true" />
               </button>
             </div>
           </form>

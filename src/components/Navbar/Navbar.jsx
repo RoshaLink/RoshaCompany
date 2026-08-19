@@ -4,6 +4,7 @@ import { Menu, X, Sparkles, Home, Globe, Briefcase, Layers, Users, Mail, Chevron
 import { MenuBar } from '../ui/glow-menu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../context/ThemeContext';
+import logoImg from '../../assets/Logo/RoshaLink_8.jpeg';
 import './Navbar.css';
 
 const SwedenFlag = () => (
@@ -152,19 +153,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
             className="navbar-logo"
           >
             <div className="navbar-logo-icon">
-              <svg
-                className="w-full h-full text-[#0ea5e9]"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Rosha Head Outer Frame */}
-                <rect x="2" y="2" width="28" height="28" rx="8" stroke="currentColor" strokeWidth="3" />
-                {/* Left Eye */}
-                <rect x="10.5" y="10" width="3" height="12" rx="1.5" fill="currentColor" />
-                {/* Right Eye */}
-                <rect x="18.5" y="10" width="3" height="12" rx="1.5" fill="currentColor" />
-              </svg>
+              <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" />
             </div>
           </div>
 

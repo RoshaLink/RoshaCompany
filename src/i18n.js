@@ -335,6 +335,7 @@ const resources = {
         stayUpdated: "Håll dig uppdaterad",
         newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
         emailPlaceholder: "Ange arbetsemail",
+        subscribe: "Prenumerera",
         rights: "© 2026 RoshaLink. Alla rättigheter förbehållna."
       },
       modal: {
@@ -741,6 +742,7 @@ const resources = {
         stayUpdated: "Stay Updated",
         newsletterSub: "Get quarterly strategic insights and technical briefs.",
         emailPlaceholder: "Enter work email",
+        subscribe: "Subscribe",
         rights: "© 2026 RoshaLink. All rights reserved."
       },
       modal: {
@@ -1147,6 +1149,7 @@ const resources = {
         stayUpdated: "به‌روز بمانید",
         newsletterSub: "دریافت تحلیل‌های استراتژیک و خبرنامه‌های فنی سه ماهه.",
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
+        subscribe: "عضویت در خبرنامه",
         rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است."
       },
       modal: {
@@ -1348,7 +1351,16 @@ const resources = {
         highlight3Title: "سرعة تحميل فائقة وأداء مذهل",
         highlight3Desc: "سرعة تحميل أقل من ثانية تبقي الزوار وتزيد من تفاعلهم وشراء المنتجات.",
         boostBtn: "زد مبيعاتك وحسّن SEO الآن",
-        exploreBtn: "استكشف إمكانياتنا"
+        exploreBtn: "استكشف إمكانياتنا",
+        modalTitle: "استكشف إمكانياتنا",
+        modalSubtitle: "اكتشف كيف يمكن لميزاتنا أن تحوّل أعمالك",
+        feature4Title: "تكامل التحليلات المتقدمة",
+        feature4Desc: "احصل على رؤى عميقة حول سلوك المستخدمين ومؤشرات الأعمال.",
+        feature5Title: "أمان بمستوى المؤسسات",
+        feature5Desc: "احمِ بياناتك بمعايير أمان رائدة في القطاع.",
+        feature6Title: "قابلية توسّع لا محدودة",
+        feature6Desc: "بنية سحابية أصلية مصممة للنمو بسلاسة.",
+        closeBtn: "إغلاق"
       },
       mobileApp: {
         badge: "تطوير تطبيقات الجوال ونشرها",
@@ -1544,6 +1556,7 @@ const resources = {
         stayUpdated: "كن على اطلاع",
         newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
+        subscribe: "اشترك في النشرة",
         rights: "© 2026 RoshaLink. جميع الحقوق محفوظة."
       },
       modal: {

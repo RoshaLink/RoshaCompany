@@ -46,11 +46,6 @@ export default function OurLatestWork({ setActivePage, onOpenGetStarted }) {
         
         {/* Left Column: Copywriting & CTA */}
         <ContainerStagger className="space-y-6">
-          <ContainerAnimated className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm rtl:space-x-reverse">
-            <Sparkles className="w-3.5 h-3.5 text-sky-500" />
-            <span>{t('ourWork.badge')}</span>
-          </ContainerAnimated>
-
           <ContainerAnimated className="text-3xl md:text-5xl font-bold font-headline-md text-slate-900 leading-tight">
             {t('ourWork.titlePrefix')}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600">

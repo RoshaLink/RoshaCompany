@@ -44,10 +44,6 @@ export default function ContactPage() {
       <section className="relative pt-28 pb-20 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
         <div className="ambient-glow-cyan top-0 left-1/3 opacity-25 pointer-events-none" />
         <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>CONTACT & DISCOVERY CALL</span>
-          </div>
           <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
             Let's Build Something Extraordinary
           </h1>

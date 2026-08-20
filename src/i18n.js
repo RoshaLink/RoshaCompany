@@ -4,6 +4,214 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   sv: {
     translation: {
+      aboutPage: {
+        teamPerspectives: {
+          badge: "STRATEGISKA PERSPEKTIV & LEDARSKAP",
+          title: "Vårt kärnteam driver företagsinnovation och tillväxt",
+          titlePrefix: "Vårt kärnteam driver ",
+          titleGradient: "företagsinnovation & tillväxt",
+          titleSuffix: "",
+          subtitle: "Upptäck hur våra 5 seniora partners konstruerar lösningar, eliminerar produktfriktion och garanterar mätbara resultat.",
+          morteza: {
+            quote: "Mjukvaruarkitektur måste tjäna affären och framtida intäkter. Vi eliminerar teknisk skuld från dag ett genom att bygga rena, skräddarsydda lösningar utan mallar.",
+            name: "Morteza",
+            role: "CEO & Huvudarkitekt"
+          },
+          bella: {
+            quote: "Enastående UI/UX förenar teknisk precision med emotionell koppling, vilket mångdubblar konverteringsgraden och stärker ert varumärke.",
+            name: "Bella",
+            role: "Head of Product & Brand"
+          },
+          sohrab: {
+            quote: "Distribuerade molnsystem med under 20 ms svarstid och 99,99 % upptid säkerställer att er plattform aldrig vacklar under maximal trafik.",
+            name: "Sam",
+            role: "Senior Full-Stack & Cloud Ingenjör"
+          },
+          mina: {
+            quote: "Efter att ha varit konsult för globala jättar som Ericsson vet jag att rigorös affärsanalys före kodning sparar månader av onödigt omarbete.",
+            name: "Mina",
+            role: "Affärsanalytiker & Rådgivare"
+          },
+          milad: {
+            quote: "Från avancerad databasoptimering till blixtsnabba gränssnitt – ren och skalbar kod är ryggraden i varje framgångsrik applikation.",
+            name: "Milad",
+            role: "Senior Full-Stack Utvecklare"
+          },
+          synergy: {
+            quote: "Vår tvärvetenskapliga synergi mellan djup företagsanalys och senior ingenjörskonst ger våra kunder en oslagbar konkurrensfördel.",
+            name: "Bella",
+            role: "Head of Product & Brand"
+          },
+          guarantee: {
+            quote: "Vi lämnar aldrig över projekt till juniora praktikanter. Varje kund samarbetar direkt i realtid med de 5 seniora partners som bygger plattformen.",
+            name: "Morteza",
+            role: "CEO & Huvudarkitekt"
+          }
+        },
+        hero: {
+          badge: "OM OSS & VÅR VISION",
+          titlePrefix: "Vi arkitektoniserar ",
+          titleGradient: "NÄSTA GENERATION",
+          titleSuffix: " av digitala produkter & AI",
+          subtitle: "Vi är en elitgrupp av seniora ingenjörer, produktarkitekter och affärsanalytiker som förenar djupgående företagsanalys med skottsäker kod för maximal tillväxt.",
+          stats: {
+            stat1Val: "100%",
+            stat1Label: "Skräddarsydd kod",
+            stat1Sub: "Inga mallar eller genvägar",
+            stat2Val: "99.99%",
+            stat2Label: "Uptime & Stabilitet",
+            stat2Sub: "Modern molninfrastruktur",
+            stat3Val: "<20ms",
+            stat3Label: "Svarstid & Prestanda",
+            stat3Sub: "100/100 Lighthouse & SEO",
+            stat4Val: "5+",
+            stat4Label: "Seniora Partnerarkitekter",
+            stat4Sub: "Direkt samarbete utan mellanhänder"
+          }
+        },
+        teamShowcase: {
+          badge: "LEDARSKAPSTEAMET",
+          title: "Lär känna vårt expertteam",
+          titlePrefix: "Lär känna vårt ",
+          titleGradient: "expertteam",
+          titleSuffix: "",
+          description: "Vi är ett sammansvetsat team av passionerade arkitekter, designers och ingenjörer som brinner för att skapa banbrytande digitala upplevelser. Upptäck personerna som förvandlar era visioner till verklighet.",
+          button: "Boka strategisamtal med teamet",
+          members: [
+          {
+                    "name": "Sam",
+                    "role": "Senior Full-Stack Utvecklare",
+                    "tag": "Cloud & Web Arkitektur",
+                    "quote": "Jag bygger robusta applikationer och distribuerade molnsystem. Målet är alltid att leverera skalbar, blixtsnabb kod som överträffar förväntningarna."
+          },
+          {
+                    "name": "Bella",
+                    "role": "Head of Product & Brand",
+                    "tag": "UI/UX & Kreativ Ledning",
+                    "quote": "Att skapa fängslande digitala berättelser och bygga starka varumärkesidentiteter är min passion. Vi kopplar ihop era produkter med rätt målgrupp."
+          },
+          {
+                    "name": "Morteza",
+                    "role": "CEO & Huvudarkitekt",
+                    "tag": "AI & Systemarkitektur",
+                    "quote": "Med mångårig erfarenhet av att bygga tech-startups globalt skapar vi mjukvarulösningar som löser verkliga problem genom innovation och teknisk excellens."
+          },
+          {
+                    "name": "Mina",
+                    "role": "Affärsanalytiker & Rådgivare",
+                    "tag": "Ex-Ericsson & Strategi",
+                    "quote": "Efter att ha konsultat för globala telekom- och techjättar som Ericsson fokuserar jag på arbetsflödesoptimering, strategisk analys och mätbar tillväxt."
+          },
+          {
+                    "name": "Milad",
+                    "role": "Senior Full-Stack Utvecklare",
+                    "tag": "Backend & Databassystem",
+                    "quote": "Från komplexa backend-arkitekturer till intuitiva användargränssnitt konstruerar jag stabila mjukvarusystem som driver moderna företagsapplikationer."
+          }
+]
+        },
+        missionBento: {
+          badge: "VÅR FILOSOFI & STANDARD",
+          title: "Varför RoshaLink bygger annorlunda",
+          titlePrefix: "Varför RoshaLink bygger ",
+          titleGradient: "helt annorlunda",
+          titleSuffix: "",
+          subtitle: "Vi eliminerar teknisk skuld och bygger mjukvara som tål att växa med er verksamhet.",
+          card1Badge: "AFFÄRSANALYS FÖRST",
+          card1Title: "Strategi",
+          card1Desc: "Företag kämpar ofta med osammanhängande system och generiska mallar. Vi analyserar era arbetsflöden och bygger lösningar anpassade exakt efter era affärsmål.",
+          card2Badge: "NOLL DOWNTIME",
+          card2Title: "Prestanda",
+          card2Desc: "Modulära, händelsestyrda mikrotjänster med ISO 27001-standard och sub-20ms transaktionstider som garanterar oavbruten drift.",
+          card3Badge: "DIREKT PARTNERSKAP",
+          card3Title: "Partnerskap",
+          card3Desc: "Inga juniora utvecklare eller oerfarna mellanhänder. Ni samarbetar direkt med de 5 seniora arkitekterna som bygger er plattform.",
+          card4Badge: "AI & FRAMTIDSSÄKERHET",
+          card4Title: "Automation",
+          card4Desc: "Vi integrerar anpassade AI-modeller, smarta arbetsflöden och moderna API-kopplingar som sparar hundratals timmar manuellt arbete."
+        },
+        methodology: {
+          badge: "VÅR METODIK",
+          title: "Från vision till skottsäker leverans i 4 steg",
+          titlePrefix: "Från vision till skottsäker leverans i ",
+          titleGradient: "4 steg",
+          titleSuffix: "",
+          subtitle: "En strukturerad och beprövad utvecklingsprocess designad för precision och snabbhet.",
+          step1Num: "01",
+          step1Title: "Strategisk Affärsanalys & Kartläggning",
+          step1Desc: "Djupgående analys av er affärsmodell, användarresor, tekniska krav och datastrukturer.",
+          step2Num: "02",
+          step2Title: "Tokeniserat Designsystem & Prototyp",
+          step2Desc: "Skapande av ett modernt, flexibelt UI/UX-designsystem med interaktiva prototyper.",
+          step3Num: "03",
+          step3Title: "Skräddarsydd Kodarkitektur",
+          step3Desc: "Byggnation med ren, skalbar kod i React, moderna backend-API:er och molninfrastruktur utan mallar.",
+          step4Num: "04",
+          step4Title: "Prestandaoptimering & Global Driftsättning",
+          step4Desc: "100/100 Lighthouse-optimering, automatiserad CI/CD, ISO-säkerhet och kontinuerlig monitorering."
+        },
+        values: {
+          badge: "GRUNDLÄGGANDE PRINCIPER",
+          title: "Principer som vägleder varje rad kod vi skriver",
+          subtitle: "Vår kompromisslösa kvalitetsstandard för moderna företagsapplikationer.",
+          v1Title: "Skräddarsydd Ingenjörskonst",
+          v1Desc: "Varje komponent och databasstruktur konstrueras utan färdiga standardmallar för maximal flexibilitet och renhet.",
+          v2Title: "Säkerhet & Zero Trust",
+          v2Desc: "Företagsklassad dataintegritet och ISO 27001-efterlevnad integrerad djupt i alla applikationslager.",
+          v3Title: "Mätbar Affärseffekt",
+          v3Desc: "Vi mäter vår framgång i era intäktsökningar, högre konverteringar, sänkta latenser och nöjdare användare.",
+          v4Title: "Transparent Samarbete",
+          v4Desc: "Direkt kommunikation med seniora partnerarkitekter i realtid med full insyn i utvecklingen.",
+          v5Title: "Blixtsnabb Responstid",
+          v5Desc: "Sub-20ms gränssnitt och optimerad kod som levererar 100/100 betyg på Google PageSpeed och SEO.",
+          v6Title: "Långsiktigt Partnerskap",
+          v6Desc: "Vi är er kontinuerliga teknologipartner som utvecklar, skalar och underhåller er plattform över tid."
+        },
+        awards: {
+          "sectionTitle": "Branscherkännande & Utmärkelser",
+          "titlePrefix": "Branscherkännande & ",
+          "titleGradient": "Utmärkelser",
+          "titleSuffix": "",
+          "sectionSubtitle": "Vår hängivenhet till teknisk excellens, banbrytande arkitektur och kompromisslös design belönas internationellt.",
+          "a1": {
+                  "title": "BÄSTA WEBB-ARKITEKTUR",
+                  "subtitle": "Global Cloud & Scalability Awards",
+                  "recipient": "RoshaLink Architecture Squad",
+                  "date": "2025",
+                  "level": "gold"
+          },
+          "a2": {
+                  "title": "FULL-STACK INNOVATION",
+                  "subtitle": "Enterprise Scalability & Speed Honors",
+                  "recipient": "RoshaLink Engineering",
+                  "date": "2025",
+                  "level": "platinum"
+          },
+          "a3": {
+                  "title": "TOPP UI/UX DESIGN",
+                  "subtitle": "Nordic Digital Experience & Product Awards",
+                  "recipient": "RoshaLink Product Studio",
+                  "date": "2024 - 2025",
+                  "level": "gold"
+          },
+          "a4": {
+                  "title": "AI & APP INNOVATION",
+                  "subtitle": "Next-Gen Enterprise Web & Mobile Platform",
+                  "recipient": "RoshaLink Labs",
+                  "date": "2025",
+                  "level": "platinum"
+          }
+},
+          cta: {
+          badge: "SAMARBETA MED OSS",
+          title: "Vill du bygga nästa framgångsrika produkt med vårt ledarteam?",
+          titlePrefix: "Vill du bygga nästa framgångsrika produkt med ",
+          titleGradient: "vårt ledarteam?",
+          titleSuffix: "",
+          subtitle: "Boka en strategisk upptäcktsworkshop med våra 5 seniora partners och låt oss transformera er digitala vision.",
+          button: "Boka strategisamtal nu"
+        }
+      },
       nav: {
         home: "Hem",
         portfolio: "Portfölj",
@@ -375,6 +583,214 @@ const resources = {
   },
   en: {
     translation: {
+      aboutPage: {
+        teamPerspectives: {
+          badge: "STRATEGIC PERSPECTIVES & LEADERSHIP",
+          title: "Direct Founding Leadership Driving Enterprise Innovation",
+          titlePrefix: "Direct Founding Leadership Driving ",
+          titleGradient: "Enterprise Innovation",
+          titleSuffix: "",
+          subtitle: "How our 5 senior partners engineer tailor-made solutions, eliminate technical friction, and guarantee measurable revenue growth.",
+          morteza: {
+            quote: "Software architecture must directly serve revenue and long-term business goals. We eliminate technical debt from day one by building clean, bespoke foundations without templates.",
+            name: "Morteza",
+            role: "CEO & Lead Architect"
+          },
+          bella: {
+            quote: "Exceptional UI/UX connects technical precision with emotional human connection, boosting conversion rates and enterprise brand prestige.",
+            name: "Bella",
+            role: "Head of Product & Brand"
+          },
+          sohrab: {
+            quote: "Distributed cloud systems with sub-20ms latency and 99.99% uptime guarantee your platform never fails under peak enterprise traffic.",
+            name: "Sam",
+            role: "Senior Full-Stack & Cloud Engineer"
+          },
+          mina: {
+            quote: "Having consulted for global enterprise titans like Ericsson, rigorous business process auditing before writing code saves months of rework.",
+            name: "Mina",
+            role: "Business Analyst & Strategic Advisor"
+          },
+          milad: {
+            quote: "From database indexing to silky frontend interactivity, pure and scalable code is the backbone of high-growth applications.",
+            name: "Milad",
+            role: "Senior Full-Stack & Systems Engineer"
+          },
+          synergy: {
+            quote: "Our cross-disciplinary synergy between deep business analysis and senior engineering gives clients an unfair competitive advantage.",
+            name: "Bella",
+            role: "Head of Product & Brand"
+          },
+          guarantee: {
+            quote: "We don't hand off projects to junior contractors. Every single client collaborates directly in real-time with the 5 senior partners building their software.",
+            name: "Morteza",
+            role: "CEO & Lead Architect"
+          }
+        },
+        hero: {
+          badge: "ABOUT US & OUR VISION",
+          titlePrefix: "Architecting the ",
+          titleGradient: "NEXT GENERATION",
+          titleSuffix: " of Digital Products & AI",
+          subtitle: "We are an elite squad of senior software architects, product designers, and strategic business analysts dedicated to transforming complex digital products with tailor-made precision.",
+          stats: {
+            stat1Val: "100%",
+            stat1Label: "Tailor-Made Code",
+            stat1Sub: "No templates or shortcuts",
+            stat2Val: "99.99%",
+            stat2Label: "Uptime & Reliability",
+            stat2Sub: "Modern cloud infrastructure",
+            stat3Val: "<20ms",
+            stat3Label: "Response & Latency",
+            stat3Sub: "100/100 Lighthouse & SEO",
+            stat4Val: "5+",
+            stat4Label: "Senior Partner Architects",
+            stat4Sub: "Direct collaboration without middle layers"
+          }
+        },
+        teamShowcase: {
+          badge: "LEADERSHIP SQUAD",
+          title: "Get to Know Our Expert Team",
+          titlePrefix: "Get to Know Our ",
+          titleGradient: "Expert Leadership Squad",
+          titleSuffix: "",
+          description: "We are a dedicated squad of senior software architects, product designers, and strategic advisors passionate about crafting world-class digital experiences and engineering your vision into reality.",
+          button: "Schedule Strategy Call with Team",
+          members: [
+          {
+                    "name": "Sam",
+                    "role": "Senior Full-Stack Engineer",
+                    "tag": "Cloud & Web Architecture",
+                    "quote": "I construct resilient web applications and distributed cloud systems. The goal is always to deliver scalable, lightning-fast performance that exceeds expectations."
+          },
+          {
+                    "name": "Bella",
+                    "role": "Head of Product & Brand",
+                    "tag": "UI/UX & Creative Direction",
+                    "quote": "Crafting compelling digital narratives and memorable brand identities is my passion. We bridge cutting-edge interfaces with real human connection."
+          },
+          {
+                    "name": "Morteza",
+                    "role": "CEO & Lead Architect",
+                    "tag": "AI & System Architecture",
+                    "quote": "With extensive experience building startups across international markets, we engineer software that solves real-world challenges through relentless innovation and technical mastery."
+          },
+          {
+                    "name": "Mina",
+                    "role": "Business Analyst & Advisor",
+                    "tag": "Ex-Ericsson & Strategy",
+                    "quote": "Having consulted for global enterprise titans like Ericsson, I specialize in workflow optimization, strategic audits, and driving measurable revenue growth."
+          },
+          {
+                    "name": "Milad",
+                    "role": "Senior Full-Stack Engineer",
+                    "tag": "Backend & Distributed Systems",
+                    "quote": "From complex database backends to silky frontend experiences, I am dedicated to engineering bulletproof software architectures powering modern business."
+          }
+]
+        },
+        missionBento: {
+          badge: "OUR PHILOSOPHY & STANDARD",
+          title: "Why RoshaLink Builds Differently",
+          titlePrefix: "Why RoshaLink Builds ",
+          titleGradient: "Differently",
+          titleSuffix: "",
+          subtitle: "We eliminate technical debt and engineer software built to scale gracefully with your business.",
+          card1Badge: "BUSINESS ANALYSIS FIRST",
+          card1Title: "Strategy",
+          card1Desc: "Modern enterprises struggle with disconnected design systems, slow legacy backends, and bloated software. We analyze your core workflows first and craft custom solutions designed for profit.",
+          card2Badge: "ZERO DOWNTIME",
+          card2Title: "Performance",
+          card2Desc: "Modular, event-driven architectures engineered for 99.99% uptime, sub-20ms transaction speeds, and multi-platform consistency across web and mobile.",
+          card3Badge: "DIRECT PARTNERSHIP",
+          card3Title: "Partnership",
+          card3Desc: "No junior developers, no offshore outsourcing, and no project manager proxies. You work in real-time with the 5 senior partners who write your code.",
+          card4Badge: "AI & FUTURE-PROOFING",
+          card4Title: "Automation",
+          card4Desc: "We seamlessly integrate bespoke AI models, intelligent agents, and automated data pipelines that eliminate hundreds of hours of manual overhead.",
+        },
+        methodology: {
+          badge: "OUR METHODOLOGY",
+          title: "From Vision to Flawless Delivery in 4 Steps",
+          titlePrefix: "From Vision to Flawless Delivery in ",
+          titleGradient: "4 Proven Steps",
+          titleSuffix: "",
+          subtitle: "A proven, high-velocity engineering workflow designed for architectural rigor and speed.",
+          step1Num: "01",
+          step1Title: "Strategic Business Discovery & Audit",
+          step1Desc: "In-depth audit of business models, user personas, technical requirements, and data schemas.",
+          step2Num: "02",
+          step2Title: "Tokenized Design System & Prototype",
+          step2Desc: "Interactive high-fidelity prototypes and accessible, modular UI design systems.",
+          step3Num: "03",
+          step3Title: "Tailor-Made Code Engineering",
+          step3Desc: "Pure, template-free custom development in React, Node/Cloud backends, and micro-frontends.",
+          step4Num: "04",
+          step4Title: "Performance Tuning & Global Deployment",
+          step4Desc: "100/100 Lighthouse optimization, automated CI/CD pipelines, ISO compliance, and 24/7 observability."
+        },
+        values: {
+          badge: "CORE PRINCIPLES",
+          title: "The Standards Guiding Every Line of Code We Write",
+          subtitle: "Our uncompromising engineering values crafted for modern enterprise growth.",
+          v1Title: "Tailor-Made Engineering",
+          v1Desc: "Every UI component and backend pipeline is custom-coded from scratch without generic templates or bloated dependencies.",
+          v2Title: "Security & Zero Trust",
+          v2Desc: "Enterprise-grade data privacy and ISO 27001 standards baked into the core application layer.",
+          v3Title: "Measurable Impact",
+          v3Desc: "We measure success in customer revenue growth, reduced latency, higher retention, and measurable ROI.",
+          v4Title: "Transparent Collaboration",
+          v4Desc: "Real-time communication with senior partner architects with full transparency across every development sprint.",
+          v5Title: "Lightning Speed & SEO",
+          v5Desc: "Sub-20ms interfaces and clean code architecture achieving 100/100 ratings across Google PageSpeed and SEO.",
+          v6Title: "Long-Term Partnership",
+          v6Desc: "We operate as your dedicated technical leadership partner, evolving and scaling your software continuously."
+        },
+        awards: {
+          "sectionTitle": "Industry Recognition & Honors",
+          "titlePrefix": "Industry Recognition & ",
+          "titleGradient": "Honors",
+          "titleSuffix": "",
+          "sectionSubtitle": "Our relentless commitment to architectural mastery, bulletproof engineering, and intuitive product design.",
+          "a1": {
+                  "title": "BEST WEB ARCHITECTURE",
+                  "subtitle": "Global Cloud & Scalability Awards",
+                  "recipient": "RoshaLink Architecture Squad",
+                  "date": "2025",
+                  "level": "gold"
+          },
+          "a2": {
+                  "title": "FULL-STACK INNOVATION",
+                  "subtitle": "Enterprise Scalability & Speed Honors",
+                  "recipient": "RoshaLink Engineering",
+                  "date": "2025",
+                  "level": "platinum"
+          },
+          "a3": {
+                  "title": "TOP UI/UX DESIGN",
+                  "subtitle": "Nordic Digital Experience & Product Awards",
+                  "recipient": "RoshaLink Product Studio",
+                  "date": "2024 - 2025",
+                  "level": "gold"
+          },
+          "a4": {
+                  "title": "AI & APP INNOVATION",
+                  "subtitle": "Next-Gen Enterprise Web & Mobile Platform",
+                  "recipient": "RoshaLink Labs",
+                  "date": "2025",
+                  "level": "platinum"
+          }
+},
+          cta: {
+          badge: "PARTNER WITH US",
+          title: "Ready to Build Your Next High-Performance Product?",
+          titlePrefix: "Ready to Build Your Next High-Performance Product with ",
+          titleGradient: "Our Leadership Squad?",
+          titleSuffix: "",
+          subtitle: "Schedule a strategic discovery workshop with our 5 founding partners today and turn your digital ambition into reality.",
+          button: "Schedule Strategy Call Now"
+        }
+      },
       nav: {
         home: "Home",
         portfolio: "Portfolio",
@@ -746,6 +1162,214 @@ const resources = {
   },
   fa: {
     translation: {
+      aboutPage: {
+        teamPerspectives: {
+          badge: "دیدگاه‌های استراتژیک و رهبری فنی",
+          title: "همکاری مستقیم با تیم اصلی و تضمین رشد پایدار",
+          titlePrefix: "رهبری مستقیم بنیان‌گذاران در مسیر ",
+          titleGradient: "نوآوری و رشد سازمانی",
+          titleSuffix: "",
+          subtitle: "چگونه ۵ پارتنر ارشد روشالینک اصطکاک محصولات را حذف کرده و راهکارهای سودآور خلق می‌کنند.",
+          morteza: {
+            quote: "معماری نرم‌افزار باید مستقیماً در خدمت افزایش درآمد و اهداف تجاری باشد. ما با کدنویسی کاملاً اختصاصی و بدون قالب، بدهی فنی را از روز اول حذف می‌کنیم.",
+            name: "مرتضی",
+            role: "مدیرعامل و معمار ارشد سیستم"
+          },
+          bella: {
+            quote: "طراحی استثنایی UI/UX دقت فنی را با ارتباط عاطفی کاربران پیوند می‌دهد و نرخ تبدیل و وفاداری به برند شما را به اوج می‌رساند.",
+            name: "بلا",
+            role: "مدیر ارشد محصول و برندینگ"
+          },
+          sohrab: {
+            quote: "زیرساخت‌های توزیع‌شده ابری با زمان پاسخ زیر ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین می‌کنند پلتفرم شما زیر سنگین‌ترین ترافیک‌ها هم پایدار بماند.",
+            name: "سام",
+            role: "مهندس ارشد فول‌استک و کلاد"
+          },
+          mina: {
+            quote: "با تجربه مشاوره برای غول‌های جهانی مانند اریکسون، اطمینان دارم که تحلیل دقیق فرآیندهای کسب‌وکار قبل از کدنویسی از ماه‌ها دوباره‌کاری جلوگیری می‌کند.",
+            name: "مینا",
+            role: "تحلیل‌گر ارشد کسب‌وکار و مشاور"
+          },
+          milad: {
+            quote: "از بهینه‌سازی دیتابیس تا رابط‌های کاربری روان و پرسرعت، کد تمیز و مقیاس‌پذیر ستون فقرات هر اپلیکیشن پیشرو است.",
+            name: "میلاد",
+            role: "مهندس ارشد فول‌استک و سیستم"
+          },
+          synergy: {
+            quote: "هم‌افزایی میان تحلیل عمیق بیزینس و مهندسی ارشد نرم‌افزار، مزیتی رقابتی و دست‌نیافتنی برای مشتریان ما خلق می‌کند.",
+            name: "بلا",
+            role: "مدیر ارشد محصول و برندینگ"
+          },
+          guarantee: {
+            quote: "ما هیچ پروژه‌ای را به نیروهای کم‌تجربه برون‌سپاری نمی‌کنیم. شما مستقیماً با ۵ پارتنر ارشد که خود کد را می‌نویسند کار می‌کنید.",
+            name: "مرتضی",
+            role: "مدیرعامل و معمار ارشد نرم‌افزار"
+          }
+        },
+        hero: {
+          badge: "درباره ما و چشم‌انداز روشالینک",
+          titlePrefix: "طراحی و مهندسی ",
+          titleGradient: "نسل آینده",
+          titleSuffix: " محصولات دیجیتال و هوش مصنوعی",
+          subtitle: "ما تیمی نخبه از معماران نرم‌افزار، طراحان محصول و تحلیل‌گران ارشد کسب‌وکار هستیم که تحلیل دقیق تجاری را با برنامه‌نویسی اختصاصی برای رشد حداکثری شما ترکیب می‌کنیم.",
+          stats: {
+            stat1Val: "۱۰۰٪",
+            stat1Label: "کدنویسی کاملاً اختصاصی",
+            stat1Sub: "بدون استفاده از قالب‌های آماده",
+            stat2Val: "۹۹.۹۹٪",
+            stat2Label: "پایداری و آپ‌تایم سیستم",
+            stat2Sub: "زیرساخت ابری مدرن و پایدار",
+            stat3Val: "کمتر از ۲۰ms",
+            stat3Label: "سرعت پاسخگویی و لود",
+            stat3Sub: "امتیاز ۱۰۰/۱۰۰ گوگل و لایت‌هاوس",
+            stat4Val: "۵+",
+            stat4Label: "معمار و پارتنر ارشد",
+            stat4Sub: "همکاری مستقیم بدون واسطه"
+          }
+        },
+        teamShowcase: {
+          badge: "تیم راهبری و پارتنرها",
+          title: "با تیم متخصص و خلاق ما آشنا شوید",
+          titlePrefix: "با تیم متخصص و ",
+          titleGradient: "پارتنرهای ارشد ما",
+          titleSuffix: " آشنا شوید",
+          description: "ما تیمی منسجم از معماران نرم‌افزار، طراحان محصول و مهندسان ارشد هستیم که با تعهد و تخصص، ایده‌های شما را به محصولات دیجیتال قدرتمند، چشم‌نواز و مقیاس‌پذیر تبدیل می‌کنیم.",
+          button: "رزرو جلسه استراتژیک با تیم",
+          members: [
+          {
+                    "name": "سام",
+                    "role": "مهندس ارشد فول‌استک و کلاد",
+                    "tag": "معماری وب و زیرساخت ابری",
+                    "quote": "تخصص من توسعه اپلیکیشن‌های مقیاس‌پذیر و زیرساخت‌های پایدار ابری است. هدف همیشگی من ارائه کدی سریع، بهینه و فراتر از انتظارات است."
+          },
+          {
+                    "name": "بلا",
+                    "role": "مدیر ارشد محصول و برندینگ",
+                    "tag": "طراحی UI/UX و هدایت خلاقانه",
+                    "quote": "خلق داستان‌های ماندگار برند و طراحی رابط‌های کاربری جذاب تخصص من است؛ ما محصول شما را به بهترین شکل به مخاطبان هدف متصل می‌کنیم."
+          },
+          {
+                    "name": "مرتضی",
+                    "role": "مدیرعامل و معمار ارشد نرم‌افزار",
+                    "tag": "هوش مصنوعی و معماری سیستم",
+                    "quote": "با سال‌ها تجربه در راه‌اندازی استارتاپ‌ها در کشورهای مختلف، باور دارم که نرم‌افزار باید مسائل واقعی کسب‌وکارها را با نوآوری و مهندسی دقیق حل کند."
+          },
+          {
+                    "name": "مینا",
+                    "role": "تحلیل‌گر ارشد کسب‌وکار و مشاور",
+                    "tag": "سابقه اریکسون و استراتژی رشد",
+                    "quote": "با تجربه مشاوره برای غول‌های جهانی فناوری مانند اریکسون، روی بهینه‌سازی جریان کار، تحلیل استراتژیک و افزایش درآمد تمرکز دارم."
+          },
+          {
+                    "name": "میلاد",
+                    "role": "مهندس ارشد فول‌استک و سیستم",
+                    "tag": "توسعه بک‌اند و پایگاه داده",
+                    "quote": "از معماری‌های پیچیده سمت سرور تا رابط‌های کاربری فوق‌سریع، اشتیاق من مهندسی سیستم‌های پایدار و قدرتمند برای وب مدرن است."
+          }
+]
+        },
+        missionBento: {
+          badge: "فلسفه و استانداردهای ما",
+          title: "چرا روشالینک به شکلی متفاوت می‌سازد؟",
+          titlePrefix: "چرا روشالینک به شکلی ",
+          titleGradient: "کاملاً متفاوت می‌سازد؟",
+          titleSuffix: "",
+          subtitle: "ما بدهی‌های فنی را حذف می‌کنیم و نرم‌افزاری مقیاس‌پذیر برای آینده سازمان شما می‌سازیم.",
+          card1Badge: "تحلیل کسب‌وکار پیش از کدنویسی",
+          card1Title: "استراتژی",
+          card1Desc: "بسیاری از سازمان‌ها با سیستم‌های کند و قالب‌های آماده ناکارآمد دست‌وپنجه نرم می‌کنند. ما ابتدا مدل کسب‌وکار شما را تحلیل کرده و راهکاری سفارشی خلق می‌کنیم.",
+          card2Badge: "آپ‌تایم و امنیت پایدار",
+          card2Title: "عملکرد",
+          card2Desc: "معماری ماژولار و رویدادمحور با استاندارد امنیتی ISO 27001 و سرعت پاسخ کمتر از ۲۰ میلی‌ثانیه برای تضمین عملکرد بی‌وقفه.",
+          card3Badge: "همکاری مستقیم با تیم اصلی",
+          card3Title: "مشارکت",
+          card3Desc: "بدون برون‌سپاری یا واسطه؛ شما مستقیماً با ۵ پارتنر و معمار ارشد سیستم در ارتباط هستید که خود کدنویسی پروژه را انجام می‌دهند.",
+          card4Badge: "هوش مصنوعی و آینده‌نگری",
+          card4Title: "اتوماسیون",
+          card4Desc: "ادغام مدل‌های اختصاصی هوش مصنوعی و فرآیندهای خودکار برای صرفه‌جویی در صدها ساعت کار دستی و افزایش بهره‌وری کسب‌وکار شما.",
+        },
+        methodology: {
+          badge: "متدولوژی و فرآیند ما",
+          title: "از ایده تا تحویل بی‌نقص در ۴ گام مهندسی‌شده",
+          titlePrefix: "از ایده تا تحویل بی‌نقص در ",
+          titleGradient: "۴ گام مهندسی‌شده",
+          titleSuffix: "",
+          subtitle: "فرآیندی شفاف، سریع و آزموده‌شده برای تولید نرم‌افزارهای مدرن در بالاترین سطح کیفی.",
+          step1Num: "۰۱",
+          step1Title: "تحلیل استراتژیک و کشف نیازمندی‌ها",
+          step1Desc: "بررسی عمیق مدل درآمدی، پرسونای مخاطبان، جریان‌های کاری و معماری داده‌های پروژه.",
+          step2Num: "۰۲",
+          step2Title: "دیزاین سیستم ماژولار و پروتوتایپ",
+          step2Desc: "طراحی رابط کاربری مدرن، سیستم توکنایز شده و پروتوتایپ‌های تعاملی قبل از کدنویسی.",
+          step3Num: "۰۳",
+          step3Title: "توسعه نرم‌افزار کاملاً اختصاصی",
+          step3Desc: "برنامه‌نویسی تمیز با React، وب‌سرویس‌های ابری و فرانت‌اند بدون استفاده از هیچ قالب عمومی.",
+          step4Num: "۰۴",
+          step4Title: "بهینه‌سازی لایت‌هاوس و استقرار جهانی",
+          step4Desc: "دستیابی به امتیاز ۱۰۰/۱۰۰ سرعت و سئو، امنیت ایزو و استقرار در شبکه‌های ابری جهانی."
+        },
+        values: {
+          badge: "اصول و ارزش‌های کلیدی",
+          title: "اصولی که در هر خط کد پایبند آن هستیم",
+          subtitle: "استاندارد کیفی سخت‌گیرانه ما برای تضمین موفقیت پروژه‌های سازمان شما.",
+          v1Title: "توسعه کاملاً سفارشی",
+          v1Desc: "هر کامپوننت و ساختار داده‌ها به صورت صفر تا صد و متناسب با برند شما برنامه‌نویسی می‌شود.",
+          v2Title: "امنیت داده و Zero Trust",
+          v2Desc: "رعایت استانداردهای بین‌المللی ISO 27001 و حفظ حریم خصوصی در تمامی لایه‌های نرم‌افزار.",
+          v3Title: "تاثیر ملموس بر درآمد",
+          v3Desc: "موفقیت ما با افزایش فروش، کاهش نرخ پرش، سرعت لود بالا و رشد مشتریان شما سنجیده می‌شود.",
+          v4Title: "شفافیت و همکاری پویا",
+          v4Desc: "ارتباط پیوسته و لحظه‌ای با مهندسان ارشد در تمام مراحل اسپرینت‌ها و توسعه محصول.",
+          v5Title: "سرعت برق‌آسا و سئو عالی",
+          v5Desc: "کدنویسی بهینه با زمان لود زیر ۱ ثانیه و رتبه‌بندی صدر جدول در نتایج جستجوی گوگل.",
+          v6Title: "پشتیبانی و همراهی بلندمدت",
+          v6Desc: "ما به عنوان بازوی فنی سازمان شما، به طور مداوم محصول را ارتقا داده و پشتیبانی می‌کنیم."
+        },
+        awards: {
+          "sectionTitle": "جوایز و افتخارات بین‌المللی",
+          "titlePrefix": "جوایز و ",
+          "titleGradient": "افتخارات بین‌المللی",
+          "titleSuffix": "",
+          "sectionSubtitle": "تعهد بی‌وقفه ما به برتری فنی، معماری بی‌نقص نرم‌افزار و طراحی محصول در کلاس جهانی.",
+          "a1": {
+                  "title": "برترین معماری وب و کلاد",
+                  "subtitle": "جایزه جهانی کلاد و مقیاس‌پذیری ۲۰۲۵",
+                  "recipient": "تیم معماری سیستم روشالینک",
+                  "date": "۲۰۲۵",
+                  "level": "gold"
+          },
+          "a2": {
+                  "title": "نوآوری فول‌استک سازمانی",
+                  "subtitle": "افتخار سرعت و پایداری سیستم‌های توزیع‌شده",
+                  "recipient": "دپارتمان مهندسی روشالینک",
+                  "date": "۲۰۲۵",
+                  "level": "platinum"
+          },
+          "a3": {
+                  "title": "برترین طراحی UI/UX محصول",
+                  "subtitle": "افتخار برتر تجربه دیجیتال و دیزاین نوردیک",
+                  "recipient": "استودیو طراحی محصول روشالینک",
+                  "date": "۲۰۲۴ - ۲۰۲۵",
+                  "level": "gold"
+          },
+          "a4": {
+                  "title": "نوآوری هوش مصنوعی و وب‌اپ",
+                  "subtitle": "پلتفرم سال نسل بعد برای وب و موبایل سازمانی",
+                  "recipient": "آزمایشگاه نوآوری روشالینک",
+                  "date": "۲۰۲۵",
+                  "level": "platinum"
+          }
+},
+          cta: {
+          badge: "همکاری با روشالینک",
+          title: "آماده‌اید محصول برتر بعدی خود را با تیم رهبری ما بسازید؟",
+          titlePrefix: "آماده‌اید محصول برنده بعدی خود را با ",
+          titleGradient: "تیم رهبری ما",
+          titleSuffix: " بسازید؟",
+          subtitle: "همین امروز یک جلسه استراتژیک با ۵ پارتنر ارشد ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
+          button: "رزرو جلسه استراتژیک اکنون"
+        }
+      },
       nav: {
         home: "خانه",
         portfolio: "نمونه‌کارها",
@@ -865,18 +1489,6 @@ const resources = {
         titleGradient: "رتبه اول نتایج گوگل",
         titleSuffix: "را تصاحب کنید",
         subtitle: "ما سرعت فوق‌العاده، بهینه‌سازی نرخ تبدیل مشتری (CRO) و سئوی پیشرفته گوگل را با هم ترکیب می‌کنیم تا برند شما در اینترنت به بهترین شکل دیده شده و بازدیدکنندگان به مشتریان واقعی تبدیل شوند.",
-        highlight1Title: "افزایش چشمگیر فروش و تبدیل مشتری",
-        highlight1Desc: "طراحی مسیرهای هوشمند و متقاعدکننده برای ارتقای نرخ خرید کاربران.",
-        highlight2Title: "تصاحب رتبه ۱ در نتایج جستجوی گوگل",
-        highlight2Desc: "درخشش در صدر نتایج گوگل با ایندکس سریع و ساختار استاندارد سئو.",
-        highlight3Title: "سرعت فوق‌العاده و تجربه کاربری بی‌نظیر",
-        highlight3Desc: "بارگذاری زیر ۱ ثانیه (امتیاز ۱۰۰/۱۰۰) برای حفظ کاربران و افزایش رضایت خرید.",
-        boostBtn: "افزایش فروش و سئوی وب‌سایت",
-        exploreBtn: "بررسی قابلیت‌های سیستم",
-        modalTitle: "بررسی قابلیت‌های سیستم",
-        modalSubtitle: "کشف کنید چگونه امکانات ما می‌تواند کسب‌وکار شما را متحول کند",
-        feature4Title: "تحلیل داده‌های پیشرفته",
-        feature4Desc: "بینش عمیقی نسبت به رفتار کاربران و معیارهای کسب‌وکار به دست آورید.",
         feature5Title: "امنیت در سطح سازمانی",
         feature5Desc: "محافظت از داده‌های شما با استانداردهای امنیتی پیشرو در صنعت.",
         feature6Title: "مقیاس‌پذیری نامحدود",
@@ -928,108 +1540,108 @@ const resources = {
           {
             name: "Sam",
             designation: "توسعه‌دهنده ارشد فول‌استک وب",
-            quote: "من برنامه‌ها و وب‌سایت‌های قدرتمندی را با فریم‌ورک‌های مختلف ساخته‌ام. هدف من همیشه ارائه راهکارهای وب مقیاس‌پذیر و با کارایی بالا است که فراتر از انتظارات باشند."
+            quote: "من اپلیکیشن‌ها و وب‌سایت‌های مقیاس‌پذیر و پایداری با فریم‌ورک‌های مختلف توسعه داده‌ام. هدف من همواره ارائه راهکارهای وب فوق‌العاده با عملکرد بالا است که فراتر از انتظارات باشند."
           },
           {
             name: "Mina",
-            designation: "تحلیل‌گر و مشاور کسب‌وکار",
-            quote: "با تجربه مشاوره در شرکت‌های بزرگ جهانی مانند اریکسون، تخصص من در بهینه‌سازی جریان کاری، تحلیل استراتژیک و ایجاد رشد ملموس در کسب‌وکار است."
+            designation: "تحلیل‌گر ارشد کسب‌وکار و مشاور",
+            quote: "با سابقه مشاوره برای شرکت‌های بزرگ چندملیتی مانند اریکسون، روی بهینه‌سازی جریان‌های کاری، تحلیل‌های استراتژیک و ایجاد رشد پایدار در کسب‌وکارها تخصص دارم."
           },
           {
             name: "Milad",
             designation: "توسعه‌دهنده ارشد فول‌استک",
-            quote: "از معماری‌های پیچیده بک‌اند تا رابط‌های کاربری یکپارچه، تخصص من مهندسی سیستم‌های نرم‌افزاری مقیاس‌پذیر است که تجربیات دیجیتال مدرن را قدرت می‌بخشند."
+            quote: "از معماری‌های پیچیده سمت سرور تا رابط‌های کاربری چشم‌نواز و روان، انگیزه من ساخت سیستم‌های نرم‌افزاری پایدار و قدرتمند برای وب مدرن است."
           }
         ]
       },
       perspolisProject: {
-        category: "پلتفرم دیجیتال رستوران و گردشگری",
-        title: "پلتفرم آنلاین رستوران پرسپولیس",
-        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی رستوران پرسپولیس مجهز به منوی دیجیتال تعاملی، سیستم آنلاین رزرو میز، پشتیبانی از چند زبان و سرعت فوق‌العاده.",
-        featuredBadge: "★ پروژه برجسته شاخص",
-        feature1: "منوی دیجیتال تعاملی و سفارش‌گیری",
-        feature2: "سیستم آنلاین رزرو میز و صندلی",
-        feature3: "موتور چندزبانه و پوسته هوشمند",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+        category: "رستوران و صنعت پذیرایی",
+        title: "پلتفرم دیجیتال رستوران پرسپولیس",
+        desc: "یک وب‌اپلیکیشن مدرن و فوق‌سریع برای رستوران پرسپولیس با منوی دیجیتال تعاملی، سیستم رزرواسیون آنلاین میز، پشتیبانی چندزبانه و طراحی کاملاً واکنش‌گرا.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "منوی دیجیتال تعاملی و سفارش غذا",
+        feature2: "سیستم رزرواسیون آنلاین میز",
+        feature3: "رابط کاربری چندزبانه و سرعت لود فوق‌العاده",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
       },
       ffstechProject: {
-        category: "سیستم‌های هوشمند و زیرساخت دیجیتال",
-        title: "پلتفرم جامع و هوشمند FFSTECH",
-        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی شرکت FFSTECH مجهز به سیستم‌های هوشمند ساختمان، شبکه اعلام و اطفای حریق، دوربین‌های مداربسته IP، کنترل دسترسی و زیرساخت دیجیتال.",
-        featuredBadge: "★ پروژه برجسته شاخص",
-        feature1: "سیستم‌های اعلام و اطفای حریق هوشمند",
-        feature2: "کنترل دسترسی و دوربین مداربسته IP",
-        feature3: "سیستم‌های صوتی-تصویری و شبکه‌های ساختمانی",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+        category: "سیستم‌های هوشمند و زیرساخت شبکه",
+        title: "پلتفرم دیجیتال و زیرساخت FFSTECH",
+        desc: "وب‌اپلیکیشن سازمانی با کارایی بالا توسعه‌یافته برای شرکت FFSTECH با تمرکز بر سیستم‌های اعلام و اطفای حریق، کنترل تردد هوشمند، نظارت تصویری و زیرساخت‌های یکپارچه دیجیتال.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "سیستم‌های هوشمند اعلام و اطفای حریق",
+        feature2: "سیستم‌های هوشمند کنترل تردد و نظارت تصویری",
+        feature3: "زیرساخت یکپارچه صوت و تصویر و شبکه",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
       },
       dentistProject: {
-        category: "پلتفرم خدمات دندانپزشکی و سلامت",
-        title: "پلتفرم آنلاین کلینیک دندانپزشکی",
-        desc: "وب‌اپلیکیشن پیشرفته و اختصاصی کلینیک دندانپزشکی مجهز به سیستم نوبت‌دهی آنلاین بیماران، معرفی تعاملی خدمات درمانی، پورتال آنلاین و طراحی چندزبانه.",
-        featuredBadge: "★ پروژه برجسته شاخص",
-        feature1: "سیستم آنلاین نوبت‌دهی بیماران",
-        feature2: "کاتالوگ تعاملی خدمات دندانپزشکی",
-        feature3: "پورتال بیماران و سرعت فوق‌العاده",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+        category: "وب‌اپلیکیشن پزشکی و کلینیک دندانپزشکی",
+        title: "Tandläkaren – پلتفرم کلینیک دندانپزشکی",
+        desc: "وب‌اپلیکیشن جامع خدمات درمانی و سلامت برای کلینیک‌های دندانپزشکی شامل نوبت‌دهی آنلاین بیماران، معرفی تعاملی خدمات درمانی، پورتال اختصاصی و طراحی چندزبانه سریع.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "نوبت‌دهی آنلاین بیماران و رزرو وقت",
+        feature2: "معرفی تعاملی خدمات و مراقبت‌های دندانپزشکی",
+        feature3: "پورتال بیماران با رابط کاربری سریع و واکنش‌گرا",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
       },
       shiraziProject: {
-        category: "پلتفرم خدمات حقوقی و مهاجرت",
-        title: "موسسه حقوقی شیرازی – Shirazi Associates",
-        desc: "پلتفرم پیشرفته و تخصصی خدمات حقوقی و حقوق بین‌الملل موسسه شیرازی، مجهز به سیستم مشاوره آنلاین، معرفی خدمات ویزا و مهاجرت، پرونده‌های حقوقی و طراحی اختصاصی چندزبانه.",
-        featuredBadge: "★ پروژه برجسته شاخص",
+        category: "پلتفرم حقوقی و مشاوره مهاجرت",
+        title: "موسسه حقوقی شیرازی – پلتفرم مشاوره و وکالت",
+        desc: "پلتفرم دیجیتال حقوقی پیشرفته طراحی‌شده برای دفتر وکالت شیرازی، متخصص در حقوق شرکت‌ها، مشاوره‌های مهاجرتی، رزرو آنلاین جلسات مشاوره و پورتال چندزبانه.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
         feature1: "رزرو آنلاین جلسات مشاوره حقوقی",
-        feature2: "خدمات حقوقی شرکت‌ها و ویزای مهاجرت",
-        feature3: "مدیریت امن پرونده‌ها و طراحی اختصاصی",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+        feature2: "خدمات حقوق شرکتی، تجاری و اخذ ویزا",
+        feature3: "مدیریت امن پرونده‌ها و تجربه کاربری چندزبانه",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
       },
       parsLawProject: {
-        category: "پلتفرم دفتر وکالت و خدمات حقوقی",
-        title: "دفتر وکالت پارس – Pars Law Firm",
-        desc: "وب‌اپلیکیشن تخصصی حقوقی و وکالت دفتر پارس، شامل سیستم نوبت‌دهی موکلین، معرفی حوزه‌های تخصصی وکالت، ثبت درخواست مشاوره حقوقی و طراحی امن، مدرن و پرسرعت.",
-        featuredBadge: "★ پروژه برجسته شاخص",
-        feature1: "نوبت‌دهی آنلاین و ثبت درخواست مشاوره",
-        feature2: "کاتالوگ حوزه‌های تخصصی وکالت و دعاوی",
-        feature3: "سرعت فوق‌العاده و تجربه کاربری مطمئن",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی وب‌سایت"
+        category: "وب‌اپلیکیشن موسسه حقوقی و خدمات وکالت",
+        title: "موسسه حقوقی پارس – پلتفرم خدمات وکالت",
+        desc: "وب‌اپلیکیشن جامع سازمانی ساخته‌شده برای موسسه حقوقی پارس شامل سیستم وقت‌دهی موکلین، معرفی حوزه‌های وکالت، ارسال آنلاین پرونده‌ها و رابط کاربری واکنش‌گرا و معتمد.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "رزرو وقت و مشاوره آنلاین با وکلا",
+        feature2: "معرفی جامع حوزه‌های تخصصی حقوقی",
+        feature3: "سرعت لود بسیار بالا و ایجاد اعتماد حداکثری",
+        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
       },
       portfolioHero: {
-        badge: "نمونه‌کارها و پروژه‌های اجرا شده",
-        pillTitle: "۱۰۰٪ راهکارهای اختصاصی",
-        pillSubtitle: "ایده برای هر مدل کسب‌وکار",
-        titlePrefix: "مشاهده نمونه‌کارهای موفق در ",
-        titleGradient: "حوزه‌های مختلف کسب‌وکار",
-        titleSuffix: "",
-        subtitle: "مجموعه پروژه‌های اجرا شده ما را در صنایع و حوزه‌های گوناگون بررسی کنید. برای هر مدل کسب‌وکار و هر ایده‌ای، راهکار و معماری اختصاصی و ایده‌آل طراحی و پیاده‌سازی می‌کنیم.",
-        viewPillarsBtn: "مشاهده ۶ ویژگی و استراتژی کلیدی ما",
-        modalTitle: "۶ اصل و ویژگی کلیدی راهکارهای ما",
-        modalSubtitle: "نحوه توسعه محصولات و راهکارهای پرسرعت اختصاصی متناسب با اهداف کسب‌وکار شما",
-        feature1Title: "ایده و راهکار اختصاصی برای هر مدل کسب‌وکار",
-        feature1Desc: "هر صنعتی نیاز به استراتژی خاص خود دارد؛ ما نیازهای حوزه کاری شما را تحلیل و پیاده‌سازی می‌کنیم.",
-        feature2Title: "پروژه‌های متنوع در انواع صنایع",
-        feature2Desc: "از رستوران‌داری و فروشگاهی تا سیستم‌های مالی FinTech، هوش مصنوعی و پلتفرم‌های ابری SaaS.",
-        feature3Title: "بهینه‌سازی شده برای افزایش فروش و سئو",
-        feature3Desc: "سرعت فوق‌العاده و طراحی رابط کاربری جذاب که رتبه گوگل را ارتقا داده و مشتریان را جذب می‌کند.",
-        feature4Title: "کدنویسی پرسرعت و معماری آینده‌نگر",
-        feature4Desc: "بهره‌گیری از مدرن‌ترین تکنولوژی‌ها برای سرعت فوق‌العاده زیر یک ثانیه، امنیت بالا و مقیاس‌پذیری بی‌پایان.",
-        feature5Title: "امنیت بالا و ضمانت کیفیت کدهای اختصاصی",
-        feature5Desc: "معماری مستحکم و استانداردهای سخت‌گیرانه مهندسی برای حفاظت شبانه‌روزی از اطلاعات کسب‌وکار شما.",
-        feature6Title: "همراهی و پشتیبانی اختصاصی و مستمر",
-        feature6Desc: "ما نقش شریک تکنولوژی شما را داریم و در تمام مراحل توسعه و رشد محصول همراه شما هستیم.",
-        exploreBtn: "بررسی نمونه‌کارها",
-        buildBtn: "شروع پروژه اختصاصی",
-        ctaTitle: "آیا ایده‌ای برای توسعه یک محصول برجسته دارید؟",
-        ctaSubtitle: "با تیم متخصص ما همراه شوید تا اپلیکیشن‌ها و محصولات دیجیتالی پرسرعت و مقیاس‌پذیر، دقیقا متناسب با اهداف کسب‌وکارتان طراحی و پیاده‌سازی کنیم.",
-        ctaBtn: "شروع ساخت محصول شما"
+        badge: "نمونه کارها و پروژه‌های ما",
+        pillTitle: "راهکارهای ۱۰۰٪ اختصاصی",
+        pillSubtitle: "ایده‌های متناسب با هر مدل تجاری",
+        titlePrefix: "مشاهده پروژه‌های متنوع ",
+        titleGradient: "عملیاتی و تجاری",
+        titleSuffix: " و راهکارهای اختصاصی ما",
+        subtitle: "مجموعه‌ای از پروژه‌های زنده و موفق ما در صنایع گوناگون را بررسی کنید. مدل کسب‌وکار شما هرچه باشد، ما ایده‌های نوآورانه و اپلیکیشن‌های دیجیتال اختصاصی را برای رشد حداکثری شما خلق می‌کنیم.",
+        viewPillarsBtn: "مشاهده ۶ ستون استراتژیک ما",
+        modalTitle: "۶ ستون موفقیت دیجیتال شما در روشالینک",
+        modalSubtitle: "چگونه اپلیکیشن‌هایی با کارایی بالا و منطبق با اهداف استراتژیک بیزینس شما مهندسی می‌کنیم",
+        feature1Title: "ایده‌های اختصاصی برای هر بیزینس مدل",
+        feature1Desc: "هر صنعتی نیازمند استراتژی منحصر‌به‌فرد است. ما بازار شما را تحلیل کرده و راهکارهای کاملاً ویژه می‌سازیم.",
+        feature2Title: "پورتفولیوی متنوع در صنایع گوناگون",
+        feature2Desc: "از رستوران و فروشگاه آنلاین تا سیستم‌های فین‌تک، موتورهای هوش مصنوعی و SaaS سازمانی.",
+        feature3Title: "بهینه‌شده برای رشد درآمد و سئو",
+        feature3Desc: "سرعت لود زیر یک ثانیه و رابط کاربری بهینه‌شده برای رتبه ۱ گوگل و افزایش فروش.",
+        feature4Title: "سرعت فوق‌العاده و فناوری‌های آینده‌نگر",
+        feature4Desc: "استفاده از به‌روزترین استک‌های فنی برای لود آنی، امنیت سازمانی و مقیاس‌پذیری بی‌نقص.",
+        feature5Title: "امنیت در سطح سازمانی و تضمین کیفیت",
+        feature5Desc: "نظم مهندسی دقیق و معماری مستحکم که به صورت ۲۴/۷ از اطلاعات سازمان و کاربران شما محافظت می‌کند.",
+        feature6Title: "شراکت بلندمدت و توسعه مستمر",
+        feature6Desc: "ما به عنوان شریک فنی همیشگی شما، در تمامی مراحل رشد، توسعه و نگهداری همراهتان هستیم.",
+        exploreBtn: "مشاهده پورتفولیو",
+        buildBtn: "سفارش ساخت محصول اختصاصی",
+        ctaTitle: "ایده‌ای برای یک محصول دیجیتال بزرگ دارید؟",
+        ctaSubtitle: "با همکاری تیم متخصص ما، اپلیکیشن‌هایی قدرتمند و سفارشی بسازید که دقیقاً اهداف تجاری شما را محقق کنند.",
+        ctaBtn: "ساخت محصول اختصاصی"
       },
       ourWork: {
-        badge: "جدیدترین نمونه‌کارهای ما",
-        titlePrefix: "مقیاس‌پذیری کسب‌وکار با ",
+        badge: "آخرین پروژه‌های ما",
+        titlePrefix: "رشد کسب‌وکار خود را با ",
         titleGradient: "نوآوری استراتژیک در محصول",
-        subtitle: "پتانسیل سازمان خود را با نرم‌افزارهای پرسرعت و طراحی دقیق کاربرمحور ارتقا دهید.",
-        bullet1: "پشتیبانی از بیش از ۴ میلیون کاربر فعال سازمانی",
-        bullet2: "زمان پاسخگویی تراکنش و تحلیل زیر ۲۰ میلی‌ثانیه",
-        bullet3: "دیزاین سیستم کامپوننتی ماژولار ری‌اکت توکن‌شده",
-        explorePortfolio: "مشاهده تمام نمونه‌کارها",
+        subtitle: "پتانسیل سازمان خود را با نرم‌افزارهای پرسرعت و طراحی رابط کاربری اختصاصی متحول کنید.",
+        bullet1: "پشتیبانی از بیش از ۴ میلیون کاربر سازمانی فعال",
+        bullet2: "سرعت تراکنش و تحلیل داده زیر ۲۰ میلی‌ثانیه",
+        bullet3: "سیستم دیزاین ماژولار مبتنی بر توکن‌های اختصاصی React",
+        explorePortfolio: "مشاهده کل پورتفولیو",
         startProject: "شروع پروژه شما"
       },
       brandGrid: {
@@ -1117,6 +1729,214 @@ const resources = {
   },
   ar: {
     translation: {
+      aboutPage: {
+        teamPerspectives: {
+          badge: "رؤى استراتيجية وقيادة تنفيذية",
+          title: "قيادة مباشرة تدفع الابتكار والنمو لمشروعك",
+          titlePrefix: "القيادة المباشرة للمؤسسين لدفع ",
+          titleGradient: "الابتكار ونمو الأعمال",
+          titleSuffix: "",
+          subtitle: "كيف يهندس الشركاء المؤسسون الخمسة حلولاً مخصصة تقضي على العقبات وتضمن نمواً ملموساً.",
+          morteza: {
+            quote: "يجب أن تخدم الهندسة البرمجية أهداف الأعمال ونمو الإيرادات. نقضي على الديون التقنية من اليوم الأول عبر كود مخصص بدون قوالب جاهزة.",
+            name: "مرتضى",
+            role: "الرئيس التنفيذي وكبير المعماريين"
+          },
+          bella: {
+            quote: "التصميم الاستثنائي لـ UI/UX يدمج الدقة التقنية بالتواصل الإنساني الملهم، مما يضاعف معدلات التحويل وقوة علامتك التجارية.",
+            name: "بيلا",
+            role: "رئيسة المنتجات والهوية البصرية"
+          },
+          sohrab: {
+            quote: "الأنظمة السحابية الموزعة بزمن استجابة أقل من 20 مللي ثانية وجاهزية 99.99% تضمن استقرار منصتكم حتى في أعلى ذروات الترافيك.",
+            name: "سام",
+            role: "كبير مهندسي الويب والسحابة"
+          },
+          mina: {
+            quote: "بخبرتي الاستشارية لكبرى الشركات مثل إريكسون، فإن التدقيق المعمق لعمليات الأعمال قبل البرمجة يوفر أشهراً من الهدر.",
+            name: "مينا",
+            role: "مستشارة ومحللة أعمال أولى"
+          },
+          milad: {
+            quote: "من فهرسة قواعد البيانات المعقدة إلى الواجهات التفاعلية السلسة، البرمجة النظيفة القابلة للتوسع هي الركيزة الأساسية للنجاح.",
+            name: "ميلاد",
+            role: "كبير مهندسي الأنظمة وقواعد البيانات"
+          },
+          synergy: {
+            quote: "التناغم بين التحليل المؤسسي الدقيق والهندسة البرمجية المتقدمة يمنح عملاءنا ميزة تنافسية استثنائية.",
+            name: "بيلا",
+            role: "رئيسة المنتجات والهوية البصرية"
+          },
+          guarantee: {
+            quote: "لا نفوّض العمل لمطورين مبتدئين؛ يعمل كل عميل مباشرة وفي الوقت الفعلي مع الشركاء الخمسة الذين يطورون الكود بأنفسهم.",
+            name: "مرتضى",
+            role: "الرئيس التنفيذي وكبير المعماريين"
+          }
+        },
+        hero: {
+          badge: "من نحن ورؤيتنا",
+          titlePrefix: "نهندس ",
+          titleGradient: "الجيل القادم",
+          titleSuffix: " من المنتجات الرقمية والذكاء الاصطناعي",
+          subtitle: "نحن نخبة من كبار مهندسي البرمجيات ومصممي المنتجات ومحللي الأعمال، ندمج التحليل الاستراتيجي مع البرمجة المخصصة لتحقيق أقصى درجات النمو لشركتك.",
+          stats: {
+            stat1Val: "100%",
+            stat1Label: "كود برمجي مخصص بالكامل",
+            stat1Sub: "بدون قوالب جاهزة أو حلول سريعة",
+            stat2Val: "99.99%",
+            stat2Label: "جاهزية واستقرار النظام",
+            stat2Sub: "بنية تحتية سحابية متطورة",
+            stat3Val: "<20ms",
+            stat3Label: "سرعة الاستجابة والأداء",
+            stat3Sub: "100/100 في Google Lighthouse",
+            stat4Val: "5+",
+            stat4Label: "شركاء ومهندسون تنفيذيون",
+            stat4Sub: "تعاون مباشر بدون وسطاء"
+          }
+        },
+        teamShowcase: {
+          badge: "فريق القيادة التنفيذي",
+          title: "تعرف على فريق خبرائنا ورواد الابتكار",
+          titlePrefix: "تعرف على فريق ",
+          titleGradient: "خبرائنا ورواد الابتكار",
+          titleSuffix: "",
+          description: "نحن فريق متكامل وشغوف من كبار مهندسي البرمجيات ومصممي المنتجات، نكرس خبراتنا لبناء تجارب رقمية رائدة وتطوير حلول برمجية مخصصة تقود نجاح أعمالكم.",
+          button: "احجز جلسة استشارية مع الفريق",
+          members: [
+          {
+                    "name": "سام",
+                    "role": "كبير مهندسي الويب والسحابة",
+                    "tag": "الحوسبة السحابية وهندسة الويب",
+                    "quote": "أبني تطبيقات ويب عالية المرونة وأنظمة سحابية موزعة. هدفي دائماً تقديم أداء فائق السرعة يتجاوز كافة التوقعات."
+          },
+          {
+                    "name": "بيلا",
+                    "role": "رئيسة المنتجات والهوية البصرية",
+                    "tag": "تصميم UI/UX والإخراج الإبداعي",
+                    "quote": "شغفي هو بناء هوية تجارية ملهمة وتصميم واجهات رقمية استثنائية تربط منتجاتكم بالعملاء بأعلى درجات التأثير."
+          },
+          {
+                    "name": "مرتضى",
+                    "role": "الرئيس التنفيذي وكبير المعماريين",
+                    "tag": "الذكاء الاصطناعي وهندسة الأنظمة",
+                    "quote": "بخبرة واسعة في إطلاق الشركات الناشئة دولياً، نبني برمجيات تعالج التحديات الحقيقية للأعمال عبر الابتكار والتميز التقني."
+          },
+          {
+                    "name": "مينا",
+                    "role": "مستشارة ومحللة أعمال أولى",
+                    "tag": "خبرة سابقة في إريكسون والاستراتيجية",
+                    "quote": "بعد سنوات من العمل الاستشاري لكبرى الشركات العالمية مثل إريكسون، أركز على تحسين سير العمل وزيادة الإيرادات والأرباح."
+          },
+          {
+                    "name": "ميلاد",
+                    "role": "كبير مهندسي الأنظمة وقواعد البيانات",
+                    "tag": "الأنظمة الخلفية وقواعد البيانات",
+                    "quote": "من الأنظمة الخلفية المعقدة إلى الواجهات التفاعلية السلسة، أهتم بهندسة معمارية برمجية فائقة الاستقرار للتطبيقات الحديثة."
+          }
+]
+        },
+        missionBento: {
+          badge: "فلسفتنا ومعاييرنا",
+          title: "لماذا تختلف منهجية روشالينك في البناء؟",
+          titlePrefix: "لماذا تختلف منهجية روشالينك ",
+          titleGradient: "في البناء والابتكار؟",
+          titleSuffix: "",
+          subtitle: "نقضي على الديون التقنية ونبني برمجيات قابلة للتوسع مع نمو أعمالكم.",
+          card1Badge: "التحليل المؤسسي أولاً",
+          card1Title: "الاستراتيجية",
+          card1Desc: "تعاني المؤسسات غالباً من أنظمة متباعدة وقوالب جاهزة غير ملائمة. نحلل نماذج أعمالكم أولاً ونبني برمجيات مفصلة خصيصاً لتحقيق الأرباح.",
+          card2Badge: "جاهزية واستقرار مطلق",
+          card2Title: "الأداء",
+          card2Desc: "معمارية معيارية حديثة متوافقة مع معايير ISO 27001 وسرعة استجابة أقل من 20 مللي ثانية لضمان استمرارية الأعمال دون انقطاع.",
+          card3Badge: "شراكة مباشرة",
+          card3Title: "الشراكة",
+          card3Desc: "لا يوجد مطورون مبتدئون أو وسطاء؛ تعملون مباشرة وبشكل فوري مع الشركاء الخمسة الذين يطورون كود مشروعكم بأنفسهم.",
+          card4Badge: "ذكاء اصطناعي مستقبلي",
+          card4Title: "الأتمتة",
+          card4Desc: "ندمج نماذج الذكاء الاصطناعي المخصصة ووكلاء الأتمتة لتقليص مئات ساعات العمل اليدوي وتعزيز الكفاءة الإنتاجية.",
+        },
+        methodology: {
+          badge: "منهجية العمل",
+          title: "من الرؤية إلى الإطلاق الاحترافي في 4 خطوات",
+          titlePrefix: "من الرؤية إلى الإطلاق الاحترافي في ",
+          titleGradient: "4 خطوات مدروسة",
+          titleSuffix: "",
+          subtitle: "منهجية تطوير سريعة ومثبتة تضمن الدقة المعمارية وسرعة الوصول إلى السوق.",
+          step1Num: "01",
+          step1Title: "الاستكشاف والتحليل الاستراتيجي",
+          step1Desc: "تحليل معمق لنموذج العمل، تجربة المستخدمين، المتطلبات التقنية وهيكلية البيانات.",
+          step2Num: "02",
+          step2Title: "نظام التصميم المعياري والنموذج التفاعلي",
+          step2Desc: "بناء نظام UI/UX متطور وعالي التفاعل وموائم لكافة متطلبات علامتكم التجارية.",
+          step3Num: "03",
+          step3Title: "الهندسة البرمجية المخصصة",
+          step3Desc: "كتابة كود برمجي نظيف بدون قوالب جاهزة باستخدام React وأحدث الأنظمة السحابية.",
+          step4Num: "04",
+          step4Title: "تحسين الأداء والنشر العالمي",
+          step4Desc: "تحقيق علامة 100/100 في معايير Google Lighthouse والنشر الآمن في السحابة مع المراقبة المستمرة."
+        },
+        values: {
+          badge: "القيم والمبادئ الأساسية",
+          title: "المعايير التي توجه كل سطر كود نكتبه",
+          subtitle: "قيمنا الهندسية الصارمة المصممة لنمو أعمال المؤسسات الحديثة.",
+          v1Title: "هندسة برمجية مخصصة",
+          v1Desc: "يتم بناء كل مكون وقاعدة بيانات من الصفر بما يتناسب تماماً مع متطلبات عملكم الفريدة.",
+          v2Title: "الأمان ومبدأ انعدام الثقة",
+          v2Desc: "حماية البيانات بمستويات المؤسسات الكبرى مع تطبيق معايير ISO 27001 في كافة طبقات النظام.",
+          v3Title: "تأثير ملموس على الإيرادات",
+          v3Desc: "نقيس نجاحنا بنمو إيراداتكم، رفع معدل التحويل، سرعة النظام ورضا عملائكم.",
+          v4Title: "شفافية وتواصل دائم",
+          v4Desc: "تواصل مباشر مع كبار المهندسين والشركاء مع شفافية كاملة في كل مراحل الإنجاز.",
+          v5Title: "سرعة استجابة فائقة وسيو متميز",
+          v5Desc: "كود متقدم يحقق سرعة لود أقل من ثانية وتصدر نتائج البحث في محركات جوجل.",
+          v6Title: "شراكة استراتيجية مستمرة",
+          v6Desc: "نعمل كشريككم التقني المستمر لتطوير وتوسيع وصيانة منصاتكم البرمجية دائماً."
+        },
+        awards: {
+          "sectionTitle": "الجوائز والتقدير الدولي",
+          "titlePrefix": "الجوائز و ",
+          "titleGradient": "التقدير الدولي",
+          "titleSuffix": "",
+          "sectionSubtitle": "التزامنا الراسخ بالتميز الهندسي والابتكار المعماري وتصميم المنتجات الرقمية الرائدة.",
+          "a1": {
+                  "title": "أفضل هندسة معمارية للويب",
+                  "subtitle": "جوائز السحابة وقابلية التوسع العالمية 2025",
+                  "recipient": "فريق المعمارية البرمجية روشالينك",
+                  "date": "2025",
+                  "level": "gold"
+          },
+          "a2": {
+                  "title": "الابتكار المؤسسي الشامل",
+                  "subtitle": "جوائز سرعة واستقرار الأنظمة السحابية",
+                  "recipient": "الهندسة البرمجية روشالينك",
+                  "date": "2025",
+                  "level": "platinum"
+          },
+          "a3": {
+                  "title": "أفضل تصميم لتجربة المستخدم",
+                  "subtitle": "تكريم التجربة الرقمية وتصميم المنتجات نورديك",
+                  "recipient": "استوديو تصميم المنتجات روشالينك",
+                  "date": "2024 - 2025",
+                  "level": "gold"
+          },
+          "a4": {
+                  "title": "الابتكار في الذكاء الاصطناعي",
+                  "subtitle": "منصة العام للجيل القادم من تطبيقات الويب والموبايل",
+                  "recipient": "مختبرات الابتكار روشالينك",
+                  "date": "2025",
+                  "level": "platinum"
+          }
+},
+          cta: {
+          badge: "ابنِ معنا",
+          title: "هل أنت جاهز لتطوير منتجك عالي الأداء مع فريق القيادة لدينا؟",
+          titlePrefix: "هل أنت جاهز لتطوير منتجك الرقمي مع ",
+          titleGradient: "فريق القيادة لدينا؟",
+          titleSuffix: "",
+          subtitle: "احجز جلسة استشارية استراتيجية مع الشركاء المؤسسين الخمسة اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
+          button: "احجز الجلسة الاستشارية الآن"
+        }
+      },
       nav: {
         home: "الرئيسية",
         portfolio: "أعمالنا",

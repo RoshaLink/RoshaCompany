@@ -84,11 +84,14 @@ export default function Footer({ setActivePage }) {
                 placeholder={t('footer.emailPlaceholder')}
                 className="footer-input"
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="footer-submit"
+                // Icon-only button: without this a screen reader announces
+                // just "button" with no indication of what it does.
+                aria-label={t('footer.subscribe')}
               >
-                <ArrowUpRight className="footer-submit-icon" />
+                <ArrowUpRight className="footer-submit-icon" aria-hidden="true" />
               </button>
             </div>
           </form>
@@ -99,7 +102,7 @@ export default function Footer({ setActivePage }) {
       <div className="footer-bottom">
         <div>{t('footer.rights')}</div>
         <div className="footer-bottom-links">
-          <a href="#" className="footer-bottom-link">Privacy Policy</a>
+          <button onClick={() => setActivePage('privacy')} className="footer-bottom-link cursor-pointer">{t('footer.privacyPolicy', 'Privacy Policy')}</button>
           <a href="#" className="footer-bottom-link">Terms of Service</a>
           <a href="#" className="footer-bottom-link">Security Specification</a>
         </div>

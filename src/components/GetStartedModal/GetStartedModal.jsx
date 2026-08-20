@@ -120,6 +120,11 @@ export default function GetStartedModal({ isOpen, onClose }) {
                 <input
                   type="email"
                   required
+                  // Mirrors looksLikeEmail() in api/lead.js. Without it the
+                  // browser accepts a TLD-less host like "jane@company", the
+                  // server then rejects it, and the visitor gets a generic
+                  // failure from a form that appeared to accept their input.
+                  pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="jane@company.com"

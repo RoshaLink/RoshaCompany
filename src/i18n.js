@@ -406,6 +406,175 @@ const resources = {
           { num: "11", title: "11. Kontaktinformation", icon: "Mail", text: `Om du har frågor om denna dataskyddspolicy, vill utöva dina rättigheter eller kontakta vårt dataskyddsombud, kan du nå oss via:\n\n• Företag: RoshaLink / Diara IT Infrastructure\n• E-post för integritetsfrågor: privacy@roshalink.com / hello@designlogic.agency\n• Webbplats: https://roshalink.com\n• Postadress: RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland` },
           { num: "12", title: "12. Ändringar i denna dataskyddspolicy", icon: "RefreshCw", text: `Vi förbehåller oss rätten att uppdatera denna dataskyddspolicy för att återspegla ändringar i vår verksamhet, tekniska utveckling eller tillämplig lagstiftning.\n\nNär väsentliga ändringar görs kommer vi att meddela detta via vår webbplats eller per e-post innan ändringarna träder i kraft. Det datum som anges högst upp i policyn anger när den senast uppdaterades.` }
         ]
+      },
+      servicesPage: {
+        hero: {
+          titlePrefix: "Skräddarsydd Ingenjörskonst & ",
+          titleGradient: "Digital Arkitektur",
+          titleSuffix: "",
+          subtitle: "Från strategisk affärsanalys och tokeniserade designsystem till molnbaserade mikrotjänster och AI-automation. Våra 5 seniora partners bygger mjukvara i världsklass utan generiska mallar.",
+          primaryCta: "Boka strategisamtal",
+          secondaryCta: "Utforska kapabiliteter",
+          metric1Value: "100/100",
+          metric1Label: "Lighthouse & SEO Prestanda",
+          metric2Value: "< 20ms",
+          metric2Label: "Global API Svarstid",
+          metric3Value: "ISO 27001",
+          metric3Label: "Säkerhetsstandard & Zero Trust",
+          metric4Value: "5 Seniorer",
+          metric4Label: "Direkt Partnerskap utan Mellanhänder"
+        },
+        servicesSection: {
+          title: "Våra 6 Kärnkapabiliteter",
+          subtitle: "En komplett verktygslåda för moderna företag som kräver absolut högsta tekniska precision och skalbarhet.",
+          deliverablesLabel: "Viktiga leveranser:",
+          techTagsLabel: "Teknologier:"
+        },
+        servicesList: [
+          {
+            id: "discovery",
+            category: "AFFÄRSSTRATEGI",
+            title: "Strategisk Affärsanalys & Kartläggning",
+            desc: "Vi analyserar era intäktsmodeller, användarresor och tekniska flaskhalsar innan en enda rad kod skrivs för att säkerställa maximal ROI och affärsnytta.",
+            deliverables: [
+              "Djupgående affärsmodell & processkartläggning",
+              "Teknisk genomförbarhet & arkitekturritning",
+              "Datamodellering & API-specifikationer",
+              "Strategisk produktfärdplan & tidsestimat"
+            ],
+            techTags: ["System Mapping", "Figma Design Tokens", "Data Modeling", "ROI Analysis"]
+          },
+          {
+            id: "web-architecture",
+            category: "FRONTEND & WEBB",
+            title: "Skräddarsydd Webbarkitektur & React",
+            desc: "Moderna, blixtsnabba webbapplikationer och företagsportaler konstruerade med ren React-kod, modulära komponenter och perfekt Lighthouse-optimering.",
+            deliverables: [
+              "Bespoke Single Page Apps (SPA) & Portaler",
+              "Tokeniserat UI/UX Designsystem",
+              "WCAG 2.1 AA Tillgänglighet & Responsivitet",
+              "100/100 Core Web Vitals & Google SEO"
+            ],
+            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+          },
+          {
+            id: "cloud-backend",
+            category: "BACKEND & INFRASTRUKTUR",
+            title: "Företagsklassad Backend & Mikrotjänster",
+            desc: "Stabila och felsäkra backend-system, databaser och API-arkitekturer med sub-20ms transaktionstider och 99.99% garanterad drifttid.",
+            deliverables: [
+              "Händelsestyrda mikrotjänster & REST/GraphQL",
+              "PostgreSQL, Redis & NoSQL Databasarkitektur",
+              "ISO 27001 Säkerhet & Zero-Trust Autentisering",
+              "Automatiserade CI/CD-pipelines & Docker"
+            ],
+            techTags: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS / GCP"]
+          },
+          {
+            id: "ai-automation",
+            category: "AI & INTELLIGENS",
+            title: "AI-Automation & Smarta Arbetsflöden",
+            desc: "Integrera anpassade AI-modeller, autonoma agenter och intelligenta datapipelines som automatiserar hundratals timmar av repetitivt arbete.",
+            deliverables: [
+              "LLM & RAG-system (OpenAI, Gemini, Anthropic)",
+              "Intelligenta företagschattar & AI-agenter",
+              "Automatiserad datainläsning & analyspipelines",
+              "AI-driven prediktiv analys & dashboards"
+            ],
+            techTags: ["OpenAI API", "Gemini", "RAG / Vector DB", "Python Automation"]
+          },
+          {
+            id: "mobile-apps",
+            category: "MOBILAPPAR",
+            title: "Mobilapplikationer iOS & Android",
+            desc: "Sömlösa mobilapplikationer med nativ prestanda, realtidssynkronisering mot webbens backend och intuitiv touch-design.",
+            deliverables: [
+              "Cross-platform iOS & Android-appar",
+              "Realtidssynkronisering via WebSockets",
+              "Biometrisk säkerhet & offline-läge",
+              "App Store & Google Play Driftsättning"
+            ],
+            techTags: ["React Native", "Expo", "WebSockets", "Push Notifications"]
+          },
+          {
+            id: "seo-performance",
+            category: "PRESTANDA & SÖK",
+            title: "SEO-Optimering & Global CDN",
+            desc: "Topplaceringar på Google och global räckvidd genom strukturerad semantisk kod, automatiserad indexering och blixtsnabb edge-infrastruktur.",
+            deliverables: [
+              "Strukturerad JSON-LD & Schema Markup",
+              "Global Cloudflare Edge CDN & Caching",
+              "Automatiserad XML Sitemap & Search Console",
+              "Konverteringsoptimering & A/B-testning"
+            ],
+            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+          }
+        ],
+        techMatrix: {
+          title: "Vår Företagsklassade Teknikstack",
+          subtitle: "Vi väljer noggrant de mest stabila och moderna teknologierna för att bygga system som tål att växa.",
+          tabFrontend: "Frontend & Design",
+          tabBackend: "Backend & Databaser",
+          tabAi: "AI & Automation",
+          tabCloud: "Moln & Säkerhet"
+        },
+        process: {
+          title: "Vår 4-Stegs Leveransprocess",
+          subtitle: "En strukturerad och beprövad ingenjörsprocess designad för precision och snabbhet.",
+          step1Num: "01",
+          step1Title: "Analys & Arkitekturritning",
+          step1Desc: "Vi kartlägger era affärsmål, användarflöden och datastrukturer för att skapa en felfri teknisk ritning.",
+          step2Num: "02",
+          step2Title: "Prototyp & Designsystem",
+          step2Desc: "Skapande av ett tokeniserat UI/UX-system med interaktiva prototyper som testas mot verkliga användarfall.",
+          step3Num: "03",
+          step3Title: "Skräddarsydd Kod & AI-Integration",
+          step3Desc: "Byggnation med ren kod i React och moderna API:er av våra 5 seniora partners utan generiska mallar.",
+          step4Num: "04",
+          step4Title: "Kvalitetssäkring & Driftsättning",
+          step4Desc: "100/100 Lighthouse-optimering, automatiserade säkerhetstester och global driftsättning med noll driftstopp."
+        },
+        comparison: {
+          title: "RoshaLink vs. Traditionella Byråer",
+          subtitle: "Varför ledande företag väljer vårt seniora partnerskapsmodell framför konventionella mellanhänder.",
+          featureCol: "Faktor",
+          agencyCol: "Traditionell Byrå",
+          roshaCol: "RoshaLink Senior Model",
+          f1: "Teamstruktur",
+          f1Agency: "Juniorer & oerfarna mellanhänder",
+          f1Rosha: "5 seniora grundare kodar direkt",
+          f2: "Kodkvalitet",
+          f2Agency: "WordPress & uppsvällda färdiga mallar",
+          f2Rosha: "100% skräddarsydd, ren React/Node.js-kod",
+          f3: "Laddtid & Prestanda",
+          f3Agency: "Långsamma (2-5s), låg Lighthouse-poäng",
+          f3Rosha: "Blixtsnabb (<20ms), 100/100 Lighthouse",
+          f4: "Säkerhet & Äganderätt",
+          f4Agency: "Osäkra plugins, delat IP",
+          f4Rosha: "ISO 27001-standard & 100% kundens IP",
+          f5: "Prismodell",
+          f5Agency: "Dolda löpande timkostnader",
+          f5Rosha: "Tydlig fast omfattning & garanterat resultat"
+        },
+        faq: {
+          title: "Vanliga Frågor om Våra Tjänster",
+          subtitle: "Allt du behöver veta om hur vi arbetar, levererar och garanterar kvalitet.",
+          q1: "Hur snabbt kan vi komma igång med ett projekt?",
+          a1: "Efter vårt inledande upptäcktsmöte kan vi normalt starta förstudie och arkitekturkartläggning inom 48 timmar. Våra 5 seniora partners hanterar projektet direkt utan långa byråkratiska mellanhänder.",
+          q2: "Använder ni färdiga mallar eller bygger ni från grunden?",
+          a2: "Vi bygger 100% skräddarsydd mjukvara utan WordPress eller generiska köpmallar. Detta garanterar ren kod, maximal säkerhet, blixtsnabb laddtid och fullständig flexibilitet för framtida expansion.",
+          q3: "Vem kommer faktiskt att skriva koden för vårt projekt?",
+          a3: "Ni arbetar och kommunicerar direkt med våra 5 seniora grundare och systemarkitekter. Vi outsourcar aldrig till juniorer eller externa tredjepartsutvecklare.",
+          q4: "Hur hanteras säkerhet, data och immateriella rättigheter (IP)?",
+          a4: "Ni äger 100% av all källkod, design och immateriella rättigheter från dag ett. Vi bygger enligt ISO 27001 och GDPR-standarder med Zero-Trust-arkitektur.",
+          q5: "Erbjuder ni kontinuerlig support och vidareutveckling efter lansering?",
+          a5: "Ja, vi erbjuder dedikerade serviceavtal med kontinuerlig monitorering dygnet runt, prestandagarantier och proaktiv vidareutveckling i takt med att er verksamhet växer."
+        },
+        cta: {
+          title: "Redo att bygga nästa framgångsrika produkt?",
+          subtitle: "Boka en strategisk upptäcktsworkshop med våra 5 seniora partners och låt oss transformera era digitala ambitioner till verklighet.",
+          button: "Boka strategisamtal nu"
+        }
       }
     }
   },
@@ -813,6 +982,175 @@ const resources = {
           { num: "11", title: "11. Contact Information", icon: "Mail", text: `For privacy inquiries or exercising GDPR rights, contact our Privacy Officer:\n\n• Entity: RoshaLink / Diara IT Infrastructure\n• Privacy Email: privacy@roshalink.com / hello@designlogic.agency\n• Website: https://roshalink.com\n• Address: RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland` },
           { num: "12", title: "12. Changes to This Privacy Policy", icon: "RefreshCw", text: `We reserve the right to revise this Privacy Policy to reflect technical advancements, legal updates, or operational changes.\n\nMaterial revisions will be notified via prominent website banners or email prior to taking effect.` }
         ]
+      },
+      servicesPage: {
+        hero: {
+          titlePrefix: "Bespoke Engineering & ",
+          titleGradient: "Digital Architecture",
+          titleSuffix: "",
+          subtitle: "From strategic business analysis and tokenized design systems to cloud-native microservices and intelligent AI automation. Our 5 senior partners engineer world-class software without generic templates.",
+          primaryCta: "Schedule Strategic Brief",
+          secondaryCta: "Explore Capabilities",
+          metric1Value: "100/100",
+          metric1Label: "Lighthouse & SEO Performance",
+          metric2Value: "< 20ms",
+          metric2Label: "Global API Response Latency",
+          metric3Value: "ISO 27001",
+          metric3Label: "Security Standard & Zero-Trust",
+          metric4Value: "5 Seniors",
+          metric4Label: "Direct Partner Collaboration"
+        },
+        servicesSection: {
+          title: "Our 6 Core Capabilities",
+          subtitle: "A comprehensive engineering toolkit for modern enterprises requiring absolute technical precision and graceful scalability.",
+          deliverablesLabel: "Key Deliverables:",
+          techTagsLabel: "Tech Stack:"
+        },
+        servicesList: [
+          {
+            id: "discovery",
+            category: "BUSINESS STRATEGY",
+            title: "Strategic Business Discovery & Architecture Mapping",
+            desc: "We analyze your revenue models, user journeys, and technical bottlenecks before writing a single line of code to guarantee maximum ROI and tangible business impact.",
+            deliverables: [
+              "In-depth business model & workflow mapping",
+              "Technical feasibility & architecture blueprint",
+              "Data modeling & API interface specifications",
+              "Strategic product roadmap & timeline estimates"
+            ],
+            techTags: ["System Mapping", "Figma Design Tokens", "Data Modeling", "ROI Analysis"]
+          },
+          {
+            id: "web-architecture",
+            category: "FRONTEND & WEB",
+            title: "Bespoke Web Architecture & React Engineering",
+            desc: "Ultra-fast web applications and enterprise portals engineered with clean React code, modular tokenized components, and 100/100 Google Lighthouse optimization.",
+            deliverables: [
+              "Bespoke Single Page Apps (SPA) & Portals",
+              "Tokenized UI/UX Design Systems",
+              "WCAG 2.1 AA Accessibility & Responsiveness",
+              "100/100 Core Web Vitals & Search Indexing"
+            ],
+            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+          },
+          {
+            id: "cloud-backend",
+            category: "BACKEND & INFRASTRUCTURE",
+            title: "Enterprise Backend & Microservices Architecture",
+            desc: "Resilient server architectures, distributed databases, and event-driven API pipelines with sub-20ms transaction speeds and 99.99% guaranteed uptime.",
+            deliverables: [
+              "Event-driven microservices & REST/GraphQL APIs",
+              "PostgreSQL, Redis & NoSQL Database Architecture",
+              "ISO 27001 Security & Zero-Trust Authentication",
+              "Automated CI/CD Deployment Pipelines & Docker"
+            ],
+            techTags: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS / GCP"]
+          },
+          {
+            id: "ai-automation",
+            category: "AI & INTELLIGENCE",
+            title: "AI Automation & Intelligent Data Pipelines",
+            desc: "Integrate bespoke AI models, autonomous task agents, and intelligent data ingestion pipelines that eliminate hundreds of hours of manual operational overhead.",
+            deliverables: [
+              "Custom LLM & RAG Systems (OpenAI, Gemini, Anthropic)",
+              "Intelligent Enterprise Assistants & Autonomous Agents",
+              "Automated data ingestion & processing pipelines",
+              "Predictive analytics & intelligent executive dashboards"
+            ],
+            techTags: ["OpenAI API", "Gemini", "RAG / Vector DB", "Python Automation"]
+          },
+          {
+            id: "mobile-apps",
+            category: "MOBILE APPS",
+            title: "Cross-Platform Mobile Applications (iOS & Android)",
+            desc: "Seamless mobile applications with native execution performance, real-time backend synchronization, biometric authentication, and intuitive UX.",
+            deliverables: [
+              "Cross-platform iOS & Android mobile apps",
+              "Real-time WebSocket & data synchronization",
+              "Biometric security & offline-first capability",
+              "App Store & Google Play production deployment"
+            ],
+            techTags: ["React Native", "Expo", "WebSockets", "Push Notifications"]
+          },
+          {
+            id: "seo-performance",
+            category: "PERFORMANCE & SEO",
+            title: "Organic SEO Engineering & Global Edge CDN",
+            desc: "Top rankings on Google and global low-latency distribution through structured semantic HTML, automated schema markup, and high-performance CDN routing.",
+            deliverables: [
+              "Structured JSON-LD & Rich Search Schema Markup",
+              "Global Cloudflare Edge CDN & Smart Caching",
+              "Automated XML Sitemap & Search Console indexing",
+              "Conversion rate optimization (CRO) & A/B testing"
+            ],
+            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+          }
+        ],
+        techMatrix: {
+          title: "Our Enterprise Technology Stack",
+          subtitle: "We intentionally select the most robust, battle-tested modern technologies to build platforms engineered to scale.",
+          tabFrontend: "Frontend & Design",
+          tabBackend: "Backend & Data",
+          tabAi: "AI & Automation",
+          tabCloud: "Cloud & Security"
+        },
+        process: {
+          title: "Our 4-Stage Delivery Process",
+          subtitle: "A structured and proven engineering methodology designed for precision, velocity, and zero bloat.",
+          step1Num: "01",
+          step1Title: "Discovery & Blueprint Mapping",
+          step1Desc: "We map your commercial goals, user journeys, and data schemas to produce a flawless technical blueprint.",
+          step2Num: "02",
+          step2Title: "Interactive Prototype & Tokens",
+          step2Desc: "Crafting a tokenized UI/UX design system with interactive prototypes validated against actual business use cases.",
+          step3Num: "03",
+          step3Title: "Bespoke Code & AI Integration",
+          step3Desc: "Direct engineering in clean React, Node.js, and modern APIs by our 5 senior partners without generic templates.",
+          step4Num: "04",
+          step4Title: "Rigorous QA & Global Rollout",
+          step4Desc: "100/100 Lighthouse optimization, automated end-to-end security audits, and global deployment with zero downtime."
+        },
+        comparison: {
+          title: "RoshaLink vs. Traditional Agencies",
+          subtitle: "Why forward-thinking enterprises choose our senior partner engineering model over conventional agencies.",
+          featureCol: "Evaluation Criteria",
+          agencyCol: "Traditional Agency",
+          roshaCol: "RoshaLink Senior Model",
+          f1: "Team Composition",
+          f1Agency: "Junior developers & non-technical PM proxies",
+          f1Rosha: "5 senior founding architects code directly",
+          f2: "Code Architecture",
+          f2Agency: "WordPress & bloated third-party purchased themes",
+          f2Rosha: "100% bespoke, clean React/Node.js architecture",
+          f3: "Speed & Performance",
+          f3Agency: "Sluggish page loads (2-5s), low Lighthouse scores",
+          f3Rosha: "Sub-20ms response, 100/100 Google Lighthouse",
+          f4: "Security & IP Ownership",
+          f4Agency: "Vulnerable plugins, restrictive or shared IP",
+          f4Rosha: "ISO 27001-aligned & 100% client code ownership",
+          f5: "Pricing Transparency",
+          f5Agency: "Hidden hourly billing & runaway scope creep",
+          f5Rosha: "Guaranteed fixed scope & transparent deliverables"
+        },
+        faq: {
+          title: "Frequently Asked Questions",
+          subtitle: "Everything you need to know about our engineering approach, deliverables, and service guarantees.",
+          q1: "How quickly can we start our project?",
+          a1: "Following our initial discovery session, we typically launch technical scoping and architecture mapping within 48 hours. Our 5 senior partners manage the engagement directly without bureaucratic delays.",
+          q2: "Do you use ready-made templates or build custom from scratch?",
+          a2: "We engineer 100% bespoke software without WordPress or generic commercial templates. This ensures pristine code, enterprise security, ultra-fast loading, and effortless future scalability.",
+          q3: "Who will actually write the code for our platform?",
+          a3: "You work and communicate directly in real-time with our 5 senior partners and principal architects. We never outsource to junior developers or third-party contractors.",
+          q4: "How are security, data protection, and IP ownership handled?",
+          a4: "You own 100% of all intellectual property, source code, and assets from day one. We engineer systems complying with ISO 27001 and GDPR standards with Zero-Trust architecture.",
+          q5: "Do you provide ongoing support and maintenance after launch?",
+          a5: "Yes, we provide dedicated SLA maintenance packages including 24/7 telemetry monitoring, continuous performance optimization, and proactive feature enhancements as your business scales."
+        },
+        cta: {
+          title: "Ready to engineer your next flagship digital product?",
+          subtitle: "Schedule a strategic technical discovery session with our 5 principal partners and turn your digital vision into reality.",
+          button: "Schedule Strategic Brief Now"
+        }
       }
     }
   },
@@ -1220,6 +1558,175 @@ const resources = {
           { num: "۱۱", title: "۱۱. اطلاعات تماس", icon: "Mail", text: `برای طرح سوالات درباره حریم خصوصی، اعمال حقوق GDPR یا ارتباط با مسئول حفاظت از داده‌ها:\n\n• نام شرکت: RoshaLink / Diara IT Infrastructure\n• ایمیل حریم خصوصی: privacy@roshalink.com / hello@designlogic.agency\n• وب‌سایت: https://roshalink.com\n• آدرس پستی: RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland` },
           { num: "۱۲", title: "۱۲. تغییرات در سیاست حریم خصوصی", icon: "RefreshCw", text: `ما حق به‌روزرسانی این سیاست را جهت انطباق با پیشرفت‌های فنی، تغییرات قانونی یا فرآیندهای عملیاتی محفوظ می‌داریم. تغییرات عمده از طریق اطلاعیه‌های برجسته در وب‌سایت یا ایمیل اطلاع‌رسانی خواهند شد.` }
         ]
+      },
+      servicesPage: {
+        hero: {
+          titlePrefix: "مهندسی نرم‌افزار و ",
+          titleGradient: "معماری دیجیتال اختصاصی",
+          titleSuffix: "",
+          subtitle: "از تحلیل استراتژیک کسب‌وکار و سیستم‌سازی دیزاین تا میکروسرویس‌های ابری و اتوماسیون هوش مصنوعی. ۵ شریک ارشد روشالینک نرم‌افزارهای پایدار و بدون قالب آماده می‌سازند.",
+          primaryCta: "رزرو جلسه استراتژیک",
+          secondaryCta: "بررسی قابلیت‌ها و خدمات",
+          metric1Value: "۱۰۰/۱۰۰",
+          metric1Label: "امتیاز لایت‌هاوس و سئو گوگل",
+          metric2Value: "< ۲۰ میلی‌ثانیه",
+          metric2Label: "سرعت پاسخگویی سرورها",
+          metric3Value: "ISO 27001",
+          metric3Label: "استاندارد امنیتی و Zero-Trust",
+          metric4Value: "۵ پارتنر ارشد",
+          metric4Label: "همکاری مستقیم بدون واسطه"
+        },
+        servicesSection: {
+          title: "۶ توانمندی محوری روشالینک",
+          subtitle: "مجموعه‌ای جامع از راهکارهای مهندسی نرم‌افزار برای سازمان‌هایی که به دقت فنی بالا و مقیاس‌پذیری پایدار نیاز دارند.",
+          deliverablesLabel: "خروجی‌های کلیدی:",
+          techTagsLabel: "استک فنی:"
+        },
+        servicesList: [
+          {
+            id: "discovery",
+            category: "استراتژی کسب‌وکار",
+            title: "تحلیل استراتژیک کسب‌وکار و فرآیندها",
+            desc: "ما پیش از نوشتن حتی یک خط کد، مدل‌های درآمدی، سفرهای کاربری و گلوگاه‌های فنی شما را تحلیل می‌کنیم تا حداکثر بازگشت سرمایه و ارزش بیزینسی تضمین شود.",
+            deliverables: [
+              "نقشه‌برداری جامع مدل کسب‌وکار و جریان کار",
+              "امکان‌سنجی فنی و ترسیم بلوپرینت معماری",
+              "مدل‌سازی پایگاه‌داده و مشخصات دقیق API",
+              "برنامه زمانی و نقشه راه استراتژیک محصول"
+            ],
+            techTags: ["System Mapping", "Figma Tokens", "Data Modeling", "ROI Analysis"]
+          },
+          {
+            id: "web-architecture",
+            category: "فرانت‌اند و وب",
+            title: "معماری اختصاصی وب و توسعه با React",
+            desc: "وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع که با کدهای تمیز React، کامپوننت‌های ماژولار و بهینه‌سازی ۱۰۰/۱۰۰ لایت‌هاوس مهندسی شده‌اند.",
+            deliverables: [
+              "وب‌اپلیکیشن‌های تک‌صفحه‌ای (SPA) و پرتال‌ها",
+              "سیستم دیزاین توکنیزه‌شده UI/UX",
+              "انطباق با استاندارد دسترس‌پذیری WCAG 2.1 AA",
+              "امتیاز ۱۰۰/۱۰۰ Core Web Vitals و سئو گوگل"
+            ],
+            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+          },
+          {
+            id: "cloud-backend",
+            category: "بک‌اند و زیرساخت",
+            title: "بک‌اند سازمانی و معماری میکروسرویس‌ها",
+            desc: "معماری سرورهای پایدار، پایگاه‌های داده توزیع‌شده و APIهای رویدادمحور با سرعت پاسخ کمتر از ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین‌شده.",
+            deliverables: [
+              "میکروسرویس‌های رویدادمحور و APIهای REST/GraphQL",
+              "معماری دیتابیس PostgreSQL، Redis و NoSQL",
+              "امنیت ISO 27001 و احراز هویت Zero-Trust",
+              "خطوط لوله اتوماتیک CI/CD و کانتینرسازی Docker"
+            ],
+            techTags: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS / GCP"]
+          },
+          {
+            id: "ai-automation",
+            category: "هوش مصنوعی و اتوماسیون",
+            title: "اتوماسیون هوش مصنوعی و خطوط داده هوشمند",
+            desc: "ادغام مدل‌های اختصاصی هوش مصنوعی، ایجنت‌های خودکار و پردازش هوشمند داده‌ها برای صرفه‌جویی در صدها ساعت کار دستی در سازمان شما.",
+            deliverables: [
+              "سیستم‌های اختصاصی LLM و RAG (OpenAI، Gemini)",
+              "دستیاران هوشمند سازمانی و ایجنت‌های خودکار",
+              "خطوط اتوماتیک ورود و پردازش داده‌ها",
+              "داشبوردهای هوشمند تحلیلی و پیش‌بینی داده‌ها"
+            ],
+            techTags: ["OpenAI API", "Gemini", "RAG / Vector DB", "Python Automation"]
+          },
+          {
+            id: "mobile-apps",
+            category: "اپلیکیشن موبایل",
+            title: "اپلیکیشن‌های موبایل کراس‌پلتفرم (iOS و Android)",
+            desc: "توسعه اپلیکیشن‌های موبایل با پرفورمنس نیتیو، همگام‌سازی بلادرنگ با بک‌اند وب، امنیت بیومتریک و طراحی لمسی جذاب.",
+            deliverables: [
+              "اپلیکیشن‌های چندسکویی برای iOS و Android",
+              "همگام‌سازی داده‌ها در زمان واقعی با WebSockets",
+              "امنیت بیومتریک و قابلیت کارکرد آفلاین",
+              "انتشار رسمی در App Store و Google Play"
+            ],
+            techTags: ["React Native", "Expo", "WebSockets", "Push Notifications"]
+          },
+          {
+            id: "seo-performance",
+            category: "پرفورمنس و سئو",
+            title: "مهندسی سئو ارگانیک و توزیع ابری Edge CDN",
+            desc: "کسب رتبه‌های اول گوگل و توزیع جهانی محتوا با کمترین تاخیر از طریق کدهای سمانتیک، اسکیماهای ساختاریافته و شبکه Cloudflare CDN.",
+            deliverables: [
+              "ساختار نشانه‌گذاری JSON-LD و ریچ اسنیپت‌ها",
+              "شبکه جهانی Cloudflare Edge CDN و کشینگ هوشمند",
+              "نقشه سایت اتوماتیک و ایندکس سریع در سرچ کنسول",
+              "بهینه‌سازی نرخ تبدیل (CRO) و تست‌های A/B"
+            ],
+            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+          }
+        ],
+        techMatrix: {
+          title: "استک فناوری‌های سازمانی ما",
+          subtitle: "ما دقیق‌ترین و مدرن‌ترین ابزارهای استاندارد دنیا را برای مهندسی سیستم‌هایی با طول عمر بالا انتخاب می‌کنیم.",
+          tabFrontend: "فرانت‌اند و دیزاین",
+          tabBackend: "بک‌اند و دیتابیس",
+          tabAi: "هوش مصنوعی و اتوماسیون",
+          tabCloud: "ابر و امنیت"
+        },
+        process: {
+          title: "فرآیند تحویل ۴ مرحله‌ای ما",
+          subtitle: "متدولوژی مهندسی ساختاریافته و شفاف که برای دستیابی به سرعت، دقت و کیفیت بالا طراحی شده است.",
+          step1Num: "۰۱",
+          step1Title: "تحلیل و ترسیم معماری",
+          step1Desc: "بررسی دقیق اهداف تجاری، جریان کاربران و ساختار داده‌ها برای خلق یک نقشه فنی بدون نقص.",
+          step2Num: "۰۲",
+          step2Title: "پروتوتایپ تعاملی و سیستم دیزاین",
+          step2Desc: "طراحی سیستم UI/UX توکنیزه‌شده همراه با پیش‌نمایش‌های تعاملی تست‌شده با سناریوهای واقعی.",
+          step3Num: "۰۳",
+          step3Title: "کدنویسی اختصاصی و ادغام هوش مصنوعی",
+          step3Desc: "توسعه مستقیم با React و Node.js توسط ۵ پارتنر ارشد سیستم بدون استفاده از قالب‌های آماده.",
+          step4Num: "۰۴",
+          step4Title: "تست جامع و استقرار جهانی",
+          step4Desc: "بهینه‌سازی ۱۰۰/۱۰۰ لایت‌هاوس، ممیزی امنیتی خودکار و استقرار نهایی بدون حتی ۱ ثانیه قطعی."
+        },
+        comparison: {
+          title: "روشالینک در برابر آژانس‌های سنتی",
+          subtitle: "چرا سازمان‌های پیشرو مدل همکاری مستقیم با ۵ معمار ارشد ما را به آژانس‌های واسطه‌ای ترجیح می‌دهند.",
+          featureCol: "معیار ارزیابی",
+          agencyCol: "آژانس سنتی",
+          roshaCol: "مدل ارشد روشالینک",
+          f1: "ترکیب تیم",
+          f1Agency: "برنامه‌نویسان مبتدی و مدیران واسطه",
+          f1Rosha: "۵ شریک ارشد سیستم مستقیماً کد می‌زنند",
+          f2: "معماری کد",
+          f2Agency: "وردپرس و قالب‌های سنگین و آماده",
+          f2Rosha: "۱۰۰٪ کد تمیز و اختصاصی React و Node.js",
+          f3: "سرعت و پرفورمنس",
+          f3Agency: "لود کند (۲ تا ۵ ثانیه) و افت کیفیت",
+          f3Rosha: "پاسخ کمتر از ۲۰ms و امتیاز ۱۰۰ گوگل",
+          f4: "مالکیت کد و امنیت",
+          f4Agency: "پلاگین‌های ناامن و عدم مالکیت کامل کد",
+          f4Rosha: "استاندارد ISO 27001 و ۱۰۰٪ مالکیت کارفرما",
+          f5: "شفافیت هزینه",
+          f5Agency: "هزینه‌های پنهان ساعتی و افزایش مداوم فاکتور",
+          f5Rosha: "قرارداد با محدوده ثابت و نتایج تضمین‌شده"
+        },
+        faq: {
+          title: "سوالات متداول درباره خدمات ما",
+          subtitle: "پاسخ به سوالات پرتکرار درباره فرآیند کاری، مالکیت کد و تضمین کیفیت پروژه‌ها.",
+          q1: "چقدر سریع می‌توانیم پروژه را شروع کنیم؟",
+          a1: "پس از جلسه مشاوره اولیه، ما معمولاً ظرف ۴۸ ساعت کار تحلیل معماری و نقشه راه را آغاز می‌کنیم. ارتباط مستقیم با شرکای ارشد موجب حذف بوروکراسی‌های اداری می‌شود.",
+          q2: "آیا از قالب‌های آماده استفاده می‌کنید یا پروژه از صفر طراحی می‌شود؟",
+          a2: "ما ۱۰۰٪ کدها را به صورت کاملاً سفارشی و بدون قالب‌های آماده می‌نویسیم. این موضوع پایداری سیستم، امنیت بی‌نظیر و سرعت خارق‌العاده را تضمین می‌کند.",
+          q3: "چه کسی مسئول کدنویسی و توسعه پروژه ما خواهد بود؟",
+          a3: "شما مستقیماً با ۵ معمار و شریک ارشد روشالینک کار می‌کنید. ما هرگز کارها را به نیروهای مبتدی یا خارج از تیم برون‌سپاری نمی‌کنیم.",
+          q4: "مالکیت معنوی، سورس‌کد و امنیت چگونه تضمین می‌شود؟",
+          a4: "شما از روز اول مالک ۱۰۰٪ تمام سورس‌کدها و حقوق معنوی خواهید بود. کلیه پروژه‌ها بر اساس استانداردهای ISO 27001 و GDPR پیاده‌سازی می‌شوند.",
+          q5: "آیا پس از لانچ، پشتیبانی و توسعه مداوم ارائه می‌دهید؟",
+          a5: "بله، ما قراردادهای پشتیبانی اختصاصی شامل مانیتورینگ ۲۴/۷، تضمین پرفورمنس و توسعه مستمر همگام با رشد کسب‌وکار شما ارائه می‌دهیم."
+        },
+        cta: {
+          title: "آماده‌اید محصول دیجیتال بعدی خود را بسازید؟",
+          subtitle: "یک جلسه استراتژیک با ۵ شریک ارشد ما رزرو کنید و اهداف دیجیتال خود را به موفقیتی ملموس تبدیل کنید.",
+          button: "رزرو جلسه استراتژیک"
+        }
       }
     }
   },
@@ -1627,6 +2134,175 @@ const resources = {
           { num: "١١", title: "١١. معلومات الاتصال", icon: "Mail", text: `لأي استفسارات حول سياسة الخصوصية، يمكنك التواصل معنا عبر:\n\n• اسم الشركة: RoshaLink / Diara IT Infrastructure\n• البريد الإلكتروني للخصوصية: privacy@roshalink.com / hello@designlogic.agency\n• الموقع الإلكتروني: https://roshalink.com\n• العنوان البريدي: RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland` },
           { num: "۱۲", title: "۱۲. التغييرات في سياسة الخصوصية", icon: "RefreshCw", text: `نحتفظ بالحق في تحديث سياسة الخصوصية هذه لمواكبة التطورات الفنية، أو التحديثات القانونية. سيتم الإعلان عن أي تغييرات جوهرية عبر إشعارات بارزة على موقعنا.` }
         ]
+      },
+      servicesPage: {
+        hero: {
+          titlePrefix: "الهندسة البرمجية المخصصة و ",
+          titleGradient: "المعمارية الرقمية",
+          titleSuffix: "",
+          subtitle: "من التحليل المؤسسي وأنظمة التصميم المرمزة إلى الخدمات السحابية المصغرة والأتمتة الذكية. يقوم شركاؤنا الخمسة ببناء برمجيات رائدة دون استخدام قوالب مسبقة الصنع.",
+          primaryCta: "حجز جلسة استشارية",
+          secondaryCta: "استكشاف القدرات والحلول",
+          metric1Value: "100/100",
+          metric1Label: "أداء Google Lighthouse وسرعة SEO",
+          metric2Value: "< 20ms",
+          metric2Label: "سرعة استجابة الخوادم عالمياً",
+          metric3Value: "ISO 27001",
+          metric3Label: "معايير الأمان وحماية Zero-Trust",
+          metric4Value: "5 شركاء",
+          metric4Label: "تعاون مباشر مع كبار المهندسين"
+        },
+        servicesSection: {
+          title: "قدراتنا الهندسية الست الأساسية",
+          subtitle: "منظومة تقنية شاملة للمؤسسات والشركات التي تطلب الدقة البرمجية والاستقرار وقابلية التوسع السلس.",
+          deliverablesLabel: "المخرجات الأساسية:",
+          techTagsLabel: "الحزمة التقنية:"
+        },
+        servicesList: [
+          {
+            id: "discovery",
+            category: "استراتيجية الأعمال",
+            title: "التحليل المؤسسي وتخطيط المعمارية",
+            desc: "نحلل نماذج الأعمال ومسارات المستخدمين والعقبات التقنية قبل كتابة أي سطر برمجي لضمان أقصى عائد استثماري وقيمة فعلية.",
+            deliverables: [
+              "تخطيط شامل لنموذج العمل وتدفقات البيانات",
+              "دراسة الجدوى التقنية ومخطط المعمارية",
+              "نمذجة قواعد البيانات ومواصفات واجهات API",
+              "خارطة طريق استراتيجية وتوقيتات زمنية للمشروع"
+            ],
+            techTags: ["System Mapping", "Figma Tokens", "Data Modeling", "ROI Analysis"]
+          },
+          {
+            id: "web-architecture",
+            category: "الواجهات والويب",
+            title: "معمارية الويب المخصصة وهندسة React",
+            desc: "تطبيقات ويب وبوابات مؤسسية فائقة السرعة مبنية بكود React نظيف ومكونات قياسية معيارية وأداء مثالي بنسبة 100/100.",
+            deliverables: [
+              "تطبيقات الصفحة الواحدة (SPA) والبوابات",
+              "نظام تصميم معتمد بالرموز UI/UX Tokens",
+              "إمكانية الوصول الشاملة WCAG 2.1 AA والتجاوب",
+              "توافق 100/100 مع Core Web Vitals ومحركات البحث"
+            ],
+            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+          },
+          {
+            id: "cloud-backend",
+            category: "الخوادم والبنية السحابية",
+            title: "الأنظمة الخلفية والخدمات المصغرة",
+            desc: "بنية خوادم مرنة وقواعد بيانات موزعة وواجهات API متطورة بسرعة استجابة أقل من 20 مللي ثانية ونسبة تشغيل 99.99٪.",
+            deliverables: [
+              "خدمات مصغرة معتمدة على الأحداث وواجهات REST/GraphQL",
+              "معمارية قواعد بيانات PostgreSQL و Redis و NoSQL",
+              "أمان معتمد وفق ISO 27001 ومصادقة Zero-Trust",
+              "خطوط تسليم ونشر برمجية مؤتمتة CI/CD مع Docker"
+            ],
+            techTags: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS / GCP"]
+          },
+          {
+            id: "ai-automation",
+            category: "الذكاء الاصطناعي والأتمتة",
+            title: "أتمتة الذكاء الاصطناعي وتدفقات البيانات الذكية",
+            desc: "دمج نماذج الذكاء الاصطناعي المخصصة والوكلاء المستقلين لتقليص مئات الساعات من العمل اليدوي في مؤسستك.",
+            deliverables: [
+              "أنظمة مخصصة لنماذج LLM و RAG (OpenAI، Gemini)",
+              "مساعدون رقميون أذكياء ووكلاء مهام مستقلون",
+              "خطوط مؤتمتة لمعالجة واستيعاب البيانات الضخمة",
+              "لوحات تحكم ذكية للتحليلات التنبؤية واتخاذ القرار"
+            ],
+            techTags: ["OpenAI API", "Gemini", "RAG / Vector DB", "Python Automation"]
+          },
+          {
+            id: "mobile-apps",
+            category: "تطبيقات الموبايل",
+            title: "تطبيقات الموبايل متعددة المنصات (iOS و Android)",
+            desc: "تطبيقات هواتف ذكية بأداء أصيل وسلس، ومزامنة لحظية مع الخوادم، وأمان بيومتري، وتجربة مستخدم عصرية.",
+            deliverables: [
+              "تطبيقات شاملة لمنصتي iOS و Android",
+              "مزامنة البيانات الحية عبر WebSockets",
+              "أمان بيومتري ودعم العمل دون اتصال بالإنترنت",
+              "إطلاق ونشر كامل في App Store و Google Play"
+            ],
+            techTags: ["React Native", "Expo", "WebSockets", "Push Notifications"]
+          },
+          {
+            id: "seo-performance",
+            category: "الأداء ومحركات البحث",
+            title: "هندسة SEO والتوزيع السحابي Edge CDN",
+            desc: "تصدر نتائج محركات البحث وتوزيع المحتوى عالمياً بأقل زمن استجابة بفضل الأكواد الدلالية والشبكة السحابية المتطورة.",
+            deliverables: [
+              "ترميز البيانات المنظمة JSON-LD و Rich Snippets",
+              "شبكة توزيع عالمية Cloudflare Edge CDN وتخزين ذكي",
+              "أرشفة فورية وخرائط مواقع آلية في Search Console",
+              "تحسين معدلات التحويل واختبارات A/B المتقدمة"
+            ],
+            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+          }
+        ],
+        techMatrix: {
+          title: "منظومة التقنيات المؤسسية لدينا",
+          subtitle: "نختار بعناية فائقة أكثر الأدوات استقراراً وأحدث التقنيات لبناء منصات قادرة على النمو المستدام.",
+          tabFrontend: "الواجهات والتصميم",
+          tabBackend: "الأنظمة وقواعد البيانات",
+          tabAi: "الذكاء الاصطناعي والأتمتة",
+          tabCloud: "السحابة والأمان"
+        },
+        process: {
+          title: "منهجية التسليم في 4 خطوات",
+          subtitle: "مسار هندسي منظم ومجرب مصمم لتحقيق السرعة والدقة المطلقة وتفادي أي ديون برمجية.",
+          step1Num: "۰۱",
+          step1Title: "الاستكشاف وتخطيط المعمارية",
+          step1Desc: "نحدد الأهداف الاستراتيجية وتدفقات المستخدمين لبناء مخطط هندسي محكم خالٍ من الثغرات.",
+          step2Num: "۰۲",
+          step2Title: "النماذج التفاعلية ونظام التصميم",
+          step2Desc: "إنشاء نظام UI/UX موحد مع نماذج تجريبية تفاعلية تم التحقق منها وفق سيناريوهات واقعية.",
+          step3Num: "۰۳",
+          step3Title: "التطوير المخصص وتكامل الذكاء الاصطناعي",
+          step3Desc: "برمجة مباشرة بكود React و Node.js بواسطة الشركاء الخمسة المؤسسين دون قوالب جاهزة.",
+          step4Num: "۰۴",
+          step4Title: "ضمان الجودة والإطلاق الشامل",
+          step4Desc: "تحقيق 100/100 في معايير Lighthouse واختبارات أمان مؤتمتة وإطلاق مستقر بنسبة 100٪."
+        },
+        comparison: {
+          title: "روشالينك مقارنة بالوكالات التقليدية",
+          subtitle: "لماذا تختار الشركات الرائدة نموذج الشراكة المباشر مع خبرائنا بدلاً من الوكالات التقليدية والوسطاء.",
+          featureCol: "معيار التقييم",
+          agencyCol: "الوكالات التقليدية",
+          roshaCol: "نموذج روشالينك المباشر",
+          f1: "فريق العمل",
+          f1Agency: "مبرمجون مبتدئون ووسطاء غير تقنيين",
+          f1Rosha: "5 شركاء مؤسسين يطورون الكود بأنفسهم",
+          f2: "معمارية الكود",
+          f2Agency: "ووردبريس وقوالب تجارية ثقيلة",
+          f2Rosha: "100٪ كود مخصص ونظيف بتقنيات React و Node.js",
+          f3: "السرعة والأداء",
+          f3Agency: "تحميل بطيء (2 إلى 5 ثوانٍ) وتقييمات متدنية",
+          f3Rosha: "استجابة <20ms وتقييم 100/100 في Lighthouse",
+          f4: "الملكية الفكرية والأمان",
+          f4Agency: "إضافات غير آمنة وملكية غير كاملة للكود",
+          f4Rosha: "معايير ISO 27001 وملكية 100٪ للعميل",
+          f5: "الشفافية في التسعير",
+          f5Agency: "تكاليف خفية واحتساب عشوائي للساعات",
+          f5Rosha: "نطاق عمل محدد وثابت ونتائج مضمونة"
+        },
+        faq: {
+          title: "الأسئلة الشائعة حول خدماتنا",
+          subtitle: "إجابات شافية لجميع الاستفسارات المتعلقة بآلية العمل وجودة التسليم وضمانات المشاريع.",
+          q1: "ما هي السرعة التي يمكننا البدء بها في المشروع؟",
+          a1: "بعد جلستنا الاستشارية الأولى، نبدأ عادة في إعداد دراسة الجدوى وتخطيط المعمارية خلال 48 ساعة. التعامل المباشر مع الشركاء يلغي التعقيدات الإدارية.",
+          q2: "هل تعتمدون على قوالب جاهزة أم يتم البناء من الصفر؟",
+          a2: "نحن نبني برمجيات مخصصة بنسبة 100٪ دون استخدام ووردبريس أو قوالب تجارية، مما يضمن أقصى درجات الأمان والسرعة وقابلية التوسع.",
+          q3: "من سيقوم فعلياً بكتابة الكود البرمجي لمشروعنا؟",
+          a3: "أنت تتواصل وتعمل مباشرة مع شركائنا المؤسسين الخمسة وكبار مهندسي الأنظمة، ولا نستعين بأي أطراف خارجية أو مبتدئين.",
+          q4: "كيف يتم التعامل مع الملكية الفكرية وحماية البيانات؟",
+          a4: "أنت تمتلك 100٪ من الشيفرة البرمجية والتصاميم وحقوق الملكية منذ اليوم الأول، ونتبع معايير ISO 27001 و GDPR الصارمة.",
+          q5: "هل تقدمون خدمات الدعم والصيانة المستمرة بعد إطلاق المشروع؟",
+          a5: "نعم، نوفر اتفاقيات مستوى خدمة (SLA) تشمل المراقبة على مدار الساعة، وضمانات الأداء، والتطوير المستمر مع نمو أعمالكم."
+        },
+        cta: {
+          title: "جاهز لبناء منتجك الرقمي الرائد القادم؟",
+          subtitle: "احجز جلسة عمل استراتيجية مع كبار شركائنا ودعنا نحول طموحاتك الرقمية إلى واقع ملموس.",
+          button: "احجز جلستك الاستراتيجية الآن"
+        }
       }
     }
   }

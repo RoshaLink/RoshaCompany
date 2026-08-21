@@ -11,7 +11,7 @@ import "./HeroSection.css";
 export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(false); // Enable audio on initial load
+  const [isMuted, setIsMuted] = useState(true); // Start muted: unsolicited audio on load is jarring and blocked by most browsers anyway
   const [isPlaying, setIsPlaying] = useState(true);
 
   // Select video based on selected language
@@ -25,21 +25,13 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
   const currentVideoSrc = getVideoSource();
 
-  // Play video ONCE with sound on initial load or language change
+  // Play video muted on initial load or language change; the visitor opts into sound via the mute button
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.load();
-      videoRef.current.muted = false;
-      setIsMuted(false);
-      videoRef.current.play().catch((err) => {
-        // Fallback to muted play if browser autoplay policy blocks unmuted autoplay
-        console.warn("Unmuted autoplay restricted by browser policy, falling back to muted play:", err);
-        if (videoRef.current) {
-          videoRef.current.muted = true;
-          setIsMuted(true);
-          videoRef.current.play().catch(() => { });
-        }
-      });
+      videoRef.current.muted = true;
+      setIsMuted(true);
+      videoRef.current.play().catch(() => { });
       setIsPlaying(true);
     }
   }, [currentVideoSrc]);
@@ -175,6 +167,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
             <button
               onClick={togglePlayPause}
               title={isPlaying ? "Pause Video" : "Play Video"}
+              aria-label={isPlaying ? "Pause Video" : "Play Video"}
               className="hero-control-btn"
             >
               {isPlaying ? (
@@ -187,6 +180,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
             <button
               onClick={handleReplay}
               title="Replay Video"
+              aria-label="Replay Video"
               className="hero-control-btn"
             >
               <RotateCcw className="hero-control-icon rotate-icon-hover text-white" />
@@ -195,6 +189,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
             <button
               onClick={toggleMute}
               title={isMuted ? "Unmute Video" : "Mute Video"}
+              aria-label={isMuted ? "Unmute Video" : "Mute Video"}
               className="hero-control-btn"
             >
               {isMuted ? (

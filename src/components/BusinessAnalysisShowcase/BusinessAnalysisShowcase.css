@@ -172,6 +172,7 @@
   font-weight: 700;
   font-family: var(--font-mono);
   padding: 0.75rem 0.5rem; /* py-3 px-2 */
+  min-height: 44px;
   border-radius: var(--radius-xl);
   box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -181,12 +182,12 @@
   gap: 0.25rem; /* space-x-1 */
   cursor: pointer;
   border: 1px solid rgba(56, 189, 248, 0.4);
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   line-height: 1.25; /* leading-tight */
 }
 
-@media (min-width: 475px) { .business-btn-primary { font-size: 11px; } }
+@media (min-width: 475px) { .business-btn-primary { font-size: 12px; } }
 
 .business-btn-primary:hover {
   background-image: linear-gradient(to right, var(--color-sky-600), var(--color-blue-700));
@@ -216,8 +217,9 @@
   color: var(--color-slate-800);
   font-weight: 700;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   padding: 0.75rem 0.5rem;
+  min-height: 44px;
   border-radius: var(--radius-xl);
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -229,7 +231,7 @@
   justify-content: center;
 }
 
-@media (min-width: 475px) { .business-btn-secondary { font-size: 11px; } }
+@media (min-width: 475px) { .business-btn-secondary { font-size: 12px; } }
 
 .business-btn-secondary:hover {
   background-color: var(--color-slate-50);

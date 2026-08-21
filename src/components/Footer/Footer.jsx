@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Sparkles, Globe, Share2, MessageSquare, ArrowUpRight } from 'lucide-react';
-import logoImg from '../../assets/Logo/RoshaLink_8.jpeg';
+import logoImg from '../../assets/Logo/RoshaLink_logo.png';
 import './Footer.css';
 
 export default function Footer({ setActivePage }) {
@@ -21,6 +21,10 @@ export default function Footer({ setActivePage }) {
             <div className="footer-logo-icon">
               <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" />
             </div>
+            <span className="footer-logo-text">
+              <span className="footer-logo-rosha">ROSHA</span>
+              <span className="footer-logo-link-text">LINK</span>
+            </span>
           </div>
           <p className="footer-desc">
             {t('footer.description')}

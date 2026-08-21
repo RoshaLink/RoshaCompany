@@ -4,7 +4,7 @@ import { Menu, X, Sparkles, Home, Globe, Briefcase, Layers, Users, Mail, Chevron
 import { MenuBar } from '../ui/glow-menu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../context/ThemeContext';
-import logoImg from '../../assets/Logo/RoshaLink_8.jpeg';
+import logoImg from '../../assets/Logo/RoshaLink_logo.png';
 import './Navbar.css';
 
 const SwedenFlag = () => (

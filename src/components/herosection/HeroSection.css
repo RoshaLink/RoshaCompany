@@ -99,6 +99,7 @@ html.dark .hero-subtitle {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh; /* accounts for mobile browser chrome; falls back to 100vh where dvh is unsupported */
   overflow: hidden;
   background-color: var(--color-surface);
   color: var(--color-slate-900);
@@ -112,9 +113,15 @@ html.dark .hero-subtitle {
 
 @media (min-width: 1024px) {
   .hero-section {
-    height: 100vh;
-    min-height: 620px;
-    max-height: 1080px;
+    /* Was a fixed `height: 100vh` (capped 620-1080px) with the parent's
+       overflow: hidden -- on any laptop where the browser chrome eats into
+       the viewport (extremely common at ~768-800px tall), the title,
+       subtitle, buttons and capability strip together were taller than
+       that fixed box and the buttons/strip were silently clipped off the
+       bottom. min-height lets the section grow to fit its content instead
+       of cropping it; it still fills the screen on anything tall enough. */
+    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 0;
     padding-bottom: 0;
   }

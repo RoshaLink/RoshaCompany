@@ -168,7 +168,15 @@ html.dark .hero-subtitle {
 
 @media (min-width: 1024px) {
   .hero-container {
-    height: 100%;
+    /* Was `height: 100%`, which resolved fine back when .hero-section had
+       an explicit `height: 100vh`. Now that .hero-section only sets
+       min-height (so it can grow on short viewports instead of clipping),
+       its own height counts as "auto" for percentage purposes, so a
+       percentage height here -- and on .hero-video-panel below, which
+       also uses height: 100% -- stopped resolving and collapsed to 0.
+       flex-grow fills the same space without depending on the parent
+       having a definite height. */
+    flex: 1 1 auto;
     padding-top: 7rem;
     flex-direction: row;
   }
@@ -562,6 +570,25 @@ html.dark .hero-subtitle {
   }
 }
 
+/* Pre-existing dark-mode gap: these never had a dark counterpart, so the
+   capability strip's titles were near-black text on the near-black dark
+   background (and the dividers/subtext were low-contrast too). */
+html.dark .hero-capability-strip {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .hero-cap-border-s {
+  border-inline-start-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .hero-cap-title {
+  color: var(--color-slate-100);
+}
+
+html.dark .hero-cap-sub {
+  color: var(--color-slate-400);
+}
+
 .hero-video-panel {
   position: relative;
   flex: 1 1 0%;
@@ -585,8 +612,15 @@ html.dark .hero-subtitle {
 
 @media (min-width: 1024px) {
   .hero-video-panel {
+    /* `height: 100%` used to work because .hero-section had an explicit
+       height; now that it only has min-height, that percentage no longer
+       resolves and the panel collapsed to 0. align-self: stretch (the
+       flex default, stated explicitly here) fills .hero-container's
+       cross-axis without depending on any ancestor having a definite
+       height, so it works the same regardless of how tall the section
+       ends up being. */
     min-height: 0;
-    height: 100%;
+    align-self: stretch;
     order: 2;
     margin-top: 0;
     margin-bottom: 0;

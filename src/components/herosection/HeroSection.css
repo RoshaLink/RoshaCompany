@@ -59,61 +59,39 @@
   }
 }
 
-@keyframes glass-shine-white {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 .glass-text-shine {
-  color: #ffffff;
-  /* Pure White base text with luminous icy-blue shimmer - 100% white, zero dark slate/black! */
-  background: linear-gradient(115deg,
-      #ffffff 0%,
-      #ffffff 25%,
-      #e0f2fe 45%,
-      #38bdf8 50%,
-      #e0f2fe 55%,
-      #ffffff 75%,
-      #ffffff 100%);
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: glass-shine-white 10s ease-in-out infinite;
-
-  /* 3D Embossed (حالت برجسته) multi-layer pop effect */
-  filter:
-    drop-shadow(0 1px 1px rgba(15, 23, 42, 0.75)) drop-shadow(0 3px 6px rgba(15, 23, 42, 0.45)) drop-shadow(0 8px 20px rgba(56, 189, 248, 0.4));
+  /* Confident Dark: solid ink title, brand-blue accent on the emphasized
+     phrase. Replaces the old white-on-white shimmer, which depended on
+     three stacked drop-shadows for contrast and was set to a font-weight
+     (900) the page never actually loads (Montserrat tops out at 800),
+     so it rendered faux-bold on top of being low-contrast. */
+  color: var(--color-slate-900);
+  font-weight: 800;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   display: inline-block;
 }
 
-.hero-video-blend {
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-composite: intersect;
+.glass-text-shine span {
+  color: var(--color-sky-600);
 }
 
-@media (min-width: 1024px) {
-  .hero-video-blend {
-    -webkit-mask-image:
-      linear-gradient(to bottom, transparent 0%, black 10%, black 100%),
-      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image:
-      linear-gradient(to bottom, transparent 0%, black 10%, black 100%),
-      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  }
+/* This component's own dark-mode text colors. Note: .hero-section's dark
+   background currently comes from an unrelated class-name collision with
+   ui/minimalist-hero.css's ".hero-section" / ".hero-subtitle" rules (see
+   html.dark .hero-section there) rather than from anything in this file --
+   worth deduping later. Declaring our own overrides here means this
+   component's text stays correct even if that collision gets fixed. */
+html.dark .glass-text-shine {
+  color: var(--color-slate-50);
+}
+
+html.dark .glass-text-shine span {
+  color: var(--color-sky-400);
+}
+
+html.dark .hero-subtitle {
+  color: var(--color-slate-300);
 }
 
 /* Base structural classes */
@@ -583,7 +561,10 @@
   min-height: 35vh;
   order: 1;
   overflow: hidden;
-  background-color: var(--color-white);
+  /* No background of its own -- the video sits in a framed card
+     (.hero-video-wrapper) that floats on top of .hero-section's own
+     background, light or dark. Painting white here too used to leave a
+     stark white slab behind the card in dark mode. */
   pointer-events: auto;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -606,6 +587,10 @@
 }
 
 .hero-video-wrapper {
+  /* Framed Screen treatment -- same "device card" language as the bottom
+     CTA banner's .cta-image-inner: a translucent, blurred card with a
+     border and shadow, so the video's own white backdrop reads as an
+     intentional screen instead of a raw slab against a dark page. */
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -614,6 +599,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem;
+  border-radius: var(--radius-2xl);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -622,6 +615,7 @@
     right: 1rem;
     bottom: 1rem;
     left: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -634,12 +628,27 @@
   }
 }
 
+html.dark .hero-video-wrapper {
+  background-color: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
 .hero-video-el {
   width: 100%;
   height: 100%;
   max-height: 70vh;
   object-fit: contain;
   object-position: center;
+  border-radius: var(--radius-xl);
+  /* Matches the card's own surface, so the moment before the video has
+     decoded its first frame reads as "card is ready" instead of a flash
+     of the browser's default black. */
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+html.dark .hero-video-el {
+  background-color: rgba(15, 23, 42, 0.75);
 }
 
 @media (min-width: 1024px) {

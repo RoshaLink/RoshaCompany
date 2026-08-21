@@ -232,6 +232,22 @@
   z-index: 20;
 }
 
+/* The pill's only child (the title/subtitle wrapper) is a flex item with
+   the flexbox default min-width: auto, which refuses to shrink below its
+   text's natural width -- so even though the pill itself was capped, the
+   text inside it wasn't, and the last sliver ("...Lösningar") overflowed
+   past the pill and got clipped by .portfolio-hero-card-frame's
+   overflow: hidden. min-width: 0 lets it actually wrap within the pill's
+   width instead of silently overflowing. */
+.portfolio-hero-floating-pill > div {
+  min-width: 0;
+}
+
+.portfolio-hero-pill-title,
+.portfolio-hero-pill-subtitle {
+  overflow-wrap: break-word;
+}
+
 @media (min-width: 1024px) {
   .portfolio-hero-floating-pill {
     position: absolute;

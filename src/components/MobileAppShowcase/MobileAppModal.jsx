@@ -101,6 +101,7 @@ export default function MobileAppModal({ isOpen, onClose }) {
               onClick={onClose}
               className="shrink-0 p-2 sm:p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-700 transition-colors"
               title={t('mobileApp.closeBtn')}
+              aria-label={t('mobileApp.closeBtn')}
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>

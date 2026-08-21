@@ -199,6 +199,34 @@ html.dark .ambient-glow-purple {
   background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, rgba(11, 17, 32, 0) 70%);
 }
 
+/* Focus visibility: the homepage's bespoke buttons/links style themselves per
+   component and never define a focus state, so keyboard users tabbing through
+   get no indication of where they are. One global rule covers all of them. */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-sky-500);
+  outline-offset: 2px;
+}
+
+/* Respect the OS-level "reduce motion" setting. Several homepage sections run
+   purely decorative infinite CSS animations (shimmering headline text, logo
+   and testimonial marquees, background "shine" sweeps) with no other way to
+   stop them; this is the standard, broad way to honor the preference. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

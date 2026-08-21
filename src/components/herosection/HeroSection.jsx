@@ -138,7 +138,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
         {/* Video Panel */}
         <motion.div
-          className="hero-video-panel hero-video-blend"
+          className="hero-video-panel"
           initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, ease: "easeOut" }}

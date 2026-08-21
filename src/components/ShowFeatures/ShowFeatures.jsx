@@ -50,12 +50,6 @@ export default function ShowFeatures({ onOpenGetStarted, setActivePage }) {
         
         {/* Left Column */}
         <div className="lg:col-span-6 space-y-6">
-          
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm rtl:space-x-reverse">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{t('features.badge')}</span>
-          </div>
-
           <h2 className="text-3xl md:text-5xl font-bold font-headline-md text-slate-900 leading-tight">
             {t('features.title')}
           </h2>

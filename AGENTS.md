@@ -73,9 +73,17 @@ public/                 static assets served at /
 | `npm run lint` | ESLint over the repo |
 
 CI (`.github/workflows/ci.yml`, on PRs to `main` and pushes to `main`) runs
-build → test → typecheck → size as **blocking** gates, then lint and
-`npm audit --audit-level=high` as `continue-on-error: true` (report-only, with
-comments explaining the backlog that has to clear before they block).
+build → test → typecheck → size as **blocking** gates, then lint,
+`npm audit --audit-level=high` and the AGENTS.md freshness check as
+`continue-on-error: true` (report-only, each with a comment explaining what has
+to clear before it blocks).
+
+The freshness check (`scripts/check-agents-doc.js`, PR-only) fails when a PR
+edits a file this document describes — `package.json`, `.env.example`,
+`vercel.json`, the configs, `ci.yml`, `src/App.jsx`, a handler under `api/` —
+without editing `AGENTS.md`. It verifies the doc was revisited, not that it is
+right. Update this file in the same PR; if it is genuinely still accurate, put
+`[agents-doc-ok]` in the PR title to say so deliberately.
 
 ## Environment variables
 
@@ -151,6 +159,8 @@ everything except `/api/*` to `/index.html` so deep links work.
 - **Always** raise the matching budget in `scripts/check-bundle-size.js` in the
   same PR when a change legitimately grows the bundle.
 - **Always** run `npm run build` before `npm run size` — it reads `dist/assets`.
+- **Always** update this file in the same PR as a change it describes; CI flags
+  the ones it can detect, but it cannot tell whether the prose is still true.
 - Use `module`-style ESM everywhere (`import`/`export`); `module.exports` fails at
   runtime on Vercel, not at build time.
 - Vercel binds env vars at deploy time: changing one in the dashboard needs a redeploy.

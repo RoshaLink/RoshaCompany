@@ -296,7 +296,7 @@ const resources = {
         feature2Desc: "Unik kod och arkitektur byggd exakt efter er verksamhets specifika behov.",
         feature3Title: "Konstruerad för mätbar tillväxt",
         feature3Desc: "Högpresterande lösningar som ökar konverteringen och driver er affär framåt.",
-        getStartedBtn: "Starta ert skräddarsydda projekt",
+        getStartedBtn: "Starta ert projekt",
         exploreBtn: "Utforska våra tjänster",
         modalTitle: "Våra Skräddarsydda Tjänster",
         modalSubtitle: "Upptäck hur vi bygger för framtiden",
@@ -416,7 +416,7 @@ const resources = {
         feature1: "Interaktiv digital meny & rätter",
         feature2: "Bordsbokningssystem online",
         feature3: "Flerspråkig UI & snabb laddtid",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       ffstechProject: {
         category: "INTEGRERADE BYGGNADSSYSTEM & NÄTVERK",
@@ -426,7 +426,7 @@ const resources = {
         feature1: "Intelligenta brand- och säkerhetssystem",
         feature2: "Smarta passersystem & IP-övervakning",
         feature3: "Integrerad AV & nätverksinfrastruktur",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       dentistProject: {
         category: "TANDVÅRD & HÄLSO- OCH SJUKVÅRD",
@@ -436,7 +436,7 @@ const resources = {
         feature1: "Online tidsbokningssystem för patienter",
         feature2: "Interaktiv behandlings- och vårdkatalog",
         feature3: "Patientportal & snabb responsiv UI",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       shiraziProject: {
         category: "JURIDIK & INVANDRINGSRÅDGIVNING",
@@ -446,7 +446,7 @@ const resources = {
         feature1: "Online Konsultationsbokning & Juridisk Rådgivning",
         feature2: "Portfölj för Affärsjuridik & Visumtjänster",
         feature3: "Säker Ärendehantering & Flerspråkig UX",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       parsLawProject: {
         category: "JURIDISK BYRÅ & ADVOKATTJÄNSTER",
@@ -456,17 +456,17 @@ const resources = {
         feature1: "Klientbokning & Inledande Rådgivning",
         feature2: "Juridisk Ärendekatalog & Rättsområden",
         feature3: "Blixtsnabb Kod & Förtroendegivande UX",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       portfolioHero: {
         badge: "VÅR PORTFÖLJ & KUNDCASES",
-        pillTitle: "100% Skräddarsydda Lösningar",
-        pillSubtitle: "Idéer för varje affärsmodell",
+        pillTitle: "Skräddarsydda Lösningar",
+        pillSubtitle: "För varje affärsmodell",
         titlePrefix: "Utforska våra framgångsrika ",
         titleGradient: "PROJEKT & LÖSNINGAR",
         titleSuffix: " för alla branscher",
         subtitle: "Vi täcker alla affärsområden och industrier. Oavsett vilken affärsmodell eller nisch ditt företag har, skapar vi skräddarsydda digitala produkter, mjukvaror och appar som driver mätbar tillväxt.",
-        viewPillarsBtn: "Utforska våra 6 pelare för framgång",
+        viewPillarsBtn: "Våra 6 pelare",
         modalTitle: "Våra 6 pelare för digital framgång",
         modalSubtitle: "Hur vi utvecklar högpresterande applikationer skräddarsydda för dina affärsmål",
         feature1Title: "Skräddarsydda idéer för varje affärsmodell",
@@ -482,7 +482,7 @@ const resources = {
         feature6Title: "Dedikerat partnerskap & Kontinuerlig support",
         feature6Desc: "Vi är er långsiktiga digitala partner som stöttar och vidareutvecklar era produkter i varje steg.",
         exploreBtn: "Utforska portföljen",
-        buildBtn: "Starta ditt skräddarsydda projekt",
+        buildBtn: "Starta ditt projekt",
         ctaTitle: "Har du en idé om en högpresterande produkt?",
         ctaSubtitle: "Samarbeta med vårt team för att designa, utveckla och lansera högpresterande digitala applikationer anpassade för dina affärsmål.",
         ctaBtn: "Bygg din produkt"
@@ -911,7 +911,7 @@ const resources = {
         feature2Desc: "Unique architecture and custom software engineered precisely for your business needs.",
         feature3Title: "Driven for Scalable Growth",
         feature3Desc: "High-performance digital products crafted to maximize conversion rates and enterprise scale.",
-        getStartedBtn: "Start Your Custom Project",
+        getStartedBtn: "Start Your Project",
         exploreBtn: "Explore Our Services",
         modalTitle: "Our Custom Services",
         modalSubtitle: "Discover how we build for the future",
@@ -1031,7 +1031,7 @@ const resources = {
         feature1: "Interactive Digital Menu & Customization",
         feature2: "Online Table Booking System",
         feature3: "Multi-Language & Theme Engine",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       ffstechProject: {
         category: "BUILDING SYSTEMS & ENTERPRISE TECH",
@@ -1041,7 +1041,7 @@ const resources = {
         feature1: "Fire & Life Safety Ecosystems",
         feature2: "Smart Access Control & IP Surveillance",
         feature3: "Integrated AV & Communication Backbone",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       dentistProject: {
         category: "DENTAL & HEALTHCARE WEB APP",
@@ -1051,7 +1051,7 @@ const resources = {
         feature1: "Online Patient Appointment Booking",
         feature2: "Interactive Dental Care & Services",
         feature3: "Patient Portal & Fast Responsive UI",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       shiraziProject: {
         category: "LEGAL & IMMIGRATION ADVISORY PLATFORM",
@@ -1061,7 +1061,7 @@ const resources = {
         feature1: "Online Consultation Booking & Legal Advisory",
         feature2: "Corporate Law & Visa Immigration Services",
         feature3: "Secure Case Handling & Multi-Language UX",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       parsLawProject: {
         category: "LAW PRACTICE & LEGAL SERVICES WEB APP",
@@ -1071,17 +1071,17 @@ const resources = {
         feature1: "Client Appointment Booking & Consultation",
         feature2: "Comprehensive Legal Practice Areas",
         feature3: "Rapid Performance & Trust-Building UX",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       portfolioHero: {
         badge: "OUR PORTFOLIO & CASE STUDIES",
-        pillTitle: "100% Customized Solutions",
-        pillSubtitle: "Ideas for Every Business Model",
+        pillTitle: "Customized Solutions",
+        pillSubtitle: "For Every Business Model",
         titlePrefix: "Explore Our Diverse ",
         titleGradient: "PRODUCTION PROJECTS",
         titleSuffix: " & Custom Solutions",
         subtitle: "Explore our live projects built across multiple industries and fields. No matter your business model or niche, we engineer tailored ideas and high-performing digital applications built for scalable growth.",
-        viewPillarsBtn: "Explore Our 6 Strategic Pillars",
+        viewPillarsBtn: "Our 6 Pillars",
         modalTitle: "Our 6 Pillars for Digital Success",
         modalSubtitle: "How we engineer high-performing applications tailored to your strategic business goals",
         feature1Title: "Custom Ideas for Every Business Model",
@@ -1097,7 +1097,7 @@ const resources = {
         feature6Title: "Dedicated Partnership & Ongoing Growth",
         feature6Desc: "We act as your long-term tech partner, supporting and scaling your digital products every step of the way.",
         exploreBtn: "Explore Portfolio",
-        buildBtn: "Build Your Custom Product",
+        buildBtn: "Start Your Project",
         ctaTitle: "Have a High-Impact Product in Mind?",
         ctaSubtitle: "Partner with our team to design, engineer, and deploy high-performing digital applications tailored to your business goals.",
         ctaBtn: "Build Your Product"
@@ -1526,7 +1526,7 @@ const resources = {
         feature2Desc: "توسعه نرم‌افزار و وب‌سایت با معماری کاملاً سفارشی و بدون محدودیت.",
         feature3Title: "مهندسی‌شده برای رشد و افزایش درآمد",
         feature3Desc: "محصولات دیجیتال پرسرعت و بهینه‌سازی‌شده برای جذب حداکثری مشتریان.",
-        getStartedBtn: "شروع پروژه اختصاصی شما",
+        getStartedBtn: "شروع پروژه شما",
         exploreBtn: "بررسی خدمات ما",
         modalTitle: "خدمات اختصاصی ما",
         modalSubtitle: "کشف کنید که چگونه برای آینده می‌سازیم",
@@ -1646,7 +1646,7 @@ const resources = {
         feature1: "منوی دیجیتال تعاملی و سفارش غذا",
         feature2: "سیستم رزرواسیون آنلاین میز",
         feature3: "رابط کاربری چندزبانه و سرعت لود فوق‌العاده",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       ffstechProject: {
         category: "سیستم‌های هوشمند و زیرساخت شبکه",
@@ -1656,7 +1656,7 @@ const resources = {
         feature1: "سیستم‌های هوشمند اعلام و اطفای حریق",
         feature2: "سیستم‌های هوشمند کنترل تردد و نظارت تصویری",
         feature3: "زیرساخت یکپارچه صوت و تصویر و شبکه",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       dentistProject: {
         category: "وب‌اپلیکیشن پزشکی و کلینیک دندانپزشکی",
@@ -1666,7 +1666,7 @@ const resources = {
         feature1: "نوبت‌دهی آنلاین بیماران و رزرو وقت",
         feature2: "معرفی تعاملی خدمات و مراقبت‌های دندانپزشکی",
         feature3: "پورتال بیماران با رابط کاربری سریع و واکنش‌گرا",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       shiraziProject: {
         category: "پلتفرم حقوقی و مشاوره مهاجرت",
@@ -1676,7 +1676,7 @@ const resources = {
         feature1: "رزرو آنلاین جلسات مشاوره حقوقی",
         feature2: "خدمات حقوق شرکتی، تجاری و اخذ ویزا",
         feature3: "مدیریت امن پرونده‌ها و تجربه کاربری چندزبانه",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       parsLawProject: {
         category: "وب‌اپلیکیشن موسسه حقوقی و خدمات وکالت",
@@ -1686,17 +1686,17 @@ const resources = {
         feature1: "رزرو وقت و مشاوره آنلاین با وکلا",
         feature2: "معرفی جامع حوزه‌های تخصصی حقوقی",
         feature3: "سرعت لود بسیار بالا و ایجاد اعتماد حداکثری",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       portfolioHero: {
         badge: "نمونه کارها و پروژه‌های ما",
-        pillTitle: "راهکارهای ۱۰۰٪ اختصاصی",
-        pillSubtitle: "ایده‌های متناسب با هر مدل تجاری",
+        pillTitle: "راهکارهای اختصاصی",
+        pillSubtitle: "متناسب با هر مدل تجاری",
         titlePrefix: "مشاهده پروژه‌های متنوع ",
         titleGradient: "عملیاتی و تجاری",
         titleSuffix: " و راهکارهای اختصاصی ما",
         subtitle: "مجموعه‌ای از پروژه‌های زنده و موفق ما در صنایع گوناگون را بررسی کنید. مدل کسب‌وکار شما هرچه باشد، ما ایده‌های نوآورانه و اپلیکیشن‌های دیجیتال اختصاصی را برای رشد حداکثری شما خلق می‌کنیم.",
-        viewPillarsBtn: "مشاهده ۶ ستون استراتژیک ما",
+        viewPillarsBtn: "۶ ستون ما",
         modalTitle: "۶ ستون موفقیت دیجیتال شما در روشالینک",
         modalSubtitle: "چگونه اپلیکیشن‌هایی با کارایی بالا و منطبق با اهداف استراتژیک بیزینس شما مهندسی می‌کنیم",
         feature1Title: "ایده‌های اختصاصی برای هر بیزینس مدل",
@@ -1712,7 +1712,7 @@ const resources = {
         feature6Title: "شراکت بلندمدت و توسعه مستمر",
         feature6Desc: "ما به عنوان شریک فنی همیشگی شما، در تمامی مراحل رشد، توسعه و نگهداری همراهتان هستیم.",
         exploreBtn: "مشاهده پورتفولیو",
-        buildBtn: "سفارش ساخت محصول اختصاصی",
+        buildBtn: "سفارش ساخت محصول",
         ctaTitle: "ایده‌ای برای یک محصول دیجیتال بزرگ دارید؟",
         ctaSubtitle: "با همکاری تیم متخصص ما، اپلیکیشن‌هایی قدرتمند و سفارشی بسازید که دقیقاً اهداف تجاری شما را محقق کنند.",
         ctaBtn: "ساخت محصول اختصاصی"
@@ -2141,7 +2141,7 @@ const resources = {
         feature2Desc: "كود ومعمارية فريدة مبنية تماماً وفق متطلبات مؤسستك الخاصة.",
         feature3Title: "مصممة للنمو القابل للقياس",
         feature3Desc: "حلول فائقة الأداء تزيد من معدلات التحويل وتدفع أعمالك للأمام.",
-        getStartedBtn: "ابدأ مشروعك المخصص",
+        getStartedBtn: "ابدأ مشروعك",
         exploreBtn: "استكشف خدماتنا",
         modalTitle: "خدماتنا المخصصة",
         modalSubtitle: "اكتشف كيف نبني من أجل المستقبل",
@@ -2261,7 +2261,7 @@ const resources = {
         feature1: "قائمة طعام رقمية تفاعلية",
         feature2: "نظام حجز الطاولات إلكترونياً",
         feature3: "دعم متعدد اللغات وواجهة حديثة",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       ffstechProject: {
         category: "الأنظمة الذكية والبنية التحتية الرقمية",
@@ -2271,7 +2271,7 @@ const resources = {
         feature1: "أنظمة السلامة وإدارة الحريق الذكية",
         feature2: "التحكم بالدخول ومراقبة الفيديو IP",
         feature3: "الأنظمة الصوتية والمرئية وشبكات الاتصال",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       dentistProject: {
         category: "منصة الرعاية الصحية وطب الأسنان",
@@ -2281,7 +2281,7 @@ const resources = {
         feature1: "نظام حجز المواعيد إلكترونياً للمرضى",
         feature2: "دليل الخدمات التفاعلي لطب الأسنان",
         feature3: "بوابة المرضى الرقمية وواجهة حديثة",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       shiraziProject: {
         category: "منصة الاستشارات القانونية والهجرة",
@@ -2291,7 +2291,7 @@ const resources = {
         feature1: "حجز الاستشارات القانونية إلكترونياً",
         feature2: "خدمات القانون التجاري وتأشيرات الهجرة",
         feature3: "إدارة آمنة للقضايا وواجهة تفاعلية",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       parsLawProject: {
         category: "منصة المحاماة والخدمات القانونية",
@@ -2301,17 +2301,17 @@ const resources = {
         feature1: "حجز مواعيد الموكلين وطلب الاستشارة",
         feature2: "دليل مجالات الاختصاص والقضايا القانونية",
         feature3: "سرعة فائقة وتجربة موثوقة للمستخدم",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       portfolioHero: {
         badge: "معرض أعمالنا والدراسات الميدانية",
-        pillTitle: "حلول مخصصة بنسبة 100%",
-        pillSubtitle: "أفكار لكل نموذج عمل",
+        pillTitle: "حلول مخصصة",
+        pillSubtitle: "لكل نموذج عمل",
         titlePrefix: "استكشف مشاريعنا الناجحة في ",
         titleGradient: "مختلف قطاعات الأعمال",
         titleSuffix: "",
         subtitle: "استكشف مجموعة مشاريعنا المنفذة عبر مختلف القطاعات والمجالات. مهما كان نموذج عملك أو مجال اختصاصك، ننفذ أفكاراً وحلولاً رقمية مخصصة تضمن نمواً مستداماً لمؤسستك.",
-        viewPillarsBtn: "استكشف الركائز الاستراتيجية الـ 6",
+        viewPillarsBtn: "ركائزنا الـ 6",
         modalTitle: "ركائزنا الـ 6 للنجاح الرقمي",
         modalSubtitle: "كيف نبني تطبيقات عالية الأداء مخصصة خصيصاً لأهداف عملك الاستراتيجية",
         feature1Title: "أفكار وحلول مخصصة لكل نموذج عمل",
@@ -2327,7 +2327,7 @@ const resources = {
         feature6Title: "شراكة مخصصة ودعم مستمر للنمو",
         feature6Desc: "نعمل كشريك تكنولوجي طويل الأجل لمؤسستك ونرافقك في كافة مراحل تطوير وتوسيع منتجك.",
         exploreBtn: "استكشف أعمالنا",
-        buildBtn: "ابدأ مشروعك المخصص",
+        buildBtn: "ابدأ مشروعك",
         ctaTitle: "هل لديك فكرة لمنتج رقمي فريد ومتميز؟",
         ctaSubtitle: "تعاون مع فريقنا الخبير لتصميم وهندسة وإطلاق تطبيقات رقمية عالية الأداء مصممة خصيصاً لتحقيق أهداف عملك.",
         ctaBtn: "ابدأ بناء منتجك الآن"

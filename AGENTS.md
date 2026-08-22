@@ -229,10 +229,13 @@ through `npm run dev`.
    (roshalink.com appears in content) isn't configured anywhere in the repo.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
-6. `npm test` cannot currently run in this environment: `vitest` is a declared
-   `devDependency` but is not present in `node_modules` (confirmed —
-   `npm run test` fails immediately at Vite config load with `Cannot find
-   package 'vitest'`). Is this a one-off local install gap, or does CI's
-   `npm ci` need the same look? A recent branch's changes (homepage copy,
-   footer accessibility, touch-target fixes) could only be checked by hand in
-   a browser, not against the test suite, because of this.
+
+Resolved this session: `npm test` couldn't run because `node_modules` was
+missing roughly half its packages (120 present against the ~245 a full
+install produces) — `vitest` and others were correctly declared in
+`package.json` and resolved in `package-lock.json`, just not actually
+installed on disk, the signature of an interrupted `npm install` rather than
+a real config problem. `npm ci` fixed it (all 4 CI gates now pass locally:
+119/119 tests, typecheck, build, size at 98%/89% of budget). If `npm test`
+ever fails again with `Cannot find package 'vitest'`, re-run `npm ci` before
+assuming something is actually broken.

@@ -1,0 +1,495 @@
+/* ==========================================================================
+   SERVICES CAPABILITIES - STAGGERED 3D CAROUSEL COMPONENT
+   ========================================================================== */
+
+.stagger-services-section {
+  position: relative;
+  width: 100%;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  overflow: hidden;
+  user-select: none;
+  background-color: var(--color-white);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+html.dark .stagger-services-section {
+  background-color: #030712;
+}
+
+/* Background Ambient Lighting Orbs */
+.stagger-services-glow-1 {
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 32rem;
+  height: 32rem;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 1;
+}
+
+.stagger-services-glow-2 {
+  position: absolute;
+  bottom: 5%;
+  right: -10%;
+  width: 35rem;
+  height: 35rem;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  filter: blur(100px);
+  z-index: 1;
+}
+
+html.dark .stagger-services-glow-1 {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+}
+
+html.dark .stagger-services-glow-2 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+}
+
+.stagger-services-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 640px) {
+  .stagger-services-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stagger-services-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Section Header */
+.stagger-services-header {
+  text-align: center;
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stagger-services-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 900;
+  font-family: var(--font-headline);
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .stagger-services-title {
+    font-size: 2.85rem;
+  }
+}
+
+html.dark .stagger-services-title {
+  color: #f8fafc;
+}
+
+.stagger-services-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-body);
+}
+
+html.dark .stagger-services-subtitle {
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   3D STAGGERED CAROUSEL STAGE
+   -------------------------------------------------------------------------- */
+
+.stagger-services-stage-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stagger-services-stage {
+  position: relative;
+  width: 100%;
+  height: 590px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .stagger-services-stage {
+    height: 610px;
+  }
+}
+
+/* Individual Staggered Service Card - 100% Solid & Fully Opaque */
+.stagger-service-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: var(--radius-3xl);
+  clip-path: polygon(36px 0%, calc(100% - 36px) 0%, 100% 36px, 100% 100%, calc(100% - 36px) 100%, 36px 100%, 0 100%, 0 0);
+  background: #ffffff;
+  border: 2px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  opacity: 1 !important;
+  transition: transform 550ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 400ms ease,
+              border-color 400ms ease;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .stagger-service-card {
+    padding: 2.25rem 2rem;
+  }
+}
+
+html.dark .stagger-service-card {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Diagonal Corner Accent Line */
+.stagger-card-corner-line {
+  position: absolute;
+  right: -2px;
+  top: 34px;
+  width: 50px;
+  height: 2px;
+  background-color: rgba(203, 213, 225, 0.8);
+  transform: rotate(45deg);
+  transform-origin: top right;
+  pointer-events: none;
+}
+
+html.dark .stagger-card-corner-line {
+  background-color: rgba(71, 85, 105, 0.8);
+}
+
+/* Center Active Card Highlights - Thicker & More Vibrant Border */
+.stagger-service-card.is-center {
+  cursor: default;
+  border-width: 3.5px;
+  border-color: #0284c7;
+  box-shadow: 0 30px 75px rgba(2, 132, 199, 0.3), 0 0 30px rgba(2, 132, 199, 0.25);
+}
+
+.stagger-service-card.is-center.theme-sky {
+  border-color: #0284c7;
+  box-shadow: 0 30px 75px rgba(2, 132, 199, 0.32), 0 0 30px rgba(2, 132, 199, 0.25);
+}
+
+.stagger-service-card.is-center.theme-indigo {
+  border-color: #4f46e5;
+  box-shadow: 0 30px 75px rgba(79, 70, 229, 0.32), 0 0 30px rgba(79, 70, 229, 0.25);
+}
+
+.stagger-service-card.is-center.theme-purple {
+  border-color: #9333ea;
+  box-shadow: 0 30px 75px rgba(147, 51, 234, 0.32), 0 0 30px rgba(147, 51, 234, 0.25);
+}
+
+.stagger-service-card.is-center.theme-emerald {
+  border-color: #059669;
+  box-shadow: 0 30px 75px rgba(5, 150, 105, 0.32), 0 0 30px rgba(5, 150, 105, 0.25);
+}
+
+.stagger-service-card.is-center.theme-amber {
+  border-color: #1773eb;
+  box-shadow: 0 30px 75px rgba(217, 119, 6, 0.32), 0 0 30px rgba(217, 119, 6, 0.25);
+}
+
+html.dark .stagger-service-card.is-center {
+  border-width: 3.5px;
+  border-color: #38bdf8;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.4);
+}
+
+html.dark .stagger-service-card.is-center.theme-sky {
+  border-color: #38bdf8;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.45);
+}
+
+html.dark .stagger-service-card.is-center.theme-indigo {
+  border-color: #818cf8;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(129, 140, 248, 0.45);
+}
+
+html.dark .stagger-service-card.is-center.theme-purple {
+  border-color: #c084fc;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(192, 132, 252, 0.45);
+}
+
+html.dark .stagger-service-card.is-center.theme-emerald {
+  border-color: #34d399;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(52, 211, 153, 0.45);
+}
+
+html.dark .stagger-service-card.is-center.theme-amber {
+  border-color: #fbbf24;
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.8), 0 0 35px rgba(251, 191, 36, 0.45);
+}
+
+.stagger-service-card.is-side:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Card Title & Desc */
+.stagger-card-title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-family: var(--font-headline);
+  color: #0f172a;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.25;
+}
+
+html.dark .stagger-card-title {
+  color: #f8fafc;
+}
+
+.stagger-card-desc {
+  font-size: 0.925rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+  font-family: var(--font-body);
+}
+
+html.dark .stagger-card-desc {
+  color: #94a3b8;
+}
+
+/* Deliverables Box */
+.stagger-deliverables-box {
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-2xl);
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+html.dark .stagger-deliverables-box {
+  background: rgba(30, 41, 59, 0.45);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.stagger-deliverables-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0284c7;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-headline);
+}
+
+html.dark .stagger-deliverables-label {
+  color: #38bdf8;
+}
+
+.stagger-deliverables-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stagger-deliverable-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #334155;
+  line-height: 1.4;
+  font-family: var(--font-body);
+}
+
+html.dark .stagger-deliverable-item {
+  color: #cbd5e1;
+}
+
+.stagger-check-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+html.dark .stagger-check-icon {
+  color: #38bdf8;
+}
+
+/* Tech Tags */
+.stagger-tags-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.stagger-tech-pill {
+  font-size: 0.725rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-md);
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #475569;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+html.dark .stagger-tech-pill {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   NAVIGATION CONTROLS (Prev, Next, Indicators)
+   -------------------------------------------------------------------------- */
+
+.stagger-services-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  z-index: 30;
+}
+
+.stagger-ctrl-btn {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.stagger-ctrl-btn:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.4);
+}
+
+.stagger-ctrl-btn:active {
+  transform: scale(0.95);
+}
+
+html.dark .stagger-ctrl-btn {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .stagger-ctrl-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.45);
+}
+
+/* Indicators */
+.stagger-indicators-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stagger-indicator-dot {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-headline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stagger-indicator-dot:hover {
+  color: #0284c7;
+  border-color: #0284c7;
+}
+
+.stagger-indicator-dot.is-active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+  transform: scale(1.1);
+}
+
+html.dark .stagger-indicator-dot {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+}
+
+html.dark .stagger-indicator-dot:hover {
+  color: #38bdf8;
+  border-color: #38bdf8;
+}
+
+html.dark .stagger-indicator-dot.is-active {
+  background: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+}

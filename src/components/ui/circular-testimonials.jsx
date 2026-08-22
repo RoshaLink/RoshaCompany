@@ -92,8 +92,9 @@ export const CircularTestimonials = ({
   }, [testimonialsLength]);
 
   function getImageStyle(index) {
-    const gap = calculateGap(containerWidth);
-    const maxStickUp = gap * 0.8;
+    const calculatedGap = calculateGap(containerWidth);
+    const gap = containerWidth < 400 ? Math.min(36, containerWidth * 0.15) : calculatedGap;
+    const maxStickUp = gap * 0.7;
     const isActive = index === activeIndex;
     const isLeft = (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
     const isRight = (activeIndex + 1) % testimonialsLength === index;

@@ -1,97 +1,299 @@
-import React from 'react';
-import { Sparkles, Compass, Code2, Cpu, Cloud, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  Compass,
+  Code2,
+  Cpu,
+  Cloud,
+  Smartphone,
+  Search,
+  CheckCircle2,
+  ArrowRight,
+  ArrowUpRight,
+  ShieldCheck,
+  Zap,
+  ChevronDown,
+  Layers,
+  Server,
+  Database,
+  Lock,
+  Workflow,
+  TrendingUp,
+  Activity,
+  Check,
+  X
+} from 'lucide-react';
+import roshaAnalysis from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
+import ServicesHero from '../../components/ServicesHero/ServicesHero';
+import ServicesCapabilities from '../../components/ServicesCapabilities/ServicesCapabilities';
+import ServicesTechMatrix from '../../components/ServicesTechMatrix/ServicesTechMatrix';
+import ServicesDeliveryProcess from '../../components/ServicesDeliveryProcess/ServicesDeliveryProcess';
+import './ServicesPage.css';
 
 export default function ServicesPage({ onOpenGetStarted }) {
-  const services = [
-    {
-      icon: Compass,
-      title: "Strategic Product & UX Design",
-      desc: "Transforming high-level business goals into intuitive, high-converting digital interfaces through deep analytics and precision user research.",
-      deliverables: ["Design Tokens & Systems", "High-Fidelity React Wireframes", "User Journey & Analytics Audits", "Accessibility & WCAG 2.1 AA Compliance"]
-    },
-    {
-      icon: Code2,
-      title: "Full-Stack Software Engineering",
-      desc: "Resilient web and mobile software built with modern JavaScript frameworks, modular architecture, and high-performance backend pipelines.",
-      deliverables: ["React & Vite SPA Architectures", "Node.js & Microservices APIs", "Real-Time Telemetry & WebSockets", "Automated E2E Testing Suites"]
-    },
-    {
-      icon: Cpu,
-      title: "AI & Intelligence Platforms",
-      desc: "Integrating predictive models, generative AI APIs, and real-time automated data processing directly into customer workflows.",
-      deliverables: ["Custom LLM & RAG Integration", "Predictive Analytics Dashboards", "Automated Data Ingestion Pipelines", "AI Model Fine-Tuning & Evaluation"]
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps Infrastructure",
-      desc: "Scalable cloud infrastructures, microservices architecture, and automated CI/CD pipelines engineered for zero downtime.",
-      deliverables: ["Multi-Cloud Deployment (AWS/GCP)", "Kubernetes & Docker Containerization", "ISO 27001 Security Validation", "Sub-20ms Global CDN Acceleration"]
-    }
+  const { t, i18n } = useTranslation();
+  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+  const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
+
+  const [openFaq, setOpenFaq] = useState(0);
+
+  const faqList = [
+    { q: t('servicesPage.faq.q1'), a: t('servicesPage.faq.a1') },
+    { q: t('servicesPage.faq.q2'), a: t('servicesPage.faq.a2') },
+    { q: t('servicesPage.faq.q3'), a: t('servicesPage.faq.a3') },
+    { q: t('servicesPage.faq.q4'), a: t('servicesPage.faq.a4') },
+    { q: t('servicesPage.faq.q5'), a: t('servicesPage.faq.a5') }
   ];
 
   return (
-    <div className="space-y-20 pb-20 bg-[#f8fafc]">
-      
-      {/* Header */}
-      <section className="relative pt-28 pb-20 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
-        <div className="ambient-glow-cyan top-0 left-1/4 opacity-25 pointer-events-none" />
-        <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>CAPABILITIES & SERVICES</span>
+    <div className={`services-page-root ${rtlClass}`} dir={isRTL ? 'rtl' : 'ltr'}>
+
+      {/* =========================================================================
+          1. SERVICES HERO SECTION (Separate Component)
+          ========================================================================= */}
+      <ServicesHero onOpenGetStarted={onOpenGetStarted} />
+
+
+      {/* =========================================================================
+          2. CORE 6 CAPABILITIES SECTION (3D Staggered Carousel Component)
+          ========================================================================= */}
+      <ServicesCapabilities onOpenGetStarted={onOpenGetStarted} />
+
+
+      {/* =========================================================================
+          3. INTERACTIVE TECH STACK MATRIX (3D Glass Cards Component)
+          ========================================================================= */}
+      <ServicesTechMatrix />
+
+
+      {/* =========================================================================
+          4. 4-STAGE DELIVERY PROCESS SECTION (3D Animated Card Stack Deck)
+          ========================================================================= */}
+      <ServicesDeliveryProcess onOpenGetStarted={onOpenGetStarted} />
+
+
+      {/* =========================================================================
+          5. SENIOR MODEL VS. TRADITIONAL AGENCY COMPARISON TABLE
+          ========================================================================= */}
+      <section className="services-comparison-section">
+        <div className="services-container">
+          <div className="services-section-header">
+            <h2 className="services-section-title">
+              {t('servicesPage.comparison.title')}
+            </h2>
+            <p className="services-section-subtitle">
+              {t('servicesPage.comparison.subtitle')}
+            </p>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
-            Full-Lifecycle Product Architecture & Execution
-          </h1>
-          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-body-lg">
-            From initial technical scoping to zero-downtime production deployment, we deliver enterprise-grade software.
-          </p>
+
+          <div className="services-table-wrapper">
+            <table className="services-comparison-table">
+              <thead>
+                <tr>
+                  <th className="table-col-feature">
+                    {t('servicesPage.comparison.featureCol')}
+                  </th>
+                  <th className="table-col-agency">
+                    {t('servicesPage.comparison.agencyCol')}
+                  </th>
+                  <th className="table-col-rosha">
+                    {t('servicesPage.comparison.roshaCol')}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* Row 1 */}
+                <tr>
+                  <td className="table-cell-feature">
+                    {t('servicesPage.comparison.f1')}
+                  </td>
+                  <td className="table-cell-agency">
+                    <div className="table-cell-flex">
+                      <X className="table-icon-red" />
+                      <span>{t('servicesPage.comparison.f1Agency')}</span>
+                    </div>
+                  </td>
+                  <td className="table-cell-rosha">
+                    <div className="table-cell-flex">
+                      <Check className="table-icon-green" />
+                      <span>{t('servicesPage.comparison.f1Rosha')}</span>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Row 2 */}
+                <tr>
+                  <td className="table-cell-feature">
+                    {t('servicesPage.comparison.f2')}
+                  </td>
+                  <td className="table-cell-agency">
+                    <div className="table-cell-flex">
+                      <X className="table-icon-red" />
+                      <span>{t('servicesPage.comparison.f2Agency')}</span>
+                    </div>
+                  </td>
+                  <td className="table-cell-rosha">
+                    <div className="table-cell-flex">
+                      <Check className="table-icon-green" />
+                      <span>{t('servicesPage.comparison.f2Rosha')}</span>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Row 3 */}
+                <tr>
+                  <td className="table-cell-feature">
+                    {t('servicesPage.comparison.f3')}
+                  </td>
+                  <td className="table-cell-agency">
+                    <div className="table-cell-flex">
+                      <X className="table-icon-red" />
+                      <span>{t('servicesPage.comparison.f3Agency')}</span>
+                    </div>
+                  </td>
+                  <td className="table-cell-rosha">
+                    <div className="table-cell-flex">
+                      <Check className="table-icon-green" />
+                      <span>{t('servicesPage.comparison.f3Rosha')}</span>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Row 4 */}
+                <tr>
+                  <td className="table-cell-feature">
+                    {t('servicesPage.comparison.f4')}
+                  </td>
+                  <td className="table-cell-agency">
+                    <div className="table-cell-flex">
+                      <X className="table-icon-red" />
+                      <span>{t('servicesPage.comparison.f4Agency')}</span>
+                    </div>
+                  </td>
+                  <td className="table-cell-rosha">
+                    <div className="table-cell-flex">
+                      <Check className="table-icon-green" />
+                      <span>{t('servicesPage.comparison.f4Rosha')}</span>
+                    </div>
+                  </td>
+                </tr>
+
+                {/* Row 5 */}
+                <tr>
+                  <td className="table-cell-feature">
+                    {t('servicesPage.comparison.f5')}
+                  </td>
+                  <td className="table-cell-agency">
+                    <div className="table-cell-flex">
+                      <X className="table-icon-red" />
+                      <span>{t('servicesPage.comparison.f5Agency')}</span>
+                    </div>
+                  </td>
+                  <td className="table-cell-rosha">
+                    <div className="table-cell-flex">
+                      <Check className="table-icon-green" />
+                      <span>{t('servicesPage.comparison.f5Rosha')}</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((item, idx) => {
-            const IconComp = item.icon;
-            return (
-              <div key={idx} className="glass-card rounded-2xl p-8 space-y-6 border border-slate-200 bg-white shadow-sm hover:border-sky-400 transition-all">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
-                    <IconComp className="w-6 h-6" />
+
+      {/* =========================================================================
+          6. SERVICES FAQ ACCORDION
+          ========================================================================= */}
+      <section className="services-faq-section">
+        <div className="services-container">
+          <div className="services-section-header">
+            <h2 className="services-section-title">
+              {t('servicesPage.faq.title')}
+            </h2>
+            <p className="services-section-subtitle">
+              {t('servicesPage.faq.subtitle')}
+            </p>
+          </div>
+
+          <div className="services-faq-accordion">
+            {faqList.map((item, idx) => {
+              const isOpen = openFaq === idx;
+
+              return (
+                <div
+                  key={idx}
+                  className={`services-faq-item ${isOpen ? 'is-open' : ''}`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                    className="services-faq-trigger"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="faq-question-text">{item.q}</span>
+                    <div className="faq-icon-wrap">
+                      <ChevronDown className="faq-chevron-icon" />
+                    </div>
+                  </button>
+
+                  <div className="services-faq-collapse">
+                    <div className="services-faq-answer">
+                      <p>{item.a}</p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 font-headline-md">{item.title}</h3>
                 </div>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                <div className="space-y-2 pt-2 border-t border-slate-100">
-                  <span className="text-xs font-label-sm text-sky-600 uppercase font-semibold">Key Deliverables:</span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-800">
-                    {item.deliverables.map((d, i) => (
-                      <div key={i} className="flex items-center space-x-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 flex-shrink-0" />
-                        <span>{d}</span>
-                      </div>
-                    ))}
-                  </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+
+      {/* =========================================================================
+          7. BOTTOM CALL-TO-ACTION WITH ROSHA MASCOT
+          ========================================================================= */}
+      <section className="services-cta-section">
+        <div className="services-container">
+          <div className="services-cta-card">
+            <div className="services-cta-ambient" />
+
+            <div className="services-cta-grid">
+              {/* Mascot Side */}
+              <div className="services-cta-image-col">
+                <div className="services-cta-image-wrapper">
+                  <div className="services-cta-image-backdrop" />
+                  <img
+                    src={roshaAnalysis}
+                    alt="RoshaLink Strategic Partner Discovery"
+                    className="services-cta-mascot-img"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </section>
 
-      {/* CTA */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="glass-card rounded-2xl p-10 text-center space-y-6 border border-sky-300 bg-gradient-to-r from-sky-50 via-white to-slate-100 shadow-lg">
-          <h2 className="text-2xl md:text-4xl font-bold font-headline-md text-slate-900">Need Custom Technical Scoping?</h2>
-          <div className="flex justify-center">
-            <button
-              onClick={onOpenGetStarted}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold px-8 py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center space-x-2 cursor-pointer"
-            >
-              <span>Initiate Project Brief</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+              {/* Text & Button Side */}
+              <div className="services-cta-text-col">
+                <h2 className="services-cta-title">
+                  {t('servicesPage.cta.title')}
+                </h2>
+                <p className="services-cta-subtitle">
+                  {t('servicesPage.cta.subtitle')}
+                </p>
+
+                <div className="services-cta-actions">
+                  <button
+                    type="button"
+                    onClick={onOpenGetStarted}
+                    className="services-btn-primary services-cta-btn"
+                  >
+                    <span>{t('servicesPage.cta.button')}</span>
+                    <ArrowRight className="services-btn-icon" />
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

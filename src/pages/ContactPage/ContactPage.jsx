@@ -1,13 +1,40 @@
 import React, { useState } from 'react';
-import { Sparkles, Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Sparkles, Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
-  const handleSubmit = (e) => {
+  // Previously this only called setSubmitted(true), so every brief was shown a
+  // confirmation and then discarded. Success is now contingent on the server
+  // actually accepting the lead.
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ source: 'contact', ...formData })
+      });
+
+      if (!res.ok) {
+        setError(true);
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -17,10 +44,6 @@ export default function ContactPage() {
       <section className="relative pt-28 pb-20 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
         <div className="ambient-glow-cyan top-0 left-1/3 opacity-25 pointer-events-none" />
         <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center space-x-2 bg-sky-50 px-3.5 py-1 rounded-full border border-sky-200 text-xs font-label-sm text-sky-600 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>CONTACT & DISCOVERY CALL</span>
-          </div>
           <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
             Let's Build Something Extraordinary
           </h1>
@@ -110,6 +133,12 @@ export default function ContactPage() {
                       <input
                         type="email"
                         required
+                        // Mirrors looksLikeEmail() in api/lead.js. Without it
+                        // the browser accepts a TLD-less host like
+                        // "john@company", the server then rejects it, and the
+                        // visitor gets a generic failure from a form that
+                        // appeared to accept their input.
+                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="john@company.com"
@@ -141,12 +170,23 @@ export default function ContactPage() {
                     />
                   </div>
 
+                  {error && (
+                    <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg px-3 py-2">
+                      We couldn&apos;t send your brief. Please try again in a moment.
+                    </p>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    <span>Submit Strategic Brief</span>
-                    <Send className="w-4 h-4" />
+                    <span>{isSubmitting ? 'Sending...' : 'Submit Strategic Brief'}</span>
+                    {isSubmitting ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4" />
+                    )}
                   </button>
                 </form>
               )}

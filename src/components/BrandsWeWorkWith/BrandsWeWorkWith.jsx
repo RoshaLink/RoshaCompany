@@ -30,73 +30,69 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-16 overflow-hidden bg-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+    <section className="brands-section">
+      <div className="brands-pattern" />
 
-      <div className="relative max-w-7xl mx-auto px-6 text-center z-10 space-y-6">
+      <div className="brands-content">
 
-        <h2 className="text-3xl lg:text-5xl font-bold tracking-tight text-slate-900 font-headline-md max-w-3xl mx-auto">
+        <h2 className="brands-title">
           {t('brands.title')}
         </h2>
 
-        <p className="text-base lg:text-lg text-slate-600 max-w-2xl mx-auto font-body-md leading-relaxed">
+        <p className="brands-subtitle">
           {t('brands.subtitle')}
         </p>
 
-        <div className="pt-2 flex flex-col sm:flex-row justify-center gap-4">
-          <Button
+        <div className="brands-actions">
+          <button
             onClick={onOpenGetStarted}
-            size="lg"
-            className="rounded-lg px-8 py-3.5 text-sm font-bold flex items-center justify-center space-x-2 rtl:space-x-reverse bg-sky-500 hover:bg-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)]"
+            className="brands-btn-primary"
           >
             <span>{t('brands.auditBtn')}</span>
-            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-          </Button>
+          </button>
 
-          <Button
+          <button
             onClick={() => setActivePage ? setActivePage('services') : null}
-            variant="outline"
-            size="lg"
-            className="rounded-lg px-8 py-3.5 text-sm font-bold border-slate-300 text-slate-800 bg-white hover:bg-slate-100"
+            className="brands-btn-secondary"
           >
-            {t('brands.exploreBtn')}
-          </Button>
+            <span>{t('brands.exploreBtn')}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Carousel Container (Full Width) */}
+      <div className="brands-carousel">
+
+        {/* Row 1 */}
+        <div className="brands-row-left">
+          {repeatedIcons(TECH_ICONS_ROW1, 4).map((item, i) => (
+            <div
+              key={i}
+              className="brands-card brands-card-primary group"
+              title={item.name}
+            >
+              <img src={item.src} alt={item.name} className="brands-card-img" />
+            </div>
+          ))}
         </div>
 
-        {/* Carousel Container */}
-        <div className="mt-12 overflow-hidden relative pb-4 pt-2">
-
-          {/* Row 1 */}
-          <div className="flex gap-8 whitespace-nowrap animate-scroll-left">
-            {repeatedIcons(TECH_ICONS_ROW1, 4).map((item, i) => (
-              <div
-                key={i}
-                className="h-16 w-16 flex-shrink-0 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center hover:border-sky-500 hover:scale-105 transition-all p-3 group"
-                title={item.name}
-              >
-                <img src={item.src} alt={item.name} className="h-9 w-9 object-contain" />
-              </div>
-            ))}
-          </div>
-
-          {/* Row 2 */}
-          <div className="flex gap-8 whitespace-nowrap mt-6 animate-scroll-right">
-            {repeatedIcons(TECH_ICONS_ROW2, 4).map((item, i) => (
-              <div
-                key={i}
-                className="h-16 w-16 flex-shrink-0 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center hover:border-indigo-500 hover:scale-105 transition-all p-3 group"
-                title={item.name}
-              >
-                <img src={item.src} alt={item.name} className="h-9 w-9 object-contain" />
-              </div>
-            ))}
-          </div>
-
-          {/* Gradient Fade Overlays */}
-          <div className="absolute left-0 top-0 h-full w-28 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-          <div className="absolute right-0 top-0 h-full w-28 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
-
+        {/* Row 2 */}
+        <div className="brands-row-right">
+          {repeatedIcons(TECH_ICONS_ROW2, 4).map((item, i) => (
+            <div
+              key={i}
+              className="brands-card brands-card-secondary group"
+              title={item.name}
+            >
+              <img src={item.src} alt={item.name} className="brands-card-img" />
+            </div>
+          ))}
         </div>
+
+        {/* Gradient Fade Overlays */}
+        <div className="brands-fade-left" />
+        <div className="brands-fade-right" />
+
       </div>
     </section>
   );

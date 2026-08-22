@@ -3,12 +3,13 @@ import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import GetStartedModal from './components/GetStartedModal/GetStartedModal';
-import DiaraChatWidget from './components/DiaraChatWidget/DiaraChatWidget';
+import RoshaChatWidget from './components/RoshaChatWidget/RoshaChatWidget';
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import ServicesPage from './pages/ServicesPage/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
 import ContactPage from './pages/ContactPage/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -25,26 +26,6 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved === 'dark';
-    return false; // Default to light mode on load
-  });
-
-  useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
-
-  const toggleTheme = () => setIsDark((prev) => !prev);
-
   // Map route path to active page id for navigation components
   const getActivePage = () => {
     const path = location.pathname.toLowerCase();
@@ -53,6 +34,7 @@ export default function App() {
     if (path.includes('services')) return 'services';
     if (path.includes('portfolio')) return 'portfolio';
     if (path.includes('contact')) return 'contact';
+    if (path.includes('privacy')) return 'privacy';
     return 'home';
   };
 
@@ -71,8 +53,6 @@ export default function App() {
         activePage={activePage} 
         setActivePage={handlePageChange} 
         onOpenGetStarted={() => setIsGetStartedOpen(true)} 
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
       />
 
       <main className="flex-grow">
@@ -98,6 +78,8 @@ export default function App() {
             element={<PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 
           />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route 
             path="*" 
             element={<HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />} 
@@ -112,7 +94,7 @@ export default function App() {
         onClose={() => setIsGetStartedOpen(false)} 
       />
 
-      <DiaraChatWidget />
+      <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
     </div>
   );
 }

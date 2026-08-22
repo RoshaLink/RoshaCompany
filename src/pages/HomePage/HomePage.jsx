@@ -11,22 +11,16 @@ import MobileAppShowcase from '../../components/MobileAppShowcase/MobileAppShowc
 import ConnectWithUsShowcase from '../../components/ConnectWithUsShowcase/ConnectWithUsShowcase';
 import WhoWeAre from '../../components/WhoWeAre/WhoWeAre';
 import TestimonialsColumn from '../../components/TestimonialsColumn/TestimonialsColumn';
-import diaraConnectImage from '../../assets/Diara/ConnectWthUS/DiaraConnectWithUs.png';
+import roshaConnectImage from '../../assets/Rosha/ConnectWthUS/RoshaConnectWithUs.png';
 import './HomePage.css';
 
 export default function HomePage({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
-
-  const metrics = [
-    { value: "$2.4B+", label: "Client Enterprise Value Created" },
-    { value: "99.99%", label: "System Reliability & Uptime" },
-    { value: "140+", label: "Enterprise Projects Shipped" },
-    { value: "98%", label: "Long-term Client Retention" }
-  ];
+  const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
 
   return (
-    <div className="space-y-24 pb-20 bg-white">
+    <div className="homepage-container">
 
       {/* Integrated HeroSection Component */}
       <HeroSection
@@ -82,61 +76,46 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
         onOpenGetStarted={onOpenGetStarted}
       />
 
-      {/* Impact Metrics Banner */}
-      <section className="bg-slate-100 border-y border-slate-200 py-16 px-4 md:px-12 relative overflow-hidden">
-        <div className="max-w-[1280px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {metrics.map((metric, idx) => (
-            <div key={idx} className="space-y-2">
-              <div className="text-3xl md:text-5xl font-bold font-headline-xl text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">
-                {metric.value}
-              </div>
-              <div className="text-xs md:text-sm text-slate-600 font-label-md">
-                {metric.label}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Integrated Testimonials Column Marquee */}
       <TestimonialsColumn />
 
-      {/* Bottom CTA Banner with DiaraConnectWithUs Image */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="rounded-3xl p-8 sm:p-12 md:p-14 border border-sky-200/80 bg-gradient-to-br from-white via-sky-50/60 to-blue-50/40 shadow-xl relative overflow-hidden">
-          <div className="ambient-glow-cyan -top-20 left-1/2 -translate-x-1/2 opacity-40 pointer-events-none" />
+      {/* Bottom CTA Banner with RoshaConnectWithUs Image */}
+      <section className="cta-section">
+        <div className="cta-card">
+          <div className="ambient-glow-cyan cta-glow" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div className="cta-grid">
 
-            {/* Diara Image side */}
-            <div className={`lg:col-span-5 flex justify-center ${isRTL ? 'lg:order-last' : 'lg:order-first'}`}>
-              <div className="relative group max-w-[320px] w-full">
-                <div className="absolute -inset-3 bg-gradient-to-r from-sky-400/20 to-blue-500/20 rounded-3xl blur-xl group-hover:opacity-100 transition duration-500" />
-                <div className="relative rounded-2xl overflow-hidden bg-white/80 backdrop-blur-md border border-slate-200/80 p-4 shadow-md">
+            {/* Rosha Image side */}
+            <div className={`cta-image-col ${rtlClass}`}>
+              <div className="cta-image-wrapper">
+                <div className="cta-image-backdrop" />
+                <div className="cta-image-inner">
                   <img
-                    src={diaraConnectImage}
-                    alt="Diara Connect With Us"
-                    className="w-full h-auto object-contain rounded-xl transform group-hover:scale-105 transition-transform duration-500"
+                    src={roshaConnectImage}
+                    alt="Connect With RoshaLink"
+                    className="cta-image"
                   />
                 </div>
               </div>
             </div>
 
             {/* Text & CTA side */}
-            <div className={`lg:col-span-7 space-y-6 ${isRTL ? 'text-right' : 'text-left'}`}>
-              <h2 className="text-2xl sm:text-4xl md:text-4xl lg:text-[42px] font-black font-headline-xl text-slate-900 leading-tight tracking-tight">
+            <div className={`cta-text-col ${rtlClass}`}>
+              <h2 className="cta-title">
                 {t('ctaBanner.title')}
               </h2>
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+              <p className="cta-subtitle">
                 {t('ctaBanner.subtitle')}
               </p>
-              <div className="pt-2">
+              <div className="cta-action">
                 <button
                   onClick={onOpenGetStarted}
-                  className="bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white font-label-md font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300 shadow-[0_6px_25px_rgba(56,189,248,0.4)] hover:shadow-[0_8px_30px_rgba(56,189,248,0.6)] flex items-center space-x-2.5 rtl:space-x-reverse active:scale-95 cursor-pointer border border-sky-400/30"
+                  className="cta-button"
                 >
                   <span>{t('ctaBanner.button')}</span>
-                  <ArrowRight className="w-5 h-5 rtl:rotate-180" />
+                  <ArrowRight className="cta-button-icon" />
                 </button>
               </div>
             </div>

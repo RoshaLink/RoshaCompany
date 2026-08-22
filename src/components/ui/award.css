@@ -1,0 +1,212 @@
+/* Styles for Awards Component */
+
+.award-card-wrapper {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-card-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(14, 165, 233, 0.16);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.award-title {
+  font-family: var(--font-headline);
+  color: var(--color-slate-900);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .award-title {
+    font-size: 1.35rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .award-title {
+    font-size: 1.45rem;
+  }
+}
+
+.award-subtitle {
+  font-family: var(--font-body);
+  color: var(--color-slate-600);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Wreath Award Variant */
+.award-variant-wreath {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 249, 255, 0.6) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  position: relative;
+}
+
+.award-laurel-svg {
+  fill: var(--color-sky-500);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  height: 95%;
+  pointer-events: none;
+  opacity: 0.22;
+}
+
+/* Certificate Variant */
+.award-variant-certificate {
+  border: 2px dashed rgba(56, 189, 248, 0.4);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.award-cert-inner {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.02);
+}
+
+/* Badge Variant */
+.award-variant-badge {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(241, 245, 249, 0.7) 100%);
+}
+
+.award-badge-seal-svg {
+  filter: drop-shadow(0 4px 10px rgba(14, 165, 233, 0.25));
+}
+
+/* ID Card Variant */
+.award-variant-idcard {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border-left: 4px solid var(--color-sky-500);
+}
+
+.award-id-tag {
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--color-sky-600);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Stamp Variant */
+.award-stamp-container {
+  transition: transform 0.3s ease;
+}
+
+.award-stamp-container:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+.award-stamp-serrated {
+  fill: #ffffff;
+  stroke: var(--color-slate-900);
+}
+
+.award-stamp-inner-circle {
+  fill: #ffffff;
+  stroke: var(--color-slate-900);
+}
+
+.award-stamp-curved-top,
+.award-stamp-curved-bottom {
+  fill: var(--color-slate-900);
+}
+
+.award-stamp-recipient {
+  color: var(--color-sky-600);
+}
+
+.award-stamp-date {
+  color: var(--color-slate-500);
+}
+
+/* ==========================================================================
+   Dark Mode Overrides for Awards
+   ========================================================================== */
+html.dark .award-card-wrapper {
+  background: rgba(15, 23, 42, 0.65);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .award-card-wrapper:hover {
+  box-shadow: 0 16px 40px rgba(14, 165, 233, 0.2);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+html.dark .award-title {
+  color: #f8fafc;
+}
+
+html.dark .award-subtitle {
+  color: #94a3b8;
+}
+
+html.dark .award-variant-wreath {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.5) 100%);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+html.dark .award-cert-inner {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark .award-variant-badge {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.6) 100%);
+}
+
+html.dark .award-variant-idcard {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+}
+
+html.dark .award-id-tag {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+html.dark .award-stamp-serrated,
+html.dark .award-stamp-inner-circle {
+  fill: #0f172a;
+  stroke: #e2e8f0;
+}
+
+html.dark .award-stamp-curved-top,
+html.dark .award-stamp-curved-bottom {
+  fill: #f8fafc;
+}
+
+html.dark .award-stamp-recipient {
+  color: #38bdf8;
+}
+
+html.dark .award-stamp-date {
+  color: #94a3b8;
+}
+
+/* RTL Support */
+[dir="rtl"] .award-variant-badge .award-badge-content,
+.is-rtl .award-variant-badge .award-badge-content {
+  border-left: none;
+  border-right: 1px solid rgba(226, 232, 240, 0.8);
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+html.dark [dir="rtl"] .award-variant-badge .award-badge-content,
+html.dark .is-rtl .award-variant-badge .award-badge-content {
+  border-right-color: rgba(255, 255, 255, 0.1);
+}

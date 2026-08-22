@@ -188,8 +188,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Desktop only -- see .sales-stat-pill for why. */
-@media (min-width: 1024px) { .custom-stat-pill { display: flex; } }
+/* Wide desktop only, same threshold as .mobile-stat-pill: the "Business
+   Growth / Web & Mobile App" pill is a two-line block, so like the app store
+   badges it still covered the artwork at 1024px. */
+@media (min-width: 1500px) { .custom-stat-pill { display: flex; } }
 
 .custom-stat-pill-1 { top: 2rem; }
 .custom-stat-pill-1.is-ltr { right: 1.5rem; }

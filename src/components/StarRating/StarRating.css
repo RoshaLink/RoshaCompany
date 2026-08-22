@@ -40,3 +40,12 @@ html.dark .star-rating .star-rating-empty {
   display: inline-flex;
   line-height: 0;
 }
+
+/* The star inside has to keep its full width and be cropped by the wrapper.
+   As a flex item it shrank to the wrapper's width instead, so a partial star
+   drew a narrow, squashed star on top of the full-size outline behind it --
+   which reads as a second, larger star showing through. */
+.star-rating-fill > svg {
+  flex: none;
+  max-width: none;
+}

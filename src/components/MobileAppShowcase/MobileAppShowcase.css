@@ -168,8 +168,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Desktop only -- see .sales-stat-pill for why. */
-@media (min-width: 1024px) { .mobile-stat-pill { display: flex; } }
+/* Wide desktop only. These two are wider than the other showcases' pills (a
+   logo plus "Apple App Store" / "Google Play Store"), so they still sat on top
+   of the phone artwork at the 1024px the others use. */
+@media (min-width: 1500px) { .mobile-stat-pill { display: flex; } }
 
 .mobile-stat-pill-1 { top: 2rem; }
 .mobile-stat-pill-1.is-ltr { right: 1.5rem; }

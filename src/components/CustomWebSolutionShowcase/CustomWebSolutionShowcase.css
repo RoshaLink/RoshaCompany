@@ -317,7 +317,9 @@
 
 @media (min-width: 640px) {
   .custom-action {
-    flex-wrap: wrap;
+    /* Stays nowrap, same as .sales-action and .business-action, so all three
+       showcase pairs behave identically instead of this one dropping to two
+       rows at 1024 while the others stay on one. */
     justify-content: flex-start;
     gap: 1rem; /* gap-4 */
   }
@@ -359,8 +361,9 @@
 
 @media (min-width: 640px) {
   .custom-btn-primary {
-    flex: none;
-    padding: 1rem 2rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.5rem;
     border-radius: var(--radius-full);
     gap: 0.625rem;
     font-size: 1rem;
@@ -401,8 +404,9 @@
 
 @media (min-width: 640px) {
   .custom-btn-secondary {
-    flex: none;
-    padding: 1rem 1.75rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 1rem;
   }

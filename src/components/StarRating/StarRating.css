@@ -14,13 +14,19 @@
 }
 
 /* The unfilled layer underneath: outline only, so a partial star still shows
-   its full silhouette. */
-.star-rating-empty {
+   its full silhouette.
+
+   Scoped under .star-rating so it outranks the caller's own star class. The
+   consumer passes something like .testimonial-col-star, which sets `fill` to
+   the filled colour; at equal specificity that class loads later and won, so
+   every "empty" star rendered solid and the partial overlay sat on top of a
+   full star -- reading as a doubled, overlapping fifth star. */
+.star-rating .star-rating-empty {
   fill: none;
   color: var(--color-slate-300);
 }
 
-html.dark .star-rating-empty {
+html.dark .star-rating .star-rating-empty {
   color: var(--color-slate-600);
 }
 

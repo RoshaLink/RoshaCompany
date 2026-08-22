@@ -273,7 +273,7 @@ const resources = {
         bullet1: "Djupgående analys av affärsmodell & användarresor",
         bullet2: "Skräddarsydd kod- och produktarkitektur utan mallar",
         bullet3: "Automatiserade arbetsflöden & kontinuerlig mätbarhet",
-        button: "Boka skräddarsydd analys",
+        button: "Boka anpassad analys",
         exploreBtn: "Utforska funktioner",
         modalTitle: "Business Analys Funktioner",
         modalSubtitle: "Upptäck hur vår affärsanalys kan transformera din verksamhet",

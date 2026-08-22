@@ -158,7 +158,9 @@
 
 @media (min-width: 640px) {
   .business-action {
-    flex-wrap: wrap;
+    /* Stays nowrap, same as .sales-action: these labels are long enough that
+       wrapping dropped the pair onto two rows well before any other pair did.
+       Letting the buttons shrink keeps them side by side at every width. */
     justify-content: flex-start;
     gap: 1rem; /* gap-4 */
   }
@@ -199,8 +201,11 @@
 
 @media (min-width: 640px) {
   .business-btn-primary {
-    flex: none;
-    padding: 1rem 2rem;
+    /* Shrinkable, not `flex: none` -- min-width: 0 is what lets a flex item
+       shrink below its content width. */
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.5rem;
     border-radius: var(--radius-full);
     gap: 0.625rem;
     font-size: 1rem;
@@ -241,8 +246,9 @@
 
 @media (min-width: 640px) {
   .business-btn-secondary {
-    flex: none;
-    padding: 1rem 1.75rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 1rem;
   }

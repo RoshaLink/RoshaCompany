@@ -267,7 +267,7 @@ const resources = {
       businessAnalysis: {
         badge: "STRATEGISK BUSINESS-ANALYS & SKRÄDDARSYDD UTVECKLING",
         titlePrefix: "Vi analyserar ditt företag & bygger",
-        titleGradient: "SKRÄDDARSYDDA LÖSNINGAR",
+        titleGradient: "SMARTA LÖSNINGAR",
         titleSuffix: "för dina behov",
         subtitle: "Varje företag är unikt. RoshaLink analyserar er affärsmodell, identifierar flaskhalsar och bygger kundanpassad mjukvara för maximal lönsamhet och tillväxt.",
         bullet1: "Djupgående analys av affärsmodell & användarresor",

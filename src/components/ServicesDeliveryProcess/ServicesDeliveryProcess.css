@@ -1,0 +1,535 @@
+/* ==========================================================================
+   SERVICES DELIVERY PROCESS - 3D ANIMATED CARD STACK DECK STYLES
+   ========================================================================== */
+
+.services-process-section {
+  position: relative;
+  padding-top: 6rem;
+  padding-bottom: 7rem;
+  background-color: var(--color-white);
+  overflow: hidden;
+  user-select: none;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+html.dark .services-process-section {
+  background-color: #030712;
+}
+
+/* Background Ambient Glows */
+.process-glow-1 {
+  position: absolute;
+  top: 20%;
+  right: -5%;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(224, 242, 254, 0.5);
+  border-radius: var(--radius-full);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.process-glow-2 {
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(238, 242, 255, 0.4);
+  border-radius: var(--radius-full);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+html.dark .process-glow-1 {
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+html.dark .process-glow-2 {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+/* 4 Stage Stepper Pills Tab Bar - Strictly 1 Single Line */
+.process-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto 3.5rem auto;
+  position: relative;
+  z-index: 10;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.process-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.process-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #64748b;
+  font-family: var(--font-headline);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.process-tab-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: rgba(226, 232, 240, 0.9);
+  color: #334155;
+  flex-shrink: 0;
+}
+
+.process-tab-title {
+  white-space: nowrap;
+}
+
+html.dark .process-tab-btn {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}
+
+html.dark .process-tab-num {
+  background: rgba(51, 65, 85, 0.8);
+  color: #cbd5e1;
+}
+
+.process-tab-btn:hover {
+  transform: translateY(-2px);
+  color: #0f172a;
+  border-color: rgba(14, 165, 233, 0.5);
+}
+
+html.dark .process-tab-btn:hover {
+  color: #ffffff;
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* Active Tab Styles */
+.process-tab-btn.is-active {
+  background: #ffffff;
+  border-color: #0284c7;
+  color: #0284c7;
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.25);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.process-tab-btn.is-active .process-tab-num {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+html.dark .process-tab-btn.is-active {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.35);
+}
+
+html.dark .process-tab-btn.is-active .process-tab-num {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* --------------------------------------------------------------------------
+   3D ANIMATED DECK STAGE
+   -------------------------------------------------------------------------- */
+
+.process-deck-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.process-deck-stage {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  height: 480px;
+  perspective: 1200px;
+}
+
+@media (min-width: 640px) {
+  .process-deck-stage {
+    height: 490px;
+  }
+}
+
+/* Animated Card Container - 100% Solid & Fully Opaque */
+.process-animated-card {
+  position: absolute;
+  width: 92%;
+  max-width: 620px;
+  min-height: 380px;
+  border-radius: var(--radius-3xl);
+  background: #ffffff;
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  padding: 1.75rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+  will-change: transform;
+}
+
+@media (min-width: 640px) {
+  .process-animated-card {
+    padding: 2.25rem;
+  }
+}
+
+html.dark .process-animated-card {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Back cards: Hide inner text so only clean card edge peeks out */
+.process-animated-card.is-back {
+  pointer-events: none;
+}
+
+.process-animated-card.is-back .process-card-content {
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.process-animated-card.is-front .process-card-content {
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+/* Front active card glow & border */
+.process-animated-card.is-front {
+  border-width: 2.5px;
+  border-color: #0284c7;
+  box-shadow: 0 25px 60px rgba(2, 132, 199, 0.18), 0 0 20px rgba(2, 132, 199, 0.1);
+}
+
+html.dark .process-animated-card.is-front {
+  border-color: #38bdf8;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.3);
+}
+
+/* Theme Borders on Front Card */
+.theme-sky.is-front { border-color: #0284c7; }
+.theme-indigo.is-front { border-color: #4f46e5; }
+.theme-emerald.is-front { border-color: #059669; }
+.theme-purple.is-front { border-color: #9333ea; }
+
+html.dark .theme-sky.is-front { border-color: #38bdf8; }
+html.dark .theme-indigo.is-front { border-color: #818cf8; }
+html.dark .theme-emerald.is-front { border-color: #34d399; }
+html.dark .theme-purple.is-front { border-color: #c084fc; }
+
+/* Card Content Structure */
+.process-card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+/* Top Row: Icon + Badge + Number */
+.process-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.process-card-badge-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.process-card-icon-box {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(224, 242, 254, 0.8);
+  color: #0284c7;
+}
+
+.theme-sky .process-card-icon-box { background: rgba(224, 242, 254, 0.8); color: #0284c7; }
+.theme-indigo .process-card-icon-box { background: rgba(238, 242, 255, 0.8); color: #4f46e5; }
+.theme-emerald .process-card-icon-box { background: rgba(236, 253, 245, 0.8); color: #059669; }
+.theme-purple .process-card-icon-box { background: rgba(250, 245, 255, 0.8); color: #9333ea; }
+
+html.dark .theme-sky .process-card-icon-box { background: rgba(14, 165, 233, 0.18); color: #38bdf8; }
+html.dark .theme-indigo .process-card-icon-box { background: rgba(99, 102, 241, 0.18); color: #818cf8; }
+html.dark .theme-emerald .process-card-icon-box { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+html.dark .theme-purple .process-card-icon-box { background: rgba(168, 85, 247, 0.18); color: #c084fc; }
+
+.process-card-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.process-card-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  font-family: var(--font-headline);
+  letter-spacing: 0.05em;
+  color: #0284c7;
+  text-transform: uppercase;
+}
+
+html.dark .process-card-badge {
+  color: #38bdf8;
+}
+
+.process-card-step-num {
+  font-size: 2.25rem;
+  font-weight: 900;
+  font-family: var(--font-headline);
+  color: rgba(2, 132, 199, 0.2);
+  line-height: 1;
+}
+
+html.dark .process-card-step-num {
+  color: rgba(56, 189, 248, 0.25);
+}
+
+/* Card Heading & Desc - Crisp & High Contrast */
+.process-card-heading {
+  font-size: 1.45rem;
+  font-weight: 900;
+  font-family: var(--font-headline);
+  color: #0f172a;
+  line-height: 1.25;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 640px) {
+  .process-card-heading {
+    font-size: 1.65rem;
+  }
+}
+
+html.dark .process-card-heading {
+  color: #f8fafc;
+}
+
+.process-card-paragraph {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0 0 1.35rem 0;
+  font-family: var(--font-body);
+}
+
+html.dark .process-card-paragraph {
+  color: #cbd5e1;
+}
+
+/* Checklist / Deliverable Tags inside Card */
+.process-card-tags-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-2xl);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+html.dark .process-card-tags-box {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.process-card-tag-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1e293b;
+  font-family: var(--font-headline);
+}
+
+html.dark .process-card-tag-item {
+  color: #e2e8f0;
+}
+
+.process-tag-check-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+html.dark .process-tag-check-icon {
+  color: #38bdf8;
+}
+
+/* Bottom Action Row */
+.process-card-bottom-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.75);
+}
+
+html.dark .process-card-bottom-action {
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+.process-card-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-headline);
+  border: none;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.process-card-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -3px rgba(14, 165, 233, 0.4);
+}
+
+html.dark .process-card-btn-primary {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  color: #0f172a;
+}
+
+.process-card-btn-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-xl);
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #0f172a;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-headline);
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.process-card-btn-next:hover {
+  background: #ffffff;
+  border-color: #0284c7;
+  color: #0284c7;
+  transform: translateY(-2px);
+}
+
+html.dark .process-card-btn-next {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+}
+
+html.dark .process-card-btn-next:hover {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Deck Bottom Controls */
+.process-deck-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.process-deck-nav-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.process-deck-nav-btn:hover {
+  transform: scale(1.08);
+  border-color: #0284c7;
+  color: #0284c7;
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.2);
+}
+
+html.dark .process-deck-nav-btn {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f8fafc;
+}
+
+html.dark .process-deck-nav-btn:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.25);
+}
+
+.process-deck-status {
+  font-size: 0.85rem;
+  font-weight: 800;
+  font-family: var(--font-headline);
+  letter-spacing: 0.05em;
+  color: #64748b;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(241, 245, 249, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+html.dark .process-deck-status {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+}

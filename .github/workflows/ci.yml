@@ -63,3 +63,30 @@ jobs:
       - name: Dependency audit (report only, not yet blocking)
         run: npm audit --audit-level=high
         continue-on-error: true
+
+      # Report-only for now: AGENTS.md is what coding agents read before
+      # touching this repo, and it documents things that move — dependency
+      # versions, env vars, CI gates, the API limits. Nothing about editing
+      # package.json reminds you that a version is also written down in a
+      # markdown file, so it goes stale silently.
+      #
+      # This flags a PR that changes a file AGENTS.md describes without
+      # touching AGENTS.md. It checks the doc was revisited, not that it is
+      # correct — see the header comment in the script. Flip
+      # `continue-on-error` to false once its false-positive rate is known.
+      #
+      # PR-only: there is no base to diff against on a push to main.
+      - name: AGENTS.md freshness (report only, not yet blocking)
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        env:
+          # Read through the environment, never interpolated into the script
+          # below: a PR title is attacker-controlled text.
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          # actions/checkout leaves a shallow clone of the merge commit, which
+          # does not contain the base. Fetching it by sha is enough for a
+          # two-dot diff: base..merge-commit is exactly this PR's changes.
+          git fetch --no-tags --depth=1 origin "$BASE_SHA"
+          git diff --name-only "$BASE_SHA" HEAD | node scripts/check-agents-doc.js

@@ -1,0 +1,638 @@
+/* Styles for TeamShowcase Component */
+
+.team-showcase-section {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .team-showcase-section {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.team-showcase-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   2-Column Header Section (Text Left, Rosha Image Right)
+   ========================================================================== */
+.team-showcase-header-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .team-showcase-header-grid {
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left Column: Text & CTA */
+.team-showcase-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+[dir="rtl"] .team-showcase-header-left,
+.is-rtl .team-showcase-header-left {
+  align-items: flex-start;
+  text-align: right;
+}
+
+.team-showcase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.1);
+}
+
+.team-showcase-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 800;
+  font-family: var(--font-headline);
+  color: var(--color-slate-900);
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .team-showcase-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-showcase-title {
+    font-size: 3.25rem;
+  }
+}
+
+.team-showcase-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-slate-600);
+  max-width: 42rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+}
+
+@media (min-width: 768px) {
+  .team-showcase-desc {
+    font-size: 1.1rem;
+  }
+}
+
+.team-showcase-cta-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.team-showcase-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.9rem 2.25rem;
+  border-radius: var(--radius-full);
+  background-image: linear-gradient(135deg, var(--color-sky-500), var(--color-blue-600));
+  color: #ffffff;
+  font-family: var(--font-headline);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.35);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-showcase-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.5);
+  background-image: linear-gradient(135deg, var(--color-sky-600), var(--color-blue-700));
+}
+
+.team-showcase-cta:active {
+  transform: scale(0.97);
+}
+
+/* Right Column: Rosha Image */
+.team-showcase-header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .team-showcase-header-right {
+    justify-content: flex-end;
+  }
+  
+  [dir="rtl"] .team-showcase-header-right,
+  .is-rtl .team-showcase-header-right {
+    justify-content: flex-start;
+  }
+}
+
+.team-header-image-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-header-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.team-header-rosha-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(15, 23, 42, 0.12));
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .team-header-rosha-img {
+    max-width: 380px;
+  }
+}
+
+/* ==========================================================================
+   Members Showcase Row (5 Arched Cards)
+   ========================================================================== */
+.team-showcase-grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .team-showcase-grid {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-showcase-grid {
+    flex-wrap: nowrap;
+    gap: 1.25rem;
+  }
+}
+
+/* Member Card */
+.team-member-card {
+  width: 100%;
+  max-width: 220px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .team-member-card {
+    max-width: 190px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-member-card {
+    max-width: 220px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .team-member-card {
+    max-width: 235px;
+  }
+}
+
+.team-member-arch {
+  position: relative;
+  padding-top: 1.6rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+  border-radius: 9999px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--neon-border, rgba(56, 189, 248, 0.5));
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.35),
+    0 0 22px -2px var(--neon-glow, rgba(56, 189, 248, 0.3)),
+    inset 0 0 18px rgba(255, 255, 255, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated Neon Wave Layer inside the card */
+.team-member-arch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 12%, var(--neon-glow, rgba(56, 189, 248, 0.45)) 0%, transparent 60%),
+              linear-gradient(180deg, var(--neon-wave-1, rgba(30, 41, 59, 0.7)) 0%, var(--neon-wave-2, rgba(15, 23, 42, 0.95)) 100%);
+  background-size: 200% 200%;
+  animation: neonWaveFlow 7s ease-in-out infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Fluid Aura Wave Ring at bottom */
+.team-member-arch::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: -40%;
+  width: 180%;
+  height: 150px;
+  background: radial-gradient(ellipse at center, var(--neon-halo, rgba(56, 189, 248, 0.45)) 0%, transparent 70%);
+  filter: blur(20px);
+  animation: neonWavePulse 4.5s ease-in-out infinite alternate;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes neonWaveFlow {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.85;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 50% 0%;
+    opacity: 0.85;
+  }
+}
+
+@keyframes neonWavePulse {
+  0% {
+    transform: scale(0.9) translateY(4px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15) translateY(-6px);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.95) translateY(2px);
+    opacity: 0.7;
+  }
+}
+
+@media (min-width: 768px) {
+  .team-member-arch {
+    height: 420px;
+    padding-top: 1.85rem;
+    padding-bottom: 0.65rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-member-arch {
+    height: 450px;
+    padding-top: 2rem;
+  }
+}
+
+.team-member-card:hover .team-member-arch {
+  border-color: var(--neon-border-hover, rgba(56, 189, 248, 0.9));
+  box-shadow: 
+    0 22px 45px rgba(0, 0, 0, 0.5),
+    0 0 35px 4px var(--neon-glow, rgba(56, 189, 248, 0.6)),
+    inset 0 0 25px var(--neon-glow, rgba(56, 189, 248, 0.25));
+}
+
+/* Neon Aura Palettes for each Team Member */
+.theme-arch-sky {
+  --neon-border: rgba(56, 189, 248, 0.65);
+  --neon-border-hover: rgba(125, 211, 252, 0.95);
+  --neon-glow: rgba(14, 165, 233, 0.55);
+  --neon-halo: rgba(56, 189, 248, 0.65);
+  --neon-wave-1: rgba(12, 74, 110, 0.75);
+  --neon-wave-2: rgba(15, 23, 42, 0.95);
+}
+
+.theme-arch-emerald {
+  --neon-border: rgba(52, 211, 153, 0.65);
+  --neon-border-hover: rgba(110, 231, 183, 0.95);
+  --neon-glow: rgba(16, 185, 129, 0.5);
+  --neon-halo: rgba(52, 211, 153, 0.65);
+  --neon-wave-1: rgba(6, 78, 59, 0.75);
+  --neon-wave-2: rgba(15, 23, 42, 0.95);
+}
+
+.theme-arch-indigo {
+  --neon-border: rgba(129, 140, 248, 0.65);
+  --neon-border-hover: rgba(165, 180, 252, 0.95);
+  --neon-glow: rgba(99, 102, 241, 0.5);
+  --neon-halo: rgba(129, 140, 248, 0.65);
+  --neon-wave-1: rgba(49, 46, 129, 0.75);
+  --neon-wave-2: rgba(15, 23, 42, 0.95);
+}
+
+.theme-arch-pink {
+  --neon-border: rgba(244, 114, 182, 0.65);
+  --neon-border-hover: rgba(249, 168, 212, 0.95);
+  --neon-glow: rgba(236, 72, 153, 0.5);
+  --neon-halo: rgba(244, 114, 182, 0.65);
+  --neon-wave-1: rgba(131, 24, 67, 0.75);
+  --neon-wave-2: rgba(15, 23, 42, 0.95);
+}
+
+.theme-arch-amber {
+  --neon-border: rgba(251, 191, 36, 0.65);
+  --neon-border-hover: rgba(253, 230, 138, 0.95);
+  --neon-glow: rgba(245, 158, 11, 0.5);
+  --neon-halo: rgba(251, 191, 36, 0.65);
+  --neon-wave-1: rgba(120, 53, 15, 0.75);
+  --neon-wave-2: rgba(15, 23, 42, 0.95);
+}
+
+/* Light Mode Overrides for Neon Glass */
+html:not(.dark) .team-member-arch {
+  background: rgba(248, 250, 252, 0.88);
+  box-shadow: 
+    0 12px 30px rgba(15, 23, 42, 0.08),
+    0 0 20px -2px var(--neon-glow, rgba(56, 189, 248, 0.25)),
+    inset 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+html:not(.dark) .team-member-arch::before {
+  background: radial-gradient(circle at 50% 12%, var(--neon-glow, rgba(56, 189, 248, 0.25)) 0%, transparent 60%),
+              linear-gradient(180deg, var(--neon-wave-1, rgba(241, 245, 249, 0.9)) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+html:not(.dark) .theme-arch-sky {
+  --neon-wave-1: rgba(224, 242, 254, 0.85);
+}
+
+html:not(.dark) .theme-arch-emerald {
+  --neon-wave-1: rgba(209, 250, 229, 0.85);
+}
+
+html:not(.dark) .theme-arch-indigo {
+  --neon-wave-1: rgba(224, 231, 255, 0.85);
+}
+
+html:not(.dark) .theme-arch-pink {
+  --neon-wave-1: rgba(252, 231, 243, 0.85);
+}
+
+html:not(.dark) .theme-arch-amber {
+  --neon-wave-1: rgba(254, 243, 199, 0.85);
+}
+
+/* Text Content in Arch */
+.team-member-info {
+  position: relative;
+  z-index: 5;
+  color: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-member-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: var(--font-headline);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.15rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .team-member-name {
+    font-size: 1.12rem;
+  }
+}
+
+.team-member-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  line-height: 1.25;
+  font-family: var(--font-body);
+  display: block;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .team-member-role {
+    font-size: 0.8rem;
+  }
+}
+
+/* Image inside Arch */
+.team-member-img {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  height: 67%;
+  max-height: 67%;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+  transition: filter 0.3s ease;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .team-member-img {
+    bottom: 0.65rem;
+    height: 68%;
+    max-height: 68%;
+  }
+}
+
+.team-member-card:hover .team-member-img {
+  transform: translateX(-50%);
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.2));
+}
+
+/* Bottom Member Details Modal / Popover */
+.team-member-quote-box {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 700px;
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  transition: all 0.3s ease;
+}
+
+.team-member-quote-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-slate-700);
+  font-style: italic;
+  font-family: var(--font-body);
+}
+
+.team-member-quote-author {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  font-family: var(--font-headline);
+}
+
+/* RTL Specific Styles */
+[dir="rtl"] .team-showcase-badge,
+.is-rtl .team-showcase-badge,
+[dir="rtl"] .team-showcase-cta,
+.is-rtl .team-showcase-cta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .team-cta-arrow,
+.is-rtl .team-cta-arrow {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   Dark Mode Overrides for TeamShowcase
+   ========================================================================== */
+html.dark .team-showcase-title {
+  color: #f8fafc;
+}
+
+html.dark .team-showcase-desc {
+  color: #94a3b8;
+}
+
+html.dark .team-showcase-badge {
+  background-color: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+}
+
+html.dark .team-header-rosha-img {
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.5));
+}
+
+html.dark .team-header-glow {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, rgba(99, 102, 241, 0.15) 50%, transparent 70%);
+}
+
+html.dark .team-member-arch {
+  background: rgba(15, 23, 42, 0.85);
+}
+
+html.dark .team-member-info {
+  color: #ffffff;
+}
+
+html.dark .team-member-name {
+  color: #ffffff;
+}
+
+html.dark .team-member-role {
+  color: #e2e8f0;
+}
+
+html.dark .team-member-tag {
+  background: rgba(0, 0, 0, 0.45);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .team-member-quote-box {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .team-member-quote-text {
+  color: #cbd5e1;
+}
+
+html.dark .team-member-quote-author {
+  color: #38bdf8;
+}

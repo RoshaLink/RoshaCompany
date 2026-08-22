@@ -140,10 +140,6 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
             {/* Modal Header */}
             <div className="p-6 sm:p-8 border-b border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4 shrink-0 bg-slate-50/50 dark:bg-slate-900/50">
               <div className="space-y-1 text-left rtl:text-right">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 text-xs font-bold">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>ROSHA CORE STRATEGIES</span>
-                </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                   {t('portfolioHero.modalTitle')}
                 </h2>

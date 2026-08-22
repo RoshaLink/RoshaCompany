@@ -561,7 +561,18 @@ const resources = {
         newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
         emailPlaceholder: "Ange arbetsemail",
         subscribe: "Prenumerera",
-        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna."
+        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna.",
+        socialGlobal: "Globalt nätverk",
+        socialShare: "Dela",
+        socialCommunity: "Community",
+        cap1: "Strategisk Design",
+        cap2: "Produktutveckling",
+        cap3: "Moln & Arkitektur",
+        cap4: "AI & Affärsintelligens",
+        cap5: "Designsystem",
+        termsOfService: "Användarvillkor",
+        securitySpec: "Säkerhetsspecifikation",
+        privacyPolicy: "Integritetspolicy"
       },
       modal: {
         badge: "INLED PRODUKTUPPTÄCKT",
@@ -1398,7 +1409,18 @@ const resources = {
         newsletterSub: "Get quarterly strategic insights and technical briefs.",
         emailPlaceholder: "Enter work email",
         subscribe: "Subscribe",
-        rights: "© 2026 RoshaLink. All rights reserved."
+        rights: "© 2026 RoshaLink. All rights reserved.",
+        socialGlobal: "Global Network",
+        socialShare: "Share",
+        socialCommunity: "Community",
+        cap1: "Strategic Design",
+        cap2: "Product Development",
+        cap3: "Cloud & Architecture",
+        cap4: "AI & Business Intelligence",
+        cap5: "Design Systems",
+        termsOfService: "Terms of Service",
+        securitySpec: "Security Specification",
+        privacyPolicy: "Privacy Policy"
       },
       modal: {
         badge: "INITIATE PROJECT DISCOVERY",
@@ -2235,7 +2257,18 @@ const resources = {
         newsletterSub: "دریافت تحلیل‌های استراتژیک و خبرنامه‌های فنی سه ماهه.",
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
         subscribe: "عضویت در خبرنامه",
-        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است."
+        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است.",
+        socialGlobal: "شبکه جهانی",
+        socialShare: "اشتراک‌گذاری",
+        socialCommunity: "انجمن کاربران",
+        cap1: "طراحی استراتژیک",
+        cap2: "توسعه محصول",
+        cap3: "زیرساخت ابری و معماری",
+        cap4: "هوش مصنوعی و هوش تجاری",
+        cap5: "سیستم‌های طراحی",
+        termsOfService: "شرایط استفاده از خدمات",
+        securitySpec: "مشخصات امنیتی",
+        privacyPolicy: "حریم خصوصی"
       },
       modal: {
         badge: "شروع بررسی پروژه",
@@ -3072,7 +3105,18 @@ const resources = {
         newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
         subscribe: "اشترك في النشرة",
-        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة."
+        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة.",
+        socialGlobal: "الشبكة العالمية",
+        socialShare: "مشاركة",
+        socialCommunity: "المجتمع",
+        cap1: "التصميم الاستراتيجي",
+        cap2: "تطوير المنتج",
+        cap3: "السحابة والبنية المعمارية",
+        cap4: "الذكاء الاصطناعي وذكاء الأعمال",
+        cap5: "أنظمة التصميم",
+        termsOfService: "شروط الخدمة",
+        securitySpec: "مواصفات الأمان",
+        privacyPolicy: "سياسة الخصوصية"
       },
       modal: {
         badge: "بدء استكشاف المشروع",

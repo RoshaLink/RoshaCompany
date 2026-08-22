@@ -212,6 +212,23 @@ select:focus-visible {
   outline-offset: 2px;
 }
 
+/* Visually hides content while keeping it in the accessibility tree -- for a
+   label that a sighted user gets from context (an icon, a placeholder) but a
+   screen reader needs stated explicitly. Clips instead of using
+   width/height:0, so the content still participates in layout for AT that
+   measures it, and stays in tab order. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Respect the OS-level "reduce motion" setting. Several homepage sections run
    purely decorative infinite CSS animations (shimmering headline text, logo
    and testimonial marquees, background "shine" sweeps) with no other way to

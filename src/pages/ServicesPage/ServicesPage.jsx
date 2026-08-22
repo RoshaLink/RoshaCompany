@@ -24,6 +24,10 @@ import {
   X
 } from 'lucide-react';
 import roshaAnalysis from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
+import ServicesHero from '../../components/ServicesHero/ServicesHero';
+import ServicesCapabilities from '../../components/ServicesCapabilities/ServicesCapabilities';
+import ServicesTechMatrix from '../../components/ServicesTechMatrix/ServicesTechMatrix';
+import ServicesDeliveryProcess from '../../components/ServicesDeliveryProcess/ServicesDeliveryProcess';
 import './ServicesPage.css';
 
 export default function ServicesPage({ onOpenGetStarted }) {
@@ -31,121 +35,7 @@ export default function ServicesPage({ onOpenGetStarted }) {
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
 
-  const [activeTechTab, setActiveTechTab] = useState('frontend');
   const [openFaq, setOpenFaq] = useState(0);
-
-  // 6 Core Services Configuration
-  const serviceIcons = {
-    discovery: Compass,
-    'web-architecture': Code2,
-    'cloud-backend': Server,
-    'ai-automation': Cpu,
-    'mobile-apps': Smartphone,
-    'seo-performance': Search
-  };
-
-  const serviceColors = {
-    discovery: 'sky',
-    'web-architecture': 'indigo',
-    'cloud-backend': 'emerald',
-    'ai-automation': 'purple',
-    'mobile-apps': 'amber',
-    'seo-performance': 'rose'
-  };
-
-  const rawServicesList = t('servicesPage.servicesList', { returnObjects: true }) || [];
-
-  // Tech Stack Matrix Data
-  const techStackData = {
-    frontend: [
-      {
-        name: "React 19 & Vite",
-        badge: "Core Framework",
-        desc: isRTL ? "معماری کامپوننت‌های مدرن، رندرینگ فوق‌سریع و HMR بدون اتلاف وقت." : "Next-gen component lifecycle, sub-second HMR, and ultra-fast client rendering."
-      },
-      {
-        name: "Framer Motion & WebGL",
-        badge: "Motion & UI",
-        desc: isRTL ? "انیمیشن‌های نرم و تعاملی ۶۰ فریم بر ثانیه با شتاب‌دهی سخت‌افزاری." : "Hardware-accelerated 60fps micro-animations and physics-based interactions."
-      },
-      {
-        name: "Tokenized Design Systems",
-        badge: "Architecture",
-        desc: isRTL ? "سیستم‌های دیزاین هماهنگ متصل به فیگما با متغیرهای توکنیزه و دارک‌مود کامل." : "Strict design tokens with full multi-theme light/dark mode and responsive scaling."
-      },
-      {
-        name: "Vanilla CSS & Tailwind",
-        badge: "Styling Engine",
-        desc: isRTL ? "کدهای سبک و بهینه با پرفورمنس بالا و حذف کامل فایل‌های زائد." : "Zero-runtime bloat, clean modular layout rules, and strict CSS architecture."
-      }
-    ],
-    backend: [
-      {
-        name: "Node.js & Microservices",
-        badge: "API Runtime",
-        desc: isRTL ? "معماری سرورهای ناهمگام و میکروسرویس‌های ماژولار با پاسخگویی زیر ۲۰ میلی‌ثانیه." : "High-concurrency async runtime engineered for low-latency transaction pipelines."
-      },
-      {
-        name: "PostgreSQL & Prisma",
-        badge: "Primary Database",
-        desc: isRTL ? "پایگاه‌داده رابطه‌ای استاندارد ACID با ایندکس‌های پیشرفته و مدل‌سازی قوی." : "Robust ACID-compliant relational data modeling with automated type-safe migrations."
-      },
-      {
-        name: "Redis & Upstash",
-        badge: "In-Memory Cache",
-        desc: isRTL ? "کشینگ توزیع‌شده با تاخیر زیر میلی‌ثانیه و مدیریت نشست‌های همزمان." : "Sub-millisecond memory caching, distributed rate limiting, and pub/sub queues."
-      },
-      {
-        name: "WebSockets & Telemetry",
-        badge: "Real-Time Comms",
-        desc: isRTL ? "ارتباط زنده دوطرفه کلاینت و سرور همراه با پایش مداوم رویدادها." : "Bidirectional live synchronization streams with instant telemetry feedback."
-      }
-    ],
-    ai: [
-      {
-        name: "Custom LLM Integrations",
-        badge: "Generative AI",
-        desc: isRTL ? "اتصال پیشرفته به مدل‌های OpenAI GPT-4o، Anthropic Claude و Gemini." : "Custom integration with OpenAI, Claude, and Gemini for tailored domain reasoning."
-      },
-      {
-        name: "RAG & Vector Databases",
-        badge: "Enterprise Knowledge",
-        desc: isRTL ? "سیستم‌های بازیابی هوشمند اسناد با Pinecone و pgvector بدون توهم مدل." : "Contextual semantic document search and zero-hallucination knowledge retrieval."
-      },
-      {
-        name: "Autonomous Agents",
-        badge: "Workflow Automation",
-        desc: isRTL ? "ایجنت‌های خودمختار برای اجرای اتوماتیک کارهای پیچیده و پردازش داده‌ها." : "Multi-agent workflows autonomously executing multi-step business operations."
-      },
-      {
-        name: "Python Data Pipelines",
-        badge: "ETL & Ingestion",
-        desc: isRTL ? "پایپ‌لاین‌های اتوماتیک جمع‌آوری، پاک‌سازی و پردازش داده‌های سازمانی." : "Automated data ingestion, sanitization, and structured transformation pipelines."
-      }
-    ],
-    cloud: [
-      {
-        name: "Docker & Containerization",
-        badge: "Environment",
-        desc: isRTL ? "محیط‌های ایزوله و یکدست با قابلیت اجرای سریع در محیط توسعه و پروداکشن." : "Isolated, reproducible development and production container environments."
-      },
-      {
-        name: "AWS & Cloudflare Edge",
-        badge: "Global CDN",
-        desc: isRTL ? "توزیع سرورلس جهانی در بیش از ۳۰۰ شهر دنیا با محافظت DDoS." : "Global edge serverless execution, smart caching, and enterprise DDoS shielding."
-      },
-      {
-        name: "ISO 27001 Security",
-        badge: "Compliance",
-        desc: isRTL ? "رمزنگاری کامل AES-256 و TLS 1.3 با معماری امنیت لایه صفر Zero-Trust." : "End-to-end AES-256 encryption, TLS 1.3, and strict Zero-Trust access policies."
-      },
-      {
-        name: "Automated CI/CD",
-        badge: "Deployment",
-        desc: isRTL ? "فرآیند تست خودکار و استقرار پیوسته بر بستر GitHub Actions با آپ‌تایم ۹۹.۹۹٪." : "Zero-downtime automated linting, test suites, and instant deployment pipelines."
-      }
-    ]
-  };
 
   const faqList = [
     { q: t('servicesPage.faq.q1'), a: t('servicesPage.faq.a1') },
@@ -159,314 +49,27 @@ export default function ServicesPage({ onOpenGetStarted }) {
     <div className={`services-page-root ${rtlClass}`} dir={isRTL ? 'rtl' : 'ltr'}>
 
       {/* =========================================================================
-          1. SERVICES HERO SECTION
+          1. SERVICES HERO SECTION (Separate Component)
           ========================================================================= */}
-      <section className="services-hero-section">
-        {/* Ambient Lighting Glows */}
-        <div className="services-ambient-glow-1" />
-        <div className="services-ambient-glow-2" />
-
-        <div className="services-container">
-          <div className="services-hero-content">
-            <h1 className="services-hero-title">
-              {t('servicesPage.hero.titlePrefix')}{' '}
-              <span className="services-hero-gradient-text">
-                {t('servicesPage.hero.titleGradient')}
-              </span>
-              {t('servicesPage.hero.titleSuffix')}
-            </h1>
-
-            <p className="services-hero-subtitle">
-              {t('servicesPage.hero.subtitle')}
-            </p>
-
-            <div className="services-hero-actions">
-              <button
-                type="button"
-                onClick={onOpenGetStarted}
-                className="services-btn-primary"
-              >
-                <span>{t('servicesPage.hero.primaryCta')}</span>
-                <ArrowRight className="services-btn-icon" />
-              </button>
-
-              <a href="#core-capabilities" className="services-btn-secondary">
-                <span>{t('servicesPage.hero.secondaryCta')}</span>
-                <ArrowUpRight className="services-btn-icon" />
-              </a>
-            </div>
-
-            {/* Metrics Ribbon */}
-            <div className="services-metrics-grid">
-              <div className="services-metric-card">
-                <div className="services-metric-val services-val-sky">
-                  {t('servicesPage.hero.metric1Value')}
-                </div>
-                <div className="services-metric-lbl">
-                  {t('servicesPage.hero.metric1Label')}
-                </div>
-              </div>
-
-              <div className="services-metric-card">
-                <div className="services-metric-val services-val-emerald">
-                  {t('servicesPage.hero.metric2Value')}
-                </div>
-                <div className="services-metric-lbl">
-                  {t('servicesPage.hero.metric2Label')}
-                </div>
-              </div>
-
-              <div className="services-metric-card">
-                <div className="services-metric-val services-val-indigo">
-                  {t('servicesPage.hero.metric3Value')}
-                </div>
-                <div className="services-metric-lbl">
-                  {t('servicesPage.hero.metric3Label')}
-                </div>
-              </div>
-
-              <div className="services-metric-card">
-                <div className="services-metric-val services-val-purple">
-                  {t('servicesPage.hero.metric4Value')}
-                </div>
-                <div className="services-metric-lbl">
-                  {t('servicesPage.hero.metric4Label')}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesHero onOpenGetStarted={onOpenGetStarted} />
 
 
       {/* =========================================================================
-          2. CORE 6 CAPABILITIES SECTION
+          2. CORE 6 CAPABILITIES SECTION (3D Staggered Carousel Component)
           ========================================================================= */}
-      <section id="core-capabilities" className="services-capabilities-section">
-        <div className="services-container">
-          <div className="services-section-header">
-            <h2 className="services-section-title">
-              {t('servicesPage.servicesSection.title')}
-            </h2>
-            <p className="services-section-subtitle">
-              {t('servicesPage.servicesSection.subtitle')}
-            </p>
-          </div>
-
-          <div className="services-grid-wrapper">
-            {Array.isArray(rawServicesList) && rawServicesList.map((service, index) => {
-              const IconComponent = serviceIcons[service.id] || Compass;
-              const colorTheme = serviceColors[service.id] || 'sky';
-
-              return (
-                <div
-                  key={service.id || index}
-                  className={`service-card-item theme-${colorTheme}`}
-                >
-                  <div className="service-card-glow" />
-
-                  <div className="service-card-header">
-                    <div className="service-icon-box">
-                      <IconComponent className="service-icon" />
-                    </div>
-                    <span className="service-category-tag">
-                      {service.category}
-                    </span>
-                  </div>
-
-                  <h3 className="service-card-title">
-                    {service.title}
-                  </h3>
-
-                  <p className="service-card-desc">
-                    {service.desc}
-                  </p>
-
-                  {/* Deliverables Checklist */}
-                  {Array.isArray(service.deliverables) && (
-                    <div className="service-deliverables-box">
-                      <span className="service-deliverables-heading">
-                        {t('servicesPage.servicesSection.deliverablesLabel')}
-                      </span>
-                      <ul className="service-deliverables-list">
-                        {service.deliverables.map((item, dIdx) => (
-                          <li key={dIdx} className="service-deliverable-row">
-                            <CheckCircle2 className="service-check-icon" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Tech Tags */}
-                  {Array.isArray(service.techTags) && (
-                    <div className="service-tags-box">
-                      {service.techTags.map((tag, tIdx) => (
-                        <span key={tIdx} className="service-tech-pill">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Card Bottom CTA */}
-                  <div className="service-card-footer">
-                    <button
-                      type="button"
-                      onClick={onOpenGetStarted}
-                      className="service-card-action-btn"
-                    >
-                      <span>{t('servicesPage.hero.primaryCta')}</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <ServicesCapabilities onOpenGetStarted={onOpenGetStarted} />
 
 
       {/* =========================================================================
-          3. INTERACTIVE TECH STACK MATRIX
+          3. INTERACTIVE TECH STACK MATRIX (3D Glass Cards Component)
           ========================================================================= */}
-      <section className="services-techmatrix-section">
-        <div className="services-container">
-          <div className="services-section-header">
-            <h2 className="services-section-title">
-              {t('servicesPage.techMatrix.title')}
-            </h2>
-            <p className="services-section-subtitle">
-              {t('servicesPage.techMatrix.subtitle')}
-            </p>
-          </div>
-
-          {/* Tab Selector Buttons */}
-          <div className="services-tabs-bar">
-            <button
-              type="button"
-              onClick={() => setActiveTechTab('frontend')}
-              className={`services-tab-btn ${activeTechTab === 'frontend' ? 'is-active' : ''}`}
-            >
-              <Code2 className="w-4 h-4" />
-              <span>{t('servicesPage.techMatrix.tabFrontend')}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTechTab('backend')}
-              className={`services-tab-btn ${activeTechTab === 'backend' ? 'is-active' : ''}`}
-            >
-              <Server className="w-4 h-4" />
-              <span>{t('servicesPage.techMatrix.tabBackend')}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTechTab('ai')}
-              className={`services-tab-btn ${activeTechTab === 'ai' ? 'is-active' : ''}`}
-            >
-              <Cpu className="w-4 h-4" />
-              <span>{t('servicesPage.techMatrix.tabAi')}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveTechTab('cloud')}
-              className={`services-tab-btn ${activeTechTab === 'cloud' ? 'is-active' : ''}`}
-            >
-              <ShieldCheck className="w-4 h-4" />
-              <span>{t('servicesPage.techMatrix.tabCloud')}</span>
-            </button>
-          </div>
-
-          {/* Active Tab Grid Items */}
-          <div className="services-techmatrix-grid">
-            {techStackData[activeTechTab]?.map((item, idx) => (
-              <div key={idx} className="techmatrix-card">
-                <div className="techmatrix-card-top">
-                  <span className="techmatrix-title">{item.name}</span>
-                  <span className="techmatrix-badge">{item.badge}</span>
-                </div>
-                <p className="techmatrix-desc">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesTechMatrix />
 
 
       {/* =========================================================================
-          4. 4-STAGE DELIVERY PROCESS SECTION
+          4. 4-STAGE DELIVERY PROCESS SECTION (3D Animated Card Stack Deck)
           ========================================================================= */}
-      <section className="services-process-section">
-        <div className="services-container">
-          <div className="services-section-header">
-            <h2 className="services-section-title">
-              {t('servicesPage.process.title')}
-            </h2>
-            <p className="services-section-subtitle">
-              {t('servicesPage.process.subtitle')}
-            </p>
-          </div>
-
-          <div className="services-process-grid">
-            {/* Step 1 */}
-            <div className="services-process-card">
-              <div className="process-number-badge">
-                {t('servicesPage.process.step1Num')}
-              </div>
-              <h3 className="process-card-title">
-                {t('servicesPage.process.step1Title')}
-              </h3>
-              <p className="process-card-desc">
-                {t('servicesPage.process.step1Desc')}
-              </p>
-            </div>
-
-            {/* Step 2 */}
-            <div className="services-process-card">
-              <div className="process-number-badge">
-                {t('servicesPage.process.step2Num')}
-              </div>
-              <h3 className="process-card-title">
-                {t('servicesPage.process.step2Title')}
-              </h3>
-              <p className="process-card-desc">
-                {t('servicesPage.process.step2Desc')}
-              </p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="services-process-card">
-              <div className="process-number-badge">
-                {t('servicesPage.process.step3Num')}
-              </div>
-              <h3 className="process-card-title">
-                {t('servicesPage.process.step3Title')}
-              </h3>
-              <p className="process-card-desc">
-                {t('servicesPage.process.step3Desc')}
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="services-process-card">
-              <div className="process-number-badge">
-                {t('servicesPage.process.step4Num')}
-              </div>
-              <h3 className="process-card-title">
-                {t('servicesPage.process.step4Title')}
-              </h3>
-              <p className="process-card-desc">
-                {t('servicesPage.process.step4Desc')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServicesDeliveryProcess onOpenGetStarted={onOpenGetStarted} />
 
 
       {/* =========================================================================

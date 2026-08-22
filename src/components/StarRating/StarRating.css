@@ -1,0 +1,51 @@
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  /* Stars stay in visual order even inside an RTL block -- they are a rating
+     scale, not text. */
+  direction: ltr;
+}
+
+.star-rating-item {
+  position: relative;
+  display: inline-flex;
+  line-height: 0;
+}
+
+/* The unfilled layer underneath: outline only, so a partial star still shows
+   its full silhouette.
+
+   Scoped under .star-rating so it outranks the caller's own star class. The
+   consumer passes something like .testimonial-col-star, which sets `fill` to
+   the filled colour; at equal specificity that class loads later and won, so
+   every "empty" star rendered solid and the partial overlay sat on top of a
+   full star -- reading as a doubled, overlapping fifth star. */
+.star-rating .star-rating-empty {
+  fill: none;
+  color: var(--color-slate-300);
+}
+
+html.dark .star-rating .star-rating-empty {
+  color: var(--color-slate-600);
+}
+
+/* Clipped overlay. `left: 0` (not an inset-inline property) keeps the fill
+   growing from the star's own left edge in both directions. */
+.star-rating-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: inline-flex;
+  line-height: 0;
+}
+
+/* The star inside has to keep its full width and be cropped by the wrapper.
+   As a flex item it shrank to the wrapper's width instead, so a partial star
+   drew a narrow, squashed star on top of the full-size outline behind it --
+   which reads as a second, larger star showing through. */
+.star-rating-fill > svg {
+  flex: none;
+  max-width: none;
+}

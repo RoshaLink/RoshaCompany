@@ -35,6 +35,9 @@ export const MinimalistHero = ({
               onClick={() => onSelectIndex(idx)}
               className={`hero-dot ${idx === currentIndex ? 'is-active' : ''}`}
               title={`Go to team member ${idx + 1}`}
+              // Icon-only control: title alone gives mouse users a tooltip
+              // but isn't a reliable accessible name for every screen reader.
+              aria-label={`Go to team member ${idx + 1}`}
             />
           ))}
         </div>

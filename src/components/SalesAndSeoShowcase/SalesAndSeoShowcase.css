@@ -377,10 +377,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* Desktop only. These float on top of the artwork, so on phones and tablets
-   they cover the illustration and crowd its edges -- the image reads better
-   without them there. */
-@media (min-width: 1024px) { .sales-stat-pill { display: flex; } }
+/* Wide desktop only, same threshold as .custom-stat-pill / .mobile-stat-pill:
+   the "Sales Growth / High CRO Rate" and "Google #1 Rank / Top Visibility"
+   pills are two-line blocks, so they still covered the artwork at 1024px. */
+@media (min-width: 1500px) { .sales-stat-pill { display: flex; } }
 
 .sales-stat-pill-1 { top: 2rem; }
 .sales-stat-pill-1.is-ltr { left: 1.5rem; }

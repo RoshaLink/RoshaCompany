@@ -196,7 +196,10 @@
 
 @media (min-width: 640px) {
   .sales-action {
-    flex-wrap: wrap;
+    /* Stays nowrap. These two labels are the longest button pair on the page
+       ("Öka din försäljning & SEO nu" / "Utforska våra kapabiliteter"), so
+       wrapping here dropped them onto separate rows well before any other
+       pair did. Letting them shrink instead keeps them side by side. */
     justify-content: flex-start;
     gap: 1rem; /* gap-4 */
   }
@@ -237,8 +240,12 @@
 
 @media (min-width: 640px) {
   .sales-btn-primary {
-    flex: none;
-    padding: 1rem 2rem;
+    /* Shrinkable rather than `flex: none`, so a long label costs width
+       instead of forcing the pair onto two rows. min-width: 0 is what lets
+       a flex item actually shrink below its content width. */
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.5rem;
     border-radius: var(--radius-full);
     gap: 0.625rem;
     font-size: 1rem;
@@ -279,8 +286,9 @@
 
 @media (min-width: 640px) {
   .sales-btn-secondary {
-    flex: none;
-    padding: 1rem 1.75rem;
+    flex: 0 1 auto;
+    min-width: 0;
+    padding: 1rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 1rem;
   }
@@ -369,7 +377,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-@media (min-width: 640px) { .sales-stat-pill { display: flex; } }
+/* Desktop only. These float on top of the artwork, so on phones and tablets
+   they cover the illustration and crowd its edges -- the image reads better
+   without them there. */
+@media (min-width: 1024px) { .sales-stat-pill { display: flex; } }
 
 .sales-stat-pill-1 { top: 2rem; }
 .sales-stat-pill-1.is-ltr { left: 1.5rem; }

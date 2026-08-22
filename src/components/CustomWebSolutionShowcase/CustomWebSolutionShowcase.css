@@ -188,7 +188,8 @@
   box-shadow: var(--shadow-lg);
 }
 
-@media (min-width: 640px) { .custom-stat-pill { display: flex; } }
+/* Desktop only -- see .sales-stat-pill for why. */
+@media (min-width: 1024px) { .custom-stat-pill { display: flex; } }
 
 .custom-stat-pill-1 { top: 2rem; }
 .custom-stat-pill-1.is-ltr { right: 1.5rem; }
@@ -327,7 +328,7 @@
 .custom-btn-primary {
   flex: 1 1 0%;
   background-image: linear-gradient(to right, var(--color-emerald-500), var(--color-teal-600), var(--color-sky-600));
-  color: var(--color-slate-900);
+  color: var(--color-white);
   font-weight: 700;
   font-family: var(--font-mono);
   padding: 0.75rem 0.5rem;
@@ -437,4 +438,3 @@ html.dark .custom-stat-pill {
 html.dark .custom-stat-text-1 { color: var(--color-slate-100); }
 html.dark .custom-stat-title-2 { color: var(--color-slate-100); }
 html.dark .custom-glow-1 { background-color: rgba(16, 185, 129, 0.15); }
-html.dark .custom-btn-primary { color: var(--color-white); }

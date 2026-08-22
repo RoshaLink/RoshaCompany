@@ -1,0 +1,36 @@
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  /* Stars stay in visual order even inside an RTL block -- they are a rating
+     scale, not text. */
+  direction: ltr;
+}
+
+.star-rating-item {
+  position: relative;
+  display: inline-flex;
+  line-height: 0;
+}
+
+/* The unfilled layer underneath: outline only, so a partial star still shows
+   its full silhouette. */
+.star-rating-empty {
+  fill: none;
+  color: var(--color-slate-300);
+}
+
+html.dark .star-rating-empty {
+  color: var(--color-slate-600);
+}
+
+/* Clipped overlay. `left: 0` (not an inset-inline property) keeps the fill
+   growing from the star's own left edge in both directions. */
+.star-rating-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  display: inline-flex;
+  line-height: 0;
+}

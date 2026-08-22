@@ -90,6 +90,64 @@ html.dark .glass-text-shine span {
   color: var(--color-sky-400);
 }
 
+/* The two emphasised phrases in the H1. Same gradient as .blue-text-shine on
+   the "högst upp på Google" headline (SearchVisibilityShowcase.css), but the
+   keyframes are declared here rather than borrowed from that file so this
+   component doesn't depend on another one being imported.
+
+   The two sweep in opposite directions -- accent-2 just runs the same
+   animation reversed -- which reads as two separate phrases rather than one
+   long coloured run. No `white-space: nowrap` (unlike .blue-text-shine): the
+   H1 has to wrap on narrow screens. */
+.hero-title-accent {
+  background-image: linear-gradient(
+    115deg,
+    #0284c7 0%,
+    #2563eb 25%,
+    /* .blue-text-shine runs #bae6fd -> #ffffff -> #bae6fd across these three
+       stops. At the hero's type size, on a near-white background, that sweep
+       drops a whole word to near-invisible as it passes. Keeping the same
+       blues but stopping the highlight at sky-200 preserves the shine and
+       stays readable through the whole cycle. */
+    #7dd3fc 45%,
+    #bae6fd 50%,
+    #7dd3fc 55%,
+    #4f46e5 75%,
+    #0284c7 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-title-accent-1 {
+  animation: hero-title-sweep 6s ease-in-out infinite;
+}
+
+.hero-title-accent-2 {
+  animation: hero-title-sweep 6s ease-in-out infinite reverse;
+}
+
+@keyframes hero-title-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-accent-1,
+  .hero-title-accent-2 {
+    animation: none;
+    /* Park the gradient mid-sweep so the text keeps its colour without motion. */
+    background-position: 50% 0;
+  }
+}
+
 html.dark .hero-subtitle {
   color: var(--color-slate-300);
 }

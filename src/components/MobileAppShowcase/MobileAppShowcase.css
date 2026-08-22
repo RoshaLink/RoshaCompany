@@ -168,7 +168,8 @@
   box-shadow: var(--shadow-lg);
 }
 
-@media (min-width: 640px) { .mobile-stat-pill { display: flex; } }
+/* Desktop only -- see .sales-stat-pill for why. */
+@media (min-width: 1024px) { .mobile-stat-pill { display: flex; } }
 
 .mobile-stat-pill-1 { top: 2rem; }
 .mobile-stat-pill-1.is-ltr { right: 1.5rem; }

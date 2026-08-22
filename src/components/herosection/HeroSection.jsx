@@ -85,11 +85,14 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
           {/* Main Title Block */}
           <div className="hero-title-block">
             <h1 className="hero-title glass-text-shine">
-              {t('hero.titlePrefix')}{' '}
-              <span>
+              {t('hero.titlePrefix')}
+              <span className="hero-title-accent hero-title-accent-1">
                 {t('hero.titleGradient')}
-              </span>{' '}
-              {t('hero.titleSuffix')}
+              </span>
+              {t('hero.titleConnector')}
+              <span className="hero-title-accent hero-title-accent-2">
+                {t('hero.titleGradient2')}
+              </span>
             </h1>
             {t('hero.subtitle') && (
               <p className="hero-subtitle">

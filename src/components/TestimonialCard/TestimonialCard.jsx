@@ -1,16 +1,18 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import StarRating from '../StarRating/StarRating';
 import './TestimonialCard.css';
 
-export default function TestimonialCard({ name, role, comment, avatar }) {
+export default function TestimonialCard({ name, role, comment, avatar, rating = 5 }) {
   return (
     <div className="testimonial-card group">
-      
-      {/* Rating Stars */}
+
+      {/* Rating Stars -- per review, not a fixed five */}
       <div className="testimonial-card-rating">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} className="testimonial-card-star" />
-        ))}
+        <StarRating
+          value={rating}
+          starClassName="testimonial-card-star"
+          label={`${rating} of 5 stars`}
+        />
       </div>
 
       {/* Review Comment */}
@@ -22,7 +24,11 @@ export default function TestimonialCard({ name, role, comment, avatar }) {
       <div className="testimonial-card-author" dir="ltr" style={{ direction: 'ltr', textAlign: 'left' }}>
         <img
           src={avatar}
-          alt={name}
+          alt=""
+          width="40"
+          height="40"
+          loading="lazy"
+          decoding="async"
           className="testimonial-card-avatar group-hover:scale-105"
         />
         <div className="testimonial-card-info">

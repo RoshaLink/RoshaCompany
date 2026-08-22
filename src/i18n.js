@@ -222,7 +222,7 @@ const resources = {
       },
       hero: {
         badge: "DIGITAL AFFÄRSTRANSFORMATION & AI-ARKITEKTUR",
-        titlePrefix: "Skapa Skräddarsydda ",
+        titlePrefix: "Skapa ",
         titleGradient: "Digitala Produkter",
         titleSuffix: " & AI-Lösningar",
         subtitle: "Vi analyserar er affärsmodell och bygger skräddarsydda webblösningar, mobilappar och AI-system optimerade för maximal tillväxt.",

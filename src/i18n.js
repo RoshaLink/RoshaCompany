@@ -537,6 +537,8 @@ const resources = {
         button: "Inled strategisk brief"
       },
       footer: {
+        brandRosha: "ROSHA",
+        brandLink: "LINK",
         description: "Bryggan mellan noggrann affärsanalys och banbrytande produktutveckling.",
         navigation: "Navigering",
         capabilities: "Kapabiliteter",
@@ -1357,6 +1359,8 @@ const resources = {
         button: "Initiate Strategic Brief"
       },
       footer: {
+        brandRosha: "ROSHA",
+        brandLink: "LINK",
         description: "Bridging the gap between rigorous business analysis and cutting-edge product development.",
         navigation: "Navigation",
         capabilities: "Capabilities",
@@ -2177,6 +2181,8 @@ const resources = {
         button: "شروع ثبت پروپوزال"
       },
       footer: {
+        brandRosha: "روشا",
+        brandLink: "لینک",
         description: "پل ارتباطی میان تحلیل دقیق کسب‌وکار و توسعه محصولات دیجیتال پیشرفته.",
         navigation: "ناوبری",
         capabilities: "قابلیت‌ها",
@@ -2997,6 +3003,8 @@ const resources = {
         button: "ابدأ تقديم المقترح"
       },
       footer: {
+        brandRosha: "روشا",
+        brandLink: "لينك",
         description: "جسر التواصل بين التحليل الدقيق للأعمال وتطوير المنتجات الرقمية المتقدمة.",
         navigation: "التنقل",
         capabilities: "القدرات",

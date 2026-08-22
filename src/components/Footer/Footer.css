@@ -11,6 +11,14 @@
   overflow: hidden;
 }
 
+@media (max-width: 360px) {
+  .footer-section {
+    padding-bottom: 6.5rem; /* Clearance for floating chat video widget on ultra-small screens */
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
 @media (min-width: 768px) {
   .footer-section {
     padding-left: 3rem;
@@ -67,7 +75,8 @@
 .footer-logo-link:hover {
   transform: translateY(-1px);
 }
-[dir="rtl"] .footer-logo-link, .is-rtl .footer-logo-link { flex-direction: row-reverse; }
+[dir="rtl"] .footer-logo-link, .is-rtl .footer-logo-link { flex-direction: row; }
+[dir="rtl"] .footer-logo-text, .is-rtl .footer-logo-text { direction: rtl; }
 
 .footer-logo-icon {
   width: clamp(3.25rem, 6.5vw, 5.75rem);
@@ -82,9 +91,29 @@
 }
 
 @media (max-width: 360px) {
+  .footer-logo-link {
+    gap: 0.35rem;
+  }
+
   .footer-logo-icon {
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .footer-logo-text {
+    font-size: 0.95rem;
+    transform: translateY(3px);
+  }
+}
+
+@media (max-width: 300px) {
+  .footer-logo-icon {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .footer-logo-text {
+    font-size: 0.85rem;
   }
 }
 
@@ -129,6 +158,7 @@
   display: inline-flex;
   align-items: center;
   gap: clamp(0.25rem, 1vw, 0.4rem);
+  transform: translateY(5px);
   transition: all 0.3s ease;
 }
 

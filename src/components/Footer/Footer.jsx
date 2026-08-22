@@ -22,8 +22,8 @@ export default function Footer({ setActivePage }) {
               <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" />
             </div>
             <span className="footer-logo-text">
-              <span className="footer-logo-rosha">ROSHA</span>
-              <span className="footer-logo-link-text">LINK</span>
+              <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>
+              <span className="footer-logo-link-text">{t('footer.brandLink', 'LINK')}</span>
             </span>
           </div>
           <p className="footer-desc">

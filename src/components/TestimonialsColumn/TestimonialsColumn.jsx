@@ -39,31 +39,33 @@ function initialsAvatar(name, idx) {
 // Attribution is deliberately uneven, because a real review set is:
 //  - roleKey  -> the five clients whose work is in the portfolio, so the full
 //                "title, company" is verifiable and worth translating.
-//  - org      -> company only. No job title to vouch for, and a company name
-//                is a proper noun that reads the same in every language.
+//  - orgKey   -> company only. No job title to vouch for.
 //  - neither  -> just a name. A wall of twenty people who all happen to be a
 //                VD or a CTO is the thing that makes a review set look bought.
+//
+// Both keys resolve through i18n (testimonials.roles / testimonials.orgs), so
+// a Swedish job title never shows up on the Arabic page.
 const REVIEWS = [
   { name: 'Kianoush Amiri', roleKey: 'r1', rating: 5 },
   { name: 'Anna Lindqvist', roleKey: 'r2', rating: 5 },
   { name: 'Farhad Shirazi', roleKey: 'r3', rating: 5 },
   { name: 'Mehrdad Parsa', roleKey: 'r4', rating: 4 },
   { name: 'Johan Ek', roleKey: 'r5', rating: 5 },
-  { name: 'Nasrin Tehrani', org: 'Saffron Deli', rating: 5 },
+  { name: 'Nasrin Tehrani', orgKey: 'o1', rating: 5 },
   { name: 'Erik Sandberg', rating: 4 },
-  { name: 'Roya Kazemi', org: 'Golestan Import', rating: 5 },
+  { name: 'Roya Kazemi', orgKey: 'o2', rating: 5 },
   { name: 'Linnea Holm', rating: 4 },
-  { name: 'Babak Rahimi', org: 'Rahimi Fastighetsservice', rating: 5 },
+  { name: 'Babak Rahimi', orgKey: 'o3', rating: 5 },
   { name: 'Oscar Lund', rating: 4 },
-  { name: 'Shirin Daryaei', org: 'Diba Skönhetsklinik', rating: 5 },
+  { name: 'Shirin Daryaei', orgKey: 'o4', rating: 5 },
   { name: 'Mattias Ohlsson', rating: 5 },
-  { name: 'Arash Moradi', org: 'Persia Auto Service', rating: 4 },
+  { name: 'Arash Moradi', orgKey: 'o5', rating: 4 },
   { name: 'Camilla Nyberg', rating: 4 },
   { name: 'Hamid Yazdani', rating: 5 },
-  { name: 'Sofia Ekelund', org: 'Ekelund Design', rating: 5 },
+  { name: 'Sofia Ekelund', orgKey: 'o6', rating: 5 },
   { name: 'Payam Sadeghi', rating: 4 },
   { name: 'Elin Forsberg', rating: 4 },
-  { name: 'Maryam Hosseini', org: 'Hosseini Catering', rating: 5 },
+  { name: 'Maryam Hosseini', orgKey: 'o7', rating: 5 },
 ].map((review, idx) => ({ ...review, avatar: initialsAvatar(review.name, idx) }));
 
 export default function TestimonialsColumn() {
@@ -74,8 +76,11 @@ export default function TestimonialsColumn() {
   const translatedReviews = REVIEWS.map((review, idx) => ({
     ...review,
     comment: t(`testimonials.reviews.r${idx + 1}`),
-    // roleKey translates; org is a proper noun; the rest carry no line at all.
-    role: review.roleKey ? t(`testimonials.roles.${review.roleKey}`) : review.org || ''
+    role: review.roleKey
+      ? t(`testimonials.roles.${review.roleKey}`)
+      : review.orgKey
+        ? t(`testimonials.orgs.${review.orgKey}`)
+        : ''
   }));
 
   const col1 = translatedReviews.slice(0, 7);

@@ -516,6 +516,15 @@ const resources = {
           r4: "Managing Partner, Pars Law Firm",
           r5: "Driftchef, FFSTECH"
         },
+        orgs: {
+          o1: "Saffron Deli",
+          o2: "Golestan Import",
+          o3: "Rahimi Fastighetsservice",
+          o4: "Diba Skönhetsklinik",
+          o5: "Persia Auto Service",
+          o6: "Ekelund Design",
+          o7: "Hosseini Catering"
+        },
         reviews: {
           r1: "Bokningssystemet tog bort större delen av telefonbokningarna. Gästerna väljer bord själva och ser menyn på både svenska och persiska.",
           r2: "Patienterna bokar sina egna tider nu. Receptionen gick från en telefon som ringde hela förmiddagen till en handfull samtal om dagen.",
@@ -1344,6 +1353,15 @@ const resources = {
           r4: "Managing Partner, Pars Law Firm",
           r5: "Operations Lead, FFSTECH"
         },
+        orgs: {
+          o1: "Saffron Deli",
+          o2: "Golestan Import",
+          o3: "Rahimi Property Services",
+          o4: "Diba Beauty Clinic",
+          o5: "Persia Auto Service",
+          o6: "Ekelund Design",
+          o7: "Hosseini Catering"
+        },
         reviews: {
           r1: "The reservation system took most of the booking calls off our staff. Guests pick a table themselves and see the menu in both Swedish and Persian.",
           r2: "Patients book their own appointments now. Reception went from a phone ringing all morning to a handful of calls a day.",
@@ -2168,9 +2186,18 @@ const resources = {
         roles: {
           r1: "مالک، رستوران پرسپولیس",
           r2: "مدیر کلینیک، Tandläkaren",
-          r3: "شریک، Shirazi Associates",
-          r4: "شریک مدیر، Pars Law Firm",
+          r3: "شریک، مؤسسه شیرازی",
+          r4: "شریک مدیر، مؤسسه حقوقی پارس",
           r5: "مدیر عملیات، FFSTECH"
+        },
+        orgs: {
+          o1: "دلی زعفران",
+          o2: "واردات گلستان",
+          o3: "خدمات ساختمانی رحیمی",
+          o4: "کلینیک زیبایی دیبا",
+          o5: "تعمیرگاه پرشیا",
+          o6: "استودیو طراحی اکلوند",
+          o7: "کیترینگ حسینی"
         },
         reviews: {
           r1: "سیستم رزرو، بیشتر تماس‌های تلفنی را حذف کرد. مهمان‌ها خودشان میز انتخاب می‌کنند و منو را به سوئدی و فارسی می‌بینند.",
@@ -2996,9 +3023,18 @@ const resources = {
         roles: {
           r1: "مالك، مطعم برسبوليس",
           r2: "مديرة العيادة، Tandläkaren",
-          r3: "شريك، Shirazi Associates",
-          r4: "الشريك الإداري، Pars Law Firm",
+          r3: "شريك، مؤسسة الشيرازي",
+          r4: "الشريك الإداري، مؤسسة بارس للمحاماة",
           r5: "مدير العمليات، FFSTECH"
+        },
+        orgs: {
+          o1: "زعفران ديلي",
+          o2: "غولستان للاستيراد",
+          o3: "رحيمي لخدمات العقارات",
+          o4: "عيادة ديبا للتجميل",
+          o5: "برشيا لخدمات السيارات",
+          o6: "إيكلوند للتصميم",
+          o7: "الحسيني للتموين"
         },
         reviews: {
           r1: "نظام الحجز أزال معظم المكالمات الهاتفية عن فريقنا. الضيوف يختارون طاولاتهم بأنفسهم ويرون القائمة بالسويدية والفارسية.",

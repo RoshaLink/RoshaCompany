@@ -262,7 +262,7 @@ const resources = {
         bullet1: "Topplaceringar på Google och sökmoduler",
         bullet2: "Blixtsnabb laddningstid (100/100 Lighthouse-poäng)",
         bullet3: "Automatisk SEO-struktur och rika sökresultat",
-        button: "Förbättra din sökplacering"
+        button: "Höj din ranking"
       },
       businessAnalysis: {
         badge: "STRATEGISK BUSINESS-ANALYS & SKRÄDDARSYDD UTVECKLING",
@@ -298,7 +298,7 @@ const resources = {
         feature3Title: "Konstruerad för mätbar tillväxt",
         feature3Desc: "Högpresterande lösningar som ökar konverteringen och driver er affär framåt.",
         getStartedBtn: "Starta ert projekt",
-        exploreBtn: "Utforska våra tjänster",
+        exploreBtn: "Våra tjänster",
         modalTitle: "Våra Skräddarsydda Tjänster",
         modalSubtitle: "Upptäck hur vi bygger för framtiden",
         feature4Title: "Säkerhet i Världsklass",
@@ -324,7 +324,7 @@ const resources = {
         langArTitle: "الدعم باللغة العربية",
         langArDesc: "استشارات وخدمات دعم فني مباشرة باللغة العربية لتلبية متطلبات مشروعك بدقة متناهية.",
         contactBtn: "Kontakta oss nu",
-        bookCallBtn: "Boka ett strategimöte"
+        bookCallBtn: "Boka strategimöte"
       },
       salesAndSeo: {
         badge: "FÖRSÄLJNINGSTILLVÄXT & GOOGLE-RANKING",
@@ -338,8 +338,8 @@ const resources = {
         highlight2Desc: "Nå förstaplatsen i sökresultaten med automatiserad SEO-arkitektur och snabb indexering.",
         highlight3Title: "Blixtsnabb prestanda & laddtid",
         highlight3Desc: "Sub-sekund laddtider som får besökare att stanna kvar och köpa mer.",
-        boostBtn: "Öka din försäljning & SEO nu",
-        exploreBtn: "Utforska våra kapabiliteter",
+        boostBtn: "Öka försäljning & SEO",
+        exploreBtn: "Våra kapabiliteter",
         modalTitle: "Utforska Våra Kapabiliteter",
         modalSubtitle: "Upptäck hur våra funktioner kan transformera din verksamhet",
         feature4Title: "Avancerad Dataanalys",
@@ -371,8 +371,8 @@ const resources = {
         modalTitle: "Mobila Funktioner",
         modalSubtitle: "Upptäck allt vi erbjuder för din app",
         closeBtn: "Stäng",
-        buildBtn: "Bygg din mobilapp nu",
-        exploreBtn: "Utforska våra tjänster"
+        buildBtn: "Bygg din mobilapp",
+        exploreBtn: "Våra tjänster"
       },
       whoWeAre: {
         badge: "VILKA VI ÄR",
@@ -535,7 +535,7 @@ const resources = {
       ctaBanner: {
         title: "Redo att bygga er nästa högpresterande produkt?",
         subtitle: "Boka ett strategisamtal med vårt huvudsakliga design- och ingenjörsteam idag.",
-        button: "Inled strategisk brief"
+        button: "Starta din brief"
       },
       footer: {
         description: "Bryggan mellan noggrann affärsanalys och banbrytande produktutveckling.",
@@ -1061,7 +1061,7 @@ const resources = {
         badge: "ENTERPRISE TECH ECOSYSTEM",
         title: "Architected with Enterprise Tools & Brands We Work With",
         subtitle: "We integrate over 250+ top-tier cloud services, AI platforms, and design tools directly into our engineering workflow for seamless scalability.",
-        auditBtn: "Initiate Technology Audit",
+        auditBtn: "Start Tech Audit",
         exploreBtn: "Explore Tech Stack"
       },
       features: {
@@ -1083,7 +1083,7 @@ const resources = {
         bullet1: "Top Rankings in Google Search Results",
         bullet2: "Sub-Second Load Times (100/100 Lighthouse Score)",
         bullet3: "Automated SEO Structure & Rich Snippets",
-        button: "Boost Your Search Ranking"
+        button: "Boost Your Ranking"
       },
       businessAnalysis: {
         badge: "STRATEGIC BUSINESS ANALYSIS & CUSTOM ENGINEERING",
@@ -1094,7 +1094,7 @@ const resources = {
         bullet1: "Deep Business Model & User Journey Audits",
         bullet2: "Tailor-Made Architecture Built Without Generic Templates",
         bullet3: "Automated Workflows & Measurable Growth Metrics",
-        button: "Request Custom Analysis",
+        button: "Request Analysis",
         exploreBtn: "Explore Features",
         modalTitle: "Business Analysis Features",
         modalSubtitle: "Discover how our custom analysis accelerates your growth",
@@ -1119,7 +1119,7 @@ const resources = {
         feature3Title: "Driven for Scalable Growth",
         feature3Desc: "High-performance digital products crafted to maximize conversion rates and enterprise scale.",
         getStartedBtn: "Start Your Project",
-        exploreBtn: "Explore Our Services",
+        exploreBtn: "Our Services",
         modalTitle: "Our Custom Services",
         modalSubtitle: "Discover how we build for the future",
         feature4Title: "World-Class Security",
@@ -1145,7 +1145,7 @@ const resources = {
         langArTitle: "Arabic Support",
         langArDesc: "Direct consultation in Arabic to ensure complete understanding and execution of your project needs.",
         contactBtn: "Connect With Us Now",
-        bookCallBtn: "Book Strategy Session"
+        bookCallBtn: "Book Strategy Call"
       },
       salesAndSeo: {
         badge: "REVENUE ACCELERATION & SEARCH VISIBILITY",
@@ -1159,8 +1159,8 @@ const resources = {
         highlight2Desc: "Reach top rankings in Google with structured SEO metadata and instant search indexing.",
         highlight3Title: "Ultra-Fast Speed & High Engagement",
         highlight3Desc: "Sub-second page load speeds (100/100 Lighthouse) keeping users hooked and buying.",
-        boostBtn: "Boost Your Sales & SEO Now",
-        exploreBtn: "Explore Capabilities",
+        boostBtn: "Boost Sales & SEO",
+        exploreBtn: "Our Capabilities",
         modalTitle: "Explore Our Capabilities",
         modalSubtitle: "Discover how our features can transform your business",
         feature4Title: "Advanced Analytics Integration",
@@ -1192,8 +1192,8 @@ const resources = {
         modalTitle: "Mobile Features",
         modalSubtitle: "Discover everything we offer for your app",
         closeBtn: "Close",
-        buildBtn: "Build Your Mobile App Now",
-        exploreBtn: "Explore Our Services"
+        buildBtn: "Build Your App",
+        exploreBtn: "Our Services"
       },
       whoWeAre: {
         badge: "WHO WE ARE",
@@ -1356,7 +1356,7 @@ const resources = {
       ctaBanner: {
         title: "Ready to Build Your Next High-Impact Product?",
         subtitle: "Schedule a strategy call with our principal design & engineering team today.",
-        button: "Initiate Strategic Brief"
+        button: "Start Your Brief"
       },
       footer: {
         description: "Bridging the gap between rigorous business analysis and cutting-edge product development.",
@@ -1966,7 +1966,7 @@ const resources = {
         langArTitle: "پشتیبانی کامل زبان عربی",
         langArDesc: "ارتباط مستقیم و مشاوره به زبان عربی برای پوشش کامل نیازها و اجرای دقیق پروژه.",
         contactBtn: "تماس با ما",
-        bookCallBtn: "رزرو جلسه مشاوره استراتژیک"
+        bookCallBtn: "رزرو جلسه استراتژیک"
       },
       salesAndSeo: {
         badge: "افزایش فروش و دیدپذیری در گوگل",
@@ -1980,8 +1980,8 @@ const resources = {
         highlight2Desc: "دستیابی به بالاترین نتایج جستجو با معماری خودکار سئو و ایندکس سریع صفحات.",
         highlight3Title: "سرعت فوق‌العاده و بارگذاری آنی",
         highlight3Desc: "سرعت لود زیر یک ثانیه که نرخ ماندگاری کاربر را افزایش داده و فروش را بیشتر می‌کند.",
-        boostBtn: "افزایش فروش و سئوی سایت",
-        exploreBtn: "بررسی قابلیت‌های بیشتر",
+        boostBtn: "افزایش فروش و سئو",
+        exploreBtn: "قابلیت‌های ما",
         modalTitle: "بررسی قابلیت‌های افزایش فروش و سئو",
         modalSubtitle: "ببینید چگونه راهکارهای سئو و پرفورمنس ما کسب‌وکار شما را متحول می‌کنند",
         feature4Title: "تحلیل پیشرفته داده‌ها",
@@ -2013,7 +2013,7 @@ const resources = {
         modalTitle: "قابلیت‌های اپلیکیشن موبایل",
         modalSubtitle: "امکانات گسترده ما برای اپلیکیشن شما را کشف کنید",
         closeBtn: "بستن",
-        buildBtn: "ساخت اپلیکیشن موبایل اختصاصی",
+        buildBtn: "ساخت اپلیکیشن موبایل",
         exploreBtn: "بررسی خدمات توسعه"
       },
       whoWeAre: {
@@ -2725,7 +2725,7 @@ const resources = {
         bullet1: "المراكز الأولى في نتائج بحث جوجل ووحدات البحث",
         bullet2: "سرعة تحميل فائقة (100/100 في تقييم Lighthouse)",
         bullet3: "بنية SEO تلقائية ونتائج بحث غنية بالأشكال المميزة",
-        button: "حسّن ترتيبك في البحث الآن"
+        button: "حسّن ترتيبك في البحث"
       },
       businessAnalysis: {
         badge: "تحليل الأعمال الاستراتيجي والتطوير المخصص",
@@ -2801,7 +2801,7 @@ const resources = {
         highlight2Desc: "احصل على أعلى المراكز في البحث بأرشفة سريعة وبنية SEO متطورة.",
         highlight3Title: "سرعة تحميل فائقة وأداء مذهل",
         highlight3Desc: "سرعة تحميل أقل من ثانية تبقي الزوار وتزيد من تفاعلهم وشراء المنتجات.",
-        boostBtn: "زد مبيعاتك وحسّن SEO الآن",
+        boostBtn: "زد مبيعاتك و SEO",
         exploreBtn: "استكشف إمكانياتنا",
         modalTitle: "استكشف إمكانياتنا",
         modalSubtitle: "اكتشف كيف يمكن لميزاتنا أن تحوّل أعمالك",
@@ -2834,7 +2834,7 @@ const resources = {
         modalTitle: "ميزات تطبيق الهاتف المحمول",
         modalSubtitle: "اكتشف كل ما نقدمه لتطبيقك",
         closeBtn: "إغلاق",
-        buildBtn: "ابنِ تطبيق الجوال الخاص بك الآن",
+        buildBtn: "ابنِ تطبيق الجوال",
         exploreBtn: "استكشف خدماتنا"
       },
       whoWeAre: {

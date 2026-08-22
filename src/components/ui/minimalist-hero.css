@@ -468,7 +468,9 @@
   height: auto;
   width: 14rem;
   object-fit: cover;
-  filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.08));
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.1) 74%, transparent 80%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.1) 74%, transparent 80%);
 }
 
 @media (min-width: 640px) {

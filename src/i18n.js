@@ -509,6 +509,13 @@ const resources = {
         badge: "KUNDRECENSIONER OCH FEEDBACK",
         title: "Betrodd av 80+ produktledare",
         rating: "4.6 / 5.0 Betyg",
+        roles: {
+          r1: "Ägare, Perspolis Restaurang",
+          r2: "Klinikchef, Tandläkaren",
+          r3: "Delägare, Shirazi Associates",
+          r4: "Managing Partner, Pars Law Firm",
+          r5: "Driftchef, FFSTECH"
+        },
         reviews: {
           r1: "Bokningssystemet tog bort större delen av telefonbokningarna. Gästerna väljer bord själva och ser menyn på både svenska och persiska.",
           r2: "Patienterna bokar sina egna tider nu. Receptionen gick från en telefon som ringde hela förmiddagen till en handfull samtal om dagen.",
@@ -1330,6 +1337,13 @@ const resources = {
         badge: "CLIENT TESTIMONIALS & REVIEWS",
         title: "Trusted by 80+ Industry Leaders",
         rating: "4.6 / 5.0 Overall Rating",
+        roles: {
+          r1: "Owner, Perspolis Restaurant",
+          r2: "Practice Manager, Tandläkaren",
+          r3: "Partner, Shirazi Associates",
+          r4: "Managing Partner, Pars Law Firm",
+          r5: "Operations Lead, FFSTECH"
+        },
         reviews: {
           r1: "The reservation system took most of the booking calls off our staff. Guests pick a table themselves and see the menu in both Swedish and Persian.",
           r2: "Patients book their own appointments now. Reception went from a phone ringing all morning to a handful of calls a day.",
@@ -2151,6 +2165,13 @@ const resources = {
         badge: "نظرات و رضایت مشتریان",
         title: "مورد اعتماد بیش از ۸۰ مدیر ارشد محصول",
         rating: "امتیاز ۴.۶ از ۵.۰",
+        roles: {
+          r1: "مالک، رستوران پرسپولیس",
+          r2: "مدیر کلینیک، Tandläkaren",
+          r3: "شریک، Shirazi Associates",
+          r4: "شریک مدیر، Pars Law Firm",
+          r5: "مدیر عملیات، FFSTECH"
+        },
         reviews: {
           r1: "سیستم رزرو، بیشتر تماس‌های تلفنی را حذف کرد. مهمان‌ها خودشان میز انتخاب می‌کنند و منو را به سوئدی و فارسی می‌بینند.",
           r2: "بیماران خودشان نوبت می‌گیرند. پذیرش از تلفنی که تمام صبح زنگ می‌خورد به چند تماس در روز رسید.",
@@ -2972,6 +2993,13 @@ const resources = {
         badge: "آراء ورضا العملاء",
         title: "موثوق بنا من قبل أكثر من 80 قائد منتج",
         rating: "تقييم 4.6 من 5.0",
+        roles: {
+          r1: "مالك، مطعم برسبوليس",
+          r2: "مديرة العيادة، Tandläkaren",
+          r3: "شريك، Shirazi Associates",
+          r4: "الشريك الإداري، Pars Law Firm",
+          r5: "مدير العمليات، FFSTECH"
+        },
         reviews: {
           r1: "نظام الحجز أزال معظم المكالمات الهاتفية عن فريقنا. الضيوف يختارون طاولاتهم بأنفسهم ويرون القائمة بالسويدية والفارسية.",
           r2: "المرضى يحجزون مواعيدهم بأنفسهم الآن. الاستقبال انتقل من هاتف يرن طوال الصباح إلى بضع مكالمات يومياً.",

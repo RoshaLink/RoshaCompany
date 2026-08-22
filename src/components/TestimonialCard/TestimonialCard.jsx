@@ -33,7 +33,9 @@ export default function TestimonialCard({ name, role, comment, avatar, rating = 
         />
         <div className="testimonial-card-info">
           <h4 className="testimonial-card-name">{name}</h4>
-          <p className="testimonial-card-role">{role}</p>
+          {/* Not every reviewer has an attribution line -- skip the element
+              entirely rather than leaving an empty one taking up space. */}
+          {role ? <p className="testimonial-card-role">{role}</p> : null}
         </div>
       </div>
 

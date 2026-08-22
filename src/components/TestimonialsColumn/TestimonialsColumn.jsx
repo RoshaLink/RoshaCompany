@@ -34,28 +34,36 @@ function initialsAvatar(name, idx) {
 }
 
 // Comments come from i18n (testimonials.reviews.rN) so they translate with the
-// rest of the page; name, role and rating stay here since they do not.
+// rest of the page; name and rating stay here since they do not.
+//
+// Attribution is deliberately uneven, because a real review set is:
+//  - roleKey  -> the five clients whose work is in the portfolio, so the full
+//                "title, company" is verifiable and worth translating.
+//  - org      -> company only. No job title to vouch for, and a company name
+//                is a proper noun that reads the same in every language.
+//  - neither  -> just a name. A wall of twenty people who all happen to be a
+//                VD or a CTO is the thing that makes a review set look bought.
 const REVIEWS = [
-  { name: 'Kianoush Amiri', role: 'Ägare, Perspolis Restaurang', rating: 5 },
-  { name: 'Anna Lindqvist', role: 'Klinikchef, Tandläkaren', rating: 5 },
-  { name: 'Farhad Shirazi', role: 'Delägare, Shirazi Associates', rating: 5 },
-  { name: 'Mehrdad Parsa', role: 'Managing Partner, Pars Law Firm', rating: 4 },
-  { name: 'Johan Ek', role: 'Driftchef, FFSTECH', rating: 5 },
-  { name: 'Nasrin Tehrani', role: 'Grundare, Saffron Deli', rating: 5 },
-  { name: 'Erik Sandberg', role: 'VD, Nordic Bygg', rating: 4 },
-  { name: 'Roya Kazemi', role: 'Marknadschef, Golestan Import', rating: 5 },
-  { name: 'Linnea Holm', role: 'Produktägare, VårdPortalen', rating: 4 },
-  { name: 'Babak Rahimi', role: 'Ägare, Rahimi Fastighetsservice', rating: 5 },
-  { name: 'Oscar Lund', role: 'CTO, Frakt & Logistik AB', rating: 4 },
-  { name: 'Shirin Daryaei', role: 'Grundare, Diba Skönhetsklinik', rating: 5 },
-  { name: 'Mattias Ohlsson', role: 'Utvecklingschef, RetailNord', rating: 5 },
-  { name: 'Arash Moradi', role: 'Ägare, Persia Auto Service', rating: 4 },
-  { name: 'Camilla Nyberg', role: 'Kommunikationschef, Stiftelsen Framtid', rating: 4 },
-  { name: 'Hamid Yazdani', role: 'VD, Yazdani Juridik', rating: 5 },
-  { name: 'Sofia Ekelund', role: 'Egenföretagare, Ekelund Design', rating: 5 },
-  { name: 'Payam Sadeghi', role: 'Teknisk chef, ParsNet', rating: 4 },
-  { name: 'Elin Forsberg', role: 'Projektledare, KommunIT', rating: 4 },
-  { name: 'Maryam Hosseini', role: 'Grundare, Hosseini Catering', rating: 5 },
+  { name: 'Kianoush Amiri', roleKey: 'r1', rating: 5 },
+  { name: 'Anna Lindqvist', roleKey: 'r2', rating: 5 },
+  { name: 'Farhad Shirazi', roleKey: 'r3', rating: 5 },
+  { name: 'Mehrdad Parsa', roleKey: 'r4', rating: 4 },
+  { name: 'Johan Ek', roleKey: 'r5', rating: 5 },
+  { name: 'Nasrin Tehrani', org: 'Saffron Deli', rating: 5 },
+  { name: 'Erik Sandberg', rating: 4 },
+  { name: 'Roya Kazemi', org: 'Golestan Import', rating: 5 },
+  { name: 'Linnea Holm', rating: 4 },
+  { name: 'Babak Rahimi', org: 'Rahimi Fastighetsservice', rating: 5 },
+  { name: 'Oscar Lund', rating: 4 },
+  { name: 'Shirin Daryaei', org: 'Diba Skönhetsklinik', rating: 5 },
+  { name: 'Mattias Ohlsson', rating: 5 },
+  { name: 'Arash Moradi', org: 'Persia Auto Service', rating: 4 },
+  { name: 'Camilla Nyberg', rating: 4 },
+  { name: 'Hamid Yazdani', rating: 5 },
+  { name: 'Sofia Ekelund', org: 'Ekelund Design', rating: 5 },
+  { name: 'Payam Sadeghi', rating: 4 },
+  { name: 'Elin Forsberg', rating: 4 },
+  { name: 'Maryam Hosseini', org: 'Hosseini Catering', rating: 5 },
 ].map((review, idx) => ({ ...review, avatar: initialsAvatar(review.name, idx) }));
 
 export default function TestimonialsColumn() {
@@ -65,7 +73,9 @@ export default function TestimonialsColumn() {
 
   const translatedReviews = REVIEWS.map((review, idx) => ({
     ...review,
-    comment: t(`testimonials.reviews.r${idx + 1}`)
+    comment: t(`testimonials.reviews.r${idx + 1}`),
+    // roleKey translates; org is a proper noun; the rest carry no line at all.
+    role: review.roleKey ? t(`testimonials.roles.${review.roleKey}`) : review.org || ''
   }));
 
   const col1 = translatedReviews.slice(0, 7);

@@ -30,7 +30,8 @@ export default function Footer({ setActivePage }) {
               </svg>
             </div>
             <span className="footer-logo-text">
-              RoshaLink
+              <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>
+              <span className="footer-logo-link-text">{t('footer.brandLink', 'LINK')}</span>
             </span>
           </div>
           <p className="footer-desc">
@@ -65,11 +66,11 @@ export default function Footer({ setActivePage }) {
         <div className="footer-cap-col">
           <h4 className="footer-cap-title">{t('footer.capabilities')}</h4>
           <ul className="footer-links-list">
-            <li><button className="footer-link-btn"><span className="footer-link-btn-text">Strategic Design</span></button></li>
-            <li><button className="footer-link-btn"><span className="footer-link-btn-text">Product Development</span></button></li>
-            <li><button className="footer-link-btn"><span className="footer-link-btn-text">Cloud & Architecture</span></button></li>
-            <li><button className="footer-link-btn"><span className="footer-link-btn-text">AI & Business Intelligence</span></button></li>
-            <li><button className="footer-link-btn"><span className="footer-link-btn-text">Design Systems</span></button></li>
+            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('footer.capDesign', 'Strategic Design')}</span></button></li>
+            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('footer.capDev', 'Product Development')}</span></button></li>
+            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('footer.capCloud', 'Cloud & Architecture')}</span></button></li>
+            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('footer.capAi', 'AI & Business Intelligence')}</span></button></li>
+            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('footer.capSystems', 'Design Systems')}</span></button></li>
           </ul>
         </div>
 
@@ -103,8 +104,8 @@ export default function Footer({ setActivePage }) {
         <div>{t('footer.rights')}</div>
         <div className="footer-bottom-links">
           <button onClick={() => setActivePage('privacy')} className="footer-bottom-link cursor-pointer">{t('footer.privacyPolicy', 'Privacy Policy')}</button>
-          <a href="#" className="footer-bottom-link">Terms of Service</a>
-          <a href="#" className="footer-bottom-link">Security Specification</a>
+          <a href="#" className="footer-bottom-link">{t('footer.termsOfService', 'Terms of Service')}</a>
+          <a href="#" className="footer-bottom-link">{t('footer.securitySpec', 'Security Specification')}</a>
         </div>
       </div>
     </footer>

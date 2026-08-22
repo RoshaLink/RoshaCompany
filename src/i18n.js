@@ -537,14 +537,24 @@ const resources = {
         button: "Inled strategisk brief"
       },
       footer: {
+        brandRosha: "ROSHA",
+        brandLink: "LINK",
         description: "Bryggan mellan noggrann affärsanalys och banbrytande produktutveckling.",
         navigation: "Navigering",
         capabilities: "Kapabiliteter",
+        capDesign: "Strategisk design",
+        capDev: "Produktutveckling",
+        capCloud: "Moln & arkitektur",
+        capAi: "AI & affärsintelligens",
+        capSystems: "Designsystem",
         stayUpdated: "Håll dig uppdaterad",
         newsletterSub: "Få kvartalsvisa strategiska insikter och tekniska briefs.",
         emailPlaceholder: "Ange arbetsemail",
         subscribe: "Prenumerera",
-        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna."
+        rights: "© 2026 RoshaLink. Alla rättigheter förbehållna.",
+        privacyPolicy: "Integritetspolicy",
+        termsOfService: "Användarvillkor",
+        securitySpec: "Säkerhetsspecifikation"
       },
       modal: {
         badge: "INLED PRODUKTUPPTÄCKT",
@@ -1357,14 +1367,24 @@ const resources = {
         button: "Initiate Strategic Brief"
       },
       footer: {
+        brandRosha: "ROSHA",
+        brandLink: "LINK",
         description: "Bridging the gap between rigorous business analysis and cutting-edge product development.",
         navigation: "Navigation",
         capabilities: "Capabilities",
+        capDesign: "Strategic Design",
+        capDev: "Product Development",
+        capCloud: "Cloud & Architecture",
+        capAi: "AI & Business Intelligence",
+        capSystems: "Design Systems",
         stayUpdated: "Stay Updated",
         newsletterSub: "Get quarterly strategic insights and technical briefs.",
         emailPlaceholder: "Enter work email",
         subscribe: "Subscribe",
-        rights: "© 2026 RoshaLink. All rights reserved."
+        rights: "© 2026 RoshaLink. All rights reserved.",
+        privacyPolicy: "Privacy Policy",
+        termsOfService: "Terms of Service",
+        securitySpec: "Security Specification"
       },
       modal: {
         badge: "INITIATE PROJECT DISCOVERY",
@@ -2177,14 +2197,24 @@ const resources = {
         button: "شروع ثبت پروژه"
       },
       footer: {
+        brandRosha: "روشا",
+        brandLink: "لینک",
         description: "پل ارتباطی میان تحلیل دقیق کسب‌وکار و توسعه محصولات دیجیتال پیشرفته.",
         navigation: "بخش‌های سایت",
-        capabilities: "امکانات و خدمات",
+        capabilities: "قابلیت‌ها و خدمات",
+        capDesign: "طراحی استراتژیک",
+        capDev: "توسعه محصول",
+        capCloud: "معماری ابری و زیرساخت",
+        capAi: "هوش مصنوعی و هوش کسب‌وکار",
+        capSystems: "سیستم‌های طراحی",
         stayUpdated: "به‌روز بمانید",
         newsletterSub: "دریافت آخرین راهکارها و خبرنامه‌های تخصصی.",
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
         subscribe: "عضویت در خبرنامه",
-        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است."
+        rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است.",
+        privacyPolicy: "سیاست حفظ حریم خصوصی",
+        termsOfService: "شرایط خدمات",
+        securitySpec: "مشخصات امنیتی"
       },
       modal: {
         badge: "شروع بررسی پروژه",
@@ -2997,14 +3027,24 @@ const resources = {
         button: "ابدأ تقديم المقترح"
       },
       footer: {
+        brandRosha: "روشا",
+        brandLink: "لينك",
         description: "جسر التواصل بين التحليل الدقيق للأعمال وتطوير المنتجات الرقمية المتقدمة.",
         navigation: "التنقل",
-        capabilities: "القدرات",
+        capabilities: "القدرات والخدمات",
+        capDesign: "التصميم الاستراتيجي",
+        capDev: "تطوير المنتجات",
+        capCloud: "الحوسبة السحابية والمعمارية",
+        capAi: "الذكاء الاصطناعي وذكاء الأعمال",
+        capSystems: "أنظمة التصميم",
         stayUpdated: "كن على اطلاع",
         newsletterSub: "احصل على تحليلات استراتيجية ونشرات تقنية ربع سنوية.",
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
         subscribe: "اشترك في النشرة",
-        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة."
+        rights: "© 2026 RoshaLink. جميع الحقوق محفوظة.",
+        privacyPolicy: "سياسة الخصوصية",
+        termsOfService: "شروط الخدمة",
+        securitySpec: "مواصفات الأمان"
       },
       modal: {
         badge: "بدء استكشاف المشروع",

@@ -58,7 +58,7 @@
 .footer-logo-link {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   font-weight: 700;
   cursor: pointer;
   user-select: none;
@@ -70,8 +70,8 @@
 [dir="rtl"] .footer-logo-link, .is-rtl .footer-logo-link { flex-direction: row-reverse; }
 
 .footer-logo-icon {
-  width: 5.75rem;
-  height: 5.75rem;
+  width: clamp(3.25rem, 6.5vw, 5.75rem);
+  height: clamp(3.25rem, 6.5vw, 5.75rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +79,34 @@
   filter: drop-shadow(0 2px 8px rgba(14, 165, 233, 0.25));
   transition: all 0.3s ease;
   flex-shrink: 0;
+}
+
+@media (max-width: 360px) {
+  .footer-logo-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
+}
+
+@media (min-width: 361px) and (max-width: 640px) {
+  .footer-logo-icon {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .footer-logo-icon {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .footer-logo-icon {
+    width: 5.75rem;
+    height: 5.75rem;
+  }
 }
 
 .footer-logo-link:hover .footer-logo-icon {
@@ -95,14 +123,13 @@
 
 .footer-logo-text {
   font-family: var(--font-headline, sans-serif);
-  font-size: 1.35rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
   line-height: 1;
   letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
+  gap: clamp(0.25rem, 1vw, 0.4rem);
+  transition: all 0.3s ease;
 }
 
 .footer-logo-rosha {
@@ -112,7 +139,7 @@
 
 .footer-logo-link-text {
   font-weight: 400;
-  color: #0b317e;
+  color: #0ea5e9;
   letter-spacing: 0.08em;
 }
 

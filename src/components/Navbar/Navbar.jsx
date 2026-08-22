@@ -147,7 +147,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
       <nav className="navbar-container">
         <div className="navbar-wrapper">
 
-          {/* Brand Logo - Rosha Head Icon */}
+          {/* Brand Logo - Rosha Head Icon & Text */}
           <div
             onClick={() => setActivePage('home')}
             className="navbar-logo"
@@ -155,6 +155,10 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
             <div className="navbar-logo-icon">
               <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" />
             </div>
+            <span className="navbar-logo-text">
+              <span className="navbar-logo-rosha">ROSHA</span>
+              <span className="navbar-logo-link-text">LINK</span>
+            </span>
           </div>
 
           {/* Desktop 3D Glow Menu Bar */}

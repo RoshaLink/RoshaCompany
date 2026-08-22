@@ -1,0 +1,279 @@
+/* ==========================================================================
+   3D GLASS CARD COMPONENT STYLES
+   Exact 3D Perspective Tilt (30deg) & Layer Depth System
+   ========================================================================== */
+
+.glass-card-root {
+  position: relative;
+  min-height: 310px;
+  width: 100%;
+  perspective: 1000px;
+  user-select: none;
+}
+
+.glass-card-inner {
+  position: relative;
+  height: 100%;
+  min-height: 310px;
+  width: 100%;
+  border-radius: 50px;
+  box-sizing: border-box;
+  padding: 2.25rem 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-style: preserve-3d;
+  overflow: hidden;
+
+  /* Default Light Mode */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 30px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  transition: all 500ms ease-in-out;
+}
+
+/* Exact 30deg 3D Tilt On Hover */
+.glass-card-root:hover .glass-card-inner {
+  transform: rotate3d(1, 1, 0, 30deg);
+  box-shadow: rgba(0, 0, 0, 0.25) 30px 50px 25px -40px, rgba(0, 0, 0, 0.08) 0px 25px 30px 0px;
+}
+
+.glass-card-root.is-rtl:hover .glass-card-inner {
+  transform: rotate3d(1, -1, 0, 30deg);
+}
+
+/* Dark Mode Theme */
+html.dark .glass-card-inner {
+  background: linear-gradient(145deg, #18181b 0%, #09090b 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .glass-card-root:hover .glass-card-inner {
+  box-shadow: rgba(0, 0, 0, 0.6) 30px 50px 30px -30px, rgba(0, 0, 0, 0.4) 0px 25px 35px 0px;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Layer 1: Ambient Glass Backdrop Layer */
+.glass-card-backdrop {
+  position: absolute;
+  inset: 8px;
+  border-radius: 46px;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 25px);
+  pointer-events: none;
+
+  /* Light mode */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(241, 245, 249, 0.25) 100%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  border-left: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+html.dark .glass-card-backdrop {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Layer 2: 3D Concentric Floating Depth Rings */
+.glass-card-circles-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.glass-card-root.is-rtl .glass-card-circles-wrapper {
+  right: auto;
+  left: 0;
+}
+
+.glass-card-circle {
+  position: absolute;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: all 500ms ease-in-out;
+  box-shadow: -10px 10px 20px rgba(100, 100, 111, 0.15);
+}
+
+html.dark .glass-card-circle {
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Sky Theme */
+.theme-sky .circle-layer-1 { background: rgba(2, 132, 199, 0.07); }
+.theme-sky .circle-layer-2 { background: rgba(2, 132, 199, 0.11); }
+.theme-sky .circle-layer-3 { background: rgba(2, 132, 199, 0.15); }
+.theme-sky .circle-layer-4 { background: rgba(2, 132, 199, 0.2); }
+
+html.dark .theme-sky .circle-layer-1 { background: rgba(56, 189, 248, 0.08); }
+html.dark .theme-sky .circle-layer-2 { background: rgba(56, 189, 248, 0.13); }
+html.dark .theme-sky .circle-layer-3 { background: rgba(56, 189, 248, 0.18); }
+html.dark .theme-sky .circle-layer-4 { background: rgba(56, 189, 248, 0.25); }
+
+/* Indigo Theme */
+.theme-indigo .circle-layer-1 { background: rgba(99, 102, 241, 0.07); }
+.theme-indigo .circle-layer-2 { background: rgba(99, 102, 241, 0.11); }
+.theme-indigo .circle-layer-3 { background: rgba(99, 102, 241, 0.15); }
+.theme-indigo .circle-layer-4 { background: rgba(99, 102, 241, 0.2); }
+
+html.dark .theme-indigo .circle-layer-1 { background: rgba(129, 140, 248, 0.08); }
+html.dark .theme-indigo .circle-layer-2 { background: rgba(129, 140, 248, 0.13); }
+html.dark .theme-indigo .circle-layer-3 { background: rgba(129, 140, 248, 0.18); }
+html.dark .theme-indigo .circle-layer-4 { background: rgba(129, 140, 248, 0.25); }
+
+/* Purple Theme */
+.theme-purple .circle-layer-1 { background: rgba(168, 85, 247, 0.07); }
+.theme-purple .circle-layer-2 { background: rgba(168, 85, 247, 0.11); }
+.theme-purple .circle-layer-3 { background: rgba(168, 85, 247, 0.15); }
+.theme-purple .circle-layer-4 { background: rgba(168, 85, 247, 0.2); }
+
+html.dark .theme-purple .circle-layer-1 { background: rgba(192, 132, 252, 0.08); }
+html.dark .theme-purple .circle-layer-2 { background: rgba(192, 132, 252, 0.13); }
+html.dark .theme-purple .circle-layer-3 { background: rgba(192, 132, 252, 0.18); }
+html.dark .theme-purple .circle-layer-4 { background: rgba(192, 132, 252, 0.25); }
+
+/* Emerald Theme */
+.theme-emerald .circle-layer-1 { background: rgba(16, 185, 129, 0.07); }
+.theme-emerald .circle-layer-2 { background: rgba(16, 185, 129, 0.11); }
+.theme-emerald .circle-layer-3 { background: rgba(16, 185, 129, 0.15); }
+.theme-emerald .circle-layer-4 { background: rgba(16, 185, 129, 0.2); }
+
+html.dark .theme-emerald .circle-layer-1 { background: rgba(52, 211, 153, 0.08); }
+html.dark .theme-emerald .circle-layer-2 { background: rgba(52, 211, 153, 0.13); }
+html.dark .theme-emerald .circle-layer-3 { background: rgba(52, 211, 153, 0.18); }
+html.dark .theme-emerald .circle-layer-4 { background: rgba(52, 211, 153, 0.25); }
+
+/* Amber Theme */
+.theme-amber .circle-layer-1 { background: rgba(245, 158, 11, 0.07); }
+.theme-amber .circle-layer-2 { background: rgba(245, 158, 11, 0.11); }
+.theme-amber .circle-layer-3 { background: rgba(245, 158, 11, 0.15); }
+.theme-amber .circle-layer-4 { background: rgba(245, 158, 11, 0.2); }
+
+html.dark .theme-amber .circle-layer-1 { background: rgba(251, 191, 36, 0.08); }
+html.dark .theme-amber .circle-layer-2 { background: rgba(251, 191, 36, 0.13); }
+html.dark .theme-amber .circle-layer-3 { background: rgba(251, 191, 36, 0.18); }
+html.dark .theme-amber .circle-layer-4 { background: rgba(251, 191, 36, 0.25); }
+
+/* Top Corner Floating Icon Badge */
+.glass-card-icon-badge {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  transform: translate3d(0, 0, 100px);
+  transition: all 500ms ease-in-out;
+  transition-delay: 1.6s;
+  z-index: 10;
+
+  /* Light mode */
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: -10px 10px 20px rgba(100, 100, 111, 0.2);
+  color: #0f172a;
+}
+
+.glass-card-root:hover .glass-card-icon-badge {
+  transform: translate3d(0, 0, 120px);
+}
+
+html.dark .glass-card-icon-badge {
+  background: #ffffff;
+  border: none;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.5);
+  color: #0f172a;
+}
+
+.glass-card-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.2;
+}
+
+/* Layer 3: Title & Description Content */
+.glass-card-content {
+  position: relative;
+  z-index: 15;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 26px);
+  padding-top: 2.25rem;
+}
+
+.glass-card-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  font-family: var(--font-headline);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.95rem 0;
+
+  /* Light mode */
+  color: #0f172a;
+}
+
+html.dark .glass-card-title {
+  color: #ffffff;
+}
+
+.glass-card-desc {
+  font-size: 0.925rem;
+  font-family: var(--font-body);
+  line-height: 1.65;
+  margin: 0;
+  max-width: 95%;
+
+  /* Light mode */
+  color: #475569;
+}
+
+html.dark .glass-card-desc {
+  color: #cbd5e1;
+}
+
+/* Optional Bottom Badge */
+.glass-card-footer {
+  position: relative;
+  z-index: 15;
+  margin-top: 1.5rem;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 26px);
+}
+
+.glass-card-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #334155;
+}
+
+html.dark .glass-card-badge-pill {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+}
+
+.glass-card-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #0284c7;
+}
+
+html.dark .glass-card-badge-dot {
+  background-color: #38bdf8;
+}

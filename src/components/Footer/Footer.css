@@ -358,10 +358,10 @@ html.dark .footer-section {
   border-color: rgba(255, 255, 255, 0.1);
 }
 html.dark .footer-logo-icon {
-  filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.4));
+  filter: drop-shadow(0 2px 6px rgba(56, 189, 248, 0.18));
 }
 html.dark .footer-logo-link:hover .footer-logo-icon {
-  filter: drop-shadow(0 4px 16px rgba(56, 189, 248, 0.7));
+  filter: drop-shadow(0 3px 10px rgba(56, 189, 248, 0.35));
 }
 html.dark .footer-logo-rosha { color: #60a5fa; }
 html.dark .footer-logo-link-text { color: #93c5fd; }

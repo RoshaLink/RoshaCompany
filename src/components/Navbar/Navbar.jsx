@@ -232,13 +232,17 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
                 const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
                 handleLanguageChange(nextLang);
               }}
-              className="px-2.5 py-1.5 rounded-full bg-white/80 border border-slate-200 text-xs font-bold text-slate-800 flex items-center gap-1.5"
+              // min-h-11 (44px touch-target minimum; the visible pill was
+              // ~30px from py-1.5 + text-xs alone).
+              className="px-2.5 py-1.5 min-h-11 rounded-full bg-white/80 border border-slate-200 text-xs font-bold text-slate-800 flex items-center gap-1.5"
             >
               <CurrentFlag /> <span>{currentLang.code.toUpperCase()}</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-slate-800 p-2 rounded-full bg-white/80 hover:bg-slate-200 transition-colors"
+              // min-h-11 min-w-11 (44px touch-target minimum; p-2 around a
+              // 20px icon alone was 36px square).
+              className="text-slate-800 p-2 min-h-11 min-w-11 flex items-center justify-center rounded-full bg-white/80 hover:bg-slate-200 transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-sky-600" /> : <Menu className="w-5 h-5 text-slate-800" />}

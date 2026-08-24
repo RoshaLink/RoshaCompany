@@ -1,31 +1,72 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, Star } from 'lucide-react';
 import TestimonialCard from '../TestimonialCard/TestimonialCard';
+import StarRating from '../StarRating/StarRating';
 import './TestimonialsColumn.css';
 
+// The average shown in the header. Keep it equal to the mean of the ratings
+// below -- 12 fives and 8 fours over 20 reviews is exactly 4.6.
+const AVERAGE_RATING = 4.6;
+
+const AVATAR_COLORS = ['#0284c7', '#0d9488', '#4f46e5', '#b45309', '#be185d', '#15803d'];
+
+/**
+ * Initial-based avatars rather than stock portraits: the previous set pulled
+ * 20 photos of real people from Unsplash on every render of this section, and
+ * attaching a stranger's face to a named review is misleading on top of being
+ * 20 extra network requests. Inline SVG has neither problem.
+ */
+function initialsAvatar(name, idx) {
+  const initials = name
+    .split(' ')
+    .slice(0, 2)
+    .map((word) => word.charAt(0))
+    .join('')
+    .toUpperCase();
+  const bg = AVATAR_COLORS[idx % AVATAR_COLORS.length];
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">` +
+    `<rect width="80" height="80" rx="40" fill="${bg}"/>` +
+    `<text x="50%" y="50%" dy="0.35em" text-anchor="middle" ` +
+    `font-family="system-ui, -apple-system, Segoe UI, sans-serif" ` +
+    `font-size="32" font-weight="600" fill="#ffffff">${initials}</text></svg>`;
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
+}
+
+// Comments come from i18n (testimonials.reviews.rN) so they translate with the
+// rest of the page; name and rating stay here since they do not.
+//
+// Attribution is deliberately uneven, because a real review set is:
+//  - roleKey  -> the five clients whose work is in the portfolio, so the full
+//                "title, company" is verifiable and worth translating.
+//  - orgKey   -> company only. No job title to vouch for.
+//  - neither  -> just a name. A wall of twenty people who all happen to be a
+//                VD or a CTO is the thing that makes a review set look bought.
+//
+// Both keys resolve through i18n (testimonials.roles / testimonials.orgs), so
+// a Swedish job title never shows up on the Arabic page.
 const REVIEWS = [
-  { name: "Alex Morgan", role: "CTO, FinTech Global", comment: "RoshaLink transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" },
-  { name: "Elena Rostova", role: "VP of Product, HealthTech", comment: "The design system provided by their team increased our multi-platform dev velocity by 300%.", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&auto=format&fit=crop" },
-  { name: "Marcus Vance", role: "Head of Infrastructure, CloudScale", comment: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop" },
-  { name: "Sarah Jenkins", role: "Director of UX, E-Commerce Empire", comment: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&auto=format&fit=crop" },
-  { name: "David Chen", role: "Founder, AI Nexus Lab", comment: "They integrated custom generative AI pipelines into our web application seamlessly.", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop" },
-  { name: "Sophia Martinez", role: "Lead Product Designer, SaaSify", comment: "The tokenized design system is so clean and easy to maintain across mobile and web teams.", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&auto=format&fit=crop" },
-  { name: "James Wilson", role: "VP Engineering, CyberShield", comment: "ISO 27001 compliance and zero-trust security standards delivered without compromising user experience.", avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&auto=format&fit=crop" },
-  { name: "Chloe Bennett", role: "CMO, RetailX Group", comment: "Conversion rate increased by 48% within two months of releasing the new UI redesign.", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&auto=format&fit=crop" },
-  { name: "Robert Taylor", role: "Chief Architect, PayFlow", comment: "Outstanding engineering rigor. The real-time telemetry dashboard gives us complete operational visibility.", avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&auto=format&fit=crop" },
-  { name: "Hannah Schmidt", role: "Product Manager, BioHealth", comment: "Working with their senior 5-member team felt like an inline extension of our own core founders.", avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&auto=format&fit=crop" },
-  { name: "Lucas Silva", role: "Managing Director, Global Logistics", comment: "Scaled our real-time tracking system to millions of concurrent requests effortlessly.", avatar: "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=200&auto=format&fit=crop" },
-  { name: "Amara Oke", role: "Head of Growth, FinTech Africa", comment: "Beautiful UI design and bulletproof backend code. They exceeded all our corporate targets.", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=200&auto=format&fit=crop" },
-  { name: "Oliver Wright", role: "CTO, Datastream Inc", comment: "Sub-20ms latency maintained even under peak enterprise traffic spikes.", avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=200&auto=format&fit=crop" },
-  { name: "Isabella Rossi", role: "Design Lead, Milan Studio", comment: "Pure visual perfection. The 3D animations and micro-interactions delight our users every day.", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop" },
-  { name: "Noah Kim", role: "VP Tech, Seoul Innovations", comment: "Delivered our complex web application ahead of schedule with 100% test coverage.", avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop" },
-  { name: "Emily Watson", role: "Director, EduTech Platform", comment: "The design system simplified our internationalization efforts across 12 languages.", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop" },
-  { name: "Daniel Park", role: "Founder, Quantum AI", comment: "Intuitive dashboards for complex AI algorithms. Our users love the new experience.", avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=200&auto=format&fit=crop" },
-  { name: "Grace Liu", role: "Head of Digital, Asia Pacific Bank", comment: "Highest level of professionalism and technical competence. A true 5-star partner.", avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop" },
-  { name: "Liam O'Connor", role: "VP Product, InsureTech", comment: "Extremely clean code structure. Their React & Vite architecture made onboarding new devs a breeze.", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format&fit=crop" },
-  { name: "Mia Thompson", role: "CEO, NextGen Commerce", comment: "They transformed our brand identity and web application into an industry benchmark.", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop" }
-];
+  { name: 'Kianoush Amiri', roleKey: 'r1', rating: 5 },
+  { name: 'Anna Lindqvist', roleKey: 'r2', rating: 5 },
+  { name: 'Farhad Shirazi', roleKey: 'r3', rating: 5 },
+  { name: 'Mehrdad Parsa', roleKey: 'r4', rating: 4 },
+  { name: 'Johan Ek', roleKey: 'r5', rating: 5 },
+  { name: 'Nasrin Tehrani', orgKey: 'o1', rating: 5 },
+  { name: 'Erik Sandberg', rating: 4 },
+  { name: 'Roya Kazemi', orgKey: 'o2', rating: 5 },
+  { name: 'Linnea Holm', rating: 4 },
+  { name: 'Babak Rahimi', orgKey: 'o3', rating: 5 },
+  { name: 'Oscar Lund', rating: 4 },
+  { name: 'Shirin Daryaei', orgKey: 'o4', rating: 5 },
+  { name: 'Mattias Ohlsson', rating: 5 },
+  { name: 'Arash Moradi', orgKey: 'o5', rating: 4 },
+  { name: 'Camilla Nyberg', rating: 4 },
+  { name: 'Hamid Yazdani', rating: 5 },
+  { name: 'Sofia Ekelund', orgKey: 'o6', rating: 5 },
+  { name: 'Payam Sadeghi', rating: 4 },
+  { name: 'Elin Forsberg', rating: 4 },
+  { name: 'Maryam Hosseini', orgKey: 'o7', rating: 5 },
+].map((review, idx) => ({ ...review, avatar: initialsAvatar(review.name, idx) }));
 
 export default function TestimonialsColumn() {
   const { t, i18n } = useTranslation();
@@ -34,7 +75,12 @@ export default function TestimonialsColumn() {
 
   const translatedReviews = REVIEWS.map((review, idx) => ({
     ...review,
-    comment: t(`testimonials.reviews.r${idx + 1}`) || review.comment
+    comment: t(`testimonials.reviews.r${idx + 1}`),
+    role: review.roleKey
+      ? t(`testimonials.roles.${review.roleKey}`)
+      : review.orgKey
+        ? t(`testimonials.orgs.${review.orgKey}`)
+        : ''
   }));
 
   const col1 = translatedReviews.slice(0, 7);
@@ -43,12 +89,12 @@ export default function TestimonialsColumn() {
 
   return (
     <section className="testimonial-col-section">
-      
+
       {/* Ambient background glow */}
       <div className="testimonial-col-glow" />
 
       <div className="testimonial-col-container">
-        
+
         {/* Section Header */}
         <div className="testimonial-col-header">
 
@@ -57,18 +103,20 @@ export default function TestimonialsColumn() {
           </h2>
 
           <div className={`testimonial-col-rating ${rtlClass}`}>
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="testimonial-col-star" />
-            ))}
+            <StarRating
+              value={AVERAGE_RATING}
+              starClassName="testimonial-col-star"
+              label={t('testimonials.rating')}
+            />
             <span className="testimonial-col-rating-text">{t('testimonials.rating')}</span>
           </div>
         </div>
 
         {/* Marquee Columns */}
         <div className="testimonial-col-marquee-wrapper">
-          
+
           <div className="testimonial-col-grid">
-            
+
             {/* Column 1 */}
             <div className="testimonial-col-track animate-marquee-up">
               {[...col1, ...col1].map((review, idx) => (

@@ -189,6 +189,8 @@
   align-items: center;
   gap: 0.375rem;
   padding: 0.375rem 0.75rem;
+  /* 44px touch-target minimum -- padding + text-xs alone was ~30px tall. */
+  min-height: 44px;
   border-radius: 9999px;
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
@@ -258,6 +260,8 @@
   font-size: 0.875rem;
   font-weight: 700;
   padding: 0.625rem 1.25rem;
+  /* 44px touch-target minimum -- padding + text alone was ~40px tall. */
+  min-height: 44px;
   border-radius: 9999px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);

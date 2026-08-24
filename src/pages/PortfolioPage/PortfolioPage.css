@@ -56,6 +56,57 @@
   }
 }
 
+/* Showcase Notice & Disclaimer Header above Grid */
+.portfolio-showcase-header {
+  text-align: center;
+  max-width: 54rem;
+  margin: 0 auto 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .portfolio-showcase-header {
+    margin-bottom: 4rem;
+    gap: 1.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.portfolio-showcase-title {
+  font-size: clamp(1.15rem, 5.2vw, 2.5rem);
+  font-weight: 900;
+  font-family: var(--font-headline);
+  color: var(--color-slate-900);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  margin: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.portfolio-showcase-title .sky-blue-text-shine {
+  display: inline;
+}
+
+.portfolio-showcase-desc {
+  font-size: clamp(0.85rem, 3.4vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--color-slate-600);
+  max-width: 48rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
 /* Call To Action Container & Card */
 .portfolio-cta-container {
   width: 100%;
@@ -120,6 +171,7 @@
   font-weight: 900;
   color: var(--color-slate-900);
   letter-spacing: -0.025em;
+  text-transform: uppercase;
   transition: color 300ms ease;
 }
 
@@ -171,6 +223,14 @@ html.dark .portfolio-page-wrapper {
 html.dark .portfolio-grid-section {
   background-color: #0b1120;
   color: var(--color-slate-100);
+}
+
+html.dark .portfolio-showcase-title {
+  color: var(--color-slate-50);
+}
+
+html.dark .portfolio-showcase-desc {
+  color: var(--color-slate-400);
 }
 
 html.dark .portfolio-cta-card {

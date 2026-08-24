@@ -14,14 +14,14 @@
 .glass-card-inner {
   position: relative;
   height: 100%;
-  min-height: 310px;
+  min-height: 290px;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 42px;
   box-sizing: border-box;
-  padding: 2.25rem 1.85rem;
+  padding: 2rem 1.85rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   transform-style: preserve-3d;
   overflow: hidden;
 
@@ -204,7 +204,11 @@ html.dark .glass-card-icon-badge {
   z-index: 15;
   transform-style: preserve-3d;
   transform: translate3d(0, 0, 26px);
-  padding-top: 2.25rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto 0;
 }
 
 .glass-card-title {
@@ -213,7 +217,7 @@ html.dark .glass-card-icon-badge {
   font-family: var(--font-headline);
   line-height: 1.25;
   letter-spacing: -0.01em;
-  margin: 0 0 0.95rem 0;
+  margin: 0 0 0.85rem 0;
 
   /* Light mode */
   color: #0f172a;
@@ -228,7 +232,7 @@ html.dark .glass-card-title {
   font-family: var(--font-body);
   line-height: 1.65;
   margin: 0;
-  max-width: 95%;
+  max-width: 84%;
 
   /* Light mode */
   color: #475569;

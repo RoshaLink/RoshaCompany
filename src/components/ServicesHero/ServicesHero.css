@@ -138,14 +138,11 @@ html.dark .services-hero-glow-2 {
 
 @media (min-width: 1024px) {
   .services-hero-flex-wrapper {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
-  }
-
-  .services-hero-flex-wrapper.is-rtl {
-    flex-direction: row-reverse;
   }
 }
 
@@ -158,12 +155,13 @@ html.dark .services-hero-glow-2 {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
   .services-hero-content-side {
-    flex: 1 1 0%;
-    max-width: 780px;
+    flex: 1.2 1 0%;
+    max-width: 760px;
     gap: 2.25rem;
   }
 }
@@ -188,46 +186,35 @@ html.dark .services-hero-glow-2 {
   text-align: right;
 }
 
-/* Headline - Strictly 2 Lines */
+/* Headline - Strictly 2 Lines with Fluid Responsive Typography & Uppercase */
 .services-hero-title {
   display: flex;
   flex-direction: column;
-  font-size: 2.15rem;
+  font-size: clamp(1.65rem, 5vw, 2.5rem);
   font-weight: 900;
   line-height: 1.15;
   letter-spacing: -0.025em;
   font-family: var(--font-headline);
   color: #0f172a;
   margin: 0;
-}
-
-@media (min-width: 480px) {
-  .services-hero-title {
-    font-size: 2.65rem;
-  }
+  text-transform: uppercase;
 }
 
 @media (min-width: 640px) {
   .services-hero-title {
-    font-size: 3.25rem;
+    font-size: clamp(2.1rem, 3.8vw, 2.85rem);
   }
 }
 
 @media (min-width: 1024px) {
   .services-hero-title {
-    font-size: 3.75rem;
+    font-size: clamp(2.1rem, 2.75vw, 3.15rem);
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .services-hero-title {
-    font-size: 4.25rem;
-  }
-}
-
-@media (min-width: 1536px) {
-  .services-hero-title {
-    font-size: 4.75rem;
+    font-size: 3.35rem;
   }
 }
 
@@ -240,6 +227,7 @@ html.dark .services-hero-title {
   display: block;
   color: #0f172a;
   margin-bottom: 0.25rem;
+  text-transform: uppercase;
   word-break: break-word;
 }
 
@@ -307,47 +295,48 @@ html.dark .services-hero-subtitle {
   color: #94a3b8;
 }
 
-/* Action Buttons Side-by-Side */
+/* Action Buttons Side-by-Side on all screen sizes */
 .services-hero-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
-  gap: 1rem;
-  padding-top: 0.25rem;
+  gap: 0.625rem;
+  padding-top: 0.5rem;
+  width: 100%;
+  max-width: 36rem;
 }
 
-.services-hero-actions.is-ltr {
-  justify-content: flex-start;
-}
-
-.services-hero-actions.is-rtl {
-  justify-content: flex-start;
+@media (min-width: 640px) {
+  .services-hero-actions {
+    gap: 1rem;
+  }
 }
 
 .services-btn-primary {
+  flex: 1 1 0%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  padding: 0.875rem 1.75rem;
+  padding: 0.75rem 0.75rem;
   border-radius: var(--radius-xl);
   background-color: #0ea5e9;
   background-image: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
   color: #ffffff;
   font-weight: 700;
   font-family: var(--font-headline);
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 3.2vw, 0.875rem);
+  text-align: center;
   border: none;
   cursor: pointer;
   box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4);
   transition: all 300ms ease;
   text-decoration: none;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {
   .services-btn-primary {
+    flex: initial;
     font-size: 1rem;
     padding: 1rem 2rem;
   }
@@ -374,28 +363,29 @@ html.dark .services-btn-primary:hover {
 }
 
 .services-btn-secondary {
+  flex: 1 1 0%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  padding: 0.875rem 1.75rem;
+  padding: 0.75rem 0.75rem;
   border-radius: var(--radius-xl);
   background-color: #ffffff;
   border: 1px solid rgba(226, 232, 240, 0.95);
   color: #0f172a;
   font-weight: 700;
   font-family: var(--font-headline);
-  font-size: 0.875rem;
+  font-size: clamp(0.75rem, 3.2vw, 0.875rem);
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition: all 300ms ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 @media (min-width: 640px) {
   .services-btn-secondary {
+    flex: initial;
     font-size: 1rem;
     padding: 1rem 2rem;
   }
@@ -454,34 +444,26 @@ html.dark .services-btn-secondary:hover {
   width: 100%;
   display: flex;
   justify-content: center;
+  min-width: 0;
 }
 
 @media (min-width: 1024px) {
   .services-hero-image-side {
-    flex: 1 1 0%;
+    flex: 0.8 1 0%;
     justify-content: flex-end;
+    max-width: 460px;
   }
-
-  .is-rtl .services-hero-image-side {
-    justify-content: flex-start;
-  }
-}
-
-.services-hero-image-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 540px;
 }
 
 @media (min-width: 1280px) {
-  .services-hero-image-wrapper {
-    max-width: 660px;
+  .services-hero-image-side {
+    max-width: 580px;
   }
 }
 
 @media (min-width: 1536px) {
-  .services-hero-image-wrapper {
-    max-width: 760px;
+  .services-hero-image-side {
+    max-width: 720px;
   }
 }
 

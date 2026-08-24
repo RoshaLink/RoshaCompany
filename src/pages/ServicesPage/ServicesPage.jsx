@@ -220,11 +220,13 @@ export default function ServicesPage({ onOpenGetStarted }) {
           <div className="services-faq-accordion">
             {faqList.map((item, idx) => {
               const isOpen = openFaq === idx;
+              const themes = ['sky', 'indigo', 'purple', 'emerald', 'amber'];
+              const currentTheme = themes[idx % themes.length];
 
               return (
                 <div
                   key={idx}
-                  className={`services-faq-item ${isOpen ? 'is-open' : ''}`}
+                  className={`services-faq-item theme-${currentTheme} ${isOpen ? 'is-open' : ''}`}
                 >
                   <button
                     type="button"
@@ -240,7 +242,9 @@ export default function ServicesPage({ onOpenGetStarted }) {
 
                   <div className="services-faq-collapse">
                     <div className="services-faq-answer">
-                      <p>{item.a}</p>
+                      <div className="faq-answer-box">
+                        <p>{item.a}</p>
+                      </div>
                     </div>
                   </div>
                 </div>

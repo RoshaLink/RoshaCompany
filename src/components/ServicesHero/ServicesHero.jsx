@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ArrowUpRight, Cpu } from 'lucide-react';
 import roshaWithComputerImage from '../../assets/Rosha/WorkingWithComputer/RoshaWithBlueComputer.jpg';
 import './ServicesHero.css';
 
@@ -48,12 +47,10 @@ export default function ServicesHero({ onOpenGetStarted }) {
                 className="services-btn-primary"
               >
                 <span>{t('servicesPage.hero.primaryCta')}</span>
-                <ArrowRight className={`services-btn-icon ${isRTL ? 'rotate-180' : ''}`} />
               </button>
 
               <a href="#core-capabilities" className="services-btn-secondary">
                 <span>{t('servicesPage.hero.secondaryCta')}</span>
-                <ArrowUpRight className="services-btn-icon" />
               </a>
             </div>
 
@@ -73,22 +70,6 @@ export default function ServicesHero({ onOpenGetStarted }) {
                   className="services-hero-img"
                   loading="eager"
                 />
-
-                {/* Floating Glassmorphic Pill with i18n */}
-                <div className={`services-hero-floating-pill ${isRTL ? 'is-rtl' : 'is-ltr'}`}>
-                  <div className="services-hero-pill-icon-box">
-                    <Cpu className="services-hero-pill-icon" />
-                  </div>
-                  <div className="services-hero-pill-text">
-                    <div className="services-hero-pill-title">
-                      {t('servicesPage.hero.floatingPillTitle')}
-                    </div>
-                    <div className="services-hero-pill-subtitle">
-                      {t('servicesPage.hero.floatingPillSubtitle')}
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>

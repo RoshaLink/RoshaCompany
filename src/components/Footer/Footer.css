@@ -72,15 +72,14 @@
   user-select: none;
   transition: transform 0.2s ease;
 }
+
 .footer-logo-link:hover {
   transform: translateY(-1px);
 }
-[dir="rtl"] .footer-logo-link, .is-rtl .footer-logo-link { flex-direction: row; }
-[dir="rtl"] .footer-logo-text, .is-rtl .footer-logo-text { direction: rtl; }
 
 .footer-logo-icon {
-  width: clamp(3.25rem, 6.5vw, 5.75rem);
-  height: clamp(3.25rem, 6.5vw, 5.75rem);
+  width: clamp(2.75rem, 6vw, 5.75rem);
+  height: clamp(2.75rem, 6vw, 5.75rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,54 +87,6 @@
   filter: drop-shadow(0 2px 8px rgba(14, 165, 233, 0.25));
   transition: all 0.3s ease;
   flex-shrink: 0;
-}
-
-@media (max-width: 360px) {
-  .footer-logo-link {
-    gap: 0.35rem;
-  }
-
-  .footer-logo-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .footer-logo-text {
-    font-size: 0.95rem;
-    transform: translateY(3px);
-  }
-}
-
-@media (max-width: 300px) {
-  .footer-logo-icon {
-    width: 2.15rem;
-    height: 2.15rem;
-  }
-
-  .footer-logo-text {
-    font-size: 0.85rem;
-  }
-}
-
-@media (min-width: 361px) and (max-width: 640px) {
-  .footer-logo-icon {
-    width: 3.75rem;
-    height: 3.75rem;
-  }
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .footer-logo-icon {
-    width: 4.75rem;
-    height: 4.75rem;
-  }
-}
-
-@media (min-width: 1025px) {
-  .footer-logo-icon {
-    width: 5.75rem;
-    height: 5.75rem;
-  }
 }
 
 .footer-logo-link:hover .footer-logo-icon {
@@ -158,8 +109,9 @@
   display: inline-flex;
   align-items: center;
   gap: clamp(0.25rem, 1vw, 0.4rem);
-  transform: translateY(5px);
+  transform: translateY(3px);
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .footer-logo-rosha {
@@ -171,6 +123,110 @@
   font-weight: 400;
   color: #0ea5e9;
   letter-spacing: 0.08em;
+}
+
+/* RTL / Farsi & Arabic Logo Text Styling */
+[dir="rtl"] .footer-logo-link, .is-rtl .footer-logo-link { flex-direction: row; }
+[dir="rtl"] .footer-logo-text, 
+.is-rtl .footer-logo-text,
+[lang="fa"] .footer-logo-text,
+[lang="ar"] .footer-logo-text { 
+  direction: rtl; 
+  font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .footer-logo-rosha, 
+.is-rtl .footer-logo-rosha,
+[lang="fa"] .footer-logo-rosha,
+[lang="ar"] .footer-logo-rosha {
+  font-family: inherit;
+  font-weight: 800;
+}
+
+[dir="rtl"] .footer-logo-link-text, 
+.is-rtl .footer-logo-link-text,
+[lang="fa"] .footer-logo-link-text,
+[lang="ar"] .footer-logo-link-text {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Responsive Scaling for Footer Logo across All Languages */
+@media (min-width: 1025px) {
+  .footer-logo-icon {
+    width: 5.75rem;
+    height: 5.75rem;
+  }
+  .footer-logo-text {
+    font-size: 1.35rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .footer-logo-icon {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+  .footer-logo-text {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer-logo-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .footer-logo-text {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo-link {
+    gap: 0.4rem;
+  }
+
+  .footer-logo-icon {
+    width: clamp(2.65rem, 11vw, 3.25rem);
+    height: clamp(2.65rem, 11vw, 3.25rem);
+  }
+
+  .footer-logo-text {
+    font-size: clamp(0.78rem, 3.5vw, 0.95rem);
+    transform: translateY(2px);
+  }
+
+  [dir="rtl"] .footer-logo-text, 
+  .is-rtl .footer-logo-text,
+  [lang="fa"] .footer-logo-text,
+  [lang="ar"] .footer-logo-text {
+    font-size: clamp(0.75rem, 3.4vw, 0.92rem);
+  }
+}
+
+@media (max-width: 320px) {
+  .footer-logo-link {
+    gap: 0.3rem;
+  }
+
+  .footer-logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .footer-logo-text {
+    font-size: 0.72rem;
+  }
+
+  [dir="rtl"] .footer-logo-text, 
+  .is-rtl .footer-logo-text,
+  [lang="fa"] .footer-logo-text,
+  [lang="ar"] .footer-logo-text {
+    font-size: 0.7rem;
+  }
 }
 
 .footer-desc {

@@ -222,10 +222,11 @@ const resources = {
       },
       hero: {
         badge: "DIGITAL AFFÄRSTRANSFORMATION & AI-ARKITEKTUR",
-        titlePrefix: "Skapa Skräddarsydda ",
+        titlePrefix: "Skapa ",
         titleGradient: "Digitala Produkter",
-        titleSuffix: " & AI-Lösningar",
-        subtitle: "Vi analyserar er affärsmodell och bygger skräddarsydda webblösningar, mobilappar och AI-system optimerade för maximal tillväxt.",
+        titleConnector: " & ",
+        titleGradient2: "AI-Lösningar",
+        subtitle: "Vi analyserar er affärsmodell och bygger smarta webblösningar, mobilappar och AI-system optimerade för maximal tillväxt.",
         getStarted: "Kom igång",
         explore: "Utforska kapabiliteter",
         card1Title: "AI-Driven Automation",
@@ -261,18 +262,18 @@ const resources = {
         bullet1: "Topplaceringar på Google och sökmoduler",
         bullet2: "Blixtsnabb laddningstid (100/100 Lighthouse-poäng)",
         bullet3: "Automatisk SEO-struktur och rika sökresultat",
-        button: "Förbättra din sökplacering"
+        button: "Höj din ranking"
       },
       businessAnalysis: {
         badge: "STRATEGISK BUSINESS-ANALYS & SKRÄDDARSYDD UTVECKLING",
         titlePrefix: "Vi analyserar ditt företag & bygger",
-        titleGradient: "SKRÄDDARSYDDA LÖSNINGAR",
+        titleGradient: "SMARTA LÖSNINGAR",
         titleSuffix: "för dina behov",
         subtitle: "Varje företag är unikt. RoshaLink analyserar er affärsmodell, identifierar flaskhalsar och bygger kundanpassad mjukvara för maximal lönsamhet och tillväxt.",
         bullet1: "Djupgående analys av affärsmodell & användarresor",
         bullet2: "Skräddarsydd kod- och produktarkitektur utan mallar",
         bullet3: "Automatiserade arbetsflöden & kontinuerlig mätbarhet",
-        button: "Boka skräddarsydd analys",
+        button: "Boka anpassad analys",
         exploreBtn: "Utforska funktioner",
         modalTitle: "Business Analys Funktioner",
         modalSubtitle: "Upptäck hur vår affärsanalys kan transformera din verksamhet",
@@ -296,8 +297,8 @@ const resources = {
         feature2Desc: "Unik kod och arkitektur byggd exakt efter er verksamhets specifika behov.",
         feature3Title: "Konstruerad för mätbar tillväxt",
         feature3Desc: "Högpresterande lösningar som ökar konverteringen och driver er affär framåt.",
-        getStartedBtn: "Starta ert skräddarsydda projekt",
-        exploreBtn: "Utforska våra tjänster",
+        getStartedBtn: "Starta ert projekt",
+        exploreBtn: "Våra tjänster",
         modalTitle: "Våra Skräddarsydda Tjänster",
         modalSubtitle: "Upptäck hur vi bygger för framtiden",
         feature4Title: "Säkerhet i Världsklass",
@@ -323,7 +324,7 @@ const resources = {
         langArTitle: "الدعم باللغة العربية",
         langArDesc: "استشارات وخدمات دعم فني مباشرة باللغة العربية لتلبية متطلبات مشروعك بدقة متناهية.",
         contactBtn: "Kontakta oss nu",
-        bookCallBtn: "Boka ett strategimöte"
+        bookCallBtn: "Boka strategimöte"
       },
       salesAndSeo: {
         badge: "FÖRSÄLJNINGSTILLVÄXT & GOOGLE-RANKING",
@@ -337,8 +338,8 @@ const resources = {
         highlight2Desc: "Nå förstaplatsen i sökresultaten med automatiserad SEO-arkitektur och snabb indexering.",
         highlight3Title: "Blixtsnabb prestanda & laddtid",
         highlight3Desc: "Sub-sekund laddtider som får besökare att stanna kvar och köpa mer.",
-        boostBtn: "Öka din försäljning & SEO nu",
-        exploreBtn: "Utforska våra kapabiliteter",
+        boostBtn: "Öka försäljning & SEO",
+        exploreBtn: "Våra kapabiliteter",
         modalTitle: "Utforska Våra Kapabiliteter",
         modalSubtitle: "Upptäck hur våra funktioner kan transformera din verksamhet",
         feature4Title: "Avancerad Dataanalys",
@@ -351,7 +352,7 @@ const resources = {
       },
       mobileApp: {
         badge: "MOBILAPPUTVECKLING & APP STORE-PUBLICERING",
-        titlePrefix: "Skräddarsydda mobilappar publicerade på",
+        titlePrefix: "Smarta mobilappar publicerade på",
         titleGradient: "APP STORE & GOOGLE PLAY",
         titleSuffix: "",
         subtitle: "Nå dina kunder direkt i mobilen. Vi utvecklar högpresterande mobilapplikationer för iOS och Android samt hanterar hela publiceringsprocessen på Apple App Store och Google Play Store.",
@@ -370,8 +371,8 @@ const resources = {
         modalTitle: "Mobila Funktioner",
         modalSubtitle: "Upptäck allt vi erbjuder för din app",
         closeBtn: "Stäng",
-        buildBtn: "Bygg din mobilapp nu",
-        exploreBtn: "Utforska våra tjänster"
+        buildBtn: "Bygg din mobilapp",
+        exploreBtn: "Våra tjänster"
       },
       whoWeAre: {
         badge: "VILKA VI ÄR",
@@ -416,7 +417,7 @@ const resources = {
         feature1: "Interaktiv digital meny & rätter",
         feature2: "Bordsbokningssystem online",
         feature3: "Flerspråkig UI & snabb laddtid",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       ffstechProject: {
         category: "INTEGRERADE BYGGNADSSYSTEM & NÄTVERK",
@@ -426,7 +427,7 @@ const resources = {
         feature1: "Intelligenta brand- och säkerhetssystem",
         feature2: "Smarta passersystem & IP-övervakning",
         feature3: "Integrerad AV & nätverksinfrastruktur",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       dentistProject: {
         category: "TANDVÅRD & HÄLSO- OCH SJUKVÅRD",
@@ -436,7 +437,7 @@ const resources = {
         feature1: "Online tidsbokningssystem för patienter",
         feature2: "Interaktiv behandlings- och vårdkatalog",
         feature3: "Patientportal & snabb responsiv UI",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       shiraziProject: {
         category: "JURIDIK & INVANDRINGSRÅDGIVNING",
@@ -446,7 +447,7 @@ const resources = {
         feature1: "Online Konsultationsbokning & Juridisk Rådgivning",
         feature2: "Portfölj för Affärsjuridik & Visumtjänster",
         feature3: "Säker Ärendehantering & Flerspråkig UX",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       parsLawProject: {
         category: "JURIDISK BYRÅ & ADVOKATTJÄNSTER",
@@ -456,17 +457,17 @@ const resources = {
         feature1: "Klientbokning & Inledande Rådgivning",
         feature2: "Juridisk Ärendekatalog & Rättsområden",
         feature3: "Blixtsnabb Kod & Förtroendegivande UX",
-        previewBtn: "Utforska interaktiv förhandsgranskning"
+        previewBtn: "Förhandsgranska"
       },
       portfolioHero: {
         badge: "VÅR PORTFÖLJ & KUNDCASES",
-        pillTitle: "100% Skräddarsydda Lösningar",
-        pillSubtitle: "Idéer för varje affärsmodell",
+        pillTitle: "Skräddarsydda Lösningar",
+        pillSubtitle: "För varje affärsmodell",
         titlePrefix: "Utforska våra framgångsrika ",
         titleGradient: "PROJEKT & LÖSNINGAR",
         titleSuffix: " för alla branscher",
         subtitle: "Vi täcker alla affärsområden och industrier. Oavsett vilken affärsmodell eller nisch ditt företag har, skapar vi skräddarsydda digitala produkter, mjukvaror och appar som driver mätbar tillväxt.",
-        viewPillarsBtn: "Utforska våra 6 pelare för framgång",
+        viewPillarsBtn: "Våra 6 pelare",
         modalTitle: "Våra 6 pelare för digital framgång",
         modalSubtitle: "Hur vi utvecklar högpresterande applikationer skräddarsydda för dina affärsmål",
         feature1Title: "Skräddarsydda idéer för varje affärsmodell",
@@ -482,7 +483,7 @@ const resources = {
         feature6Title: "Dedikerat partnerskap & Kontinuerlig support",
         feature6Desc: "Vi är er långsiktiga digitala partner som stöttar och vidareutvecklar era produkter i varje steg.",
         exploreBtn: "Utforska portföljen",
-        buildBtn: "Starta ditt skräddarsydda projekt",
+        buildBtn: "Starta ditt projekt",
         ctaTitle: "Har du en idé om en högpresterande produkt?",
         ctaSubtitle: "Samarbeta med vårt team för att designa, utveckla och lansera högpresterande digitala applikationer anpassade för dina affärsmål.",
         ctaBtn: "Bygg din produkt"
@@ -506,35 +507,51 @@ const resources = {
       },
       testimonials: {
         badge: "KUNDRECENSIONER OCH FEEDBACK",
-        title: "Betrodd av 140+ produktledare",
-        rating: "5.0 / 5.0 Betyg",
+        title: "Betrodd av 80+ produktledare",
+        rating: "4.6 / 5.0 Betyg",
+        roles: {
+          r1: "Ägare, Perspolis Restaurang",
+          r2: "Klinikchef, Tandläkaren",
+          r3: "Delägare, Shirazi Associates",
+          r4: "Managing Partner, Pars Law Firm",
+          r5: "Driftchef, FFSTECH"
+        },
+        orgs: {
+          o1: "Saffron Deli",
+          o2: "Golestan Import",
+          o3: "Rahimi Fastighetsservice",
+          o4: "Diba Skönhetsklinik",
+          o5: "Persia Auto Service",
+          o6: "Ekelund Design",
+          o7: "Hosseini Catering"
+        },
         reviews: {
-          r1: "RoshaLink transformerade vår gamla stambankspanel till en mikrofrontendsarkitektur med under 20 ms svarstid.",
-          r2: "Designsystemet från deras team ökade vår utvecklingshastighet för flera plattformar med 300 %.",
-          r3: "Felfri leverans utan avbrott. Deras DevOps-team byggde vår molndistributionspipeline på rekordtid.",
-          r4: "Enastående visuell estetik kombinerat med rigorösa prestandamått. Rekommenderas varmt!",
-          r5: "De integrerade skräddarsydda generativa AI-flöden i vår webbapplikation helt sömlöst.",
-          r6: "Det tokeniserade designsystemet är så rent och enkelt att underhålla för både mobil- och webbteam.",
-          r7: "ISO 27001-efterlevnad och nollförtroendesäkerhet levererade utan att kompromissa med användarupplevelsen.",
-          r8: "Konverteringsgraden ökade med 48 % inom två månader efter lanseringen av den nya UI-designen.",
-          r9: "Framstående teknisk precision. Den rörliga telemetridashbaorden ger oss komplett operativ översikt.",
-          r10: "Att arbeta med deras seniöra 5-mannateam kändes som en direkt förlängning av våra egna grundare.",
-          r11: "Skalade vårt spårningssystem i realtid till miljontals samtidiga anrop utan problem.",
-          r12: "Vacker UI-design och skottsäker backend-kod. De överträffade alla våra företagsmål.",
-          r13: "Latens under 20 ms bibehölls även under maximala spikar i företagsgrafiken.",
-          r14: "Ren visuell perfektion. 3D-animationerna och mikro-interaktionerna gläder våra användare varje dag.",
-          r15: "Levererade vår komplexa webbapplikation före tidsplanen med 100 % testtäckning.",
-          r16: "Designsystemet förenklade vår internationalisering över 12 språk.",
-          r17: "Intuitiva instrumentpaneler för komplexa AI-algoritmer. Våra användare älskar den nya upplevelsen.",
-          r18: "Högsta nivå av professionalism och teknisk kompetens. En sann 5-stjärnig partner.",
-          r19: "Extremt ren kodstruktur. Deras React & Vite-arkitektur gjorde introduktionen av nya utvecklare busenkel.",
-          r20: "De förvandlade vår varumärkesidentitet och webbapplikation till ett riktmärke för branschen."
+          r1: "Bokningssystemet tog bort större delen av telefonbokningarna. Gästerna väljer bord själva och ser menyn på både svenska och persiska.",
+          r2: "Patienterna bokar sina egna tider nu. Receptionen gick från en telefon som ringde hela förmiddagen till en handfull samtal om dagen.",
+          r3: "Konsultationsbokningar kommer in via sajten på tre språk. Vi märkte skillnad i antalet förfrågningar redan efter två månader.",
+          r4: "Bra jobb och en sajt vi är nöjda med. Första designen var modernare än vad våra klienter förväntar sig, men de gjorde om den efter vår feedback.",
+          r5: "De satte sig in i brandlarm och lågspänningssystem innan de strukturerade produktkatalogen. Det är ovanligt för en webbyrå.",
+          r6: "Liten budget, ärlig rådgivning. De avrådde oss från funktioner vi inte behövde och levererade det vi faktiskt använder.",
+          r7: "Bra resultat. Tidplanen gled ungefär en vecka, men de flaggade tidigt och höll oss uppdaterade.",
+          r8: "Både den persiska och den svenska versionen är ordentligt gjorda, inte maskinöversatta. Det betydde mycket för våra kunder.",
+          r9: "Ren kod och tydlig dokumentation. Att ta in våra egna utvecklare efteråt gick smidigt.",
+          r10: "Vi gick från ingen närvaro alls till jämna förfrågningar via kontaktformuläret. Enkelt och det fungerar.",
+          r11: "Prestandan är verkligen bra. Jag hade velat få med fler automatiska tester, men det som finns är välbyggt.",
+          r12: "Bokning, galleri och prislista på ett ställe. Kunderna slutade ringa för att fråga vad behandlingarna kostar.",
+          r13: "De byggde om våra produktsidor och laddtiden sjönk märkbart i mobilen. Försäljningen följde efter.",
+          r14: "Gör det vi bad om. Det tog ett par vändor att få bokningsformuläret att passa vårt arbetssätt.",
+          r15: "Tillgängligt och lätt att uppdatera själva. Adminen kunde varit något enklare, men vi klarar oss bra.",
+          r16: "Professionella från första mötet. De ställde bättre frågor om vår verksamhet än vad vår förra byrå någonsin gjorde.",
+          r17: "Som enmansföretag behövde jag något jag kan sköta själv. De satte upp det så att jag kan det.",
+          r18: "Bra arkitektur och vettiga val. Kommunikationen var lite långsam över helgerna.",
+          r19: "Levererade enligt omfattning och budget. Rapporteringen under projektet kunde varit tätare.",
+          r20: "Beställningarna kommer via sajten nu istället för på telefon. Bara det förändrade hur vi jobbar."
         }
       },
       ctaBanner: {
         title: "Redo att bygga er nästa högpresterande produkt?",
         subtitle: "Boka ett strategisamtal med vårt huvudsakliga design- och ingenjörsteam idag.",
-        button: "Inled strategisk brief"
+        button: "Starta din brief"
       },
       footer: {
         brandRosha: "ROSHA",
@@ -552,9 +569,17 @@ const resources = {
         emailPlaceholder: "Ange arbetsemail",
         subscribe: "Prenumerera",
         rights: "© 2026 RoshaLink. Alla rättigheter förbehållna.",
-        privacyPolicy: "Integritetspolicy",
+        socialGlobal: "Globalt nätverk",
+        socialShare: "Dela",
+        socialCommunity: "Community",
+        cap1: "Strategisk Design",
+        cap2: "Produktutveckling",
+        cap3: "Moln & Arkitektur",
+        cap4: "AI & Affärsintelligens",
+        cap5: "Designsystem",
         termsOfService: "Användarvillkor",
-        securitySpec: "Säkerhetsspecifikation"
+        securitySpec: "Säkerhetsspecifikation",
+        privacyPolicy: "Integritetspolicy"
       },
       modal: {
         badge: "INLED PRODUKTUPPTÄCKT",
@@ -1054,7 +1079,8 @@ const resources = {
         badge: "DIGITAL BUSINESS TRANSFORMATION & AI ARCHITECTURE",
         titlePrefix: "Building Custom ",
         titleGradient: "Digital Products",
-        titleSuffix: " & AI Solutions",
+        titleConnector: " & ",
+        titleGradient2: "AI Solutions",
         subtitle: "We analyze your business model and engineer bespoke web apps, mobile applications, and AI systems built for maximum growth.",
         getStarted: "Get Started",
         explore: "Explore Capabilities",
@@ -1069,7 +1095,7 @@ const resources = {
         badge: "ENTERPRISE TECH ECOSYSTEM",
         title: "Architected with Enterprise Tools & Brands We Work With",
         subtitle: "We integrate over 250+ top-tier cloud services, AI platforms, and design tools directly into our engineering workflow for seamless scalability.",
-        auditBtn: "Initiate Technology Audit",
+        auditBtn: "Start Tech Audit",
         exploreBtn: "Explore Tech Stack"
       },
       features: {
@@ -1091,7 +1117,7 @@ const resources = {
         bullet1: "Top Rankings in Google Search Results",
         bullet2: "Sub-Second Load Times (100/100 Lighthouse Score)",
         bullet3: "Automated SEO Structure & Rich Snippets",
-        button: "Boost Your Search Ranking"
+        button: "Boost Your Ranking"
       },
       businessAnalysis: {
         badge: "STRATEGIC BUSINESS ANALYSIS & CUSTOM ENGINEERING",
@@ -1102,7 +1128,7 @@ const resources = {
         bullet1: "Deep Business Model & User Journey Audits",
         bullet2: "Tailor-Made Architecture Built Without Generic Templates",
         bullet3: "Automated Workflows & Measurable Growth Metrics",
-        button: "Request Custom Analysis",
+        button: "Request Analysis",
         exploreBtn: "Explore Features",
         modalTitle: "Business Analysis Features",
         modalSubtitle: "Discover how our custom analysis accelerates your growth",
@@ -1126,8 +1152,8 @@ const resources = {
         feature2Desc: "Unique architecture and custom software engineered precisely for your business needs.",
         feature3Title: "Driven for Scalable Growth",
         feature3Desc: "High-performance digital products crafted to maximize conversion rates and enterprise scale.",
-        getStartedBtn: "Start Your Custom Project",
-        exploreBtn: "Explore Our Services",
+        getStartedBtn: "Start Your Project",
+        exploreBtn: "Our Services",
         modalTitle: "Our Custom Services",
         modalSubtitle: "Discover how we build for the future",
         feature4Title: "World-Class Security",
@@ -1153,7 +1179,7 @@ const resources = {
         langArTitle: "Arabic Support",
         langArDesc: "Direct consultation in Arabic to ensure complete understanding and execution of your project needs.",
         contactBtn: "Connect With Us Now",
-        bookCallBtn: "Book Strategy Session"
+        bookCallBtn: "Book Strategy Call"
       },
       salesAndSeo: {
         badge: "REVENUE ACCELERATION & SEARCH VISIBILITY",
@@ -1167,8 +1193,8 @@ const resources = {
         highlight2Desc: "Reach top rankings in Google with structured SEO metadata and instant search indexing.",
         highlight3Title: "Ultra-Fast Speed & High Engagement",
         highlight3Desc: "Sub-second page load speeds (100/100 Lighthouse) keeping users hooked and buying.",
-        boostBtn: "Boost Your Sales & SEO Now",
-        exploreBtn: "Explore Capabilities",
+        boostBtn: "Boost Sales & SEO",
+        exploreBtn: "Our Capabilities",
         modalTitle: "Explore Our Capabilities",
         modalSubtitle: "Discover how our features can transform your business",
         feature4Title: "Advanced Analytics Integration",
@@ -1200,8 +1226,8 @@ const resources = {
         modalTitle: "Mobile Features",
         modalSubtitle: "Discover everything we offer for your app",
         closeBtn: "Close",
-        buildBtn: "Build Your Mobile App Now",
-        exploreBtn: "Explore Our Services"
+        buildBtn: "Build Your App",
+        exploreBtn: "Our Services"
       },
       whoWeAre: {
         badge: "WHO WE ARE",
@@ -1246,7 +1272,7 @@ const resources = {
         feature1: "Interactive Digital Menu & Customization",
         feature2: "Online Table Booking System",
         feature3: "Multi-Language & Theme Engine",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       ffstechProject: {
         category: "BUILDING SYSTEMS & ENTERPRISE TECH",
@@ -1256,7 +1282,7 @@ const resources = {
         feature1: "Fire & Life Safety Ecosystems",
         feature2: "Smart Access Control & IP Surveillance",
         feature3: "Integrated AV & Communication Backbone",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       dentistProject: {
         category: "DENTAL & HEALTHCARE WEB APP",
@@ -1266,7 +1292,7 @@ const resources = {
         feature1: "Online Patient Appointment Booking",
         feature2: "Interactive Dental Care & Services",
         feature3: "Patient Portal & Fast Responsive UI",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       shiraziProject: {
         category: "LEGAL & IMMIGRATION ADVISORY PLATFORM",
@@ -1276,7 +1302,7 @@ const resources = {
         feature1: "Online Consultation Booking & Legal Advisory",
         feature2: "Corporate Law & Visa Immigration Services",
         feature3: "Secure Case Handling & Multi-Language UX",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       parsLawProject: {
         category: "LAW PRACTICE & LEGAL SERVICES WEB APP",
@@ -1286,17 +1312,17 @@ const resources = {
         feature1: "Client Appointment Booking & Consultation",
         feature2: "Comprehensive Legal Practice Areas",
         feature3: "Rapid Performance & Trust-Building UX",
-        previewBtn: "View Interactive Live Preview"
+        previewBtn: "Live Preview"
       },
       portfolioHero: {
         badge: "OUR PORTFOLIO & CASE STUDIES",
-        pillTitle: "100% Customized Solutions",
-        pillSubtitle: "Ideas for Every Business Model",
+        pillTitle: "Customized Solutions",
+        pillSubtitle: "For Every Business Model",
         titlePrefix: "Explore Our Diverse ",
         titleGradient: "PRODUCTION PROJECTS",
         titleSuffix: " & Custom Solutions",
         subtitle: "Explore our live projects built across multiple industries and fields. No matter your business model or niche, we engineer tailored ideas and high-performing digital applications built for scalable growth.",
-        viewPillarsBtn: "Explore Our 6 Strategic Pillars",
+        viewPillarsBtn: "Our 6 Pillars",
         modalTitle: "Our 6 Pillars for Digital Success",
         modalSubtitle: "How we engineer high-performing applications tailored to your strategic business goals",
         feature1Title: "Custom Ideas for Every Business Model",
@@ -1312,7 +1338,7 @@ const resources = {
         feature6Title: "Dedicated Partnership & Ongoing Growth",
         feature6Desc: "We act as your long-term tech partner, supporting and scaling your digital products every step of the way.",
         exploreBtn: "Explore Portfolio",
-        buildBtn: "Build Your Custom Product",
+        buildBtn: "Start Your Project",
         ctaTitle: "Have a High-Impact Product in Mind?",
         ctaSubtitle: "Partner with our team to design, engineer, and deploy high-performing digital applications tailored to your business goals.",
         ctaBtn: "Build Your Product"
@@ -1336,35 +1362,51 @@ const resources = {
       },
       testimonials: {
         badge: "CLIENT TESTIMONIALS & REVIEWS",
-        title: "Trusted by 140+ Industry Leaders",
-        rating: "5.0 / 5.0 Overall Rating",
+        title: "Trusted by 80+ Industry Leaders",
+        rating: "4.6 / 5.0 Overall Rating",
+        roles: {
+          r1: "Owner, Perspolis Restaurant",
+          r2: "Practice Manager, Tandläkaren",
+          r3: "Partner, Shirazi Associates",
+          r4: "Managing Partner, Pars Law Firm",
+          r5: "Operations Lead, FFSTECH"
+        },
+        orgs: {
+          o1: "Saffron Deli",
+          o2: "Golestan Import",
+          o3: "Rahimi Property Services",
+          o4: "Diba Beauty Clinic",
+          o5: "Persia Auto Service",
+          o6: "Ekelund Design",
+          o7: "Hosseini Catering"
+        },
         reviews: {
-          r1: "RoshaLink transformed our legacy core banking dashboard into a sub-20ms micro-frontend architecture.",
-          r2: "The design system provided by their team increased our multi-platform dev velocity by 300%.",
-          r3: "Flawless zero-downtime execution. Their DevOps team built our multi-cloud deployment pipeline in record time.",
-          r4: "Exceptional visual aesthetics combined with rigorous performance metrics. Highly recommended!",
-          r5: "They integrated custom generative AI pipelines into our web application seamlessly.",
-          r6: "The tokenized design system is so clean and easy to maintain across mobile and web teams.",
-          r7: "ISO 27001 compliance and zero-trust security standards delivered without compromising user experience.",
-          r8: "Conversion rate increased by 48% within two months of releasing the new UI redesign.",
-          r9: "Outstanding engineering rigor. The real-time telemetry dashboard gives us complete operational visibility.",
-          r10: "Working with their senior 5-member team felt like an inline extension of our own core founders.",
-          r11: "Scaled our real-time tracking system to millions of concurrent requests effortlessly.",
-          r12: "Beautiful UI design and bulletproof backend code. They exceeded all our corporate targets.",
-          r13: "Sub-20ms latency maintained even under peak enterprise traffic spikes.",
-          r14: "Pure visual perfection. The 3D animations and micro-interactions delight our users every day.",
-          r15: "Delivered our complex web application ahead of schedule with 100% test coverage.",
-          r16: "The design system simplified our internationalization efforts across 12 languages.",
-          r17: "Intuitive dashboards for complex AI algorithms. Our users love the new experience.",
-          r18: "Highest level of professionalism and technical competence. A true 5-star partner.",
-          r19: "Extremely clean code structure. Their React & Vite architecture made onboarding new devs a breeze.",
-          r20: "They transformed our brand identity and web application into an industry benchmark."
+          r1: "The reservation system took most of the booking calls off our staff. Guests pick a table themselves and see the menu in both Swedish and Persian.",
+          r2: "Patients book their own appointments now. Reception went from a phone ringing all morning to a handful of calls a day.",
+          r3: "Consultation bookings come in through the site in three languages. We saw the difference in enquiries within the first two months.",
+          r4: "Solid work and a site we are happy with. The first design was more modern than our clients expect, but they reworked it after our feedback.",
+          r5: "They took the time to understand fire safety and low-voltage systems before structuring the product catalogue. That is not common with web agencies.",
+          r6: "Small budget, honest advice. They talked us out of features we did not need and delivered what we actually use.",
+          r7: "Good result. The timeline slipped by about a week, but they flagged it early and kept us updated.",
+          r8: "Both the Persian and the Swedish version are properly done, not machine translated. That mattered a lot to our customers.",
+          r9: "Clean code and clear documentation. Bringing our own developers in afterwards was straightforward.",
+          r10: "We went from no web presence at all to steady enquiries through the contact form. Simple, and it works.",
+          r11: "Performance is genuinely good. I would have liked more automated tests handed over, but what exists is well built.",
+          r12: "Booking, gallery and price list in one place. Customers stopped calling to ask what treatments cost.",
+          r13: "They rebuilt our product pages and load time dropped noticeably on mobile. Sales followed.",
+          r14: "Does what we asked for. It took a couple of rounds to get the booking form to fit how we work.",
+          r15: "Accessible and easy to update ourselves. The admin could be a bit simpler, but we manage fine.",
+          r16: "Professional from the first meeting. They asked better questions about our business than our previous agency ever did.",
+          r17: "As a one-person business I needed something I can maintain myself. They set it up so that I can.",
+          r18: "Good architecture and sensible choices. Communication was occasionally slow over the holidays.",
+          r19: "Delivered on scope and on budget. Reporting during the project could have been more frequent.",
+          r20: "Orders come through the site now instead of over the phone. That alone changed how we work."
         }
       },
       ctaBanner: {
         title: "Ready to Build Your Next High-Impact Product?",
         subtitle: "Schedule a strategy call with our principal design & engineering team today.",
-        button: "Initiate Strategic Brief"
+        button: "Start Your Brief"
       },
       footer: {
         brandRosha: "ROSHA",
@@ -1382,9 +1424,17 @@ const resources = {
         emailPlaceholder: "Enter work email",
         subscribe: "Subscribe",
         rights: "© 2026 RoshaLink. All rights reserved.",
-        privacyPolicy: "Privacy Policy",
+        socialGlobal: "Global Network",
+        socialShare: "Share",
+        socialCommunity: "Community",
+        cap1: "Strategic Design",
+        cap2: "Product Development",
+        cap3: "Cloud & Architecture",
+        cap4: "AI & Business Intelligence",
+        cap5: "Design Systems",
         termsOfService: "Terms of Service",
-        securitySpec: "Security Specification"
+        securitySpec: "Security Specification",
+        privacyPolicy: "Privacy Policy"
       },
       modal: {
         badge: "INITIATE PROJECT DISCOVERY",
@@ -1884,7 +1934,8 @@ const resources = {
         badge: "تحول دیجیتال کسب‌وکار و معماری هوش مصنوعی",
         titlePrefix: "طراحی و توسعه اختصاصی ",
         titleGradient: "محصولات دیجیتال",
-        titleSuffix: " و راهکارهای هوش مصنوعی",
+        titleConnector: " و ",
+        titleGradient2: "راهکارهای هوش مصنوعی",
         subtitle: "ما مدل کسب‌وکار شما را بررسی کرده و وب‌سایت، اپلیکیشن و سیستم‌های هوش مصنوعی اختصاصی برای رشد حداکثری شما می‌سازیم.",
         getStarted: "شروع کنید",
         explore: "مشاهده امکانات",
@@ -1956,7 +2007,7 @@ const resources = {
         feature2Desc: "توسعه وب‌سایت و اپلیکیشن با طراحی کاملاً سفارشی و بدون محدودیت.",
         feature3Title: "مهندسی‌شده برای رشد و افزایش درآمد",
         feature3Desc: "محصولات دیجیتال پرسرعت و بهینه‌سازی‌شده برای جذب حداکثری مشتریان.",
-        getStartedBtn: "شروع پروژه اختصاصی شما",
+        getStartedBtn: "شروع پروژه شما",
         exploreBtn: "بررسی خدمات ما",
         modalTitle: "خدمات اختصاصی ما",
         modalSubtitle: "کشف کنید که چگونه برای آینده می‌سازیم",
@@ -1983,7 +2034,7 @@ const resources = {
         langArTitle: "پشتیبانی کامل زبان عربی",
         langArDesc: "ارتباط مستقیم و مشاوره به زبان عربی برای اجرای دقیق پروژه.",
         contactBtn: "تماس با ما",
-        bookCallBtn: "رزرو جلسه مشاوره اختصاصی"
+        bookCallBtn: "رزرو جلسه استراتژیک"
       },
       salesAndSeo: {
         badge: "افزایش فروش و دیده شدن در گوگل",
@@ -1997,8 +2048,8 @@ const resources = {
         highlight2Desc: "دستیابی به بالاترین نتایج جستجو با معماری خودکار سئو و ایندکس سریع صفحات.",
         highlight3Title: "سرعت فوق‌العاده و بارگذاری آنی",
         highlight3Desc: "سرعت لود زیر یک ثانیه که نرخ ماندگاری کاربر را افزایش داده و فروش را بیشتر می‌کند.",
-        boostBtn: "افزایش فروش و سئوی سایت",
-        exploreBtn: "بررسی قابلیت‌های بیشتر",
+        boostBtn: "افزایش فروش و سئو",
+        exploreBtn: "قابلیت‌های ما",
         modalTitle: "بررسی قابلیت‌های افزایش فروش و سئو",
         modalSubtitle: "ببینید چگونه راهکارهای سئو و پرفورمنس ما کسب‌وکار شما را متحول می‌کنند",
         feature4Title: "تحلیل پیشرفته داده‌ها",
@@ -2030,8 +2081,8 @@ const resources = {
         modalTitle: "قابلیت‌های اپلیکیشن موبایل",
         modalSubtitle: "امکانات گسترده ما برای اپلیکیشن شما را کشف کنید",
         closeBtn: "بستن",
-        buildBtn: "ساخت اپلیکیشن موبایل اختصاصی",
-        exploreBtn: "مشاهده جزئیات خدمات"
+        buildBtn: "ساخت اپلیکیشن موبایل",
+        exploreBtn: "بررسی خدمات توسعه"
       },
       whoWeAre: {
         badge: "درباره تیم ما",
@@ -2076,7 +2127,7 @@ const resources = {
         feature1: "منوی دیجیتال تعاملی و سفارش غذا",
         feature2: "سیستم رزرواسیون آنلاین میز",
         feature3: "رابط کاربری چندزبانه و سرعت لود فوق‌العاده",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       ffstechProject: {
         category: "سیستم‌های هوشمند و زیرساخت شبکه",
@@ -2086,7 +2137,7 @@ const resources = {
         feature1: "سیستم‌های هوشمند اعلام و اطفای حریق",
         feature2: "سیستم‌های هوشمند کنترل تردد و نظارت تصویری",
         feature3: "زیرساخت یکپارچه صوت و تصویر و شبکه",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       dentistProject: {
         category: "وب‌اپلیکیشن پزشکی و کلینیک دندانپزشکی",
@@ -2096,7 +2147,7 @@ const resources = {
         feature1: "نوبت‌دهی آنلاین بیماران و رزرو وقت",
         feature2: "معرفی تعاملی خدمات و مراقبت‌های دندانپزشکی",
         feature3: "پورتال بیماران با رابط کاربری سریع و واکنش‌گرا",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       shiraziProject: {
         category: "پلتفرم حقوقی و مشاوره مهاجرت",
@@ -2106,7 +2157,7 @@ const resources = {
         feature1: "رزرو آنلاین جلسات مشاوره حقوقی",
         feature2: "خدمات حقوق شرکتی، تجاری و اخذ ویزا",
         feature3: "مدیریت امن پرونده‌ها و تجربه کاربری چندزبانه",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       parsLawProject: {
         category: "وب‌اپلیکیشن موسسه حقوقی و خدمات وکالت",
@@ -2116,17 +2167,17 @@ const resources = {
         feature1: "رزرو وقت و مشاوره آنلاین با وکلا",
         feature2: "معرفی جامع حوزه‌های تخصصی حقوقی",
         feature3: "سرعت لود بسیار بالا و ایجاد اعتماد حداکثری",
-        previewBtn: "مشاهده پیش‌نمایش تعاملی زنده"
+        previewBtn: "پیش‌نمایش زنده"
       },
       portfolioHero: {
         badge: "نمونه کارها و پروژه‌های ما",
-        pillTitle: "راهکارهای ۱۰۰٪ اختصاصی",
-        pillSubtitle: "ایده‌های متناسب با هر مدل تجاری",
+        pillTitle: "راهکارهای اختصاصی",
+        pillSubtitle: "متناسب با هر مدل تجاری",
         titlePrefix: "مشاهده پروژه‌های متنوع ",
         titleGradient: "عملیاتی و تجاری",
         titleSuffix: " و راهکارهای اختصاصی ما",
         subtitle: "مجموعه‌ای از پروژه‌های زنده و موفق ما در صنایع گوناگون را بررسی کنید. مدل کسب‌وکار شما هرچه باشد، ما ایده‌های نوآورانه و اپلیکیشن‌های دیجیتال اختصاصی را برای رشد حداکثری شما خلق می‌کنیم.",
-        viewPillarsBtn: "مشاهده ۶ ستون استراتژیک ما",
+        viewPillarsBtn: "۶ ستون ما",
         modalTitle: "۶ ستون موفقیت دیجیتال شما در روشالینک",
         modalSubtitle: "چگونه اپلیکیشن‌هایی با کارایی بالا و منطبق با اهداف استراتژیک بیزینس شما مهندسی می‌کنیم",
         feature1Title: "ایده‌های اختصاصی برای هر بیزینس مدل",
@@ -2142,7 +2193,7 @@ const resources = {
         feature6Title: "شراکت بلندمدت و توسعه مستمر",
         feature6Desc: "ما به عنوان شریک فنی همیشگی شما، در تمامی مراحل رشد، توسعه و نگهداری همراهتان هستیم.",
         exploreBtn: "مشاهده پورتفولیو",
-        buildBtn: "سفارش ساخت محصول اختصاصی",
+        buildBtn: "سفارش ساخت محصول",
         ctaTitle: "ایده‌ای برای یک محصول دیجیتال بزرگ دارید؟",
         ctaSubtitle: "با همکاری تیم متخصص ما، اپلیکیشن‌هایی قدرتمند و سفارشی بسازید که دقیقاً اهداف تجاری شما را محقق کنند.",
         ctaBtn: "ساخت محصول اختصاصی"
@@ -2166,29 +2217,45 @@ const resources = {
       },
       testimonials: {
         badge: "نظرات و رضایت مشتریان",
-        title: "مورد اعتماد بیش از ۱۴۰ مدیر و صاحب کسب‌وکار",
-        rating: "امتیاز ۵.۰ از ۵.۰",
+        title: "مورد اعتماد بیش از ۸۰ مدیر ارشد محصول",
+        rating: "امتیاز ۴.۶ از ۵.۰",
+        roles: {
+          r1: "مالک، رستوران پرسپولیس",
+          r2: "مدیر کلینیک، Tandläkaren",
+          r3: "شریک، مؤسسه شیرازی",
+          r4: "شریک مدیر، مؤسسه حقوقی پارس",
+          r5: "مدیر عملیات، FFSTECH"
+        },
+        orgs: {
+          o1: "دلی زعفران",
+          o2: "واردات گلستان",
+          o3: "خدمات ساختمانی رحیمی",
+          o4: "کلینیک زیبایی دیبا",
+          o5: "تعمیرگاه پرشیا",
+          o6: "استودیو طراحی اکلوند",
+          o7: "کیترینگ حسینی"
+        },
         reviews: {
-          r1: "روشالینک داشبورد قدیمی بانکداری سازمانی ما را به یک معماری میکروفرانت‌اند فوق‌سریع با زمان پاسخ زیر ۲۰ میلی‌ثانیه تبدیل کرد.",
-          r2: "سیستم دیزاین ارائه‌شده توسط تیم آن‌ها، سرعت توسعه چندپلتفرمی ما را تا ۳۰۰٪ افزایش داد.",
-          r3: "اجرای بی‌نقص و بدون یک ثانیه قطعی. تیم DevOps آن‌ها پایپ‌لاین استقرار چندابری ما را در زمانی حدنصاب ساخت.",
-          r4: "زیبایی بصری فوق‌العاده همراه با معیارهای سنجش عملکرد دقیق. کاملاً پیشنهادی و عالی!",
-          r5: "آن‌ها پایپ‌لاین‌های هوش مصنوعی مولد اختصاصی را به صورت کاملاً یکپارچه در وب‌اپلیکیشن ما ادغام کردند.",
-          r6: "سیستم دیزاین توکن‌شده آن‌ها به قدری تمیز است که مدیریت آن بین تیم‌های وب و موبایل بسیار آسان شده است.",
-          r7: "انطباق با استاندارد ISO 27001 و امنیت Zero-Trust بدون کوچک‌ترین افت در تجربه کاربری تحویل داده شد.",
-          r8: "تنها طی دو ماه پس از بازطراحی رابط کاربری جدید، نرخ تبدیل مشتریان ما ۴۸٪ افزایش یافت.",
-          r9: "دقت مهندسی فوق‌العاده. داشبورد دورسنجی آنلاین، دید کامل عملیاتی را در اختیار ما قرار داد.",
-          r10: "همکاری با تیم ۵ نفره ارشد آن‌ها مانند داشتن یک تیم هم‌بنیان‌گذار مستقیم در کنار خودمان بود.",
-          r11: "سیستم ردیابی آنلاین ما را بدون هیچ زحمتی برای پاسخگویی به میلیون‌ها درخواست هم‌زمان مقیاس‌پذیر کردند.",
-          r12: "طراحی رابط کاربری بسیار زیبا و کدبیس بک‌اند ضدگلوله. آن‌ها از تمامی اهداف تعیین‌شده ما فراتر رفتند.",
-          r13: "زمان تاخیر زیر ۲۰ میلی‌ثانیه حتی در اوج ترافیک سنگین سازمانی به طور کامل حفظ شد.",
-          r14: "کمال محض در زیبایی بصری. انیمیشن‌های سه‌بعدی و ریزتعامل‌ها هر روز کاربران ما را شگفت‌زده می‌کنند.",
-          r15: "وب‌اپلیکیشن پیچیده ما را زودتر از موعد مقرر و با پوشش تست ۱۰۰٪ تحویل دادند.",
-          r16: "سیستم دیزاین آن‌ها فرآیند بین‌المللی‌سازی و چندزبانه کردن پلتفرم ما را به ۱۲ زبان بسیار ساده کرد.",
-          r17: "داشبوردهای بسیار آسان و هوشمند برای الگوریتم‌های پیچیده هوش مصنوعی. کاربران ما عاشق تجربه جدید شده‌اند.",
-          r18: "بالاترین سطح حرفه‌ای‌گری و صلاحیت فنی. یک شریک واقعی ۵ ستاره برای ما.",
-          r19: "ساختار کد فوق‌العاده تمیز. معماری React & Vite آن‌ها اضافه شدن برنامه‌نویسان جدید به تیم را بسیار آسان کرد.",
-          r20: "آن‌ها هویت برند و وب‌اپلیکیشن ما را به یک استاندارد برتر در صنعت تبدیل کردند."
+          r1: "سیستم رزرو، بیشتر تماس‌های تلفنی را حذف کرد. مهمان‌ها خودشان میز انتخاب می‌کنند و منو را به سوئدی و فارسی می‌بینند.",
+          r2: "بیماران خودشان نوبت می‌گیرند. پذیرش از تلفنی که تمام صبح زنگ می‌خورد به چند تماس در روز رسید.",
+          r3: "درخواست‌های مشاوره به سه زبان از طریق سایت می‌آید. ظرف دو ماه اول تفاوت را در تعداد استعلام‌ها دیدیم.",
+          r4: "کار خوبی بود و از سایت راضی هستیم. طرح اول مدرن‌تر از انتظار موکلان ما بود، اما بعد از بازخورد ما بازنگری کردند.",
+          r5: "قبل از ساختاردهی کاتالوگ محصولات، وقت گذاشتند تا سیستم‌های اعلام حریق و جریان ضعیف را بفهمند. این در آژانس‌های وب کم پیش می‌آید.",
+          r6: "بودجه کم، مشاوره صادقانه. ما را از امکاناتی که لازم نداشتیم منصرف کردند و چیزی را ساختند که واقعاً استفاده می‌کنیم.",
+          r7: "نتیجه خوب بود. زمان‌بندی حدود یک هفته عقب افتاد، اما زود اطلاع دادند و ما را در جریان گذاشتند.",
+          r8: "نسخه فارسی و سوئدی هر دو درست انجام شده‌اند، نه ترجمه ماشینی. این برای مشتریان ما خیلی مهم بود.",
+          r9: "کد تمیز و مستندات روشن. ورود توسعه‌دهندگان خودمان بعد از تحویل ساده بود.",
+          r10: "از نداشتن هیچ حضور آنلاین به درخواست‌های منظم از فرم تماس رسیدیم. ساده است و کار می‌کند.",
+          r11: "کارایی واقعاً خوب است. دوست داشتم تست‌های خودکار بیشتری تحویل بگیرم، اما آنچه هست خوب ساخته شده.",
+          r12: "رزرو، گالری و لیست قیمت در یک جا. مشتری‌ها دیگر برای پرسیدن قیمت خدمات زنگ نمی‌زنند.",
+          r13: "صفحات محصول را بازسازی کردند و زمان بارگذاری روی موبایل به شکل محسوسی کم شد. فروش هم دنبالش آمد.",
+          r14: "همان چیزی که خواستیم را انجام می‌دهد. چند مرحله طول کشید تا فرم رزرو با روند کاری ما جور شود.",
+          r15: "دسترس‌پذیر است و به‌روزرسانی‌اش برای خودمان آسان. پنل مدیریت می‌توانست ساده‌تر باشد، اما مشکلی نداریم.",
+          r16: "از اولین جلسه حرفه‌ای بودند. سؤالات بهتری درباره کسب‌وکار ما پرسیدند تا آژانس قبلی‌مان.",
+          r17: "به عنوان یک کسب‌وکار تک‌نفره به چیزی نیاز داشتم که خودم بتوانم نگهش دارم. طوری راه‌اندازی کردند که می‌توانم.",
+          r18: "معماری خوب و انتخاب‌های منطقی. ارتباط در ایام تعطیل گاهی کند بود.",
+          r19: "طبق دامنه کار و بودجه تحویل دادند. گزارش‌دهی در طول پروژه می‌توانست مرتب‌تر باشد.",
+          r20: "سفارش‌ها حالا از سایت می‌آید نه تلفن. همین یک مورد نحوه کار ما را عوض کرد."
         }
       },
       ctaBanner: {
@@ -2212,9 +2279,17 @@ const resources = {
         emailPlaceholder: "ایمیل کاری خود را وارد کنید",
         subscribe: "عضویت در خبرنامه",
         rights: "© ۲۰۲۶ RoshaLink. تمامی حقوق محفوظ است.",
-        privacyPolicy: "سیاست حفظ حریم خصوصی",
-        termsOfService: "شرایط خدمات",
-        securitySpec: "مشخصات امنیتی"
+        socialGlobal: "شبکه جهانی",
+        socialShare: "اشتراک‌گذاری",
+        socialCommunity: "انجمن کاربران",
+        cap1: "طراحی استراتژیک",
+        cap2: "توسعه محصول",
+        cap3: "زیرساخت ابری و معماری",
+        cap4: "هوش مصنوعی و هوش تجاری",
+        cap5: "سیستم‌های طراحی",
+        termsOfService: "شرایط استفاده از خدمات",
+        securitySpec: "مشخصات امنیتی",
+        privacyPolicy: "حریم خصوصی"
       },
       modal: {
         badge: "شروع بررسی پروژه",
@@ -2714,7 +2789,8 @@ const resources = {
         badge: "التحول الرقمي للأعمال وهندسة الذكاء الاصطناعي",
         titlePrefix: "تطوير اختصاصي لـ ",
         titleGradient: "المنتجات الرقمية",
-        titleSuffix: " وحلول الذكاء الاصطناعي",
+        titleConnector: " و",
+        titleGradient2: "حلول الذكاء الاصطناعي",
         subtitle: "نحلل نموذج عملك ونبني تطبيقات الويب والموبايل وأنظمة الذكاء الاصطناعي المخصصة لتحقيق أقصى درجات النمو.",
         getStarted: "ابدأ الآن",
         explore: "استكشف إمكانياتنا",
@@ -2751,7 +2827,7 @@ const resources = {
         bullet1: "المراكز الأولى في نتائج بحث جوجل ووحدات البحث",
         bullet2: "سرعة تحميل فائقة (100/100 في تقييم Lighthouse)",
         bullet3: "بنية SEO تلقائية ونتائج بحث غنية بالأشكال المميزة",
-        button: "حسّن ترتيبك في البحث الآن"
+        button: "حسّن ترتيبك في البحث"
       },
       businessAnalysis: {
         badge: "تحليل الأعمال الاستراتيجي والتطوير المخصص",
@@ -2786,7 +2862,7 @@ const resources = {
         feature2Desc: "كود ومعمارية فريدة مبنية تماماً وفق متطلبات مؤسستك الخاصة.",
         feature3Title: "مصممة للنمو القابل للقياس",
         feature3Desc: "حلول فائقة الأداء تزيد من معدلات التحويل وتدفع أعمالك للأمام.",
-        getStartedBtn: "ابدأ مشروعك المخصص",
+        getStartedBtn: "ابدأ مشروعك",
         exploreBtn: "استكشف خدماتنا",
         modalTitle: "خدماتنا المخصصة",
         modalSubtitle: "اكتشف كيف نبني من أجل المستقبل",
@@ -2827,7 +2903,7 @@ const resources = {
         highlight2Desc: "احصل على أعلى المراكز في البحث بأرشفة سريعة وبنية SEO متطورة.",
         highlight3Title: "سرعة تحميل فائقة وأداء مذهل",
         highlight3Desc: "سرعة تحميل أقل من ثانية تبقي الزوار وتزيد من تفاعلهم وشراء المنتجات.",
-        boostBtn: "زد مبيعاتك وحسّن SEO الآن",
+        boostBtn: "زد مبيعاتك و SEO",
         exploreBtn: "استكشف إمكانياتنا",
         modalTitle: "استكشف إمكانياتنا",
         modalSubtitle: "اكتشف كيف يمكن لميزاتنا أن تحوّل أعمالك",
@@ -2860,7 +2936,7 @@ const resources = {
         modalTitle: "ميزات تطبيق الهاتف المحمول",
         modalSubtitle: "اكتشف كل ما نقدمه لتطبيقك",
         closeBtn: "إغلاق",
-        buildBtn: "ابنِ تطبيق الجوال الخاص بك الآن",
+        buildBtn: "ابنِ تطبيق الجوال",
         exploreBtn: "استكشف خدماتنا"
       },
       whoWeAre: {
@@ -2906,7 +2982,7 @@ const resources = {
         feature1: "قائمة طعام رقمية تفاعلية",
         feature2: "نظام حجز الطاولات إلكترونياً",
         feature3: "دعم متعدد اللغات وواجهة حديثة",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       ffstechProject: {
         category: "الأنظمة الذكية والبنية التحتية الرقمية",
@@ -2916,7 +2992,7 @@ const resources = {
         feature1: "أنظمة السلامة وإدارة الحريق الذكية",
         feature2: "التحكم بالدخول ومراقبة الفيديو IP",
         feature3: "الأنظمة الصوتية والمرئية وشبكات الاتصال",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       dentistProject: {
         category: "منصة الرعاية الصحية وطب الأسنان",
@@ -2926,7 +3002,7 @@ const resources = {
         feature1: "نظام حجز المواعيد إلكترونياً للمرضى",
         feature2: "دليل الخدمات التفاعلي لطب الأسنان",
         feature3: "بوابة المرضى الرقمية وواجهة حديثة",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       shiraziProject: {
         category: "منصة الاستشارات القانونية والهجرة",
@@ -2936,7 +3012,7 @@ const resources = {
         feature1: "حجز الاستشارات القانونية إلكترونياً",
         feature2: "خدمات القانون التجاري وتأشيرات الهجرة",
         feature3: "إدارة آمنة للقضايا وواجهة تفاعلية",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       parsLawProject: {
         category: "منصة المحاماة والخدمات القانونية",
@@ -2946,17 +3022,17 @@ const resources = {
         feature1: "حجز مواعيد الموكلين وطلب الاستشارة",
         feature2: "دليل مجالات الاختصاص والقضايا القانونية",
         feature3: "سرعة فائقة وتجربة موثوقة للمستخدم",
-        previewBtn: "عرض المعاينة التفاعلية للموقع"
+        previewBtn: "معاينة مباشرة"
       },
       portfolioHero: {
         badge: "معرض أعمالنا والدراسات الميدانية",
-        pillTitle: "حلول مخصصة بنسبة 100%",
-        pillSubtitle: "أفكار لكل نموذج عمل",
+        pillTitle: "حلول مخصصة",
+        pillSubtitle: "لكل نموذج عمل",
         titlePrefix: "استكشف مشاريعنا الناجحة في ",
         titleGradient: "مختلف قطاعات الأعمال",
         titleSuffix: "",
         subtitle: "استكشف مجموعة مشاريعنا المنفذة عبر مختلف القطاعات والمجالات. مهما كان نموذج عملك أو مجال اختصاصك، ننفذ أفكاراً وحلولاً رقمية مخصصة تضمن نمواً مستداماً لمؤسستك.",
-        viewPillarsBtn: "استكشف الركائز الاستراتيجية الـ 6",
+        viewPillarsBtn: "ركائزنا الـ 6",
         modalTitle: "ركائزنا الـ 6 للنجاح الرقمي",
         modalSubtitle: "كيف نبني تطبيقات عالية الأداء مخصصة خصيصاً لأهداف عملك الاستراتيجية",
         feature1Title: "أفكار وحلول مخصصة لكل نموذج عمل",
@@ -2972,7 +3048,7 @@ const resources = {
         feature6Title: "شراكة مخصصة ودعم مستمر للنمو",
         feature6Desc: "نعمل كشريك تكنولوجي طويل الأجل لمؤسستك ونرافقك في كافة مراحل تطوير وتوسيع منتجك.",
         exploreBtn: "استكشف أعمالنا",
-        buildBtn: "ابدأ مشروعك المخصص",
+        buildBtn: "ابدأ مشروعك",
         ctaTitle: "هل لديك فكرة لمنتج رقمي فريد ومتميز؟",
         ctaSubtitle: "تعاون مع فريقنا الخبير لتصميم وهندسة وإطلاق تطبيقات رقمية عالية الأداء مصممة خصيصاً لتحقيق أهداف عملك.",
         ctaBtn: "ابدأ بناء منتجك الآن"
@@ -2996,29 +3072,45 @@ const resources = {
       },
       testimonials: {
         badge: "آراء ورضا العملاء",
-        title: "موثوق بنا من قبل أكثر من 140 قائد منتج",
-        rating: "تقييم 5.0 من 5.0",
+        title: "موثوق بنا من قبل أكثر من 80 قائد منتج",
+        rating: "تقييم 4.6 من 5.0",
+        roles: {
+          r1: "مالك، مطعم برسبوليس",
+          r2: "مديرة العيادة، Tandläkaren",
+          r3: "شريك، مؤسسة الشيرازي",
+          r4: "الشريك الإداري، مؤسسة بارس للمحاماة",
+          r5: "مدير العمليات، FFSTECH"
+        },
+        orgs: {
+          o1: "زعفران ديلي",
+          o2: "غولستان للاستيراد",
+          o3: "رحيمي لخدمات العقارات",
+          o4: "عيادة ديبا للتجميل",
+          o5: "برشيا لخدمات السيارات",
+          o6: "إيكلوند للتصميم",
+          o7: "الحسيني للتموين"
+        },
         reviews: {
-          r1: "قامت روشالينك بتحويل لوحة تحكم الخدمات المصرفية القديمة لدينا إلى معمارية ميكرو فرونت إند فائقة السرعة بزمن استجابة أقل من 20 ملي ثانية.",
-          r2: "نظام التصميم المقدم من فريقهم زاد من سرعة التطوير متعدد المنصات لدينا بنسبة 300%.",
-          r3: "تنفيذ لا تشوبه شائبة وبدون انقطاع واحد. قام فريق DevOps الخاص بهم بإنشاء خط أنابيب النشر السحابي في وقت قياسي.",
-          r4: "جماليات بصرية مذهلة ومقاييس أداء دقيقة. موصى به بشدة!",
-          r5: "لقد قاموا بدمج مسارات الذكاء الاصطناعي التوليدي المخصصة بشكل سلس تماماً في تطبيق الويب الخاص بنا.",
-          r6: "نظام التصميم المرمز رائع للغاية ومنظم لدرجة أن إدارته بين فريقي الويب والجوال أصبحت سهلة للغاية.",
-          r7: "تم تسليم الامتثال لأعلى معايير ISO 27001 وأمان Zero-Trust دون أي تأثير على تجربة المستخدم.",
-          r8: "ارتفع معدل التحويل لدينا بنسبة 48% خلال شهرين فقط من إطلاق الواجهة الجديدة.",
-          r9: "دقة هندسية استثنائية. منحتنا لوحة التحكم المباشرة رؤية تشغيلية كاملة.",
-          r10: "العمل مع فريقهم القيادي المكون من 5 خبراء كان بمثابة العمل مع فريق مؤسس مشارك معنا مباشرة.",
-          r11: "قاموا بتوسيع نظام التتبع المباشر لدينا ليتعامل مع ملايين الطلبات المتزامنة بكل سهولة.",
-          r12: "تصميم واجهة مستخدم جميل وكود برمدي خلفي متين للغاية. لقد تجاوزوا كل أهدافنا.",
-          r13: "حافظ الموقع على زمن استجابة أقل من 20 ملي ثانية حتى أثناء ذروة الحركة والترافيك العالي.",
-          r14: "كمال بصري تام. الرسوم المتحركة ثلاثية الأبعاد والتفاعلات الدقيقة تسعد مستخدمينا كل يوم.",
-          r15: "تم تسليم تطبيق الويب المعقد قبل الموعد المحدد وبنسبة تغطية اختبار 100%.",
-          r16: "بسّط نظام التصميم الخاص بهم عملية تدويل المنصة وترجمتها إلى 12 لغة.",
-          r17: "لوحات تحكم ذكية وسلسة لخوارزميات الذكاء الاصطناعي المعقدة. يعشق مستخدمونا التجربة الجديدة.",
-          r18: "أعلى مستويات الاحترافية والكفاءة التقنية. شريك حقيقي من فئة 5 نجوم.",
-          r19: "هيكل كود برمدي نظيف للغاية. جعلت معمارية React & Vite انضمام المطورين الجدد سهلاً وسريعاً.",
-          r20: "لقد حولوا هوية علامتنا التجارية وتطبيق الويب إلى معيار رائد في قطاع الصناعة."
+          r1: "نظام الحجز أزال معظم المكالمات الهاتفية عن فريقنا. الضيوف يختارون طاولاتهم بأنفسهم ويرون القائمة بالسويدية والفارسية.",
+          r2: "المرضى يحجزون مواعيدهم بأنفسهم الآن. الاستقبال انتقل من هاتف يرن طوال الصباح إلى بضع مكالمات يومياً.",
+          r3: "طلبات الاستشارة تصل عبر الموقع بثلاث لغات. لاحظنا الفرق في عدد الاستفسارات خلال الشهرين الأولين.",
+          r4: "عمل جيد وموقع نحن راضون عنه. التصميم الأول كان أحدث مما يتوقعه عملاؤنا، لكنهم أعادوا العمل عليه بعد ملاحظاتنا.",
+          r5: "أخذوا وقتاً لفهم أنظمة إنذار الحريق والتيار المنخفض قبل هيكلة كتالوج المنتجات. هذا نادر لدى وكالات الويب.",
+          r6: "ميزانية صغيرة ونصيحة صادقة. أقنعونا بالتخلي عن ميزات لم نكن بحاجتها وسلمونا ما نستخدمه فعلاً.",
+          r7: "نتيجة جيدة. تأخر الجدول الزمني نحو أسبوع، لكنهم أبلغونا مبكراً وأبقونا على اطلاع.",
+          r8: "النسختان الفارسية والسويدية أنجزتا بشكل صحيح، وليست ترجمة آلية. هذا كان مهماً جداً لعملائنا.",
+          r9: "كود نظيف وتوثيق واضح. إدخال مطورينا بعد التسليم كان سهلاً.",
+          r10: "انتقلنا من غياب تام على الإنترنت إلى استفسارات منتظمة عبر نموذج التواصل. بسيط ويؤدي الغرض.",
+          r11: "الأداء جيد فعلاً. كنت أتمنى تسليم اختبارات آلية أكثر، لكن ما هو موجود مبني بإتقان.",
+          r12: "الحجز والمعرض وقائمة الأسعار في مكان واحد. توقف العملاء عن الاتصال للسؤال عن تكلفة الخدمات.",
+          r13: "أعادوا بناء صفحات منتجاتنا وانخفض زمن التحميل بشكل ملحوظ على الهاتف. والمبيعات تبعت ذلك.",
+          r14: "يؤدي ما طلبناه. استغرق الأمر جولتين حتى يناسب نموذج الحجز طريقة عملنا.",
+          r15: "سهل الوصول وسهل التحديث بأنفسنا. لوحة الإدارة كان يمكن أن تكون أبسط، لكننا نتدبر أمرنا.",
+          r16: "محترفون من الاجتماع الأول. طرحوا أسئلة عن عملنا أفضل مما فعلته وكالتنا السابقة.",
+          r17: "كعمل فردي احتجت شيئاً أستطيع صيانته بنفسي. أعدوه بحيث أستطيع ذلك.",
+          r18: "بنية جيدة وخيارات منطقية. التواصل كان بطيئاً أحياناً خلال العطلات.",
+          r19: "سلموا ضمن النطاق والميزانية. التقارير أثناء المشروع كان يمكن أن تكون أكثر انتظاماً.",
+          r20: "الطلبات تأتي عبر الموقع الآن بدل الهاتف. هذا وحده غير طريقة عملنا."
         }
       },
       ctaBanner: {
@@ -3042,9 +3134,17 @@ const resources = {
         emailPlaceholder: "أدخل بريدك الإلكتروني في العمل",
         subscribe: "اشترك في النشرة",
         rights: "© 2026 RoshaLink. جميع الحقوق محفوظة.",
-        privacyPolicy: "سياسة الخصوصية",
+        socialGlobal: "الشبكة العالمية",
+        socialShare: "مشاركة",
+        socialCommunity: "المجتمع",
+        cap1: "التصميم الاستراتيجي",
+        cap2: "تطوير المنتج",
+        cap3: "السحابة والبنية المعمارية",
+        cap4: "الذكاء الاصطناعي وذكاء الأعمال",
+        cap5: "أنظمة التصميم",
         termsOfService: "شروط الخدمة",
-        securitySpec: "مواصفات الأمان"
+        securitySpec: "مواصفات الأمان",
+        privacyPolicy: "سياسة الخصوصية"
       },
       modal: {
         badge: "بدء استكشاف المشروع",

@@ -158,7 +158,13 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
   return (
     <AnimatePresence>
       {isVisible && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
+        // rosha-chat-widget-root: a real, stable hook for other components to
+        // target -- the rest of this className is Tailwind (loaded via the
+        // CDN script in index.html), which nothing outside this file can
+        // reference by name. Footer.jsx uses this hook to fade the widget out
+        // while its own newsletter form is in the widget's fixed-position
+        // corner (see Footer.css's html.footer-form-visible rule).
+        <div className="rosha-chat-widget-root fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
 
           {/* Chat Window */}
           <AnimatePresence>

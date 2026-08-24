@@ -119,8 +119,9 @@
 [dir="rtl"] .footer-socials, .is-rtl .footer-socials { flex-direction: row-reverse; }
 
 .footer-social-link {
-  width: 2.25rem;
-  height: 2.25rem;
+  /* 44px minimum touch target (was 36px). */
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: var(--radius-lg);
   background-color: var(--color-white);
   border: 1px solid var(--color-slate-200);
@@ -137,8 +138,8 @@
 }
 
 .footer-social-icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.125rem;
+  height: 1.125rem;
 }
 
 .footer-links-col {
@@ -160,7 +161,9 @@
 .footer-links-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  /* The button below now supplies its own vertical rhythm via padding so its
+     tap target reaches 44px; a separate list gap would double that spacing. */
+  gap: 0;
   font-size: 0.875rem;
   color: var(--color-slate-600);
   list-style: none;
@@ -171,7 +174,11 @@
 .footer-link-btn {
   background: none;
   border: none;
-  padding: 0;
+  /* Vertical padding, not a taller line-height: reaches the 44px minimum
+     touch target (was ~21px tall) without enlarging the text itself. */
+  padding: 0.625rem 0;
+  min-height: 44px;
+  width: 100%;
   color: inherit;
   font: inherit;
   cursor: pointer;
@@ -202,6 +209,20 @@
   letter-spacing: 0.1em;
 }
 
+/* Plain summary list, not links -- see the comment in Footer.jsx for why
+   these aren't buttons. No hover state and no cursor change: either would
+   imply an interaction that isn't there. */
+.footer-cap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-slate-600);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .footer-news-col {
   display: flex;
   flex-direction: column;
@@ -226,14 +247,24 @@
 
 .footer-input {
   width: 100%;
+  /* min-height 48px so the submit button (inset 0.125rem top/bottom) reaches
+     the 44px touch-target minimum. box-sizing so that height and the padding
+     below are both spent inside it rather than added on top. Right padding
+     reserves room for the button -- without it, nothing stopped a long email
+     address from rendering underneath the (opaque) button. */
+  box-sizing: border-box;
+  min-height: 48px;
   background-color: var(--color-white);
   border: 1px solid var(--color-slate-300);
   border-radius: var(--radius-base);
-  padding: 0.5rem 0.75rem;
+  padding: 0.625rem 3.25rem 0.625rem 0.875rem;
   font-size: 0.875rem;
   color: var(--color-slate-900);
   transition: border-color 0.3s ease;
   box-shadow: var(--shadow-sm);
+}
+[dir="rtl"] .footer-input, .is-rtl .footer-input {
+  padding: 0.625rem 0.875rem 0.625rem 3.25rem;
 }
 
 .footer-input::placeholder {
@@ -247,24 +278,27 @@
 
 .footer-submit {
   position: absolute;
-  right: 0.25rem;
-  top: 0.25rem;
-  bottom: 0.25rem;
+  right: 0.125rem;
+  top: 0.125rem;
+  bottom: 0.125rem;
+  /* Height = input's 48px min-height minus the 0.125rem inset on both
+     sides = 44px. min-width matches on the other axis (was 38px). */
+  min-width: 44px;
   background-color: var(--color-sky-500);
   color: var(--color-white);
-  padding: 0 0.75rem;
   border-radius: var(--radius-base);
   font-size: 0.75rem;
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   border: none;
   transition: background-color 0.3s ease;
   box-shadow: var(--shadow-sm);
 }
 [dir="rtl"] .footer-submit, .is-rtl .footer-submit {
-  right: auto; left: 0.25rem;
+  right: auto; left: 0.125rem;
 }
 
 .footer-submit:hover {
@@ -289,7 +323,9 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: var(--color-slate-500);
+  /* slate-500 on slate-100 measures 4.34:1 -- just under WCAG AA's 4.5:1
+     minimum for normal text. slate-600 measures 6.92:1. */
+  color: var(--color-slate-600);
   gap: 0.5rem;
 }
 
@@ -307,6 +343,11 @@
 [dir="rtl"] .footer-bottom-links, .is-rtl .footer-bottom-links { flex-direction: row-reverse; }
 
 .footer-bottom-link {
+  /* Same touch-target reasoning as .footer-link-btn: padding instead of a
+     bigger font reaches 44px without changing how the text reads. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: inherit;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -331,6 +372,10 @@ html.dark .footer-social-link:hover {
 }
 html.dark .footer-links-list { color: var(--color-slate-400); }
 html.dark .footer-link-btn-text:hover { color: var(--color-slate-100); }
+html.dark .footer-cap-list { color: var(--color-slate-400); }
+/* indigo-600 on #0b1120 measures 2.99:1 -- well under WCAG AA's 4.5:1
+   minimum for normal text. indigo-400 measures a comfortable margin above it. */
+html.dark .footer-cap-title { color: var(--color-indigo-400); }
 html.dark .footer-news-sub { color: var(--color-slate-400); }
 html.dark .footer-input {
   background-color: rgba(15, 23, 42, 0.5);
@@ -339,3 +384,38 @@ html.dark .footer-input {
 }
 html.dark .footer-bottom { border-color: rgba(255, 255, 255, 0.1); }
 html.dark .footer-bottom-link:hover { color: var(--color-sky-400); }
+
+/* Chat widget clearance ---------------------------------------------------
+   RoshaChatWidget floats fixed at the bottom-right of the viewport, which
+   sits directly on top of the newsletter input and submit button whenever
+   this section scrolls into that corner -- verified via getBoundingClientRect:
+   the closed widget bubble is 80x80 and fully covers the 38x44 submit button
+   at the scroll position where the footer naturally comes into view.
+
+   Footer.jsx observes .footer-news-col and toggles this class on <html>
+   while it's within the widget's fixed-position band (see the
+   IntersectionObserver there for the rootMargin reasoning). The widget just
+   fades out rather than being physically moved, so it reappears the instant
+   the newsletter scrolls back out of the way.
+
+   The second selector (and its `*`) is needed because the widget's own
+   toggle button sets pointer-events:auto directly on itself (Tailwind,
+   loaded via the CDN script in index.html -- see the comment on
+   .rosha-chat-widget-root in RoshaChatWidget.jsx), which overrides an
+   ancestor's pointer-events:none. !important guarantees this wins regardless
+   of which stylesheet loads first; consistent with existing use elsewhere in
+   this codebase for the same kind of forced override. */
+html.footer-form-visible .rosha-chat-widget-root {
+  /* !important on both properties, not just opacity: the Tailwind Play CDN
+     (index.html) re-JIT-compiles its stylesheet at runtime as the app
+     re-renders, so this rule's position relative to Tailwind's in the
+     cascade isn't reliably "later" just because Footer.css loaded after it
+     once. Confirmed by testing: pointer-events (which already had
+     !important) applied correctly, opacity without it did not. */
+  opacity: 0 !important;
+  transition: opacity 200ms ease;
+}
+html.footer-form-visible .rosha-chat-widget-root,
+html.footer-form-visible .rosha-chat-widget-root * {
+  pointer-events: none !important;
+}

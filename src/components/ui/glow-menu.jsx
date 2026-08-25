@@ -68,7 +68,13 @@ export const MenuBar = React.forwardRef(
               <motion.li key={item.label} className="relative">
                 <button
                   onClick={() => onItemClick?.(item.id || item.label)}
-                  className="block w-full cursor-pointer"
+                  // min-h-11 (44px): the visible pill is ~32px tall (py-2 +
+                  // text-xs), under the 44px touch-target minimum. flex +
+                  // items-center grows the invisible hit area to 44px and
+                  // centers the pill inside it without changing how it looks
+                  // -- the 3D hover/flip effect below is unaffected, since it
+                  // sizes itself off the pill's own content, not this button.
+                  className="flex items-center justify-center w-full min-h-11 cursor-pointer"
                 >
                   <motion.div
                     className="block rounded-xl overflow-visible group relative"

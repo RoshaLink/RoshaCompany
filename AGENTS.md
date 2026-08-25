@@ -24,7 +24,15 @@ From `package.json` (versions are the declared ranges):
 - Vite 8.1 with `@vitejs/plugin-react` 6.0; ESM only (`"type": "module"`)
 - **Tailwind is loaded from the CDN in `index.html`**, not as a build dependency —
   theme tokens (colors, fonts, radii) are configured in the inline `tailwind.config`
-  script there. There is no `tailwind.config.js` and no PostCSS step.
+  script there. There is no `tailwind.config.js` and no PostCSS step. This is
+  specifically Tailwind's **Play CDN** (`cdn.tailwindcss.com`) — Tailwind's own
+  docs say not to use it in production, since it ships the full JIT compiler to
+  the browser and recompiles utility CSS on every load instead of a purged
+  build. Also means any Tailwind class on an element (e.g. `RoshaChatWidget`'s
+  root) is invisible to plain CSS selectors from outside that file unless the
+  element also carries a real, non-Tailwind class name to hook onto. Tracked
+  as issue #17, not fixed opportunistically — migrating off it touches every
+  component's className strings.
 - `framer-motion` 12.43 for animation (used in ~10 components), `lucide-react` 1.27
   for icons (~35 files), `react-icons` in one file (`ui/circular-testimonials.jsx`)
 - `i18next` 26 + `react-i18next` 17; all strings live in `src/i18n.js`
@@ -132,7 +140,37 @@ everything except `/api/*` to `/index.html` so deep links work.
   `ThemeContext`; write dark styles as `html.dark <selector>`.
 - User-visible text goes through `useTranslation()` / `t('some.key')`. Add the key
   to **all four** locales in `src/i18n.js` — `src/i18n.test.js` fails the build on
-  key drift, and leaf values must be strings.
+  key drift, and leaf values must be strings. Easy to miss for text that doesn't
+  look like copy — a feature list, a secondary footer link, a reviewer's job
+  title. This branch found and fixed three components with a hardcoded-English
+  (or hardcoded-Swedish) string sitting inside an otherwise fully translated
+  block; when a string bundles a translatable phrase with a proper noun that has
+  no natural form in every locale (a job title + company name, etc.), split them
+  into separate keys rather than concatenating one translated and one hardcoded
+  piece — see `testimonials.roles.rN` / `testimonials.orgs.oN` in
+  `TestimonialsColumn.jsx`.
+- Interactive controls keep a 44×44px minimum hit area regardless of their
+  visual size — grow the invisible box via `min-height`/`min-width` (or a
+  `flex` + `min-h-11` wrapper for Tailwind-only components) rather than
+  enlarging the element itself. Icon-only controls need both `aria-label`
+  (accessible name) and `title` (visible tooltip) — neither alone covers both
+  screen-reader and mouse/touch users. Dense, adjacent controls where a 44px
+  hit area would overlap a neighbor (pagination dots, etc.) are an accepted,
+  documented exception — see the comment on `.hero-dot` in `minimalist-hero.css`.
+- Visually-hidden but AT-visible text (a `<label>` for an icon-only field, etc.)
+  uses the `.sr-only` utility in `index.css`, not `display: none` or a
+  zero-size element.
+- A fractional/partial rating (anything that isn't a flat 5-star) renders
+  through `src/components/StarRating/`, which clips a filled star over an
+  outline one — don't hand-roll `Array(5).fill(<Star/>)`.
+- `RoshaChatWidget` is `position: fixed` at the bottom-right of every page and
+  can visually cover other fixed/bottom-of-viewport controls (confirmed: it
+  covered the footer newsletter button at some scroll positions). Its root div
+  carries a real `rosha-chat-widget-root` class specifically so other
+  components can target it, since the rest of its className is CDN-JIT'd
+  Tailwind (see the Tailwind CDN note above) and not selectable from outside
+  that file. `Footer.jsx`'s `IntersectionObserver` + `html.footer-form-visible`
+  fade is the reference pattern for resolving a collision with it.
 - RTL: `Navbar.jsx` sets `document.documentElement.dir`/`lang` on language change.
   Components handle it with an `is-rtl` / `is-ltr` class or Tailwind `rtl:` variants.
 - Form submits: `isSubmitting` guard, `error` boolean, success state set **only**
@@ -156,6 +194,8 @@ everything except `/api/*` to `/index.html` so deep links work.
   `api/_lib/companyFacts.js`, and never add a fact the company would not stand
   behind in writing (it also carries an explicit "never state" list).
 - **Always** add new translation keys to `sv`, `en`, `fa` and `ar` together.
+- **Always** give interactive controls a 44×44px minimum hit area — see
+  Conventions.
 - **Always** raise the matching budget in `scripts/check-bundle-size.js` in the
   same PR when a change legitimately grows the bundle.
 - **Always** run `npm run build` before `npm run size` — it reads `dist/assets`.

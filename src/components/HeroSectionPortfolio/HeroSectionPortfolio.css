@@ -197,12 +197,22 @@
   border-color: var(--color-sky-300);
 }
 
-/* Floating Glassmorphic Pill */
+/* Glassmorphic Pill -- caption under the image on phones/tablets, then
+   floats over the image's corner from 1024px up.
+   Below 1024px, .portfolio-hero-flex-wrapper stacks image and text in a
+   single column, so .portfolio-hero-image-side is exactly the viewport
+   width -- as narrow as ~300px on a phone. Capping the floating pill's
+   width (however small the cap) never stopped it colliding with the
+   mascot in the photo, because the cap didn't shrink with the image: a
+   200px pill is a corner accent on a 600px desktop image but covers
+   most of a 300px phone image. Keeping it in normal document flow
+   below the image at these widths removes the overlap risk structurally
+   instead of trying to tune it away with magic numbers. */
 .portfolio-hero-floating-pill {
-  position: absolute;
-  bottom: 0.75rem;
+  position: static;
   display: flex;
   align-items: center;
+  margin-top: 0.75rem;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-xl);
   background-color: rgba(255, 255, 255, 0.95);
@@ -210,39 +220,34 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(226, 232, 240, 0.9);
   box-shadow: var(--shadow-lg);
-  max-width: calc(100% - 1.5rem);
+  max-width: 100%;
   transition: all 300ms ease;
   z-index: 20;
 }
 
-.portfolio-hero-floating-pill.is-ltr {
-  left: 0.75rem;
+/* The pill's only child (the title/subtitle wrapper) is a flex item with
+   the flexbox default min-width: auto, which refuses to shrink below its
+   text's natural width -- so even though the pill itself was capped, the
+   text inside it wasn't, and the last sliver ("...Lösningar") overflowed
+   past the pill and got clipped by .portfolio-hero-card-frame's
+   overflow: hidden. min-width: 0 lets it actually wrap within the pill's
+   width instead of silently overflowing. */
+.portfolio-hero-floating-pill > div {
+  min-width: 0;
 }
 
-.portfolio-hero-floating-pill.is-rtl {
-  right: 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .portfolio-hero-floating-pill {
-    bottom: 1.25rem;
-    padding: 0.75rem 1rem;
-    border-radius: var(--radius-2xl);
-  }
-
-  .portfolio-hero-floating-pill.is-ltr {
-    left: 1.25rem;
-  }
-
-  .portfolio-hero-floating-pill.is-rtl {
-    right: 1.25rem;
-  }
+.portfolio-hero-pill-title,
+.portfolio-hero-pill-subtitle {
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 1024px) {
   .portfolio-hero-floating-pill {
+    position: absolute;
     bottom: 1.5rem;
+    margin-top: 0;
     padding: 0.875rem 1.25rem;
+    max-width: min(calc(100% - 3rem), 200px);
   }
 
   .portfolio-hero-floating-pill.is-ltr {
@@ -256,43 +261,19 @@
 
 /* Floating Pill Typography Scaling */
 .portfolio-hero-pill-title {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.2;
   font-weight: 800;
 }
 
 .portfolio-hero-pill-subtitle {
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.2;
-}
-
-@media (min-width: 640px) {
-  .portfolio-hero-pill-title {
-    font-size: 11px;
-  }
-
-  .portfolio-hero-pill-subtitle {
-    font-size: 10px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .portfolio-hero-pill-title {
-    font-size: 12px;
-  }
-
-  .portfolio-hero-pill-subtitle {
-    font-size: 11px;
-  }
 }
 
 @media (min-width: 1536px) {
   .portfolio-hero-pill-title {
     font-size: 13px;
-  }
-
-  .portfolio-hero-pill-subtitle {
-    font-size: 12px;
   }
 }
 

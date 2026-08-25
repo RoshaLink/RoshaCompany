@@ -59,61 +59,97 @@
   }
 }
 
-@keyframes glass-shine-white {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 .glass-text-shine {
-  color: #ffffff;
-  /* Pure White base text with luminous icy-blue shimmer - 100% white, zero dark slate/black! */
-  background: linear-gradient(115deg,
-      #ffffff 0%,
-      #ffffff 25%,
-      #e0f2fe 45%,
-      #38bdf8 50%,
-      #e0f2fe 55%,
-      #ffffff 75%,
-      #ffffff 100%);
-  background-size: 250% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: glass-shine-white 10s ease-in-out infinite;
-
-  /* 3D Embossed (حالت برجسته) multi-layer pop effect */
-  filter:
-    drop-shadow(0 1px 1px rgba(15, 23, 42, 0.75)) drop-shadow(0 3px 6px rgba(15, 23, 42, 0.45)) drop-shadow(0 8px 20px rgba(56, 189, 248, 0.4));
+  /* Confident Dark: solid ink title, brand-blue accent on the emphasized
+     phrase. Replaces the old white-on-white shimmer, which depended on
+     three stacked drop-shadows for contrast and was set to a font-weight
+     (900) the page never actually loads (Montserrat tops out at 800),
+     so it rendered faux-bold on top of being low-contrast. */
+  color: var(--color-slate-900);
+  font-weight: 800;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   display: inline-block;
 }
 
-.hero-video-blend {
-  -webkit-mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
-    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask-composite: intersect;
+.glass-text-shine span {
+  color: var(--color-sky-600);
 }
 
-@media (min-width: 1024px) {
-  .hero-video-blend {
-    -webkit-mask-image:
-      linear-gradient(to bottom, transparent 0%, black 10%, black 100%),
-      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-    mask-image:
-      linear-gradient(to bottom, transparent 0%, black 10%, black 100%),
-      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+/* This component's own dark-mode text colors. Note: .hero-section's dark
+   background currently comes from an unrelated class-name collision with
+   ui/minimalist-hero.css's ".hero-section" / ".hero-subtitle" rules (see
+   html.dark .hero-section there) rather than from anything in this file --
+   worth deduping later. Declaring our own overrides here means this
+   component's text stays correct even if that collision gets fixed. */
+html.dark .glass-text-shine {
+  color: var(--color-slate-50);
+}
+
+html.dark .glass-text-shine span {
+  color: var(--color-sky-400);
+}
+
+/* The two emphasised phrases in the H1. Same gradient as .blue-text-shine on
+   the "högst upp på Google" headline (SearchVisibilityShowcase.css), but the
+   keyframes are declared here rather than borrowed from that file so this
+   component doesn't depend on another one being imported.
+
+   The two sweep in opposite directions -- accent-2 just runs the same
+   animation reversed -- which reads as two separate phrases rather than one
+   long coloured run. No `white-space: nowrap` (unlike .blue-text-shine): the
+   H1 has to wrap on narrow screens. */
+.hero-title-accent {
+  background-image: linear-gradient(
+    115deg,
+    #0284c7 0%,
+    #2563eb 25%,
+    /* .blue-text-shine runs #bae6fd -> #ffffff -> #bae6fd across these three
+       stops. At the hero's type size, on a near-white background, that sweep
+       drops a whole word to near-invisible as it passes. Keeping the same
+       blues but stopping the highlight at sky-200 preserves the shine and
+       stays readable through the whole cycle. */
+    #7dd3fc 45%,
+    #bae6fd 50%,
+    #7dd3fc 55%,
+    #4f46e5 75%,
+    #0284c7 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-title-accent-1 {
+  animation: hero-title-sweep 6s ease-in-out infinite;
+}
+
+.hero-title-accent-2 {
+  animation: hero-title-sweep 6s ease-in-out infinite reverse;
+}
+
+@keyframes hero-title-sweep {
+  0% {
+    background-position: -200% 0;
   }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-accent-1,
+  .hero-title-accent-2 {
+    animation: none;
+    /* Park the gradient mid-sweep so the text keeps its colour without motion. */
+    background-position: 50% 0;
+  }
+}
+
+html.dark .hero-subtitle {
+  color: var(--color-slate-300);
 }
 
 /* Base structural classes */
@@ -121,6 +157,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh; /* accounts for mobile browser chrome; falls back to 100vh where dvh is unsupported */
   overflow: hidden;
   background-color: var(--color-surface);
   color: var(--color-slate-900);
@@ -134,9 +171,15 @@
 
 @media (min-width: 1024px) {
   .hero-section {
-    height: 100vh;
-    min-height: 620px;
-    max-height: 1080px;
+    /* Was a fixed `height: 100vh` (capped 620-1080px) with the parent's
+       overflow: hidden -- on any laptop where the browser chrome eats into
+       the viewport (extremely common at ~768-800px tall), the title,
+       subtitle, buttons and capability strip together were taller than
+       that fixed box and the buttons/strip were silently clipped off the
+       bottom. min-height lets the section grow to fit its content instead
+       of cropping it; it still fills the screen on anything tall enough. */
+    min-height: 100vh;
+    min-height: 100dvh;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -183,7 +226,15 @@
 
 @media (min-width: 1024px) {
   .hero-container {
-    height: 100%;
+    /* Was `height: 100%`, which resolved fine back when .hero-section had
+       an explicit `height: 100vh`. Now that .hero-section only sets
+       min-height (so it can grow on short viewports instead of clipping),
+       its own height counts as "auto" for percentage purposes, so a
+       percentage height here -- and on .hero-video-panel below, which
+       also uses height: 100% -- stopped resolving and collapsed to 0.
+       flex-grow fills the same space without depending on the parent
+       having a definite height. */
+    flex: 1 1 auto;
     padding-top: 7rem;
     flex-direction: row;
   }
@@ -376,6 +427,7 @@
   font-weight: 700;
   font-family: var(--font-mono);
   padding: 0.75rem;
+  min-height: 44px;
   border-radius: var(--radius-full);
   box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -385,7 +437,7 @@
   gap: 0.25rem;
   cursor: pointer;
   border: 1px solid rgba(56, 189, 248, 0.4);
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
@@ -426,9 +478,10 @@
   color: var(--color-slate-800);
   font-weight: 700;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   padding: 0.75rem;
   border-radius: var(--radius-full);
+  min-height: 44px;
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: var(--shadow-sm);
@@ -532,7 +585,7 @@
 }
 
 .hero-cap-title {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--color-slate-900);
   line-height: 1.25;
@@ -553,7 +606,7 @@
 }
 
 .hero-cap-sub {
-  font-size: 9px;
+  font-size: 12px;
   color: var(--color-slate-600);
   line-height: 1.375;
   display: -webkit-box;
@@ -575,13 +628,35 @@
   }
 }
 
+/* Pre-existing dark-mode gap: these never had a dark counterpart, so the
+   capability strip's titles were near-black text on the near-black dark
+   background (and the dividers/subtext were low-contrast too). */
+html.dark .hero-capability-strip {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .hero-cap-border-s {
+  border-inline-start-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark .hero-cap-title {
+  color: var(--color-slate-100);
+}
+
+html.dark .hero-cap-sub {
+  color: var(--color-slate-400);
+}
+
 .hero-video-panel {
   position: relative;
   flex: 1 1 0%;
   min-height: 35vh;
   order: 1;
   overflow: hidden;
-  background-color: var(--color-white);
+  /* No background of its own -- the video sits in a framed card
+     (.hero-video-wrapper) that floats on top of .hero-section's own
+     background, light or dark. Painting white here too used to leave a
+     stark white slab behind the card in dark mode. */
   pointer-events: auto;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -595,8 +670,15 @@
 
 @media (min-width: 1024px) {
   .hero-video-panel {
+    /* `height: 100%` used to work because .hero-section had an explicit
+       height; now that it only has min-height, that percentage no longer
+       resolves and the panel collapsed to 0. align-self: stretch (the
+       flex default, stated explicitly here) fills .hero-container's
+       cross-axis without depending on any ancestor having a definite
+       height, so it works the same regardless of how tall the section
+       ends up being. */
     min-height: 0;
-    height: 100%;
+    align-self: stretch;
     order: 2;
     margin-top: 0;
     margin-bottom: 0;
@@ -604,6 +686,10 @@
 }
 
 .hero-video-wrapper {
+  /* Framed Screen treatment -- same "device card" language as the bottom
+     CTA banner's .cta-image-inner: a translucent, blurred card with a
+     border and shadow, so the video's own white backdrop reads as an
+     intentional screen instead of a raw slab against a dark page. */
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -612,6 +698,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.75rem;
+  /* Geometry (radius, padding, border width) is deliberately identical in
+     both themes so the video inside is exactly the same size either way --
+     only the colours below change between light and dark. */
+  border-radius: var(--radius-3xl);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-lg);
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -620,6 +717,7 @@
     right: 1rem;
     bottom: 1rem;
     left: 1rem;
+    padding: 1rem;
   }
 }
 
@@ -629,21 +727,58 @@
     right: 1.5rem;
     bottom: 1.5rem;
     left: 1.5rem;
+    /* Matches .search-video-frame's own 1024px padding step. */
+    padding: 1.5rem;
   }
+}
+
+html.dark .hero-video-wrapper {
+  /* Colours only -- .search-video-frame's dark treatment (see
+     SearchVisibilityShowcase.css). The shape is shared with light mode above. */
+  background-color: rgba(15, 23, 42, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* The search section's card is sized by its content, so it hugs the video as
+   a wide 16:9 panel. The hero's card can't do that -- it is absolutely
+   positioned to fill .hero-video-panel, which stretches to the full height of
+   the hero. Giving the panel the video's own aspect ratio (and stopping it
+   stretching) makes the card hug the video the same way, which is what
+   actually makes the two read as the same component. Declared after the
+   media queries above so it overrides their min-height/align-self, and
+   applied in both themes so the video is the same size in each. */
+.hero-video-panel {
+  align-self: center;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
 }
 
 .hero-video-el {
-  width: 100%;
+  /* `width: auto` lets the element box take the video's own 16:9 ratio rather
+     than the card's slightly wider one. Without it `object-fit: contain`
+     letterboxes the picture inside a wider box, and the radius below rounds
+     that invisible box edge instead of the video's white backdrop. */
+  width: auto;
   height: 100%;
-  max-height: 70vh;
+  max-width: 100%;
+  /* The panel's aspect ratio sizes the card, so no height cap of its own. */
+  max-height: none;
   object-fit: contain;
   object-position: center;
+  /* var(--radius-2xl), same as .search-video. */
+  border-radius: var(--radius-2xl);
+  /* Matches the card's own surface, so the moment before the video has
+     decoded its first frame reads as "card is ready" instead of a flash
+     of the browser's default black. */
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-@media (min-width: 1024px) {
-  .hero-video-el {
-    max-height: 100%;
-  }
+html.dark .hero-video-el {
+  background-color: rgba(15, 23, 42, 0.75);
 }
 
 .hero-video-controls {
@@ -683,6 +818,8 @@
 .hero-control-btn {
   padding: 0.625rem;
   border-radius: var(--radius-full);
+  min-height: 44px;
+  min-width: 44px;
   background-image: linear-gradient(to right, var(--color-sky-500), var(--color-blue-600));
   color: var(--color-white);
   border: 1px solid rgba(56, 189, 248, 0.4);

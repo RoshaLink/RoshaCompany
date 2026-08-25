@@ -333,8 +333,9 @@
   }
 
   .hero-controls-mobile .hero-btn-arrow {
-    width: 2.25rem;
-    height: 2.25rem;
+    /* 2.75rem (44px) touch-target minimum -- was 2.25rem (36px). */
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: var(--radius-xl);
   }
 
@@ -376,8 +377,14 @@
 
 @media (min-width: 768px) {
   .hero-btn-action {
+    /* Same tablet-range dip as .hero-btn-arrow above: this shrank the
+       button to ~38px tall, under the 44px minimum, while both the range
+       below (mobile) and above (1024px+) already clear it. min-height
+       keeps the more compact padding/font-size (the visual intent here)
+       but guarantees the tap target regardless. */
     font-size: 0.75rem;
     padding: 0.75rem 1.25rem;
+    min-height: 44px;
   }
 }
 
@@ -730,8 +737,12 @@
 
 @media (min-width: 768px) {
   .hero-btn-arrow {
-    width: 2rem;
-    height: 2rem;
+    /* 2.75rem (44px), not 2rem (32px): both the range below (mobile,
+       default 3rem) and above (1024px+, back to 3rem) already clear the
+       44px touch-target minimum -- this was the one range that dipped
+       under it. */
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: var(--radius-xl);
   }
 }

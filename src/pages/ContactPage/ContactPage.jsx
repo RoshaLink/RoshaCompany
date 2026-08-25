@@ -249,141 +249,215 @@ export default function ContactPage() {
 
           {/* Right Column (7 Cols on desktop): Lead Submission Glassmorphic Form */}
           <div className="lg:col-span-7">
-            <div className="contact-form-glass">
-              {submitted ? (
-                /* Success Confirmation State */
-                <div className="text-center py-8 sm:py-10 space-y-5 sm:space-y-6 animate-fade-in">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
-                    <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                      {t('contactPage.submittedTitle', 'Discovery Request Received!')}
-                    </h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
-                      {t('contactPage.submittedSub', 'Our lead architect will review your project requirements and email you back within 4 business hours.')}
-                    </p>
-                  </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="contact-form-glass"
+            >
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  /* Success Confirmation State with Motion Animation */
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-center py-8 sm:py-10 space-y-5 sm:space-y-6"
+                  >
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
+                      <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        {t('contactPage.submittedTitle', 'Discovery Request Received!')}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+                        {t('contactPage.submittedSub', 'Our lead architect will review your project requirements and email you back within 4 business hours.')}
+                      </p>
+                    </div>
 
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: '', email: '', company: '', message: '' });
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: '', email: '', company: '', message: '' });
+                      }}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                    >
+                      <span>{t('contactPage.sendAnotherBtn', 'Skicka ett till meddelande')}</span>
+                    </button>
+                  </motion.div>
+                ) : (
+                  /* Main Interactive Form with Staggered Field Motion */
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{
+                      hidden: {},
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.08,
+                        },
+                      },
                     }}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                    className={`space-y-3 sm:space-y-4 font-normal ${isRTL ? 'text-right' : 'text-left'}`}
                   >
-                    <span>{t('contactPage.sendAnotherBtn', 'Skicka ett till meddelande')}</span>
-                  </button>
-                </div>
-              ) : (
-                /* Main Interactive Form */
-                <form onSubmit={handleSubmit} className={`space-y-3 sm:space-y-4 font-normal ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className="space-y-0.5 sm:space-y-1">
-                    <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                      {t('contactPage.formTitle', 'Send Us a Brief')}
-                    </h3>
-                    <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 leading-snug">
-                      {t('contactPage.formSubtitle', 'Tell us about your project goals, technical stack, or timeline requirements.')}
-                    </p>
-                  </div>
-                  
-                  {/* Name & Email Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4">
-                    <div className="space-y-1">
-                      <label htmlFor="contact-name-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                        {t('contactPage.fieldName', 'Your Full Name')}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-0.5 sm:space-y-1"
+                    >
+                      <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                        {t('contactPage.formTitle', 'Send Us a Brief')}
+                      </h3>
+                      <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 leading-snug">
+                        {t('contactPage.formSubtitle', 'Tell us about your project goals, technical stack, or timeline requirements.')}
+                      </p>
+                    </motion.div>
+                    
+                    {/* Name & Email Row */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4"
+                    >
+                      <div className="space-y-1">
+                        <label htmlFor="contact-name-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                          {t('contactPage.fieldName', 'Your Full Name')}
+                        </label>
+                        <input
+                          id="contact-name-input"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder={t('contactPage.fieldNamePlaceholder', 'John Doe')}
+                          className="contact-input"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label htmlFor="contact-email-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                          {t('contactPage.fieldEmail', 'Work Email')}
+                        </label>
+                        <input
+                          id="contact-email-input"
+                          type="email"
+                          required
+                          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder={t('contactPage.fieldEmailPlaceholder', 'john@company.com')}
+                          className="contact-input"
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Company & Role */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-1"
+                    >
+                      <label htmlFor="contact-company-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                        {t('contactPage.fieldCompany', 'Company Name & Role')}
                       </label>
                       <input
-                        id="contact-name-input"
+                        id="contact-company-input"
                         type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder={t('contactPage.fieldNamePlaceholder', 'John Doe')}
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder={t('contactPage.fieldCompanyPlaceholder', 'Enterprise Inc / CTO')}
                         className="contact-input"
                       />
-                    </div>
+                    </motion.div>
 
-                    <div className="space-y-1">
-                      <label htmlFor="contact-email-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                        {t('contactPage.fieldEmail', 'Work Email')}
+                    {/* Message Field */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-1"
+                    >
+                      <label htmlFor="contact-message-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                        {t('contactPage.fieldMessage', 'Project Overview & Timeline')}
                       </label>
-                      <input
-                        id="contact-email-input"
-                        type="email"
+                      <textarea
+                        id="contact-message-input"
+                        rows={3}
                         required
-                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder={t('contactPage.fieldEmailPlaceholder', 'john@company.com')}
-                        className="contact-input"
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder={t('contactPage.fieldMessagePlaceholder', 'Describe your project goals, technical stack, or timeline requirements...')}
+                        className="contact-input min-h-[85px] sm:min-h-[110px] resize-y"
                       />
-                    </div>
-                  </div>
+                    </motion.div>
 
-                  {/* Company & Role */}
-                  <div className="space-y-1">
-                    <label htmlFor="contact-company-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                      {t('contactPage.fieldCompany', 'Company Name & Role')}
-                    </label>
-                    <input
-                      id="contact-company-input"
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder={t('contactPage.fieldCompanyPlaceholder', 'Enterprise Inc / CTO')}
-                      className="contact-input"
-                    />
-                  </div>
-
-                  {/* Message Field */}
-                  <div className="space-y-1">
-                    <label htmlFor="contact-message-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                      {t('contactPage.fieldMessage', 'Project Overview & Timeline')}
-                    </label>
-                    <textarea
-                      id="contact-message-input"
-                      rows={3}
-                      required
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder={t('contactPage.fieldMessagePlaceholder', 'Describe your project goals, technical stack, or timeline requirements...')}
-                      className="contact-input min-h-[85px] sm:min-h-[110px] resize-y"
-                    />
-                  </div>
-
-                  {/* Error Notification */}
-                  {error && (
-                    <div className="text-[11px] sm:text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 rounded-xl p-2.5 sm:p-3.5 flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1 shrink-0" />
-                      <p>{t('contactPage.errorMessage', "We couldn't send your brief. Please try again in a moment.")}</p>
-                    </div>
-                  )}
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="contact-submit-btn w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2.5 sm:py-3.5 px-3 sm:px-6 rounded-xl transition-all shadow-lg hover:shadow-sky-500/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed transform active:scale-[0.99]"
-                  >
-                    <span className="truncate text-xs sm:text-sm">
-                      {isSubmitting 
-                        ? t('contactPage.submittingBtn', 'Sending...') 
-                        : t('contactPage.submitBtn', 'Submit Strategic Brief')}
-                    </span>
-                    {isSubmitting ? (
-                      <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin shrink-0" />
-                    ) : (
-                      <Send className={`w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                    {/* Error Notification */}
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="text-[11px] sm:text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 rounded-xl p-2.5 sm:p-3.5 flex items-start gap-2"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1 shrink-0" />
+                        <p>{t('contactPage.errorMessage', "We couldn't send your brief. Please try again in a moment.")}</p>
+                      </motion.div>
                     )}
-                  </button>
-                </form>
-              )}
-            </div>
+
+                    {/* Submit Button */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className={`flex ${isRTL ? 'justify-start' : 'justify-end'}`}
+                    >
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                        whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                        className="contact-submit-btn w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-sky-500/25 inline-flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        <span className="text-xs sm:text-sm">
+                          {isSubmitting 
+                            ? t('contactPage.submittingBtn', 'Sending...') 
+                            : t('contactPage.submitBtn', 'Submit Brief')}
+                        </span>
+                        {isSubmitting ? (
+                          <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+                        ) : (
+                          <Send className={`w-4 h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                        )}
+                      </motion.button>
+                    </motion.div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </motion.div>
 
             {/* Animated Interactive "Vad händer sedan?" Step Card */}
-            <div className="mt-4 sm:mt-6 p-4 sm:p-6 rounded-2xl bg-white/80 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 backdrop-blur-xl shadow-lg dark:shadow-2xl/40 space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="contact-next-steps-card mt-4 sm:mt-6 rounded-2xl space-y-4 cursor-pointer"
+            >
               {/* Card Header: Title & Step Counter Controls */}
               <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isRTL ? 'is-rtl' : ''}`}>
                 <div className={`space-y-0.5 ${isRTL ? 'text-right' : 'text-left'}`}>
@@ -391,69 +465,69 @@ export default function ContactPage() {
                     <Sparkles className="w-4 h-4 text-sky-500 shrink-0 animate-pulse" />
                     <span>{t('contactPage.nextStepsTitle', 'Vad händer sedan?')}</span>
                   </h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    {t('contactPage.nextStepsSub', 'Tre enkla steg från din förfrågan till startat projekt')}
+                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+                    {t('contactPage.nextStepsSub', 'Vår transparenta process från första kontakt till start.')}
                   </p>
                 </div>
 
-                {/* Counter & Nav Buttons */}
-                <div className="flex items-center gap-2 self-end sm:self-auto">
-                  <span className="text-xs font-semibold text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700">
+                {/* Step indicators & Next/Prev navigation controls */}
+                <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                  <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
                     {t('contactPage.stepLabel', 'Steg')} {activeStep + 1} {t('contactPage.ofLabel', 'av')} {stepsData.length}
                   </span>
                   <div className="flex items-center gap-1">
                     <button
                       type="button"
-                      onClick={isRTL ? handleNextStep : handlePrevStep}
-                      aria-label={t('contactPage.prevBtn', 'Föregående')}
-                      title={t('contactPage.prevBtn', 'Föregående')}
+                      onClick={handlePrevStep}
+                      aria-label="Previous"
+                      title="Previous"
                       className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
                     >
-                      <ChevronLeft className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                      <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       type="button"
-                      onClick={isRTL ? handlePrevStep : handleNextStep}
-                      aria-label={t('contactPage.nextBtn', 'Nästa')}
-                      title={t('contactPage.nextBtn', 'Nästa')}
+                      onClick={handleNextStep}
+                      aria-label="Next"
+                      title="Next"
                       className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
                     >
-                      <ChevronRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                      <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* Animated Card Content */}
-              <div className="relative min-h-[180px] sm:min-h-[160px] overflow-hidden">
+              {/* Dynamic Animated Step Card Content */}
+              <div className="relative min-h-[175px] sm:min-h-[160px] overflow-hidden rounded-xl bg-slate-100/70 dark:bg-slate-800/50 p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-700/60">
                 <AnimatePresence mode="wait">
                   {stepsData.map((step, idx) => {
                     if (idx !== activeStep) return null;
                     const StepIcon = step.icon;
                     return (
                       <motion.div
-                        key={idx}
+                        key={step.id}
                         initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: isRTL ? 20 : -20 }}
-                        transition={{ duration: 0.3, ease: 'easeInOut' }}
-                        className={`p-4 sm:p-5 rounded-xl bg-slate-50/90 dark:bg-slate-800/50 border ${step.border} space-y-3 ${isRTL ? 'text-right' : 'text-left'}`}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className={`space-y-3.5 ${isRTL ? 'text-right' : 'text-left'}`}
                       >
-                        <div className="flex items-center justify-between gap-3">
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <div className={`w-9 h-9 rounded-xl ${step.bg} ${step.color} flex items-center justify-center shrink-0`}>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2.5">
+                            <div className="p-2 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 shrink-0">
                               <StepIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
-                            <h5 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate">
+                            <h5 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
                               {t(step.titleKey)}
                             </h5>
                           </div>
-                          <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border border-slate-200/60 dark:border-slate-700/80 ${step.badgeBg} shrink-0`}>
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 shrink-0">
                             {t(step.badgeKey)}
                           </span>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                           {t(step.descKey)}
                         </p>
 
@@ -486,7 +560,7 @@ export default function ContactPage() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
         </div>

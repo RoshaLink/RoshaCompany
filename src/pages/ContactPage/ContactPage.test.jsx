@@ -10,7 +10,7 @@ function mockFetch({ ok = true } = {}) {
   return fn
 }
 
-const SUBMIT = /submit strategic brief/i
+const SUBMIT = /submit brief/i
 
 async function fillRequiredFields(user, { email = 'john@company.com' } = {}) {
   await user.type(screen.getByPlaceholderText('John Doe'), 'John Doe')

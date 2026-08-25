@@ -75,7 +75,8 @@ export default function Footer({ setActivePage }) {
               </svg>
             </div>
             <span className="footer-logo-text">
-              RoshaLink
+              <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>
+              <span className="footer-logo-link-text">{t('footer.brandLink', 'LINK')}</span>
             </span>
           </div>
           <p className="footer-desc">

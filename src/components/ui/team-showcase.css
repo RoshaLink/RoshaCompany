@@ -570,6 +570,8 @@ html:not(.dark) .theme-arch-amber {
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
   transition: filter 0.3s ease;
   z-index: 2;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, rgba(0, 0, 0, 0.4) 65%, transparent 80%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, rgba(0, 0, 0, 0.4) 65%, transparent 80%);
 }
 
 @media (min-width: 768px) {

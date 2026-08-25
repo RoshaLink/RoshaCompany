@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Share2, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { Sparkles, Globe, Share2, MessageSquare, ArrowUpRight } from 'lucide-react';
+import logoImg from '../../assets/Logo/RoshaLink_logo.png';
 import './Footer.css';
 
 export default function Footer({ setActivePage }) {
@@ -63,16 +64,7 @@ export default function Footer({ setActivePage }) {
             className="footer-logo-link group"
           >
             <div className="footer-logo-icon">
-              <svg
-                className="footer-logo-svg"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="2" y="2" width="28" height="28" rx="8" stroke="currentColor" strokeWidth="3" />
-                <rect x="10.5" y="10" width="3" height="12" rx="1.5" fill="currentColor" />
-                <rect x="18.5" y="10" width="3" height="12" rx="1.5" fill="currentColor" />
-              </svg>
+              <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" />
             </div>
             <span className="footer-logo-text">
               <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>

@@ -49,7 +49,7 @@ describe('routing', () => {
     renderAt('/contact')
     const main = screen.getByRole('main')
     expect(
-      within(main).getByRole('button', { name: /submit strategic brief/i })
+      within(main).getByRole('button', { name: /(submit strategic brief|skicka)/i })
     ).toBeInTheDocument()
     expect(within(main).getByPlaceholderText(/john@company\.com/i)).toBeInTheDocument()
   })
@@ -57,7 +57,7 @@ describe('routing', () => {
   it('does not render the contact form on other routes', () => {
     renderAt('/about')
     expect(
-      screen.queryByRole('button', { name: /submit strategic brief/i })
+      screen.queryByRole('button', { name: /(submit strategic brief|skicka)/i })
     ).not.toBeInTheDocument()
   })
 })

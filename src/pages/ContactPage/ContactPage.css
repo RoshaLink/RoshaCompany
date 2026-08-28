@@ -1,13 +1,42 @@
 /* ContactPage Premium Responsive Glassmorphic Styles */
 
-.contact-page-wrapper {
+.contact-page-root {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  transition: background-color 0.3s ease;
+  background-color: var(--bg-primary, #f8fafc);
+  color: var(--text-primary, #0f172a);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Background Glow Effects - Responsive Sizing */
+html.dark .contact-page-root {
+  background-color: #030712;
+  color: #f8fafc;
+}
+
+/* Explicit Hero Title & Subtitle Dark Mode Styles */
+.contact-hero-title {
+  color: #0f172a;
+}
+
+.contact-hero-title-text {
+  color: #0f172a;
+}
+
+html.dark .contact-hero-title,
+html.dark .contact-hero-title-text {
+  color: #ffffff !important;
+}
+
+.contact-hero-subtitle {
+  color: #475569;
+}
+
+html.dark .contact-hero-subtitle {
+  color: #cbd5e1 !important;
+}
+
+/* Ambient Background Glow Effects */
 .contact-glow-1 {
   position: absolute;
   top: -80px;
@@ -64,13 +93,7 @@
   z-index: 10;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 0.75rem;
-}
-
-@media (min-width: 480px) {
-  .contact-container {
-    padding: 0 1.25rem;
-  }
+  padding: 0 1rem;
 }
 
 @media (min-width: 640px) {
@@ -85,7 +108,31 @@
   }
 }
 
-/* Frame for DiarContact Image (Clean Border Radius, White Backdrop Blend) */
+/* Hero Guarantees / Stats Pill Cards */
+.contact-stat-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 1rem;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html.dark .contact-stat-pill {
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.contact-stat-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.15);
+}
+
+/* Frame for DiarContact Image */
 .contact-image-frame {
   position: relative;
   width: 100%;
@@ -108,7 +155,7 @@
 
 html.dark .contact-image-frame {
   border-color: rgba(255, 255, 255, 0.15);
-  background: #ffffff;
+  background: #0f172a;
   box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
 }
 
@@ -118,7 +165,7 @@ html.dark .contact-image-frame {
   box-shadow: 0 22px 45px -10px rgba(56, 189, 248, 0.2);
 }
 
-/* Full Image with object-contain so envelope on the left is NEVER cropped */
+/* Full Image with object-contain */
 .contact-img {
   width: 100%;
   height: 240px;
@@ -177,8 +224,8 @@ html.dark .contact-image-frame {
 }
 
 html.dark .contact-floating-pill {
-  background-color: rgba(15, 23, 42, 0.9);
-  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(15, 23, 42, 0.92);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
@@ -205,19 +252,12 @@ html.dark .contact-floating-pill {
 
 /* Info Cards Glass */
 .contact-card-glass {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 0.875rem;
-  padding: 0.875rem;
+  border-radius: 1rem;
+  padding: 1rem;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-}
-
-@media (min-width: 480px) {
-  .contact-card-glass {
-    border-radius: 1rem;
-    padding: 1rem;
-  }
 }
 
 @media (min-width: 640px) {
@@ -228,8 +268,8 @@ html.dark .contact-floating-pill {
 }
 
 html.dark .contact-card-glass {
-  background: rgba(15, 23, 42, 0.65);
-  border-color: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .contact-card-glass:hover {
@@ -238,146 +278,99 @@ html.dark .contact-card-glass {
   box-shadow: 0 22px 45px -10px rgba(56, 189, 248, 0.18);
 }
 
-/* Glassmorphic Form Card & Next Steps Card (Micro Responsive Sizing 300px+ & Hover Animation) */
+/* Glassmorphic Form Card & Next Steps Card */
 .contact-form-glass,
 .contact-next-steps-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 1rem;
-  padding: 0.875rem;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
   box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.06);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease, box-shadow 0.4s ease;
   box-sizing: border-box;
 }
 
-@media (min-width: 380px) {
-  .contact-form-glass,
-  .contact-next-steps-card {
-    padding: 1.125rem;
-    border-radius: 1.25rem;
-  }
-}
-
-@media (min-width: 480px) {
-  .contact-form-glass,
-  .contact-next-steps-card {
-    padding: 1.75rem;
-    border-radius: 1.5rem;
-  }
-}
-
 @media (min-width: 640px) {
   .contact-form-glass,
   .contact-next-steps-card {
-    padding: 2.25rem;
+    padding: 2rem;
     border-radius: 1.75rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
   }
 }
 
-@media (min-width: 1024px) {
-  .contact-form-glass,
-  .contact-next-steps-card {
-    padding: 2.5rem;
-  }
-}
-
 html.dark .contact-form-glass,
 html.dark .contact-next-steps-card {
-  background: rgba(15, 23, 42, 0.75);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form-glass:hover,
 .contact-next-steps-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 22px 45px -10px rgba(56, 189, 248, 0.18);
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 22px 45px -10px rgba(56, 189, 248, 0.15);
 }
 
-html.dark .contact-form-glass:hover,
-html.dark .contact-next-steps-card:hover {
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 25px 55px -10px rgba(56, 189, 248, 0.25);
-}
-
-/* Input & Textarea Fields Styling - Responsive padding & size for small screens (300px+) */
+/* Input & Textarea Fields Styling */
 .contact-input {
   width: 100%;
   background: rgba(241, 245, 249, 0.85);
   border: 1px solid rgba(203, 213, 225, 0.85);
-  border-radius: 0.625rem;
-  padding: 0.5rem 0.625rem;
-  font-size: 16px; /* Prevents iOS auto-zoom */
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  font-size: 0.875rem;
   color: #0f172a;
   outline: none;
   transition: all 0.2s ease;
-  min-height: 40px;
+  min-height: 44px;
   box-sizing: border-box;
 }
 
-@media (min-width: 380px) {
-  .contact-input {
-    padding: 0.625rem 0.75rem;
-    min-height: 42px;
-  }
-}
-
-@media (min-width: 480px) {
-  .contact-input {
-    border-radius: 0.75rem;
-    padding: 0.75rem 0.875rem;
-    font-size: 0.875rem;
-    min-height: 44px;
-  }
-}
-
-@media (min-width: 640px) {
-  .contact-input {
-    padding: 0.875rem 1rem;
-    font-size: 0.875rem;
-  }
-}
-
 html.dark .contact-input {
-  background: rgba(30, 41, 59, 0.65);
-  border-color: rgba(51, 65, 85, 0.85);
+  background: rgba(15, 23, 42, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
   color: #f8fafc;
 }
 
 .contact-input::placeholder {
   color: #94a3b8;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
-@media (min-width: 480px) {
-  .contact-input::placeholder {
-    font-size: 0.875rem;
-  }
+html.dark .contact-input::placeholder {
+  color: #94a3b8;
 }
 
-/* Identical Focus State for all Input & Textarea fields */
 .contact-input:focus,
 .contact-input:focus-visible {
   outline: none !important;
-  outline-offset: 0 !important;
   border-color: #38bdf8 !important;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2) !important;
   background: #ffffff !important;
+  color: #0f172a !important;
 }
 
 html.dark .contact-input:focus,
 html.dark .contact-input:focus-visible {
   outline: none !important;
-  outline-offset: 0 !important;
   border-color: #38bdf8 !important;
-  background: rgba(30, 41, 59, 0.95) !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #f8fafc !important;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
 }
 
-/* Submit Button - Proportional Fit & Elegant Alignment */
+html.dark .contact-input:-webkit-autofill,
+html.dark .contact-input:-webkit-autofill:hover,
+html.dark .contact-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f8fafc !important;
+  -webkit-box-shadow: 0 0 0px 1000px #0f172a inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Submit Button */
 .contact-submit-btn {
   min-height: 44px;
   box-sizing: border-box;
@@ -388,3 +381,4 @@ html.dark .contact-input:focus-visible {
     min-height: 48px;
   }
 }
+

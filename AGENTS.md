@@ -52,7 +52,7 @@ api/                    Vercel serverless functions (Node, ESM). One route per f
     http.js             readJsonBody / clientIp / send / originAllowed
     rateLimit.js        in-memory per-IP limiter (see its header comment)
     systemPrompt.js     how Rosha behaves
-    companyFacts.js     what Rosha knows — edit this to change her answers
+    companyFacts.js     what Rosha knows — edit this to change her answers (contact email: roshalinkcompany@gmail.com)
 src/
   main.jsx              StrictMode > BrowserRouter > ThemeProvider > App
   App.jsx               route table, shared layout, global modal + chat widget

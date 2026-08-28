@@ -136,7 +136,7 @@
 ### ۱۱. اطلاعات تماس
 برای طرح سوالات درباره حریم خصوصی، اعمال حقوق GDPR یا ارتباط با مسئول حفاظت از داده‌ها:
 - **نام شرکت:** RoshaLink / Diara IT Infrastructure
-- **ایمیل حریم خصوصی:** privacy@roshalink.com / hello@designlogic.agency
+- **ایمیل حریم خصوصی:** roshalinkcompany@gmail.com
 - **وب‌سایت:** [https://roshalink.com](https://roshalink.com)
 - **آدرس پستی:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -227,7 +227,7 @@ Vi tillämpar branschledande tekniska och organisatoriska säkerhetsåtgärder f
 ### 11. Kontaktinformation
 Om du har frågor om denna dataskyddspolicy, vill utöva dina rättigheter eller kontakta vårt dataskyddsombud, kan du nå oss via:
 - **Företag:** RoshaLink / Diara IT Infrastructure
-- **E-post för integritetsfrågor:** privacy@roshalink.com / hello@designlogic.agency
+- **E-post för integritetsfrågor:** roshalinkcompany@gmail.com
 - **Webbplats:** [https://roshalink.com](https://roshalink.com)
 - **Postadress:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -318,7 +318,7 @@ We enforce robust technical and organizational security controls designed to saf
 ### 11. Contact Information
 For privacy inquiries, exercising your GDPR rights, or contacting our Privacy Officer, please reach out to:
 - **Entity:** RoshaLink / Diara IT Infrastructure
-- **Privacy Email:** privacy@roshalink.com / hello@designlogic.agency
+- **Privacy Email:** roshalinkcompany@gmail.com
 - **Website:** [https://roshalink.com](https://roshalink.com)
 - **Mailing Address:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -409,7 +409,7 @@ We reserve the right to revise this Privacy Policy to reflect technical advancem
 ### ١١. معلومات الاتصال
 لأي استفسارات حول سياسة الخصوصية، أو لممارسة حقوقك بموجب لائحة GDPR، يمكنك التواصل معنا عبر:
 - **اسم الشركة:** RoshaLink / Diara IT Infrastructure
-- **البريد الإلكتروني للخصوصية:** privacy@roshalink.com / hello@designlogic.agency
+- **البريد الإلكتروني للخصوصية:** roshalinkcompany@gmail.com
 - **الموقع الإلكتروني:** [https://roshalink.com](https://roshalink.com)
 - **العنوان البريدي:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 

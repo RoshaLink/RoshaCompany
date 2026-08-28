@@ -1,15 +1,76 @@
 import React, { useState } from 'react';
-import { Sparkles, Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, Sparkles, Copy, Check, Clock, ShieldCheck, FileText, Calendar, Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
+import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.jpeg';
+import './ContactPage.css';
 
 export default function ContactPage() {
+  const { t, i18n } = useTranslation();
+  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
-  // Previously this only called setSubmitted(true), so every brief was shown a
-  // confirmation and then discarded. Success is now contingent on the server
-  // actually accepting the lead.
+  const contactEmail = 'roshalinkcompany@gmail.com';
+
+  const stepsData = [
+    {
+      icon: FileText,
+      color: 'text-sky-500',
+      bg: 'bg-sky-500/10 dark:bg-sky-500/20',
+      border: 'border-sky-200 dark:border-sky-800/60',
+      badgeBg: 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300',
+      titleKey: 'contactPage.step1Title',
+      descKey: 'contactPage.step1Desc',
+      badgeKey: 'contactPage.step1Badge',
+      feat1Key: 'contactPage.step1Feature1',
+      feat2Key: 'contactPage.step1Feature2',
+    },
+    {
+      icon: Calendar,
+      color: 'text-indigo-500',
+      bg: 'bg-indigo-500/10 dark:bg-indigo-500/20',
+      border: 'border-indigo-200 dark:border-indigo-800/60',
+      badgeBg: 'bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300',
+      titleKey: 'contactPage.step2Title',
+      descKey: 'contactPage.step2Desc',
+      badgeKey: 'contactPage.step2Badge',
+      feat1Key: 'contactPage.step2Feature1',
+      feat2Key: 'contactPage.step2Feature2',
+    },
+    {
+      icon: Rocket,
+      color: 'text-emerald-500',
+      bg: 'bg-emerald-500/10 dark:bg-emerald-500/20',
+      border: 'border-emerald-200 dark:border-emerald-800/60',
+      badgeBg: 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300',
+      titleKey: 'contactPage.step3Title',
+      descKey: 'contactPage.step3Desc',
+      badgeKey: 'contactPage.step3Badge',
+      feat1Key: 'contactPage.step3Feature1',
+      feat2Key: 'contactPage.step3Feature2',
+    },
+  ];
+
+  const handleNextStep = () => {
+    setActiveStep((prev) => (prev + 1) % stepsData.length);
+  };
+
+  const handlePrevStep = () => {
+    setActiveStep((prev) => (prev - 1 + stepsData.length) % stepsData.length);
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(contactEmail);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -21,7 +82,11 @@ export default function ContactPage() {
       const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source: 'contact', ...formData })
+        body: JSON.stringify({ 
+          source: 'contact', 
+          lang: i18n.language || 'sv',
+          ...formData 
+        })
       });
 
       if (!res.ok) {
@@ -38,164 +103,468 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="space-y-20 pb-20 bg-[#f8fafc]">
-      
-      {/* Header */}
-      <section className="relative pt-28 pb-20 px-4 md:px-12 bg-gradient-to-b from-[#f8fafc] via-slate-50 to-[#f8fafc] border-b border-slate-200 overflow-hidden">
-        <div className="ambient-glow-cyan top-0 left-1/3 opacity-25 pointer-events-none" />
-        <div className="max-w-[1280px] mx-auto text-center space-y-4 relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline-xl text-slate-900 max-w-3xl mx-auto">
-            Let's Build Something Extraordinary
+    <div className="contact-page-wrapper bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pb-16 sm:pb-24 transition-colors duration-300">
+      {/* Background Ambient Glows */}
+      <div className="contact-glow-1" />
+      <div className="contact-glow-2" />
+
+      {/* Hero Header Section */}
+      <section className="relative pt-20 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 lg:pb-16 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
+        <div className="contact-container space-y-4 sm:space-y-6">
+          
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{t('contactPage.badge', 'STRATEGISK SUPPORT & ADVISORY')}</span>
+          </div>
+
+          {/* Headline */}
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight max-w-4xl mx-auto">
+            <span>{t('contactPage.titlePrefix', "Let's Build Something ")}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500">
+              {t('contactPage.titleGradient', 'Extraordinary')}
+            </span>
+            <span>{t('contactPage.titleSuffix', ' Together')}</span>
           </h1>
-          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto font-body-lg">
-            Schedule a technical strategy session with our 5 principal partners today.
+
+          {/* Subtitle */}
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+            {t('contactPage.subtitle', 'Schedule a technical strategy session or reach out directly to our 5 principal partners today.')}
           </p>
+
         </div>
       </section>
 
-      {/* Form & Details Container */}
-      <section className="px-4 md:px-12 max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      {/* Main Responsive Grid: Info Showcase & Form */}
+      <section className="contact-container">
+        <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start ${isRTL ? 'is-rtl' : ''}`}>
           
-          {/* Info Side */}
-          <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-slate-900 font-headline-md">Direct Partner Access</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                No intermediate sales reps. You will speak directly with our Senior Systems Architects and Head of Design.
+          {/* Left Column (5 Cols on desktop): DiarContact Image & Quick Contact Cards */}
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+            
+            {/* DiarContact Showcase Image Card (Matches Portfolio Hero Frame Style) */}
+            <div className="relative w-full group">
+              {/* Ambient Glow Backdrop */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-sky-400/20 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:opacity-100 transition duration-500" />
+
+              {/* Glassmorphic Frame Card */}
+              <div className="contact-image-frame">
+                <img
+                  src={diaraContactImage}
+                  alt="RoshaLink Strategic Advisor - Diar"
+                  className="contact-img"
+                />
+
+                {/* Floating Glassmorphic Pill */}
+                <div className={`contact-floating-pill ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <div className="contact-status-dot shrink-0" />
+                  <div className="space-y-0.5 min-w-0 flex-1">
+                    <div className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white truncate">
+                      {t('contactPage.diaraPillTitle', 'RoshaLink Direct Channel')}
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] font-medium text-sky-600 dark:text-sky-400 truncate">
+                      {t('contactPage.diaraPillSubtitle', '24/7 Strategic Support')}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Direct Access Intro */}
+            <div className={`space-y-1.5 sm:space-y-2 p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 backdrop-blur-md ${isRTL ? 'text-right' : 'text-left'}`}>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500 shrink-0" />
+                <span>{t('contactPage.infoTitle', 'Direct Partner Access')}</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                {t('contactPage.infoSubtitle', 'No intermediate sales reps. Speak directly with our Senior Systems Architects and Head of Design.')}
               </p>
             </div>
 
-            <div className="space-y-4 text-sm font-label-md">
-              <div className="flex items-center space-x-3 text-slate-700">
-                <div className="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
-                  <Mail className="w-4 h-4" />
+            {/* Contact Cards List - Responsive: 1 Col on mobile, 3 Cols on Tablet (sm/md), 1 Col on Desktop (lg) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-3.5">
+              
+              {/* Primary Email Card */}
+              <div className="contact-card-glass flex flex-col sm:flex-row lg:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 group">
+                <div className={`flex items-center gap-2.5 sm:gap-3.5 min-w-0 w-full ${isRTL ? 'text-right sm:flex-row-reverse' : 'text-left'}`}>
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
+                      {t('contactPage.emailLabel', 'Primary Email')}
+                    </span>
+                    <a
+                      href={`mailto:${contactEmail}`}
+                      className="font-bold text-slate-900 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate"
+                    >
+                      {contactEmail}
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs text-slate-500 block">General Enquiries</span>
-                  <span className="font-bold text-slate-900">hello@designlogic.agency</span>
+
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 flex items-center justify-center transition-colors shrink-0 cursor-pointer border border-slate-200 dark:border-slate-700 self-end sm:self-center"
+                  title="Copy email to clipboard"
+                  aria-label="Copy email to clipboard"
+                >
+                  {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
+
+              {/* Location Card */}
+              <div className={`contact-card-glass flex items-center gap-2.5 sm:gap-3.5 ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
+                    {t('contactPage.phoneLabel', 'Location & Consultation')}
+                  </span>
+                  <span className="font-bold text-slate-900 dark:text-white text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate">
+                    {t('contactPage.phoneValue', 'Stockholm, Sweden & Global Remote')}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 text-slate-700">
-                <div className="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
-                  <Phone className="w-4 h-4" />
+              {/* Agency HQ Card */}
+              <div className={`contact-card-glass flex items-center gap-2.5 sm:gap-3.5 ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
+                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
-                <div>
-                  <span className="text-xs text-slate-500 block">Direct Line</span>
-                  <span className="font-bold text-slate-900">+1 (800) 492-9102</span>
+                <div className="min-w-0">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
+                    {t('contactPage.hqLabel', 'Agency HQ')}
+                  </span>
+                  <span className="font-bold text-slate-900 dark:text-white text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate">
+                    {t('contactPage.hqValue', 'Stockholm & San Francisco')}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 text-slate-700">
-                <div className="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600">
-                  <MapPin className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-xs text-slate-500 block">Global HQ</span>
-                  <span className="font-bold text-slate-900">San Francisco, CA & Zurich, Switzerland</span>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Form Side */}
+          {/* Right Column (7 Cols on desktop): Lead Submission Glassmorphic Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card rounded-2xl p-8 border border-slate-200 bg-white shadow-md">
-              {submitted ? (
-                <div className="text-center py-12 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-slate-900 font-headline-md">Discovery Request Received!</h3>
-                  <p className="text-slate-600 text-sm max-w-md mx-auto">
-                    Our lead architect will review your project requirements and email you back within 4 business hours.
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="contact-form-glass"
+            >
+              <AnimatePresence mode="wait">
+                {submitted ? (
+                  /* Success Confirmation State with Motion Animation */
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-center py-8 sm:py-10 space-y-5 sm:space-y-6"
+                  >
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
+                      <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                    </div>
+                    <div className="space-y-2">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        {t('contactPage.submittedTitle', 'Discovery Request Received!')}
+                      </h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
+                        {t('contactPage.submittedSub', 'Our lead architect will review your project requirements and email you back within 4 business hours.')}
+                      </p>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: '', email: '', company: '', message: '' });
+                      }}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                    >
+                      <span>{t('contactPage.sendAnotherBtn', 'Skicka ett till meddelande')}</span>
+                    </button>
+                  </motion.div>
+                ) : (
+                  /* Main Interactive Form with Staggered Field Motion */
+                  <motion.form
+                    key="form"
+                    onSubmit={handleSubmit}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{
+                      hidden: {},
+                      visible: {
+                        transition: {
+                          staggerChildren: 0.08,
+                        },
+                      },
+                    }}
+                    className={`space-y-3 sm:space-y-4 font-normal ${isRTL ? 'text-right' : 'text-left'}`}
+                  >
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-0.5 sm:space-y-1"
+                    >
+                      <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+                        {t('contactPage.formTitle', 'Send Us a Brief')}
+                      </h3>
+                      <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 leading-snug">
+                        {t('contactPage.formSubtitle', 'Tell us about your project goals, technical stack, or timeline requirements.')}
+                      </p>
+                    </motion.div>
+                    
+                    {/* Name & Email Row */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4"
+                    >
+                      <div className="space-y-1">
+                        <label htmlFor="contact-name-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                          {t('contactPage.fieldName', 'Your Full Name')}
+                        </label>
+                        <input
+                          id="contact-name-input"
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          placeholder={t('contactPage.fieldNamePlaceholder', 'John Doe')}
+                          className="contact-input"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label htmlFor="contact-email-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                          {t('contactPage.fieldEmail', 'Work Email')}
+                        </label>
+                        <input
+                          id="contact-email-input"
+                          type="email"
+                          required
+                          pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          placeholder={t('contactPage.fieldEmailPlaceholder', 'john@company.com')}
+                          className="contact-input"
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Company & Role */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-1"
+                    >
+                      <label htmlFor="contact-company-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                        {t('contactPage.fieldCompany', 'Company Name & Role')}
+                      </label>
+                      <input
+                        id="contact-company-input"
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder={t('contactPage.fieldCompanyPlaceholder', 'Enterprise Inc / CTO')}
+                        className="contact-input"
+                      />
+                    </motion.div>
+
+                    {/* Message Field */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className="space-y-1"
+                    >
+                      <label htmlFor="contact-message-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
+                        {t('contactPage.fieldMessage', 'Project Overview & Timeline')}
+                      </label>
+                      <textarea
+                        id="contact-message-input"
+                        rows={3}
+                        required
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        placeholder={t('contactPage.fieldMessagePlaceholder', 'Describe your project goals, technical stack, or timeline requirements...')}
+                        className="contact-input min-h-[85px] sm:min-h-[110px] resize-y"
+                      />
+                    </motion.div>
+
+                    {/* Error Notification */}
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        className="text-[11px] sm:text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 rounded-xl p-2.5 sm:p-3.5 flex items-start gap-2"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1 shrink-0" />
+                        <p>{t('contactPage.errorMessage', "We couldn't send your brief. Please try again in a moment.")}</p>
+                      </motion.div>
+                    )}
+
+                    {/* Submit Button */}
+                    <motion.div
+                      variants={{
+                        hidden: { opacity: 0, y: 12 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+                      }}
+                      className={`flex ${isRTL ? 'justify-start' : 'justify-end'}`}
+                    >
+                      <motion.button
+                        type="submit"
+                        disabled={isSubmitting}
+                        whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                        whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                        className="contact-submit-btn w-full sm:w-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-sky-500/25 inline-flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+                      >
+                        <span className="text-xs sm:text-sm">
+                          {isSubmitting 
+                            ? t('contactPage.submittingBtn', 'Sending...') 
+                            : t('contactPage.submitBtn', 'Submit Brief')}
+                        </span>
+                        {isSubmitting ? (
+                          <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+                        ) : (
+                          <Send className={`w-4 h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                        )}
+                      </motion.button>
+                    </motion.div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Animated Interactive "Vad händer sedan?" Step Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="contact-next-steps-card mt-4 sm:mt-6 rounded-2xl space-y-4 cursor-pointer"
+            >
+              {/* Card Header: Title & Step Counter Controls */}
+              <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isRTL ? 'is-rtl' : ''}`}>
+                <div className={`space-y-0.5 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-sky-500 shrink-0 animate-pulse" />
+                    <span>{t('contactPage.nextStepsTitle', 'Vad händer sedan?')}</span>
+                  </h4>
+                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+                    {t('contactPage.nextStepsSub', 'Vår transparenta process från första kontakt till start.')}
                   </p>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <h3 className="text-xl font-bold text-slate-900 font-headline-md">Send Us a Brief</h3>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1">
-                      <label className="text-xs font-semibold text-slate-700">Your Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="John Doe"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 transition-colors"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-semibold text-slate-700">Work Email</label>
-                      <input
-                        type="email"
-                        required
-                        // Mirrors looksLikeEmail() in api/lead.js. Without it
-                        // the browser accepts a TLD-less host like
-                        // "john@company", the server then rejects it, and the
-                        // visitor gets a generic failure from a form that
-                        // appeared to accept their input.
-                        pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="john@company.com"
-                        className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 transition-colors"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700">Company Name & Role</label>
-                    <input
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Enterprise Inc / CTO"
-                      className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 transition-colors"
+                {/* Step indicators & Next/Prev navigation controls */}
+                <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                  <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
+                    {t('contactPage.stepLabel', 'Steg')} {activeStep + 1} {t('contactPage.ofLabel', 'av')} {stepsData.length}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={handlePrevStep}
+                      aria-label="Previous"
+                      title="Previous"
+                      className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      aria-label="Next"
+                      title="Next"
+                      className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dynamic Animated Step Card Content */}
+              <div className="relative min-h-[175px] sm:min-h-[160px] overflow-hidden rounded-xl bg-slate-100/70 dark:bg-slate-800/50 p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-700/60">
+                <AnimatePresence mode="wait">
+                  {stepsData.map((step, idx) => {
+                    if (idx !== activeStep) return null;
+                    const StepIcon = step.icon;
+                    return (
+                      <motion.div
+                        key={step.id}
+                        initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: isRTL ? 20 : -20 }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className={`space-y-3.5 ${isRTL ? 'text-right' : 'text-left'}`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex items-center gap-2.5">
+                            <div className="p-2 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 shrink-0">
+                              <StepIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </div>
+                            <h5 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
+                              {t(step.titleKey)}
+                            </h5>
+                          </div>
+                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 shrink-0">
+                            {t(step.badgeKey)}
+                          </span>
+                        </div>
+
+                        <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                          {t(step.descKey)}
+                        </p>
+
+                        {/* Feature Bullet Highlights */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-700/50 text-[11px] font-medium text-slate-600 dark:text-slate-400">
+                          <div className="truncate">{t(step.feat1Key)}</div>
+                          <div className="truncate">{t(step.feat2Key)}</div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </div>
+
+              {/* Interactive Step Selector Dots */}
+              <div className="flex items-center justify-center sm:justify-start pt-1 gap-2">
+                <div className="flex items-center gap-2">
+                  {stepsData.map((_, stepIdx) => (
+                    <button
+                      key={stepIdx}
+                      type="button"
+                      onClick={() => setActiveStep(stepIdx)}
+                      aria-label={`${t('contactPage.stepLabel', 'Steg')} ${stepIdx + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        stepIdx === activeStep
+                          ? 'w-8 bg-sky-500 shadow-sm shadow-sky-500/50'
+                          : 'w-2 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600'
+                      }`}
                     />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-xs font-semibold text-slate-700">Project Overview & Timeline</label>
-                    <textarea
-                      rows={4}
-                      required
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe your project goals, technical stack, or timeline requirements..."
-                      className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-500 transition-colors"
-                    />
-                  </div>
-
-                  {error && (
-                    <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg px-3 py-2">
-                      We couldn&apos;t send your brief. Please try again in a moment.
-                    </p>
-                  )}
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
-                  >
-                    <span>{isSubmitting ? 'Sending...' : 'Submit Strategic Brief'}</span>
-                    {isSubmitting ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                      <Send className="w-4 h-4" />
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
 
         </div>
       </section>
-
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ContactPage from './ContactPage.jsx'
-import '../../i18n.js'
+import i18n from '../../i18n.js'
 
 function mockFetch({ ok = true } = {}) {
   const fn = vi.fn(async () => ({ ok, status: ok ? 200 : 500 }))
@@ -10,7 +10,7 @@ function mockFetch({ ok = true } = {}) {
   return fn
 }
 
-const SUBMIT = /submit strategic brief/i
+const SUBMIT = /submit brief/i
 
 async function fillRequiredFields(user, { email = 'john@company.com' } = {}) {
   await user.type(screen.getByPlaceholderText('John Doe'), 'John Doe')
@@ -19,6 +19,7 @@ async function fillRequiredFields(user, { email = 'john@company.com' } = {}) {
 }
 
 beforeEach(() => {
+  i18n.changeLanguage('en')
   mockFetch()
 })
 

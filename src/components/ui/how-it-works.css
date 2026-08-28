@@ -80,6 +80,7 @@ html.dark .how-ambient-glow {
   margin-top: 0;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {

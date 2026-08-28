@@ -11,7 +11,7 @@ const TeamShowcase = React.forwardRef(
       badge = null,
       title = "Get to Know Our Expert Team",
       description = "We are a dedicated squad of senior software architects, product designers, and strategic advisors passionate about crafting world-class digital experiences.",
-      buttonText = "Schedule Strategy Call",
+      buttonText = null,
       onButtonClick,
       headerImage,
       members = [],
@@ -56,43 +56,47 @@ const TeamShowcase = React.forwardRef(
       >
         <div className="team-showcase-container">
           
-          {/* 2-Column Header Section */}
-          <div className="team-showcase-header-grid">
-            
-            {/* Left Column: Text & CTA */}
-            <motion.div
-              className="team-showcase-header-left"
-              initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            >
-              <h2 className="team-showcase-title">
-                {title}
-              </h2>
-              
-              {description && (
-                <p className="team-showcase-desc">
-                  {description}
-                </p>
-              )}
+          {/* Header Section */}
+          {headerImage ? (
+            <div className="team-showcase-header-grid">
+              {/* Left Column: Text & CTA */}
+              <motion.div
+                className="team-showcase-header-left"
+                initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                {badge && (
+                  <div className="team-showcase-badge">
+                    {badge}
+                  </div>
+                )}
+                <h2 className="team-showcase-title">
+                  {title}
+                </h2>
+                
+                {description && (
+                  <p className="team-showcase-desc">
+                    {description}
+                  </p>
+                )}
 
-              {buttonText && (
-                <div className="team-showcase-cta-wrap">
-                  <button
-                    type="button"
-                    onClick={onButtonClick}
-                    className="team-showcase-cta"
-                  >
-                    <span>{buttonText}</span>
-                    <ArrowRight className="w-4 h-4 team-cta-arrow" />
-                  </button>
-                </div>
-              )}
-            </motion.div>
+                {buttonText && (
+                  <div className="team-showcase-cta-wrap">
+                    <button
+                      type="button"
+                      onClick={onButtonClick}
+                      className="team-showcase-cta"
+                    >
+                      <span>{buttonText}</span>
+                      <ArrowRight className="w-4 h-4 team-cta-arrow" />
+                    </button>
+                  </div>
+                )}
+              </motion.div>
 
-            {/* Right Column: Custom Component or Image */}
-            {headerImage && (
+              {/* Right Column: Custom Component or Image */}
               <motion.div
                 className="team-showcase-header-right"
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -116,9 +120,44 @@ const TeamShowcase = React.forwardRef(
                   headerImage
                 )}
               </motion.div>
-            )}
+            </div>
+          ) : (
+            <motion.div
+              className="team-showcase-header-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              {badge && (
+                <div className="team-showcase-badge">
+                  {badge}
+                </div>
+              )}
+              <h2 className="team-showcase-title">
+                {title}
+              </h2>
+              
+              {description && (
+                <p className="team-showcase-desc">
+                  {description}
+                </p>
+              )}
 
-          </div>
+              {buttonText && (
+                <div className="team-showcase-cta-wrap">
+                  <button
+                    type="button"
+                    onClick={onButtonClick}
+                    className="team-showcase-cta"
+                  >
+                    <span>{buttonText}</span>
+                    <ArrowRight className="w-4 h-4 team-cta-arrow" />
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          )}
 
           {/* Members Showcase Row */}
           <motion.div

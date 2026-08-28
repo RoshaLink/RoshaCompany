@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, X, Monitor, Smartphone, Tablet } from 'lucide-react';
 import HeroSectionPortfolio from '../../components/HeroSectionPortfolio/HeroSectionPortfolio';
@@ -10,6 +10,17 @@ export default function PortfolioPage({ onOpenGetStarted }) {
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const [activePreview, setActivePreview] = useState(null);
   const [deviceMode, setDeviceMode] = useState('desktop');
+
+  useEffect(() => {
+    if (activePreview) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activePreview]);
 
   const projects = [
     {
@@ -102,9 +113,27 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         onOpenGetStarted={onOpenGetStarted}
       />
 
-      {/* Projects Grid Section */}
+      {/* Projects Grid Section with Intro Notice Header */}
       <section className="portfolio-grid-section">
         <div className="portfolio-grid-container">
+
+          {/* Section Notice & Showcase Intro Header */}
+          <div className="portfolio-showcase-header">
+            <h2 className="portfolio-showcase-title">
+              {t('portfolioHero.showcaseNoticeTitlePrefix')}
+              {t('portfolioHero.showcaseNoticeTitleGradient') && (
+                <span className="sky-blue-text-shine">
+                  {t('portfolioHero.showcaseNoticeTitleGradient')}
+                </span>
+              )}
+              {t('portfolioHero.showcaseNoticeTitleSuffix')}
+            </h2>
+
+            <p className="portfolio-showcase-desc">
+              {t('portfolioHero.showcaseNoticeDesc')}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 2xl:gap-14">
             {projects.map((p, i) => (
               <ProjectCard
@@ -121,7 +150,13 @@ export default function PortfolioPage({ onOpenGetStarted }) {
       <section className="portfolio-cta-container">
         <div className="portfolio-cta-card space-y-6">
           <h2 className="portfolio-cta-title">
-            {t('portfolioHero.ctaTitle')}
+            {t('portfolioHero.ctaTitlePrefix') || t('portfolioHero.ctaTitle')}
+            {t('portfolioHero.ctaTitleGradient') && (
+              <span className="sky-blue-text-shine">
+                {t('portfolioHero.ctaTitleGradient')}
+              </span>
+            )}
+            {t('portfolioHero.ctaTitleSuffix')}
           </h2>
           <p className="portfolio-cta-subtitle">
             {t('portfolioHero.ctaSubtitle')}
@@ -140,45 +175,55 @@ export default function PortfolioPage({ onOpenGetStarted }) {
 
       {/* FULLSCREEN INTERACTIVE BROWSER MOCKUP MODAL */}
       {activePreview && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in">
-          <div className="bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl w-full max-w-7xl h-[92vh] flex flex-col overflow-hidden">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-slate-950/85 backdrop-blur-md animate-fade-in cursor-pointer"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setActivePreview(null);
+          }}
+        >
+          <div 
+            className="bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl w-full max-w-7xl h-[92vh] flex flex-col overflow-hidden cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
 
             {/* Browser Header Bar */}
             <div className="bg-slate-800 px-4 sm:px-5 py-3 border-b border-slate-700 flex items-center justify-between gap-4 shrink-0">
 
-              {/* Traffic Lights */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setActivePreview(null)}
-                  className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center group cursor-pointer"
-                  title="Close Modal"
-                >
-                  <X className="w-2.5 h-2.5 text-rose-950 opacity-0 group-hover:opacity-100" />
-                </button>
-                <span className="w-3.5 h-3.5 rounded-full bg-amber-500 opacity-80" />
-                <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 opacity-80" />
+              {/* Traffic Lights & Site URL/Title */}
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setActivePreview(null)}
+                    className="w-3.5 h-3.5 rounded-full bg-rose-500 hover:bg-rose-600 transition-colors flex items-center justify-center group cursor-pointer"
+                    title="Close Modal"
+                  >
+                    <X className="w-2.5 h-2.5 text-rose-950 opacity-0 group-hover:opacity-100" />
+                  </button>
+                  <span className="w-3.5 h-3.5 rounded-full bg-amber-500 opacity-80" />
+                  <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 opacity-80" />
+                </div>
               </div>
 
-              {/* Viewport Device Mode Switcher & Close Button */}
-              <div className="flex items-center gap-3">
+              {/* Viewport Device Mode Switcher & Open Live / Close Button */}
+              <div className="flex items-center gap-2.5">
                 <div className="flex items-center bg-slate-900 border border-slate-700 rounded-xl p-0.5">
                   <button
                     onClick={() => setDeviceMode('desktop')}
-                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'desktop' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    className={`p-2 rounded-lg transition-colors cursor-pointer ${deviceMode === 'desktop' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Desktop Mode (100%)"
                   >
                     <Monitor className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setDeviceMode('tablet')}
-                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'tablet' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    className={`p-2 rounded-lg transition-colors cursor-pointer ${deviceMode === 'tablet' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Tablet Mode (768px)"
                   >
                     <Tablet className="w-4 h-4" />
                   </button>
                   <button
                     onClick={() => setDeviceMode('mobile')}
-                    className={`p-2 rounded-lg transition-colors ${deviceMode === 'mobile' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
+                    className={`p-2 rounded-lg transition-colors cursor-pointer ${deviceMode === 'mobile' ? 'bg-sky-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'}`}
                     title="Mobile Mode (380px)"
                   >
                     <Smartphone className="w-4 h-4" />
@@ -187,10 +232,10 @@ export default function PortfolioPage({ onOpenGetStarted }) {
 
                 <button
                   onClick={() => setActivePreview(null)}
-                  className="text-slate-400 hover:text-white p-1 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
+                  className="text-slate-400 hover:text-white p-1.5 rounded-xl hover:bg-slate-800 transition-colors cursor-pointer"
                   title="Close Preview"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
 
@@ -199,21 +244,25 @@ export default function PortfolioPage({ onOpenGetStarted }) {
             {/* Modal Iframe Viewport Container */}
             <div className="flex-1 bg-slate-950 flex items-center justify-center p-2 sm:p-4 overflow-hidden relative">
               <div
-                className={`h-full transition-all duration-300 relative rounded-2xl overflow-hidden bg-white shadow-2xl border border-slate-800 ${deviceMode === 'mobile' ? 'w-[380px] max-w-full' : deviceMode === 'tablet' ? 'w-[768px] max-w-full' : 'w-full'
-                  }`}
+                className={`h-full transition-all duration-300 relative rounded-2xl overflow-hidden bg-white shadow-2xl border border-slate-800 flex flex-col ${
+                  deviceMode === 'mobile' ? 'w-[380px] max-w-full' : deviceMode === 'tablet' ? 'w-[768px] max-w-full' : 'w-full'
+                }`}
               >
                 {activePreview.liveUrl ? (
                   <iframe
                     src={activePreview.liveUrl}
                     title={activePreview.title}
-                    className="w-full h-full border-0 select-none bg-white"
+                    className="w-full h-full border-0 bg-white flex-1"
+                    allow="fullscreen; accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   />
                 ) : (
-                  <img
-                    src={activePreview.img}
-                    alt={activePreview.title}
-                    className="w-full h-auto object-top select-none"
-                  />
+                  <div className="w-full h-full overflow-y-auto">
+                    <img
+                      src={activePreview.img}
+                      alt={activePreview.title}
+                      className="w-full h-auto object-top"
+                    />
+                  </div>
                 )}
               </div>
             </div>

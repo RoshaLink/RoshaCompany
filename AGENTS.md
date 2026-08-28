@@ -230,12 +230,17 @@ through `npm run dev`.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
 
-Resolved this session: `npm test` couldn't run because `node_modules` was
-missing roughly half its packages (120 present against the ~245 a full
-install produces) — `vitest` and others were correctly declared in
-`package.json` and resolved in `package-lock.json`, just not actually
-installed on disk, the signature of an interrupted `npm install` rather than
-a real config problem. `npm ci` fixed it (all 4 CI gates now pass locally:
-119/119 tests, typecheck, build, size at 98%/89% of budget). If `npm test`
-ever fails again with `Cannot find package 'vitest'`, re-run `npm ci` before
-assuming something is actually broken.
+## Recent Branch Updates & Improvements
+
+- **Portfolio Page**:
+  - Aligned project card action buttons and "Learn More" feature sub-menus to the bottom across all cards regardless of text length.
+  - Styled expanded card feature items with solid sky-blue background in Light Mode with Dark Mode support.
+  - Enhanced interactive live preview modal with background scroll lock; removed redundant "Open Live" button and mockup URL indicator.
+  - Applied the `.sky-blue-text-shine` animated gradient wave to both the hero headline and bottom CTA banner title.
+  - Added a responsive public case-studies notice header above the project grid with full i18n support across 4 locales (`sv`, `en`, `fa`, `ar`).
+  - Enforced `uppercase` styling on titles for English and Swedish.
+- **Services Page**:
+  - Converted delivery process tabs (`ServicesDeliveryProcess`) to a 1-column vertical layout on mobile screens (`<= 840px`) to prevent text truncation in all languages.
+- **About Page**:
+  - Streamlined the bottom CTA section by removing mascot imagery and centering the layout.
+  - Standardized `uppercase` styling on all section titles across English and Swedish locales (Awards, Team Showcase, Perspectives Bento, Mission, How It Works, CTA).

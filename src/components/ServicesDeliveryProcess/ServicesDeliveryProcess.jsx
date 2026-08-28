@@ -258,15 +258,6 @@ export default function ServicesDeliveryProcess({ onOpenGetStarted }) {
                       <div className="process-card-bottom-action">
                         <button
                           type="button"
-                          onClick={onOpenGetStarted}
-                          className="process-card-btn-primary"
-                        >
-                          <span>{t('servicesPage.hero.primaryCta')}</span>
-                          <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-                        </button>
-
-                        <button
-                          type="button"
                           onClick={handleNext}
                           className="process-card-btn-next"
                         >

@@ -10,7 +10,6 @@ import {
 import { TeamShowcase } from '../../components/ui/team-showcase';
 import { ClientFeedback } from '../../components/ui/testimonial';
 import { Awards } from '../../components/ui/award';
-import { BluetoothKey } from '../../components/ui/bluetooth-key';
 import { HowItWorks } from '../../components/ui/how-it-works';
 import { RollingTextList } from '../../components/ui/rolling-list';
 import './AboutPage.css';
@@ -21,7 +20,12 @@ import BellaFullBody from '../../assets/OurPictures/BellaFullBody.png';
 import MortezaFullBody from '../../assets/OurPictures/MortezaFullBody.png';
 import MinaFullBody from '../../assets/OurPictures/MinaFullBody.png';
 import MiladFullBody from '../../assets/OurPictures/MiladFullBody.png';
-import roshaShowLove from '../../assets/Rosha/aboutus/showLove.png';
+
+// Mission & Philosophy Assets
+import strategyImg from '../../assets/AboutPage/Strategi.png';
+import performanceImg from '../../assets/AboutPage/Performance.png';
+import partnershipImg from '../../assets/AboutPage/Partnersip.png';
+import automationImg from '../../assets/AboutPage/Automation.png';
 
 const TEAM_CONFIG = [
   {
@@ -112,7 +116,7 @@ export default function AboutPage({ onOpenGetStarted }) {
       number: "01",
       title: t('aboutPage.missionBento.card1Title'),
       description: t('aboutPage.missionBento.card1Desc'),
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=80",
+      src: strategyImg,
       alt: "Strategic Business Discovery",
       color: "sky"
     },
@@ -121,7 +125,7 @@ export default function AboutPage({ onOpenGetStarted }) {
       number: "02",
       title: t('aboutPage.missionBento.card2Title'),
       description: t('aboutPage.missionBento.card2Desc'),
-      src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80",
+      src: performanceImg,
       alt: "Zero Downtime Cloud Performance",
       color: "emerald"
     },
@@ -130,7 +134,7 @@ export default function AboutPage({ onOpenGetStarted }) {
       number: "03",
       title: t('aboutPage.missionBento.card3Title'),
       description: t('aboutPage.missionBento.card3Desc'),
-      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80",
+      src: partnershipImg,
       alt: "Direct Senior Partnership",
       color: "indigo"
     },
@@ -139,7 +143,7 @@ export default function AboutPage({ onOpenGetStarted }) {
       number: "04",
       title: t('aboutPage.missionBento.card4Title'),
       description: t('aboutPage.missionBento.card4Desc'),
-      src: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80",
+      src: automationImg,
       alt: "AI & Intelligent Automation",
       color: "purple"
     }
@@ -227,9 +231,6 @@ export default function AboutPage({ onOpenGetStarted }) {
           </>
         }
         description={t('aboutPage.teamShowcase.description')}
-        buttonText={t('aboutPage.teamShowcase.button')}
-        onButtonClick={onOpenGetStarted}
-        headerImage={<BluetoothKey onClick={onOpenGetStarted} />}
         members={teamMembers}
         isRTL={isRTL}
       />
@@ -305,49 +306,30 @@ export default function AboutPage({ onOpenGetStarted }) {
         <div className="about-cta-card glass-card">
           <div className="ambient-glow-cyan about-cta-glow" />
           
-          <div className="about-cta-grid">
+          <div className="about-cta-content-wrapper">
+            <h2 className="about-cta-title">
+              {t('aboutPage.cta.titlePrefix') || t('aboutPage.cta.title')}{' '}
+              {t('aboutPage.cta.titleGradient') && (
+                <span className="sky-blue-text-shine">
+                  {t('aboutPage.cta.titleGradient')}
+                </span>
+              )}{' '}
+              {t('aboutPage.cta.titleSuffix')}
+            </h2>
 
-            {/* Rosha Love Mascot Image Side */}
-            <div className={`about-cta-image-col ${rtlClass}`}>
-              <div className="about-cta-image-wrapper group">
-                <div className="about-cta-image-backdrop" />
-                <div className="about-cta-image-inner">
-                  <img
-                    src={roshaShowLove}
-                    alt="Rosha - Build Your Product With Us"
-                    className="about-cta-image"
-                  />
-                </div>
-              </div>
+            <p className="about-cta-subtitle">
+              {t('aboutPage.cta.subtitle')}
+            </p>
+
+            <div className="about-cta-actions">
+              <button
+                onClick={onOpenGetStarted}
+                className="about-cta-button"
+              >
+                <span>{t('aboutPage.cta.button')}</span>
+                <ArrowRight className="w-4 h-4 about-btn-arrow" />
+              </button>
             </div>
-
-            {/* Content & Actions Side */}
-            <div className={`about-cta-text-col ${rtlClass}`}>
-              <h2 className="about-cta-title">
-                {t('aboutPage.cta.titlePrefix') || t('aboutPage.cta.title')}{' '}
-                {t('aboutPage.cta.titleGradient') && (
-                  <span className="sky-blue-text-shine">
-                    {t('aboutPage.cta.titleGradient')}
-                  </span>
-                )}{' '}
-                {t('aboutPage.cta.titleSuffix')}
-              </h2>
-
-              <p className="about-cta-subtitle">
-                {t('aboutPage.cta.subtitle')}
-              </p>
-
-              <div className="about-cta-actions">
-                <button
-                  onClick={onOpenGetStarted}
-                  className="about-cta-button"
-                >
-                  <span>{t('aboutPage.cta.button')}</span>
-                  <ArrowRight className="w-4 h-4 about-btn-arrow" />
-                </button>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

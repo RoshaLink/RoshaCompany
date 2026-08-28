@@ -32,8 +32,50 @@
 }
 
 /* ==========================================================================
-   2-Column Header Section (Text Left, Rosha Image Right)
+   Header Section (Centered by default or 2-Column with image)
    ========================================================================== */
+.team-showcase-header-center {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+[dir="rtl"] .team-showcase-header-center,
+.is-rtl .team-showcase-header-center {
+  align-items: center;
+  text-align: center;
+}
+
+.team-showcase-header-center .team-showcase-title {
+  text-align: center;
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+@media (min-width: 860px) {
+  .team-showcase-header-center .team-showcase-title {
+    white-space: nowrap;
+  }
+}
+
+.team-showcase-header-center .team-showcase-desc {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  max-width: 48rem;
+}
+
 .team-showcase-header-grid {
   width: 100%;
   display: grid;
@@ -83,23 +125,28 @@
 }
 
 .team-showcase-title {
-  font-size: 2.25rem;
+  font-size: 2rem;
   line-height: 1.2;
   font-weight: 800;
   font-family: var(--font-headline);
   color: var(--color-slate-900);
   letter-spacing: -0.03em;
+  text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 
+.team-showcase-header-grid .team-showcase-title {
+  font-size: 2.25rem;
+}
+
 @media (min-width: 768px) {
-  .team-showcase-title {
+  .team-showcase-header-grid .team-showcase-title {
     font-size: 2.75rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .team-showcase-title {
+  .team-showcase-header-grid .team-showcase-title {
     font-size: 3.25rem;
   }
 }
@@ -432,6 +479,11 @@ html:not(.dark) .team-member-arch {
 html:not(.dark) .team-member-arch::before {
   background: radial-gradient(circle at 50% 12%, var(--neon-glow, rgba(56, 189, 248, 0.25)) 0%, transparent 60%),
               linear-gradient(180deg, var(--neon-wave-1, rgba(241, 245, 249, 0.9)) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+html:not(.dark) .team-member-role {
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 html:not(.dark) .theme-arch-sky {

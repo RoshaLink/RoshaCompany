@@ -97,7 +97,6 @@ export default function ServicesTechMatrix() {
         {/* Tab Selector Buttons Bar */}
         <div className="services-tabs-bar">
           {tabs.map((tab) => {
-            const IconComp = tab.icon;
             const isActive = activeTab === tab.id;
 
             return (
@@ -107,8 +106,7 @@ export default function ServicesTechMatrix() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`services-tab-btn ${isActive ? 'is-active' : ''}`}
               >
-                <IconComp className="w-4 h-4" />
-                <span>{tab.label}</span>
+                <span className="services-tab-text">{tab.label}</span>
               </button>
             );
           })}

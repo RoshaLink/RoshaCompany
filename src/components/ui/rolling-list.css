@@ -80,6 +80,7 @@ html.dark .rolling-list-glow-2 {
   margin-top: 0;
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 @media (min-width: 768px) {
@@ -231,7 +232,13 @@ html.dark .theme-color-purple:hover .rolling-item-number {
 
 @media (min-width: 768px) {
   .rolling-item-content {
-    max-width: calc(100% - 320px);
+    max-width: calc(100% - 360px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .rolling-item-content {
+    max-width: calc(100% - 410px);
   }
 }
 
@@ -339,7 +346,7 @@ html.dark .theme-color-purple .rolling-title-hover {
   line-height: 1.7;
   color: var(--color-slate-600);
   margin: 0;
-  max-width: 42rem;
+  max-width: 100%;
   transition: opacity 0.35s ease 0.05s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
 }
 
@@ -461,11 +468,11 @@ html.dark .rolling-arrow-circle {
     pointer-events: none;
     position: absolute;
     top: 50%;
-    right: 5rem;
-    transform: translateY(-50%) translateX(25px) scale(0.88) rotate(3deg);
-    width: 290px;
-    height: 185px;
-    border-radius: 20px;
+    right: 4.5rem;
+    transform: translateY(-50%) translateX(20px) scale(0.88) rotate(3deg);
+    width: 270px;
+    height: 170px;
+    border-radius: 18px;
     overflow: hidden;
     opacity: 0;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
@@ -492,6 +499,15 @@ html.dark .rolling-arrow-circle {
 
   .theme-color-purple:hover .rolling-image-reveal-wrapper {
     box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.35), 0 0 0 2px rgba(192, 132, 252, 0.4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .rolling-image-reveal-wrapper {
+    right: 5rem;
+    width: 290px;
+    height: 185px;
+    border-radius: 20px;
   }
 }
 
@@ -573,12 +589,19 @@ html.dark .rolling-arrow-circle {
   [dir="rtl"] .rolling-image-reveal-wrapper,
   .is-rtl .rolling-image-reveal-wrapper {
     right: auto;
-    left: 5rem;
-    transform: translateY(-50%) translateX(-25px) scale(0.88) rotate(-3deg);
+    left: 4.5rem;
+    transform: translateY(-50%) translateX(-20px) scale(0.88) rotate(-3deg);
   }
 
   [dir="rtl"] .rolling-item-group:hover .rolling-image-reveal-wrapper,
   .is-rtl .rolling-item-group:hover .rolling-image-reveal-wrapper {
     transform: translateY(-50%) translateX(0) scale(1) rotate(1deg);
+  }
+}
+
+@media (min-width: 1024px) {
+  [dir="rtl"] .rolling-image-reveal-wrapper,
+  .is-rtl .rolling-image-reveal-wrapper {
+    left: 5rem;
   }
 }

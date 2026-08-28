@@ -465,7 +465,7 @@ const resources = {
         pillSubtitle: "För varje affärsmodell",
         titlePrefix: "Utforska våra framgångsrika ",
         titleGradient: "PROJEKT & LÖSNINGAR",
-        titleSuffix: " för alla branscher",
+        titleSuffix: " FÖR ALLA BRANSCHER",
         subtitle: "Vi täcker alla affärsområden och industrier. Oavsett vilken affärsmodell eller nisch ditt företag har, skapar vi skräddarsydda digitala produkter, mjukvaror och appar som driver mätbar tillväxt.",
         viewPillarsBtn: "Våra 6 pelare",
         modalTitle: "Våra 6 pelare för digital framgång",
@@ -818,7 +818,7 @@ const resources = {
           tabCloud: "Moln & Säkerhet",
           frontend: [
             { title: "React 19 & Vite", desc: "Nästa generations komponentlivscykel, blixtsnabb HMR och optimerad klientrendering utan onödig overhead." },
-            { title: "Framer Motion & WebGL", desc: "Hårdvaruaccelererade 60fps mikro-animationer och fysikbaserade interaktioner för en engagerande upplevelse." },
+            { title: "Framer Motion", desc: "Hårdvaruaccelererade 60fps mikro-animationer och fysikbaserade interaktioner för en engagerande upplevelse." },
             { title: "Tokeniserade Designsystem", desc: "Strikta designtokens med fullt stöd för mörkt och ljust läge samt automatisk responsiv skalning." },
             { title: "Vanilla CSS & Tailwind", desc: "Noll körtidsbelastning, ren modulär CSS-arkitektur och kompromisslös renderprestanda." }
           ],
@@ -1727,7 +1727,7 @@ const resources = {
           tabCloud: "Cloud & Security",
           frontend: [
             { title: "React 19 & Vite", desc: "Next-gen component lifecycle, sub-second HMR, and ultra-fast client rendering with zero unnecessary overhead." },
-            { title: "Framer Motion & WebGL", desc: "Hardware-accelerated 60fps micro-animations and physics-based interactions for delightful user flow." },
+            { title: "Framer Motion", desc: "Hardware-accelerated 60fps micro-animations and physics-based interactions for delightful user flow." },
             { title: "Tokenized Design Systems", desc: "Strict design tokens with full multi-theme light/dark mode support and seamless responsive scaling." },
             { title: "Vanilla CSS & Tailwind", desc: "Zero-runtime bloat, clean modular layout rules, and strict CSS architecture for optimal rendering." }
           ],
@@ -2636,7 +2636,7 @@ const resources = {
           tabCloud: "ابر و امنیت",
           frontend: [
             { title: "React 19 & Vite", desc: "معماری کامپوننت‌های نسل جدید، رندرینگ فوق‌سریع و HMR بدون اتلاف وقت و بدون کدهای زائد." },
-            { title: "Framer Motion & WebGL", desc: "انیمیشن‌های روان ۶۰ فریم بر ثانیه با شتاب‌دهی سخت‌افزاری و تعاملات فیزیک‌محور جذاب." },
+            { title: "Framer Motion", desc: "انیمیشن‌های روان ۶۰ فریم بر ثانیه با شتاب‌دهی سخت‌افزاری و تعاملات فیزیک‌محور جذاب." },
             { title: "سیستم‌های دیزاین توکنیزه", desc: "متغیرهای توکنیزه و ساختاریافته با پشتیبانی کامل از حالت تاریک و روشن و ریسپانسیو استاندارد." },
             { title: "Vanilla CSS & Tailwind", desc: "معماری تمیز و ماژولار CSS با پرفورمنس حداکثری و لود سریع در تمامی پلتفرم‌ها." }
           ],
@@ -3545,7 +3545,7 @@ const resources = {
           tabCloud: "السحابة والأمان",
           frontend: [
             { title: "React 19 & Vite", desc: "معمارية مكونات الجيل القادم، رندرة فائقة السرعة وتحديث HMR فوري دون أي أعباء برمجية." },
-            { title: "Framer Motion & WebGL", desc: "حركات دقيقة وانسيابية بمعدل 60 إطاراً في الثانية مع تسريع العتاد وتفاعلات فيزيائية رائعة." },
+            { title: "Framer Motion", desc: "حركات دقيقة وانسيابية بمعدل 60 إطاراً في الثانية مع تسريع العتاد وتفاعلات فيزيائية رائعة." },
             { title: "أنظمة التصميم المرمزة", desc: "رموز تصميم صارمة مع دعم كامل للوضع الداكن والفاتح والتجاوب التلقائي على جميع الشاشات." },
             { title: "Vanilla CSS & Tailwind", desc: "انعدام الأعباء عند التشغيل، وهندسة CSS معيارية ونظيفة لتحقيق أقصى درجات الأداء." }
           ],

@@ -214,7 +214,7 @@ export default function ServicesCapabilities({ onOpenGetStarted }) {
               className="stagger-ctrl-btn"
               aria-label="Previous capability"
             >
-              <ChevronLeft className={`w-6 h-6 ${isRTL ? 'rotate-180' : ''}`} />
+              <ChevronLeft className={`w-4 h-4 sm:w-6 sm:h-6 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
 
             {/* Indicator Pills */}
@@ -241,7 +241,7 @@ export default function ServicesCapabilities({ onOpenGetStarted }) {
               className="stagger-ctrl-btn"
               aria-label="Next capability"
             >
-              <ChevronRight className={`w-6 h-6 ${isRTL ? 'rotate-180' : ''}`} />
+              <ChevronRight className={`w-4 h-4 sm:w-6 sm:h-6 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
           </div>
 

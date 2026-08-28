@@ -63,7 +63,7 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
             {/* Headline */}
             <h1 className="portfolio-hero-title font-black leading-tight tracking-tight">
               <span className="block mb-1">{t('portfolioHero.titlePrefix')}</span>
-              <span className="inline-block uppercase text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 dark:from-sky-400 dark:via-indigo-400 dark:to-purple-400 mb-1">
+              <span className="sky-blue-text-shine uppercase mb-1">
                 {t('portfolioHero.titleGradient')}
               </span>
               <span className="block">{t('portfolioHero.titleSuffix')}</span>
@@ -75,23 +75,23 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
             </p>
 
             {/* Action Buttons Side-by-Side */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 flex flex-row items-center gap-2.5 sm:gap-4 w-full max-w-xl">
 
               {/* Primary Action Button */}
               <button
                 onClick={onOpenGetStarted}
-                className="bg-sky-500 hover:bg-sky-600 text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-lg hover:shadow-sky-500/30 flex items-center gap-2.5 transition-all cursor-pointer transform hover:-translate-y-0.5 shrink-0"
+                className="flex-1 sm:flex-initial bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs sm:text-base px-3.5 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg hover:shadow-sky-500/30 flex items-center justify-center gap-1.5 sm:gap-2.5 transition-all cursor-pointer transform hover:-translate-y-0.5"
               >
                 <span>{t('portfolioHero.buildBtn')}</span>
-                <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 ${isRTL ? 'rotate-180' : ''}`} />
+                <ArrowRight className={`w-3.5 h-3.5 sm:w-5 sm:h-5 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Secondary White Button: 6 Pillars Modal Trigger */}
               <button
                 onClick={() => setPillarsModalOpen(true)}
-                className="bg-white dark:bg-white text-black dark:text-black border border-slate-200 dark:border-slate-300 font-bold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-0.5 shrink-0 hover:bg-slate-50 dark:hover:bg-slate-100"
+                className="flex-1 sm:flex-initial bg-white dark:bg-white text-black dark:text-black border border-slate-200 dark:border-slate-300 font-bold text-xs sm:text-base px-3.5 py-3 sm:px-8 sm:py-4 rounded-xl shadow-md hover:shadow-lg transition-all cursor-pointer transform hover:-translate-y-0.5 hover:bg-slate-50 dark:hover:bg-slate-100 flex items-center justify-center text-center"
               >
-                <span>{t('portfolioHero.viewPillarsBtn') || 'Utforska våra 6 pelare'}</span>
+                <span>{t('portfolioHero.viewPillarsBtn', { defaultValue: 'Hur vi kan hjälpa dig' })}</span>
               </button>
 
             </div>
@@ -112,19 +112,6 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
                   alt="Diara Portfolio Showcase"
                   className="w-full h-auto max-h-[520px] xl:max-h-[620px] 2xl:max-h-[720px] object-cover rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                 />
-
-                {/* Floating Glassmorphic Pill */}
-                <div className={`portfolio-hero-floating-pill ${isRTL ? 'is-rtl' : 'is-ltr'}`}>
-                  <div className="text-left rtl:text-right space-y-0.5">
-                    <div className="portfolio-hero-pill-title font-bold text-slate-900 leading-tight">
-                      {t('portfolioHero.pillTitle')}
-                    </div>
-                    <div className="portfolio-hero-pill-subtitle font-semibold text-sky-600 dark:text-sky-400">
-                      {t('portfolioHero.pillSubtitle')}
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
@@ -194,7 +181,7 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
                   onClick={() => setPillarsModalOpen(false)}
                   className="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                 >
-                  {t('common.close') || 'Stäng'}
+                  {t('portfolioHero.modalClose', { defaultValue: 'Stäng' })}
                 </button>
                 <button
                   onClick={() => {

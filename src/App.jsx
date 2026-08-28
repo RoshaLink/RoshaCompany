@@ -26,7 +26,7 @@ export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Map route path to active page id for navigation components
+  // Map route path to active page id for navigation component
   const getActivePage = () => {
     const path = location.pathname.toLowerCase();
     if (path === '/' || path === '/home') return 'home';

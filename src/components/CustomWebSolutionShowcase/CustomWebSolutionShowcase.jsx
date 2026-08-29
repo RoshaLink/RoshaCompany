@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, BarChart3, Layout, Rocket, Sparkles } from 'lucide-react';
+import { ArrowRight, Laptop, Fingerprint, Sparkles } from 'lucide-react';
 import roshaAnalysisImage from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
 import CustomWebSolutionModal from './CustomWebSolutionModal';
 import './CustomWebSolutionShowcase.css';
@@ -41,7 +41,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
                 {/* Floating Glassmorphic Stat Pill #1 (Top Corner) */}
                 <div className={`custom-stat-pill custom-stat-pill-1 animate-bounce-slow ${rtlClass}`}>
                   <div className="custom-stat-icon-1">
-                    100%
+                    <Laptop className="w-4 h-4 text-white" />
                   </div>
                   <span className="custom-stat-text-1">
                     {isArabic ? 'تطوير مخصص' : isRTL ? 'توسعه اختصاصی' : 'Custom Built'}
@@ -51,7 +51,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
                 {/* Floating Glassmorphic Stat Pill #2 (Bottom Corner) */}
                 <div className={`custom-stat-pill custom-stat-pill-2 ${rtlClass}`}>
                   <div className="custom-stat-icon-2">
-                    🚀
+                    <Fingerprint className="w-4 h-4 text-white" />
                   </div>
                   <div>
                     <div className="custom-stat-title-2">

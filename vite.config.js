@@ -13,7 +13,7 @@ import react from '@vitejs/plugin-react'
 //
 // `apply: 'serve'` means this never runs during `vite build`, so it is
 // structurally impossible for any of it — or the API key — to reach `dist/`.
-const API_ROUTES = ['/api/chat', '/api/lead']
+const API_ROUTES = ['/api/chat']
 
 function devApiPlugin(env) {
   return {
@@ -57,6 +57,16 @@ export default defineConfig(({ mode }) => {
     server: {
       host: '127.0.0.1',
       port: 3000,
+      proxy: {
+        '/api/lead': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
+        },
+        '/api/leads': {
+          target: 'http://localhost:5000',
+          changeOrigin: true,
+        },
+      },
     },
   }
 })

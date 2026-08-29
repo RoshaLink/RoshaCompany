@@ -51,7 +51,7 @@ describe('routing', () => {
     expect(
       within(main).getByRole('button', { name: /(submit strategic brief|skicka)/i })
     ).toBeInTheDocument()
-    expect(within(main).getByPlaceholderText(/john@company\.com/i)).toBeInTheDocument()
+    expect(within(main).getByPlaceholderText(/(john@company\.com|johan@foretag\.se)/i)).toBeInTheDocument()
   })
 
   it('does not render the contact form on other routes', () => {

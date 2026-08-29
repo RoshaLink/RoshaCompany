@@ -150,6 +150,10 @@
 .sales-content-inner.is-rtl { text-align: right; }
 .sales-content-inner.is-ltr { text-align: left; }
 
+.sales-content-inner.is-ltr .sales-title {
+  text-transform: uppercase;
+}
+
 .sales-title {
   font-size: 1.1rem;
   font-weight: 900; /* font-black */

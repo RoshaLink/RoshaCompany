@@ -204,11 +204,11 @@ const resources = {
 },
           cta: {
           badge: "SAMARBETA MED OSS",
-          title: "Vill du bygga nästa framgångsrika produkt med vårt ledarteam?",
+          title: "Vill du bygga nästa framgångsrika produkt med vårt team?",
           titlePrefix: "Vill du bygga nästa framgångsrika produkt med ",
-          titleGradient: "vårt ledarteam?",
+          titleGradient: "vårt team?",
           titleSuffix: "",
-          subtitle: "Boka en strategisk upptäcktsworkshop med våra 5 seniora partners och låt oss transformera er digitala vision.",
+          subtitle: "Boka en strategisk upptäcktsworkshop med oss och låt oss transformera er digitala vision.",
           button: "Boka strategisamtal nu"
         }
       },
@@ -241,7 +241,7 @@ const resources = {
         title: "Arkitektoniserad med verktyg och varumärken vi arbetar med",
         subtitle: "Vi integrerar över 250+ ledande molntjänster, AI-plattformar och designverktyg i vårt utvecklingsarbetsflöde.",
         auditBtn: "Starta teknikaudit",
-        exploreBtn: "Utforska teknikstack"
+        exploreBtn: "Utforska tjänster"
       },
       features: {
         badge: "FUNKTIONSHÖJDPUNKTER",
@@ -311,7 +311,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "FLERSPRÅKIG SUPPORT & RÅDGIVNING",
-        titlePrefix: "Ta kontakt med oss —",
+        titlePrefix: "TA KONTAKT MED OSS ",
         titleGradient: "SUPPORT PÅ 4 SPRÅK",
         titleSuffix: "(Svenska, Engelska, Farsi & Arabiska)",
         subtitle: "Vårt ledarteam ger dig direkt rådgivning på det språk du föredrar. Vi eliminerar alla språkbarriärer så att dina projektkrav blir 100% förstådda och perfekt utförda.",
@@ -459,6 +459,16 @@ const resources = {
         feature3: "Blixtsnabb Kod & Förtroendegivande UX",
         previewBtn: "Förhandsgranska"
       },
+      hogwardCafeProject: {
+        category: "KAFÉ & RESTAURANGUPPLEVELSE",
+        title: "HogWard Café & Restaurang",
+        desc: "En unik och stämningsfull webbapplikation för HogWard Café med interaktiv digital meny, magiska dryckespresentationer, online bordsbokning och modern responsiv design.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Interaktiv digital meny & dryckeskatalog",
+        feature2: "Online bordsboknings- och eventsystem",
+        feature3: "Flerspråkig UI & snabb responsiv design",
+        previewBtn: "Förhandsgranska"
+      },
       portfolioHero: {
         badge: "VÅR PORTFÖLJ & KUNDCASES",
         pillTitle: "Skräddarsydda Lösningar",
@@ -471,7 +481,7 @@ const resources = {
         showcaseNoticeTitleGradient: "KUNDCASES & PROJEKT",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "Alla projekt nedan är skarpa, driftsatta webbapplikationer. Testa de interaktiva förhandsgranskningarna direkt i webbläsaren.",
-        viewPillarsBtn: "Våra 6 pelare",
+        viewPillarsBtn: "Utforska tjänster",
         modalTitle: "Våra 6 pelare för digital framgång",
         modalSubtitle: "Hur vi utvecklar högpresterande applikationer skräddarsydda för dina affärsmål",
         modalClose: "Stäng",
@@ -490,7 +500,7 @@ const resources = {
         feature6Title: "Dedikerat partnerskap & Kontinuerlig support",
         feature6Desc: "Vi är er långsiktiga digitala partner som stöttar och vidareutvecklar era produkter i varje steg.",
         exploreBtn: "Utforska portföljen",
-        buildBtn: "Starta ditt projekt",
+        buildBtn: "Beställ hemsida",
         ctaTitle: "Har du en idé om en högpresterande produkt?",
         ctaTitlePrefix: "Har du en idé om en ",
         ctaTitleGradient: "HÖGPRESTERANDE PRODUKT?",
@@ -646,20 +656,21 @@ const resources = {
         step3Feature2: "✓ 100% utan förpliktelser eller dolda avgifter"
       },
       modal: {
-        badge: "INLED PRODUKTUPPTÄCKT",
         title: "Starta ditt projekt",
-        subtitle: "Direkt upptäcktsmöte med våra 5 huvudpartners.",
+        subtitle: "Få en helt kostnadsfri affärsanalys & rådgivningssession.",
         name: "Namn",
-        email: "Arbetsemail",
-        focus: "Huvudfokus",
-        budget: "Uppskattad budget",
+        namePlaceholder: "Jane Doe",
+        contact: "E-post eller telefonnummer",
+        contactPlaceholder: "namn@foretag.se / 070-123 45 67",
         overview: "Kort översikt",
+        overviewPlaceholder: "Beskriv ditt projekt, mål eller tekniska krav...",
         submit: "Skicka upptäcktsbegäran",
         submittedTitle: "Brief skickad!",
         submittedSub: "Tack för att du inledde din brief. Vårt ledarteam kontaktar dig inom 4 timmar.",
         done: "Klar",
         sending: "Skickar...",
-        error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund."
+        error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund.",
+        close: "Stäng"
       },
       chat: {
         badge: "AI-ASSISTENT",
@@ -854,10 +865,10 @@ const resources = {
         process: {
           title: "Så här jobbar vi — steg för steg",
           subtitle: "En tydlig och trygg process där du vet exakt vad som händer — och varför.",
-          stageBadge1: "STEG 01 — VI LYSSNAR & PLANERAR",
-          stageBadge2: "STEG 02 — VI DESIGNAR TILLSAMMANS",
-          stageBadge3: "STEG 03 — VI BYGGER ORDENTLIGT",
-          stageBadge4: "STEG 04 — VI LANSERAR & FÖLJER UPP",
+          stageBadge1: "VI LYSSNAR & PLANERAR",
+          stageBadge2: "VI DESIGNAR TILLSAMMANS",
+          stageBadge3: "VI BYGGER ORDENTLIGT",
+          stageBadge4: "VI LANSERAR & FÖLJER UPP",
           step1Num: "01",
           step1Title: "Vi förstår ditt behov",
           step1Desc: "Vi sätter oss ner med dig, lyssnar noga och kartlägger vad du faktiskt behöver — innan vi skriver en enda rad kod.",
@@ -918,6 +929,57 @@ const resources = {
           subtitle: "Boka ett kort samtal med oss — utan förpliktelser. Vi lyssnar, ställer frågor och berättar ärligt vad vi kan göra för dig.",
           button: "Boka ett samtal idag"
         }
+      },
+      contactPage: {
+        badge: "STRATEGISK SUPPORT & RÅDGIVNING",
+        titlePrefix: "Låt oss bygga något ",
+        titleGradient: "extraordinärt",
+        titleSuffix: " tillsammans",
+        subtitle: "Boka en teknisk strategisession eller kontakta vårt team direkt för att diskutera ert nästa projekt.",
+        diaraPillTitle: "RoshaLink Direktkanal",
+        diaraPillSubtitle: "Strategisk support dygnet runt",
+        infoTitle: "Direktkontakt med teamet",
+        infoSubtitle: "Inga säljare eller mellanhänder. Prata direkt med våra systemarkitekter och designledare.",
+        emailLabel: "Primär E-post",
+        locationLabel: "Plats & Möten",
+        locationValue: "Stockholm, Sverige & Global Remote",
+        hqLabel: "Byråns Huvudsäte",
+        hqValue: "Stockholm & Globalt",
+        formTitle: "Skicka en projektförfrågan",
+        formSubtitle: "Berätta om era mål, tekniska krav eller tidsramar så återkommer vi snabbt.",
+        fieldName: "Fullständigt namn",
+        fieldNamePlaceholder: "T.ex. Johan Lindgren",
+        fieldEmail: "E-postadress",
+        fieldEmailPlaceholder: "johan@foretag.se",
+        fieldCompany: "Företag & Roll",
+        fieldCompanyPlaceholder: "Företag AB / VD",
+        fieldMessage: "Projektbeskrivning & Behov",
+        fieldMessagePlaceholder: "Beskriv era mål, önskad funktionalitet och tidsram...",
+        submitBtn: "Skicka förfrågan",
+        submittingBtn: "Skickar...",
+        errorMessage: "Kunde inte skicka förfrågan just nu. Vänligen försök igen om en stund eller maila oss direkt.",
+        submittedTitle: "Tack för din förfrågan!",
+        submittedSub: "Vår huvudarkitekt går igenom era krav och återkommer med ett svar inom 4 arbetstimmar.",
+        sendAnotherBtn: "Skicka ett till meddelande",
+        nextStepsTitle: "Vad händer sedan?",
+        nextStepsSub: "Vår transparenta process från första kontakt till projektstart.",
+        stepLabel: "Steg",
+        ofLabel: "av",
+        step1Title: "Snabb Analys & Granskning",
+        step1Badge: "Inom 4 timmar",
+        step1Desc: "Vi analyserar er förfrågan och förbereder konkreta tekniska och affärsmässiga rekommendationer.",
+        step1Feature1: "Sekretessbelagd genomgång",
+        step1Feature2: "Teknisk behovsanalys",
+        step2Title: "Strategiskt Introduktionssamtal",
+        step2Badge: "30 minuters workshop",
+        step2Desc: "Ett fokuserat videomöte där vi fördjupar oss i arkitektur, tidsplan och exakta mål.",
+        step2Feature1: "Arkitekturgenomgång",
+        step2Feature2: "Tidslinje & budgetestimat",
+        step3Title: "Skräddarsydd Offert & Start",
+        step3Badge: "Inom 48 timmar",
+        step3Desc: "Vi presenterar en detaljerad projektplan med fast pris, tydliga milstolpar och omedelbar start.",
+        step3Feature1: "Fastpris & tydligt scope",
+        step3Feature2: "Direkt utvecklingsstart"
       }
     }
   },
@@ -1123,11 +1185,11 @@ const resources = {
 },
           cta: {
           badge: "PARTNER WITH US",
-          title: "Ready to Build Your Next High-Performance Product?",
+          title: "Ready to Build Your Next High-Performance Product with Our Team?",
           titlePrefix: "Ready to Build Your Next High-Performance Product with ",
-          titleGradient: "Our Leadership Squad?",
+          titleGradient: "Our Team?",
           titleSuffix: "",
-          subtitle: "Schedule a strategic discovery workshop with our 5 founding partners today and turn your digital ambition into reality.",
+          subtitle: "Schedule a strategic discovery workshop with us today and turn your digital ambition into reality.",
           button: "Schedule Strategy Call Now"
         }
       },
@@ -1160,7 +1222,7 @@ const resources = {
         title: "Architected with Enterprise Tools & Brands We Work With",
         subtitle: "We integrate over 250+ top-tier cloud services, AI platforms, and design tools directly into our engineering workflow for seamless scalability.",
         auditBtn: "Start Tech Audit",
-        exploreBtn: "Explore Tech Stack"
+        exploreBtn: "Explore Services"
       },
       features: {
         badge: "FEATURE HIGHLIGHTS",
@@ -1230,7 +1292,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "MULTILINGUAL SUPPORT & CONSULTING",
-        titlePrefix: "Connect With Us —",
+        titlePrefix: "Connect With Us ",
         titleGradient: "4-LANGUAGE SUPPORT",
         titleSuffix: "(Swedish, English, Farsi & Arabic)",
         subtitle: "Our leadership squad provides direct consultation in your preferred language. We eliminate communication barriers to ensure your exact product requirements are understood and executed with precision.",
@@ -1378,6 +1440,16 @@ const resources = {
         feature3: "Rapid Performance & Trust-Building UX",
         previewBtn: "Live Preview"
       },
+      hogwardCafeProject: {
+        category: "CAFÉ & HOSPITALITY DINING PLATFORM",
+        title: "HogWard Café & Restaurant",
+        desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Interactive Digital Menu & Specialty Drinks",
+        feature2: "Online Table Booking & Event System",
+        feature3: "Multi-Language & Lightning-Fast UI",
+        previewBtn: "Live Preview"
+      },
       portfolioHero: {
         badge: "OUR PORTFOLIO & CASE STUDIES",
         pillTitle: "Customized Solutions",
@@ -1390,7 +1462,7 @@ const resources = {
         showcaseNoticeTitleGradient: "PRODUCTION CASES",
         showcaseNoticeTitleSuffix: " & Live Apps",
         showcaseNoticeDesc: "All featured projects below are live, production web applications. Experience interactive real-time previews directly in your browser.",
-        viewPillarsBtn: "Our 6 Pillars",
+        viewPillarsBtn: "Explore Services",
         modalTitle: "Our 6 Pillars for Digital Success",
         modalSubtitle: "How we engineer high-performing applications tailored to your strategic business goals",
         modalClose: "Close",
@@ -1409,7 +1481,7 @@ const resources = {
         feature6Title: "Dedicated Partnership & Ongoing Growth",
         feature6Desc: "We act as your long-term tech partner, supporting and scaling your digital products every step of the way.",
         exploreBtn: "Explore Portfolio",
-        buildBtn: "Start Your Project",
+        buildBtn: "Order Website",
         ctaTitle: "Have a High-Impact Product in Mind?",
         ctaTitlePrefix: "Have a High-Impact ",
         ctaTitleGradient: "PRODUCT IN MIND?",
@@ -1565,20 +1637,21 @@ const resources = {
         step3Feature2: "✓ 100% zero obligation or hidden fees"
       },
       modal: {
-        badge: "INITIATE PROJECT DISCOVERY",
         title: "Start Your Project",
-        subtitle: "Direct discovery call with our 5 principal partners.",
+        subtitle: "Get a 100% free business analysis & strategy consultation.",
         name: "Name",
-        email: "Work Email",
-        focus: "Primary Focus",
-        budget: "Est. Budget Range",
+        namePlaceholder: "Jane Doe",
+        contact: "Email or Phone Number",
+        contactPlaceholder: "jane@company.com / +46 70 123 4567",
         overview: "Brief Overview",
+        overviewPlaceholder: "Describe your project goals, timeline, or requirements...",
         submit: "Submit Discovery Request",
         submittedTitle: "Brief Submitted!",
         submittedSub: "Thank you for initiating your brief. Our senior leadership team will contact you within 4 hours.",
         done: "Done",
         sending: "Sending...",
-        error: "We couldn't send your request. Please try again in a moment."
+        error: "We couldn't send your request. Please try again in a moment.",
+        close: "Close modal"
       },
       chat: {
         badge: "AI ASSISTANT",
@@ -1773,10 +1846,10 @@ const resources = {
         process: {
           title: "How We Work — Step by Step",
           subtitle: "A clear, honest process where you always know what's happening — and why.",
-          stageBadge1: "STEP 01 — WE LISTEN & PLAN",
-          stageBadge2: "STEP 02 — WE DESIGN TOGETHER",
-          stageBadge3: "STEP 03 — WE BUILD IT RIGHT",
-          stageBadge4: "STEP 04 — WE LAUNCH & SUPPORT",
+          stageBadge1: "WE LISTEN & PLAN",
+          stageBadge2: "WE DESIGN TOGETHER",
+          stageBadge3: "WE BUILD IT RIGHT",
+          stageBadge4: "WE LAUNCH & SUPPORT",
           step1Num: "01",
           step1Title: "We Understand Your Needs",
           step1Desc: "We sit down with you, listen carefully, and map exactly what you need — before writing a single line of code.",
@@ -1837,6 +1910,57 @@ const resources = {
           subtitle: "Book a quick call with us — no obligations. We'll listen, ask the right questions, and tell you honestly what we can do for you.",
           button: "Book a Call Today"
         }
+      },
+      contactPage: {
+        badge: "STRATEGIC SUPPORT & ADVISORY",
+        titlePrefix: "Let's Build Something ",
+        titleGradient: "Extraordinary",
+        titleSuffix: " Together",
+        subtitle: "Schedule a technical strategy session or reach out directly to our team to discuss your next project.",
+        diaraPillTitle: "RoshaLink Direct Channel",
+        diaraPillSubtitle: "24/7 Strategic Support",
+        infoTitle: "Direct Partner Access",
+        infoSubtitle: "No intermediate sales reps. Speak directly with our Systems Architects and Head of Design.",
+        emailLabel: "Primary Email",
+        locationLabel: "Location & Consultation",
+        locationValue: "Stockholm, Sweden & Global Remote",
+        hqLabel: "Agency HQ",
+        hqValue: "Stockholm & Global",
+        formTitle: "Send Us a Brief",
+        formSubtitle: "Tell us about your project goals, technical stack, or timeline requirements.",
+        fieldName: "Your Full Name",
+        fieldNamePlaceholder: "e.g. Alex Morgan",
+        fieldEmail: "Work Email",
+        fieldEmailPlaceholder: "alex@company.com",
+        fieldCompany: "Company Name & Role",
+        fieldCompanyPlaceholder: "Enterprise Inc / CTO",
+        fieldMessage: "Project Overview & Timeline",
+        fieldMessagePlaceholder: "Describe your project goals, technical stack, or timeline requirements...",
+        submitBtn: "Submit Brief",
+        submittingBtn: "Sending...",
+        errorMessage: "We couldn't send your brief. Please try again in a moment or email us directly.",
+        submittedTitle: "Discovery Request Received!",
+        submittedSub: "Our lead architect will review your project requirements and email you back within 4 business hours.",
+        sendAnotherBtn: "Send Another Message",
+        nextStepsTitle: "What Happens Next?",
+        nextStepsSub: "Our transparent, streamlined process from initial inquiry to project launch.",
+        stepLabel: "Step",
+        ofLabel: "of",
+        step1Title: "Rapid Analysis & Audit",
+        step1Badge: "Within 4 Hours",
+        step1Desc: "We analyze your brief and prepare actionable technical and architectural recommendations.",
+        step1Feature1: "NDA Confidential Review",
+        step1Feature2: "Technical Scope Audit",
+        step2Title: "Strategic Discovery Call",
+        step2Badge: "30-Min Workshop",
+        step2Desc: "A high-focus consultation where we align on system architecture, milestones, and success KPIs.",
+        step2Feature1: "Architecture Breakdown",
+        step2Feature2: "Timeline & Budget Estimate",
+        step3Title: "Tailored Proposal & Kickoff",
+        step3Badge: "Within 48 Hours",
+        step3Desc: "We deliver a transparent fixed-price roadmap with clearly defined deliverables and immediate kickoff.",
+        step3Feature1: "Fixed Price & Scope",
+        step3Feature2: "Immediate Sprint Start"
       }
     }
   },
@@ -1852,37 +1976,37 @@ const resources = {
           subtitle: "چگونه ۵ پارتنر ارشد روشالینک اصطکاک محصولات را حذف کرده و راهکارهای سودآور خلق می‌کنند.",
           morteza: {
             quote: "معماری نرم‌افزار باید مستقیماً در خدمت افزایش درآمد و اهداف تجاری باشد. ما با کدنویسی کاملاً اختصاصی و بدون قالب، بدهی فنی را از روز اول حذف می‌کنیم.",
-            name: "مرتضی",
+            name: "Morteza",
             role: "مدیرعامل و معمار ارشد سیستم"
           },
           bella: {
             quote: "طراحی استثنایی UI/UX دقت فنی را با ارتباط عاطفی کاربران پیوند می‌دهد و نرخ تبدیل و وفاداری به برند شما را به اوج می‌رساند.",
-            name: "بلا",
+            name: "Bella",
             role: "مدیر ارشد محصول و برندینگ"
           },
           sohrab: {
             quote: "زیرساخت‌های توزیع‌شده ابری با زمان پاسخ زیر ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین می‌کنند پلتفرم شما زیر سنگین‌ترین ترافیک‌ها هم پایدار بماند.",
-            name: "سام",
+            name: "Sam",
             role: "مهندس ارشد فول‌استک و کلاد"
           },
           mina: {
             quote: "با تجربه مشاوره برای غول‌های جهانی مانند اریکسون، اطمینان دارم که تحلیل دقیق فرآیندهای کسب‌وکار قبل از کدنویسی از ماه‌ها دوباره‌کاری جلوگیری می‌کند.",
-            name: "مینا",
+            name: "Mina",
             role: "تحلیل‌گر ارشد کسب‌وکار و مشاور"
           },
           milad: {
             quote: "از بهینه‌سازی دیتابیس تا رابط‌های کاربری روان و پرسرعت، کد تمیز و مقیاس‌پذیر ستون فقرات هر اپلیکیشن پیشرو است.",
-            name: "میلاد",
+            name: "Milad",
             role: "مهندس ارشد فول‌استک و سیستم"
           },
           synergy: {
             quote: "هم‌افزایی میان تحلیل عمیق بیزینس و مهندسی ارشد نرم‌افزار، مزیتی رقابتی و دست‌نیافتنی برای مشتریان ما خلق می‌کند.",
-            name: "بلا",
+            name: "Bella",
             role: "مدیر ارشد محصول و برندینگ"
           },
           guarantee: {
             quote: "ما هیچ پروژه‌ای را به نیروهای کم‌تجربه برون‌سپاری نمی‌کنیم. شما مستقیماً با ۵ پارتنر ارشد که خود کد را می‌نویسند کار می‌کنید.",
-            name: "مرتضی",
+            name: "Morteza",
             role: "مدیرعامل و معمار ارشد نرم‌افزار"
           }
         },
@@ -1917,31 +2041,31 @@ const resources = {
           button: "رزرو جلسه استراتژیک با تیم",
           members: [
           {
-                    "name": "سام",
+                    "name": "Sam",
                     "role": "مهندس ارشد فول‌استک و کلاد",
                     "tag": "معماری وب و زیرساخت ابری",
                     "quote": "تخصص من توسعه اپلیکیشن‌های مقیاس‌پذیر و زیرساخت‌های پایدار ابری است. هدف همیشگی من ارائه کدی سریع، بهینه و فراتر از انتظارات است."
           },
           {
-                    "name": "بلا",
+                    "name": "Bella",
                     "role": "مدیر ارشد محصول و برندینگ",
                     "tag": "طراحی UI/UX و هدایت خلاقانه",
                     "quote": "خلق داستان‌های ماندگار برند و طراحی رابط‌های کاربری جذاب تخصص من است؛ ما محصول شما را به بهترین شکل به مخاطبان هدف متصل می‌کنیم."
           },
           {
-                    "name": "مرتضی",
+                    "name": "Morteza",
                     "role": "مدیرعامل و معمار ارشد نرم‌افزار",
                     "tag": "هوش مصنوعی و معماری سیستم",
                     "quote": "با سال‌ها تجربه در راه‌اندازی استارتاپ‌ها در کشورهای مختلف، باور دارم که نرم‌افزار باید مسائل واقعی کسب‌وکارها را با نوآوری و مهندسی دقیق حل کند."
           },
           {
-                    "name": "مینا",
+                    "name": "Mina",
                     "role": "تحلیل‌گر ارشد کسب‌وکار و مشاور",
                     "tag": "سابقه اریکسون و استراتژی رشد",
                     "quote": "با تجربه مشاوره برای غول‌های جهانی فناوری مانند اریکسون، روی بهینه‌سازی جریان کار، تحلیل استراتژیک و افزایش درآمد تمرکز دارم."
           },
           {
-                    "name": "میلاد",
+                    "name": "Milad",
                     "role": "مهندس ارشد فول‌استک و سیستم",
                     "tag": "توسعه بک‌اند و پایگاه داده",
                     "quote": "از معماری‌های پیچیده سمت سرور تا رابط‌های کاربری فوق‌سریع، اشتیاق من مهندسی سیستم‌های پایدار و قدرتمند برای وب مدرن است."
@@ -2042,11 +2166,11 @@ const resources = {
 },
           cta: {
           badge: "همکاری با روشالینک",
-          title: "آماده‌اید محصول برتر بعدی خود را با تیم رهبری ما بسازید؟",
+          title: "آماده‌اید محصول برتر بعدی خود را با تیم ما بسازید؟",
           titlePrefix: "آماده‌اید محصول برنده بعدی خود را با ",
-          titleGradient: "تیم رهبری ما",
+          titleGradient: "تیم ما",
           titleSuffix: " بسازید؟",
-          subtitle: "همین امروز یک جلسه استراتژیک با ۵ پارتنر ارشد ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
+          subtitle: "همین امروز یک جلسه استراتژیک با ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
           button: "رزرو جلسه استراتژیک اکنون"
         }
       },
@@ -2065,7 +2189,7 @@ const resources = {
         titleConnector: " و ",
         titleGradient2: "راهکارهای هوش مصنوعی",
         subtitle: "ما مدل کسب‌وکار شما را بررسی کرده و وب‌سایت، اپلیکیشن و سیستم‌های هوش مصنوعی اختصاصی برای رشد حداکثری شما می‌سازیم.",
-        getStarted: "شروع کنید",
+        getStarted: "سفارش سایت",
         explore: "مشاهده امکانات",
         card1Title: "اتوماسیون هوش مصنوعی",
         card1Sub: "فرآیندهای هوشمند و دستیارهای خودکار",
@@ -2079,7 +2203,7 @@ const resources = {
         title: "طراحی و ساخت با معتبرترین ابزارهای جهانی",
         subtitle: "ما بیش از ۲۵۰ ابزار و سرویس پیشرفته آنلاین را برای ساخت بهترین محصول شما ترکیب و استفاده می‌کنیم.",
         auditBtn: "ارزیابی رایگان پروژه",
-        exploreBtn: "مشاهده ابزارها"
+        exploreBtn: "مشاهده خدمات"
       },
       features: {
         badge: "ویژگی‌های برجسته",
@@ -2149,7 +2273,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "پشتیبانی چندزبانه و مشاوره تخصصی",
-        titlePrefix: "با ما در ارتباط باشید — ",
+        titlePrefix: "با ما در ارتباط باشید  ",
         titleGradient: "پشتیبانی به ۴ زبان زنده",
         titleSuffix: " (سوئدی، انگلیسی، فارسی و عربی)",
         subtitle: "تیم ما آماده ارائه مشاوره مستقیم به زبان دلخواه شماست. ما تمامی موانع زبانی را برطرف کرده‌ایم تا نیازهای پروژه شما با بالاترین کیفیت پیاده‌سازی شود.",
@@ -2221,12 +2345,12 @@ const resources = {
         bookBtn: "رزرو جلسه مشاوره",
         team: [
           {
-            name: "مرتضی",
+            name: "Morteza",
             designation: "مدیرعامل و هم‌بنیان‌گذار",
             quote: "با سال‌ها تجربه در راه‌اندازی استارتاپ‌های موفق، باور من ساخت محصولاتی نوآورانه و پایدار برای حل چالش‌های کسب‌وکارهاست."
           },
           {
-            name: "بلا",
+            name: "Bella",
             designation: "مدیر بازاریابی و تبلیغات",
             quote: "خلق برندهای قدرتمند و تاثیرگذار هدف من است. تجربه من در بازاریابی کمک می‌کند محصولات به بهترین شکل به مشتریان هدف معرفی شوند."
           },
@@ -2297,6 +2421,16 @@ const resources = {
         feature3: "سرعت لود بسیار بالا و ایجاد اعتماد حداکثری",
         previewBtn: "پیش‌نمایش زنده"
       },
+      hogwardCafeProject: {
+        category: "کافه و رستوران تماتیک و پذیرایی",
+        title: "کافه و رستوران هاگوارد (HogWard Café)",
+        desc: "یک وب‌اپلیکیشن جذاب و تعاملی برای کافه و رستوران هاگوارد با منوی دیجیتال هوشمند، معرفی نوشیدنی‌های تماتیک، سیستم رزرو آنلاین میز و طراحی واکنش‌گرا و سریع.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "منوی دیجیتال هوشمند و بار نوشیدنی‌های اختصاصی",
+        feature2: "سیستم رزرواسیون آنلاین میز و رویدادها",
+        feature3: "پشتیبانی چندزبانه و تجربه کاربری روان",
+        previewBtn: "پیش‌نمایش زنده"
+      },
       portfolioHero: {
         badge: "نمونه کارها و پروژه‌های ما",
         pillTitle: "راهکارهای اختصاصی",
@@ -2309,7 +2443,7 @@ const resources = {
         showcaseNoticeTitleGradient: "عمومی و فعال ما",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "تمامی پروژه‌های زیر، وب‌اپلیکیشن‌های واقعی و در حال اجرای ما هستند. پیش‌نمایش تعاملی و زنده آن‌ها را مستقیماً در مرورگر تجربه کنید.",
-        viewPillarsBtn: "۶ ستون ما",
+        viewPillarsBtn: "مشاهده خدمات",
         modalTitle: "۶ ستون موفقیت دیجیتال شما در روشالینک",
         modalSubtitle: "چگونه اپلیکیشن‌هایی با کارایی بالا و منطبق با اهداف استراتژیک بیزینس شما مهندسی می‌کنیم",
         modalClose: "بستن",
@@ -2328,7 +2462,7 @@ const resources = {
         feature6Title: "شراکت بلندمدت و توسعه مستمر",
         feature6Desc: "ما به عنوان شریک فنی همیشگی شما، در تمامی مراحل رشد، توسعه و نگهداری همراهتان هستیم.",
         exploreBtn: "مشاهده پورتفولیو",
-        buildBtn: "سفارش ساخت محصول",
+        buildBtn: "سفارش سایت",
         ctaTitle: "ایده‌ای برای یک محصول دیجیتال بزرگ دارید؟",
         ctaTitlePrefix: "آیا ایده‌ای برای توسعه یک ",
         ctaTitleGradient: "محصول برجسته و پرسرعت دارید؟",
@@ -2484,20 +2618,21 @@ const resources = {
         step3Feature2: "✓ ۱۰۰٪ بدون هیچ تعهد مالی یا هزینه پنهان"
       },
       modal: {
-        badge: "شروع بررسی پروژه",
         title: "پروژه خود را آغاز کنید",
-        subtitle: "جلسه مشاوره مستقیم با مدیران ارشد تیم.",
-        name: "نام کامل",
-        email: "ایمیل کاری",
-        focus: "نوع پروژه مدنظر",
-        budget: "حدود بودجه پیشنهادی",
+        subtitle: "یک تحلیل و جلسه مشاوره کاملاً رایگان دریافت کنید.",
+        name: "نام و نام خانوادگی",
+        namePlaceholder: "Jane Doe",
+        contact: "ایمیل یا شماره تماس",
+        contactPlaceholder: "name@company.com / 09123456789",
         overview: "توضیحات کوتاه درباره پروژه",
+        overviewPlaceholder: "توضیحاتی در مورد اهداف پروژه، پلتفرم‌ها یا زمان‌بندی بنویسید...",
         submit: "ارسال درخواست مشاوره",
         submittedTitle: "درخواست شما ثبت شد!",
         submittedSub: "با تشکر از ارسال اطلاعات. تیم رهبری ارشد ما ظرف ۴ ساعت کاری با شما تماس خواهند گرفت.",
         done: "تایید",
         sending: "در حال ارسال...",
-        error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید."
+        error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید.",
+        close: "بستن فرم"
       },
       chat: {
         badge: "دستیار هوشمند",
@@ -2692,10 +2827,10 @@ const resources = {
         process: {
           title: "چطور کار می‌کنیم — قدم به قدم",
           subtitle: "یه فرآیند شفاف و مطمئن که همیشه می‌دونی کجا هستی و قدم بعدی چیه.",
-          stageBadge1: "قدم ۰۱ — گوش می‌دیم و برنامه‌ریزی می‌کنیم",
-          stageBadge2: "قدم ۰۲ — با هم طراحی می‌کنیم",
-          stageBadge3: "قدم ۰۳ — درست می‌سازیم",
-          stageBadge4: "قدم ۰۴ — لانچ می‌کنیم و پشتیبانی می‌دیم",
+          stageBadge1: "گوش می‌دیم و برنامه‌ریزی می‌کنیم",
+          stageBadge2: "با هم طراحی می‌کنیم",
+          stageBadge3: "درست می‌سازیم",
+          stageBadge4: "لانچ می‌کنیم و پشتیبانی می‌دیم",
           step1Num: "۰۱",
           step1Title: "نیازت رو می‌فهمیم",
           step1Desc: "می‌شینیم کنارت، با دقت گوش می‌دیم و دقیقاً می‌فهمیم چی نیاز داری — قبل از اینکه یه خط کد بنویسیم.",
@@ -2756,6 +2891,57 @@ const resources = {
           subtitle: "یه مکالمه کوتاه با ما داشته باش — بدون تعهد. گوش می‌دیم، سوال می‌پرسیم و صادقانه می‌گیم چی می‌تونیم برات بکنیم.",
           button: "امروز یه مکالمه رزرو کن"
         }
+      },
+      contactPage: {
+        badge: "پشتیبانی استراتژیک و مشاوره اختصاصی",
+        titlePrefix: "بیایید با هم محصولی ",
+        titleGradient: "فوق‌العاده و متمایز",
+        titleSuffix: " بسازیم",
+        subtitle: "یک جلسه استراتژی فنی رزرو کنید یا مستقیماً با تیم متخصص ما برای توسعه پروژه خود در تماس باشید.",
+        diaraPillTitle: "کانال ارتباط مستقیم روشالینک",
+        diaraPillSubtitle: "پشتیبانی استراتژیک ۲۴/۷",
+        infoTitle: "ارتباط مستقیم با تیم فنی",
+        infoSubtitle: "بدون واسطه یا کارشناسان فروش. مستقیماً با معماران ارشد سیستم و مدیران طراحی گفتگو کنید.",
+        emailLabel: "ایمیل اصلی",
+        locationLabel: "موقعیت و جلسات",
+        locationValue: "استکهلم، سوئد و ریموت بین‌المللی",
+        hqLabel: "دفتر مرکزی آژانس",
+        hqValue: "استکهلم و بین‌المللی",
+        formTitle: "ارسال خلاصه پروژه و درخواست همکاری",
+        formSubtitle: "اهداف پروژه، نیازمندی‌های فنی یا زمان‌بندی مد نظرتان را برای ما ارسال کنید تا سریعاً بررسی کنیم.",
+        fieldName: "نام و نام خانوادگی",
+        fieldNamePlaceholder: "مثال: علی احمدی",
+        fieldEmail: "ایمیل سازمانی یا شخصی",
+        fieldEmailPlaceholder: "ali@company.com",
+        fieldCompany: "نام شرکت و سمت شغلی",
+        fieldCompanyPlaceholder: "مثال: شرکت تجاری / مدیرعامل",
+        fieldMessage: "شرح پروژه و نیازمندی‌ها",
+        fieldMessagePlaceholder: "اهداف پروژه، امکانات مورد نیاز و زمان‌بندی مد نظرتان را شرح دهید...",
+        submitBtn: "ارسال درخواست همکاری",
+        submittingBtn: "در حال ارسال...",
+        errorMessage: "ارسال درخواست با خطا مواجه شد. لطفاً دوباره تلاش کنید یا مستقیماً به ما ایمیل بزنید.",
+        submittedTitle: "درخواست شما با موفقیت دریافت شد!",
+        submittedSub: "معمار ارشد سیستم ما نیازمندی‌های پروژه شما را بررسی کرده و ظرف ۴ ساعت کاری با شما تماس می‌گیرد.",
+        sendAnotherBtn: "ارسال پیام دیگر",
+        nextStepsTitle: "مراحل بعدی همکاری چگونه است؟",
+        nextStepsSub: "فرآیند شفاف و سریع ما از اولین تماس تا شروع رسمی توسعه.",
+        stepLabel: "مرحله",
+        ofLabel: "از",
+        step1Title: "بررسی و تحلیل اولیه نیازمندی‌ها",
+        step1Badge: "ظرف ۴ ساعت کاری",
+        step1Desc: "درخواست شما با دقت بررسی شده و پیش‌نویس راهکارهای فنی و تجاری آماده می‌شود.",
+        step1Feature1: "بررسی محرمانه و اختصاصی",
+        step1Feature2: "تحلیل دامنه فنی پروژه",
+        step2Title: "جلسه مشاوره و همفکری استراتژیک",
+        step2Badge: "ورکشاپ ۳۰ دقیقه‌ای",
+        step2Desc: "یک جلسه تصویری متمرکز برای هماهنگی معماری سیستم، زمان‌بندی و اهداف اصلی کسب‌وکار.",
+        step2Feature1: "بررسی عمیق معماری",
+        step2Feature2: "برآورد زمان و بودجه",
+        step3Title: "پیشنهاد اختصاصی و آغاز توسعه",
+        step3Badge: "ظرف ۴۸ ساعت",
+        step3Desc: "طرح جامع پروژه با قیمت مشخص، مایل‌استون‌های شفاف و امکان شروع فوری ارائه می‌گردد.",
+        step3Feature1: "قیمت شفاف و اسکوپ معین",
+        step3Feature2: "شروع سریع اسپرینت اول"
       }
     }
   },
@@ -2961,11 +3147,11 @@ const resources = {
 },
           cta: {
           badge: "ابنِ معنا",
-          title: "هل أنت جاهز لتطوير منتجك عالي الأداء مع فريق القيادة لدينا؟",
+          title: "هل أنت جاهز لتطوير منتجك عالي الأداء مع فريقنا؟",
           titlePrefix: "هل أنت جاهز لتطوير منتجك الرقمي مع ",
-          titleGradient: "فريق القيادة لدينا؟",
+          titleGradient: "فريقنا؟",
           titleSuffix: "",
-          subtitle: "احجز جلسة استشارية استراتيجية مع الشركاء المؤسسين الخمسة اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
+          subtitle: "احجز جلسة استشارية استراتيجية معنا اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
           button: "احجز الجلسة الاستشارية الآن"
         }
       },
@@ -2998,7 +3184,7 @@ const resources = {
         title: "مصممة بأحدث الأدوات والحلول التقنية العالمية",
         subtitle: "نحن ندمج أكثر من 250+ خدمة سحابية ومنصة ذكاء اصطناعي وأداة تصميم مباشرة في مسار عملنا الهندسي.",
         auditBtn: "ابدأ التدقيق التقني",
-        exploreBtn: "استكشف البنية التقنية"
+        exploreBtn: "استكشف خدماتنا"
       },
       features: {
         badge: "أبرز الميزات",
@@ -3068,7 +3254,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "الدعم الاستشاري متعدد اللغات",
-        titlePrefix: "تواصل معنا —",
+        titlePrefix: "تواصل معنا ",
         titleGradient: "دعم بـ 4 لغات",
         titleSuffix: "(السويدية، الإنجليزية، الفارسية والعربية)",
         subtitle: "يقدم لك فريقنا القيادي استشارات مباشرة باللغة التي تفضلها. نحن نزيل جميع الحواجز اللغوية لضمان فهم متطلبات مشروعك وتنفيذها بدقة 100%.",
@@ -3216,6 +3402,16 @@ const resources = {
         feature3: "سرعة فائقة وتجربة موثوقة للمستخدم",
         previewBtn: "معاينة مباشرة"
       },
+      hogwardCafeProject: {
+        category: "منصة المقاهي والمطاعم الترفيهية",
+        title: "منصة مقهى ومطعم هاجوارد – HogWard Café",
+        desc: "تطبيق ويب تفاعلي وعصري لمقهى ومطعم هاجوارد يتميز بقائمة طعام ومشروبات رقمية تفاعلية، نظام حجز الطاولات والفعاليات إلكترونياً، وتصميم متجاوب وسريع.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "قائمة طعام ومشروبات رقمية تفاعلية",
+        feature2: "نظام حجز الطاولات والفعاليات إلكترونياً",
+        feature3: "دعم متعدد اللغات وواجهة مستخدم سريعة",
+        previewBtn: "معاينة مباشرة"
+      },
       portfolioHero: {
         badge: "معرض أعمالنا والدراسات الميدانية",
         pillTitle: "حلول مخصصة",
@@ -3228,7 +3424,7 @@ const resources = {
         showcaseNoticeTitleGradient: "حالات الأعمال الحية",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "جميع المشاريع أدناه هي تطبيقات ويب حقيقية وقيد التشغيل الفعلي. جرّب المعاينات التفاعلية المباشرة داخل المتصفح.",
-        viewPillarsBtn: "ركائزنا الـ 6",
+        viewPillarsBtn: "استكشف خدماتنا",
         modalTitle: "ركائزنا الـ 6 للنجاح الرقمي",
         modalSubtitle: "كيف نبني تطبيقات عالية الأداء مخصصة خصيصاً لأهداف عملك الاستراتيجية",
         modalClose: "إغلاق",
@@ -3247,7 +3443,7 @@ const resources = {
         feature6Title: "شراكة مخصصة ودعم مستمر للنمو",
         feature6Desc: "نعمل كشريك تكنولوجي طويل الأجل لمؤسستك ونرافقك في كافة مراحل تطوير وتوسيع منتجك.",
         exploreBtn: "استكشف أعمالنا",
-        buildBtn: "ابدأ مشروعك",
+        buildBtn: "طلب موقع إلكتروني",
         ctaTitle: "هل لديك فكرة لمنتج رقمي فريد ومتميز؟",
         ctaTitlePrefix: "هل لديك فكرة لـ ",
         ctaTitleGradient: "منتج رقمي عالي الأداء؟",
@@ -3403,20 +3599,21 @@ const resources = {
         step3Feature2: "✓ ١٠٠٪ بدون أي التزام أو رسوم خفية"
       },
       modal: {
-        badge: "بدء استكشاف المشروع",
         title: "ابدأ مشروعك الآن",
-        subtitle: "جلسة استشارية مباشرة مع شركائنا الـ 5 الرئيسيّين.",
+        subtitle: "احصل على تحلیل كامل وجلسة استشارة مجانية 100% لمشروعك.",
         name: "الاسم الكامل",
-        email: "بريد العمل",
-        focus: "المجال الرئيسي للمشروع",
-        budget: "الميزانية المقترحة",
+        namePlaceholder: "Jane Doe",
+        contact: "البريد الإلكتروني أو رقم الهاتف",
+        contactPlaceholder: "name@company.com / +966...",
         overview: "نظرة عامة مختصرة",
+        overviewPlaceholder: "اكتب تفاصيل حول أهداف المشروع، والتقنيات أو المتطلبات...",
         submit: "إرسال طلب الاستكشاف",
         submittedTitle: "تم تسجيل طلبك بنجاح!",
         submittedSub: "شكراً لإرسال معلوماتك. سيتواصل معك فريق القيادة لدينا خلال 4 ساعات عمل.",
         done: "تأكيد",
         sending: "جاري الإرسال...",
-        error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل."
+        error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل.",
+        close: "إغلاق النافذة"
       },
       chat: {
         badge: "مساعد ذكي",
@@ -3611,10 +3808,10 @@ const resources = {
         process: {
           title: "كيف نعمل — خطوة بخطوة",
           subtitle: "مسار واضح وموثوق — دائماً تعرف أين أنت والخطوة التالية.",
-          stageBadge1: "الخطوة ١ — نستمع ونخطط",
-          stageBadge2: "الخطوة ٢ — نصمم معاً",
-          stageBadge3: "الخطوة ٣ — نبني بشكل صحيح",
-          stageBadge4: "الخطوة ٤ — نطلق ونتابع",
+          stageBadge1: "نستمع ونخطط",
+          stageBadge2: "نصمم معاً",
+          stageBadge3: "نبني بشكل صحيح",
+          stageBadge4: "نطلق ونتابع",
           step1Num: "٠١",
           step1Title: "نفهم ما تحتاجه",
           step1Desc: "نجلس معك، نستمع باهتمام، ونحدد بالضبط ما تحتاجه — قبل أن نكتب سطراً واحداً من الكود.",
@@ -3675,6 +3872,57 @@ const resources = {
           subtitle: "احجز مكالمة قصيرة معنا — بلا التزامات. سنستمع، نسأل الأسئلة الصحيحة، ونخبرك بصدق ما يمكننا فعله لك.",
           button: "احجز مكالمة اليوم"
         }
+      },
+      contactPage: {
+        badge: "الدعم الاستراتيجي والاستشارات",
+        titlePrefix: "فلنبنِ معاً منتجاً ",
+        titleGradient: "استثنائياً ومميزاً",
+        titleSuffix: "",
+        subtitle: "احجز جلسة استراتيجية تقنية أو تواصل مباشرة مع فريقنا لمناقشة مشروعك القادم.",
+        diaraPillTitle: "قناة روشالينك المباشرة",
+        diaraPillSubtitle: "دعم استراتيجي على مدار الساعة",
+        infoTitle: "تواصل مباشر مع الفريق الهندسي",
+        infoSubtitle: "بدون وسطاء أو مندوبي مبيعات. تحدث مباشرة مع مهندسي الأنظمة ومدراء التصميم لدينا.",
+        emailLabel: "البريد الإلكتروني الرئيسي",
+        locationLabel: "الموقع والاستشارات",
+        locationValue: "ستوكهولم، السويد والعمل عن بُعد عالمياً",
+        hqLabel: "المقر الرئيسي للوكالة",
+        hqValue: "ستوكهولم وعالمياً",
+        formTitle: "أرسل تفاصيل مشروعك",
+        formSubtitle: "أخبرنا عن أهداف مشروعك، المتطلبات التقنية أو الجدول الزمني وسنرد عليك سريعاً.",
+        fieldName: "الاسم الكامل",
+        fieldNamePlaceholder: "مثال: أحمد العلي",
+        fieldEmail: "البريد الإلكتروني للعمل",
+        fieldEmailPlaceholder: "ahmed@company.com",
+        fieldCompany: "اسم الشركة والمنصب",
+        fieldCompanyPlaceholder: "مثال: شركة الأعمال / الرئيس التنفيذي",
+        fieldMessage: "نظرة عامة على المشروع والمتطلبات",
+        fieldMessagePlaceholder: "صف أهداف مشروعك، الميزات التقنية المطلوبة والجدول الزمني...",
+        submitBtn: "إرسال طلب المشروع",
+        submittingBtn: "جارٍ الإرسال...",
+        errorMessage: "تعذر إرسال طلبك الآن. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر البريد الإلكتروني.",
+        submittedTitle: "تم استلام طلبك بنجاح!",
+        submittedSub: "سيقوم كبير المهندسين بمراجعة متطلبات مشروعك والرد عليك خلال 4 ساعات عمل.",
+        sendAnotherBtn: "إرسال رسالة أخرى",
+        nextStepsTitle: "ماذا يحدث بعد ذلك؟",
+        nextStepsSub: "عمليتنا الشفافة والسلسة من أول استفسار وحتى إطلاق المشروع.",
+        stepLabel: "الخطوة",
+        ofLabel: "من",
+        step1Title: "التحليل السريع والتدقيق",
+        step1Badge: "خلال 4 ساعات",
+        step1Desc: "نحلل متطلبات مشروعك ونعد توصيات تقنية وهندسية عملية ومناسبة لأهدافك.",
+        step1Feature1: "مراجعة سرية تامة",
+        step1Feature2: "تدقيق النطاق التقني",
+        step2Title: "جلسة استكشافية استراتيجية",
+        step2Badge: "ورشة عمل لمدة 30 دقيقة",
+        step2Desc: "اجتماع مرئي عالي التركيز لتحديد بنية النظام، المراحل الزمنية ومؤشرات النجاح.",
+        step2Feature1: "تحليل هيكلية النظام",
+        step2Feature2: "تقدير الميزانية والجدول الزمني",
+        step3Title: "المقترح المخصص وبدء العمل",
+        step3Badge: "خلال 48 ساعة",
+        step3Desc: "نقدم خطة عمل واضحة بسعر ثابت ومراحل محددة بدقة مع إمكانية البدء الفوري.",
+        step3Feature1: "سعر ثابت ونطاق واضح",
+        step3Feature2: "انطلاق فوري للتطوير"
       }
     }
   }

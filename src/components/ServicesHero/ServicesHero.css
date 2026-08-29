@@ -266,33 +266,43 @@ html.dark .services-hero-title-bottom {
 
 .services-hero-title-suffix {
   display: block;
+  text-transform: uppercase;
 }
 
 /* Subtext */
 .services-hero-subtitle {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #475569;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-slate-600);
   font-family: var(--font-body);
   margin: 0;
-  max-width: 620px;
+  max-width: 48rem;
+  text-wrap: pretty;
 }
 
 @media (min-width: 640px) {
   .services-hero-subtitle {
-    font-size: 1.075rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.65;
   }
 }
 
 @media (min-width: 1024px) {
   .services-hero-subtitle {
     font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 
 html.dark .services-hero-subtitle {
-  color: #94a3b8;
+  color: var(--color-slate-400);
 }
 
 /* Action Buttons Side-by-Side on all screen sizes */

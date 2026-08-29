@@ -95,16 +95,32 @@
 }
 
 .feedback-subtitle {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
   color: var(--color-slate-600);
   font-family: var(--font-body);
-  max-width: 38rem;
+  max-width: 48rem;
+  text-wrap: pretty;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .feedback-subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .feedback-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .feedback-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 

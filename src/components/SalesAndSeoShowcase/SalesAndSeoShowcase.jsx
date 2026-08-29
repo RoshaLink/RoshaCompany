@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import roshaSalesImage from '../../assets/Rosha/IncreasSaleAndSeo/RoshaIncrasesSales.png';
 import FeaturesModal from './FeaturesModal';
 import './SalesAndSeoShowcase.css';
@@ -79,7 +79,7 @@ export default function SalesAndSeoShowcase({ onOpenGetStarted }) {
                 {/* Floating Glassmorphic Stat Pill #1 (Sales Growth) */}
                 <div className={`sales-stat-pill sales-stat-pill-1 ${rtlClass}`}>
                   <div className="sales-stat-icon-1">
-                    +350%
+                    <Check className="w-4 h-4 text-white stroke-[3]" />
                   </div>
                   <div>
                     <div className="sales-stat-text-title">

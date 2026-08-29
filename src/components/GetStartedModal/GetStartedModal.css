@@ -1,1 +1,276 @@
-/* Styles for GetStartedModal */
+/* ==========================================================================
+   GET STARTED MODAL - CLEAN & CRISP MULTI-THEME RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Modal Backdrop Overlay */
+.get-started-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow-x: hidden;
+  animation: modal-fade-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (min-width: 640px) {
+  .get-started-backdrop {
+    padding: 1.25rem;
+  }
+}
+
+/* Modal Card Base */
+.get-started-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 29rem; /* 464px */
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden; /* Strictly prevent horizontal scroll */
+  overscroll-behavior: contain;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  animation: modal-scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+@media (min-width: 480px) {
+  .get-started-modal-card {
+    padding: 2rem;
+    border-radius: 1.75rem;
+  }
+}
+
+/* Dark Mode Theme for Modal Card */
+html.dark .get-started-modal-card {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(56, 189, 248, 0.08);
+}
+
+/* Typography — Solid, high-contrast, black in Light Mode, white in Dark Mode */
+.modal-title {
+  color: #0f172a !important; /* Solid black in Light Mode */
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .modal-title {
+    font-size: 1.75rem;
+  }
+}
+
+html.dark .modal-title {
+  color: #ffffff !important; /* Solid crisp white in Dark Mode */
+}
+
+.modal-subtitle {
+  color: #334155 !important; /* Solid legible dark slate in Light Mode */
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 500;
+}
+
+html.dark .modal-subtitle {
+  color: #cbd5e1 !important; /* Solid legible light slate in Dark Mode */
+}
+
+.modal-form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a !important; /* Solid black in Light Mode */
+  margin-bottom: 0.35rem;
+}
+
+html.dark .modal-form-label {
+  color: #f1f5f9 !important; /* Crisp light slate in Dark Mode */
+}
+
+/* Close Button (Guaranteed 44x44px minimum hit area) */
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  color: #475569;
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.get-started-modal-card.is-rtl .modal-close-btn {
+  right: auto;
+  left: 1rem;
+}
+
+.modal-close-btn:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+  transform: scale(1.05);
+}
+
+html.dark .modal-close-btn {
+  color: #cbd5e1;
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark .modal-close-btn:hover {
+  color: #ffffff;
+  background: rgba(51, 65, 85, 0.95);
+}
+
+/* Form Inputs & Textarea */
+.modal-form-input,
+.modal-form-textarea {
+  width: 100%;
+  background: #ffffff !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+  color: #0f172a !important; /* Solid black in Light Mode */
+  font-weight: 500;
+  outline: none;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .modal-form-input,
+  .modal-form-textarea {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+  }
+}
+
+html.dark .modal-form-input,
+html.dark .modal-form-textarea {
+  background: rgba(30, 41, 59, 0.85) !important;
+  border-color: rgba(71, 85, 105, 0.9) !important;
+  color: #ffffff !important;
+}
+
+.modal-form-input::placeholder,
+.modal-form-textarea::placeholder {
+  color: #64748b !important;
+  font-size: 0.875rem;
+}
+
+html.dark .modal-form-input::placeholder,
+html.dark .modal-form-textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.modal-form-input:focus,
+.modal-form-input:focus-visible,
+.modal-form-textarea:focus,
+.modal-form-textarea:focus-visible {
+  outline: none !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2) !important;
+  background: #ffffff !important;
+}
+
+html.dark .modal-form-input:focus,
+html.dark .modal-form-input:focus-visible,
+html.dark .modal-form-textarea:focus,
+html.dark .modal-form-textarea:focus-visible {
+  border-color: #38bdf8 !important;
+  background: rgba(30, 41, 59, 0.95) !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Submit Button */
+.modal-submit-btn {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.modal-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.45);
+  transform: translateY(-1px);
+}
+
+.modal-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar for Modal Card */
+.get-started-modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.get-started-modal-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.get-started-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 4px;
+}
+
+html.dark .get-started-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.8);
+}
+
+/* Animations */
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

@@ -55,6 +55,7 @@ html.dark .services-page-root {
   margin-top: 0;
   margin-bottom: 0.85rem;
   letter-spacing: -0.025em;
+  text-transform: uppercase;
   background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -81,15 +82,38 @@ html.dark .services-section-title {
 }
 
 .services-section-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #475569;
-  margin: 0;
-  max-width: 38rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-slate-600);
+  margin: 0.75rem auto 0 auto;
+  max-width: 48rem;
+  font-family: var(--font-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .services-section-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-section-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-section-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
 }
 
 html.dark .services-section-subtitle {
-  color: #94a3b8;
+  color: var(--color-slate-400);
 }
 
 /* ==========================================================================
@@ -452,7 +476,6 @@ html.dark .table-icon-green {
 
 .services-faq-item {
   border-radius: var(--radius-2xl);
-  clip-path: polygon(24px 0%, calc(100% - 24px) 0%, 100% 24px, 100% 100%, calc(100% - 24px) 100%, 24px 100%, 0 100%, 0 0);
   border: 2px solid var(--faq-border);
   box-shadow: 
     0 10px 25px rgba(0, 0, 0, 0.1),
@@ -671,6 +694,7 @@ html.dark .services-cta-card {
   margin-top: 0;
   margin-bottom: 0.85rem;
   letter-spacing: -0.025em;
+  text-transform: uppercase;
   background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -692,16 +716,41 @@ html.dark .services-cta-title {
 }
 
 .services-cta-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #475569;
-  margin-top: 0;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-slate-600);
+  margin-top: 0.75rem;
   margin-bottom: 2rem;
-  max-width: 38rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .services-cta-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-cta-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .services-cta-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
 }
 
 html.dark .services-cta-subtitle {
-  color: #94a3b8;
+  color: var(--color-slate-400);
 }
 
 .services-cta-actions {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { X, Smartphone, Share2, BellRing, Link, LayoutTemplate, ShieldCheck } from 'lucide-react';
+import { X, Lightbulb, Layers, TrendingUp, Zap, ShieldCheck, Users } from 'lucide-react';
 
-export default function MobileAppModal({ isOpen, onClose }) {
+export default function PortfolioServicesModal({ isOpen, onClose }) {
   const { t, i18n } = useTranslation();
   const [isRendered, setIsRendered] = useState(false);
 
@@ -23,48 +23,48 @@ export default function MobileAppModal({ isOpen, onClose }) {
 
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
 
-  const features = [
+  const pillars = [
     {
-      icon: Smartphone,
-      title: t('mobileApp.feature1Title'),
-      desc: t('mobileApp.feature1Desc'),
-      color: "from-sky-500 to-blue-600",
-      bg: "bg-sky-50"
-    },
-    {
-      icon: Share2,
-      title: t('mobileApp.feature2Title'),
-      desc: t('mobileApp.feature2Desc'),
-      color: "from-blue-600 to-indigo-600",
-      bg: "bg-blue-50"
-    },
-    {
-      icon: BellRing,
-      title: t('mobileApp.feature3Title'),
-      desc: t('mobileApp.feature3Desc'),
-      color: "from-indigo-500 to-purple-600",
-      bg: "bg-indigo-50"
-    },
-    {
-      icon: Link,
-      title: t('mobileApp.feature4Title'),
-      desc: t('mobileApp.feature4Desc'),
-      color: "from-emerald-500 to-teal-600",
-      bg: "bg-emerald-50"
-    },
-    {
-      icon: LayoutTemplate,
-      title: t('mobileApp.feature5Title'),
-      desc: t('mobileApp.feature5Desc'),
+      icon: Lightbulb,
+      title: t('portfolioHero.feature1Title'),
+      desc: t('portfolioHero.feature1Desc'),
       color: "from-amber-500 to-orange-600",
       bg: "bg-amber-50"
     },
     {
+      icon: Layers,
+      title: t('portfolioHero.feature2Title'),
+      desc: t('portfolioHero.feature2Desc'),
+      color: "from-sky-500 to-indigo-600",
+      bg: "bg-sky-50"
+    },
+    {
+      icon: TrendingUp,
+      title: t('portfolioHero.feature3Title'),
+      desc: t('portfolioHero.feature3Desc'),
+      color: "from-emerald-500 to-teal-600",
+      bg: "bg-emerald-50"
+    },
+    {
+      icon: Zap,
+      title: t('portfolioHero.feature4Title'),
+      desc: t('portfolioHero.feature4Desc'),
+      color: "from-purple-500 to-pink-600",
+      bg: "bg-purple-50"
+    },
+    {
       icon: ShieldCheck,
-      title: t('mobileApp.feature6Title'),
-      desc: t('mobileApp.feature6Desc'),
+      title: t('portfolioHero.feature5Title'),
+      desc: t('portfolioHero.feature5Desc'),
       color: "from-rose-500 to-red-600",
       bg: "bg-rose-50"
+    },
+    {
+      icon: Users,
+      title: t('portfolioHero.feature6Title'),
+      desc: t('portfolioHero.feature6Desc'),
+      color: "from-cyan-500 to-blue-600",
+      bg: "bg-cyan-50"
     }
   ];
 
@@ -81,25 +81,25 @@ export default function MobileAppModal({ isOpen, onClose }) {
         <div className="relative px-6 py-5 sm:px-8 sm:py-6 border-b border-slate-100 flex items-center justify-between bg-gradient-to-r from-slate-50 to-white">
           <div className="pr-10 rtl:pr-0 rtl:pl-10">
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 font-headline-xl">
-              {t('mobileApp.modalTitle')}
+              {t('portfolioHero.modalTitle')}
             </h3>
             <p className="text-sm text-slate-500 mt-1">
-              {t('mobileApp.modalSubtitle')}
+              {t('portfolioHero.modalSubtitle')}
             </p>
           </div>
           <button 
             onClick={onClose}
             className={`absolute top-5 sm:top-6 ${isRTL ? 'left-5 sm:left-6' : 'right-5 sm:right-6'} p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-700 transition-colors focus:outline-none`}
-            aria-label={t('mobileApp.closeBtn')}
+            aria-label={t('portfolioHero.modalClose', { defaultValue: 'Close' })}
           >
             <X className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
         </div>
 
-        {/* Content */}
+        {/* Content - 3x2 Card Grid */}
         <div className="p-6 sm:p-8 overflow-y-auto custom-scrollbar flex-grow">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {features.map((item, idx) => {
+            {pillars.map((item, idx) => {
               const Icon = item.icon;
               return (
                 <div 

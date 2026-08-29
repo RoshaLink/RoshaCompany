@@ -1,0 +1,11 @@
+# Robots.txt for RoshaLink (https://roshalink.com)
+# Allow all search engine crawlers (Google, Bing, Yandex, Baidu, DuckDuckGo)
+
+User-agent: *
+Allow: /
+
+# Disallow internal API routes from being crawled directly as pages
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://roshalink.com/sitemap.xml

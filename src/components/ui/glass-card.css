@@ -217,6 +217,7 @@ html.dark .glass-card-icon-badge {
   font-family: var(--font-headline);
   line-height: 1.25;
   letter-spacing: -0.01em;
+  text-transform: uppercase;
   margin: 0 0 0.85rem 0;
 
   /* Light mode */

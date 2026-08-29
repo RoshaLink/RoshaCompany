@@ -113,6 +113,10 @@
 .search-content-col.is-rtl { text-align: right; }
 .search-content-col.is-ltr { text-align: left; }
 
+.search-content-col.is-ltr .search-visibility-title {
+  text-transform: uppercase;
+}
+
 .search-visibility-title {
   font-size: 1.1rem;
   font-weight: 900; /* font-black */

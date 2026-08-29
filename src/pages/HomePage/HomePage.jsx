@@ -40,6 +40,18 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
         setActivePage={setActivePage}
       />
 
+      {/* Integrated Who We Are 5-Member Team Component (Position 4) */}
+      <WhoWeAre
+        setActivePage={setActivePage}
+        onOpenGetStarted={onOpenGetStarted}
+      />
+
+      {/* Multilingual Support & Connect With Us Showcase Component (Position 5) */}
+      <ConnectWithUsShowcase
+        onOpenGetStarted={onOpenGetStarted}
+        setActivePage={setActivePage}
+      />
+
       {/* Increase Sales & Google SEO Showcase Component */}
       <SalesAndSeoShowcase
         onOpenGetStarted={onOpenGetStarted}
@@ -63,19 +75,6 @@ export default function HomePage({ onOpenGetStarted, setActivePage }) {
         onOpenGetStarted={onOpenGetStarted}
         setActivePage={setActivePage}
       />
-
-      {/* Multilingual Support & Connect With Us Showcase Component */}
-      <ConnectWithUsShowcase
-        onOpenGetStarted={onOpenGetStarted}
-        setActivePage={setActivePage}
-      />
-
-      {/* Integrated Who We Are 5-Member Team Component */}
-      <WhoWeAre
-        setActivePage={setActivePage}
-        onOpenGetStarted={onOpenGetStarted}
-      />
-
 
       {/* Integrated Testimonials Column Marquee */}
       <TestimonialsColumn />

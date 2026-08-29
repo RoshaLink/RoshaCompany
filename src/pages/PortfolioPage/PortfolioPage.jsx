@@ -102,6 +102,22 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         "Comprehensive Legal Practice Areas",
         "Rapid Performance & Trust-Building UX"
       ]
+    },
+    {
+      id: "hogward-cafe",
+      translationKey: "hogwardCafeProject",
+      title: "HogWard Café & Restaurant",
+      category: "Café & Hospitality Dining Platform",
+      desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
+      img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/HogWard_Cafe/",
+      isFeatured: true,
+      features: [
+        "Interactive Digital Menu & Specialty Drinks",
+        "Online Table Booking & Event System",
+        "Multi-Language & Lightning-Fast UI"
+      ]
     }
   ];
 

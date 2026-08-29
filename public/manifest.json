@@ -1,0 +1,15 @@
+{
+  "short_name": "RoshaLink",
+  "name": "RoshaLink — Strategic Design & Tech Agency",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/sv",
+  "background_color": "#f8fafc",
+  "theme_color": "#0284c7",
+  "display": "standalone"
+}

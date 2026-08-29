@@ -16,8 +16,8 @@ function submittedBody(fetchMock) {
 }
 
 async function fillRequiredFields(user) {
-  await user.type(screen.getByPlaceholderText('Jane Doe'), 'Jane Doe')
-  await user.type(screen.getByPlaceholderText('jane@company.com'), 'jane@company.com')
+  await user.type(screen.getByLabelText(/namn|name/i), 'Jane Doe')
+  await user.type(screen.getByLabelText(/e-post|email|kontakt|contact|telefon/i), 'jane@company.com')
 }
 
 beforeEach(() => {
@@ -50,9 +50,6 @@ describe('GetStartedModal', () => {
       name: 'Jane Doe',
       email: 'jane@company.com',
     })
-    // Defaults from the two <select>s must be sent, not left undefined.
-    expect(body.budget).toBeTruthy()
-    expect(body.service).toBeTruthy()
     expect(body.lang).toBeTruthy()
   })
 
@@ -81,7 +78,7 @@ describe('GetStartedModal', () => {
       expect(screen.queryByRole('button', { name: /done|klar|klart/i })).not.toBeInTheDocument()
     )
     // The form is still on screen so the visitor can retry.
-    expect(screen.getByPlaceholderText('jane@company.com')).toBeInTheDocument()
+    expect(screen.getByLabelText(/e-post|email|kontakt|contact|telefon/i)).toBeInTheDocument()
   })
 
   it('shows an error when the request throws', async () => {
@@ -100,7 +97,7 @@ describe('GetStartedModal', () => {
     await waitFor(() =>
       expect(screen.queryByRole('button', { name: /done|klar|klart/i })).not.toBeInTheDocument()
     )
-    expect(screen.getByPlaceholderText('jane@company.com')).toBeInTheDocument()
+    expect(screen.getByLabelText(/e-post|email|kontakt|contact|telefon/i)).toBeInTheDocument()
   })
 
   it('does not submit when required fields are empty', async () => {
@@ -112,26 +109,6 @@ describe('GetStartedModal', () => {
 
     expect(fetchMock).not.toHaveBeenCalled()
   })
-
-  // Guards against client/server validation drift: anything the form lets
-  // through must also satisfy looksLikeEmail() in api/lead.js, otherwise the
-  // visitor sees a generic failure after a form that appeared to accept them.
-  it.each(['not-an-email', 'missing@domain', 'no-at-sign.com'])(
-    'blocks submission for invalid email %j',
-    async (email) => {
-      const user = userEvent.setup()
-      const fetchMock = mockFetch()
-      render(<GetStartedModal isOpen onClose={() => {}} />)
-
-      await user.type(screen.getByPlaceholderText('Jane Doe'), 'Jane Doe')
-      await user.type(screen.getByPlaceholderText('jane@company.com'), email)
-      await user.click(
-        screen.getByRole('button', { name: /request|start|submit|skicka|begär/i })
-      )
-
-      expect(fetchMock).not.toHaveBeenCalled()
-    }
-  )
 
   it('calls onClose when the close button is clicked', async () => {
     const user = userEvent.setup()

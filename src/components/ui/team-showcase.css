@@ -152,17 +152,33 @@
 }
 
 .team-showcase-desc {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.875rem;
+  line-height: 1.65;
   color: var(--color-slate-600);
-  max-width: 42rem;
+  max-width: 48rem;
   margin-bottom: 2rem;
   font-family: var(--font-body);
+  text-wrap: pretty;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .team-showcase-desc {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-showcase-desc {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .team-showcase-desc {
+    font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 

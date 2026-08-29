@@ -50,7 +50,7 @@ const LANGUAGES = [
   { code: 'ar', label: 'العربية', Flag: ArabicFlag },
 ];
 
-export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) {
+export default function Navbar({ activePage, setActivePage, onOpenGetStarted, onLanguageChange }) {
   const { isDark, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,6 +67,9 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted }) 
     const isRtl = ['fa', 'ar'].includes(langCode);
     document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
     document.documentElement.lang = langCode;
+    if (onLanguageChange) {
+      onLanguageChange(langCode);
+    }
   };
 
   useEffect(() => {

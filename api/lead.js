@@ -32,10 +32,17 @@ function looksLikeEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function looksLikeEmailOrPhone(value) {
+  if (typeof value !== 'string') return false;
+  const val = value.trim();
+  if (looksLikeEmail(val)) return true;
+  return /^[\d\s+\-()]{6,25}$/.test(val) && val.replace(/\D/g, '').length >= 5;
+}
+
 function renderEmail(lead) {
   const rows = [
     ['Name', lead.name],
-    ['Email', lead.email],
+    ['Email / Phone', lead.email],
     ['Company / role', lead.company],
     ['Primary focus', lead.service],
     ['Budget', lead.budget],
@@ -100,7 +107,7 @@ export default async function handler(req, res) {
     message: clean(body?.message, MAX_MESSAGE_CHARS),
   };
 
-  if (!lead.name || !looksLikeEmail(lead.email)) {
+  if (!lead.name || !looksLikeEmailOrPhone(lead.email)) {
     return send(res, 400, { error: 'bad_request' });
   }
 
@@ -118,8 +125,8 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
         to: [LEAD_TO_EMAIL],
-        // So hitting Reply in the inbox goes to the prospect, not to Resend.
-        reply_to: lead.email,
+        // So hitting Reply in the inbox goes to the prospect when an email was provided.
+        ...(looksLikeEmail(lead.email) ? { reply_to: lead.email } : {}),
         subject: `New enquiry from ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
         html,
         text,

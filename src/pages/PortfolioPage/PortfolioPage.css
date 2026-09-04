@@ -142,7 +142,7 @@
 
 .portfolio-cta-card {
   border-radius: var(--radius-3xl);
-  padding: 2.5rem 1.5rem;
+  padding: 2.5rem 1.25rem;
   text-align: center;
   border: 1px solid var(--color-sky-300);
   background-image: linear-gradient(to right, rgba(240, 249, 255, 0.8), rgba(255, 255, 255, 1), rgba(238, 242, 255, 0.8));
@@ -151,6 +151,8 @@
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -167,12 +169,23 @@
 }
 
 .portfolio-cta-title {
-  font-size: 1.875rem;
+  font-size: clamp(1.2rem, 5.5vw, 1.875rem);
   font-weight: 900;
+  font-family: var(--font-headline);
   color: var(--color-slate-900);
   letter-spacing: -0.025em;
   text-transform: uppercase;
+  line-height: 1.25;
   transition: color 300ms ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.portfolio-cta-title .sky-blue-text-shine {
+  display: inline;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 768px) {
@@ -210,6 +223,24 @@
   }
 }
 
+.portfolio-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  color: var(--color-slate-500, #64748b);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-cta-secondary-link:hover,
+.portfolio-cta-secondary-link:focus-visible {
+  color: var(--color-sky-500, #0ea5e9);
+}
+
 
 /* ==========================================
    DARK MODE STYLES FOR PORTFOLIO PAGE
@@ -245,4 +276,13 @@ html.dark .portfolio-cta-title {
 
 html.dark .portfolio-cta-subtitle {
   color: var(--color-slate-400);
+}
+
+html.dark .portfolio-cta-secondary-link {
+  color: var(--color-slate-400, #94a3b8);
+}
+
+html.dark .portfolio-cta-secondary-link:hover,
+html.dark .portfolio-cta-secondary-link:focus-visible {
+  color: var(--color-sky-400, #38bdf8);
 }

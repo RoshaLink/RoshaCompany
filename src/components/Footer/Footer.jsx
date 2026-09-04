@@ -1,12 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Sparkles, Globe, Share2, MessageSquare, ArrowUpRight } from 'lucide-react';
-import logoImg from '../../assets/Logo/RoshaLink_logo.png';
+import { Link } from 'react-router-dom';
+import { Sparkles, Globe, Share2, MessageSquare, ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import logoImg from '../../assets/Logo/RoshaLink_logo.webp';
 import './Footer.css';
 
 export default function Footer({ setActivePage }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const newsletterRef = useRef(null);
+
+  const [email, setEmail] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'alreadySubscribed' | 'rateLimit' | 'invalidEmail' | 'error'
 
   // RoshaChatWidget floats fixed at the bottom-right of the viewport and
   // fully covers the newsletter input/button whenever this section scrolls
@@ -50,6 +55,63 @@ export default function Footer({ setActivePage }) {
     };
   }, []);
 
+  const handleSubmitNewsletter = async (e) => {
+    e.preventDefault();
+
+    // Honeypot check: silently simulate success for spam bots
+    if (honeypot) {
+      setStatus('success');
+      setEmail('');
+      return;
+    }
+
+    const trimmedEmail = email.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!trimmedEmail || !emailRegex.test(trimmedEmail)) {
+      setStatus('invalidEmail');
+      return;
+    }
+
+    setStatus('loading');
+
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          lang: i18n.language || 'sv',
+          hp_field: honeypot,
+        }),
+      });
+
+      if (res.status === 429) {
+        setStatus('rateLimit');
+        return;
+      }
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok) {
+        if (data?.data?.alreadySubscribed) {
+          setStatus('alreadySubscribed');
+        } else {
+          setStatus('success');
+          setEmail('');
+        }
+      } else {
+        if (res.status === 400 && data?.errors?.some((err) => err.toLowerCase().includes('email'))) {
+          setStatus('invalidEmail');
+        } else {
+          setStatus('error');
+        }
+      }
+    } catch (err) {
+      console.error('Newsletter subscription error:', err);
+      setStatus('error');
+    }
+  };
+
   const capabilities = [t('footer.cap1'), t('footer.cap2'), t('footer.cap3'), t('footer.cap4'), t('footer.cap5')];
 
   return (
@@ -64,7 +126,7 @@ export default function Footer({ setActivePage }) {
             className="footer-logo-link group"
           >
             <div className="footer-logo-icon">
-              <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" />
+              <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" width="200" height="200"  loading="lazy" />
             </div>
             <span className="footer-logo-text">
               <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>
@@ -75,11 +137,6 @@ export default function Footer({ setActivePage }) {
             {t('footer.description')}
           </p>
           <div className="footer-socials">
-            {/* href="#" is a known placeholder pending real destinations
-                (tracked separately) -- title AND aria-label are both set here
-                deliberately: aria-label gives screen readers a translated
-                name, title gives mouse/pen users a visible tooltip, which
-                aria-label alone does not. */}
             <a href="#" className="footer-social-link" title={t('footer.socialGlobal')} aria-label={t('footer.socialGlobal')}>
               <Globe className="footer-social-icon" aria-hidden="true" />
             </a>
@@ -96,20 +153,15 @@ export default function Footer({ setActivePage }) {
         <div className="footer-links-col">
           <h4 className="footer-links-title">{t('footer.navigation')}</h4>
           <ul className="footer-links-list">
-            <li><button onClick={() => setActivePage('home')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.home')}</span></button></li>
-            <li><button onClick={() => setActivePage('portfolio')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.portfolio')}</span></button></li>
-            <li><button onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.services')}</span></button></li>
-            <li><button onClick={() => setActivePage('about')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.about')}</span></button></li>
-            <li><button onClick={() => setActivePage('contact')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.contact')}</span></button></li>
+            <li><Link to={`/${i18n.language}`} onClick={() => setActivePage('home')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.home')}</span></Link></li>
+            <li><Link to={`/${i18n.language}/portfolio`} onClick={() => setActivePage('portfolio')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.portfolio')}</span></Link></li>
+            <li><Link to={`/${i18n.language}/services`} onClick={() => setActivePage('services')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.services')}</span></Link></li>
+            <li><Link to={`/${i18n.language}/about`} onClick={() => setActivePage('about')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.about')}</span></Link></li>
+            <li><Link to={`/${i18n.language}/contact`} onClick={() => setActivePage('contact')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.contact')}</span></Link></li>
           </ul>
         </div>
 
-        {/* Capabilities -- plain text, not links: there's no per-capability
-            page to send these to (Services has 6 cards with different titles
-            that don't map 1:1 onto these 5 labels), so they were previously
-            styled and cursor:pointer'd as buttons that did nothing when
-            clicked. A summary list reads honestly; five identical dead links
-            to the same page would not have. */}
+        {/* Capabilities */}
         <div className="footer-cap-col">
           <h4 className="footer-cap-title">{t('footer.capabilities')}</h4>
           <ul className="footer-cap-list">
@@ -123,30 +175,86 @@ export default function Footer({ setActivePage }) {
         <div className="footer-news-col" ref={newsletterRef}>
           <h4 className="footer-links-title">{t('footer.stayUpdated')}</h4>
           <p className="footer-news-sub">{t('footer.newsletterSub')}</p>
-          <form onSubmit={(e) => e.preventDefault()} className="footer-form">
+          <form onSubmit={handleSubmitNewsletter} className="footer-form" noValidate>
             <div className="footer-input-wrapper">
-              {/* Visually hidden rather than placeholder-only: a placeholder
-                  disappears the moment the field has a value and isn't
-                  reliably announced as the field's label by assistive tech. */}
+              {/* Anti-Bot Honeypot Trap (Invisible to real users) */}
+              <input
+                type="text"
+                name="website_url_check"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex={-1}
+                aria-hidden="true"
+                autoComplete="off"
+                style={{ display: 'none' }}
+              />
+
               <label htmlFor="footer-newsletter-email" className="sr-only">
                 {t('footer.emailPlaceholder')}
               </label>
               <input
                 id="footer-newsletter-email"
                 type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (status !== 'idle' && status !== 'loading') {
+                    setStatus('idle');
+                  }
+                }}
+                disabled={status === 'loading'}
                 placeholder={t('footer.emailPlaceholder')}
-                className="footer-input"
+                className={`footer-input ${status === 'invalidEmail' ? 'footer-input-error' : ''}`}
               />
               <button
                 type="submit"
+                disabled={status === 'loading'}
                 className="footer-submit"
-                // Icon-only button: without this a screen reader announces
-                // just "button" with no indication of what it does.
                 aria-label={t('footer.subscribe')}
               >
-                <ArrowUpRight className="footer-submit-icon" aria-hidden="true" />
+                {status === 'loading' ? (
+                  <Loader2 className="footer-submit-icon animate-spin" aria-hidden="true" />
+                ) : (
+                  <ArrowUpRight className="footer-submit-icon" aria-hidden="true" />
+                )}
               </button>
             </div>
+
+            {/* Inline accessible feedback messages */}
+            {status === 'success' && (
+              <div className="footer-newsletter-status is-success" role="status">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" aria-hidden="true" />
+                <span>{t('footer.newsletterSuccess')}</span>
+              </div>
+            )}
+
+            {status === 'alreadySubscribed' && (
+              <div className="footer-newsletter-status is-info" role="status">
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-sky-500" aria-hidden="true" />
+                <span>{t('footer.newsletterAlreadySubscribed')}</span>
+              </div>
+            )}
+
+            {status === 'invalidEmail' && (
+              <div className="footer-newsletter-status is-error" role="alert">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0 text-rose-500" aria-hidden="true" />
+                <span>{t('footer.newsletterInvalidEmail')}</span>
+              </div>
+            )}
+
+            {status === 'rateLimit' && (
+              <div className="footer-newsletter-status is-error" role="alert">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0 text-amber-500" aria-hidden="true" />
+                <span>{t('footer.newsletterRateLimit')}</span>
+              </div>
+            )}
+
+            {status === 'error' && (
+              <div className="footer-newsletter-status is-error" role="alert">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0 text-rose-500" aria-hidden="true" />
+                <span>{t('footer.newsletterError')}</span>
+              </div>
+            )}
           </form>
         </div>
 

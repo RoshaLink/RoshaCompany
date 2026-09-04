@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import roshaWithComputerImage from '../../assets/Rosha/WorkingWithComputer/RoshaWithBlueComputer.jpg';
+import roshaWithComputerImage from '../../assets/Rosha/WorkingWithComputer/RoshaWithBlueComputer.webp';
 import './ServicesHero.css';
 
 export default function ServicesHero({ onOpenGetStarted }) {
@@ -69,7 +69,7 @@ export default function ServicesHero({ onOpenGetStarted }) {
                   alt="Rosha Digital Architecture & Software Development"
                   className="services-hero-img"
                   loading="eager"
-                />
+                 width="1376" height="768" />
               </div>
             </div>
           </div>

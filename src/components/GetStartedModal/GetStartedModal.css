@@ -1,1 +1,536 @@
-/* Styles for GetStartedModal */
+/* ==========================================================================
+   GET STARTED MODAL - FULL-WIDTH HERO HEADER & GLASSMORPHISM DESIGN SYSTEM
+   Supports Light & Dark Modes, RTL (FA/AR), and Prominent Rosha Mascot Header
+   ========================================================================== */
+
+/* Modal Backdrop Overlay with Smooth Blur */
+.get-started-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  overflow-x: hidden;
+  animation: modal-backdrop-fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (min-width: 640px) {
+  .get-started-backdrop {
+    padding: 1.5rem;
+  }
+}
+
+/* Ambient Floating Glow Elements */
+.modal-ambient-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  transition: opacity 0.5s ease;
+}
+
+.modal-glow-1 {
+  top: 15%;
+  right: 20%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(60px);
+}
+
+.modal-glow-2 {
+  bottom: 15%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, rgba(99, 102, 241, 0) 70%);
+  filter: blur(70px);
+}
+
+html.dark .modal-ambient-glow {
+  opacity: 0.35;
+}
+
+/* Modal Card Base - Glassmorphic Container */
+.get-started-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 30.5rem; /* 488px */
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  border-radius: 1.75rem;
+  padding: 0; /* Padding is inside modal-body-content to let hero banner reach top edges */
+  z-index: 10;
+  box-sizing: border-box;
+  animation: modal-card-scale-in 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  /* Glassmorphism Light Mode */
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 25px 60px -15px rgba(15, 23, 42, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.9) inset,
+    0 12px 35px -5px rgba(56, 189, 248, 0.15);
+}
+
+@media (min-width: 480px) {
+  .get-started-modal-card {
+    border-radius: 2rem;
+  }
+}
+
+/* Glassmorphism Dark Mode */
+html.dark .get-started-modal-card {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 35px 80px -15px rgba(0, 0, 0, 0.85),
+    0 0 45px rgba(56, 189, 248, 0.14),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Full-width Top Hero Banner for Rosha Mascot */
+.modal-hero-banner {
+  position: relative;
+  width: 100%;
+  height: 11rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%);
+  border-bottom: 1.5px solid rgba(226, 232, 240, 0.85);
+  overflow: hidden;
+  padding: 1rem;
+}
+
+@media (min-width: 480px) {
+  .modal-hero-banner {
+    height: 12.5rem;
+    padding: 1.25rem;
+  }
+}
+
+html.dark .modal-hero-banner {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(56, 189, 248, 0) 70%);
+  filter: blur(35px);
+  pointer-events: none;
+}
+
+.modal-hero-mascot-img {
+  position: relative;
+  height: 100%;
+  max-height: 9.25rem;
+  width: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 1.25rem; /* Clean rounded corners requested by user */
+  border: 1.5px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 25px -4px rgba(2, 132, 199, 0.22), 0 2px 8px rgba(15, 23, 42, 0.06);
+  z-index: 5;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+@media (min-width: 480px) {
+  .modal-hero-mascot-img {
+    max-height: 10.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
+.modal-hero-banner:hover .modal-hero-mascot-img {
+  transform: scale(1.04);
+  box-shadow: 0 14px 30px -4px rgba(2, 132, 199, 0.35);
+}
+
+html.dark .modal-hero-mascot-img {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.3);
+}
+
+/* Close Button (Guaranteed 44x44px minimum hit area) */
+.modal-close-btn {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.875rem;
+  color: #475569;
+  background: rgba(241, 245, 249, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 20;
+}
+
+.get-started-modal-card.is-rtl .modal-close-btn {
+  right: auto;
+  left: 0.875rem;
+}
+
+.modal-close-btn:hover {
+  color: #0f172a;
+  background: #e2e8f0;
+  transform: scale(1.06) rotate(90deg);
+}
+
+html.dark .modal-close-btn {
+  color: #cbd5e1;
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+html.dark .modal-close-btn:hover {
+  color: #ffffff;
+  background: rgba(51, 65, 85, 0.95);
+}
+
+/* Modal Body Content */
+.modal-body-content {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .modal-body-content {
+    padding: 1.5rem 1.75rem 1.75rem;
+  }
+}
+
+/* Title & Subtitle Group */
+.modal-title-group {
+  margin-bottom: 1.15rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Title with Homepage-Style Shimmer Sweep Animation */
+.modal-title {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0;
+  display: block;
+  text-align: center;
+  background-image: linear-gradient(
+    115deg,
+    #0284c7 0%,
+    #2563eb 25%,
+    #7dd3fc 45%,
+    #bae6fd 50%,
+    #7dd3fc 55%,
+    #4f46e5 75%,
+    #0284c7 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: modal-title-sweep 5s ease-in-out infinite;
+}
+
+@media (min-width: 480px) {
+  .modal-title {
+    font-size: 1.65rem;
+  }
+}
+
+html.dark .modal-title {
+  background-image: linear-gradient(
+    115deg,
+    #38bdf8 0%,
+    #60a5fa 25%,
+    #ffffff 45%,
+    #bae6fd 50%,
+    #ffffff 55%,
+    #818cf8 75%,
+    #38bdf8 100%
+  );
+}
+
+@keyframes modal-title-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-title {
+    animation: none;
+    background-position: 50% 0;
+  }
+}
+
+/* Subtitle strictly on 1 line */
+.modal-subtitle {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #475569;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 480px) {
+  .modal-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+html.dark .modal-subtitle {
+  color: #94a3b8;
+}
+
+/* Success State Check Icon Badge - Pure White Background */
+.modal-success-check-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+  background: #ffffff !important;
+  border: 2px solid #10b981;
+  box-shadow: 0 10px 25px -4px rgba(16, 185, 129, 0.28), 0 2px 6px rgba(15, 23, 42, 0.08);
+  color: #10b981 !important;
+  margin: 0 auto;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: checkmark-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-success-check-icon-wrapper:hover {
+  transform: scale(1.08);
+}
+
+html.dark .modal-success-check-icon-wrapper {
+  background: #ffffff !important;
+  border: 2.5px solid #10b981;
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.45), 0 6px 18px rgba(0, 0, 0, 0.4);
+  color: #059669 !important;
+}
+
+@keyframes checkmark-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Success Subtitle - Fully Shown Without Truncation */
+.modal-success-subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0.5rem auto 1.25rem;
+  max-width: 24rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  font-weight: 500;
+  text-align: center;
+}
+
+html.dark .modal-success-subtitle {
+  color: #cbd5e1;
+}
+
+/* Form Groups & Labels */
+.modal-field-group {
+  position: relative;
+}
+
+.modal-form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #0f172a !important;
+  margin-bottom: 0.35rem;
+}
+
+html.dark .modal-form-label {
+  color: #f1f5f9 !important;
+}
+
+/* Glass Form Inputs & Textarea */
+.modal-form-input,
+.modal-form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7) !important;
+  border: 1.5px solid rgba(203, 213, 225, 0.85) !important;
+  border-radius: 0.875rem;
+  padding: 0.625rem 0.95rem;
+  font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+  color: #0f172a !important;
+  font-weight: 500;
+  outline: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.22s ease;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .modal-form-input,
+  .modal-form-textarea {
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+  }
+}
+
+html.dark .modal-form-input,
+html.dark .modal-form-textarea {
+  background: rgba(30, 41, 59, 0.65) !important;
+  border-color: rgba(71, 85, 105, 0.8) !important;
+  color: #ffffff !important;
+}
+
+.modal-form-input::placeholder,
+.modal-form-textarea::placeholder {
+  color: #64748b !important;
+  font-size: 0.875rem;
+}
+
+html.dark .modal-form-input::placeholder,
+html.dark .modal-form-textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.modal-form-input:hover,
+.modal-form-textarea:hover {
+  border-color: rgba(56, 189, 248, 0.6) !important;
+}
+
+.modal-form-input:focus,
+.modal-form-input:focus-visible,
+.modal-form-textarea:focus,
+.modal-form-textarea:focus-visible {
+  outline: none !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.18), 0 4px 14px rgba(2, 132, 199, 0.08) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+html.dark .modal-form-input:focus,
+html.dark .modal-form-input:focus-visible,
+html.dark .modal-form-textarea:focus,
+html.dark .modal-form-textarea:focus-visible {
+  border-color: #38bdf8 !important;
+  background: rgba(30, 41, 59, 0.95) !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25), 0 4px 16px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Submit Button - Glowing Multi-stop Gradient */
+.modal-submit-btn {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 0.875rem;
+  background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #4f46e5 100%);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 25px rgba(2, 132, 199, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+  margin-top: 0.35rem;
+}
+
+.modal-submit-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 50%, #4338ca 100%);
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.48);
+  transform: translateY(-2px);
+}
+
+.modal-submit-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Custom Scrollbar for Modal Card */
+.get-started-modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.get-started-modal-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.get-started-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.7);
+  border-radius: 4px;
+}
+
+html.dark .get-started-modal-card::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.7);
+}
+
+/* Animations */
+@keyframes modal-backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-card-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

@@ -6,6 +6,63 @@
   gap: 6rem; /* space-y-24 */
   padding-bottom: 5rem; /* pb-20 */
   background-color: var(--color-surface); /* bg-white */
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Allow the continuous dot-grid pattern to show through all sections in Light Mode */
+html:not(.dark) .homepage-container .hero-section,
+html:not(.dark) .homepage-container .brands-section,
+html:not(.dark) .homepage-container .search-visibility-section,
+html:not(.dark) .homepage-container .search-visibility-wrapper,
+html:not(.dark) .homepage-container .sales-section,
+html:not(.dark) .homepage-container .business-section,
+html:not(.dark) .homepage-container .custom-section,
+html:not(.dark) .homepage-container .mobile-section,
+html:not(.dark) .homepage-container .connect-section,
+html:not(.dark) .homepage-container .whoweare-section,
+html:not(.dark) .homepage-container .testimonial-col-section {
+  background-color: transparent !important;
+}
+
+html:not(.dark) .homepage-container .hero-grid-bg {
+  display: none;
+}
+
+html:not(.dark) .homepage-container .brands-pattern {
+  display: none;
+}
+
+html:not(.dark) .homepage-container .search-visibility-wrapper {
+  background-image: linear-gradient(to bottom, transparent, rgba(240, 249, 255, 0.35), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .sales-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(236, 253, 245, 0.25), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .business-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(240, 249, 255, 0.3), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .custom-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(238, 242, 255, 0.3), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .mobile-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(254, 242, 242, 0.25), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .connect-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(240, 249, 255, 0.3), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .whoweare-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(245, 243, 255, 0.25), transparent) !important;
+}
+
+html:not(.dark) .homepage-container .testimonial-col-section {
+  background-image: linear-gradient(to bottom, transparent, rgba(240, 249, 255, 0.25), transparent) !important;
 }
 
 /* CTA Banner Section */

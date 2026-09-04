@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2, Sparkles, Copy, Check, Clock, ShieldCheck, FileText, Calendar, Rocket, ChevronLeft, ChevronRight } from 'lucide-react';
-import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.jpeg';
+import { Send, CheckCircle2, Loader2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.webp';
 import './ContactPage.css';
 
 export default function ContactPage() {
@@ -12,46 +12,28 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(false);
-  const [copiedEmail, setCopiedEmail] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
 
-  const contactEmail = 'roshalinkcompany@gmail.com';
-
   const stepsData = [
     {
-      icon: FileText,
-      color: 'text-sky-500',
-      bg: 'bg-sky-500/10 dark:bg-sky-500/20',
-      border: 'border-sky-200 dark:border-sky-800/60',
-      badgeBg: 'bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300',
+      id: 'step-1',
       titleKey: 'contactPage.step1Title',
       descKey: 'contactPage.step1Desc',
-      badgeKey: 'contactPage.step1Badge',
       feat1Key: 'contactPage.step1Feature1',
       feat2Key: 'contactPage.step1Feature2',
     },
     {
-      icon: Calendar,
-      color: 'text-indigo-500',
-      bg: 'bg-indigo-500/10 dark:bg-indigo-500/20',
-      border: 'border-indigo-200 dark:border-indigo-800/60',
-      badgeBg: 'bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300',
+      id: 'step-2',
       titleKey: 'contactPage.step2Title',
       descKey: 'contactPage.step2Desc',
-      badgeKey: 'contactPage.step2Badge',
       feat1Key: 'contactPage.step2Feature1',
       feat2Key: 'contactPage.step2Feature2',
     },
     {
-      icon: Rocket,
-      color: 'text-emerald-500',
-      bg: 'bg-emerald-500/10 dark:bg-emerald-500/20',
-      border: 'border-emerald-200 dark:border-emerald-800/60',
-      badgeBg: 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300',
+      id: 'step-3',
       titleKey: 'contactPage.step3Title',
       descKey: 'contactPage.step3Desc',
-      badgeKey: 'contactPage.step3Badge',
       feat1Key: 'contactPage.step3Feature1',
       feat2Key: 'contactPage.step3Feature2',
     },
@@ -65,11 +47,7 @@ export default function ContactPage() {
     setActiveStep((prev) => (prev - 1 + stepsData.length) % stepsData.length);
   };
 
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(contactEmail);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -103,46 +81,42 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="contact-page-wrapper bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 pb-16 sm:pb-24 transition-colors duration-300">
+    <div className="contact-page-wrapper">
       {/* Background Ambient Glows */}
       <div className="contact-glow-1" />
       <div className="contact-glow-2" />
 
       {/* Hero Header Section */}
-      <section className="relative pt-20 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 lg:pb-16 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
-        <div className="contact-container space-y-4 sm:space-y-6">
+      <section className="contact-hero-section">
+        <div className="contact-container">
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{t('contactPage.badge', 'STRATEGISK SUPPORT & ADVISORY')}</span>
-          </div>
+
 
           {/* Headline */}
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight max-w-4xl mx-auto">
-            <span>{t('contactPage.titlePrefix', "Let's Build Something ")}</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-indigo-500 to-purple-500">
-              {t('contactPage.titleGradient', 'Extraordinary')}
+          <h1 className="contact-hero-title">
+            <span>{t('contactPage.titlePrefix')}</span>
+            <span className="sky-blue-text-shine">
+              {t('contactPage.titleGradient')}
             </span>
-            <span>{t('contactPage.titleSuffix', ' Together')}</span>
+            <span>{t('contactPage.titleSuffix')}</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            {t('contactPage.subtitle', 'Schedule a technical strategy session or reach out directly to our 5 principal partners today.')}
+          <p className="contact-hero-subtitle">
+            {t('contactPage.subtitle')}
           </p>
 
         </div>
       </section>
 
       {/* Main Responsive Grid: Info Showcase & Form */}
-      <section className="contact-container">
+      <section className="contact-container contact-main-grid-section">
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start ${isRTL ? 'is-rtl' : ''}`}>
           
           {/* Left Column (5 Cols on desktop): DiarContact Image & Quick Contact Cards */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             
-            {/* DiarContact Showcase Image Card (Matches Portfolio Hero Frame Style) */}
+            {/* DiarContact Showcase Image Card */}
             <div className="relative w-full group">
               {/* Ambient Glow Backdrop */}
               <div className="absolute -inset-2 bg-gradient-to-r from-sky-400/20 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:opacity-100 transition duration-500" />
@@ -151,99 +125,21 @@ export default function ContactPage() {
               <div className="contact-image-frame">
                 <img
                   src={diaraContactImage}
-                  alt="RoshaLink Strategic Advisor - Diar"
+                  alt="RoshaLink Strategic Advisor"
                   className="contact-img"
-                />
-
-                {/* Floating Glassmorphic Pill */}
-                <div className={`contact-floating-pill ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <div className="contact-status-dot shrink-0" />
-                  <div className="space-y-0.5 min-w-0 flex-1">
-                    <div className="text-[11px] sm:text-xs font-bold text-slate-900 dark:text-white truncate">
-                      {t('contactPage.diaraPillTitle', 'RoshaLink Direct Channel')}
-                    </div>
-                    <div className="text-[10px] sm:text-[11px] font-medium text-sky-600 dark:text-sky-400 truncate">
-                      {t('contactPage.diaraPillSubtitle', '24/7 Strategic Support')}
-                    </div>
-                  </div>
-                </div>
+                 width="1200" height="896" loading="lazy" />
               </div>
             </div>
 
             {/* Direct Access Intro */}
-            <div className={`space-y-1.5 sm:space-y-2 p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 backdrop-blur-md ${isRTL ? 'text-right' : 'text-left'}`}>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <div className={`space-y-1.5 sm:space-y-2 p-4 sm:p-5 rounded-xl sm:rounded-2xl contact-card-glass ${isRTL ? 'text-right' : 'text-left'}`}>
+              <h2 className="text-base sm:text-lg font-bold flex items-center gap-2 contact-section-heading contact-card-title">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500 shrink-0" />
-                <span>{t('contactPage.infoTitle', 'Direct Partner Access')}</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                {t('contactPage.infoSubtitle', 'No intermediate sales reps. Speak directly with our Senior Systems Architects and Head of Design.')}
+                <span>{t('contactPage.infoTitle')}</span>
+              </h2>
+              <p className="text-xs sm:text-sm leading-relaxed font-normal contact-card-desc">
+                {t('contactPage.infoSubtitle')}
               </p>
-            </div>
-
-            {/* Contact Cards List - Responsive: 1 Col on mobile, 3 Cols on Tablet (sm/md), 1 Col on Desktop (lg) */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3 sm:gap-3.5">
-              
-              {/* Primary Email Card */}
-              <div className="contact-card-glass flex flex-col sm:flex-row lg:flex-row items-start sm:items-center justify-between gap-2.5 sm:gap-3 group">
-                <div className={`flex items-center gap-2.5 sm:gap-3.5 min-w-0 w-full ${isRTL ? 'text-right sm:flex-row-reverse' : 'text-left'}`}>
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
-                      {t('contactPage.emailLabel', 'Primary Email')}
-                    </span>
-                    <a
-                      href={`mailto:${contactEmail}`}
-                      className="font-bold text-slate-900 dark:text-white hover:text-sky-500 dark:hover:text-sky-400 transition-colors text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate"
-                    >
-                      {contactEmail}
-                    </a>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={handleCopyEmail}
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 flex items-center justify-center transition-colors shrink-0 cursor-pointer border border-slate-200 dark:border-slate-700 self-end sm:self-center"
-                  title="Copy email to clipboard"
-                  aria-label="Copy email to clipboard"
-                >
-                  {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                </button>
-              </div>
-
-              {/* Location Card */}
-              <div className={`contact-card-glass flex items-center gap-2.5 sm:gap-3.5 ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div className="min-w-0">
-                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
-                    {t('contactPage.phoneLabel', 'Location & Consultation')}
-                  </span>
-                  <span className="font-bold text-slate-900 dark:text-white text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate">
-                    {t('contactPage.phoneValue', 'Stockholm, Sweden & Global Remote')}
-                  </span>
-                </div>
-              </div>
-
-              {/* Agency HQ Card */}
-              <div className={`contact-card-glass flex items-center gap-2.5 sm:gap-3.5 ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
-                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                  <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div className="min-w-0">
-                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase tracking-wider">
-                    {t('contactPage.hqLabel', 'Agency HQ')}
-                  </span>
-                  <span className="font-bold text-slate-900 dark:text-white text-xs xs:text-sm sm:text-xs md:text-sm lg:text-base block truncate">
-                    {t('contactPage.hqValue', 'Stockholm & San Francisco')}
-                  </span>
-                </div>
-              </div>
-
             </div>
           </div>
 
@@ -264,18 +160,19 @@ export default function ContactPage() {
                     initial={{ opacity: 0, scale: 0.95, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-center py-8 sm:py-10 space-y-5 sm:space-y-6"
+                    transition={{ duration: 0.4 }}
+                    className="py-8 sm:py-12 px-4 sm:px-8 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
-                      <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                        {t('contactPage.submittedTitle', 'Discovery Request Received!')}
-                      </h3>
-                      <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto leading-relaxed">
-                        {t('contactPage.submittedSub', 'Our lead architect will review your project requirements and email you back within 4 business hours.')}
+
+                    <div className="space-y-1 sm:space-y-2">
+                      <h2 className="text-lg sm:text-2xl font-bold contact-section-heading">
+                        {t('contactPage.successTitle')}
+                      </h2>
+                      <p className="text-xs sm:text-sm max-w-md mx-auto contact-form-subtext">
+                        {t('contactPage.successDesc')}
                       </p>
                     </div>
 
@@ -285,43 +182,35 @@ export default function ContactPage() {
                         setSubmitted(false);
                         setFormData({ name: '', email: '', company: '', message: '' });
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                      className="mt-4 px-6 py-2.5 rounded-xl border contact-reset-btn text-xs sm:text-sm font-semibold transition-all cursor-pointer inline-block"
                     >
-                      <span>{t('contactPage.sendAnotherBtn', 'Skicka ett till meddelande')}</span>
+                      {t('contactPage.sendAnotherBtn')}
                     </button>
                   </motion.div>
                 ) : (
-                  /* Main Interactive Form with Staggered Field Motion */
+                  /* Interactive Form with Staggered Field Transitions */
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                    animate="visible"
                     variants={{
-                      hidden: {},
+                      hidden: { opacity: 0 },
                       visible: {
-                        transition: {
-                          staggerChildren: 0.08,
-                        },
+                        opacity: 1,
+                        transition: { staggerChildren: 0.08 },
                       },
                     }}
-                    className={`space-y-3 sm:space-y-4 font-normal ${isRTL ? 'text-right' : 'text-left'}`}
+                    className={`p-5 sm:p-7 md:p-8 space-y-4 sm:space-y-5 ${isRTL ? 'text-right' : 'text-left'}`}
                   >
-                    <motion.div
-                      variants={{
-                        hidden: { opacity: 0, y: 12 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-                      }}
-                      className="space-y-0.5 sm:space-y-1"
-                    >
-                      <h3 className="text-base sm:text-xl lg:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                        {t('contactPage.formTitle', 'Send Us a Brief')}
-                      </h3>
-                      <p className="text-[11px] sm:text-sm text-slate-500 dark:text-slate-400 leading-snug">
-                        {t('contactPage.formSubtitle', 'Tell us about your project goals, technical stack, or timeline requirements.')}
+                    <div className="space-y-1">
+                      <h2 className="text-lg sm:text-xl font-black contact-section-heading contact-form-title">
+                        {t('contactPage.formTitle')}
+                      </h2>
+                      <p className="text-xs sm:text-sm font-medium contact-form-subtitle">
+                        {t('contactPage.formSubtitle')}
                       </p>
-                    </motion.div>
+                    </div>
                     
                     {/* Name & Email Row */}
                     <motion.div
@@ -332,8 +221,8 @@ export default function ContactPage() {
                       className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4"
                     >
                       <div className="space-y-1">
-                        <label htmlFor="contact-name-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                          {t('contactPage.fieldName', 'Your Full Name')}
+                        <label htmlFor="contact-name-input" className="text-[11px] sm:text-xs font-bold block contact-field-label">
+                          {t('contactPage.fieldName')}
                         </label>
                         <input
                           id="contact-name-input"
@@ -341,14 +230,14 @@ export default function ContactPage() {
                           required
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder={t('contactPage.fieldNamePlaceholder', 'John Doe')}
+                          placeholder={t('contactPage.fieldNamePlaceholder')}
                           className="contact-input"
                         />
                       </div>
 
                       <div className="space-y-1">
-                        <label htmlFor="contact-email-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                          {t('contactPage.fieldEmail', 'Work Email')}
+                        <label htmlFor="contact-email-input" className="text-[11px] sm:text-xs font-bold block contact-field-label">
+                          {t('contactPage.fieldEmail')}
                         </label>
                         <input
                           id="contact-email-input"
@@ -357,7 +246,7 @@ export default function ContactPage() {
                           pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder={t('contactPage.fieldEmailPlaceholder', 'john@company.com')}
+                          placeholder={t('contactPage.fieldEmailPlaceholder')}
                           className="contact-input"
                         />
                       </div>
@@ -371,15 +260,15 @@ export default function ContactPage() {
                       }}
                       className="space-y-1"
                     >
-                      <label htmlFor="contact-company-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                        {t('contactPage.fieldCompany', 'Company Name & Role')}
+                      <label htmlFor="contact-company-input" className="text-[11px] sm:text-xs font-bold block contact-field-label">
+                        {t('contactPage.fieldCompany')}
                       </label>
                       <input
                         id="contact-company-input"
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder={t('contactPage.fieldCompanyPlaceholder', 'Enterprise Inc / CTO')}
+                        placeholder={t('contactPage.fieldCompanyPlaceholder')}
                         className="contact-input"
                       />
                     </motion.div>
@@ -392,8 +281,8 @@ export default function ContactPage() {
                       }}
                       className="space-y-1"
                     >
-                      <label htmlFor="contact-message-input" className="text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                        {t('contactPage.fieldMessage', 'Project Overview & Timeline')}
+                      <label htmlFor="contact-message-input" className="text-[11px] sm:text-xs font-bold block contact-field-label">
+                        {t('contactPage.fieldMessage')}
                       </label>
                       <textarea
                         id="contact-message-input"
@@ -401,7 +290,7 @@ export default function ContactPage() {
                         required
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder={t('contactPage.fieldMessagePlaceholder', 'Describe your project goals, technical stack, or timeline requirements...')}
+                        placeholder={t('contactPage.fieldMessagePlaceholder')}
                         className="contact-input min-h-[85px] sm:min-h-[110px] resize-y"
                       />
                     </motion.div>
@@ -414,7 +303,7 @@ export default function ContactPage() {
                         className="text-[11px] sm:text-xs text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 rounded-xl p-2.5 sm:p-3.5 flex items-start gap-2"
                       >
                         <div className="w-1.5 h-1.5 rounded-full bg-rose-500 mt-1 shrink-0" />
-                        <p>{t('contactPage.errorMessage', "We couldn't send your brief. Please try again in a moment.")}</p>
+                        <p>{t('contactPage.errorMessage')}</p>
                       </motion.div>
                     )}
 
@@ -435,8 +324,8 @@ export default function ContactPage() {
                       >
                         <span className="text-xs sm:text-sm">
                           {isSubmitting 
-                            ? t('contactPage.submittingBtn', 'Sending...') 
-                            : t('contactPage.submitBtn', 'Submit Brief')}
+                            ? t('contactPage.submittingBtn') 
+                            : t('contactPage.submitBtn')}
                         </span>
                         {isSubmitting ? (
                           <Loader2 className="w-4 h-4 animate-spin shrink-0" />
@@ -456,54 +345,52 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="contact-next-steps-card mt-4 sm:mt-6 rounded-2xl space-y-4 cursor-pointer"
+              className="contact-next-steps-card mt-4 sm:mt-6 rounded-2xl space-y-4"
             >
               {/* Card Header: Title & Step Counter Controls */}
               <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isRTL ? 'is-rtl' : ''}`}>
                 <div className={`space-y-0.5 ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-sky-500 shrink-0 animate-pulse" />
-                    <span>{t('contactPage.nextStepsTitle', 'Vad händer sedan?')}</span>
-                  </h4>
-                  <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
-                    {t('contactPage.nextStepsSub', 'Vår transparenta process från första kontakt till start.')}
+                  <h2 className="text-sm sm:text-base font-bold contact-section-heading contact-steps-title">
+                    <span>{t('contactPage.nextStepsTitle')}</span>
+                  </h2>
+                  <p className="text-[11px] sm:text-xs contact-steps-subtitle">
+                    {t('contactPage.nextStepsSub')}
                   </p>
                 </div>
 
                 {/* Step indicators & Next/Prev navigation controls */}
                 <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
-                  <span className="text-[11px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400">
-                    {t('contactPage.stepLabel', 'Steg')} {activeStep + 1} {t('contactPage.ofLabel', 'av')} {stepsData.length}
+                  <span className="text-[11px] sm:text-xs font-bold contact-step-counter">
+                    {t('contactPage.stepLabel')} {activeStep + 1} {t('contactPage.ofLabel')} {stepsData.length}
                   </span>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1.5">
                     <button
                       type="button"
                       onClick={handlePrevStep}
-                      aria-label="Previous"
-                      title="Previous"
-                      className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+                      aria-label="Previous step"
+                      title="Previous step"
+                      className="contact-step-nav-btn p-2 rounded-lg transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
                     </button>
                     <button
                       type="button"
                       onClick={handleNextStep}
-                      aria-label="Next"
-                      title="Next"
-                      className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 text-slate-600 dark:text-slate-300 transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+                      aria-label="Next step"
+                      title="Next step"
+                      className="contact-step-nav-btn p-2 rounded-lg transition-all min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      {isRTL ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                     </button>
                   </div>
                 </div>
               </div>
 
               {/* Dynamic Animated Step Card Content */}
-              <div className="relative min-h-[175px] sm:min-h-[160px] overflow-hidden rounded-xl bg-slate-100/70 dark:bg-slate-800/50 p-3.5 sm:p-4 border border-slate-200/80 dark:border-slate-700/60">
+              <div className="relative min-h-[140px] sm:min-h-[130px] overflow-hidden rounded-xl contact-step-inner-box p-3.5 sm:p-4 border">
                 <AnimatePresence mode="wait">
                   {stepsData.map((step, idx) => {
                     if (idx !== activeStep) return null;
-                    const StepIcon = step.icon;
                     return (
                       <motion.div
                         key={step.id}
@@ -511,30 +398,28 @@ export default function ContactPage() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: isRTL ? 20 : -20 }}
                         transition={{ duration: 0.35, ease: 'easeInOut' }}
-                        className={`space-y-3.5 ${isRTL ? 'text-right' : 'text-left'}`}
+                        className={`space-y-2.5 ${isRTL ? 'text-right' : 'text-left'}`}
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <div className="flex items-center gap-2.5">
-                            <div className="p-2 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-600 dark:text-sky-400 shrink-0">
-                              <StepIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-                            </div>
-                            <h5 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                              {t(step.titleKey)}
-                            </h5>
-                          </div>
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 shrink-0">
-                            {t(step.badgeKey)}
-                          </span>
+                          <h3 className="text-sm sm:text-base font-bold contact-step-card-title">
+                            {t(step.titleKey)}
+                          </h3>
                         </div>
 
-                        <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        <p className="text-[11px] sm:text-xs leading-relaxed font-medium contact-step-desc">
                           {t(step.descKey)}
                         </p>
 
                         {/* Feature Bullet Highlights */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-slate-200/60 dark:border-slate-700/50 text-[11px] font-medium text-slate-600 dark:text-slate-400">
-                          <div className="truncate">{t(step.feat1Key)}</div>
-                          <div className="truncate">{t(step.feat2Key)}</div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t text-[11px] font-medium contact-step-features">
+                          <div className="flex items-center gap-1.5 truncate">
+                            <div className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                            <span className="truncate contact-step-feat-text">{t(step.feat1Key)}</span>
+                          </div>
+                          <div className="flex items-center gap-1.5 truncate">
+                            <div className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" />
+                            <span className="truncate contact-step-feat-text">{t(step.feat2Key)}</span>
+                          </div>
                         </div>
                       </motion.div>
                     );
@@ -550,7 +435,7 @@ export default function ContactPage() {
                       key={stepIdx}
                       type="button"
                       onClick={() => setActiveStep(stepIdx)}
-                      aria-label={`${t('contactPage.stepLabel', 'Steg')} ${stepIdx + 1}`}
+                      aria-label={`${t('contactPage.stepLabel')} ${stepIdx + 1}`}
                       className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                         stepIdx === activeStep
                           ? 'w-8 bg-sky-500 shadow-sm shadow-sky-500/50'

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Global Variables */
 :root {
   /* Colors */
@@ -28,6 +32,9 @@
   --color-sky-400: #38bdf8;
   --color-sky-500: #0ea5e9;
   --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+  --color-sky-800: #075985;
+  --color-sky-900: #0c4a6e;
   --color-blue-50: #eff6ff;
   --color-blue-100: #dbeafe;
   --color-blue-200: #bfdbfe;
@@ -74,11 +81,11 @@
   --color-transparent: transparent;
 
   /* Fonts */
-  --font-headline: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-grotesk: 'Anton', sans-serif;
+  --font-headline: 'Montserrat', 'Vazirmatn', sans-serif;
+  --font-body: 'Inter', 'Vazirmatn', sans-serif;
+  --font-grotesk: 'Anton', 'Vazirmatn', sans-serif;
   --font-condiment: 'Condiment', cursive;
-  --font-mono: 'Geist', monospace;
+  --font-mono: 'Geist', 'Vazirmatn', monospace;
 
   /* Radii */
   --radius-sm: 0.125rem;
@@ -111,6 +118,15 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+/* Universal RTL & Persian/Arabic Typography */
+html[dir="rtl"],
+html[dir="rtl"] body,
+html[lang="fa"],
+html[lang="ar"],
+.is-rtl {
+  font-family: 'Vazirmatn', var(--font-body), sans-serif;
+}
+
 #root {
   width: 100%;
   overflow-x: hidden;
@@ -122,7 +138,28 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-headline);
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[lang="fa"] h1,
+html[lang="fa"] h2,
+html[lang="fa"] h3,
+html[lang="fa"] h4,
+html[lang="fa"] h5,
+html[lang="fa"] h6,
+.is-rtl h1,
+.is-rtl h2,
+.is-rtl h3,
+.is-rtl h4,
+.is-rtl h5,
+.is-rtl h6 {
+  font-family: 'Vazirmatn', var(--font-headline), sans-serif;
 }
 
 /* Glassmorphism Card Style - White Smokey Theme */

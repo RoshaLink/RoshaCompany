@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Globe2, PhoneCall } from 'lucide-react';
-import roshaConnectImage from '../../assets/Rosha/ConnectWthUS/RoshaGivingLike.png';
-import iranFlagLogo from '../../assets/Rosha/logos/Iran.png';
+import roshaConnectImage from '../../assets/Rosha/ConnectWthUS/RoshaGivingLike.webp';
+import iranFlagLogo from '../../assets/Rosha/logos/Iran.webp';
 import './ConnectWithUsShowcase.css';
 
 const SwedenFlag = ({ className }) => (
@@ -24,7 +25,13 @@ const UkFlag = ({ className }) => (
 );
 
 const IranFlag = ({ className }) => (
-  <img src={iranFlagLogo} alt="Iran Flag" className={`rounded-[3px] shadow-sm shrink-0 object-cover inline-block ${className || 'w-6 h-4'}`} />
+  <img
+    src={iranFlagLogo}
+    alt="Iran Flag"
+    width="44"
+    height="28"
+    className={`rounded-[3px] shadow-sm shrink-0 object-cover inline-block ${className || 'w-6 h-4'}`}
+   loading="lazy" />
 );
 
 const ArabicFlag = ({ className }) => (
@@ -87,7 +94,7 @@ export default function ConnectWithUsShowcase({ onOpenGetStarted, setActivePage 
                   src={roshaConnectImage}
                   alt="Connect With RoshaLink"
                   className="connect-img"
-                />
+                 width="1536" height="1024" loading="lazy" />
 
                 {/* Bottom Floating Language Flags Pill */}
                 <div className="connect-lang-pill">
@@ -144,12 +151,13 @@ export default function ConnectWithUsShowcase({ onOpenGetStarted, setActivePage 
 
             {/* Action Buttons */}
             <div className="connect-action">
-              <button
-                onClick={() => setActivePage ? setActivePage('contact') : null}
+              <Link
+                to={`/${i18n.language}/contact`}
+                onClick={() => setActivePage?.('contact')}
                 className="connect-btn-primary"
               >
                 <span>{t('connectWithUs.contactBtn')}</span>
-              </button>
+              </Link>
 
               <button
                 onClick={onOpenGetStarted}

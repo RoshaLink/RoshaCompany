@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import {
   Compass,
   Code2,
@@ -23,11 +24,12 @@ import {
   Check,
   X
 } from 'lucide-react';
-import roshaAnalysis from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
+import roshaAnalysis from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.webp';
 import ServicesHero from '../../components/ServicesHero/ServicesHero';
 import ServicesCapabilities from '../../components/ServicesCapabilities/ServicesCapabilities';
 import ServicesTechMatrix from '../../components/ServicesTechMatrix/ServicesTechMatrix';
 import ServicesDeliveryProcess from '../../components/ServicesDeliveryProcess/ServicesDeliveryProcess';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './ServicesPage.css';
 
 export default function ServicesPage({ onOpenGetStarted }) {
@@ -47,6 +49,8 @@ export default function ServicesPage({ onOpenGetStarted }) {
 
   return (
     <div className={`services-page-root ${rtlClass}`} dir={isRTL ? 'rtl' : 'ltr'}>
+
+      <Breadcrumb page="services" />
 
       {/* =========================================================================
           1. SERVICES HERO SECTION (Separate Component)
@@ -273,7 +277,7 @@ export default function ServicesPage({ onOpenGetStarted }) {
                     alt="RoshaLink Strategic Partner Discovery"
                     className="services-cta-mascot-img"
                     loading="lazy"
-                  />
+                   width="1536" height="1024" />
                 </div>
               </div>
 
@@ -295,6 +299,17 @@ export default function ServicesPage({ onOpenGetStarted }) {
                     <span>{t('servicesPage.cta.button')}</span>
                     <ArrowRight className="services-btn-icon" />
                   </button>
+                </div>
+
+                <div className="services-cta-secondary-links">
+                  <Link to={`/${i18n.language}/portfolio`} className="services-cta-secondary-link">
+                    <span>{t('servicesPage.cta.portfolioLink', 'See this work in action')}</span>
+                    <ArrowUpRight className="services-cta-secondary-icon" />
+                  </Link>
+                  <Link to={`/${i18n.language}/about`} className="services-cta-secondary-link">
+                    <span>{t('servicesPage.cta.aboutLink', 'Meet the senior team behind this')}</span>
+                    <ArrowUpRight className="services-cta-secondary-icon" />
+                  </Link>
                 </div>
               </div>
             </div>

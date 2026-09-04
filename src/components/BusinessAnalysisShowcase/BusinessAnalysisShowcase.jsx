@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import videoSource from '../../assets/Rosha/HoldingLaptop/RoshaHoldingLaptop.mp4';
+import videoMp4 from '../../assets/Rosha/HoldingLaptop/RoshaHoldingLaptop.mp4';
+import videoWebm from '../../assets/Rosha/HoldingLaptop/RoshaHoldingLaptop.webm';
+import LazyVideo from '../ui/LazyVideo';
 import BusinessAnalysisModal from './BusinessAnalysisModal';
 import './BusinessAnalysisShowcase.css';
 
@@ -66,15 +68,11 @@ export default function BusinessAnalysisShowcase({ onOpenGetStarted, setActivePa
 
               {/* Glassmorphic Frame Card */}
               <div className="business-video-frame">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  webm={videoWebm}
+                  mp4={videoMp4}
                   className="business-video"
-                >
-                  <source src={videoSource} type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           </div>

@@ -168,47 +168,51 @@ const resources = {
           v6Desc: "Vi är er kontinuerliga teknologipartner som utvecklar, skalar och underhåller er plattform över tid."
         },
         awards: {
-          "sectionTitle": "Branscherkännande & Utmärkelser",
-          "titlePrefix": "Branscherkännande & ",
-          "titleGradient": "Utmärkelser",
+          "sectionTitle": "Våra Spetskompetenser & Kvalitetsstandarder",
+          "titlePrefix": "Våra Spetskompetenser & ",
+          "titleGradient": "Kvalitetsstandarder",
           "titleSuffix": "",
-          "sectionSubtitle": "Vår hängivenhet till teknisk excellens, banbrytande arkitektur och kompromisslös design belönas internationellt.",
+          "sectionSubtitle": "Vår hängivenhet till teknisk excellens, banbrytande mjukvaruarkitektur och kompromisslös användarupplevelse.",
           "a1": {
+                  "badge": "PRESTANDA",
                   "title": "BÄSTA WEBB-ARKITEKTUR",
-                  "subtitle": "Global Cloud & Scalability Awards",
-                  "recipient": "RoshaLink Architecture Squad",
-                  "date": "2025",
-                  "level": "gold"
+                  "subtitle": "100/100 Google Lighthouse, blixtsnabb laddning & högsta säkerhet",
+                  "recipient": "RoshaLink Arkitekturstandard",
+                  "date": "Noll kompromisser",
+                  "level": "prestanda"
           },
           "a2": {
-                  "title": "FULL-STACK INNOVATION",
-                  "subtitle": "Enterprise Scalability & Speed Honors",
-                  "recipient": "RoshaLink Engineering",
-                  "date": "2025",
-                  "level": "platinum"
+                  "badge": "FULLSTACK",
+                  "title": "FULLSTACK-SYSTEM",
+                  "subtitle": "Skräddarsydd kod, robusta API:er och framtidssäker skalbarhet",
+                  "recipient": "RoshaLink Ingenjörsteam",
+                  "date": "Skalbarhet & Stabilitet",
+                  "level": "ingenjörskonst"
           },
           "a3": {
+                  "badge": "UI/UX DESIGN",
                   "title": "TOPP UI/UX DESIGN",
-                  "subtitle": "Nordic Digital Experience & Product Awards",
-                  "recipient": "RoshaLink Product Studio",
-                  "date": "2024 - 2025",
-                  "level": "gold"
+                  "subtitle": "Konverteringsdrivande, intuitiva och skräddarsydda användarresor",
+                  "recipient": "RoshaLink Designstudio",
+                  "date": "Användarcentrerad",
+                  "level": "design"
           },
           "a4": {
-                  "title": "AI & APP INNOVATION",
-                  "subtitle": "Next-Gen Enterprise Web & Mobile Platform",
-                  "recipient": "RoshaLink Labs",
-                  "date": "2025",
-                  "level": "platinum"
+                  "badge": "INNOVATION",
+                  "title": "AI & APPUTVECKLING",
+                  "subtitle": "Intelligenta automationer, smarta agenter och moderna appar",
+                  "recipient": "RoshaLink Innovationslabb",
+                  "date": "Framtidssäkrad",
+                  "level": "innovation"
           }
-},
+        },
           cta: {
           badge: "SAMARBETA MED OSS",
-          title: "Vill du bygga nästa framgångsrika produkt med vårt ledarteam?",
+          title: "Vill du bygga nästa framgångsrika produkt med vårt team?",
           titlePrefix: "Vill du bygga nästa framgångsrika produkt med ",
-          titleGradient: "vårt ledarteam?",
+          titleGradient: "vårt team?",
           titleSuffix: "",
-          subtitle: "Boka en strategisk upptäcktsworkshop med våra 5 seniora partners och låt oss transformera er digitala vision.",
+          subtitle: "Boka en strategisk upptäcktsworkshop med oss och låt oss transformera er digitala vision.",
           button: "Boka strategisamtal nu"
         }
       },
@@ -218,7 +222,13 @@ const resources = {
         services: "Tjänster",
         about: "Om oss",
         contact: "Kontakt",
-        getStarted: "Börja nu"
+        getStarted: "Börja nu",
+        navigation: "Navigation",
+        tagline: "Skräddarsydd digital arkitektur",
+        darkMode: "Mörkt läge",
+        lightMode: "Ljust läge",
+        closeMenu: "Stäng meny",
+        openMenu: "Öppna meny"
       },
       hero: {
         badge: "DIGITAL AFFÄRSTRANSFORMATION & AI-ARKITEKTUR",
@@ -241,7 +251,7 @@ const resources = {
         title: "Arkitektoniserad med verktyg och varumärken vi arbetar med",
         subtitle: "Vi integrerar över 250+ ledande molntjänster, AI-plattformar och designverktyg i vårt utvecklingsarbetsflöde.",
         auditBtn: "Starta teknikaudit",
-        exploreBtn: "Utforska teknikstack"
+        exploreBtn: "Utforska tjänster"
       },
       features: {
         badge: "FUNKTIONSHÖJDPUNKTER",
@@ -311,7 +321,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "FLERSPRÅKIG SUPPORT & RÅDGIVNING",
-        titlePrefix: "Ta kontakt med oss —",
+        titlePrefix: "TA KONTAKT MED OSS ",
         titleGradient: "SUPPORT PÅ 4 SPRÅK",
         titleSuffix: "(Svenska, Engelska, Farsi & Arabiska)",
         subtitle: "Vårt ledarteam ger dig direkt rådgivning på det språk du föredrar. Vi eliminerar alla språkbarriärer så att dina projektkrav blir 100% förstådda och perfekt utförda.",
@@ -459,6 +469,46 @@ const resources = {
         feature3: "Blixtsnabb Kod & Förtroendegivande UX",
         previewBtn: "Förhandsgranska"
       },
+      hogwardCafeProject: {
+        category: "KAFÉ & RESTAURANGUPPLEVELSE",
+        title: "HogWard Café & Restaurang",
+        desc: "En unik och stämningsfull webbapplikation för HogWard Café med interaktiv digital meny, magiska dryckespresentationer, online bordsbokning och modern responsiv design.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Interaktiv digital meny & dryckeskatalog",
+        feature2: "Online bordsboknings- och eventsystem",
+        feature3: "Flerspråkig UI & snabb responsiv design",
+        previewBtn: "Förhandsgranska"
+      },
+      auroraClinicProject: {
+        category: "SKÖNHETSKLINIK & LASERBEHANDLINGAR",
+        title: "Aurora – Skönhets- & Laserklinik Stockholm",
+        desc: "Modern och elegant digital webbapplikation för Aurora Skönhets- & Laserklinik i Stockholm med behandlingskatalog, online konsultationsbokning, flerspråkigt stöd och responsiv design.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Avancerad laserhårborttagning & hudvårdskatalog",
+        feature2: "Online tidsbokning för behandlingar & konsultation",
+        feature3: "Flerspråkigt gränssnitt & optimerad mobil UX",
+        previewBtn: "Förhandsgranska"
+      },
+      iranSupermarketProject: {
+        category: "LIVSMEDEL & PERSISK MATMARKNAD",
+        title: "Iran Supermarket – Persisk Livsmedelsbutik Berlin",
+        desc: "Omfattande digital webbapplikation för Iran Supermarket i Berlin med autentiska persiska delikatesser, bageri, färska bakverk, halal-charkuteri och interaktiv produktkatalog.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Färska persiska delikatesser, kryddor & halal-kött",
+        feature2: "Interaktiv produkt- och sortimentskatalog",
+        feature3: "Flerspråkigt gränssnitt & snabb mobilnavigering",
+        previewBtn: "Förhandsgranska"
+      },
+      bilbazarProject: {
+        category: "FORDONSMARKNAD & BILFÖRSÄLJNING",
+        title: "BilBazar – Sveriges Bilmarknadsplats",
+        desc: "Dynamisk fordonsmarknadsplats för den svenska bilmarknaden med smart sökfiltrering, verifierade fordonstester, direkt kontakt mellan säljare och köpare samt trygga garantier.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Smart fordonssök & flerkriteriefiltrering",
+        feature2: "Verifierade bilannonser & besiktningshistorik",
+        feature3: "Direktkontakt mellan köpare och säljare samt responsiv UX",
+        previewBtn: "Förhandsgranska"
+      },
       portfolioHero: {
         badge: "VÅR PORTFÖLJ & KUNDCASES",
         pillTitle: "Skräddarsydda Lösningar",
@@ -471,7 +521,7 @@ const resources = {
         showcaseNoticeTitleGradient: "KUNDCASES & PROJEKT",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "Alla projekt nedan är skarpa, driftsatta webbapplikationer. Testa de interaktiva förhandsgranskningarna direkt i webbläsaren.",
-        viewPillarsBtn: "Våra 6 pelare",
+        viewPillarsBtn: "Utforska tjänster",
         modalTitle: "Våra 6 pelare för digital framgång",
         modalSubtitle: "Hur vi utvecklar högpresterande applikationer skräddarsydda för dina affärsmål",
         modalClose: "Stäng",
@@ -490,7 +540,7 @@ const resources = {
         feature6Title: "Dedikerat partnerskap & Kontinuerlig support",
         feature6Desc: "Vi är er långsiktiga digitala partner som stöttar och vidareutvecklar era produkter i varje steg.",
         exploreBtn: "Utforska portföljen",
-        buildBtn: "Starta ditt projekt",
+        buildBtn: "Beställ hemsida",
         ctaTitle: "Har du en idé om en högpresterande produkt?",
         ctaTitlePrefix: "Har du en idé om en ",
         ctaTitleGradient: "HÖGPRESTERANDE PRODUKT?",
@@ -589,77 +639,30 @@ const resources = {
         cap5: "Designsystem",
         termsOfService: "Användarvillkor",
         securitySpec: "Säkerhetsspecifikation",
-        privacyPolicy: "Integritetspolicy"
-      },
-      contactPage: {
-        badge: "STRATEGISK SUPPORT & ADVISORY",
-        titlePrefix: "Låt oss bygga något ",
-        titleGradient: "Extraordinärt",
-        titleSuffix: " tillsammans",
-        subtitle: "Boka en teknisk strategisession eller kontakta våra 5 seniora partners direkt för nästa steg.",
-        diaraPillTitle: "RoshaLink Direktkanal",
-        diaraPillSubtitle: "24/7 Rådgivning & Support",
-        infoTitle: "Direkt kontakt med partners",
-        infoSubtitle: "Inga mellanhänder eller säljare. Du pratar direkt med våra seniorsystemarkitekter och designchefer.",
-        emailLabel: "Huvudsaklig E-post",
-        emailValue: "roshalinkcompany@gmail.com",
-        phoneLabel: "Plats & Konsultation",
-        phoneValue: "Stockholm, Sverige & Global Remote",
-        hqLabel: "Byråns Huvudkontor",
-        hqValue: "Stockholm & San Francisco",
-        formTitle: "Skicka en projektbeskrivning",
-        formSubtitle: "Berätta om dina projektmål, tekniska val eller tidsplan.",
-        fieldName: "Ditt fullständiga namn",
-        fieldNamePlaceholder: "John Doe",
-        fieldEmail: "Arbetsemail",
-        fieldEmailPlaceholder: "john@company.com",
-        fieldCompany: "Företagsnamn & Roll",
-        fieldCompanyPlaceholder: "Enterprise AB / CTO",
-        fieldMessage: "Projektöversikt & Tidsplan",
-        fieldMessagePlaceholder: "Beskriv dina projektmål, teknisk stack eller tidsplan...",
-        submitBtn: "Skicka brief",
-        submittingBtn: "Skickar...",
-        errorMessage: "Vi kunde inte skicka din förfrågan. Vänligen försök igen om en stund.",
-        submittedTitle: "Förfrågan Mottagen!",
-        submittedSub: "Vår chefarkitekt granskar dina projektkrav och återkommer via e-post inom 4 arbetstimmar.",
-        sendAnotherBtn: "Skicka ett till meddelande",
-        nextStepsTitle: "Vad händer sedan?",
-        nextStepsSub: "Tre enkla steg från din förfrågan till startat projekt",
-        stepLabel: "Steg",
-        ofLabel: "av",
-        nextBtn: "Nästa",
-        prevBtn: "Föregående",
-        step1Title: "1. Analys av din brief",
-        step1Desc: "Vårt chefarkitektteam går noggrant igenom dina projektkrav, tekniska val och tidsplan inom 4 timmar.",
-        step1Badge: "⏱️ Svar inom 4h",
-        step2Title: "2. Kostnadsfritt strategimöte",
-        step2Desc: "Vi bokar ett 30-minuters videomöte där vi diskuterar arkitektur, estimerad budget och milstolpar.",
-        step2Badge: "💬 30 min rådgivning",
-        step3Title: "3. Skräddarsydd färdplan",
-        step3Desc: "Du får en komplett teknisk specifikation och offert med tydliga milstolpar – helt utan förpliktelser.",
-        step3Badge: "🎯 Noll förpliktelser",
-        step1Feature1: "✓ Arkitektgranskning av dina projektmål",
-        step1Feature2: "✓ Svar & teknisk återkoppling inom 4 timmar",
-        step2Feature1: "✓ 30 minuter en-mot-en med senior partner",
-        step2Feature2: "✓ Genomgång av budget, scope & tidsplan",
-        step3Feature1: "✓ Komplett teknisk färdplan & offert",
-        step3Feature2: "✓ 100% utan förpliktelser eller dolda avgifter"
+        privacyPolicy: "Integritetspolicy",
+        newsletterSuccess: "Tack! Du prenumererar nu på vårt nyhetsbrev och tekniska uppdateringar.",
+        newsletterAlreadySubscribed: "Den här e-postadressen är redan registrerad i vårt nyhetsbrev!",
+        newsletterInvalidEmail: "Vänligen ange en giltig e-postadress.",
+        newsletterRateLimit: "För många försök från din IP-adress. Vänligen försök igen om 15 minuter.",
+        newsletterError: "Kunde inte slutföra registreringen. Vänligen försök igen senare.",
+        subscribing: "Registrerar...",
       },
       modal: {
-        badge: "INLED PRODUKTUPPTÄCKT",
         title: "Starta ditt projekt",
-        subtitle: "Direkt upptäcktsmöte med våra 5 huvudpartners.",
+        subtitle: "Få en helt kostnadsfri affärsanalys & rådgivning.",
         name: "Namn",
-        email: "Arbetsemail",
-        focus: "Huvudfokus",
-        budget: "Uppskattad budget",
+        namePlaceholder: "Jane Doe",
+        contact: "E-post eller telefonnummer",
+        contactPlaceholder: "namn@foretag.se / 070-123 45 67",
         overview: "Kort översikt",
+        overviewPlaceholder: "Beskriv ditt projekt, mål eller tekniska krav...",
         submit: "Skicka upptäcktsbegäran",
-        submittedTitle: "Brief skickad!",
-        submittedSub: "Tack för att du inledde din brief. Vårt ledarteam kontaktar dig inom 4 timmar.",
+        submittedTitle: "Förfrågan mottagen!",
+        submittedSub: "Tack för ditt meddelande! Vi har tagit emot er förfrågan och kontaktar er inom kort.",
         done: "Klar",
         sending: "Skickar...",
-        error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund."
+        error: "Vi kunde inte skicka din förfrågan. Försök igen om en stund.",
+        close: "Stäng"
       },
       chat: {
         badge: "AI-ASSISTENT",
@@ -854,10 +857,10 @@ const resources = {
         process: {
           title: "Så här jobbar vi — steg för steg",
           subtitle: "En tydlig och trygg process där du vet exakt vad som händer — och varför.",
-          stageBadge1: "STEG 01 — VI LYSSNAR & PLANERAR",
-          stageBadge2: "STEG 02 — VI DESIGNAR TILLSAMMANS",
-          stageBadge3: "STEG 03 — VI BYGGER ORDENTLIGT",
-          stageBadge4: "STEG 04 — VI LANSERAR & FÖLJER UPP",
+          stageBadge1: "VI LYSSNAR & PLANERAR",
+          stageBadge2: "VI DESIGNAR TILLSAMMANS",
+          stageBadge3: "VI BYGGER ORDENTLIGT",
+          stageBadge4: "VI LANSERAR & FÖLJER UPP",
           step1Num: "01",
           step1Title: "Vi förstår ditt behov",
           step1Desc: "Vi sätter oss ner med dig, lyssnar noga och kartlägger vad du faktiskt behöver — innan vi skriver en enda rad kod.",
@@ -918,6 +921,62 @@ const resources = {
           subtitle: "Boka ett kort samtal med oss — utan förpliktelser. Vi lyssnar, ställer frågor och berättar ärligt vad vi kan göra för dig.",
           button: "Boka ett samtal idag"
         }
+      },
+      contactPage: {
+        badge: "STRATEGISK SUPPORT & RÅDGIVNING",
+        titlePrefix: "Låt oss bygga något ",
+        titleGradient: "extraordinärt",
+        titleSuffix: " tillsammans",
+        subtitle: "Boka en teknisk strategisession eller kontakta vårt team direkt för att diskutera ert nästa projekt.",
+        diaraPillTitle: "RoshaLink Direktkanal",
+        diaraPillSubtitle: "Strategisk support dygnet runt",
+        infoTitle: "Direktkontakt med teamet",
+        infoSubtitle: "Inga säljare eller mellanhänder. Prata direkt med våra systemarkitekter och designledare.",
+        emailLabel: "Primär E-post",
+        emailValue: "roshalinkcompany@gmail.com",
+        phoneLabel: "Plats & Konsultation",
+        phoneValue: "Stockholm, Sverige & Global Remote",
+        locationLabel: "Plats & Möten",
+        locationValue: "Stockholm, Sverige & Global Remote",
+        hqLabel: "Byråns Huvudsäte",
+        hqValue: "Stockholm & Globalt",
+        formTitle: "Skicka en projektförfrågan",
+        formSubtitle: "Berätta om era mål, tekniska krav eller tidsramar så återkommer vi snabbt.",
+        fieldName: "Fullständigt namn",
+        fieldNamePlaceholder: "T.ex. Johan Lindgren",
+        fieldEmail: "E-postadress",
+        fieldEmailPlaceholder: "johan@foretag.se",
+        fieldCompany: "Företag & Roll",
+        fieldCompanyPlaceholder: "Företag AB / VD",
+        fieldMessage: "Projektbeskrivning & Behov",
+        fieldMessagePlaceholder: "Beskriv era mål, önskad funktionalitet och tidsram...",
+        submitBtn: "Skicka förfrågan",
+        submittingBtn: "Skickar...",
+        errorMessage: "Kunde inte skicka förfrågan just nu. Vänligen försök igen om en stund eller maila oss direkt.",
+        submittedTitle: "Tack för din förfrågan!",
+        submittedSub: "Vår huvudarkitekt går igenom era krav och återkommer med ett svar inom 4 arbetstimmar.",
+        sendAnotherBtn: "Skicka ett till meddelande",
+        nextStepsTitle: "Vad händer sedan?",
+        nextStepsSub: "Vår transparenta process från första kontakt till projektstart.",
+        stepLabel: "Steg",
+        ofLabel: "av",
+        nextBtn: "Nästa",
+        prevBtn: "Föregående",
+        step1Title: "Snabb Analys & Granskning",
+        step1Badge: "Inom 4 timmar",
+        step1Desc: "Vi analyserar er förfrågan och förbereder konkreta tekniska och affärsmässiga rekommendationer.",
+        step1Feature1: "Sekretessbelagd genomgång",
+        step1Feature2: "Teknisk behovsanalys",
+        step2Title: "Strategiskt Introduktionssamtal",
+        step2Badge: "30 minuters workshop",
+        step2Desc: "Ett fokuserat videomöte där vi fördjupar oss i arkitektur, tidsplan och exakta mål.",
+        step2Feature1: "Arkitekturgenomgång",
+        step2Feature2: "Tidslinje & budgetestimat",
+        step3Title: "Skräddarsydd Offert & Start",
+        step3Badge: "Inom 48 timmar",
+        step3Desc: "Vi presenterar en detaljerad projektplan med fast pris, tydliga milstolpar och omedelbar start.",
+        step3Feature1: "Fastpris & tydligt scope",
+        step3Feature2: "Direkt utvecklingsstart"
       }
     }
   },
@@ -1087,47 +1146,51 @@ const resources = {
           v6Desc: "We operate as your dedicated technical leadership partner, evolving and scaling your software continuously."
         },
         awards: {
-          "sectionTitle": "Industry Recognition & Honors",
-          "titlePrefix": "Industry Recognition & ",
-          "titleGradient": "Honors",
+          "sectionTitle": "Core Proficiencies & Engineering Standards",
+          "titlePrefix": "Our Core Proficiencies & ",
+          "titleGradient": "Engineering Standards",
           "titleSuffix": "",
-          "sectionSubtitle": "Our relentless commitment to architectural mastery, bulletproof engineering, and intuitive product design.",
+          "sectionSubtitle": "Our relentless dedication to architectural mastery, rock-solid engineering, and intuitive product design.",
           "a1": {
+                  "badge": "PERFORMANCE",
                   "title": "BEST WEB ARCHITECTURE",
-                  "subtitle": "Global Cloud & Scalability Awards",
-                  "recipient": "RoshaLink Architecture Squad",
-                  "date": "2025",
-                  "level": "gold"
+                  "subtitle": "100/100 Google Lighthouse, ultra-fast speed & enterprise security",
+                  "recipient": "RoshaLink Architecture Benchmark",
+                  "date": "Zero Compromises",
+                  "level": "prestanda"
           },
           "a2": {
-                  "title": "FULL-STACK INNOVATION",
-                  "subtitle": "Enterprise Scalability & Speed Honors",
-                  "recipient": "RoshaLink Engineering",
-                  "date": "2025",
-                  "level": "platinum"
+                  "badge": "FULL-STACK",
+                  "title": "FULL-STACK SYSTEMS",
+                  "subtitle": "Bespoke clean code, resilient APIs, and seamless cloud scalability",
+                  "recipient": "RoshaLink Engineering Squad",
+                  "date": "Speed & Resilience",
+                  "level": "ingenjörskonst"
           },
           "a3": {
+                  "badge": "UI/UX DESIGN",
                   "title": "TOP UI/UX DESIGN",
-                  "subtitle": "Nordic Digital Experience & Product Awards",
-                  "recipient": "RoshaLink Product Studio",
-                  "date": "2024 - 2025",
-                  "level": "gold"
+                  "subtitle": "High-converting, intuitive, and modern user experiences",
+                  "recipient": "RoshaLink Design Studio",
+                  "date": "Human-Centric",
+                  "level": "design"
           },
           "a4": {
+                  "badge": "INNOVATION",
                   "title": "AI & APP INNOVATION",
-                  "subtitle": "Next-Gen Enterprise Web & Mobile Platform",
-                  "recipient": "RoshaLink Labs",
-                  "date": "2025",
-                  "level": "platinum"
+                  "subtitle": "Intelligent automated workflows, smart agents, and scalable mobile apps",
+                  "recipient": "RoshaLink Innovation Lab",
+                  "date": "Future-Proofed",
+                  "level": "innovation"
           }
-},
+        },
           cta: {
           badge: "PARTNER WITH US",
-          title: "Ready to Build Your Next High-Performance Product?",
+          title: "Ready to Build Your Next High-Performance Product with Our Team?",
           titlePrefix: "Ready to Build Your Next High-Performance Product with ",
-          titleGradient: "Our Leadership Squad?",
+          titleGradient: "Our Team?",
           titleSuffix: "",
-          subtitle: "Schedule a strategic discovery workshop with our 5 founding partners today and turn your digital ambition into reality.",
+          subtitle: "Schedule a strategic discovery workshop with us today and turn your digital ambition into reality.",
           button: "Schedule Strategy Call Now"
         }
       },
@@ -1137,7 +1200,13 @@ const resources = {
         services: "Services",
         about: "About Us",
         contact: "Contact",
-        getStarted: "Get Started"
+        getStarted: "Get Started",
+        navigation: "Navigation",
+        tagline: "Bespoke Digital Architecture",
+        darkMode: "Dark Mode",
+        lightMode: "Light Mode",
+        closeMenu: "Close menu",
+        openMenu: "Open menu"
       },
       hero: {
         badge: "DIGITAL BUSINESS TRANSFORMATION & AI ARCHITECTURE",
@@ -1160,7 +1229,7 @@ const resources = {
         title: "Architected with Enterprise Tools & Brands We Work With",
         subtitle: "We integrate over 250+ top-tier cloud services, AI platforms, and design tools directly into our engineering workflow for seamless scalability.",
         auditBtn: "Start Tech Audit",
-        exploreBtn: "Explore Tech Stack"
+        exploreBtn: "Explore Services"
       },
       features: {
         badge: "FEATURE HIGHLIGHTS",
@@ -1230,7 +1299,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "MULTILINGUAL SUPPORT & CONSULTING",
-        titlePrefix: "Connect With Us —",
+        titlePrefix: "Connect With Us ",
         titleGradient: "4-LANGUAGE SUPPORT",
         titleSuffix: "(Swedish, English, Farsi & Arabic)",
         subtitle: "Our leadership squad provides direct consultation in your preferred language. We eliminate communication barriers to ensure your exact product requirements are understood and executed with precision.",
@@ -1378,6 +1447,46 @@ const resources = {
         feature3: "Rapid Performance & Trust-Building UX",
         previewBtn: "Live Preview"
       },
+      hogwardCafeProject: {
+        category: "CAFÉ & HOSPITALITY DINING PLATFORM",
+        title: "HogWard Café & Restaurant",
+        desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Interactive Digital Menu & Specialty Drinks",
+        feature2: "Online Table Booking & Event System",
+        feature3: "Multi-Language & Lightning-Fast UI",
+        previewBtn: "Live Preview"
+      },
+      auroraClinicProject: {
+        category: "BEAUTY & LASER CLINIC WEB APP",
+        title: "Aurora – Beauty & Laser Clinic Stockholm",
+        desc: "State-of-the-art digital web application engineered for Aurora Beauty & Laser Clinic in Stockholm, featuring treatment service catalog, online consultation booking, multilingual support, and responsive patient UI.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Advanced Laser Hair Removal & Skincare Catalog",
+        feature2: "Online Consultation & Treatment Booking",
+        feature3: "Multilingual Patient UI & Fast Mobile UX",
+        previewBtn: "Live Preview"
+      },
+      iranSupermarketProject: {
+        category: "FOOD & PERSIAN GROCERY PLATFORM",
+        title: "Iran Supermarket – Persian Grocery Berlin",
+        desc: "Comprehensive digital platform engineered for Iran Supermarket in Berlin, presenting traditional Persian delicacies, bakery & fresh pastries, halal butchery, fresh herbs, and an intuitive product catalog.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Fresh Persian Delicacies, Spices & Halal Butchery",
+        feature2: "Interactive Category & Product Showcase",
+        feature3: "Multilingual UI & High-Speed Mobile Accessibility",
+        previewBtn: "Live Preview"
+      },
+      bilbazarProject: {
+        category: "AUTOMOTIVE MARKETPLACE & CAR SALES",
+        title: "BilBazar – Automotive Marketplace Sweden",
+        desc: "Dynamic automotive marketplace platform engineered for the Swedish market, offering smart vehicle filtering, verified car listings, direct dealer & private seller communication, and inspection guarantees.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Smart Vehicle Search & Multi-Criteria Filtering",
+        feature2: "Verified Listings, History & Inspection Overview",
+        feature3: "Direct Buyer-Seller Chat & Responsive Design",
+        previewBtn: "Live Preview"
+      },
       portfolioHero: {
         badge: "OUR PORTFOLIO & CASE STUDIES",
         pillTitle: "Customized Solutions",
@@ -1390,7 +1499,7 @@ const resources = {
         showcaseNoticeTitleGradient: "PRODUCTION CASES",
         showcaseNoticeTitleSuffix: " & Live Apps",
         showcaseNoticeDesc: "All featured projects below are live, production web applications. Experience interactive real-time previews directly in your browser.",
-        viewPillarsBtn: "Our 6 Pillars",
+        viewPillarsBtn: "Explore Services",
         modalTitle: "Our 6 Pillars for Digital Success",
         modalSubtitle: "How we engineer high-performing applications tailored to your strategic business goals",
         modalClose: "Close",
@@ -1409,7 +1518,7 @@ const resources = {
         feature6Title: "Dedicated Partnership & Ongoing Growth",
         feature6Desc: "We act as your long-term tech partner, supporting and scaling your digital products every step of the way.",
         exploreBtn: "Explore Portfolio",
-        buildBtn: "Start Your Project",
+        buildBtn: "Order Website",
         ctaTitle: "Have a High-Impact Product in Mind?",
         ctaTitlePrefix: "Have a High-Impact ",
         ctaTitleGradient: "PRODUCT IN MIND?",
@@ -1508,77 +1617,30 @@ const resources = {
         cap5: "Design Systems",
         termsOfService: "Terms of Service",
         securitySpec: "Security Specification",
-        privacyPolicy: "Privacy Policy"
-      },
-      contactPage: {
-        badge: "STRATEGIC SUPPORT & ADVISORY",
-        titlePrefix: "Let's Build Something ",
-        titleGradient: "Extraordinary",
-        titleSuffix: " Together",
-        subtitle: "Schedule a technical strategy session or reach out directly to our 5 principal partners today.",
-        diaraPillTitle: "RoshaLink Direct Channel",
-        diaraPillSubtitle: "24/7 Strategic Advisory",
-        infoTitle: "Direct Partner Access",
-        infoSubtitle: "No intermediate sales reps. Speak directly with our Senior Systems Architects and Head of Design.",
-        emailLabel: "Primary Email",
-        emailValue: "roshalinkcompany@gmail.com",
-        phoneLabel: "Location & Consultation",
-        phoneValue: "Stockholm, Sweden & Global Remote",
-        hqLabel: "Agency HQ",
-        hqValue: "Stockholm & San Francisco",
-        formTitle: "Send Us a Brief",
-        formSubtitle: "Tell us about your project goals, technical stack, or timeline requirements.",
-        fieldName: "Your Full Name",
-        fieldNamePlaceholder: "John Doe",
-        fieldEmail: "Work Email",
-        fieldEmailPlaceholder: "john@company.com",
-        fieldCompany: "Company Name & Role",
-        fieldCompanyPlaceholder: "Enterprise Inc / CTO",
-        fieldMessage: "Project Overview & Timeline",
-        fieldMessagePlaceholder: "Describe your project goals, technical stack, or timeline requirements...",
-        submitBtn: "Submit Brief",
-        submittingBtn: "Sending...",
-        errorMessage: "We couldn't send your brief. Please try again in a moment.",
-        submittedTitle: "Discovery Request Received!",
-        submittedSub: "Our lead architect will review your project requirements and email you back within 4 business hours.",
-        sendAnotherBtn: "Send Another Message",
-        nextStepsTitle: "What Happens Next?",
-        nextStepsSub: "3 simple steps from your brief to project kickoff",
-        stepLabel: "Step",
-        ofLabel: "of",
-        nextBtn: "Next",
-        prevBtn: "Previous",
-        step1Title: "1. Brief Analysis",
-        step1Desc: "Our lead architecture team reviews your requirements, tech stack, and timeline within 4 business hours.",
-        step1Badge: "⏱️ Reply within 4h",
-        step2Title: "2. Free Strategy Call",
-        step2Desc: "We schedule a 30-minute discovery call to map out solutions, budget estimates, and roadmap.",
-        step2Badge: "💬 30 min call",
-        step3Title: "3. Tailored Roadmap",
-        step3Desc: "You receive a complete project roadmap, technical specification, and quotation with zero obligation.",
-        step3Badge: "🎯 Zero obligation",
-        step1Feature1: "✓ Architect review of your requirements",
-        step1Feature2: "✓ Response & technical feedback within 4 hours",
-        step2Feature1: "✓ 30-minute 1-on-1 with a senior partner",
-        step2Feature2: "✓ Scope, budget & timeline discovery",
-        step3Feature1: "✓ Complete technical roadmap & quotation",
-        step3Feature2: "✓ 100% zero obligation or hidden fees"
+        privacyPolicy: "Privacy Policy",
+        newsletterSuccess: "Thank you! You have successfully subscribed to our newsletter and tech updates.",
+        newsletterAlreadySubscribed: "This email is already subscribed to our newsletter!",
+        newsletterInvalidEmail: "Please provide a valid email address.",
+        newsletterRateLimit: "Too many subscription attempts from your IP. Please try again in 15 minutes.",
+        newsletterError: "Unable to process subscription right now. Please try again shortly.",
+        subscribing: "Subscribing...",
       },
       modal: {
-        badge: "INITIATE PROJECT DISCOVERY",
         title: "Start Your Project",
-        subtitle: "Direct discovery call with our 5 principal partners.",
+        subtitle: "Get a 100% free business analysis & strategy consultation.",
         name: "Name",
-        email: "Work Email",
-        focus: "Primary Focus",
-        budget: "Est. Budget Range",
+        namePlaceholder: "Jane Doe",
+        contact: "Email or Phone Number",
+        contactPlaceholder: "jane@company.com / +46 70 123 4567",
         overview: "Brief Overview",
+        overviewPlaceholder: "Describe your project goals, timeline, or requirements...",
         submit: "Submit Discovery Request",
-        submittedTitle: "Brief Submitted!",
-        submittedSub: "Thank you for initiating your brief. Our senior leadership team will contact you within 4 hours.",
+        submittedTitle: "Request Received!",
+        submittedSub: "Thank you for your message! We have received your request and will contact you shortly.",
         done: "Done",
         sending: "Sending...",
-        error: "We couldn't send your request. Please try again in a moment."
+        error: "We couldn't send your request. Please try again in a moment.",
+        close: "Close modal"
       },
       chat: {
         badge: "AI ASSISTANT",
@@ -1773,10 +1835,10 @@ const resources = {
         process: {
           title: "How We Work — Step by Step",
           subtitle: "A clear, honest process where you always know what's happening — and why.",
-          stageBadge1: "STEP 01 — WE LISTEN & PLAN",
-          stageBadge2: "STEP 02 — WE DESIGN TOGETHER",
-          stageBadge3: "STEP 03 — WE BUILD IT RIGHT",
-          stageBadge4: "STEP 04 — WE LAUNCH & SUPPORT",
+          stageBadge1: "WE LISTEN & PLAN",
+          stageBadge2: "WE DESIGN TOGETHER",
+          stageBadge3: "WE BUILD IT RIGHT",
+          stageBadge4: "WE LAUNCH & SUPPORT",
           step1Num: "01",
           step1Title: "We Understand Your Needs",
           step1Desc: "We sit down with you, listen carefully, and map exactly what you need — before writing a single line of code.",
@@ -1837,6 +1899,62 @@ const resources = {
           subtitle: "Book a quick call with us — no obligations. We'll listen, ask the right questions, and tell you honestly what we can do for you.",
           button: "Book a Call Today"
         }
+      },
+      contactPage: {
+        badge: "STRATEGIC SUPPORT & ADVISORY",
+        titlePrefix: "Let's Build Something ",
+        titleGradient: "Extraordinary",
+        titleSuffix: " Together",
+        subtitle: "Schedule a technical strategy session or reach out directly to our team to discuss your next project.",
+        diaraPillTitle: "RoshaLink Direct Channel",
+        diaraPillSubtitle: "24/7 Strategic Support",
+        infoTitle: "Direct Partner Access",
+        infoSubtitle: "No intermediate sales reps. Speak directly with our Systems Architects and Head of Design.",
+        emailLabel: "Primary Email",
+        emailValue: "roshalinkcompany@gmail.com",
+        phoneLabel: "Location & Consultation",
+        phoneValue: "Stockholm, Sweden & Global Remote",
+        locationLabel: "Location & Consultation",
+        locationValue: "Stockholm, Sweden & Global Remote",
+        hqLabel: "Agency HQ",
+        hqValue: "Stockholm & Global",
+        formTitle: "Send Us a Brief",
+        formSubtitle: "Tell us about your project goals, technical stack, or timeline requirements.",
+        fieldName: "Your Full Name",
+        fieldNamePlaceholder: "e.g. Alex Morgan",
+        fieldEmail: "Work Email",
+        fieldEmailPlaceholder: "alex@company.com",
+        fieldCompany: "Company Name & Role",
+        fieldCompanyPlaceholder: "Enterprise Inc / CTO",
+        fieldMessage: "Project Overview & Timeline",
+        fieldMessagePlaceholder: "Describe your project goals, technical stack, or timeline requirements...",
+        submitBtn: "Submit Brief",
+        submittingBtn: "Sending...",
+        errorMessage: "We couldn't send your brief. Please try again in a moment or email us directly.",
+        submittedTitle: "Discovery Request Received!",
+        submittedSub: "Our lead architect will review your project requirements and email you back within 4 business hours.",
+        sendAnotherBtn: "Send Another Message",
+        nextStepsTitle: "What Happens Next?",
+        nextStepsSub: "Our transparent, streamlined process from initial inquiry to project launch.",
+        stepLabel: "Step",
+        ofLabel: "of",
+        nextBtn: "Next",
+        prevBtn: "Previous",
+        step1Title: "Rapid Analysis & Audit",
+        step1Badge: "Within 4 Hours",
+        step1Desc: "We analyze your brief and prepare actionable technical and architectural recommendations.",
+        step1Feature1: "NDA Confidential Review",
+        step1Feature2: "Technical Scope Audit",
+        step2Title: "Strategic Discovery Call",
+        step2Badge: "30-Min Workshop",
+        step2Desc: "A high-focus consultation where we align on system architecture, milestones, and success KPIs.",
+        step2Feature1: "Architecture Breakdown",
+        step2Feature2: "Timeline & Budget Estimate",
+        step3Title: "Tailored Proposal & Kickoff",
+        step3Badge: "Within 48 Hours",
+        step3Desc: "We deliver a transparent fixed-price roadmap with clearly defined deliverables and immediate kickoff.",
+        step3Feature1: "Fixed Price & Scope",
+        step3Feature2: "Immediate Sprint Start"
       }
     }
   },
@@ -1852,37 +1970,37 @@ const resources = {
           subtitle: "چگونه ۵ پارتنر ارشد روشالینک اصطکاک محصولات را حذف کرده و راهکارهای سودآور خلق می‌کنند.",
           morteza: {
             quote: "معماری نرم‌افزار باید مستقیماً در خدمت افزایش درآمد و اهداف تجاری باشد. ما با کدنویسی کاملاً اختصاصی و بدون قالب، بدهی فنی را از روز اول حذف می‌کنیم.",
-            name: "مرتضی",
+            name: "Morteza",
             role: "مدیرعامل و معمار ارشد سیستم"
           },
           bella: {
             quote: "طراحی استثنایی UI/UX دقت فنی را با ارتباط عاطفی کاربران پیوند می‌دهد و نرخ تبدیل و وفاداری به برند شما را به اوج می‌رساند.",
-            name: "بلا",
+            name: "Bella",
             role: "مدیر ارشد محصول و برندینگ"
           },
           sohrab: {
             quote: "زیرساخت‌های توزیع‌شده ابری با زمان پاسخ زیر ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین می‌کنند پلتفرم شما زیر سنگین‌ترین ترافیک‌ها هم پایدار بماند.",
-            name: "سام",
+            name: "Sam",
             role: "مهندس ارشد فول‌استک و کلاد"
           },
           mina: {
             quote: "با تجربه مشاوره برای غول‌های جهانی مانند اریکسون، اطمینان دارم که تحلیل دقیق فرآیندهای کسب‌وکار قبل از کدنویسی از ماه‌ها دوباره‌کاری جلوگیری می‌کند.",
-            name: "مینا",
+            name: "Mina",
             role: "تحلیل‌گر ارشد کسب‌وکار و مشاور"
           },
           milad: {
             quote: "از بهینه‌سازی دیتابیس تا رابط‌های کاربری روان و پرسرعت، کد تمیز و مقیاس‌پذیر ستون فقرات هر اپلیکیشن پیشرو است.",
-            name: "میلاد",
+            name: "Milad",
             role: "مهندس ارشد فول‌استک و سیستم"
           },
           synergy: {
             quote: "هم‌افزایی میان تحلیل عمیق بیزینس و مهندسی ارشد نرم‌افزار، مزیتی رقابتی و دست‌نیافتنی برای مشتریان ما خلق می‌کند.",
-            name: "بلا",
+            name: "Bella",
             role: "مدیر ارشد محصول و برندینگ"
           },
           guarantee: {
             quote: "ما هیچ پروژه‌ای را به نیروهای کم‌تجربه برون‌سپاری نمی‌کنیم. شما مستقیماً با ۵ پارتنر ارشد که خود کد را می‌نویسند کار می‌کنید.",
-            name: "مرتضی",
+            name: "Morteza",
             role: "مدیرعامل و معمار ارشد نرم‌افزار"
           }
         },
@@ -1917,31 +2035,31 @@ const resources = {
           button: "رزرو جلسه استراتژیک با تیم",
           members: [
           {
-                    "name": "سام",
+                    "name": "Sam",
                     "role": "مهندس ارشد فول‌استک و کلاد",
                     "tag": "معماری وب و زیرساخت ابری",
                     "quote": "تخصص من توسعه اپلیکیشن‌های مقیاس‌پذیر و زیرساخت‌های پایدار ابری است. هدف همیشگی من ارائه کدی سریع، بهینه و فراتر از انتظارات است."
           },
           {
-                    "name": "بلا",
+                    "name": "Bella",
                     "role": "مدیر ارشد محصول و برندینگ",
                     "tag": "طراحی UI/UX و هدایت خلاقانه",
                     "quote": "خلق داستان‌های ماندگار برند و طراحی رابط‌های کاربری جذاب تخصص من است؛ ما محصول شما را به بهترین شکل به مخاطبان هدف متصل می‌کنیم."
           },
           {
-                    "name": "مرتضی",
+                    "name": "Morteza",
                     "role": "مدیرعامل و معمار ارشد نرم‌افزار",
                     "tag": "هوش مصنوعی و معماری سیستم",
                     "quote": "با سال‌ها تجربه در راه‌اندازی استارتاپ‌ها در کشورهای مختلف، باور دارم که نرم‌افزار باید مسائل واقعی کسب‌وکارها را با نوآوری و مهندسی دقیق حل کند."
           },
           {
-                    "name": "مینا",
+                    "name": "Mina",
                     "role": "تحلیل‌گر ارشد کسب‌وکار و مشاور",
                     "tag": "سابقه اریکسون و استراتژی رشد",
                     "quote": "با تجربه مشاوره برای غول‌های جهانی فناوری مانند اریکسون، روی بهینه‌سازی جریان کار، تحلیل استراتژیک و افزایش درآمد تمرکز دارم."
           },
           {
-                    "name": "میلاد",
+                    "name": "Milad",
                     "role": "مهندس ارشد فول‌استک و سیستم",
                     "tag": "توسعه بک‌اند و پایگاه داده",
                     "quote": "از معماری‌های پیچیده سمت سرور تا رابط‌های کاربری فوق‌سریع، اشتیاق من مهندسی سیستم‌های پایدار و قدرتمند برای وب مدرن است."
@@ -2006,47 +2124,51 @@ const resources = {
           v6Desc: "ما به عنوان بازوی فنی سازمان شما، به طور مداوم محصول را ارتقا داده و پشتیبانی می‌کنیم."
         },
         awards: {
-          "sectionTitle": "جوایز و افتخارات بین‌المللی",
-          "titlePrefix": "جوایز و ",
-          "titleGradient": "افتخارات بین‌المللی",
+          "sectionTitle": "تخصص‌های کلیدی و استانداردهای مهندسی ما",
+          "titlePrefix": "تخصص‌های کلیدی و ",
+          "titleGradient": "استانداردهای مهندسی ما",
           "titleSuffix": "",
-          "sectionSubtitle": "تعهد بی‌وقفه ما به برتری فنی، معماری بی‌نقص نرم‌افزار و طراحی محصول در کلاس جهانی.",
+          "sectionSubtitle": "تعهد بی‌وقفه ما به برتری فنی، معماری بی‌نقص نرم‌افزار و طراحی محصول در بالاترین سطح استاندارد.",
           "a1": {
+                  "badge": "کارایی و سرعت",
                   "title": "برترین معماری وب و کلاد",
-                  "subtitle": "جایزه جهانی کلاد و مقیاس‌پذیری ۲۰۲۵",
-                  "recipient": "تیم معماری سیستم روشالینک",
-                  "date": "۲۰۲۵",
-                  "level": "gold"
+                  "subtitle": "امتیاز ۱۰۰ لایت‌هاوس گوگل، سرعت خارق‌العاده و حداکثر امنیت",
+                  "recipient": "استاندارد معماری روشالینک",
+                  "date": "توسعه بدون نقص",
+                  "level": "prestanda"
           },
           "a2": {
-                  "title": "نوآوری فول‌استک سازمانی",
-                  "subtitle": "افتخار سرعت و پایداری سیستم‌های توزیع‌شده",
+                  "badge": "فول‌استک",
+                  "title": "سیستم‌های فول‌استک",
+                  "subtitle": "کدنویسی اختصاصی بدون قالب، APIهای پایدار و مقیاس‌پذیری آنی",
                   "recipient": "دپارتمان مهندسی روشالینک",
-                  "date": "۲۰۲۵",
-                  "level": "platinum"
+                  "date": "سرعت و پایداری",
+                  "level": "ingenjörskonst"
           },
           "a3": {
+                  "badge": "طراحی مدرن",
                   "title": "برترین طراحی UI/UX محصول",
-                  "subtitle": "افتخار برتر تجربه دیجیتال و دیزاین نوردیک",
-                  "recipient": "استودیو طراحی محصول روشالینک",
-                  "date": "۲۰۲۴ - ۲۰۲۵",
-                  "level": "gold"
+                  "subtitle": "طراحی مدرن، نرخ تبدیل بالا و تجربه کاربری کامپکت و روان",
+                  "recipient": "استودیو طراحی روشالینک",
+                  "date": "محور کاربر",
+                  "level": "design"
           },
           "a4": {
-                  "title": "نوآوری هوش مصنوعی و وب‌اپ",
-                  "subtitle": "پلتفرم سال نسل بعد برای وب و موبایل سازمانی",
+                  "badge": "نوآوری",
+                  "title": "نوآوری هوش مصنوعی و اپلیکیشن",
+                  "subtitle": "اتوماسیون هوشمند، ایجنت‌های سازمانی و وب‌اپ‌های نسل جدید",
                   "recipient": "آزمایشگاه نوآوری روشالینک",
-                  "date": "۲۰۲۵",
-                  "level": "platinum"
+                  "date": "آینده‌نگر",
+                  "level": "innovation"
           }
-},
+        },
           cta: {
           badge: "همکاری با روشالینک",
-          title: "آماده‌اید محصول برتر بعدی خود را با تیم رهبری ما بسازید؟",
+          title: "آماده‌اید محصول برتر بعدی خود را با تیم ما بسازید؟",
           titlePrefix: "آماده‌اید محصول برنده بعدی خود را با ",
-          titleGradient: "تیم رهبری ما",
+          titleGradient: "تیم ما",
           titleSuffix: " بسازید؟",
-          subtitle: "همین امروز یک جلسه استراتژیک با ۵ پارتنر ارشد ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
+          subtitle: "همین امروز یک جلسه استراتژیک با ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
           button: "رزرو جلسه استراتژیک اکنون"
         }
       },
@@ -2056,7 +2178,13 @@ const resources = {
         services: "خدمات",
         about: "درباره ما",
         contact: "تماس با ما",
-        getStarted: "شروع کنید"
+        getStarted: "شروع کنید",
+        navigation: "ناوبری منو",
+        tagline: "معماری دیجیتال و توسعه نرم‌افزار",
+        darkMode: "حالت شب",
+        lightMode: "حالت روز",
+        closeMenu: "بستن منو",
+        openMenu: "باز کردن منو"
       },
       hero: {
         badge: "تحول دیجیتال کسب‌وکار و معماری هوش مصنوعی",
@@ -2065,7 +2193,7 @@ const resources = {
         titleConnector: " و ",
         titleGradient2: "راهکارهای هوش مصنوعی",
         subtitle: "ما مدل کسب‌وکار شما را بررسی کرده و وب‌سایت، اپلیکیشن و سیستم‌های هوش مصنوعی اختصاصی برای رشد حداکثری شما می‌سازیم.",
-        getStarted: "شروع کنید",
+        getStarted: "سفارش سایت",
         explore: "مشاهده امکانات",
         card1Title: "اتوماسیون هوش مصنوعی",
         card1Sub: "فرآیندهای هوشمند و دستیارهای خودکار",
@@ -2079,7 +2207,7 @@ const resources = {
         title: "طراحی و ساخت با معتبرترین ابزارهای جهانی",
         subtitle: "ما بیش از ۲۵۰ ابزار و سرویس پیشرفته آنلاین را برای ساخت بهترین محصول شما ترکیب و استفاده می‌کنیم.",
         auditBtn: "ارزیابی رایگان پروژه",
-        exploreBtn: "مشاهده ابزارها"
+        exploreBtn: "مشاهده خدمات"
       },
       features: {
         badge: "ویژگی‌های برجسته",
@@ -2149,7 +2277,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "پشتیبانی چندزبانه و مشاوره تخصصی",
-        titlePrefix: "با ما در ارتباط باشید — ",
+        titlePrefix: "با ما در ارتباط باشید  ",
         titleGradient: "پشتیبانی به ۴ زبان زنده",
         titleSuffix: " (سوئدی، انگلیسی، فارسی و عربی)",
         subtitle: "تیم ما آماده ارائه مشاوره مستقیم به زبان دلخواه شماست. ما تمامی موانع زبانی را برطرف کرده‌ایم تا نیازهای پروژه شما با بالاترین کیفیت پیاده‌سازی شود.",
@@ -2221,12 +2349,12 @@ const resources = {
         bookBtn: "رزرو جلسه مشاوره",
         team: [
           {
-            name: "مرتضی",
+            name: "Morteza",
             designation: "مدیرعامل و هم‌بنیان‌گذار",
             quote: "با سال‌ها تجربه در راه‌اندازی استارتاپ‌های موفق، باور من ساخت محصولاتی نوآورانه و پایدار برای حل چالش‌های کسب‌وکارهاست."
           },
           {
-            name: "بلا",
+            name: "Bella",
             designation: "مدیر بازاریابی و تبلیغات",
             quote: "خلق برندهای قدرتمند و تاثیرگذار هدف من است. تجربه من در بازاریابی کمک می‌کند محصولات به بهترین شکل به مشتریان هدف معرفی شوند."
           },
@@ -2297,6 +2425,46 @@ const resources = {
         feature3: "سرعت لود بسیار بالا و ایجاد اعتماد حداکثری",
         previewBtn: "پیش‌نمایش زنده"
       },
+      hogwardCafeProject: {
+        category: "کافه و رستوران تماتیک و پذیرایی",
+        title: "کافه و رستوران هاگوارد (HogWard Café)",
+        desc: "یک وب‌اپلیکیشن جذاب و تعاملی برای کافه و رستوران هاگوارد با منوی دیجیتال هوشمند، معرفی نوشیدنی‌های تماتیک، سیستم رزرو آنلاین میز و طراحی واکنش‌گرا و سریع.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "منوی دیجیتال هوشمند و بار نوشیدنی‌های اختصاصی",
+        feature2: "سیستم رزرواسیون آنلاین میز و رویدادها",
+        feature3: "پشتیبانی چندزبانه و تجربه کاربری روان",
+        previewBtn: "پیش‌نمایش زنده"
+      },
+      auroraClinicProject: {
+        category: "کلینیک زیبایی و لیزر پوست و مو",
+        title: "کلینیک زیبایی و لیزر آرورا استکهلم (Aurora)",
+        desc: "وب‌اپلیکیشن مدرن و پیشرفته کلینیک زیبایی و لیزر آرورا استکهلم، شامل کاتالوگ جامع خدمات درمانی و لیزر، سیستم رزرو آنلاین مشاوره، طراحی واکنش‌گرا و رابط کاربری چندزبانه.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "کاتالوگ پیشرفته خدمات لیزر موهای زائد و جوانسازی پوست",
+        feature2: "سیستم رزرو آنلاین وقت مشاوره و درمان",
+        feature3: "رابط کاربری چندزبانه و تجربه کاربری بهینه‌سازی‌شده موبایل",
+        previewBtn: "پیش‌نمایش زنده"
+      },
+      iranSupermarketProject: {
+        category: "سوپرمارکت آنلاین و خواربار تخصصی",
+        title: "سوپرمارکت ایران برلین | طعم اصیل در آلمان",
+        desc: "پلتفرم دیجیتال سوپرمارکت ایران در برلین، ارائه‌دهنده مواد غذایی و خواربار اصیل ایرانی، نانوایی سنتی، شیرینی‌های تازه، قصابی حلال و کاتالوگ آنلاین محصولات.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "محصولات تازه و سنتی ایرانی، ادویه‌جات و قصابی حلال",
+        feature2: "ویترین تعاملی محصولات، نانوایی و شیرینی‌پزی",
+        feature3: "رابط کاربری چندزبانه و دسترسی فوق‌العاده سریع موبایل",
+        previewBtn: "پیش‌نمایش زنده"
+      },
+      bilbazarProject: {
+        category: "پلتفرم خرید و فروش خودرو و بازار آنلاین",
+        title: "بیل‌بازار - پلتفرم خرید و فروش خودرو در سوئد",
+        desc: "پلتفرم پویا و پیشرفته خرید و فروش خودرو برای بازار سوئد با قابلیت‌های فیلتر و جستجوی هوشمند، ارزیابی و استعلام وضعیت خودرو، و ارتباط امن میان خریداران و فروشندگان.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "سیستم جستجو و فیلتر پیشرفته بر اساس مدل، قیمت و سوخت",
+        feature2: "آگهی‌های تاییدشده همراه با گزارش سوابق و وضعیت فنی",
+        feature3: "ارتباط مستقیم خریدار و فروشنده و طراحی کاملاً ریسپانسیو",
+        previewBtn: "پیش‌نمایش زنده"
+      },
       portfolioHero: {
         badge: "نمونه کارها و پروژه‌های ما",
         pillTitle: "راهکارهای اختصاصی",
@@ -2309,7 +2477,7 @@ const resources = {
         showcaseNoticeTitleGradient: "عمومی و فعال ما",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "تمامی پروژه‌های زیر، وب‌اپلیکیشن‌های واقعی و در حال اجرای ما هستند. پیش‌نمایش تعاملی و زنده آن‌ها را مستقیماً در مرورگر تجربه کنید.",
-        viewPillarsBtn: "۶ ستون ما",
+        viewPillarsBtn: "مشاهده خدمات",
         modalTitle: "۶ ستون موفقیت دیجیتال شما در روشالینک",
         modalSubtitle: "چگونه اپلیکیشن‌هایی با کارایی بالا و منطبق با اهداف استراتژیک بیزینس شما مهندسی می‌کنیم",
         modalClose: "بستن",
@@ -2328,7 +2496,7 @@ const resources = {
         feature6Title: "شراکت بلندمدت و توسعه مستمر",
         feature6Desc: "ما به عنوان شریک فنی همیشگی شما، در تمامی مراحل رشد، توسعه و نگهداری همراهتان هستیم.",
         exploreBtn: "مشاهده پورتفولیو",
-        buildBtn: "سفارش ساخت محصول",
+        buildBtn: "سفارش سایت",
         ctaTitle: "ایده‌ای برای یک محصول دیجیتال بزرگ دارید؟",
         ctaTitlePrefix: "آیا ایده‌ای برای توسعه یک ",
         ctaTitleGradient: "محصول برجسته و پرسرعت دارید؟",
@@ -2427,77 +2595,30 @@ const resources = {
         cap5: "سیستم‌های طراحی",
         termsOfService: "شرایط استفاده از خدمات",
         securitySpec: "مشخصات امنیتی",
-        privacyPolicy: "حریم خصوصی"
-      },
-      contactPage: {
-        badge: "پشتیبانی استراتژیک و مشاوره",
-        titlePrefix: "بیایید با هم چیزی ",
-        titleGradient: "فوق‌العاده",
-        titleSuffix: " خلق کنیم",
-        subtitle: "یک جلسه استراتژی فنی رزرو کنید یا مستقیماً با ۵ شریک ارشد ما در ارتباط باشید.",
-        diaraPillTitle: "کانال مستقیم روشالینک",
-        diaraPillSubtitle: "پشتیبانی و مشاوره ۲۴/۷",
-        infoTitle: "دسترسی مستقیم به شرکا",
-        infoSubtitle: "بدون واسطه و نمایندگان فروش. شما مستقیماً با معماران ارشد سیستم و مدیر طراحی صحبت می‌کنید.",
-        emailLabel: "ایمیل اصلی",
-        emailValue: "roshalinkcompany@gmail.com",
-        phoneLabel: "موقعیت و مشاوره",
-        phoneValue: "استکهلم، سوئد و ریموت جهانی",
-        hqLabel: "دفتر مرکزی",
-        hqValue: "استکهلم و سانفرانسیسکو",
-        formTitle: "ارسال خلاصه پروژه",
-        formSubtitle: "نیازمندی‌ها، اهداف و زمان‌بندی پروژه خود را با ما در میان بگذارید.",
-        fieldName: "نام و نام خانوادگی",
-        fieldNamePlaceholder: "John Doe",
-        fieldEmail: "ایمیل کاری",
-        fieldEmailPlaceholder: "john@company.com",
-        fieldCompany: "نام شرکت و سمت",
-        fieldCompanyPlaceholder: "Enterprise Inc / CTO",
-        fieldMessage: "توضیحات پروژه و زمان‌بندی",
-        fieldMessagePlaceholder: "اهداف پروژه، تکنولوژی‌های مد نظر یا زمان‌بندی خود را شرح دهید...",
-        submitBtn: "ارسال خلاصه پروژه",
-        submittingBtn: "در حال ارسال...",
-        errorMessage: "متأسفانه ارسال خلاصه پروژه ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید.",
-        submittedTitle: "درخواست شما ثبت شد!",
-        submittedSub: "معمار ارشد ما درخواست شما را بررسی کرده و ظرف ۴ ساعت کاری پاسخ خواهد داد.",
-        sendAnotherBtn: "ارسال پیام دیگر",
-        nextStepsTitle: "بعد از ارسال فرم چه می‌شود؟",
-        nextStepsSub: "۳ گام ساده از ثبت درخواست تا شروع رسمی پروژه",
-        stepLabel: "گام",
-        ofLabel: "از",
-        nextBtn: "بعدی",
-        prevBtn: "قبلی",
-        step1Title: "۱. بررسی و تحلیل نیازمندی‌ها",
-        step1Desc: "تیم معماران ارشد ما ظرف ۴ ساعت کاری اهداف و تکنولوژی‌های پروژه شما را بررسی می‌کنند.",
-        step1Badge: "⏱️ پاسخ ظرف ۴ ساعت",
-        step2Title: "۲. جلسه مشاوره و استراتژی",
-        step2Desc: "یک جلسه رایگان ۳۰ دقیقه‌ای جهت بررسی راهکارها، بودجه و زمان‌بندی تنظیم می‌کنیم.",
-        step2Badge: "💬 ۳۰ دقیقه مشاوره رایگان",
-        step3Title: "۳. نقشه راه و پیشنهاد اختصاصی",
-        step3Desc: "پیشنهاد کامل فنی همراه با فازبندی پروژه‌ها بدون هیچ‌گونه تعهد مالی دریافت خواهید کرد.",
-        step3Badge: "🎯 بدون تعهد مالی",
-        step1Feature1: "✓ بررسی معماری و تکنولوژی توسط متخصصین",
-        step1Feature2: "✓ پاسخگویی و بازخورد فنی ظرف ۴ ساعت",
-        step2Feature1: "✓ ۳۰ دقیقه جلسه آنلاین با پارتنر ارشد",
-        step2Feature2: "✓ بررسی بودجه، دامنه پروژه و زمان‌بندی",
-        step3Feature1: "✓ نقشه راه کامل فنی و برآورد قیمت",
-        step3Feature2: "✓ ۱۰۰٪ بدون هیچ تعهد مالی یا هزینه پنهان"
+        privacyPolicy: "حریم خصوصی",
+        newsletterSuccess: "سپاس! ایمیل شما با موفقیت در خبرنامه و آخرین به‌روزرسانی‌های ما ثبت شد.",
+        newsletterAlreadySubscribed: "این ایمیل قبلاً در خبرنامه روشالینک ثبت شده است!",
+        newsletterInvalidEmail: "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
+        newsletterRateLimit: "تعداد تلاش‌ها بیش از حد مجاز است. لطفاً پس از ۱۵ دقیقه مجدداً تلاش نمایید.",
+        newsletterError: "خطا در ثبت ایمیل. لطفاً دقایقی دیگر دوباره امتحان کنید.",
+        subscribing: "در حال ثبت...",
       },
       modal: {
-        badge: "شروع بررسی پروژه",
         title: "پروژه خود را آغاز کنید",
-        subtitle: "جلسه مشاوره مستقیم با مدیران ارشد تیم.",
-        name: "نام کامل",
-        email: "ایمیل کاری",
-        focus: "نوع پروژه مدنظر",
-        budget: "حدود بودجه پیشنهادی",
+        subtitle: "تحلیل رایگان کسب‌وکار و مشاوره استراتژیک.",
+        name: "نام و نام خانوادگی",
+        namePlaceholder: "Jane Doe",
+        contact: "ایمیل یا شماره تماس",
+        contactPlaceholder: "name@company.com / 09123456789",
         overview: "توضیحات کوتاه درباره پروژه",
+        overviewPlaceholder: "توضیحاتی در مورد اهداف پروژه، پلتفرم‌ها یا زمان‌بندی بنویسید...",
         submit: "ارسال درخواست مشاوره",
-        submittedTitle: "درخواست شما ثبت شد!",
-        submittedSub: "با تشکر از ارسال اطلاعات. تیم رهبری ارشد ما ظرف ۴ ساعت کاری با شما تماس خواهند گرفت.",
+        submittedTitle: "درخواست شما دریافت شد!",
+        submittedSub: "با تشکر از پیام شما، درخواستتان دریافت شد و به زودی با شما تماس می‌گیریم.",
         done: "تایید",
         sending: "در حال ارسال...",
-        error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید."
+        error: "متأسفانه ارسال درخواست شما ممکن نشد. لطفاً کمی بعد دوباره تلاش کنید.",
+        close: "بستن فرم"
       },
       chat: {
         badge: "دستیار هوشمند",
@@ -2547,9 +2668,45 @@ const resources = {
           { num: "۷", title: "۷. مدت زمان نگهداری داده‌ها", icon: "Clock", text: `اطلاعات شخصی تنها تا زمانی که برای تحقق اهداف جمع‌آوری ضرورت داشته باشد یا طبق قوانین الزام شده باشد نگهداری می‌شوند:\n\n• داده‌های مشتریان و قراردادها: در طول مدت قرارداد و تا ۷ سال پس از پایان همکاری بر اساس قانون حسابداری سوئد (1999:1078) نگهداری می‌شوند.\n• لاگ‌های فنی و امنیتی: به مدت ۳۰ روز تا ۱۲ ماه نگهداری شده و سپس به صورت خودکار حذف یا ناشناس‌سازی می‌شوند.\n• مکاتبات و تیکت‌های پشتیبانی: تا ۳ سال پس از بسته‌شدن تیکت جهت تضمین کیفیت نگهداری می‌شوند.` },
           { num: "۸", title: "۸. حقوق کاربران طبق مقررات GDPR", icon: "KeyRound", text: `طبق مقررات GDPR، شما دارای حقوق قانونی زیر هستید:\n\n• حق دسترسی (Right of Access): دریافت تاییدیه پردازش داده‌ها و دریافت نسخه‌ای از اطلاعات شخصی خود.\n• حق تصحیح (Right to Rectification): درخواست اصلاح داده‌های نادرست یا ناقص.\n• حق حذف یا «فراموشی» (Right to Erasure): درخواست حذف اطلاعات شخصی تحت شرایط قانونی مشخص.\n• حق محدودسازی پردازش (Right to Restriction): درخواست محدود کردن پردازش داده‌ها در شرایط خاص.\n• حق جابه‌جایی داده‌ها (Data Portability): دریافت اطلاعات در قالبی ساختاریافته و قابل خواندن توسط ماشین.\n• حق اعتراض (Right to Object): اعتراض به پردازش‌هایی که بر اساس منافع مشروع صورت می‌گیرند.\n• حق ثبت شکایت: ثبت شکایت نزد مرجع نظارتی سوئد (IMY - Integritetsskyddsmyndigheten, www.imy.se).` },
           { num: "۹", title: "۹. کوکی‌ها و فناوری‌های ردیابی", icon: "Eye", text: `ما از کوکی‌ها و فناوری‌های مشابه جهت تضمین ثبات وب‌سایت، تحلیل عملکرد و بهبود تجربه کاربری استفاده می‌کنیم:\n\n• کوکی‌های ضروری: برای امنیت، احراز هویت و عملکرد اصلی پلتفرم غیرقابل غیرفعال‌سازی هستند.\n• کوکی‌های تحلیلی و عملکرد: جمع‌آوری آمار ناشناس جهت بهینه‌سازی سرعت و نمایش برنامه‌ها.\n• کوکی‌های کاربردی: ذخیره تنظیماتی مانند زبان، پوسته و منطقه جغرافیایی.\n\nشما می‌توانید در هر زمان تنظیمات کوکی‌ها را از طریق مرورگر خود تغییر دهید یا لغو کنید.` },
-          { num: "۱۰", title: "۱۰. اقدامات امنیتی", icon: "Lock", text: `ما اقدامات امنیتی فنی و سازمانی پیشرفته‌ای برای محافظت از داده‌های شما اعمال می‌کنیم:\n\n• رمزنگاری: داده‌ها در حال انتقال با TLS 1.3 و داده‌های ذخیره‌شده با استاندارد AES-256 رمزنگاری می‌شوند.\n• کنترل دسترسی: معماری امنیت لایه صفر (Zero-Trust) و اصل حداقل دسترسی (PoLP) برای تمامی حساب‌ها اجرا می‌شود.\n• امنیتی‌سازی زیرساخت: پایش مداوم آسیب‌پذیری‌ها، سامانه‌های تشخیص نفوذ و انطباق با استانداردهای ISO 27001.` },
-          { num: "۱۱", title: "۱۱. اطلاعات تماس", icon: "Mail", text: `برای طرح سوالات درباره حریم خصوصی، اعمال حقوق GDPR یا ارتباط با مسئول حفاظت از داده‌ها:\n\n• نام شرکت: RoshaLink / Diara IT Infrastructure\n• ایمیل حریم خصوصی: roshalinkcompany@gmail.com\n• وب‌سایت: https://roshalink.com\n• آدرس پستی: RoshaLink IT Operations, Stockholm, Sweden & San Francisco, CA` },
-          { num: "۱۲", title: "۱۲. تغییرات در سیاست حریم خصوصی", icon: "RefreshCw", text: `ما حق به‌روزرسانی این سیاست را جهت انطباق با پیشرفت‌های فنی، تغییرات قانونی یا فرآیندهای عملیاتی محفوظ می‌داریم. تغییرات عمده از طریق اطلاعیه‌های برجسته در وب‌سایت یا ایمیل اطلاع‌رسانی خواهند شد.` }
+          { num: "۱۰", title: "۱۰. اقدامات امنیتی", icon: "Lock", text: `ما اقدامات امنیتی فنی و سازمانی پیشرفته‌ای برای محافظت از داده‌های شما اع�        awards: {
+          "sectionTitle": "مجالات تميزنا ومعاييرنا الهندسية",
+          "titlePrefix": "مجالات تميزنا و ",
+          "titleGradient": "معاييرنا الهندسية",
+          "titleSuffix": "",
+          "sectionSubtitle": "التزامنا الراسخ بالتميز الهندسي، والمعمارية البرمجية المتطورة، وتصميم المنتجات الرقمية الفائقة.",
+          "a1": {
+                  "badge": "الأداء والسرعة",
+                  "title": "أفضل هندسة معمارية للويب",
+                  "subtitle": "درجة 100 في Google Lighthouse وسرعة فائقة وأعلى درجات الأمان",
+                  "recipient": "معيار المعمارية روشالينك",
+                  "date": "بلا مساومة",
+                  "level": "prestanda"
+          },
+          "a2": {
+                  "badge": "تطوير شامل",
+                  "title": "أنظمة Full-Stack متقدمة",
+                  "subtitle": "كود مخصص ونظيف، واجهات برمجة قوية، وقابلية توسع سحابية",
+                  "recipient": "فريق الهندسة روشالينك",
+                  "date": "سرعة واستقرار",
+                  "level": "ingenjörskonst"
+          },
+          "a3": {
+                  "badge": "تصميم UI/UX",
+                  "title": "أعلى معايير تصميم UI/UX",
+                  "subtitle": "تصاميم عصرية تركز على سهولة الاستخدام وزيادة معدل التحويل",
+                  "recipient": "استودیو تصميم روشالينك",
+                  "date": "محور المستخدم",
+                  "level": "design"
+          },
+          "a4": {
+                  "badge": "ابتكار",
+                  "title": "الابتكار في الذكاء الاصطناعي",
+                  "subtitle": "أتمتة ذكية، وكلاء مؤسسيين، وتطبيقات متطورة للمستقبل",
+                  "recipient": "مختبرات الابتكار روشالينك",
+                  "date": "حلول للمستقبل",
+                  "level": "innovation"
+          }
+        },ل اطلاع‌رسانی خواهند شد.` }
         ]
       },
       servicesPage: {
@@ -2692,10 +2849,10 @@ const resources = {
         process: {
           title: "چطور کار می‌کنیم — قدم به قدم",
           subtitle: "یه فرآیند شفاف و مطمئن که همیشه می‌دونی کجا هستی و قدم بعدی چیه.",
-          stageBadge1: "قدم ۰۱ — گوش می‌دیم و برنامه‌ریزی می‌کنیم",
-          stageBadge2: "قدم ۰۲ — با هم طراحی می‌کنیم",
-          stageBadge3: "قدم ۰۳ — درست می‌سازیم",
-          stageBadge4: "قدم ۰۴ — لانچ می‌کنیم و پشتیبانی می‌دیم",
+          stageBadge1: "گوش می‌دیم و برنامه‌ریزی می‌کنیم",
+          stageBadge2: "با هم طراحی می‌کنیم",
+          stageBadge3: "درست می‌سازیم",
+          stageBadge4: "لانچ می‌کنیم و پشتیبانی می‌دیم",
           step1Num: "۰۱",
           step1Title: "نیازت رو می‌فهمیم",
           step1Desc: "می‌شینیم کنارت، با دقت گوش می‌دیم و دقیقاً می‌فهمیم چی نیاز داری — قبل از اینکه یه خط کد بنویسیم.",
@@ -2756,6 +2913,62 @@ const resources = {
           subtitle: "یه مکالمه کوتاه با ما داشته باش — بدون تعهد. گوش می‌دیم، سوال می‌پرسیم و صادقانه می‌گیم چی می‌تونیم برات بکنیم.",
           button: "امروز یه مکالمه رزرو کن"
         }
+      },
+      contactPage: {
+        badge: "پشتیبانی استراتژیک و مشاوره اختصاصی",
+        titlePrefix: "بیایید با هم محصولی ",
+        titleGradient: "فوق‌العاده و متمایز",
+        titleSuffix: " بسازیم",
+        subtitle: "یک جلسه استراتژی فنی رزرو کنید یا مستقیماً با تیم متخصص ما برای توسعه پروژه خود در تماس باشید.",
+        diaraPillTitle: "کانال ارتباط مستقیم روشالینک",
+        diaraPillSubtitle: "پشتیبانی استراتژیک ۲۴/۷",
+        infoTitle: "ارتباط مستقیم با تیم فنی",
+        infoSubtitle: "بدون واسطه یا کارشناسان فروش. مستقیماً با معماران ارشد سیستم و مدیران طراحی گفتگو کنید.",
+        emailLabel: "ایمیل اصلی",
+        emailValue: "roshalinkcompany@gmail.com",
+        phoneLabel: "موقعیت و مشاوره",
+        phoneValue: "استکهلم، سوئد و ریموت جهانی",
+        locationLabel: "موقعیت و جلسات",
+        locationValue: "استکهلم، سوئد و ریموت بین‌المللی",
+        hqLabel: "دفتر مرکزی آژانس",
+        hqValue: "استکهلم و بین‌المللی",
+        formTitle: "ارسال خلاصه پروژه و درخواست همکاری",
+        formSubtitle: "اهداف پروژه، نیازمندی‌های فنی یا زمان‌بندی مد نظرتان را برای ما ارسال کنید تا سریعاً بررسی کنیم.",
+        fieldName: "نام و نام خانوادگی",
+        fieldNamePlaceholder: "مثال: علی احمدی",
+        fieldEmail: "ایمیل سازمانی یا شخصی",
+        fieldEmailPlaceholder: "ali@company.com",
+        fieldCompany: "نام شرکت و سمت شغلی",
+        fieldCompanyPlaceholder: "مثال: شرکت تجاری / مدیرعامل",
+        fieldMessage: "شرح پروژه و نیازمندی‌ها",
+        fieldMessagePlaceholder: "اهداف پروژه، امکانات مورد نیاز و زمان‌بندی مد نظرتان را شرح دهید...",
+        submitBtn: "ارسال درخواست همکاری",
+        submittingBtn: "در حال ارسال...",
+        errorMessage: "ارسال درخواست با خطا مواجه شد. لطفاً دوباره تلاش کنید یا مستقیماً به ما ایمیل بزنید.",
+        submittedTitle: "درخواست شما با موفقیت دریافت شد!",
+        submittedSub: "معمار ارشد سیستم ما نیازمندی‌های پروژه شما را بررسی کرده و ظرف ۴ ساعت کاری با شما تماس می‌گیرد.",
+        sendAnotherBtn: "ارسال پیام دیگر",
+        nextStepsTitle: "مراحل بعدی همکاری چگونه است؟",
+        nextStepsSub: "فرآیند شفاف و سریع ما از اولین تماس تا شروع رسمی توسعه.",
+        stepLabel: "مرحله",
+        ofLabel: "از",
+        nextBtn: "بعدی",
+        prevBtn: "قبلی",
+        step1Title: "بررسی و تحلیل اولیه نیازمندی‌ها",
+        step1Badge: "ظرف ۴ ساعت کاری",
+        step1Desc: "درخواست شما با دقت بررسی شده و پیش‌نویس راهکارهای فنی و تجاری آماده می‌شود.",
+        step1Feature1: "بررسی محرمانه و اختصاصی",
+        step1Feature2: "تحلیل دامنه فنی پروژه",
+        step2Title: "جلسه مشاوره و همفکری استراتژیک",
+        step2Badge: "ورکشاپ ۳۰ دقیقه‌ای",
+        step2Desc: "یک جلسه تصویری متمرکز برای هماهنگی معماری سیستم، زمان‌بندی و اهداف اصلی کسب‌وکار.",
+        step2Feature1: "بررسی عمیق معماری",
+        step2Feature2: "برآورد زمان و بودجه",
+        step3Title: "پیشنهاد اختصاصی و آغاز توسعه",
+        step3Badge: "ظرف ۴۸ ساعت",
+        step3Desc: "طرح جامع پروژه با قیمت مشخص، مایل‌استون‌های شفاف و امکان شروع فوری ارائه می‌گردد.",
+        step3Feature1: "قیمت شفاف و اسکوپ معین",
+        step3Feature2: "شروع سریع اسپرینت اول"
       }
     }
   },
@@ -2931,6 +3144,7 @@ const resources = {
           "titleSuffix": "",
           "sectionSubtitle": "التزامنا الراسخ بالتميز الهندسي والابتكار المعماري وتصميم المنتجات الرقمية الرائدة.",
           "a1": {
+                  "badge": "الأداء والسرعة",
                   "title": "أفضل هندسة معمارية للويب",
                   "subtitle": "جوائز السحابة وقابلية التوسع العالمية 2025",
                   "recipient": "فريق المعمارية البرمجية روشالينك",
@@ -2938,6 +3152,7 @@ const resources = {
                   "level": "gold"
           },
           "a2": {
+                  "badge": "فول ستاك",
                   "title": "الابتكار المؤسسي الشامل",
                   "subtitle": "جوائز سرعة واستقرار الأنظمة السحابية",
                   "recipient": "الهندسة البرمجية روشالينك",
@@ -2945,6 +3160,7 @@ const resources = {
                   "level": "platinum"
           },
           "a3": {
+                  "badge": "تصميم UI/UX",
                   "title": "أفضل تصميم لتجربة المستخدم",
                   "subtitle": "تكريم التجربة الرقمية وتصميم المنتجات نورديك",
                   "recipient": "استوديو تصميم المنتجات روشالينك",
@@ -2952,6 +3168,7 @@ const resources = {
                   "level": "gold"
           },
           "a4": {
+                  "badge": "الابتكار",
                   "title": "الابتكار في الذكاء الاصطناعي",
                   "subtitle": "منصة العام للجيل القادم من تطبيقات الويب والموبايل",
                   "recipient": "مختبرات الابتكار روشالينك",
@@ -2961,11 +3178,11 @@ const resources = {
 },
           cta: {
           badge: "ابنِ معنا",
-          title: "هل أنت جاهز لتطوير منتجك عالي الأداء مع فريق القيادة لدينا؟",
+          title: "هل أنت جاهز لتطوير منتجك عالي الأداء مع فريقنا؟",
           titlePrefix: "هل أنت جاهز لتطوير منتجك الرقمي مع ",
-          titleGradient: "فريق القيادة لدينا؟",
+          titleGradient: "فريقنا؟",
           titleSuffix: "",
-          subtitle: "احجز جلسة استشارية استراتيجية مع الشركاء المؤسسين الخمسة اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
+          subtitle: "احجز جلسة استشارية استراتيجية معنا اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
           button: "احجز الجلسة الاستشارية الآن"
         }
       },
@@ -2975,7 +3192,13 @@ const resources = {
         services: "خدماتنا",
         about: "من نحن",
         contact: "تواصل معنا",
-        getStarted: "ابدأ الآن"
+        getStarted: "ابدأ الآن",
+        navigation: "القائمة الرئيسية",
+        tagline: "هندسة رقمية مخصصة للحلول البرمجية",
+        darkMode: "الوضع الليلي",
+        lightMode: "الوضع النهاري",
+        closeMenu: "إغلاق القائمة",
+        openMenu: "فتح القائمة"
       },
       hero: {
         badge: "التحول الرقمي للأعمال وهندسة الذكاء الاصطناعي",
@@ -2998,7 +3221,7 @@ const resources = {
         title: "مصممة بأحدث الأدوات والحلول التقنية العالمية",
         subtitle: "نحن ندمج أكثر من 250+ خدمة سحابية ومنصة ذكاء اصطناعي وأداة تصميم مباشرة في مسار عملنا الهندسي.",
         auditBtn: "ابدأ التدقيق التقني",
-        exploreBtn: "استكشف البنية التقنية"
+        exploreBtn: "استكشف خدماتنا"
       },
       features: {
         badge: "أبرز الميزات",
@@ -3068,7 +3291,7 @@ const resources = {
       },
       connectWithUs: {
         badge: "الدعم الاستشاري متعدد اللغات",
-        titlePrefix: "تواصل معنا —",
+        titlePrefix: "تواصل معنا ",
         titleGradient: "دعم بـ 4 لغات",
         titleSuffix: "(السويدية، الإنجليزية، الفارسية والعربية)",
         subtitle: "يقدم لك فريقنا القيادي استشارات مباشرة باللغة التي تفضلها. نحن نزيل جميع الحواجز اللغوية لضمان فهم متطلبات مشروعك وتنفيذها بدقة 100%.",
@@ -3216,6 +3439,46 @@ const resources = {
         feature3: "سرعة فائقة وتجربة موثوقة للمستخدم",
         previewBtn: "معاينة مباشرة"
       },
+      hogwardCafeProject: {
+        category: "منصة المقاهي والمطاعم الترفيهية",
+        title: "منصة مقهى ومطعم هاجوارد – HogWard Café",
+        desc: "تطبيق ويب تفاعلي وعصري لمقهى ومطعم هاجوارد يتميز بقائمة طعام ومشروبات رقمية تفاعلية، نظام حجز الطاولات والفعاليات إلكترونياً، وتصميم متجاوب وسريع.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "قائمة طعام ومشروبات رقمية تفاعلية",
+        feature2: "نظام حجز الطاولات والفعاليات إلكترونياً",
+        feature3: "دعم متعدد اللغات وواجهة مستخدم سريعة",
+        previewBtn: "معاينة مباشرة"
+      },
+      auroraClinicProject: {
+        category: "عيادة التجميل والعلاج بالليزر",
+        title: "عيادة أورورا للتجميل والليزر في ستوكهولم",
+        desc: "تطبيق ويب رقمي متطور لعيادة أورورا للتجميل والليزر في ستوكهولم، يتميز بكتالوج العلاجات التجميلية، حجز الاستشارات عبر الإنترنت، ودعم متعدد اللغات.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "كتالوج متقدم لإزالة الشعر بالليزر والعناية بالبشرة",
+        feature2: "حجز مواعيد الاستشارات والعلاجات التجميلية عبر الإنترنت",
+        feature3: "واجهة مستخدم متعددة اللغات وتجربة تصفح سريعة للجوال",
+        previewBtn: "معاينة مباشرة"
+      },
+      iranSupermarketProject: {
+        category: "سوبرماركت إلكتروني ومواد غذائية شرقية",
+        title: "سوبرماركت إيران في برلين | نكهات أصيلة",
+        desc: "منصة رقمية متكاملة لسوبرماركت إيران في برلين، تعرض المأكولات والبهارات الإيرانية الأصيلة، المخبوزات والحلويات الطازجة، وقسم اللحوم الحلال.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "منتجات ومأكولات شرقية طازجة وتوابل ولحوم حلال",
+        feature2: "عرض تفاعلي لتصنيفات المنتجات والمخبوزات الطازجة",
+        feature3: "واجهة متعددة اللغات وسرعة تصفح فائقة على الجوال",
+        previewBtn: "معاينة مباشرة"
+      },
+      bilbazarProject: {
+        category: "سوق السيارات الإلكتروني وتجارة المركبات",
+        title: "بيل بازار - منصة بيع وشراء السيارات في السويد",
+        desc: "منصة إلكترونية متطورة لسوق السيارات في السويد توفر فلترة وبحثاً ذكياً، فحص وتقييم المركبات، والتواصل المباشر والآمن بين المشترين والبائعين.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "محرك بحث وفلترة ذكية للسيارات بمواصفات متعددة",
+        feature2: "إعلانات موثوقة للسيارات مع فحص وسجل الحالة الفنية",
+        feature3: "تواصل مباشر بين البائع والمشتري وتصميم متوافق مع كافة الأجهزة",
+        previewBtn: "معاينة مباشرة"
+      },
       portfolioHero: {
         badge: "معرض أعمالنا والدراسات الميدانية",
         pillTitle: "حلول مخصصة",
@@ -3228,7 +3491,7 @@ const resources = {
         showcaseNoticeTitleGradient: "حالات الأعمال الحية",
         showcaseNoticeTitleSuffix: "",
         showcaseNoticeDesc: "جميع المشاريع أدناه هي تطبيقات ويب حقيقية وقيد التشغيل الفعلي. جرّب المعاينات التفاعلية المباشرة داخل المتصفح.",
-        viewPillarsBtn: "ركائزنا الـ 6",
+        viewPillarsBtn: "استكشف خدماتنا",
         modalTitle: "ركائزنا الـ 6 للنجاح الرقمي",
         modalSubtitle: "كيف نبني تطبيقات عالية الأداء مخصصة خصيصاً لأهداف عملك الاستراتيجية",
         modalClose: "إغلاق",
@@ -3247,7 +3510,7 @@ const resources = {
         feature6Title: "شراكة مخصصة ودعم مستمر للنمو",
         feature6Desc: "نعمل كشريك تكنولوجي طويل الأجل لمؤسستك ونرافقك في كافة مراحل تطوير وتوسيع منتجك.",
         exploreBtn: "استكشف أعمالنا",
-        buildBtn: "ابدأ مشروعك",
+        buildBtn: "طلب موقع إلكتروني",
         ctaTitle: "هل لديك فكرة لمنتج رقمي فريد ومتميز؟",
         ctaTitlePrefix: "هل لديك فكرة لـ ",
         ctaTitleGradient: "منتج رقمي عالي الأداء؟",
@@ -3346,77 +3609,30 @@ const resources = {
         cap5: "أنظمة التصميم",
         termsOfService: "شروط الخدمة",
         securitySpec: "مواصفات الأمان",
-        privacyPolicy: "سياسة الخصوصية"
-      },
-      contactPage: {
-        badge: "الدعم الاستراتيجي والاستشارات",
-        titlePrefix: "دعنا نبني شيئاً ",
-        titleGradient: "استثنائياً",
-        titleSuffix: " معاً",
-        subtitle: "احجز جلسة استراتيجية تقنية أو تواصل مباشرة مع شركائنا الرئيسيين اليوم.",
-        diaraPillTitle: "قناة روشالينك المباشرة",
-        diaraPillSubtitle: "استشارات ودعم على مدار ۲٤/۷",
-        infoTitle: "وصول مباشر للشركاء",
-        infoSubtitle: "بدون وكلاء مبيعات. ستتحدث مباشرة مع كبار مهندسي النظم ورئيس قسم التصميم.",
-        emailLabel: "البريد الإلكتروني الرئيسي",
-        emailValue: "roshalinkcompany@gmail.com",
-        phoneLabel: "الموقع والاستشارات",
-        phoneValue: "ستوكهولم، السويد والعمل عن بُعد عالمياً",
-        hqLabel: "المقر الرئيسي",
-        hqValue: "ستوكهولم وسان فرانسيسكو",
-        formTitle: "إرسال ملخص المشروع",
-        formSubtitle: "أخبرنا عن أهداف مشروعك وتطلعاتك التقنية أو الجدول الزمني.",
-        fieldName: "الاسم الكامل",
-        fieldNamePlaceholder: "John Doe",
-        fieldEmail: "بريد العمل",
-        fieldEmailPlaceholder: "john@company.com",
-        fieldCompany: "اسم الشركة والمنصب",
-        fieldCompanyPlaceholder: "Enterprise Inc / CTO",
-        fieldMessage: "نظرة عامة على المشروع والجدول الزمني",
-        fieldMessagePlaceholder: "اشرح أهداف مشروعك، التقنيات المطلوبة، أو تطلعاتك الزمانية...",
-        submitBtn: "إرسال ملخص المشروع",
-        submittingBtn: "جاري الإرسال...",
-        errorMessage: "تعذّر إرسال ملخص المشروع. يرجى المحاولة مرة أخرى بعد قليل.",
-        submittedTitle: "تم استلام طلبك بنجاح!",
-        submittedSub: "سيراجع كبير المهندسين المعماريين متطلبات مشروعك ويرد عليك في غضون ٤ ساعات عمل.",
-        sendAnotherBtn: "إرسال رسالة أخرى",
-        nextStepsTitle: "ماذا يحدث بعد ذلك؟",
-        nextStepsSub: "۳ خطوات بسيطة من تقديم الملخص حتى انطلاق المشروع",
-        stepLabel: "الخطوة",
-        ofLabel: "من",
-        nextBtn: "التالي",
-        prevBtn: "السابق",
-        step1Title: "١. تحلیل ملخص المشروع",
-        step1Desc: "يقوم فريق كبار المهندسين المعماريين لدينا بمراجعة متطلباتك وتقنياتك في غضون ٤ ساعات عمل.",
-        step1Badge: "⏱️ الرد خلال ٤ ساعات",
-        step2Title: "٢. جلسة الاستشارات والاستراتيجية",
-        step2Desc: "نحدد موعداً لمكالمة استكشافية مجانية لمدة ۳۰ دقيقة لمناقشة الحلول والميزانية والجدول الزمني.",
-        step2Badge: "💬 ۳۰ دقيقة استشارة",
-        step3Title: "٣. خريطة طريق مخصصة",
-        step3Desc: "ستتلقى اقتراحاً فنياً متكاملاً وخريطة طريق واضحة للمراحل بدون أي التزام.",
-        step3Badge: "🎯 بدون أي التزام",
-        step1Feature1: "✓ مراجعة معمارية لمتطلبات مشروعك",
-        step1Feature2: "✓ رد وملاحظات فنية في غضون ٤ ساعات",
-        step2Feature1: "✓ ۳۰ دقيقة اجتماع مباشر مع شريك ارشد",
-        step2Feature2: "✓ مراجعة الميزانية ونطاق العمل والجدول الزمني",
-        step3Feature1: "✓ خريطة طريق فنية متكاملة وعرض سعر",
-        step3Feature2: "✓ ١٠٠٪ بدون أي التزام أو رسوم خفية"
+        privacyPolicy: "سياسة الخصوصية",
+        newsletterSuccess: "شكراً لك! تم تسجيل بريدك الإلكتروني بنجاح في نشرتنا البريدية.",
+        newsletterAlreadySubscribed: "هذا البريد الإلكتروني مسجل بالفعل في نشرتنا البريدية!",
+        newsletterInvalidEmail: "يرجى إدخال عنوان بريد إلكتروني صالح.",
+        newsletterRateLimit: "محاولات كثيرة جداً من عنوانك. يرجى المحاولة بعد 15 دقيقة.",
+        newsletterError: "تعذّر إتمام التسجيل حالياً. يرجى المحاولة مرة أخرى لاحقاً.",
+        subscribing: "جاري التسجيل...",
       },
       modal: {
-        badge: "بدء استكشاف المشروع",
         title: "ابدأ مشروعك الآن",
-        subtitle: "جلسة استشارية مباشرة مع شركائنا الـ 5 الرئيسيّين.",
+        subtitle: "احصل على تحلیل كامل وجلسة استشارة مجانية 100% لمشروعك.",
         name: "الاسم الكامل",
-        email: "بريد العمل",
-        focus: "المجال الرئيسي للمشروع",
-        budget: "الميزانية المقترحة",
+        namePlaceholder: "Jane Doe",
+        contact: "البريد الإلكتروني أو رقم الهاتف",
+        contactPlaceholder: "name@company.com / +966...",
         overview: "نظرة عامة مختصرة",
+        overviewPlaceholder: "اكتب تفاصيل حول أهداف المشروع، والتقنيات أو المتطلبات...",
         submit: "إرسال طلب الاستكشاف",
-        submittedTitle: "تم تسجيل طلبك بنجاح!",
-        submittedSub: "شكراً لإرسال معلوماتك. سيتواصل معك فريق القيادة لدينا خلال 4 ساعات عمل.",
+        submittedTitle: "تم استلام طلبك بنجاح!",
+        submittedSub: "شكراً لرسالتك! تم استلام طلبك وسنتواصل معك قريباً.",
         done: "تأكيد",
         sending: "جاري الإرسال...",
-        error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل."
+        error: "تعذّر إرسال طلبك. يرجى المحاولة مرة أخرى بعد قليل.",
+        close: "إغلاق النافذة"
       },
       chat: {
         badge: "مساعد ذكي",
@@ -3611,10 +3827,10 @@ const resources = {
         process: {
           title: "كيف نعمل — خطوة بخطوة",
           subtitle: "مسار واضح وموثوق — دائماً تعرف أين أنت والخطوة التالية.",
-          stageBadge1: "الخطوة ١ — نستمع ونخطط",
-          stageBadge2: "الخطوة ٢ — نصمم معاً",
-          stageBadge3: "الخطوة ٣ — نبني بشكل صحيح",
-          stageBadge4: "الخطوة ٤ — نطلق ونتابع",
+          stageBadge1: "نستمع ونخطط",
+          stageBadge2: "نصمم معاً",
+          stageBadge3: "نبني بشكل صحيح",
+          stageBadge4: "نطلق ونتابع",
           step1Num: "٠١",
           step1Title: "نفهم ما تحتاجه",
           step1Desc: "نجلس معك، نستمع باهتمام، ونحدد بالضبط ما تحتاجه — قبل أن نكتب سطراً واحداً من الكود.",
@@ -3675,20 +3891,95 @@ const resources = {
           subtitle: "احجز مكالمة قصيرة معنا — بلا التزامات. سنستمع، نسأل الأسئلة الصحيحة، ونخبرك بصدق ما يمكننا فعله لك.",
           button: "احجز مكالمة اليوم"
         }
+      },
+      contactPage: {
+        badge: "الدعم الاستراتيجي والاستشارات",
+        titlePrefix: "فلنبنِ معاً منتجاً ",
+        titleGradient: "استثنائياً ومميزاً",
+        titleSuffix: "",
+        subtitle: "احجز جلسة استراتيجية تقنية أو تواصل مباشرة مع فريقنا لمناقشة مشروعك القادم.",
+        diaraPillTitle: "قناة روشالينك المباشرة",
+        diaraPillSubtitle: "دعم استراتيجي على مدار الساعة",
+        infoTitle: "تواصل مباشر مع الفريق الهندسي",
+        infoSubtitle: "بدون وسطاء أو مندوبي مبيعات. تحدث مباشرة مع مهندسي الأنظمة ومدراء التصميم لدينا.",
+        emailLabel: "البريد الإلكتروني الرئيسي",
+        emailValue: "roshalinkcompany@gmail.com",
+        phoneLabel: "الموقع والاستشارات",
+        phoneValue: "ستوكهولم، السويد والعمل عن بُعد عالمياً",
+        locationLabel: "الموقع والاستشارات",
+        locationValue: "ستوكهولم، السويد والعمل عن بُعد عالمياً",
+        hqLabel: "المقر الرئيسي للوكالة",
+        hqValue: "ستوكهولم وعالمياً",
+        formTitle: "أرسل تفاصيل مشروعك",
+        formSubtitle: "أخبرنا عن أهداف مشروعك، المتطلبات التقنية أو الجدول الزمني وسنرد عليك سريعاً.",
+        fieldName: "الاسم الكامل",
+        fieldNamePlaceholder: "مثال: أحمد العلي",
+        fieldEmail: "البريد الإلكتروني للعمل",
+        fieldEmailPlaceholder: "ahmed@company.com",
+        fieldCompany: "اسم الشركة والمنصب",
+        fieldCompanyPlaceholder: "مثال: شركة الأعمال / الرئيس التنفيذي",
+        fieldMessage: "نظرة عامة على المشروع والمتطلبات",
+        fieldMessagePlaceholder: "صف أهداف مشروعك، الميزات التقنية المطلوبة والجدول الزمني...",
+        submitBtn: "إرسال طلب المشروع",
+        submittingBtn: "جارٍ الإرسال...",
+        errorMessage: "تعذر إرسال طلبك الآن. يرجى المحاولة مرة أخرى أو مراسلتنا مباشرة عبر البريد الإلكتروني.",
+        submittedTitle: "تم استلام طلبك بنجاح!",
+        submittedSub: "سيقوم كبير المهندسين بمراجعة متطلبات مشروعك والرد عليك خلال 4 ساعات عمل.",
+        sendAnotherBtn: "إرسال رسالة أخرى",
+        nextStepsTitle: "ماذا يحدث بعد ذلك؟",
+        nextStepsSub: "عمليتنا الشفافة والسلسة من أول استفسار وحتى إطلاق المشروع.",
+        stepLabel: "الخطوة",
+        ofLabel: "من",
+        nextBtn: "التالي",
+        prevBtn: "السابق",
+        step1Title: "التحليل السريع والتدقيق",
+        step1Badge: "خلال 4 ساعات",
+        step1Desc: "نحلل متطلبات مشروعك ونعد توصيات تقنية وهندسية عملية ومناسبة لأهدافك.",
+        step1Feature1: "مراجعة سرية تامة",
+        step1Feature2: "تدقيق النطاق التقني",
+        step2Title: "جلسة استكشافية استراتيجية",
+        step2Badge: "ورشة عمل لمدة 30 دقيقة",
+        step2Desc: "اجتماع مرئي عالي التركيز لتحديد بنية النظام، المراحل الزمنية ومؤشرات النجاح.",
+        step2Feature1: "تحليل هيكلية النظام",
+        step2Feature2: "تقدير الميزانية والجدول الزمني",
+        step3Title: "المقترح المخصص وبدء العمل",
+        step3Badge: "خلال 48 ساعة",
+        step3Desc: "نقدم خطة عمل واضحة بسعر ثابت ومراحل محددة بدقة مع إمكانية البدء الفوري.",
+        step3Feature1: "سعر ثابت ونطاق واضح",
+        step3Feature2: "انطلاق فوري للتطوير"
       }
     }
   }
 };
 
+const getInitialLanguage = () => {
+  if (typeof window !== 'undefined') {
+    const pathname = window.location.pathname;
+    const firstSegment = pathname.split('/').filter(Boolean)[0];
+    if (firstSegment && ['sv', 'en', 'fa', 'ar'].includes(firstSegment)) {
+      return firstSegment;
+    }
+  }
+  return 'sv';
+};
+
+const initialLang = getInitialLanguage();
+
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'sv', // Default Language is Swedish (sv)
+    lng: initialLang,
     fallbackLng: 'sv',
     interpolation: {
       escapeValue: false
     }
   });
+
+if (typeof window !== 'undefined') {
+  const isRtl = ['fa', 'ar'].includes(initialLang);
+  document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+  document.documentElement.lang = initialLang;
+}
 
 export default i18n;

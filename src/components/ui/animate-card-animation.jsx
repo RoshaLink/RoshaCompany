@@ -49,10 +49,10 @@ function CardContent({ contentType }) {
     <div className="flex h-full w-full flex-col gap-4">
       <div className="-outline-offset-1 flex h-[200px] w-full items-center justify-center overflow-hidden rounded-xl outline outline-black/10 dark:outline-white/10">
         <img
-          src={data.image || "/placeholder.svg"}
+          src={data.image || " placeholder.svg"}
           alt={data.title}
           className="h-full w-full select-none object-cover"
-        />
+        / />
       </div>
       <div className="flex w-full items-center justify-between gap-2 px-3 pb-6">
         <div className="flex min-w-0 flex-1 flex-col">

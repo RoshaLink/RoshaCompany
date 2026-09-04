@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Bot, Loader2, RotateCcw, ArrowRight, Sparkles } from 'lucide-react';
-import roshaChatVideo from '../../assets/Rosha/ChatWithus/Roshachatwithus.mp4';
+import roshaChatVideoMp4 from '../../assets/Rosha/ChatWithus/Roshachatwithus.mp4';
+import roshaChatVideoWebm from '../../assets/Rosha/ChatWithus/Roshachatwithus.webm';
+import LazyVideo from '../ui/LazyVideo';
 import './RoshaChatWidget.css';
 
 // How many prior messages travel with each request. The server caps this too;
@@ -175,7 +177,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 transition={{ duration: 0.25, ease: 'easeOut' }}
                 dir={isRTL ? 'rtl' : 'ltr'}
-                className={`relative w-[calc(100vw-2rem)] max-w-[380px] bg-white/80 backdrop-blur-xl border border-slate-200/80 rounded-3xl shadow-[0_20px_50px_rgba(56,189,248,0.15)] mb-3 sm:mb-4 overflow-hidden pointer-events-auto ${
+                className={`relative w-[calc(100vw-2rem)] max-w-[380px] bg-white border border-slate-200/90 rounded-3xl shadow-[0_20px_50px_rgba(15,23,42,0.12)] mb-3 sm:mb-4 overflow-hidden pointer-events-auto ${
                   isRTL ? 'text-right' : 'text-left'
                 }`}
               >
@@ -183,16 +185,14 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                 <div className="absolute -top-16 -right-10 w-48 h-48 bg-sky-300/20 rounded-full blur-[80px] pointer-events-none" />
 
                 {/* Header */}
-                <div className="relative bg-gradient-to-b from-sky-50/80 to-white/40 border-b border-slate-200/80 p-4 flex items-start justify-between gap-3">
+                <div className="relative bg-white border-b border-slate-100 p-4 flex items-start justify-between gap-3">
                   <div className="flex items-center space-x-3 rtl:space-x-reverse min-w-0">
                     <div className="relative w-11 h-11 rounded-2xl overflow-hidden border border-slate-200/90 bg-white shadow-sm shrink-0">
-                      <video
-                        src={roshaChatVideo}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-contain p-0.5"
+                      <LazyVideo
+                        webm={roshaChatVideoWebm}
+                        mp4={roshaChatVideoMp4}
+                        placeholderBg="bg-white"
+                        className="w-full h-full object-contain bg-white"
                       />
                     </div>
                     <div className="min-w-0">
@@ -209,7 +209,8 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                   <button
                     onClick={closeChat}
                     aria-label={t('chat.close')}
-                    className="p-1.5 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
+                    title={t('chat.close')}
+                    className="min-h-11 min-w-11 flex items-center justify-center p-1.5 rounded-lg text-slate-400 hover:text-slate-900 hover:bg-slate-100 transition-colors cursor-pointer shrink-0"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -321,7 +322,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                     when they press Enter to accept a candidate. */}
                 <form
                   onSubmit={handleSubmit}
-                  className="relative p-3 bg-white/60 border-t border-slate-200/80 flex items-center gap-2"
+                  className="relative p-3 bg-white border-t border-slate-100 flex items-center gap-2"
                 >
                   <input
                     type="text"
@@ -337,7 +338,8 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                     type="submit"
                     disabled={!canSend}
                     aria-label={t('chat.send')}
-                    className="p-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] active:scale-95 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500 disabled:shadow-none"
+                    title={t('chat.send')}
+                    className="min-h-11 min-w-11 flex items-center justify-center p-2.5 rounded-lg bg-sky-500 hover:bg-sky-600 text-white transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] active:scale-95 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-sky-500 disabled:shadow-none"
                   >
                     {isSending ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
@@ -347,7 +349,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                   </button>
                 </form>
 
-                <p className="relative px-3 pb-3 -mt-0.5 text-[10px] font-body-md text-slate-400 leading-snug bg-white/60">
+                <p className="relative px-3 pb-3 -mt-0.5 text-[10px] font-body-md text-slate-400 leading-snug bg-white">
                   {t('chat.disclaimer')}
                 </p>
               </motion.div>
@@ -371,18 +373,13 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
               {/* Soft ambient halo, matching the blurred orbs used site-wide */}
               <div className="absolute -inset-3 bg-gradient-to-r from-sky-400/25 to-blue-500/25 rounded-3xl blur-2xl opacity-80 group-hover:opacity-100 transition duration-500" />
 
-              {/* Avatar card — rounded-3xl and the glass border used by the
-                  site's cards, rather than a circle that matches nothing else.
-                  The sky wash keeps it from disappearing against the white
-                  sections it floats over. */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-sky-50/95 to-white/85 backdrop-blur-xl border border-slate-200/80 shadow-[0_20px_50px_rgba(56,189,248,0.2)] overflow-hidden transition-all duration-300 group-hover:border-sky-300 group-hover:-translate-y-0.5">
-                <video
-                  src={roshaChatVideo}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-contain p-1"
+              {/* Avatar card — solid pure white background to match video background seamlessly */}
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-white border border-slate-200/90 shadow-[0_12px_35px_rgba(15,23,42,0.12)] overflow-hidden transition-all duration-300 group-hover:border-sky-400 group-hover:shadow-[0_16px_40px_rgba(56,189,248,0.25)] group-hover:-translate-y-0.5">
+                <LazyVideo
+                  webm={roshaChatVideoWebm}
+                  mp4={roshaChatVideoMp4}
+                  placeholderBg="bg-white"
+                  className="w-full h-full object-contain bg-white"
                 />
               </div>
 
@@ -392,8 +389,8 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500 border-2 border-white" />
               </span>
 
-              {/* Hover Label — same white pill the showcase sections use */}
-              <span className="absolute right-full rtl:right-auto rtl:left-full mr-3 rtl:mr-0 rtl:ml-3 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 text-slate-700 text-xs font-label-sm font-bold whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              {/* Hover Label — always positioned to the left (right-full mr-3) so it never clips off-screen in any language */}
+              <span className="absolute right-full mr-3 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xl border border-slate-200/90 text-slate-700 text-xs font-label-sm font-bold whitespace-nowrap shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 {t('chat.hoverLabel')}
               </span>
             </button>

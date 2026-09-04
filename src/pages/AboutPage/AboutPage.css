@@ -129,17 +129,33 @@
 }
 
 .about-hero-subtitle {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.875rem;
+  line-height: 1.65;
   color: var(--color-slate-600);
-  max-width: 44rem;
+  max-width: 48rem;
   margin-bottom: 2.5rem;
   font-family: var(--font-body);
+  text-wrap: pretty;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .about-hero-subtitle {
-    font-size: 1.15rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-hero-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 
@@ -268,15 +284,34 @@
 }
 
 .about-section-subtitle {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
   color: var(--color-slate-600);
   font-family: var(--font-body);
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: pretty;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   .about-section-subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-section-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-section-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
   }
 }
 
@@ -446,11 +481,36 @@
 }
 
 .about-cta-subtitle {
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.65;
   color: var(--color-slate-600);
   margin: 0;
-  max-width: 40rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--font-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .about-cta-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-cta-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .about-cta-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
 }
 
 .about-cta-actions {
@@ -485,6 +545,34 @@
   transform: scale(0.97);
 }
 
+.about-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+  color: var(--color-slate-500, #64748b);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+  transition: color 0.2s ease;
+}
+
+.about-cta-secondary-link:hover,
+.about-cta-secondary-link:focus-visible {
+  color: var(--color-sky-500, #0ea5e9);
+}
+
+html.dark .about-cta-secondary-link {
+  color: var(--color-slate-400, #94a3b8);
+}
+
+html.dark .about-cta-secondary-link:hover,
+html.dark .about-cta-secondary-link:focus-visible {
+  color: var(--color-sky-400, #38bdf8);
+}
+
 
 /* ==========================================================================
    RTL SUPPORT (Persian & Arabic)
@@ -507,7 +595,9 @@
 [dir="rtl"] .about-primary-btn,
 .is-rtl .about-primary-btn,
 [dir="rtl"] .about-cta-button,
-.is-rtl .about-cta-button {
+.is-rtl .about-cta-button,
+[dir="rtl"] .about-cta-secondary-link,
+.is-rtl .about-cta-secondary-link {
   flex-direction: row-reverse;
 }
 

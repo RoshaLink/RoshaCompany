@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "../ui/button";
 import { Sparkles, ArrowRight } from "lucide-react";
 import "./BrandsWeWorkWith.css";
@@ -28,6 +29,7 @@ const repeatedIcons = (icons, repeat = 4) => Array.from({ length: repeat }).flat
 
 export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
   const { t } = useTranslation();
+  const { lang } = useParams();
 
   return (
     <section className="brands-section">
@@ -51,12 +53,12 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
             <span>{t('brands.auditBtn')}</span>
           </button>
 
-          <button
-            onClick={() => setActivePage ? setActivePage('services') : null}
+          <Link
+            to={`/${lang}/services`}
             className="brands-btn-secondary"
           >
             <span>{t('brands.exploreBtn')}</span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -71,7 +73,7 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
               className="brands-card brands-card-primary group"
               title={item.name}
             >
-              <img src={item.src} alt={item.name} className="brands-card-img" />
+              <img src={item.src} alt={item.name} className="brands-card-img" width="36" height="36" />
             </div>
           ))}
         </div>
@@ -84,7 +86,7 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
               className="brands-card brands-card-secondary group"
               title={item.name}
             >
-              <img src={item.src} alt={item.name} className="brands-card-img" />
+              <img src={item.src} alt={item.name} className="brands-card-img" width="36" height="36" />
             </div>
           ))}
         </div>

@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { MinimalistHero } from '../ui/minimalist-hero';
 import './WhoWeAre.css';
 
-import MortezaPortrait from '../../assets/OurPictures/MortezaPortrait.png';
-import BellaPortrait from '../../assets/OurPictures/BellaPortrait.png';
-import SohrabPortrait from '../../assets/OurPictures/SohrabPortrait.png';
-import MinaPortrait from '../../assets/OurPictures/MinaPortrait.png';
-import MiladPortrait from '../../assets/OurPictures/MiladPortrait.png';
+import MortezaPortrait from '../../assets/OurPictures/MortezaPortrait.webp';
+import BellaPortrait from '../../assets/OurPictures/BellaPortrait.webp';
+import SohrabPortrait from '../../assets/OurPictures/SohrabPortrait.webp';
+import MinaPortrait from '../../assets/OurPictures/MinaPortrait.webp';
+import MiladPortrait from '../../assets/OurPictures/MiladPortrait.webp';
 
 const TEAM_IMAGES = [
   { 

@@ -1,0 +1,48 @@
+# RoshaLink — Full Technical Overview for AI Agents & LLMs
+
+> RoshaLink is a premier digital engineering and architecture consultancy based in Stockholm, Sweden. This document provides complete structured information about RoshaLink's services, engineering standards, team, and delivery methodology for automated AI consumption.
+
+## 1. Company Overview
+- **Name**: RoshaLink Digital Agency
+- **Headquarters**: Stockholm, Sweden
+- **Service Scope**: Global (Nordics, Europe, Middle East, North America)
+- **Specialization**: Bespoke Web Applications, Mobile Applications, Cloud Infrastructure, Custom AI Integration, Enterprise Business Analysis.
+- **Philosophy**: Zero template usage, eliminate technical debt from sprint zero, direct partnership with senior system architects.
+
+## 2. Core Service Offerings
+
+### Bespoke Web Applications
+- Pure React, TypeScript, modern CSS architectures, micro-frontends, serverless and distributed edge deployments.
+- 100/100 Google Lighthouse and Core Web Vitals guarantees.
+- Sub-20ms transactional API response targets with modern distributed clouds.
+
+### Mobile App Development
+- High-performance iOS and Android applications.
+- Native performance, offline-first architectures, and enterprise security standards.
+
+### AI & Intelligent Automation
+- Custom AI agents, LLM tool integration, automated business workflows, and predictive analytics.
+- Integration with major cloud and AI ecosystems (OpenAI, Anthropic, Google Cloud, AWS, Azure).
+
+### Enterprise Business Analysis & Architecture
+- Rigorous requirement analysis and system architecture blueprinting before code authoring.
+- Direct partnership with the 5 founding architects: Morteza (CEO & Lead Architect), Sam (Senior Full-Stack & Cloud), Bella (Head of Product & Brand), Mina (Business Analyst & Advisor, Ex-Ericsson), Milad (Senior Backend & Database).
+
+## 3. Site Navigation & URL Structure
+- `https://roshalink.com/sv` - Swedish Home
+- `https://roshalink.com/sv/about` - About Us & Leadership
+- `https://roshalink.com/sv/services` - Capabilities & Services
+- `https://roshalink.com/sv/portfolio` - Case Studies & Selected Works
+- `https://roshalink.com/sv/contact` - Strategic Brief & Contact Form
+- `https://roshalink.com/en` - English Home
+- `https://roshalink.com/en/about` - About Us & Leadership
+- `https://roshalink.com/en/services` - Capabilities & Services
+- `https://roshalink.com/en/portfolio` - Case Studies & Selected Works
+- `https://roshalink.com/en/contact` - Strategic Brief & Contact Form
+- `https://roshalink.com/fa` - Persian Home & Capabilities
+- `https://roshalink.com/ar` - Arabic Home & Capabilities
+
+## 4. Security & Compliance Standards
+- ISO 27001 Certified Security Practices.
+- Zero-Trust Architecture, strict CSP headers, and encrypted data in transit (TLS 1.3) and at rest.
+- GDPR, Privacy, and Cookie compliance.

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { X, Sparkles, Send, CheckCircle2, Loader2 } from 'lucide-react';
+import { X, Send, CheckCircle2, Loader2, Sparkles, User, Mail, MessageSquare } from 'lucide-react';
+import roshaLikeImage from '../../assets/Rosha/ConnectWthUS/RoshaGivingLike.webp';
+import roshaLoveImage from '../../assets/Rosha/aboutus/showLove.webp';
 import './GetStartedModal.css';
 
 export default function GetStartedModal({ isOpen, onClose }) {
@@ -8,25 +10,41 @@ export default function GetStartedModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    budget: '$25k - $50k',
-    service: 'Full Product Engineering',
+    contact: '',
     details: ''
   });
 
+  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+
+  // Prevent background scrolling while modal is open & listen for Escape key
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
-  // This used to call setSubmitted(true) and nothing else, so every enquiry
-  // was shown a success screen and then silently discarded. Only show success
-  // once the server has actually accepted the lead.
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
 
     setIsSubmitting(true);
     setError(false);
+    setErrorMessage(null);
 
     try {
       const res = await fetch('/api/lead', {
@@ -34,22 +52,24 @@ export default function GetStartedModal({ isOpen, onClose }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           source: 'get-started',
-          lang: i18n.language,
-          name: formData.name,
-          email: formData.email,
-          budget: formData.budget,
-          service: formData.service,
-          message: formData.details
+          lang: i18n.language || 'sv',
+          name: formData.name.trim(),
+          email: formData.contact.trim(),
+          message: formData.details.trim()
         })
       });
 
       if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        const serverError = data?.errors?.[0] || data?.message;
+        setErrorMessage(serverError || null);
         setError(true);
         return;
       }
 
       setSubmitted(true);
     } catch {
+      setErrorMessage(null);
       setError(true);
     } finally {
       setIsSubmitting(false);
@@ -57,145 +77,169 @@ export default function GetStartedModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="glass-card relative w-full max-w-lg bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-2xl space-y-5 sm:space-y-6 max-h-[90vh] overflow-y-auto">
-        
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 rtl:left-4 rtl:sm:left-5 rtl:right-auto text-slate-400 hover:text-slate-900 p-1.5 rounded-full hover:bg-slate-100 transition-colors"
-          aria-label="Close modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+    <div
+      className="get-started-backdrop"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      {/* Decorative ambient background glows */}
+      <div className="modal-ambient-glow modal-glow-1" />
+      <div className="modal-ambient-glow modal-glow-2" />
 
-        {submitted ? (
-          <div className="text-center py-8 space-y-4">
-            <div className="w-14 h-14 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-7 h-7" />
+      <div
+        className={`get-started-modal-card ${isRTL ? 'is-rtl' : ''}`}
+        dir={isRTL ? 'rtl' : 'ltr'}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Full-width Top Hero Banner with Prominent Rosha Mascot & Close Button */}
+        <div className="modal-hero-banner">
+          <div className="modal-hero-glow" />
+          <img
+            src={roshaLikeImage}
+            alt="Rosha Mascot"
+            className="modal-hero-mascot-img"
+          />
+
+          {/* Close Button with 44px min hit area */}
+          <button
+            type="button"
+            onClick={onClose}
+            className="modal-close-btn"
+            aria-label="Close modal"
+            title="Close modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Modal Card Body */}
+        <div className="modal-body-content">
+          {submitted ? (
+            <div className="text-center py-4 sm:py-6 space-y-4 relative z-10">
+              <div className="modal-success-check-icon-wrapper">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+
+              <div className="space-y-2">
+                <h3 className="modal-title">
+                  {t('modal.submittedTitle')}
+                </h3>
+                <p className="modal-success-subtitle">
+                  {t('modal.submittedSub')}
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSubmitted(false);
+                    onClose();
+                  }}
+                  className="modal-submit-btn py-3 cursor-pointer"
+                >
+                  {t('modal.done')}
+                </button>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 font-headline-md">{t('modal.submittedTitle')}</h3>
-            <p className="text-slate-600 text-sm">
-              {t('modal.submittedSub')}
-            </p>
-            <button
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
-              className="bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold px-6 py-2.5 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)]"
-            >
-              {t('modal.done')}
-            </button>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-4">
-            
-            {/* Header */}
-            <div className="space-y-1">
-              <div className="inline-flex items-center space-x-1.5 rtl:space-x-reverse text-xs font-label-sm text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200">
-                <Sparkles className="w-3 h-3" />
-                <span>{t('modal.badge')}</span>
-              </div>
-              <h3 className="text-2xl font-bold text-slate-900 font-headline-md">{t('modal.title')}</h3>
-              <p className="text-slate-600 text-xs">{t('modal.subtitle')}</p>
-            </div>
-
-            {/* Inputs */}
-            <div className="space-y-3 pt-2">
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-700">{t('modal.name')}</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Jane Doe"
-                  className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"
-                />
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5 relative z-10">
+              {/* Header: Animated Uppercase Title & 1-Line Subtitle */}
+              <div className="modal-title-group">
+                <h3 className="modal-title">
+                  {t('modal.title')}
+                </h3>
+                <p className="modal-subtitle">
+                  {t('modal.subtitle')}
+                </p>
               </div>
 
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-700">{t('modal.email')}</label>
-                <input
-                  type="email"
-                  required
-                  // Mirrors looksLikeEmail() in api/lead.js. Without it the
-                  // browser accepts a TLD-less host like "jane@company", the
-                  // server then rejects it, and the visitor gets a generic
-                  // failure from a form that appeared to accept their input.
-                  pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="jane@company.com"
-                  className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-700">{t('modal.focus')}</label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"
-                  >
-                    <option>Full Product Engineering</option>
-                    <option>Strategic UX & Design System</option>
-                    <option>AI & Predictive Analytics</option>
-                    <option>Cloud Security & DevOps</option>
-                  </select>
+              {/* Form Fields */}
+              <div className="space-y-3 pt-0.5">
+                {/* Name */}
+                <div className="modal-field-group">
+                  <label htmlFor="modal-name-input" className="modal-form-label">
+                    <User className="w-3.5 h-3.5 text-sky-500" />
+                    <span>{t('modal.name')}</span>
+                  </label>
+                  <div className="modal-input-wrapper">
+                    <input
+                      id="modal-name-input"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder={t('modal.namePlaceholder', 'Jane Doe')}
+                      className="modal-form-input"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-1">
-                  <label className="text-xs font-semibold text-slate-700">{t('modal.budget')}</label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"
-                  >
-                    <option>$15k - $25k</option>
-                    <option>$25k - $50k</option>
-                    <option>$50k - $100k</option>
-                    <option>$100k+</option>
-                  </select>
+                {/* Email or Phone */}
+                <div className="modal-field-group">
+                  <label htmlFor="modal-contact-input" className="modal-form-label">
+                    <Mail className="w-3.5 h-3.5 text-sky-500" />
+                    <span>{t('modal.contact')}</span>
+                  </label>
+                  <div className="modal-input-wrapper">
+                    <input
+                      id="modal-contact-input"
+                      type="text"
+                      required
+                      value={formData.contact}
+                      onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                      placeholder={t('modal.contactPlaceholder', 'namn@foretag.se / 070-123 45 67')}
+                      className="modal-form-input"
+                    />
+                  </div>
+                </div>
+
+                {/* Project Overview */}
+                <div className="modal-field-group">
+                  <label htmlFor="modal-details-input" className="modal-form-label">
+                    <MessageSquare className="w-3.5 h-3.5 text-sky-500" />
+                    <span>{t('modal.overview')}</span>
+                  </label>
+                  <div className="modal-input-wrapper">
+                    <textarea
+                      id="modal-details-input"
+                      rows={3}
+                      value={formData.details}
+                      onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                      placeholder={t('modal.overviewPlaceholder', 'Beskriv ditt projekt, mål eller tekniska krav...')}
+                      className="modal-form-textarea min-h-[80px] sm:min-h-[88px] resize-y"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <label className="text-xs font-semibold text-slate-700">{t('modal.overview')}</label>
-                <textarea
-                  rows={3}
-                  value={formData.details}
-                  onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                  placeholder="..."
-                  className="w-full bg-slate-50 border border-slate-300 rounded px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-sky-500 transition-colors"
-                />
-              </div>
-            </div>
-
-            {error && (
-              <p className="text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-lg px-3 py-2">
-                {t('modal.error')}
-              </p>
-            )}
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-sky-500 hover:bg-sky-600 text-white font-label-md font-bold py-3 rounded-lg transition-all shadow-[0_4px_20px_rgba(56,189,248,0.35)] flex items-center justify-center space-x-2 rtl:space-x-reverse cursor-pointer mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
-            >
-              <span>{isSubmitting ? t('modal.sending') : t('modal.submit')}</span>
-              {isSubmitting ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <Send className="w-4 h-4 rtl:rotate-180" />
+              {/* Error Notification */}
+              {error && (
+                <div className="text-xs text-rose-600 dark:text-rose-400 bg-rose-50/90 dark:bg-rose-950/70 border border-rose-200 dark:border-rose-800/80 rounded-xl p-3 flex items-center gap-2 backdrop-blur-md">
+                  <div className="w-1.5 h-1.5 rounded-full bg-rose-500 shrink-0" />
+                  <p>{errorMessage || t('modal.error')}</p>
+                </div>
               )}
-            </button>
-          </form>
-        )}
 
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="modal-submit-btn"
+              >
+                <span>
+                  {isSubmitting ? t('modal.sending') : t('modal.submit')}
+                </span>
+                {isSubmitting ? (
+                  <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+                ) : (
+                  <Send className={`w-4 h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                )}
+              </button>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

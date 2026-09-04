@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import mobileVideoSource from '../../assets/Rosha/holdingMobile/RoshaHoldingMobile.mp4';
-import appleLogo from '../../assets/Rosha/logos/apple.png';
-import googleLogo from '../../assets/Rosha/logos/google.png';
+import mobileVideoMp4 from '../../assets/Rosha/holdingMobile/RoshaHoldingMobile.mp4';
+import mobileVideoWebm from '../../assets/Rosha/holdingMobile/RoshaHoldingMobile.webm';
+import LazyVideo from '../ui/LazyVideo';
+import appleLogo from '../../assets/Rosha/logos/apple.webp';
+import googleLogo from '../../assets/Rosha/logos/google.webp';
 import MobileAppModal from './MobileAppModal';
 import './MobileAppShowcase.css';
 
@@ -32,20 +34,16 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
 
               {/* Glassmorphic Frame Card */}
               <div className="mobile-video-frame">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  webm={mobileVideoWebm}
+                  mp4={mobileVideoMp4}
                   className="mobile-video"
-                >
-                  <source src={mobileVideoSource} type="video/mp4" />
-                </video>
+                />
 
                 {/* Floating Glassmorphic Stat Pill #1 (Apple App Store Badge) */}
                 <div className={`mobile-stat-pill mobile-stat-pill-1 ${rtlClass}`}>
                   <div className="mobile-stat-icon">
-                    <img src={appleLogo} alt="Apple App Store" className="mobile-stat-img" />
+                    <img src={appleLogo} alt="Apple App Store" className="mobile-stat-img" width="36" height="36"  loading="lazy" />
                   </div>
                   <div>
                     <div className="mobile-stat-title">
@@ -60,7 +58,7 @@ export default function MobileAppShowcase({ onOpenGetStarted, setActivePage }) {
                 {/* Floating Glassmorphic Stat Pill #2 (Google Play Store Badge) */}
                 <div className={`mobile-stat-pill mobile-stat-pill-2 ${rtlClass}`}>
                   <div className="mobile-stat-icon">
-                    <img src={googleLogo} alt="Google Play Store" className="mobile-stat-img" />
+                    <img src={googleLogo} alt="Google Play Store" className="mobile-stat-img" width="36" height="36"  loading="lazy" />
                   </div>
                   <div>
                     <div className="mobile-stat-title">

@@ -1,0 +1,40 @@
+{
+  "short_name": "RoshaLink",
+  "name": "RoshaLink — Strategic Design & Tech Agency",
+  "description": "Skräddarsydd webbutveckling, mobilappar och molnlösningar i Stockholm. Custom web development, mobile apps and cloud solutions.",
+  "lang": "sv",
+  "dir": "ltr",
+  "id": "/sv",
+  "start_url": "/sv",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#f8fafc",
+  "theme_color": "#0284c7",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/og-image-sv.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "RoshaLink — Ledande Digitalbyrå i Stockholm"
+    }
+  ],
+  "prefer_related_applications": false
+}

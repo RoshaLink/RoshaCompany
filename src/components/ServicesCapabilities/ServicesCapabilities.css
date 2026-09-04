@@ -97,6 +97,7 @@ html.dark .stagger-services-glow-2 {
   margin-top: 0;
   margin-bottom: 0.85rem;
   letter-spacing: -0.025em;
+  text-transform: uppercase;
   background: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -118,16 +119,38 @@ html.dark .stagger-services-title {
 }
 
 .stagger-services-subtitle {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #475569;
-  margin: 0;
-  max-width: 40rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-slate-600);
+  margin-top: 0.75rem;
+  max-width: 48rem;
   font-family: var(--font-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .stagger-services-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stagger-services-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stagger-services-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
 }
 
 html.dark .stagger-services-subtitle {
-  color: #94a3b8;
+  color: var(--color-slate-400);
 }
 
 /* --------------------------------------------------------------------------
@@ -168,7 +191,6 @@ html.dark .stagger-services-subtitle {
   flex-direction: column;
   justify-content: space-between;
   border-radius: var(--radius-3xl);
-  clip-path: polygon(36px 0%, calc(100% - 36px) 0%, 100% 36px, 100% 100%, calc(100% - 36px) 100%, 36px 100%, 0 100%, 0 0);
   cursor: pointer;
   opacity: 1 !important;
   backdrop-filter: blur(20px);

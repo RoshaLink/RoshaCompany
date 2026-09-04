@@ -94,15 +94,38 @@ html.dark .how-title {
 }
 
 .how-subtitle {
-  font-size: 1.05rem;
+  font-size: 0.875rem;
   line-height: 1.65;
   color: var(--color-slate-600);
-  margin: 0;
-  max-width: 38rem;
+  margin: 0 auto;
+  max-width: 48rem;
+  font-family: var(--font-body);
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  .how-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (min-width: 1024px) {
+  .how-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1280px) {
+  .how-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
 }
 
 html.dark .how-subtitle {
-  color: #94a3b8;
+  color: var(--color-slate-400);
 }
 
 /* Canvas & Layout */

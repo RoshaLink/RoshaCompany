@@ -22,17 +22,16 @@ From `package.json` (versions are the declared ranges):
 
 - React 19.2 + React DOM 19.2, `react-router-dom` 7.18 (BrowserRouter, client-side routing)
 - Vite 8.1 with `@vitejs/plugin-react` 6.0; ESM only (`"type": "module"`)
-- **Tailwind is loaded from the CDN in `index.html`**, not as a build dependency —
-  theme tokens (colors, fonts, radii) are configured in the inline `tailwind.config`
-  script there. There is no `tailwind.config.js` and no PostCSS step. This is
-  specifically Tailwind's **Play CDN** (`cdn.tailwindcss.com`) — Tailwind's own
-  docs say not to use it in production, since it ships the full JIT compiler to
-  the browser and recompiles utility CSS on every load instead of a purged
-  build. Also means any Tailwind class on an element (e.g. `RoshaChatWidget`'s
-  root) is invisible to plain CSS selectors from outside that file unless the
-  element also carries a real, non-Tailwind class name to hook onto. Tracked
-  as issue #17, not fixed opportunistically — migrating off it touches every
-  component's className strings.
+- **Tailwind 3.4 compiles at build time via PostCSS** (`tailwind.config.js`,
+  `@tailwind base/components/utilities` in `src/index.css`, `postcss` plugins
+  wired inline in `vite.config.js`'s `css.postcss` — no standalone
+  `postcss.config.js` file). Previously loaded from Tailwind's Play CDN
+  (`cdn.tailwindcss.com`) in `index.html`; that render-blocking JIT-in-browser
+  setup has been removed (was tracked as issue #17 — now resolved). A Tailwind
+  class on an element (e.g. `RoshaChatWidget`'s root) is still invisible to
+  plain CSS selectors from outside that file unless the element also carries a
+  real, non-Tailwind class name to hook onto — utility classes are still
+  purged/hashed at build time, same reasoning as before, just no longer via CDN.
 - `framer-motion` 12.43 for animation (used in ~10 components), `lucide-react` 1.27
   for icons (~35 files), `react-icons` in one file (`ui/circular-testimonials.jsx`)
 - `i18next` 26 + `react-i18next` 17; all strings live in `src/i18n.js`
@@ -42,20 +41,35 @@ From `package.json` (versions are the declared ranges):
 - ESLint 10 flat config; TypeScript 7 used **only** to typecheck `api/` from JSDoc
 - Node 22 in CI; Vercel for hosting and serverless functions
 
+## SEO & Multilingual Routing Architecture
+
+- **Primary Domain:** `https://roshalink.com`
+- **Supported Locales:** `sv` (Swedish - Primary Scandinavian market & `x-default`), `en` (English), `fa` (Farsi), `ar` (Arabic).
+- **URL Routing Strategy:** Standard language prefix (`/:lang`, `/:lang/about`, `/:lang/services`, `/:lang/portfolio`, `/:lang/contact`, `/:lang/privacy`).
+- **Dynamic Meta Management:** `SEOHead.jsx` injects localized `<title>`, `<meta name="description">`, `<meta name="keywords">`, `<link rel="canonical">`, `<link rel="alternate" hreflang="...">` matrix, Open Graph, and Twitter Cards.
+- **Structured Data:** `JsonLdSchema.jsx` injects `Organization`, `ProfessionalService`, `Service`, `FAQPage`, and `BreadcrumbList` schemas.
+- **Crawling Directives:** `public/sitemap.xml` (all 24 multilingual URLs indexed with `xhtml:link`), `public/robots.txt`, and `public/manifest.json`.
+
 ## Project structure
 
 ```
+public/
+  sitemap.xml           Multilingual XML Sitemap with alternate hreflang tags
+  robots.txt            Search engine crawler directives
+  manifest.json         PWA & mobile SEO manifest
 api/                    Vercel serverless functions (Node, ESM). One route per file.
   chat.js               POST /api/chat  — proxies OpenAI, never exposes the key
   lead.js               POST /api/lead  — sends the enquiry email via Resend
   _lib/                 Underscore prefix = not a route. Server-only shared code.
-    http.js             readJsonBody / clientIp / send / originAllowed
-    rateLimit.js        in-memory per-IP limiter (see its header comment)
-    systemPrompt.js     how Rosha behaves
-    companyFacts.js     what Rosha knows — edit this to change her answers (contact email: roshalinkcompany@gmail.com)
 src/
+  config/
+    seoConfig.js        Multilingual SEO metadata matrix (SV, EN, FA, AR)
+  components/
+    SEO/
+      SEOHead.jsx       Dynamic Head & Meta tag injector with Hreflang matrix
+      JsonLdSchema.jsx  Structured JSON-LD schema (Organization, Service, FAQ)
   main.jsx              StrictMode > BrowserRouter > ThemeProvider > App
-  App.jsx               route table, shared layout, global modal + chat widget
+  App.jsx               Multilingual route table (/:lang), shared layout, global modal + chat widget
   i18n.js               all four locales inline in one resources object
   index.css / App.css   CSS variables, .glass-card etc., html.dark overrides
   components/<Name>/    one folder per component: Name.jsx + Name.css (+ tests)
@@ -238,9 +252,40 @@ through `npm run dev`.
   - Enhanced interactive live preview modal with background scroll lock; removed redundant "Open Live" button and mockup URL indicator.
   - Applied the `.sky-blue-text-shine` animated gradient wave to both the hero headline and bottom CTA banner title.
   - Added a responsive public case-studies notice header above the project grid with full i18n support across 4 locales (`sv`, `en`, `fa`, `ar`).
+  - Added HogWard Café live production case study (`https://roshalink.github.io/HogWard_Cafe/`) with full i18n translation and interactive live browser preview.
   - Enforced `uppercase` styling on titles for English and Swedish.
 - **Services Page**:
+  - Enforced `uppercase` styling on all section titles across English and Swedish locales (Hero Headline, Capabilities, Tech Matrix, Delivery Process, Comparison, FAQ, Bottom CTA).
   - Converted delivery process tabs (`ServicesDeliveryProcess`) to a 1-column vertical layout on mobile screens (`<= 840px`) to prevent text truncation in all languages.
+  - Increased mobile margin spacing on process tabs to prevent 3D card deck overlapping the 4th step button.
 - **About Page**:
   - Streamlined the bottom CTA section by removing mascot imagery and centering the layout.
   - Standardized `uppercase` styling on all section titles across English and Swedish locales (Awards, Team Showcase, Perspectives Bento, Mission, How It Works, CTA).
+  - Resolved `RollingTextList` hover text clipping on RTL/Farsi by adding negative margin bounding-box compensation and inline padding to `.rolling-title-box`.
+  - Removed solid card background frames, overlays, and box borders from `RollingTextList` image reveals, making 3D assets float cleanly with a soft drop-shadow.
+- **HomePage (`HomePage.css`, `HomePage.jsx`)**:
+  - Implemented continuous blueprint dot-grid background (`radial-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px)`) spanning the entire HomePage container in Light Mode.
+  - Made section background layers translucent so the seamless dot pattern flows through all showcases and sections.
+  - Reordered `WhoWeAre` (5-member team showcase slider) to the 4th position on the HomePage (directly after `SearchVisibilityShowcase`).
+  - Redesigned `MobileAppModal` to match the modern 3x2 card grid aesthetic of `CustomWebSolutionModal`.
+  - Standardized all team member names (`Morteza`, `Bella`, `Sam`, `Mina`, `Milad`) in English across all locales including Farsi.
+- **Hero Section (`HeroSection`)**:
+  - Resolved mobile layout collapsing bug where `.hero-video-panel` collapsed to 0 width/height on screens `< 1024px`.
+  - Configured fully responsive 16:9 framed video container on top on mobile/tablet viewports (`order: 1`), with text and CTA buttons underneath (`order: 2`), and side-by-side on desktop.
+- **Get Started Modal (`GetStartedModal`)**:
+  - Implemented high-contrast, solid dark/black text styling in Light Mode and clean illuminated white/slate styling in Dark Mode (`html.dark`).
+  - Simplified form fields to: Name, Email / Phone Number, and Project Overview. Removed badge, estimated budget, and focus dropdowns as requested.
+  - Added full translation coverage across all 4 locales (`sv`, `en`, `fa`, `ar`) with RTL support.
+  - Added responsive design down to small mobile viewports with `overflow-x: hidden`, 44px minimum hit targets, and `font-size: 16px` on inputs to prevent iOS auto-zoom.
+  - Added background body scroll lock when modal is open and keyboard `Escape` key close handling.
+- **Typography & Subtext Standardization (`src/index.css`, `ServicesPage`, `AboutPage`, `BrandsWeWorkWith`)**:
+  - Integrated `Vazirmatn` font token fallback across `--font-body`, `--font-headline`, `--font-grotesk`, and `--font-mono`.
+  - Added global RTL typography rules ensuring crisp, weighted Vazirmatn rendering across all Persian and Arabic text without thin fallback glitching.
+  - Standardized subtitle and subtext sizing, line heights (`1.65`–`1.75`), max widths (`48rem`), and colors (`var(--color-slate-600)` / `var(--color-slate-400)`) across `ServicesPage`, `AboutPage` (Awards, Team Showcase, Perspectives Bento, Mission Rolling List, Methodology, CTA), and HomePage showcase components.
+- **Contact Page (`ContactPage.jsx`, `ContactPage.css`, `src/i18n.js`)**:
+  - Standardized continuous blueprint dot-grid pattern in Light and Dark Mode.
+  - Standardized hero title (`.contact-hero-title`) with `uppercase` in English/Swedish and `.sky-blue-text-shine` gradient wave.
+  - Standardized hero subtitle sizing, line heights, and typography tokens.
+  - Added complete, dedicated `contactPage` translation tree across all 4 locales (`sv`, `en`, `fa`, `ar`) with 100% key parity and RTL layout support.
+  - Polished high-contrast Light/Dark mode glassmorphism across form cards and interactive 3-step process card with vibrant blue navigation buttons in Light Mode and clean text-only layout (removed redundant icon boxes and time badge pills).
+

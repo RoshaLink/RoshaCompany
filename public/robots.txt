@@ -1,0 +1,33 @@
+# robots.txt for RoshaLink (https://roshalink.com)
+# Allow all major search engine crawlers
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Googlebot-specific: allow full crawl including images
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+# Yandex (used in Russia/CIS — crawl-delay to respect rate limits)
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://roshalink.com/sitemap.xml

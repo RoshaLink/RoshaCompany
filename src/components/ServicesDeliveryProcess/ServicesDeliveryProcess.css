@@ -109,7 +109,7 @@ html.dark .process-glow-2 {
     gap: 0.625rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 5.5rem;
   }
 
   .process-tab-btn {
@@ -141,7 +141,7 @@ html.dark .process-glow-2 {
     gap: 0.5rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5.5rem;
   }
 
   .process-tab-btn {
@@ -270,7 +270,6 @@ html.dark .process-tab-btn:hover {
   max-width: 620px;
   min-height: 390px;
   border-radius: var(--radius-3xl);
-  clip-path: polygon(28px 0%, calc(100% - 28px) 0%, 100% 28px, 100% 100%, calc(100% - 28px) 100%, 28px 100%, 0 100%, 0 0);
   border: 2px solid var(--neon-border);
   box-shadow: 
     0 20px 50px rgba(0, 0, 0, 0.15),
@@ -287,7 +286,6 @@ html.dark .process-tab-btn:hover {
   .process-animated-card {
     width: 92%;
     min-height: 400px;
-    clip-path: polygon(36px 0%, calc(100% - 36px) 0%, 100% 36px, 100% 100%, calc(100% - 36px) 100%, 36px 100%, 0 100%, 0 0);
     padding: 2.35rem 2.15rem;
   }
 }
@@ -426,6 +424,7 @@ html.dark .process-card-step-num {
   line-height: 1.25;
   margin: 0 0 0.75rem 0;
   letter-spacing: -0.015em;
+  text-transform: uppercase;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 

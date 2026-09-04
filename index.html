@@ -1,69 +1,104 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv" dir="ltr">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- ===================== ICONS & PWA ===================== -->
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- ===================== VIEWPORT & THEME ===================== -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RoshaLink — Strategic Design & Tech Agency</title>
+  <meta name="theme-color" content="#0284c7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- ===================== PRIMARY SEO ===================== -->
+  <title>RoshaLink — Ledande Digitalbyrå för Webbutveckling &amp; Apputveckling i Stockholm</title>
+  <meta name="description" content="Skräddarsydd webbutveckling, mobila appar och molnarkitektur i Stockholm. Vi bygger snabba, skalbara digitala produkter med 100% anpassad kod utan mallar." />
+  <meta name="keywords" content="webbutveckling Stockholm, webbyrå Stockholm, apputveckling Sverige, app-utvecklare Sverige, skräddarsydd webbdesign, digitalbyrå Stockholm, custom web development agency, طراحی سایت اختصاصی, تطوير مواقع وتطبيقات" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="RoshaLink Digital Agency" />
+
+  <!-- ===================== GEO-TARGETING (Stockholm / Sweden) ===================== -->
+  <!-- These static geo tags help search engines target this site to Scandinavia.
+       React's SEOHead will also inject per-page geo tags via useEffect, but having
+       them in the static HTML ensures crawlers that skip JS still see them. -->
+  <meta name="geo.region" content="SE-AB" />
+  <meta name="geo.placename" content="Stockholm, Sweden" />
+  <meta name="geo.position" content="59.3293;18.0686" />
+  <meta name="ICBM" content="59.3293, 18.0686" />
+  <meta name="language" content="Swedish" />
+
+  <!-- ===================== CANONICAL & HREFLANG (static fallback) ===================== -->
+  <!-- Dynamic hreflang matrix is injected by SEOHead.jsx; these static tags are
+       a fallback for crawlers that do not execute JavaScript. -->
+  <link rel="canonical" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="sv" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="sv-SE" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="en" href="https://roshalink.com/en" />
+  <link rel="alternate" hreflang="en-GB" href="https://roshalink.com/en" />
+  <link rel="alternate" hreflang="en-US" href="https://roshalink.com/en" />
+  <link rel="alternate" hreflang="fa" href="https://roshalink.com/fa" />
+  <link rel="alternate" hreflang="fa-IR" href="https://roshalink.com/fa" />
+  <link rel="alternate" hreflang="ar" href="https://roshalink.com/ar" />
+  <link rel="alternate" hreflang="ar-AE" href="https://roshalink.com/ar" />
+  <!-- Nordic market: Norwegian and Danish users served by Swedish version -->
+  <link rel="alternate" hreflang="nb" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="nn" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="da" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="sv-FI" href="https://roshalink.com/sv" />
+  <link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv" />
+
+  <!-- ===================== OPEN GRAPH (static fallback for social crawlers) ===================== -->
+  <!-- Full OG matrix is injected by SEOHead.jsx at runtime. These static tags
+       serve as fallback for bots that crawl before JS executes (Facebook, LinkedIn,
+       Slack, WhatsApp preview bots). -->
+  <meta property="og:site_name" content="RoshaLink" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roshalink.com/sv" />
+  <meta property="og:title" content="RoshaLink — Ledande Digitalbyrå för Webbutveckling &amp; Apputveckling i Stockholm" />
+  <meta property="og:description" content="Skräddarsydd webbutveckling, mobila appar och molnarkitektur i Stockholm. Vi bygger snabba, skalbara digitala produkter med 100% anpassad kod utan mallar." />
+  <meta property="og:image" content="https://roshalink.com/og-image-sv.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="RoshaLink — Ledande Digitalbyrå i Stockholm" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:locale:alternate" content="fa_IR" />
+  <meta property="og:locale:alternate" content="ar_AE" />
+
+  <!-- ===================== TWITTER CARD (static fallback) ===================== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RoshaLink — Ledande Digitalbyrå i Stockholm" />
+  <meta name="twitter:description" content="Skräddarsydd webbutveckling, mobila appar och molnarkitektur. 100% anpassad kod." />
+  <meta name="twitter:image" content="https://roshalink.com/og-image-sv.jpg" />
+
+  <!-- ===================== DNS PREFETCH & PRECONNECT ===================== -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ===================== FONT PRELOADS (critical path) ===================== -->
+  <!-- Preloading the two most-used weight cuts of Geist (body) and Vazirmatn
+       (RTL body) eliminates FOUT on first render. Only preload weights that appear
+       above-the-fold; the full variable range is still fetched lazily by the
+       stylesheet below. -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Anton&family=Condiment&family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet" />
-
-  <!-- Tailwind CDN with White Smokey & Light Blue theme tokens -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            grotesk: ['Anton', 'sans-serif'],
-            condiment: ['Condiment', 'cursive'],
-            "headline-xl": ["Montserrat", "sans-serif"],
-            "headline-lg": ["Montserrat", "sans-serif"],
-            "headline-md": ["Montserrat", "sans-serif"],
-            "body-lg": ["Inter", "sans-serif"],
-            "body-md": ["Inter", "sans-serif"],
-            "label-md": ["Geist", "monospace"],
-            "label-sm": ["Geist", "monospace"]
-          },
-          colors: {
-            cream: '#EFF4FF',
-            neon: '#6FFF00',
-            "surface": "#ffffff",
-            "surface-dim": "#f1f5f9",
-            "surface-bright": "#ffffff",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low": "#f8fafc",
-            "surface-container": "#f1f5f9",
-            "surface-container-high": "#e2e8f0",
-            "surface-container-highest": "#cbd5e1",
-            "on-surface": "#0f172a",
-            "on-surface-variant": "#475569",
-            "primary": "#0284c7",
-            "secondary": "#0284c7",
-            "secondary-container": "#38bdf8",
-            "on-secondary": "#ffffff",
-            "tertiary": "#6366f1",
-            "background": "#f8fafc",
-            "on-background": "#0f172a",
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          }
-        }
-      }
-    }
-  </script>
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Condiment&family=Geist:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+  </noscript>
+  <!-- Tailwind is compiled at build time via postcss (see tailwind.config.js
+       and src/index.css) instead of the Play CDN JIT compiler. -->
 </head>
 
 <body class="bg-[#f8fafc] text-[#0f172a] font-body-md overflow-x-hidden selection:bg-sky-500 selection:text-white">

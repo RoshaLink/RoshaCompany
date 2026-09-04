@@ -1,7 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import videoSource from '../../assets/Rosha/YourWebsiteHere/RoshaYourWebsiteHere.mp4';
+import videoMp4 from '../../assets/Rosha/YourWebsiteHere/RoshaYourWebsiteHere.mp4';
+import videoWebm from '../../assets/Rosha/YourWebsiteHere/RoshaYourWebsiteHere.webm';
+import LazyVideo from '../ui/LazyVideo';
 import './SearchVisibilityShowcase.css';
 
 export default function SearchVisibilityShowcase({ onOpenGetStarted, setActivePage }) {
@@ -57,15 +59,11 @@ export default function SearchVisibilityShowcase({ onOpenGetStarted, setActivePa
 
               {/* Glassmorphic Frame Card */}
               <div className="search-video-frame">
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
+                <LazyVideo
+                  webm={videoWebm}
+                  mp4={videoMp4}
                   className="search-video"
-                >
-                  <source src={videoSource} type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           </div>

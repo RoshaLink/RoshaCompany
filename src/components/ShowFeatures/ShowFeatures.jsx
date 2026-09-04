@@ -1,11 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 import DisplayCards from "../ui/display-cards";
 import { Sparkles, Cpu, Layers, Zap, ArrowRight, ShieldCheck } from "lucide-react";
 import "./ShowFeatures.css";
 
 export default function ShowFeatures({ onOpenGetStarted, setActivePage }) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { lang } = useParams();
 
   const cards = [
     {
@@ -91,7 +94,13 @@ export default function ShowFeatures({ onOpenGetStarted, setActivePage }) {
             </button>
 
             <button
-              onClick={() => setActivePage ? setActivePage('services') : null}
+              onClick={() => {
+                navigate(`/${lang}/services`);
+                // Preserve side-effect logic for backward compatibility
+                if (setActivePage) {
+                  setActivePage('services');
+                }
+              }}
               className="bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-label-md text-sm font-semibold px-6 py-3.5 rounded-lg transition-all cursor-pointer text-center shadow-sm"
             >
               {t('features.viewSpecBtn')}

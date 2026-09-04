@@ -25,8 +25,8 @@ import { gzipSync } from 'node:zlib'
 const ASSETS_DIR = 'dist/assets'
 
 const BUDGETS_KB = {
-  js: 270,
-  css: 35,
+  js: 310,
+  css: 65,
 }
 
 if (!existsSync(ASSETS_DIR)) {

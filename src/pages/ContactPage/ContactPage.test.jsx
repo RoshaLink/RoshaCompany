@@ -10,12 +10,12 @@ function mockFetch({ ok = true } = {}) {
   return fn
 }
 
-const SUBMIT = /submit brief/i
+const SUBMIT = /submit|skicka/i
 
 async function fillRequiredFields(user, { email = 'john@company.com' } = {}) {
-  await user.type(screen.getByPlaceholderText('John Doe'), 'John Doe')
-  await user.type(screen.getByPlaceholderText('john@company.com'), email)
-  await user.type(screen.getByPlaceholderText(/describe your project goals/i), 'A new site.')
+  await user.type(screen.getByLabelText(/full name|ditt namn|نام/i), 'John Doe')
+  await user.type(screen.getByLabelText(/email|e-post/i), email)
+  await user.type(screen.getByLabelText(/project|brief|message|overview|beskrivning/i), 'A new site.')
 }
 
 beforeEach(() => {

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { ArrowRight, X, Monitor, Smartphone, Tablet } from 'lucide-react';
 import HeroSectionPortfolio from '../../components/HeroSectionPortfolio/HeroSectionPortfolio';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
+import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './PortfolioPage.css';
 
 export default function PortfolioPage({ onOpenGetStarted }) {
@@ -102,11 +104,77 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         "Comprehensive Legal Practice Areas",
         "Rapid Performance & Trust-Building UX"
       ]
+    },
+    {
+      id: "hogward-cafe",
+      translationKey: "hogwardCafeProject",
+      title: "HogWard Café & Restaurant",
+      category: "Café & Hospitality Dining Platform",
+      desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
+      img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/HogWard_Cafe/",
+      isFeatured: true,
+      features: [
+        "Interactive Digital Menu & Specialty Drinks",
+        "Online Table Booking & Event System",
+        "Multi-Language & Lightning-Fast UI"
+      ]
+    },
+    {
+      id: "aurora-clinic",
+      translationKey: "auroraClinicProject",
+      title: "Aurora – Beauty & Laser Clinic Stockholm",
+      category: "Beauty & Laser Clinic Web App",
+      desc: "State-of-the-art digital web application for Aurora Beauty & Laser Clinic in Stockholm, featuring treatment service catalog, online consultation booking, multilingual support, and responsive patient UI.",
+      img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/ClincZibaei/",
+      isFeatured: true,
+      features: [
+        "Advanced Laser Hair Removal & Skincare Catalog",
+        "Online Consultation & Treatment Booking",
+        "Multilingual Patient UI & Fast Mobile UX"
+      ]
+    },
+    {
+      id: "iran-supermarket",
+      translationKey: "iranSupermarketProject",
+      title: "Iran Supermarket – Persian Grocery Berlin",
+      category: "Food & Persian Grocery Platform",
+      desc: "Comprehensive digital platform for Iran Supermarket in Berlin, presenting traditional Persian delicacies, bakery & fresh pastries, halal butchery, fresh herbs, and an intuitive product catalog.",
+      img: "https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/IranSuperMarket/",
+      isFeatured: true,
+      features: [
+        "Fresh Persian Delicacies, Spices & Halal Butchery",
+        "Interactive Category & Product Showcase",
+        "Multilingual UI & High-Speed Mobile Accessibility"
+      ]
+    },
+    {
+      id: "bilbazar",
+      translationKey: "bilbazarProject",
+      title: "BilBazar – Automotive Marketplace Sweden",
+      category: "Automotive Marketplace & Car Sales",
+      desc: "Dynamic automotive marketplace platform engineered for the Swedish market, offering smart vehicle filtering, verified car listings, direct dealer & private seller communication, and inspection guarantees.",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/bilbazar/",
+      isFeatured: true,
+      features: [
+        "Smart Vehicle Search & Multi-Criteria Filtering",
+        "Verified Listings, History & Inspection Overview",
+        "Direct Buyer-Seller Chat & Responsive Design"
+      ]
     }
   ];
 
   return (
     <div className="portfolio-page-wrapper">
+
+      <Breadcrumb page="portfolio" />
 
       {/* Integrated Standalone HeroSectionPortfolio Component */}
       <HeroSectionPortfolio
@@ -169,6 +237,16 @@ export default function PortfolioPage({ onOpenGetStarted }) {
               <span>{t('portfolioHero.ctaBtn')}</span>
               <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 ${isRTL ? 'rotate-180' : ''}`} />
             </button>
+          </div>
+
+          <div className="flex justify-center pt-4">
+            <Link
+              to={`/${i18n.language}/services`}
+              className="portfolio-cta-secondary-link"
+            >
+              <span>{t('portfolioHero.servicesLink', 'Explore the capabilities behind these builds')}</span>
+              <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
+            </Link>
           </div>
         </div>
       </section>

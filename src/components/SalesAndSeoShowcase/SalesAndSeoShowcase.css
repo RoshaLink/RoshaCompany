@@ -150,6 +150,10 @@
 .sales-content-inner.is-rtl { text-align: right; }
 .sales-content-inner.is-ltr { text-align: left; }
 
+.sales-content-inner.is-ltr .sales-title {
+  text-transform: uppercase;
+}
+
 .sales-title {
   font-size: 1.1rem;
   font-weight: 900; /* font-black */
@@ -231,11 +235,13 @@
 @media (min-width: 475px) { .sales-btn-primary { font-size: 12px; } }
 
 .sales-btn-primary:hover {
-  background-image: linear-gradient(to right, var(--color-emerald-600), var(--color-sky-700));
-  box-shadow: 0 6px 25px rgba(16, 185, 129, 0.6);
+  background-image: linear-gradient(to right, var(--color-emerald-600), var(--color-teal-700), var(--color-sky-700));
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5), 0 2px 10px rgba(3, 105, 161, 0.3);
+  transform: translateY(-2px);
+  color: #ffffff;
 }
 
-.sales-btn-primary:active { transform: scale(0.95); }
+.sales-btn-primary:active { transform: scale(0.97); }
 [dir="rtl"] .sales-btn-primary, .is-rtl .sales-btn-primary { flex-direction: row-reverse; }
 
 @media (min-width: 640px) {

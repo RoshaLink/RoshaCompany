@@ -1,0 +1,20 @@
+# RoshaLink
+
+> RoshaLink is an elite digital architecture and software engineering agency based in Stockholm, Sweden. We design and develop bespoke enterprise web applications, high-performance mobile apps, and custom AI-driven automation systems with 100% custom code, zero templates, sub-20ms latency, and enterprise-grade security.
+
+## Core Capabilities
+- [Custom Web Development](https://roshalink.com/en/services): High-performance, scalable web applications built with modern frameworks and cloud architectures.
+- [Mobile App Development](https://roshalink.com/en/services): Native and cross-platform mobile applications for iOS and Android.
+- [AI & Intelligent Automation](https://roshalink.com/en/services): Custom AI models, intelligent workflows, and autonomous agents for enterprise operations.
+- [Strategic Architecture & Business Analysis](https://roshalink.com/en/about): Direct collaboration with senior founding partners without intermediate sales representatives.
+- [Portfolio & Case Studies](https://roshalink.com/en/portfolio): Verified delivery across fintech, cloud platforms, e-commerce, and enterprise automation.
+
+## Multilingual Support
+- [Swedish (Svenska)](https://roshalink.com/sv): Primär marknad i Stockholm och Norden.
+- [English](https://roshalink.com/en): Global enterprise operations and partnerships.
+- [Persian (فارسی)](https://roshalink.com/fa): خدمات تخصصی معماری نرم‌افزار و توسعه پلتفرم‌های بین‌المللی.
+- [Arabic (العربية)](https://roshalink.com/ar): حلول برمجية مخصصة وتطوير المنظومات الرقمية المتقدمة.
+
+## Contact & Project Brief
+- [Contact Page](https://roshalink.com/en/contact): Submit a strategic brief or schedule an architecture consultation within 4 business hours.
+- [Full Documentation Index](https://roshalink.com/llms-full.txt): Comprehensive technical overview for LLMs and AI agents.

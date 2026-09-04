@@ -117,6 +117,34 @@ describe('lead handler — request gates', () => {
     expect(res.statusCode).toBe(500)
     expect(globalThis.fetch).not.toHaveBeenCalled()
   })
+
+  it('succeeds via backend forwarding when BACKEND_API_URL is configured, even without RESEND_API_KEY', async () => {
+    vi.stubEnv('RESEND_API_KEY', '')
+    vi.stubEnv('LEAD_TO_EMAIL', '')
+    vi.stubEnv('BACKEND_API_URL', 'https://mock-backend.com')
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async (url) => {
+        if (url === 'https://mock-backend.com/api/lead') {
+          return { ok: true, status: 201, json: async () => ({ success: true }) }
+        }
+        return { ok: false, status: 404 }
+      })
+    )
+
+    const res = makeRes()
+    await handler(makeReq({ body: validLead }), res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.payload).toEqual({ ok: true })
+    expect(globalThis.fetch).toHaveBeenCalledWith(
+      'https://mock-backend.com/api/lead',
+      expect.objectContaining({
+        method: 'POST',
+        headers: expect.objectContaining({ 'Content-Type': 'application/json' }),
+      })
+    )
+  })
 })
 
 describe('lead handler — validation', () => {

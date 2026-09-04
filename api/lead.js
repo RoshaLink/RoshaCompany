@@ -83,8 +83,12 @@ export default async function handler(req, res) {
     return send(res, 429, { error: 'rate_limited', retryAfter });
   }
 
-  const { RESEND_API_KEY, LEAD_TO_EMAIL } = process.env;
-  if (!RESEND_API_KEY || !LEAD_TO_EMAIL) {
+  const { RESEND_API_KEY, LEAD_TO_EMAIL, BACKEND_API_URL } = process.env;
+  const isTest = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST);
+  const backendUrl = BACKEND_API_URL || (!isTest ? 'https://roshacompany-backend.onrender.com' : null);
+
+  // In test environment or when no backend is defined, require Resend credentials
+  if (!backendUrl && (!RESEND_API_KEY || !LEAD_TO_EMAIL)) {
     console.error('[lead] RESEND_API_KEY or LEAD_TO_EMAIL is not set');
     return send(res, 500, { error: 'server_error' });
   }
@@ -111,47 +115,85 @@ export default async function handler(req, res) {
     return send(res, 400, { error: 'bad_request' });
   }
 
-  const { html, text } = renderEmail(lead);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+  // 1. Forward lead to MongoDB backend
+  let savedToBackend = false;
+  if (backendUrl) {
+    try {
+      const backendRes = await fetch(`${backendUrl}/api/lead`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-forwarded-for': clientIp(req),
+        },
+        body: JSON.stringify(lead),
+        signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+      });
 
-  try {
-    const response = await fetch(RESEND_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
-        to: [LEAD_TO_EMAIL],
-        // So hitting Reply in the inbox goes to the prospect when an email was provided.
-        ...(looksLikeEmail(lead.email) ? { reply_to: lead.email } : {}),
-        subject: `New enquiry from ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
-        html,
-        text,
-      }),
-      signal: controller.signal,
-    });
-
-    if (!response.ok) {
-      const detail = await response.text();
-      console.error('[lead] resend_error', response.status, detail.slice(0, 500));
-      return send(res, 502, { error: 'upstream_error' });
+      if (backendRes.ok) {
+        savedToBackend = true;
+      } else {
+        console.error('[lead] backend returned error status:', backendRes.status);
+      }
+    } catch (err) {
+      console.error('[lead] error forwarding to backend:', err.message);
     }
-
-    return send(res, 200, { ok: true });
-  } catch (err) {
-    // `instanceof Error` before reading .name: a throw of a non-Error value
-    // would otherwise crash the catch block itself and turn a handled timeout
-    // into an unhandled rejection.
-    if (err instanceof Error && err.name === 'AbortError') {
-      console.error('[lead] upstream timeout');
-      return send(res, 504, { error: 'timeout' });
-    }
-    console.error('[lead] handler_error', err);
-    return send(res, 500, { error: 'server_error' });
-  } finally {
-    clearTimeout(timer);
   }
+
+  // 2. Dispatch email via Resend if credentials are configured
+  let resendSent = false;
+  if (RESEND_API_KEY && LEAD_TO_EMAIL) {
+    const { html, text } = renderEmail(lead);
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
+
+    try {
+      const response = await fetch(RESEND_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
+          to: [LEAD_TO_EMAIL],
+          // So hitting Reply in the inbox goes to the prospect when an email was provided.
+          ...(looksLikeEmail(lead.email) ? { reply_to: lead.email } : {}),
+          subject: `New enquiry from ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
+          html,
+          text,
+        }),
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        const detail = await response.text();
+        console.error('[lead] resend_error', response.status, detail.slice(0, 500));
+        if (!savedToBackend) {
+          return send(res, 502, { error: 'upstream_error' });
+        }
+      } else {
+        resendSent = true;
+      }
+    } catch (err) {
+      if (err instanceof Error && err.name === 'AbortError') {
+        console.error('[lead] upstream timeout');
+        if (!savedToBackend) {
+          return send(res, 504, { error: 'timeout' });
+        }
+      } else {
+        console.error('[lead] handler_error', err);
+        if (!savedToBackend) {
+          return send(res, 500, { error: 'server_error' });
+        }
+      }
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  if (savedToBackend || resendSent) {
+    return send(res, 200, { ok: true });
+  }
+
+  return send(res, 500, { error: 'server_error' });
 }

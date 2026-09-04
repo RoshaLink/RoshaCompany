@@ -44,6 +44,26 @@ export default async function handler(req, res) {
     return send(res, 400, { error: 'invalid_email' });
   }
 
+  const { BACKEND_API_URL } = process.env;
+  const isTest = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST);
+  const backendUrl = BACKEND_API_URL || (!isTest ? 'https://roshacompany-backend.onrender.com' : null);
+
+  if (backendUrl) {
+    try {
+      await fetch(`${backendUrl}/api/newsletter`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-forwarded-for': clientIp(req),
+        },
+        body: JSON.stringify({ email, lang }),
+        signal: AbortSignal.timeout(15_000),
+      });
+    } catch (err) {
+      console.error('[newsletter] failed to persist to backend:', err.message);
+    }
+  }
+
   return send(res, 200, {
     success: true,
     message: 'Subscribed successfully',

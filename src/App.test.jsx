@@ -45,16 +45,16 @@ describe('routing', () => {
     expect(screen.getByRole('main')).toBeInTheDocument()
   })
 
-  it('renders the contact form on /contact', () => {
+  it('renders the contact form on /contact', async () => {
     renderAt('/contact')
     const main = screen.getByRole('main')
     expect(
-      within(main).getByRole('button', { name: /(submit strategic brief|skicka)/i })
+      await within(main).findByRole('button', { name: /(submit strategic brief|skicka)/i })
     ).toBeInTheDocument()
-    expect(within(main).getByPlaceholderText(/(john@company\.com|johan@foretag\.se)/i)).toBeInTheDocument()
+    expect(await within(main).findByPlaceholderText(/(john@company\.com|johan@foretag\.se)/i)).toBeInTheDocument()
   })
 
-  it('does not render the contact form on other routes', () => {
+  it('does not render the contact form on other routes', async () => {
     renderAt('/about')
     expect(
       screen.queryByRole('button', { name: /(submit strategic brief|skicka)/i })

@@ -6,12 +6,19 @@ import './index.css';
 import './i18n.js';
 import { ThemeProvider } from './context/ThemeContext';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+const app = (
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
         <App />
       </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
+
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}

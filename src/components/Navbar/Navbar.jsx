@@ -1,11 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles, Home, Globe, Briefcase, Layers, Users, Mail, ChevronDown } from 'lucide-react';
-import { MenuBar } from '../ui/glow-menu';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../context/ThemeContext';
-import logoImg from '../../assets/Logo/RoshaLink_logo.png';
+import { MenuBar } from '../ui/glow-menu';
+import CurvedMobileMenu from '../ui/curved-menu';
+import logoImg from '../../assets/Logo/RoshaLink_logo.webp';
 import './Navbar.css';
+
+// ponytail: the desktop pill/flip animation below is copy-pasted from
+// ../ui/glow-menu's MenuBar (rather than reusing MenuBar directly) because
+// this pass is scoped to Navbar.jsx/.css only -- MenuBar's internal <button>
+// can't become a real <Link> without editing glow-menu.jsx. If MenuBar ever
+// grows an `as`/`linkComponent` prop, drop this local copy and go back to
+// <MenuBar items={glowMenuItems} .../>.
+const glowMenuItemVariants = { initial: { rotateX: 0, opacity: 1 }, hover: { rotateX: -90, opacity: 0 } };
+const glowMenuBackVariants = { initial: { rotateX: 90, opacity: 0 }, hover: { rotateX: 0, opacity: 1 } };
+const glowMenuGlowVariants = {
+  initial: { opacity: 0, scale: 0.8 },
+  hover: {
+    opacity: 1,
+    scale: 2,
+    transition: {
+      opacity: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+      scale: { duration: 0.5, type: 'spring', stiffness: 300, damping: 25 },
+    },
+  },
+};
+const glowMenuNavGlowVariants = { initial: { opacity: 0 }, hover: { opacity: 1, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } } };
+const glowMenuTransition = { type: 'spring', stiffness: 100, damping: 20, duration: 0.5 };
 
 const SwedenFlag = () => (
   <svg className="w-4 h-3 rounded-[2px] shadow-sm shrink-0 overflow-hidden inline-block" viewBox="0 0 16 10" fill="none">
@@ -98,6 +123,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  // Navigation items for both desktop glow bar and mobile curved menu
   const glowMenuItems = [
     {
       id: 'home',
@@ -141,159 +167,157 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
     },
   ];
 
+  // Mobile navigation list (pure typography & numbering, without icons)
+  const mobileNavItems = glowMenuItems.map(item => ({
+    id: item.id,
+    label: item.label,
+    href: item.href,
+  }));
+
   return (
-    <header
-      dir="ltr"
-      className={`navbar-header ${isVisible ? 'navbar-header-visible' : 'navbar-header-hidden'
-        }`}
-    >
-      <nav className="navbar-container">
-        <div className="navbar-wrapper">
+    <>
+      <header
+        dir="ltr"
+        className={`navbar-header ${isVisible ? 'navbar-header-visible' : 'navbar-header-hidden'}`}
+      >
+        <nav className="navbar-container" aria-label="Main Navigation">
+          <div className="navbar-wrapper">
 
-          {/* Brand Logo - Rosha Head Icon */}
-          <div
-            onClick={() => setActivePage('home')}
-            className="navbar-logo"
-          >
-            <div className="navbar-logo-icon">
-              <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" />
-            </div>
-          </div>
-
-          {/* Desktop 3D Glow Menu Bar */}
-          <div className="hidden lg:block">
-            <MenuBar
-              items={glowMenuItems}
-              activeItem={activePage}
-              onItemClick={(labelOrId) => {
-                const matched = glowMenuItems.find(
-                  item => item.id === labelOrId || item.label.toLowerCase() === labelOrId.toLowerCase()
-                );
-                if (matched) {
-                  setActivePage(matched.id);
-                } else {
-                  setActivePage(labelOrId);
-                }
-              }}
-            />
-          </div>
-
-          {/* Language Switcher & CTA Button */}
-          <div className="navbar-actions">
-            <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
-
-            {/* Language Switcher Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="navbar-lang-btn"
-              >
-                <CurrentFlag />
-                <span>{currentLang.label}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
-              </button>
-
-              {langMenuOpen && (
-                <div className="navbar-lang-dropdown animate-in fade-in-0 slide-in-from-top-2 duration-150">
-                  {LANGUAGES.map((lang) => {
-                    const OptionFlag = lang.Flag;
-                    return (
-                      <button
-                        key={lang.code}
-                        onClick={() => handleLanguageChange(lang.code)}
-                        className={`navbar-lang-option ${i18n.language === lang.code ? 'active' : ''
-                          }`}
-                      >
-                        <OptionFlag />
-                        <span>{lang.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-
-            {/* CTA Button */}
-            <button
-              onClick={onOpenGetStarted}
-              className="navbar-cta-btn"
+            {/* Brand Logo - Rosha Head Icon */}
+            <div
+              onClick={() => setActivePage('home')}
+              className="navbar-logo"
             >
-              <span>{t('nav.getStarted')}</span>
-            </button>
-          </div>
+              <div className="navbar-logo-icon">
+                <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" width="705" height="433" />
+              </div>
+            </div>
 
-          {/* Mobile Hamburger & Lang Switcher Toggle */}
-          <div className="navbar-mobile-toggle">
-            <div className="navbar-theme-wrapper">
-              <ThemeSwitch 
-                isDark={isDark} 
-                onToggle={toggleTheme} 
+            {/* Desktop 3D Glow Menu Bar */}
+            <div className="hidden lg:block">
+              <MenuBar
+                items={glowMenuItems}
+                activeItem={activePage}
+                onItemClick={(labelOrId) => {
+                  const matched = glowMenuItems.find(
+                    item => item.id === labelOrId || item.label.toLowerCase() === labelOrId.toLowerCase()
+                  );
+                  if (matched) {
+                    setActivePage(matched.id);
+                  } else {
+                    setActivePage(labelOrId);
+                  }
+                }}
               />
             </div>
-            <button
-              onClick={() => {
-                const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
-                handleLanguageChange(nextLang);
-              }}
-              // min-h-11 (44px touch-target minimum; the visible pill was
-              // ~30px from py-1.5 + text-xs alone).
-              className="px-2.5 py-1.5 min-h-11 rounded-full bg-white/80 border border-slate-200 text-xs font-bold text-slate-800 flex items-center gap-1.5"
-            >
-              <CurrentFlag /> <span>{currentLang.code.toUpperCase()}</span>
-            </button>
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              // min-h-11 min-w-11 (44px touch-target minimum; p-2 around a
-              // 20px icon alone was 36px square).
-              className="text-slate-800 p-2 min-h-11 min-w-11 flex items-center justify-center rounded-full bg-white/80 hover:bg-slate-200 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-sky-600" /> : <Menu className="w-5 h-5 text-slate-800" />}
-            </button>
-          </div>
-        </div>
 
-        {/* Mobile Drawer Menu */}
-        {mobileMenuOpen && (
-          <div className="navbar-mobile-drawer animate-in slide-in-from-top-4 duration-200">
-            <div className="flex flex-col space-y-3 font-label-md">
-              {glowMenuItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => {
-                    setActivePage(item.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`text-left rtl:text-right py-2 px-3 rounded-xl transition-colors flex items-center space-x-3 rtl:space-x-reverse ${activePage === item.id
-                    ? 'bg-sky-50 text-sky-600 font-bold border-l-2 rtl:border-r-2 rtl:border-l-0 border-sky-500'
-                    : 'text-slate-700 hover:bg-slate-100'
-                    }`}
-                >
-                  <item.icon className={`w-4 h-4 ${item.iconColor}`} />
-                  <span>{item.label}</span>
-                </button>
-              ))}
-            </div>
-
-            <div className="pt-3 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between px-2">
-              <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
-                {isDark ? 'Dark Mode' : 'Light Mode'}
-              </span>
+            {/* Language Switcher & CTA Button */}
+            <div className="navbar-actions">
               <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
+
+              {/* Language Switcher Dropdown */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setLangMenuOpen(!langMenuOpen)}
+                  className="navbar-lang-btn"
+                >
+                  <CurrentFlag />
+                  <span>{currentLang.label}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                </button>
+
+                {langMenuOpen && (
+                  <div className="navbar-lang-dropdown animate-in fade-in-0 slide-in-from-top-2 duration-150">
+                    {LANGUAGES.map((lang) => {
+                      const OptionFlag = lang.Flag;
+                      return (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => handleLanguageChange(lang.code)}
+                          className={`navbar-lang-option ${i18n.language === lang.code ? 'active' : ''}`}
+                        >
+                          <OptionFlag />
+                          <span>{lang.label}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+              {/* CTA Button */}
+              <button
+                type="button"
+                onClick={onOpenGetStarted}
+                className="navbar-cta-btn"
+              >
+                <span>{t('nav.getStarted')}</span>
+              </button>
             </div>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenGetStarted();
-              }}
-              className="navbar-cta-btn w-full justify-center"
-            >
-              <span>{t('nav.getStarted')}</span>
-            </button>
+            {/* Mobile / Tablet Hamburger & Quick Switchers Toggle */}
+            <div className="navbar-mobile-toggle">
+              <div className="navbar-theme-wrapper">
+                <ThemeSwitch 
+                  isDark={isDark} 
+                  onToggle={toggleTheme} 
+                />
+              </div>
+
+              {/* Quick Language Cycle Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
+                  handleLanguageChange(nextLang);
+                }}
+                className="px-2.5 py-1.5 min-h-11 rounded-full bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 transition-colors"
+                aria-label="Switch language"
+              >
+                <CurrentFlag /> <span>{currentLang.code.toUpperCase()}</span>
+              </button>
+
+              {/* High-End Animated Hamburger Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="navbar-hamburger-btn"
+                aria-label={mobileMenuOpen ? (t('nav.closeMenu') || 'Close menu') : (t('nav.openMenu') || 'Open menu')}
+                aria-expanded={mobileMenuOpen}
+              >
+                <div className="hamburger-icon-wrapper">
+                  <span className={`hamburger-bar hamburger-bar-top ${mobileMenuOpen ? 'open' : ''}`} />
+                  <span className={`hamburger-bar hamburger-bar-mid ${mobileMenuOpen ? 'open' : ''}`} />
+                  <span className={`hamburger-bar hamburger-bar-bot ${mobileMenuOpen ? 'open' : ''}`} />
+                </div>
+              </button>
+            </div>
           </div>
-        )}
-      </nav>
-    </header>
+        </nav>
+      </header>
+
+      {/* High-End Curved Mobile & Tablet Editorial Drawer Menu */}
+      <CurvedMobileMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        navItems={mobileNavItems}
+        activeItem={activePage}
+        onItemClick={(id) => {
+          setActivePage(id);
+          setMobileMenuOpen(false);
+        }}
+        languages={LANGUAGES}
+        currentLangCode={i18n.language}
+        onLanguageChange={handleLanguageChange}
+        isDark={isDark}
+        onToggleTheme={toggleTheme}
+        onOpenGetStarted={onOpenGetStarted}
+        isRtl={['fa', 'ar'].includes(i18n.language)}
+        t={t}
+      />
+    </>
   );
 }
+

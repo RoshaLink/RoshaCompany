@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Laptop, Fingerprint, Sparkles } from 'lucide-react';
-import roshaAnalysisImage from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.png';
+import roshaAnalysisImage from '../../assets/Rosha/AnalyisYourBusiness/RoshaAnalyisYourBusiness.webp';
 import CustomWebSolutionModal from './CustomWebSolutionModal';
 import './CustomWebSolutionShowcase.css';
 
@@ -36,7 +36,7 @@ export default function CustomWebSolutionShowcase({ onOpenGetStarted, setActiveP
                   src={roshaAnalysisImage}
                   alt="RoshaLink Analyzing Business"
                   className="custom-img"
-                />
+                 width="1536" height="1024" loading="lazy" />
 
                 {/* Floating Glassmorphic Stat Pill #1 (Top Corner) */}
                 <div className={`custom-stat-pill custom-stat-pill-1 animate-bounce-slow ${rtlClass}`}>

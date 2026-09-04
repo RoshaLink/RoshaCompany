@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, Loader2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
-import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.jpeg';
+import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.webp';
 import './ContactPage.css';
 
 export default function ContactPage() {
@@ -127,16 +127,16 @@ export default function ContactPage() {
                   src={diaraContactImage}
                   alt="RoshaLink Strategic Advisor"
                   className="contact-img"
-                />
+                 width="1200" height="896" loading="lazy" />
               </div>
             </div>
 
             {/* Direct Access Intro */}
             <div className={`space-y-1.5 sm:space-y-2 p-4 sm:p-5 rounded-xl sm:rounded-2xl contact-card-glass ${isRTL ? 'text-right' : 'text-left'}`}>
-              <h3 className="text-base sm:text-lg font-bold flex items-center gap-2 contact-section-heading contact-card-title">
+              <h2 className="text-base sm:text-lg font-bold flex items-center gap-2 contact-section-heading contact-card-title">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-sky-500 shrink-0" />
                 <span>{t('contactPage.infoTitle')}</span>
-              </h3>
+              </h2>
               <p className="text-xs sm:text-sm leading-relaxed font-normal contact-card-desc">
                 {t('contactPage.infoSubtitle')}
               </p>
@@ -160,18 +160,19 @@ export default function ContactPage() {
                     initial={{ opacity: 0, scale: 0.95, y: 10 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-center py-8 sm:py-10 space-y-5 sm:space-y-6"
+                    transition={{ duration: 0.4 }}
+                    className="py-8 sm:py-12 px-4 sm:px-8 text-center space-y-4"
                   >
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-500 flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
-                      <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400">
+                      <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight contact-submitted-title">
-                        {t('contactPage.submittedTitle')}
-                      </h3>
-                      <p className="text-xs sm:text-sm max-w-md mx-auto leading-relaxed contact-submitted-sub">
-                        {t('contactPage.submittedSub')}
+
+                    <div className="space-y-1 sm:space-y-2">
+                      <h2 className="text-lg sm:text-2xl font-bold contact-section-heading">
+                        {t('contactPage.successTitle')}
+                      </h2>
+                      <p className="text-xs sm:text-sm max-w-md mx-auto contact-form-subtext">
+                        {t('contactPage.successDesc')}
                       </p>
                     </div>
 
@@ -181,43 +182,35 @@ export default function ContactPage() {
                         setSubmitted(false);
                         setFormData({ name: '', email: '', company: '', message: '' });
                       }}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer min-h-[44px]"
+                      className="mt-4 px-6 py-2.5 rounded-xl border contact-reset-btn text-xs sm:text-sm font-semibold transition-all cursor-pointer inline-block"
                     >
-                      <span>{t('contactPage.sendAnotherBtn')}</span>
+                      {t('contactPage.sendAnotherBtn')}
                     </button>
                   </motion.div>
                 ) : (
-                  /* Main Interactive Form with Staggered Field Motion */
+                  /* Interactive Form with Staggered Field Transitions */
                   <motion.form
                     key="form"
                     onSubmit={handleSubmit}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
+                    animate="visible"
                     variants={{
-                      hidden: {},
+                      hidden: { opacity: 0 },
                       visible: {
-                        transition: {
-                          staggerChildren: 0.08,
-                        },
+                        opacity: 1,
+                        transition: { staggerChildren: 0.08 },
                       },
                     }}
-                    className={`space-y-3 sm:space-y-4 font-normal ${isRTL ? 'text-right' : 'text-left'}`}
+                    className={`p-5 sm:p-7 md:p-8 space-y-4 sm:space-y-5 ${isRTL ? 'text-right' : 'text-left'}`}
                   >
-                    <motion.div
-                      variants={{
-                        hidden: { opacity: 0, y: 12 },
-                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
-                      }}
-                      className="space-y-0.5 sm:space-y-1"
-                    >
-                      <h3 className="text-base sm:text-xl lg:text-2xl font-bold tracking-tight contact-section-heading contact-form-title">
+                    <div className="space-y-1">
+                      <h2 className="text-lg sm:text-xl font-black contact-section-heading contact-form-title">
                         {t('contactPage.formTitle')}
-                      </h3>
-                      <p className="text-[11px] sm:text-sm leading-snug contact-form-subtitle">
+                      </h2>
+                      <p className="text-xs sm:text-sm font-medium contact-form-subtitle">
                         {t('contactPage.formSubtitle')}
                       </p>
-                    </motion.div>
+                    </div>
                     
                     {/* Name & Email Row */}
                     <motion.div
@@ -357,9 +350,9 @@ export default function ContactPage() {
               {/* Card Header: Title & Step Counter Controls */}
               <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isRTL ? 'is-rtl' : ''}`}>
                 <div className={`space-y-0.5 ${isRTL ? 'text-right' : 'text-left'}`}>
-                  <h4 className="text-sm sm:text-base font-bold contact-section-heading contact-steps-title">
+                  <h2 className="text-sm sm:text-base font-bold contact-section-heading contact-steps-title">
                     <span>{t('contactPage.nextStepsTitle')}</span>
-                  </h4>
+                  </h2>
                   <p className="text-[11px] sm:text-xs contact-steps-subtitle">
                     {t('contactPage.nextStepsSub')}
                   </p>
@@ -408,9 +401,9 @@ export default function ContactPage() {
                         className={`space-y-2.5 ${isRTL ? 'text-right' : 'text-left'}`}
                       >
                         <div className="flex items-center justify-between gap-2">
-                          <h5 className="text-sm sm:text-base font-bold contact-step-card-title">
+                          <h3 className="text-sm sm:text-base font-bold contact-step-card-title">
                             {t(step.titleKey)}
-                          </h5>
+                          </h3>
                         </div>
 
                         <p className="text-[11px] sm:text-xs leading-relaxed font-medium contact-step-desc">

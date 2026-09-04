@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Check } from 'lucide-react';
-import roshaSalesImage from '../../assets/Rosha/IncreasSaleAndSeo/RoshaIncrasesSales.png';
+import roshaSalesImage from '../../assets/Rosha/IncreasSaleAndSeo/RoshaIncrasesSales.webp';
 import FeaturesModal from './FeaturesModal';
 import './SalesAndSeoShowcase.css';
 
@@ -74,7 +74,7 @@ export default function SalesAndSeoShowcase({ onOpenGetStarted }) {
                   src={roshaSalesImage}
                   alt="RoshaLink Increases Sales and SEO"
                   className="sales-img"
-                />
+                 width="1536" height="1024" loading="lazy" />
 
                 {/* Floating Glassmorphic Stat Pill #1 (Sales Growth) */}
                 <div className={`sales-stat-pill sales-stat-pill-1 ${rtlClass}`}>

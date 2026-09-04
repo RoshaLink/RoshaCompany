@@ -7,27 +7,51 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+.pnp
+.pnp.js
+
+# Production / Build outputs
 dist
 dist-ssr
-*.local
+build
+.output
 
-# Environment / secrets — never commit these.
-# `*.local` above already covers .env.local, but be explicit.
+# Coverage & testing
+coverage
+.nyc_output
+
+# Environment & secrets
 .env
 .env.*
 !.env.example
+*.local
 
-# Vercel
+# Vercel & Deployment
 .vercel
 
-# Editor directories and files
+# Vite cache & temp
+.vite
+.temp
+.cache
+
+# Editor & IDE directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini

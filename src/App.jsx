@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import GetStartedModal from './components/GetStartedModal/GetStartedModal';
-import RoshaChatWidget from './components/RoshaChatWidget/RoshaChatWidget';
-import HomePage from './pages/HomePage/HomePage';
-import AboutPage from './pages/AboutPage/AboutPage';
-import ServicesPage from './pages/ServicesPage/ServicesPage';
-import PortfolioPage from './pages/PortfolioPage/PortfolioPage';
-import ContactPage from './pages/ContactPage/ContactPage';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
 import { SEOHead } from './components/SEO/SEOHead';
 import { SUPPORTED_LANGS, DEFAULT_LANG } from './config/seoConfig';
+
+import HomePage from './pages/HomePage/HomePage';
+
+const AboutPage = lazy(() => import('./pages/AboutPage/AboutPage'));
+const ServicesPage = lazy(() => import('./pages/ServicesPage/ServicesPage'));
+const PortfolioPage = lazy(() => import('./pages/PortfolioPage/PortfolioPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
+const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'));
+const RoshaChatWidget = lazy(() => import('./components/RoshaChatWidget/RoshaChatWidget'));
+const GetStartedModal = lazy(() => import('./components/GetStartedModal/GetStartedModal'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -89,101 +91,157 @@ export default function App() {
     <div className="min-h-screen bg-background text-on-background font-body-md flex flex-col justify-between selection:bg-secondary selection:text-surface">
       <ScrollToTop />
 
-      <Navbar 
-        activePage={activePage} 
-        setActivePage={handlePageChange} 
+      <Navbar
+        activePage={activePage}
+        setActivePage={handlePageChange}
         onOpenGetStarted={() => setIsGetStartedOpen(true)}
         onLanguageChange={handleLanguageChange}
       />
 
       <main className="flex-grow">
-        <Routes>
-          {/* Root redirect to current/default language */}
-          <Route path="/" element={<Navigate to={`/${activeLang}`} replace />} />
+        <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center"><div className="w-8 h-8 rounded-full border-2 border-sky-500 border-t-transparent animate-spin" /></div>}>
+          <Routes>
+            {/* Root route renders default language (Swedish) directly */}
+            <Route
+              path="/"
+              element={
+                <LocalizedPageWrapper pageId="home">
+                  <HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
 
-          {/* Multilingual Routes */}
-          <Route 
-            path="/:lang" 
-            element={
-              <LocalizedPageWrapper pageId="home">
-                <HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/about" 
-            element={
-              <LocalizedPageWrapper pageId="about">
-                <AboutPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/services" 
-            element={
-              <LocalizedPageWrapper pageId="services">
-                <ServicesPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/portfolio" 
-            element={
-              <LocalizedPageWrapper pageId="portfolio">
-                <PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/contact" 
-            element={
-              <LocalizedPageWrapper pageId="contact">
-                <ContactPage />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/privacy" 
-            element={
-              <LocalizedPageWrapper pageId="privacy">
-                <PrivacyPolicyPage />
-              </LocalizedPageWrapper>
-            } 
-          />
-          <Route 
-            path="/:lang/privacy-policy" 
-            element={
-              <LocalizedPageWrapper pageId="privacy">
-                <PrivacyPolicyPage />
-              </LocalizedPageWrapper>
-            } 
-          />
+            {/* Multilingual Routes */}
+            <Route
+              path="/:lang"
+              element={
+                <LocalizedPageWrapper pageId="home">
+                  <HomePage setActivePage={handlePageChange} onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/about"
+              element={
+                <LocalizedPageWrapper pageId="about">
+                  <AboutPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/services"
+              element={
+                <LocalizedPageWrapper pageId="services">
+                  <ServicesPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/portfolio"
+              element={
+                <LocalizedPageWrapper pageId="portfolio">
+                  <PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/contact"
+              element={
+                <LocalizedPageWrapper pageId="contact">
+                  <ContactPage />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/privacy"
+              element={
+                <LocalizedPageWrapper pageId="privacy">
+                  <PrivacyPolicyPage />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/privacy-policy"
+              element={
+                <LocalizedPageWrapper pageId="privacy">
+                  <PrivacyPolicyPage />
+                </LocalizedPageWrapper>
+              }
+            />
 
-          {/* Legacy non-prefixed fallback redirects for backward compatibility */}
-          <Route path="/home" element={<Navigate to={`/${activeLang}`} replace />} />
-          <Route path="/about" element={<Navigate to={`/${activeLang}/about`} replace />} />
-          <Route path="/services" element={<Navigate to={`/${activeLang}/services`} replace />} />
-          <Route path="/portfolio" element={<Navigate to={`/${activeLang}/portfolio`} replace />} />
-          <Route path="/contact" element={<Navigate to={`/${activeLang}/contact`} replace />} />
-          <Route path="/privacy" element={<Navigate to={`/${activeLang}/privacy`} replace />} />
-          <Route path="/privacy-policy" element={<Navigate to={`/${activeLang}/privacy`} replace />} />
+            {/* Legacy non-prefixed routes */}
+            <Route
+              path="/about"
+              element={
+                <LocalizedPageWrapper pageId="about">
+                  <AboutPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/services"
+              element={
+                <LocalizedPageWrapper pageId="services">
+                  <ServicesPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/portfolio"
+              element={
+                <LocalizedPageWrapper pageId="portfolio">
+                  <PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <LocalizedPageWrapper pageId="contact">
+                  <ContactPage />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/privacy"
+              element={
+                <LocalizedPageWrapper pageId="privacy">
+                  <PrivacyPolicyPage />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/privacy-policy"
+              element={
+                <LocalizedPageWrapper pageId="privacy">
+                  <PrivacyPolicyPage />
+                </LocalizedPageWrapper>
+              }
+            />
 
-          {/* 404 / Catch-all */}
-          <Route 
-            path="*" 
-            element={<Navigate to={`/${activeLang}`} replace />} 
-          />
-        </Routes>
+            {/* 404 / Catch-all */}
+            <Route
+              path="*"
+              element={<Navigate to={`/${activeLang}`} replace />}
+            />
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer setActivePage={handlePageChange} />
 
-      <GetStartedModal 
-        isOpen={isGetStartedOpen} 
-        onClose={() => setIsGetStartedOpen(false)} 
-      />
+      {isGetStartedOpen && (
+        <Suspense fallback={null}>
+          <GetStartedModal
+            isOpen={isGetStartedOpen}
+            onClose={() => setIsGetStartedOpen(false)}
+          />
+        </Suspense>
+      )}
 
-      <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+      <Suspense fallback={null}>
+        <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+      </Suspense>
     </div>
   );
 }

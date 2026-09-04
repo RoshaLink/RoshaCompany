@@ -281,9 +281,11 @@
 .portfolio-hero-title {
   color: var(--color-slate-900);
   transition: color 300ms ease;
-  font-size: clamp(1.45rem, 6.2vw, 1.85rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.4rem, 4.2vw, 1.75rem);
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  max-width: 38rem;
 }
 
 .portfolio-hero-flex-wrapper:not(.is-rtl) .portfolio-hero-title {
@@ -292,31 +294,39 @@
 
 @media (min-width: 480px) {
   .portfolio-hero-title {
-    font-size: 2.15rem;
+    font-size: 1.85rem;
+    line-height: 1.22;
   }
 }
 
 @media (min-width: 640px) {
   .portfolio-hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 1.22;
   }
 }
 
 @media (min-width: 1024px) {
   .portfolio-hero-title {
-    font-size: 3rem;
+    font-size: 2.25rem;
+    line-height: 1.22;
+    max-width: 36rem;
   }
 }
 
 @media (min-width: 1280px) {
   .portfolio-hero-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    max-width: 40rem;
   }
 }
 
 @media (min-width: 1536px) {
   .portfolio-hero-title {
-    font-size: 4.25rem;
+    font-size: 2.75rem;
+    line-height: 1.18;
+    max-width: 44rem;
   }
 }
 

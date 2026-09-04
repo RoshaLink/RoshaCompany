@@ -5,11 +5,11 @@ import { cn } from "../../lib/utils";
 import "./testimonial.css";
 
 // Import team member portraits
-import MortezaPortrait from "../../assets/OurPictures/MortezaPortrait.png";
-import BellaPortrait from "../../assets/OurPictures/BellaPortrait.png";
-import SohrabPortrait from "../../assets/OurPictures/SohrabPortrait.png";
-import MinaPortrait from "../../assets/OurPictures/MinaPortrait.png";
-import MiladPortrait from "../../assets/OurPictures/MiladPortrait.png";
+import MortezaPortrait from "../../assets/OurPictures/MortezaPortrait.webp";
+import BellaPortrait from "../../assets/OurPictures/BellaPortrait.webp";
+import SohrabPortrait from "../../assets/OurPictures/SohrabPortrait.webp";
+import MinaPortrait from "../../assets/OurPictures/MinaPortrait.webp";
+import MiladPortrait from "../../assets/OurPictures/MiladPortrait.webp";
 
 function TimelineContent({
   as: Component = "div",
@@ -178,7 +178,7 @@ export function ClientFeedback({
                   alt={cards.morteza?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1039" height="1513" />
               </div>
             </TimelineContent>
 
@@ -201,7 +201,7 @@ export function ClientFeedback({
                   alt={cards.bella?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1086" height="1448" />
               </div>
             </TimelineContent>
 
@@ -229,7 +229,7 @@ export function ClientFeedback({
                   alt={cards.sohrab?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1089" height="1444" />
               </div>
             </TimelineContent>
 
@@ -252,7 +252,7 @@ export function ClientFeedback({
                   alt={cards.mina?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1122" height="1402" />
               </div>
             </TimelineContent>
 
@@ -275,7 +275,7 @@ export function ClientFeedback({
                   alt={cards.milad?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1091" height="1442" />
               </div>
             </TimelineContent>
 
@@ -303,7 +303,7 @@ export function ClientFeedback({
                   alt={cards.synergy?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1086" height="1448" />
               </div>
             </TimelineContent>
 
@@ -328,7 +328,7 @@ export function ClientFeedback({
                   alt={cards.guarantee?.name}
                   className="feedback-avatar"
                   loading="lazy"
-                />
+                 width="1039" height="1513" />
               </div>
             </TimelineContent>
 

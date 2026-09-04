@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import diaraPortfolioImage from '../../assets/Diara/Portfolio/DiaraPotfolio.jpeg';
+import diaraPortfolioImage from '../../assets/Diara/Portfolio/DiaraPotfolio.webp';
 import PortfolioServicesModal from './PortfolioServicesModal';
 import './HeroSectionPortfolio.css';
 
@@ -23,12 +23,12 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
           <div className={`portfolio-hero-content-side space-y-6 lg:space-y-8 ${isRTL ? 'text-right' : 'text-left'}`}>
 
             {/* Headline */}
-            <h1 className="portfolio-hero-title font-black leading-tight tracking-tight">
-              <span className="block mb-1">{t('portfolioHero.titlePrefix')}</span>
-              <span className="sky-blue-text-shine uppercase mb-1">
+            <h1 className="portfolio-hero-title font-extrabold leading-tight tracking-tight">
+              <span>{t('portfolioHero.titlePrefix')}</span>{' '}
+              <span className="sky-blue-text-shine uppercase">
                 {t('portfolioHero.titleGradient')}
-              </span>
-              <span className="block">{t('portfolioHero.titleSuffix')}</span>
+              </span>{' '}
+              <span>{t('portfolioHero.titleSuffix')}</span>
             </h1>
 
             {/* Subtitle / Description */}
@@ -73,7 +73,7 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
                   src={diaraPortfolioImage}
                   alt="Diara Portfolio Showcase"
                   className="w-full h-auto max-h-[520px] xl:max-h-[620px] 2xl:max-h-[720px] object-cover rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
-                />
+                 width="1376" height="768" />
               </div>
             </div>
           </div>

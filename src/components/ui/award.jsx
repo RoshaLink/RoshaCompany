@@ -10,6 +10,23 @@ const levelColors = {
   platinum: "from-slate-300 to-slate-500",
 };
 
+const getBadgeGradient = (key) => {
+  const k = (key || '').toLowerCase();
+  if (k.includes('prestanda') || k.includes('arkitektur') || k.includes('spets') || k.includes('gold')) {
+    return 'from-sky-500 to-blue-600';
+  }
+  if (k.includes('full') || k.includes('ingenjör') || k.includes('expert') || k.includes('platinum')) {
+    return 'from-blue-600 to-indigo-600';
+  }
+  if (k.includes('design') || k.includes('ui') || k.includes('ux')) {
+    return 'from-indigo-500 to-purple-600';
+  }
+  if (k.includes('ai') || k.includes('innov') || k.includes('app')) {
+    return 'from-purple-500 to-pink-600';
+  }
+  return levelColors[k] || 'from-sky-500 to-blue-600';
+};
+
 export function Awards({
   variant = "badge",
   title,
@@ -18,6 +35,7 @@ export function Awards({
   date,
   recipient,
   level = "gold",
+  badgeText,
   className,
   showIcon = true,
 }) {
@@ -156,10 +174,10 @@ export function Awards({
           <div
             className={cn(
               "mb-3 inline-block rounded-full px-3.5 py-1 text-xs font-bold tracking-wider text-white shadow-sm",
-              `bg-gradient-to-r ${levelColors[level] || levelColors.gold}`
+              `bg-gradient-to-r ${getBadgeGradient(level || badgeText)}`
             )}
           >
-            {level.toUpperCase()}
+            {(badgeText || level).toUpperCase()}
           </div>
 
           <h3 className="award-title text-2xl md:text-3xl font-extrabold tracking-tight mb-2">

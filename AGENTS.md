@@ -22,17 +22,16 @@ From `package.json` (versions are the declared ranges):
 
 - React 19.2 + React DOM 19.2, `react-router-dom` 7.18 (BrowserRouter, client-side routing)
 - Vite 8.1 with `@vitejs/plugin-react` 6.0; ESM only (`"type": "module"`)
-- **Tailwind is loaded from the CDN in `index.html`**, not as a build dependency —
-  theme tokens (colors, fonts, radii) are configured in the inline `tailwind.config`
-  script there. There is no `tailwind.config.js` and no PostCSS step. This is
-  specifically Tailwind's **Play CDN** (`cdn.tailwindcss.com`) — Tailwind's own
-  docs say not to use it in production, since it ships the full JIT compiler to
-  the browser and recompiles utility CSS on every load instead of a purged
-  build. Also means any Tailwind class on an element (e.g. `RoshaChatWidget`'s
-  root) is invisible to plain CSS selectors from outside that file unless the
-  element also carries a real, non-Tailwind class name to hook onto. Tracked
-  as issue #17, not fixed opportunistically — migrating off it touches every
-  component's className strings.
+- **Tailwind 3.4 compiles at build time via PostCSS** (`tailwind.config.js`,
+  `@tailwind base/components/utilities` in `src/index.css`, `postcss` plugins
+  wired inline in `vite.config.js`'s `css.postcss` — no standalone
+  `postcss.config.js` file). Previously loaded from Tailwind's Play CDN
+  (`cdn.tailwindcss.com`) in `index.html`; that render-blocking JIT-in-browser
+  setup has been removed (was tracked as issue #17 — now resolved). A Tailwind
+  class on an element (e.g. `RoshaChatWidget`'s root) is still invisible to
+  plain CSS selectors from outside that file unless the element also carries a
+  real, non-Tailwind class name to hook onto — utility classes are still
+  purged/hashed at build time, same reasoning as before, just no longer via CDN.
 - `framer-motion` 12.43 for animation (used in ~10 components), `lucide-react` 1.27
   for icons (~35 files), `react-icons` in one file (`ui/circular-testimonials.jsx`)
 - `i18next` 26 + `react-i18next` 17; all strings live in `src/i18n.js`

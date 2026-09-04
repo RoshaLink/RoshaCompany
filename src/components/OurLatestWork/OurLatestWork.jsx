@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import {
   ContainerAnimated,
   ContainerStagger,
@@ -34,7 +35,7 @@ const GALLERY_IMAGES = [
 ];
 
 export default function OurLatestWork({ setActivePage, onOpenGetStarted }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="relative py-24 px-4 md:px-12 bg-slate-50/60 overflow-hidden border-y border-slate-200">
@@ -73,14 +74,15 @@ export default function OurLatestWork({ setActivePage, onOpenGetStarted }) {
           </ContainerAnimated>
 
           <ContainerAnimated className="pt-4 flex flex-col sm:flex-row gap-4">
-            <Button 
-              onClick={() => setActivePage ? setActivePage('portfolio') : null}
-              size="lg" 
-              className="rounded-lg px-8 py-3.5 text-sm font-bold flex items-center space-x-2 rtl:space-x-reverse bg-sky-500 hover:bg-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)]"
-            >
-              <span>{t('ourWork.explorePortfolio')}</span>
-              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-            </Button>
+            <Link to={`/${i18n.language}/portfolio`}>
+              <Button
+                size="lg"
+                className="rounded-lg px-8 py-3.5 text-sm font-bold flex items-center space-x-2 rtl:space-x-reverse bg-sky-500 hover:bg-sky-600 text-white shadow-[0_4px_20px_rgba(56,189,248,0.35)]"
+              >
+                <span>{t('ourWork.explorePortfolio')}</span>
+                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+              </Button>
+            </Link>
 
             <Button
               onClick={onOpenGetStarted}

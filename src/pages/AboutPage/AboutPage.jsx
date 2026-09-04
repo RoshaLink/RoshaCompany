@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { 
-  ArrowRight, 
-  Layers, 
+import { Link } from 'react-router-dom';
+import {
+  ArrowRight,
+  Layers,
   BarChart3,
   Cpu,
   Server
@@ -15,17 +16,17 @@ import { RollingTextList } from '../../components/ui/rolling-list';
 import './AboutPage.css';
 
 // Team member image assets
-import SohrabFullbody from '../../assets/OurPictures/SohrabFullbody.jpg';
-import BellaFullBody from '../../assets/OurPictures/BellaFullBody.png';
-import MortezaFullBody from '../../assets/OurPictures/MortezaFullBody.png';
-import MinaFullBody from '../../assets/OurPictures/MinaFullBody.png';
-import MiladFullBody from '../../assets/OurPictures/MiladFullBody.png';
+import SohrabFullbody from '../../assets/OurPictures/SohrabFullbody.webp';
+import BellaFullBody from '../../assets/OurPictures/BellaFullBody.webp';
+import MortezaFullBody from '../../assets/OurPictures/MortezaFullBody.webp';
+import MinaFullBody from '../../assets/OurPictures/MinaFullBody.webp';
+import MiladFullBody from '../../assets/OurPictures/MiladFullBody.webp';
 
 // Mission & Philosophy Assets
-import strategyImg from '../../assets/AboutPage/Strategi.png';
-import performanceImg from '../../assets/AboutPage/Performance.png';
-import partnershipImg from '../../assets/AboutPage/Partnersip.png';
-import automationImg from '../../assets/AboutPage/Automation.png';
+import strategyImg from '../../assets/AboutPage/Strategi.webp';
+import performanceImg from '../../assets/AboutPage/Performance.webp';
+import partnershipImg from '../../assets/AboutPage/Partnersip.webp';
+import automationImg from '../../assets/AboutPage/Automation.webp';
 
 const TEAM_CONFIG = [
   {
@@ -157,7 +158,7 @@ export default function AboutPage({ onOpenGetStarted }) {
           ========================================================================= */}
       <section className="about-awards-section">
         <div className="about-section-header">
-          <h2 className="about-section-title">
+          <h1 className="about-section-title">
             {t('aboutPage.awards.titlePrefix') || t('aboutPage.awards.sectionTitle')}{' '}
             {t('aboutPage.awards.titleGradient') && (
               <span className="sky-blue-text-shine">
@@ -165,47 +166,51 @@ export default function AboutPage({ onOpenGetStarted }) {
               </span>
             )}{' '}
             {t('aboutPage.awards.titleSuffix')}
-          </h2>
+          </h1>
           <p className="about-section-subtitle">
             {t('aboutPage.awards.sectionSubtitle')}
           </p>
         </div>
 
         <div className="about-awards-grid">
-          {/* Award 1: Gold Web Architecture */}
+          {/* Capability 1: Web & Cloud Architecture */}
           <Awards
             variant="award"
-            level="gold"
+            level={t('aboutPage.awards.a1.level') || "prestanda"}
+            badgeText={t('aboutPage.awards.a1.badge') || t('aboutPage.awards.a1.level')}
             title={t('aboutPage.awards.a1.title')}
             subtitle={t('aboutPage.awards.a1.subtitle')}
             recipient={t('aboutPage.awards.a1.recipient')}
             date={t('aboutPage.awards.a1.date')}
           />
 
-          {/* Award 2: Platinum Full-Stack Innovation */}
+          {/* Capability 2: Full-Stack Systems */}
           <Awards
             variant="award"
-            level="platinum"
+            level={t('aboutPage.awards.a2.level') || "ingenjörskonst"}
+            badgeText={t('aboutPage.awards.a2.badge') || t('aboutPage.awards.a2.level')}
             title={t('aboutPage.awards.a2.title')}
             subtitle={t('aboutPage.awards.a2.subtitle')}
             recipient={t('aboutPage.awards.a2.recipient')}
             date={t('aboutPage.awards.a2.date')}
           />
 
-          {/* Award 3: Gold UI/UX Product Design */}
+          {/* Capability 3: UI/UX Design */}
           <Awards
             variant="award"
-            level="gold"
+            level={t('aboutPage.awards.a3.level') || "design"}
+            badgeText={t('aboutPage.awards.a3.badge') || t('aboutPage.awards.a3.level')}
             title={t('aboutPage.awards.a3.title')}
             subtitle={t('aboutPage.awards.a3.subtitle')}
             recipient={t('aboutPage.awards.a3.recipient')}
             date={t('aboutPage.awards.a3.date')}
           />
 
-          {/* Award 4: Platinum AI & App Innovation */}
+          {/* Capability 4: AI & App Development */}
           <Awards
             variant="award"
-            level="platinum"
+            level={t('aboutPage.awards.a4.level') || "innovation"}
+            badgeText={t('aboutPage.awards.a4.badge') || t('aboutPage.awards.a4.level')}
             title={t('aboutPage.awards.a4.title')}
             subtitle={t('aboutPage.awards.a4.subtitle')}
             recipient={t('aboutPage.awards.a4.recipient')}
@@ -330,6 +335,14 @@ export default function AboutPage({ onOpenGetStarted }) {
                 <ArrowRight className="w-4 h-4 about-btn-arrow" />
               </button>
             </div>
+
+            <Link
+              to={`/${i18n.language}/services`}
+              className="about-cta-secondary-link"
+            >
+              <span>{t('aboutPage.cta.servicesLink', 'See what we can build for you')}</span>
+              <ArrowRight className="w-3.5 h-3.5 about-btn-arrow" />
+            </Link>
           </div>
         </div>
       </section>

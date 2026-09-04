@@ -545,6 +545,34 @@
   transform: scale(0.97);
 }
 
+.about-cta-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.1rem;
+  color: var(--color-slate-500, #64748b);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+  transition: color 0.2s ease;
+}
+
+.about-cta-secondary-link:hover,
+.about-cta-secondary-link:focus-visible {
+  color: var(--color-sky-500, #0ea5e9);
+}
+
+html.dark .about-cta-secondary-link {
+  color: var(--color-slate-400, #94a3b8);
+}
+
+html.dark .about-cta-secondary-link:hover,
+html.dark .about-cta-secondary-link:focus-visible {
+  color: var(--color-sky-400, #38bdf8);
+}
+
 
 /* ==========================================================================
    RTL SUPPORT (Persian & Arabic)
@@ -567,7 +595,9 @@
 [dir="rtl"] .about-primary-btn,
 .is-rtl .about-primary-btn,
 [dir="rtl"] .about-cta-button,
-.is-rtl .about-cta-button {
+.is-rtl .about-cta-button,
+[dir="rtl"] .about-cta-secondary-link,
+.is-rtl .about-cta-secondary-link {
   flex-direction: row-reverse;
 }
 

@@ -135,7 +135,7 @@ export default async function handler(req, res) {
         console.error('[lead] backend returned error status:', backendRes.status);
       }
     } catch (err) {
-      console.error('[lead] error forwarding to backend:', err.message);
+      console.error('[lead] error forwarding to backend:', err instanceof Error ? err.message : err);
     }
   }
 

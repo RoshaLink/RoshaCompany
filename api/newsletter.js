@@ -60,7 +60,7 @@ export default async function handler(req, res) {
         signal: AbortSignal.timeout(15_000),
       });
     } catch (err) {
-      console.error('[newsletter] failed to persist to backend:', err.message);
+      console.error('[newsletter] failed to persist to backend:', err instanceof Error ? err.message : err);
     }
   }
 

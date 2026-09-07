@@ -171,6 +171,273 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services" />
   </url>
 
+
+  <!-- ==================== DEDICATED SERVICE DEEP-DIVE PAGES ==================== -->
+  <url>
+    <loc>https://roshalink.com/sv/services/discovery</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/discovery" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/discovery</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/discovery" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/discovery</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/discovery" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/discovery</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/discovery" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/discovery" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/sv/services/web-architecture</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/web-architecture" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/web-architecture</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/web-architecture" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/web-architecture</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/web-architecture" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/web-architecture</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/web-architecture" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/web-architecture" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/sv/services/cloud-backend</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/cloud-backend" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/cloud-backend</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/cloud-backend" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/cloud-backend</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/cloud-backend" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/cloud-backend</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/cloud-backend" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/cloud-backend" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/sv/services/ai-automation</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/ai-automation" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/ai-automation</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/ai-automation" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/ai-automation</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/ai-automation" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/ai-automation</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/ai-automation" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/ai-automation" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/sv/services/mobile-apps</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/mobile-apps" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/mobile-apps</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/mobile-apps" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/mobile-apps</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/mobile-apps" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/mobile-apps</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/mobile-apps" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/mobile-apps" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/sv/services/seo-performance</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/seo-performance" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/en/services/seo-performance</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/seo-performance" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/fa/services/seo-performance</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/seo-performance" />
+  </url>
+  <url>
+    <loc>https://roshalink.com/ar/services/seo-performance</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="sv" href="https://roshalink.com/sv/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://roshalink.com/en/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="fa" href="https://roshalink.com/fa/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://roshalink.com/ar/services/seo-performance" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://roshalink.com/sv/services/seo-performance" />
+  </url>
+
   <!-- ==================== PORTFOLIO PAGES ==================== -->
   <url>
     <loc>https://roshalink.com/sv/portfolio</loc>

@@ -40,7 +40,7 @@ const serviceThemes = {
   }
 };
 
-export default function ServicesCapabilities({ onOpenGetStarted }) {
+export default function ServicesCapabilities({ selectedSlug, onOpenGetStarted }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
@@ -49,17 +49,36 @@ export default function ServicesCapabilities({ onOpenGetStarted }) {
   const [servicesList, setServicesList] = useState([]);
   const [cardDimensions, setCardDimensions] = useState({ width: 440, height: 525 });
 
-  // Initialize service list with unique tempIds
+  // Initialize service list with unique tempIds and center selectedSlug if provided
   useEffect(() => {
     if (Array.isArray(rawServicesList) && rawServicesList.length > 0) {
-      setServicesList(
-        rawServicesList.map((service, idx) => ({
-          ...service,
-          tempId: service.id || `service-${idx}`
-        }))
-      );
+      let list = rawServicesList.map((service, idx) => ({
+        ...service,
+        tempId: service.id || `service-${idx}`
+      }));
+
+      if (selectedSlug) {
+        const foundIdx = list.findIndex(s => s.id === selectedSlug);
+        if (foundIdx !== -1) {
+          const centerIdx = Math.floor(list.length / 2);
+          const steps = foundIdx - centerIdx;
+          if (steps > 0) {
+            for (let i = 0; i < steps; i++) {
+              const item = list.shift();
+              if (item) list.push(item);
+            }
+          } else if (steps < 0) {
+            for (let i = 0; i < Math.abs(steps); i++) {
+              const item = list.pop();
+              if (item) list.unshift(item);
+            }
+          }
+        }
+      }
+
+      setServicesList(list);
     }
-  }, [i18n.language]);
+  }, [i18n.language, selectedSlug]);
 
   // Responsive card dimensions
   useEffect(() => {

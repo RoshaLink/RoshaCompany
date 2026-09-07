@@ -1,5 +1,5 @@
 # PRIVACY POLICY DUAL DOCUMENT / DATASKYDDSPOLICY / سیاست حفظ حریم خصوصی / سياسة الخصوصية
-**RoshaLink / Diara IT Infrastructure & Development**  
+**RoshaLink IT Infrastructure & Development**  
 *Senast uppdaterad / Last Updated / آخرین بروزرسانی / آخر تحديث: 10 augusti 2026 / August 10, 2026*
 
 ---
@@ -57,7 +57,7 @@
 ## [PERSIAN / فارسی]
 
 ### ۱. مقدمه
-این سیاست حفظ حریم خصوصی («سیاست») نحوه جمع‌آوری، استفاده، ذخیره‌سازی، اشتراک‌گذاری و حفاظت از اطلاعات شخصی شما را توسط **RoshaLink / Diara** («شرکت»، «ما») در ارائه خدمات فناوری اطلاعات، توسعه نرم‌افزار، زیرساخت‌های ابری و پلتفرم‌های دیجیتال به روشنی توضیح می‌دهد.
+این سیاست حفظ حریم خصوصی («سیاست») نحوه جمع‌آوری، استفاده، ذخیره‌سازی، اشتراک‌گذاری و حفاظت از اطلاعات شخصی شما را توسط **RoshaLink** («شرکت»، «ما») در ارائه خدمات فناوری اطلاعات، توسعه نرم‌افزار، زیرساخت‌های ابری و پلتفرم‌های دیجیتال به روشنی توضیح می‌دهد.
 
 ما متعهد به حفظ کامل حریم خصوصی شما و حفاظت از اطلاعات شخصی‌تان بر اساس مقررات عمومی حفاظت از داده‌های اتحادیه اروپا ("GDPR")، قانون حفاظت از داده‌های سوئد (Dataskyddslagen 2018:218) و تمامی قوانین بین‌المللی مرتبط هستیم.
 
@@ -68,7 +68,7 @@
 - **اطلاعات تماس و هویتی:** نام، آدرس ایمیل، شماره تلفن، سمت شغلی، نام شرکت، آدرس صورت‌حساب و آدرس IP.
 - **اطلاعات حساب کاربری و احراز هویت:** نام کاربری، رمز عبور هش‌شده و رمزنگاری‌شده، ثبت‌های امنیتی (Security Logs)، توکن‌های دسترسی و تنظیمات کاربر.
 - **اطلاعات فنی و دستگاه:** آدرس IP، نوع مرورگر، سیستم‌عامل، وضوح صفحه نمایش، برچسب‌های زمانی، گزارش‌های خطا و معیارهای سنجش عملکرد سرورها.
-- **اطلاعات ارتباطی:** پیام‌ها، تیکت‌های پشتیبانی، استعلام‌ها و مکاتبات ارسال‌شده از طریق ایمیل، فرم‌های تماس یا دستیار هوش مصنوعی (Diara AI Assistant).
+- **اطلاعات ارتباطی:** پیام‌ها، تیکت‌های پشتیبانی، استعلام‌ها و مکاتبات ارسال‌شده از طریق ایمیل، فرم‌های تماس یا دستیار هوش مصنوعی (Rosha AI Assistant).
 - **داده‌های ادغام و دورسنجی (Telemetry):** داده‌های تعاملی و فنی حاصل از اجرای نرم‌افزارها و زیرساخت‌های متصل.
 
 ### ۳. نحوه استفاده از اطلاعات
@@ -135,8 +135,8 @@
 
 ### ۱۱. اطلاعات تماس
 برای طرح سوالات درباره حریم خصوصی، اعمال حقوق GDPR یا ارتباط با مسئول حفاظت از داده‌ها:
-- **نام شرکت:** RoshaLink / Diara IT Infrastructure
-- **ایمیل حریم خصوصی:** roshalinkcompany@gmail.com
+- **نام شرکت:** RoshaLink IT Infrastructure
+- **ایمیل حریم خصوصی:** contact@roshalink.com
 - **وب‌سایت:** [https://roshalink.com](https://roshalink.com)
 - **آدرس پستی:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -148,7 +148,7 @@
 ## [SWEDISH / SVENSKA]
 
 ### 1. Introduktion
-Denna dataskyddspolicy ("Policyn") beskriver hur **RoshaLink / Diara** ("Bolaget", "vi", "oss" eller "vår") samlar in, använder, lagrar, delar och skyddar personuppgifter i samband med tillhandahållandet av våra IT-tjänster, webbapplikationer, mjukvarulösningar och integrerade plattformar.
+Denna dataskyddspolicy ("Policyn") beskriver hur **RoshaLink** ("Bolaget", "vi", "oss" eller "vår") samlar in, använder, lagrar, delar och skyddar personuppgifter i samband med tillhandahållandet av våra IT-tjänster, webbapplikationer, mjukvarulösningar och integrerade plattformar.
 
 Vi värnar om din personliga integritet och är fast beslutna att skydda dina personuppgifter i enlighet med Europaparlamentets och rådets förordning (EU) 2016/679 ("GDPR"), den svenska dataskyddslagen (Lag 2018:218 med kompletterande bestämmelser till EU:s dataskyddsförordning) samt övrig tillämplig dataskyddslagstiftning.
 
@@ -159,7 +159,7 @@ Vi samlar endast in personuppgifter som är strikt nödvändiga för att uppfyll
 - **Kontakt- och identifieringsuppgifter:** Namn, e-postadress, telefonnummer, yrkesroll, företagsnamn, faktureringsadress samt IP-adress.
 - **Konto- och autentiseringsuppgifter:** Användarnamn, krypterade lösenord, säkerhetsloggar, åtkomsttokens samt användarpreferenser.
 - **Tekniska loggar och enhetsdata:** IP-adresser, webbläsartyp, operativsystem, skärmupplösning, tidsstämplar, refererande URL:er, felrapporter och prestandadata från våra servrar.
-- **Kommunikationsdata:** Meddelanden, supportärenden, förfrågningar och korrespondens som du skickar till oss via e-post, kontaktformulär eller integrerade chatt-widgets (t.ex. Diara AI Assistant).
+- **Kommunikationsdata:** Meddelanden, supportärenden, förfrågningar och korrespondens som du skickar till oss via e-post, kontaktformulär eller integrerade chatt-widgets (t.ex. Rosha AI Assistant).
 - **Integrations- och användningsdata:** Telemetridata och interaktionsdata som genereras vid användning av våra mjukvarulösningar och integrerade plattformar.
 
 ### 3. Hur vi använder uppgifterna
@@ -226,8 +226,8 @@ Vi tillämpar branschledande tekniska och organisatoriska säkerhetsåtgärder f
 
 ### 11. Kontaktinformation
 Om du har frågor om denna dataskyddspolicy, vill utöva dina rättigheter eller kontakta vårt dataskyddsombud, kan du nå oss via:
-- **Företag:** RoshaLink / Diara IT Infrastructure
-- **E-post för integritetsfrågor:** roshalinkcompany@gmail.com
+- **Företag:** RoshaLink IT Infrastructure
+- **E-post för integritetsfrågor:** contact@roshalink.com
 - **Webbplats:** [https://roshalink.com](https://roshalink.com)
 - **Postadress:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -239,7 +239,7 @@ Vi förbehåller oss rätten att uppdatera denna dataskyddspolicy för att åter
 ## [ENGLISH]
 
 ### 1. Introduction
-This Privacy Policy ("Policy") explains how **RoshaLink / Diara** ("Company", "we", "us", or "our") collects, uses, stores, shares, and protects personal data in connection with our IT development, software applications, infrastructure services, and integrated digital platforms.
+This Privacy Policy ("Policy") explains how **RoshaLink** ("Company", "we", "us", or "our") collects, uses, stores, shares, and protects personal data in connection with our IT development, software applications, infrastructure services, and integrated digital platforms.
 
 We are committed to respecting your privacy and protecting your personal data in full compliance with Regulation (EU) 2016/679 of the European Parliament and of the Council ("GDPR"), the Swedish Data Protection Act (Lag 2018:218), and all applicable data protection laws.
 
@@ -250,7 +250,7 @@ We collect only the personal data that is strictly necessary to fulfill our cont
 - **Contact and Identity Data:** Name, email address, phone number, job title, company name, billing address, and IP address.
 - **Account and Authentication Data:** Usernames, encrypted passwords, security logs, authentication tokens, and user preferences.
 - **Technical Logs and Device Data:** IP addresses, browser type, operating system, screen resolution, timestamps, referring URLs, error crash reports, and server performance metrics.
-- **Communication Data:** Messages, support tickets, inquiries, and correspondence sent to us via email, contact forms, or integrated conversational widgets (e.g., Diara AI Assistant).
+- **Communication Data:** Messages, support tickets, inquiries, and correspondence sent to us via email, contact forms, or integrated conversational widgets (e.g., Rosha AI Assistant).
 - **Integration and Telemetry Data:** Telemetry and interaction logs generated during the execution of our software platforms and tools.
 
 ### 3. How We Use Your Information
@@ -317,8 +317,8 @@ We enforce robust technical and organizational security controls designed to saf
 
 ### 11. Contact Information
 For privacy inquiries, exercising your GDPR rights, or contacting our Privacy Officer, please reach out to:
-- **Entity:** RoshaLink / Diara IT Infrastructure
-- **Privacy Email:** roshalinkcompany@gmail.com
+- **Entity:** RoshaLink IT Infrastructure
+- **Privacy Email:** contact@roshalink.com
 - **Website:** [https://roshalink.com](https://roshalink.com)
 - **Mailing Address:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 
@@ -330,7 +330,7 @@ We reserve the right to revise this Privacy Policy to reflect technical advancem
 ## [ARABIC / العربية]
 
 ### ١. المقدمة
-توضح سياسة الخصوصية هذه ("السياسة") كيفية جمع واستخدام وتخزين ومشاركة وحماية البيانات الشخصية بواسطة شركة **RoshaLink / Diara** ("الشركة"، "نحن"، "نا") فيما يتعلق بتقديم خدمات تكنولوجيا المعلومات، وتطوير البرمجيات، والحوسبة السحابية، والمنصات الرقمية المتكاملة.
+توضح سياسة الخصوصية هذه ("السياسة") كيفية جمع واستخدام وتخزين ومشاركة وحماية البيانات الشخصية بواسطة شركة **RoshaLink** ("الشركة"، "نحن"، "نا") فيما يتعلق بتقديم خدمات تكنولوجيا المعلومات، وتطوير البرمجيات، والحوسبة السحابية، والمنصات الرقمية المتكاملة.
 
 نحن ملتزمون بالحفاظ على خصوصيتك وحماية بياناتك الشخصية وفقاً للائحة العامة لحماية البيانات في الاتحاد الأوروبي ("GDPR" - اللائحة EU 2016/679)، وقانون حماية البيانات السويدي (Dataskyddslagen 2018:218)، وجميع القوانين المعمول بها.
 
@@ -341,7 +341,7 @@ We reserve the right to revise this Privacy Policy to reflect technical advancem
 - **بيانات الاتصال والهوية:** الاسم، عنوان البريد الإلكتروني، رقم الهاتف، المسمى الوظيفي، اسم الشركة، عنوان الفواتير، وعنوان IP.
 - **بيانات الحساب والمصادقة:** اسم المستخدم، كلمة المرور المشفّرة، سجلات الأمان (Security Logs)، رموز الوصول، وتفضيلات المستخدم.
 - **السجلات الفنية وبيانات الجهاز:** عنوان IP، نوع المتصفح، نظام التشغيل، دقة الشاشة، الطوابع الزمنية، تقارير الأعطال، ومؤشرات أداء الخوادم.
-- **بيانات الاتصالات:** الرسائل، تذاكر الدعم، الاستفسارات والمراسلات عبر البريد الإلكتروني، نماذج الاتصال، أو الأدوات التفاعلية (مثل مساعد Diara الذكي).
+- **بيانات الاتصالات:** الرسائل، تذاكر الدعم، الاستفسارات والمراسلات عبر البريد الإلكتروني، نماذج الاتصال، أو الأدوات التفاعلية (مثل مساعد Rosha الذكي).
 - **بيانات التكامل والقياس عن بُعد (Telemetry):** سجلات التفاعل والبيانات الفنية الناتجة عن تشغيل البرمجيات والبنية التحتية.
 
 ### ٣. كيفية استخدام البيانات
@@ -408,8 +408,8 @@ We reserve the right to revise this Privacy Policy to reflect technical advancem
 
 ### ١١. معلومات الاتصال
 لأي استفسارات حول سياسة الخصوصية، أو لممارسة حقوقك بموجب لائحة GDPR، يمكنك التواصل معنا عبر:
-- **اسم الشركة:** RoshaLink / Diara IT Infrastructure
-- **البريد الإلكتروني للخصوصية:** roshalinkcompany@gmail.com
+- **اسم الشركة:** RoshaLink IT Infrastructure
+- **البريد الإلكتروني للخصوصية:** contact@roshalink.com
 - **الموقع الإلكتروني:** [https://roshalink.com](https://roshalink.com)
 - **العنوان البريدي:** RoshaLink IT Operations, San Francisco, CA & Zurich, Switzerland
 

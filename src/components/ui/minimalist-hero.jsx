@@ -160,9 +160,9 @@ export const MinimalistHero = ({
               <span className="hero-designation">
                 {currentMember.designation}
               </span>
-              <h1 className="hero-name">
+              <h3 className="hero-name">
                 {currentMember.name}
-              </h1>
+              </h3>
             </motion.div>
           </AnimatePresence>
 

@@ -11,11 +11,12 @@ import './Breadcrumb.css';
  *
  * @param {{ page: 'about' | 'services' | 'portfolio' | 'contact' }} props
  */
-export default function Breadcrumb({ page }) {
+export default function Breadcrumb({ page, subPageTitle }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const homeLabel = t('nav.home');
   const homeHref = `/${i18n.language}`;
+  const isSubPage = Boolean(subPageTitle);
 
   return (
     <nav aria-label="Breadcrumb" className={`breadcrumb-nav ${isRTL ? 'is-rtl' : 'is-ltr'}`}>
@@ -28,9 +29,25 @@ export default function Breadcrumb({ page }) {
         <li className="breadcrumb-separator" aria-hidden="true">
           <ChevronRight className={`breadcrumb-chevron ${isRTL ? 'is-flipped' : ''}`} />
         </li>
-        <li className="breadcrumb-item breadcrumb-current" aria-current="page">
-          {t(`nav.${page}`)}
+        <li className={`breadcrumb-item ${isSubPage ? '' : 'breadcrumb-current'}`} aria-current={isSubPage ? undefined : 'page'}>
+          {isSubPage ? (
+            <Link to={`/${i18n.language}/${page}`} className="breadcrumb-link">
+              {t(`nav.${page}`)}
+            </Link>
+          ) : (
+            t(`nav.${page}`)
+          )}
         </li>
+        {isSubPage && (
+          <>
+            <li className="breadcrumb-separator" aria-hidden="true">
+              <ChevronRight className={`breadcrumb-chevron ${isRTL ? 'is-flipped' : ''}`} />
+            </li>
+            <li className="breadcrumb-item breadcrumb-current" aria-current="page">
+              {subPageTitle}
+            </li>
+          </>
+        )}
       </ol>
     </nav>
   );

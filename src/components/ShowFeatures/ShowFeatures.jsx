@@ -25,7 +25,7 @@ export default function ShowFeatures({ onOpenGetStarted, setActivePage }) {
       icon: <Layers className="size-4 text-indigo-500" />,
       title: "Nexus Design Tokens",
       description: "400+ Production React Components",
-      date: "ISO 27001 Certified",
+      date: "ISO 27001 Aligned",
       iconClassName: "text-indigo-600",
       titleClassName: "text-indigo-600",
       className:
@@ -34,8 +34,8 @@ export default function ShowFeatures({ onOpenGetStarted, setActivePage }) {
     {
       icon: <Cpu className="size-4 text-sky-600" />,
       title: "Micro-Frontend Engine",
-      description: "Sub-20ms Transaction Performance",
-      date: "99.99% SLA Uptime",
+      description: "Ultra Low-Latency Performance",
+      date: "Enterprise High Availability",
       iconClassName: "text-sky-600",
       titleClassName: "text-sky-600",
       className:

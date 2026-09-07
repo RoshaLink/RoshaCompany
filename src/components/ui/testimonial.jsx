@@ -92,12 +92,12 @@ export function ClientFeedback({
       role: "Head of Product & Brand",
     },
     sohrab: {
-      quote: "Distributed cloud systems with sub-20ms latency and 99.99% uptime guarantee your platform never fails under peak enterprise traffic.",
+      quote: "Distributed cloud systems with resilient failover and low-latency architectures ensure your platform stays stable under peak traffic.",
       name: "Sohrab (Sam)",
       role: "Senior Full-Stack & Cloud Engineer",
     },
     mina: {
-      quote: "Having consulted for global giants like Ericsson, rigorous business process auditing before writing code saves months of rework.",
+      quote: "Having consulted for leading global technology and telecom corporations, rigorous business process auditing before writing code saves months of rework.",
       name: "Mina",
       role: "Business Analyst & Strategic Advisor",
     },

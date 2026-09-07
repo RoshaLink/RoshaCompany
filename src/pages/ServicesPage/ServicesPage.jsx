@@ -29,10 +29,9 @@ import ServicesHero from '../../components/ServicesHero/ServicesHero';
 import ServicesCapabilities from '../../components/ServicesCapabilities/ServicesCapabilities';
 import ServicesTechMatrix from '../../components/ServicesTechMatrix/ServicesTechMatrix';
 import ServicesDeliveryProcess from '../../components/ServicesDeliveryProcess/ServicesDeliveryProcess';
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './ServicesPage.css';
 
-export default function ServicesPage({ onOpenGetStarted }) {
+export default function ServicesPage({ selectedSlug, onOpenGetStarted }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
@@ -50,8 +49,6 @@ export default function ServicesPage({ onOpenGetStarted }) {
   return (
     <div className={`services-page-root ${rtlClass}`} dir={isRTL ? 'rtl' : 'ltr'}>
 
-      <Breadcrumb page="services" />
-
       {/* =========================================================================
           1. SERVICES HERO SECTION (Separate Component)
           ========================================================================= */}
@@ -61,7 +58,7 @@ export default function ServicesPage({ onOpenGetStarted }) {
       {/* =========================================================================
           2. CORE 6 CAPABILITIES SECTION (3D Staggered Carousel Component)
           ========================================================================= */}
-      <ServicesCapabilities onOpenGetStarted={onOpenGetStarted} />
+      <ServicesCapabilities selectedSlug={selectedSlug} onOpenGetStarted={onOpenGetStarted} />
 
 
       {/* =========================================================================

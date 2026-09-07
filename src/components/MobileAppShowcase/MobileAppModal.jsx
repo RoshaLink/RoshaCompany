@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { X, Smartphone, Share2, BellRing, Link, LayoutTemplate, ShieldCheck } from 'lucide-react';
 
@@ -68,8 +69,10 @@ export default function MobileAppModal({ isOpen, onClose }) {
     }
   ];
 
-  return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
+    <div className={`fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
       <div 
         className={`absolute inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`} 
         onClick={onClose}
@@ -121,6 +124,7 @@ export default function MobileAppModal({ isOpen, onClose }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

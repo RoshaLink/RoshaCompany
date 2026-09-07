@@ -225,39 +225,38 @@
 
 .mobile-title {
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 900;
   font-family: var(--font-headline);
   color: var(--color-slate-900);
-  line-height: 1.375;
+  line-height: 1.3;
   letter-spacing: -0.025em;
   text-wrap: balance;
   word-break: break-word;
   margin: 0;
 }
 
-@media (min-width: 360px) { .mobile-title { font-size: 1.25rem; } }
 @media (min-width: 400px) { .mobile-title { font-size: 1.5rem; } }
 @media (min-width: 640px) { .mobile-title { font-size: 1.875rem; line-height: 1.25; } }
 @media (min-width: 768px) { .mobile-title { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .mobile-title { font-size: 3rem; } }
-@media (min-width: 1280px) { .mobile-title { font-size: 3.2rem; } }
+@media (min-width: 1024px) { .mobile-title { font-size: 2.85rem; line-height: 1.25; } }
+@media (min-width: 1280px) { .mobile-title { font-size: 3.15rem; } }
 
 .mobile-title-line { display: block; margin-bottom: 0.25rem; }
 
 .mobile-subtitle {
   color: var(--color-slate-600);
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-family: var(--font-body);
-  line-height: 1.625;
+  line-height: 1.65;
   margin-top: 1rem;
   text-wrap: pretty;
-  max-width: 48rem;
+  max-width: 42rem;
 }
 
 @media (min-width: 640px) { .mobile-subtitle { font-size: 1rem; } }
-@media (min-width: 1024px) { .mobile-subtitle { font-size: 1.25rem; } }
-@media (min-width: 1280px) { .mobile-subtitle { font-size: 1.5rem; } }
+@media (min-width: 1024px) { .mobile-subtitle { font-size: 1.15rem; max-width: 44rem; } }
+@media (min-width: 1280px) { .mobile-subtitle { font-size: 1.2rem; } }
 
 .mobile-action {
   padding-top: 1.5rem;

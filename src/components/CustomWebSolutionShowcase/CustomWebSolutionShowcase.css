@@ -271,24 +271,22 @@
 
 .custom-title {
   text-transform: uppercase;
-  font-size: 0.70rem; /* Reduced by 30% from 1.1rem */
+  font-size: 1.25rem;
   font-weight: 900; /* font-black */
   font-family: var(--font-headline);
   color: var(--color-slate-900);
-  line-height: 1.375; /* sm:leading-tight */
+  line-height: 1.3;
   letter-spacing: -0.025em; /* tracking-tight */
   text-wrap: balance;
   word-break: break-word; /* break-words */
   margin: 0;
 }
 
-@media (min-width: 360px) { .custom-title { font-size: 0.875rem; } }
-@media (min-width: 400px) { .custom-title { font-size: 1.05rem; } }
-@media (min-width: 640px) { .custom-title { font-size: 1.3125rem; line-height: 1.25; } }
-@media (min-width: 768px) { .custom-title { font-size: 1.575rem; } }
-@media (min-width: 1024px) { .custom-title { font-size: 1.575rem; } }
-@media (min-width: 1280px) { .custom-title { font-size: 2.1rem; } }
-@media (min-width: 1536px) { .custom-title { font-size: 2.625rem; } }
+@media (min-width: 400px) { .custom-title { font-size: 1.5rem; } }
+@media (min-width: 640px) { .custom-title { font-size: 1.875rem; line-height: 1.25; } }
+@media (min-width: 768px) { .custom-title { font-size: 2.25rem; } }
+@media (min-width: 1024px) { .custom-title { font-size: 2.85rem; line-height: 1.25; } }
+@media (min-width: 1280px) { .custom-title { font-size: 3.15rem; } }
 
 .custom-title-line {
   display: block;
@@ -297,16 +295,16 @@
 
 .custom-subtitle {
   color: var(--color-slate-600);
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.95rem;
   font-family: var(--font-body);
-  line-height: 1.625; /* leading-relaxed */
+  line-height: 1.65;
   text-wrap: pretty;
-  max-width: 36rem; /* max-w-xl */
+  max-width: 42rem;
 }
 
 @media (min-width: 640px) { .custom-subtitle { font-size: 1rem; } }
-@media (min-width: 1024px) { .custom-subtitle { font-size: 1.125rem; max-width: 42rem; } } /* lg:text-lg lg:max-w-2xl */
-@media (min-width: 1280px) { .custom-subtitle { font-size: 1.25rem; } }
+@media (min-width: 1024px) { .custom-subtitle { font-size: 1.15rem; max-width: 44rem; } }
+@media (min-width: 1280px) { .custom-subtitle { font-size: 1.2rem; } }
 
 .custom-action {
   padding-top: 1.5rem; /* pt-6 */

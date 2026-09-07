@@ -86,15 +86,17 @@
 }
 
 .testimonial-col-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   font-family: var(--font-headline);
   color: var(--color-slate-900);
-  line-height: 1.25;
+  line-height: 1.3;
 }
-@media (min-width: 640px) { .testimonial-col-title { font-size: 1.875rem; } }
+@media (min-width: 400px) { .testimonial-col-title { font-size: 1.5rem; } }
+@media (min-width: 640px) { .testimonial-col-title { font-size: 1.875rem; line-height: 1.25; } }
 @media (min-width: 768px) { .testimonial-col-title { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .testimonial-col-title { font-size: 3rem; } }
+@media (min-width: 1024px) { .testimonial-col-title { font-size: 2.85rem; line-height: 1.25; } }
+@media (min-width: 1280px) { .testimonial-col-title { font-size: 3.15rem; } }
 
 .testimonial-col-rating {
   display: flex;

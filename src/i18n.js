@@ -23,7 +23,7 @@ const resources = {
             role: "Head of Product & Brand"
           },
           sohrab: {
-            quote: "Distribuerade molnsystem med under 20 ms svarstid och 99,99 % upptid säkerställer att er plattform aldrig vacklar under maximal trafik.",
+            quote: "Distribuerade molnsystem med hög tillgänglighet och minimal latens säkerställer att er plattform presterar felfritt under maximal trafik.",
             name: "Sam",
             role: "Senior Full-Stack & Cloud Ingenjör"
           },
@@ -58,12 +58,12 @@ const resources = {
             stat1Val: "100%",
             stat1Label: "Skräddarsydd kod",
             stat1Sub: "Inga mallar eller genvägar",
-            stat2Val: "99.99%",
-            stat2Label: "Uptime & Stabilitet",
-            stat2Sub: "Modern molninfrastruktur",
-            stat3Val: "<20ms",
+            stat2Val: "Hög Tillgänglighet",
+            stat2Label: "Feltolerant Molndrift",
+            stat2Sub: "Modern feltolerant infrastruktur",
+            stat3Val: "Blixtsnabb",
             stat3Label: "Svarstid & Prestanda",
-            stat3Sub: "100/100 Lighthouse & SEO",
+            stat3Sub: "Optimerad för Core Web Vitals & SEO",
             stat4Val: "5+",
             stat4Label: "Seniora Partnerarkitekter",
             stat4Sub: "Direkt samarbete utan mellanhänder"
@@ -122,7 +122,7 @@ const resources = {
           card1Desc: "Företag kämpar ofta med osammanhängande system och generiska mallar. Vi analyserar era arbetsflöden och bygger lösningar anpassade exakt efter era affärsmål.",
           card2Badge: "NOLL DOWNTIME",
           card2Title: "Prestanda",
-          card2Desc: "Modulära, händelsestyrda mikrotjänster med ISO 27001-standard och sub-20ms transaktionstider som garanterar oavbruten drift.",
+          card2Desc: "Modulära, händelsestyrda mikrotjänster med ISO 27001-inspirerad säkerhetsstandard och feltolerant infrastruktur för oavbruten drift.",
           card3Badge: "DIREKT PARTNERSKAP",
           card3Title: "Partnerskap",
           card3Desc: "Inga juniora utvecklare eller oerfarna mellanhänder. Ni samarbetar direkt med de 5 seniora arkitekterna som bygger er plattform.",
@@ -148,7 +148,7 @@ const resources = {
           step3Desc: "Byggnation med ren, skalbar kod i React, moderna backend-API:er och molninfrastruktur utan mallar.",
           step4Num: "04",
           step4Title: "Prestandaoptimering & Global Driftsättning",
-          step4Desc: "100/100 Lighthouse-optimering, automatiserad CI/CD, ISO-säkerhet och kontinuerlig monitorering."
+          step4Desc: "Optimerad för Core Web Vitals, automatiserad CI/CD, ISO 27001-säkerhet och kontinuerlig monitorering."
         },
         values: {
           badge: "GRUNDLÄGGANDE PRINCIPER",
@@ -163,7 +163,7 @@ const resources = {
           v4Title: "Transparent Samarbete",
           v4Desc: "Direkt kommunikation med seniora partnerarkitekter i realtid med full insyn i utvecklingen.",
           v5Title: "Blixtsnabb Responstid",
-          v5Desc: "Sub-20ms gränssnitt och optimerad kod som levererar 100/100 betyg på Google PageSpeed och SEO.",
+          v5Desc: "Blixtsnabba gränssnitt och ren kodarkitektur som optimerats för Google Core Web Vitals och SEO.",
           v6Title: "Långsiktigt Partnerskap",
           v6Desc: "Vi är er kontinuerliga teknologipartner som utvecklar, skalar och underhåller er plattform över tid."
         },
@@ -176,7 +176,7 @@ const resources = {
           "a1": {
                   "badge": "PRESTANDA",
                   "title": "BÄSTA WEBB-ARKITEKTUR",
-                  "subtitle": "100/100 Google Lighthouse, blixtsnabb laddning & högsta säkerhet",
+                  "subtitle": "Optimerad för Google Core Web Vitals, blixtsnabb laddning & högsta säkerhet",
                   "recipient": "RoshaLink Arkitekturstandard",
                   "date": "Noll kompromisser",
                   "level": "prestanda"
@@ -242,7 +242,7 @@ const resources = {
         card1Title: "AI-Driven Automation",
         card1Sub: "Intelligenta arbetsflöden & agenter",
         card2Title: "Blixtsnabb Prestanda",
-        card2Sub: "100/100 Google Lighthouse & SEO",
+        card2Sub: "Optimerad för Core Web Vitals & SEO",
         card3Title: "Skräddarsydd Kod",
         card3Sub: "Unik arkitektur utan mallar"
       },
@@ -257,7 +257,7 @@ const resources = {
         badge: "FUNKTIONSHÖJDPUNKTER",
         title: "Nästa generations arkitektur inbyggd i varje lösning",
         subtitle: "Upplev staplad prestanda, företagssäkerhet och tokeniserad designsystemarkitektur från start.",
-        bullet1: "ISO 27001-certifierad säkerhet & Zero-Trust åtkomst",
+        bullet1: "ISO 27001-standardiserad säkerhet & Zero-Trust åtkomst",
         bullet2: "Tokeniserat React-komponentbibliotek för flera varumärken",
         bullet3: "Realtids händelsedrivna mikro-frontends och analys",
         exploreBtn: "Utforska lösningsarkitektur",
@@ -270,7 +270,7 @@ const resources = {
         titleSuffix: " i sökresultaten",
         subtitle: "Med RoshaLinks blixtsnabba prestanda, SEO-optimerade kod och automatiska indexering rankar din webbplats överst och blir det första valet för dina kunder.",
         bullet1: "Topplaceringar på Google och sökmoduler",
-        bullet2: "Blixtsnabb laddningstid (100/100 Lighthouse-poäng)",
+        bullet2: "Blixtsnabb laddningstid optimerad för Core Web Vitals",
         bullet3: "Automatisk SEO-struktur och rika sökresultat",
         button: "Höj din ranking"
       },
@@ -554,7 +554,7 @@ const resources = {
         titleGradient: "strategisk produktinnovation",
         subtitle: "Transformera er företagspotential genom högpresterande mjukvara och precisionsdesign.",
         bullet1: "4M+ aktiva företagsanvändare som stöds",
-        bullet2: "Under 20ms transaktions- och analysprestanda",
+        bullet2: "Realtidsprestanda och optimerad datahantering",
         bullet3: "Tokeniserat modulärt React-komponentdesignsystem",
         explorePortfolio: "Utforska hela portföljen",
         startProject: "Starta ditt projekt"
@@ -567,8 +567,8 @@ const resources = {
       },
       testimonials: {
         badge: "KUNDRECENSIONER OCH FEEDBACK",
-        title: "Betrodd av 80+ produktledare",
-        rating: "4.6 / 5.0 Betyg",
+        title: "Verifierad kundnöjdhet",
+        rating: "Högsta betyg och långsiktigt partnerskap",
         roles: {
           r1: "Ägare, Perspolis Restaurang",
           r2: "Klinikchef, Tandläkaren",
@@ -703,8 +703,8 @@ const resources = {
         updated: "Senast uppdaterad: 10 augusti 2026",
         subtitle: "Vi är fast beslutna att skydda dina personuppgifter med högsta säkerhetsstandarder, full insyn och efterlevnad av EU:s dataskyddsförordning (GDPR).",
         fullSections: [
-          { num: "1", title: "1. Introduktion", icon: "ShieldCheck", text: `Denna dataskyddspolicy ("Policyn") beskriver hur RoshaLink / Diara ("Bolaget", "vi", "oss" eller "vår") samlar in, använder, lagrar, delar och skyddar personuppgifter i samband med tillhandahållandet av våra IT-tjänster, webbapplikationer, mjukvarulösningar och integrerade plattformar.\n\nVi värnar om din personliga integritet och är fast beslutna att skydda dina personuppgifter i enlighet med Europaparlamentets och rådets förordning (EU) 2016/679 ("GDPR"), den svenska dataskyddslagen (Lag 2018:218 med kompletterande bestämmelser till EU:s dataskyddsförordning) samt övrig tillämplig dataskyddslagstiftning.\n\nGenom att använda våra tjänster, besöka våra webbplatser eller ingå avtal med oss bekräftar du att du har tagit del av innehållet i denna dataskyddspolicy.` },
-          { num: "2", title: "2. Vilka personuppgifter vi samlar in", icon: "FileText", text: `Vi samlar endast in personuppgifter som är strikt nödvändiga för att uppfylla våra avtalsenliga och lagstadgade skyldigheter, säkerställa systemdrift samt erbjuda och förbättra våra IT-tjänster. Personuppgifter vi kan samla in inkluderar:\n\n• Kontakt- och identifieringsuppgifter: Namn, e-postadress, telefonnummer, yrkesroll, företagsnamn, faktureringsadress samt IP-adress.\n• Konto- och autentiseringsuppgifter: Användarnamn, krypterade lösenord, säkerhetsloggar, åtkomsttokens samt användarpreferenser.\n• Tekniska loggar och enhetsdata: IP-adresser, webbläsartyp, operativsystem, skärmupplösning, tidsstämplar, refererande URL:er, felrapporter och prestandadata från våra servrar.\n• Kommunikationsdata: Meddelanden, supportärenden, förfrågningar och korrespondens som du skickar till oss via e-post, kontaktformulär eller integrerade chatt-widgets (t.ex. Diara AI Assistant).\n• Integrations- och användningsdata: Telemetridata och interaktionsdata som genereras vid användning av våra mjukvarulösningar och integrerade plattformar.` },
+          { num: "1", title: "1. Introduktion", icon: "ShieldCheck", text: `Denna dataskyddspolicy ("Policyn") beskriver hur RoshaLink ("Bolaget", "vi", "oss" eller "vår") samlar in, använder, lagrar, delar och skyddar personuppgifter i samband med tillhandahållandet av våra IT-tjänster, webbapplikationer, mjukvarulösningar och integrerade plattformar.\n\nVi värnar om din personliga integritet och är fast beslutna att skydda dina personuppgifter i enlighet med Europaparlamentets och rådets förordning (EU) 2016/679 ("GDPR"), den svenska dataskyddslagen (Lag 2018:218 med kompletterande bestämmelser till EU:s dataskyddsförordning) samt övrig tillämplig dataskyddslagstiftning.\n\nGenom att använda våra tjänster, besöka våra webbplatser eller ingå avtal med oss bekräftar du att du har tagit del av innehållet i denna dataskyddspolicy.` },
+          { num: "2", title: "2. Vilka personuppgifter vi samlar in", icon: "FileText", text: `Vi samlar endast in personuppgifter som är strikt nödvändiga för att uppfylla våra avtalsenliga och lagstadgade skyldigheter, säkerställa systemdrift samt erbjuda och förbättra våra IT-tjänster. Personuppgifter vi kan samla in inkluderar:\n\n• Kontakt- och identifieringsuppgifter: Namn, e-postadress, telefonnummer, yrkesroll, företagsnamn, faktureringsadress samt IP-adress.\n• Konto- och autentiseringsuppgifter: Användarnamn, krypterade lösenord, säkerhetsloggar, åtkomsttokens samt användarpreferenser.\n• Tekniska loggar och enhetsdata: IP-adresser, webbläsartyp, operativsystem, skärmupplösning, tidsstämplar, refererande URL:er, felrapporter och prestandadata från våra servrar.\n• Kommunikationsdata: Meddelanden, supportärenden, förfrågningar och korrespondens som du skickar till oss via e-post, kontaktformulär eller integrerade chatt-widgets (t.ex. Rosha AI Assistant).\n• Integrations- och användningsdata: Telemetridata och interaktionsdata som genereras vid användning av våra mjukvarulösningar och integrerade plattformar.` },
           { num: "3", title: "3. Hur vi använder uppgifterna", icon: "CheckCircle2", text: `Vi behandlar dina personuppgifter för följande ändamål:\n\n1. Tillhandahållande och drift av IT-tjänster: För att leverera, konfigurera, underhålla och administrera våra mjukvarulösningar, webbplatser och kundkonton.\n2. Kundsupport och kommunikation: För att besvara förfrågningar, hantera supportärenden, skicka tekniska meddelanden, uppdateringar och administrativ information.\n3. Säkerhet och felsökning: För att övervaka systemstabilitet, förhindra obehörig åtkomst, upptäcka och avvärja cyberattacker samt genomföra felrättningar.\n4. Optimering av integrationsflöden: För att säkerställa sömlös funktion och prestanda i våra arbetsflöden som integrerar över 250+ molntjänster, AI-plattformar och designverktyg.\n5. Analys och produktutveckling: För att utvärdera tjänsteanvändning, förbättra användarupplevelsen och utveckla nya funktioner.\n6. Rättsliga skyldigheter: För att uppfylla krav enligt bokföringslagstiftning, skattelagstiftning samt lagliga begäranden från myndigheter.` },
           { num: "4", title: "4. Laglig grund för behandling", icon: "Scale", text: `Vi behandlar dina personuppgifter med stöd av följande lagliga grunder enligt Artikel 6 i GDPR:\n\n• Fullgörande av avtal (Art. 6.1 b GDPR): Behandlingen är nödvändig för att ingå eller fullgöra ett avtal med dig eller det företag du representerar.\n• Rättslig förpliktelse (Art. 6.1 c GDPR): Behandlingen är nödvändig för att uppfylla en lagstadgad skyldighet som åvilar oss (exempelvis den svenska bokföringslagen 1999:1078).\n• Berättigat intresse (Art. 6.1 f GDPR): Behandlingen baseras på vårt berättigade intresse av att erbjuda säkra och effektiva IT-tjänster, förhindra bedrägerier, optimera våra plattformar och kommunicera med företagskunder.\n• Samtycke (Art. 6.1 a GDPR): I de fall behandling kräver samtycke (exempelvis för vissa typer av direktmarknadsföring eller icke-nödvändiga cookies) inhämtar vi ditt samtycke i förväg. Du har rätt att när som helst återkalla ditt samtycke.` },
           { num: "5", title: "5. Delning av data med tredje parter", icon: "Server", text: `Vi säljer aldrig dina personuppgifter till tredje part.\n\nSom en avancerad IT-verksamhet integrerar vi över 250+ molntjänster, AI-plattformar och designverktyg i våra interna och externa arbetsflöden (exempelvis leverantörer av molninfrastruktur, databaser, AI-API:er, CDN-nätverk och analysverktyg).\n\nVi delar endast personuppgifter med följande kategorier av mottagare:\n\n• Tredjepartsleverantörer och personuppgiftsbiträden: Leverantörer av molninfrastruktur (exempelvis AWS, Google Cloud), AI-API-leverantörer (exempelvis OpenAI, Anthropic), verktyg för felspårning, kommunikation och analys. Alla biträden är bundna av skriftliga personuppgiftsbiträdesavtal (DPA) i enlighet med Artikel 28 GDPR.\n• Myndigheter: Om vi är skyldiga enligt lag, domstolsbeslut eller myndighetsbeslut att lämna ut uppgifter.\n• Professionella rådgivare: Juridiska ombud, revisorer och finansiella rådgivare under tystnadsplikt.` },
@@ -713,7 +713,7 @@ const resources = {
           { num: "8", title: "8. Användarens rättigheter enligt GDPR", icon: "KeyRound", text: `Som registrerad har du följande rättigheter enligt GDPR:\n\n• Rätt till tillgång (registerutdrag): Du har rätt att begära bekräftelse på om vi behandlar personuppgifter om dig samt få en kopia av uppgifterna.\n• Rätt till rättelse: Du har rätt att få felaktiga eller ofullständiga personuppgifter rättade utan onödigt dröjsmål.\n• Rätt till radering ("rätten att bli bortglömd"): Du kan begära att dina personuppgifter raderas om uppgifterna inte längre är nödvändiga eller om behandlingen saknar laglig grund.\n• Rätt till begränsning av behandling: Du har rätt att begära att behandlingen av dina personuppgifter begränsas under vissa omständigheter.\n• Rätt till dataportabilitet: Du har rätt att få ut dina personuppgifter i ett strukturerat, allmänt använt och maskinläsbart format.\n• Rätt att göra invändningar: Du har rätt att invända mot behandling som baseras på vårt berättigade intresse.\n• Rätt att lämna klagomål: Om du anser att vår behandling av dina personuppgifter strider mot GDPR har du rätt att lämna klagomål till tillsynsmyndigheten:\n  Integritetsskyddsmyndigheten (IMY) - www.imy.se` },
           { num: "9", title: "9. Cookies och spårningstekniker", icon: "Eye", text: `Vi använder cookies och liknande spårningstekniker för att säkerställa webbplatsens funktionalitet, analysera prestanda och förbättra användarupplevelsen.\n\n• Nödvändiga cookies: Krävs för grundläggande navigering, säkerhet och funktionalitet. Kan inte stängas av.\n• Analys- och prestandacookies: Hjälper oss att förstå hur besökare interagerar med plattformen genom anonymiserad statistik.\n• Funktionella cookies: Kommer ihåg inställningar som språk- och temapreferenser.\n\nDu kan när som helst ändra eller återkalla ditt cookie-samtycke via inställningarna i din webbläsare.` },
           { num: "10", title: "10. Säkerhetsåtgärder", icon: "Lock", text: `Vi tillämpar branschledande tekniska och organisatoriska säkerhetsåtgärder för att skydda dina personuppgifter mot oavsiktlig eller olaglig förstörelse, förlust, ändring, obehörigt röjande eller obehörig åtkomst:\n\n• Kryptering: Data i vila krypteras med AES-256 och data i transit krypteras med TLS 1.3.\n• Åtkomstkontroll: Principen om minsta privilege (PoLP) och Zero-Trust-arkitektur tillämpas strikt för all personal och alla system.\n• Övervakning och säkerhetsgranskning: Kontinuerlig sårbarhetsscanning, automatiserad säkerhetsövervakning och regelbundna kodgranskningar i enlighet med ISO 27001-standarder.` },
-          { num: "11", title: "11. Kontaktinformation", icon: "Mail", text: `Om du har frågor om denna dataskyddspolicy, vill utöva dina rättigheter eller kontakta vårt dataskyddsombud, kan du nå oss via:\n\n• Företag: RoshaLink / Diara IT Infrastructure\n• E-post för integritetsfrågor: roshalinkcompany@gmail.com\n• Webbplats: https://roshalink.com\n• Postadress: RoshaLink IT Operations, Stockholm, Sweden & San Francisco, CA` },
+          { num: "11", title: "11. Kontaktinformation", icon: "Mail", text: `Om du har frågor om denna dataskyddspolicy, vill utöva dina rättigheter eller kontakta vårt dataskyddsombud, kan du nå oss via:\n\n• Företag: RoshaLink IT Infrastructure\n• E-post för integritetsfrågor: contact@roshalink.com\n• Webbplats: https://roshalink.com\n• Postadress: RoshaLink IT Operations, Stockholm, Sweden (Global Engineering Operations)` },
           { num: "12", title: "12. Ändringar i denna dataskyddspolicy", icon: "RefreshCw", text: `Vi förbehåller oss rätten att uppdatera denna dataskyddspolicy för att återspegla ändringar i vår verksamhet, tekniska utveckling eller tillämplig lagstiftning.\n\nNär väsentliga ändringar görs kommer vi att meddela detta via vår webbplats eller per e-post innan ändringarna träder i kraft. Det datum som anges högst upp i policyn anger när den senast uppdaterades.` }
         ]
       },
@@ -727,12 +727,12 @@ const resources = {
           secondaryCta: "Se vad vi erbjuder",
           floatingPillTitle: "Molnbaserat & skalbart från dag ett",
           floatingPillSubtitle: "Säkert, snabbt och byggt för att växa",
-          metric1Value: "100/100",
-          metric1Label: "Google Lighthouse & SEO",
-          metric2Value: "< 20ms",
-          metric2Label: "Snabbhet globalt",
+          metric1Value: "Toppklass",
+          metric1Label: "Google Core Web Vitals & SEO",
+          metric2Value: "Sub-Second",
+          metric2Label: "Global svarstid",
           metric3Value: "ISO 27001",
-          metric3Label: "Säker & pålitlig",
+          metric3Label: "Standardiserad säkerhet",
           metric4Value: "5 Seniorer",
           metric4Label: "Du pratar direkt med dem som bygger"
         },
@@ -760,12 +760,12 @@ const resources = {
             id: "web-architecture",
             category: "FRONTEND & WEBB",
             title: "Skräddarsydd Webbarkitektur & React",
-            desc: "Moderna, blixtsnabba webbapplikationer och företagsportaler konstruerade med ren React-kod, modulära komponenter och perfekt Lighthouse-optimering.",
+            desc: "Moderna, blixtsnabba webbapplikationer och företagsportaler konstruerade med ren React-kod, modulära komponenter och optimering för Google Core Web Vitals.",
             deliverables: [
               "Bespoke Single Page Apps (SPA) & Portaler",
               "Tokeniserat UI/UX Designsystem",
               "WCAG 2.1 AA Tillgänglighet & Responsivitet",
-              "100/100 Core Web Vitals & Google SEO"
+              "Optimerade Core Web Vitals & Google SEO"
             ],
             techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
           },
@@ -773,7 +773,7 @@ const resources = {
             id: "cloud-backend",
             category: "BACKEND & INFRASTRUKTUR",
             title: "Företagsklassad Backend & Mikrotjänster",
-            desc: "Stabila och felsäkra backend-system, databaser och API-arkitekturer med sub-20ms transaktionstider och 99.99% garanterad drifttid.",
+            desc: "Stabila och felsäkra backend-system, distribuerade databaser och API-arkitekturer med hög tillgänglighet och optimerad latens.",
             deliverables: [
               "Händelsestyrda mikrotjänster & REST/GraphQL",
               "PostgreSQL, Redis & NoSQL Databasarkitektur",
@@ -819,7 +819,7 @@ const resources = {
               "Automatiserad XML Sitemap & Search Console",
               "Konverteringsoptimering & A/B-testning"
             ],
-            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+            techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
           }
         ],
         techMatrix: {
@@ -836,7 +836,7 @@ const resources = {
             { title: "Vanilla CSS & Tailwind", desc: "Noll körtidsbelastning, ren modulär CSS-arkitektur och kompromisslös renderprestanda." }
           ],
           backend: [
-            { title: "Node.js & Mikrotjänster", desc: "Asynkron händelsestyrd körtid utvecklad för mikrotjänster med svarstider under 20 millisekunder." },
+            { title: "Node.js & Mikrotjänster", desc: "Asynkron händelsestyrd körtid utvecklad för mikrotjänster med minimala svarstider." },
             { title: "PostgreSQL & Prisma", desc: "ACID-kompatibel relationsdatamodellering med automatiserade och typsäkra databasmigreringar." },
             { title: "Redis & Upstash", desc: "Distribuerad in-memory-cache med sub-millisekunds latens och realtidsrate-limiting." },
             { title: "WebSockets & Telemetri", desc: "Tvåvägs realtidssynkronisering med kontinuerlig händelsebevakning och telemetriåterkoppling." }
@@ -851,7 +851,7 @@ const resources = {
             { title: "Docker & Containerisering", desc: "Isolerade och reproducerbara container-miljöer för friktionsfri utveckling och drift." },
             { title: "AWS & Cloudflare Edge", desc: "Serverlös global edge-distribution i över 300 städer med inbyggt enterprise DDoS-skydd." },
             { title: "ISO 27001 & Säkerhet", desc: "Total AES-256-kryptering, TLS 1.3 och strikt Zero-Trust åtkomstkontroll i alla lager." },
-            { title: "Automatiserad CI/CD", desc: "Automatisk testning, kodanalys och driftsättning via GitHub Actions med 99.99% upptid." }
+            { title: "Automatiserad CI/CD", desc: "Automatisk testning, kodanalys och driftsättning via GitHub Actions med hög tillförlitlighet." }
           ]
         },
         process: {
@@ -876,7 +876,7 @@ const resources = {
           step4Num: "04",
           step4Title: "Lansering & driftsättning",
           step4Desc: "Vi testar allt noggrant, säkerställer att allt fungerar perfekt och rullar ut till hela världen — utan ett enda driftstopp.",
-          step4Tags: ["100/100 Lighthouse", "Säkerhetsgranskning", "Globalt CDN & 99.99% drifttid"],
+          step4Tags: ["Core Web Vitals", "Säkerhetsgranskning", "Globalt CDN & hög drifttid"],
           nextStage: "Nästa steg",
           stageCounter: "Steg {{current}} av {{total}}"
         },
@@ -894,7 +894,7 @@ const resources = {
           f2Rosha: "Ren, skräddarsydd React & Node.js-kod",
           f3: "Hur snabb är den?",
           f3Agency: "Långsam (2–5 sek), dåliga poäng",
-          f3Rosha: "Blixtsnabb (< 20ms), 100/100 Lighthouse",
+          f3Rosha: "Blixtsnabb, optimerad för Core Web Vitals",
           f4: "Vem äger koden?",
           f4Agency: "Osäkra plugins, oklar äganderätt",
           f4Rosha: "Du äger allt — 100% från dag ett",
@@ -928,12 +928,12 @@ const resources = {
         titleGradient: "extraordinärt",
         titleSuffix: " tillsammans",
         subtitle: "Boka en teknisk strategisession eller kontakta vårt team direkt för att diskutera ert nästa projekt.",
-        diaraPillTitle: "RoshaLink Direktkanal",
-        diaraPillSubtitle: "Strategisk support dygnet runt",
+        roshaPillTitle: "RoshaLink Direktkanal",
+        roshaPillSubtitle: "Strategisk support dygnet runt",
         infoTitle: "Direktkontakt med teamet",
         infoSubtitle: "Inga säljare eller mellanhänder. Prata direkt med våra systemarkitekter och designledare.",
         emailLabel: "Primär E-post",
-        emailValue: "roshalinkcompany@gmail.com",
+        emailValue: "contact@roshalink.com",
         phoneLabel: "Plats & Konsultation",
         phoneValue: "Stockholm, Sverige & Global Remote",
         locationLabel: "Plats & Möten",
@@ -1001,7 +1001,7 @@ const resources = {
             role: "Head of Product & Brand"
           },
           sohrab: {
-            quote: "Distributed cloud systems with sub-20ms latency and 99.99% uptime guarantee your platform never fails under peak enterprise traffic.",
+            quote: "Distributed cloud systems with high availability and minimal latency ensure your platform performs flawlessly under peak enterprise traffic.",
             name: "Sam",
             role: "Senior Full-Stack & Cloud Engineer"
           },
@@ -1036,12 +1036,12 @@ const resources = {
             stat1Val: "100%",
             stat1Label: "Tailor-Made Code",
             stat1Sub: "No templates or shortcuts",
-            stat2Val: "99.99%",
-            stat2Label: "Uptime & Reliability",
-            stat2Sub: "Modern cloud infrastructure",
-            stat3Val: "<20ms",
+            stat2Val: "High Availability",
+            stat2Label: "Resilient Cloud",
+            stat2Sub: "Modern fault-tolerant infrastructure",
+            stat3Val: "Ultra-Fast",
             stat3Label: "Response & Latency",
-            stat3Sub: "100/100 Lighthouse & SEO",
+            stat3Sub: "Optimized Core Web Vitals & SEO",
             stat4Val: "5+",
             stat4Label: "Senior Partner Architects",
             stat4Sub: "Direct collaboration without middle layers"
@@ -1100,7 +1100,7 @@ const resources = {
           card1Desc: "Modern enterprises struggle with disconnected design systems, slow legacy backends, and bloated software. We analyze your core workflows first and craft custom solutions designed for profit.",
           card2Badge: "ZERO DOWNTIME",
           card2Title: "Performance",
-          card2Desc: "Modular, event-driven architectures engineered for 99.99% uptime, sub-20ms transaction speeds, and multi-platform consistency across web and mobile.",
+          card2Desc: "Modular, event-driven architectures engineered for high availability, minimal latency, and multi-platform consistency across web and mobile.",
           card3Badge: "DIRECT PARTNERSHIP",
           card3Title: "Partnership",
           card3Desc: "No junior developers, no offshore outsourcing, and no project manager proxies. You work in real-time with the 5 senior partners who write your code.",
@@ -1126,7 +1126,7 @@ const resources = {
           step3Desc: "Pure, template-free custom development in React, Node/Cloud backends, and micro-frontends.",
           step4Num: "04",
           step4Title: "Performance Tuning & Global Deployment",
-          step4Desc: "100/100 Lighthouse optimization, automated CI/CD pipelines, ISO compliance, and 24/7 observability."
+          step4Desc: "Core Web Vitals optimization, automated CI/CD pipelines, ISO 27001 standards, and 24/7 observability."
         },
         values: {
           badge: "CORE PRINCIPLES",
@@ -1141,7 +1141,7 @@ const resources = {
           v4Title: "Transparent Collaboration",
           v4Desc: "Real-time communication with senior partner architects with full transparency across every development sprint.",
           v5Title: "Lightning Speed & SEO",
-          v5Desc: "Sub-20ms interfaces and clean code architecture achieving 100/100 ratings across Google PageSpeed and SEO.",
+          v5Desc: "Ultra-fast interfaces and clean code architecture engineered to excel in Google Core Web Vitals and SEO.",
           v6Title: "Long-Term Partnership",
           v6Desc: "We operate as your dedicated technical leadership partner, evolving and scaling your software continuously."
         },
@@ -1154,7 +1154,7 @@ const resources = {
           "a1": {
                   "badge": "PERFORMANCE",
                   "title": "BEST WEB ARCHITECTURE",
-                  "subtitle": "100/100 Google Lighthouse, ultra-fast speed & enterprise security",
+                  "subtitle": "Optimized Core Web Vitals, ultra-fast speed & enterprise security",
                   "recipient": "RoshaLink Architecture Benchmark",
                   "date": "Zero Compromises",
                   "level": "prestanda"
@@ -1220,7 +1220,7 @@ const resources = {
         card1Title: "AI-Driven Automation",
         card1Sub: "Intelligent workflows & AI agents",
         card2Title: "Lightning Speed",
-        card2Sub: "100/100 Google Lighthouse & SEO",
+        card2Sub: "Optimized Core Web Vitals & SEO",
         card3Title: "Tailor-Made Code",
         card3Sub: "Custom architecture without templates"
       },
@@ -1235,7 +1235,7 @@ const resources = {
         badge: "FEATURE HIGHLIGHTS",
         title: "Next-Gen Architecture Built into Every Solution",
         subtitle: "Experience stacked performance, enterprise security, and tokenized design system architecture out-of-the-box. We build software that stays fast at scale.",
-        bullet1: "ISO 27001 Certified Security & Zero-Trust Access",
+        bullet1: "ISO 27001-Aligned Security & Zero-Trust Access",
         bullet2: "Tokenized Multi-Brand React Component Library",
         bullet3: "Real-Time Event-Driven Micro-frontends & Analytics",
         exploreBtn: "Explore Solution Architecture",
@@ -1248,7 +1248,7 @@ const resources = {
         titleSuffix: " Search Results",
         subtitle: "With RoshaLink's ultra-fast architecture, automated SEO optimization, and instant indexing, your website dominates search engines and becomes the first choice for your customers.",
         bullet1: "Top Rankings in Google Search Results",
-        bullet2: "Sub-Second Load Times (100/100 Lighthouse Score)",
+        bullet2: "Sub-Second Load Times (Optimized Core Web Vitals)",
         bullet3: "Automated SEO Structure & Rich Snippets",
         button: "Boost Your Ranking"
       },
@@ -1325,7 +1325,7 @@ const resources = {
         highlight2Title: "Dominant #1 Google Search Positions",
         highlight2Desc: "Reach top rankings in Google with structured SEO metadata and instant search indexing.",
         highlight3Title: "Ultra-Fast Speed & High Engagement",
-        highlight3Desc: "Sub-second page load speeds (100/100 Lighthouse) keeping users hooked and buying.",
+        highlight3Desc: "Sub-second page load speeds and top Core Web Vitals keeping users hooked and buying.",
         boostBtn: "Boost Sales & SEO",
         exploreBtn: "Our Capabilities",
         modalTitle: "Explore Our Capabilities",
@@ -1532,7 +1532,7 @@ const resources = {
         titleGradient: "Strategic Product Innovation",
         subtitle: "Transform your enterprise potential through high-performance software and precision user design.",
         bullet1: "4M+ Active Enterprise Users Supported",
-        bullet2: "Sub-20ms Transaction & Analytics Performance",
+        bullet2: "Real-Time Performance & Optimized Data Analytics",
         bullet3: "Tokenized Modular React Component Design System",
         explorePortfolio: "Explore Full Portfolio",
         startProject: "Start Your Project"
@@ -1545,8 +1545,8 @@ const resources = {
       },
       testimonials: {
         badge: "CLIENT TESTIMONIALS & REVIEWS",
-        title: "Trusted by 80+ Industry Leaders",
-        rating: "4.6 / 5.0 Overall Rating",
+        title: "Verified Client Satisfaction",
+        rating: "Top Ratings & Long-Term Partnerships",
         roles: {
           r1: "Owner, Perspolis Restaurant",
           r2: "Practice Manager, Tandläkaren",
@@ -1681,8 +1681,8 @@ const resources = {
         updated: "Last Updated: August 10, 2026",
         subtitle: "We are committed to safeguarding your personal data with the highest security standards, full transparency, and full compliance with the EU General Data Protection Regulation (GDPR).",
         fullSections: [
-          { num: "1", title: "1. Introduction", icon: "ShieldCheck", text: `This Privacy Policy ("Policy") explains how RoshaLink / Diara ("Company", "we", "us", or "our") collects, uses, stores, shares, and protects personal data in connection with our IT development, software applications, infrastructure services, and integrated digital platforms.\n\nWe are committed to respecting your privacy and protecting your personal data in full compliance with Regulation (EU) 2016/679 ("GDPR"), the Swedish Data Protection Act (Lag 2018:218), and all applicable laws.\n\nBy using our services, accessing our applications, or entering into a contract with us, you acknowledge that you have read and understood this Privacy Policy.` },
-          { num: "2", title: "2. Personal Data We Collect", icon: "FileText", text: `We collect only personal data strictly necessary to fulfill contractual and legal obligations, maintain system security, and operate and enhance IT services:\n\n• Contact & Identity Data: Name, email address, phone number, job title, company name, billing address, IP address.\n• Account & Authentication Data: Usernames, encrypted passwords, security logs, authentication tokens, user preferences.\n• Technical Logs & Device Data: IP addresses, browser type, OS, resolution, timestamps, crash reports, performance metrics.\n• Communication Data: Messages, support tickets, inquiries sent via email, contact forms, or AI widgets (Diara AI Assistant).\n• Integration & Telemetry Data: Telemetry and interaction logs generated during software and platform execution.` },
+          { num: "1", title: "1. Introduction", icon: "ShieldCheck", text: `This Privacy Policy ("Policy") explains how RoshaLink ("Company", "we", "us", or "our") collects, uses, stores, shares, and protects personal data in connection with our IT development, software applications, infrastructure services, and integrated digital platforms.\n\nWe are committed to respecting your privacy and protecting your personal data in full compliance with Regulation (EU) 2016/679 ("GDPR"), the Swedish Data Protection Act (Lag 2018:218), and all applicable laws.\n\nBy using our services, accessing our applications, or entering into a contract with us, you acknowledge that you have read and understood this Privacy Policy.` },
+          { num: "2", title: "2. Personal Data We Collect", icon: "FileText", text: `We collect only personal data strictly necessary to fulfill contractual and legal obligations, maintain system security, and operate and enhance IT services:\n\n• Contact & Identity Data: Name, email address, phone number, job title, company name, billing address, IP address.\n• Account & Authentication Data: Usernames, encrypted passwords, security logs, authentication tokens, user preferences.\n• Technical Logs & Device Data: IP addresses, browser type, OS, resolution, timestamps, crash reports, performance metrics.\n• Communication Data: Messages, support tickets, inquiries sent via email, contact forms, or AI widgets (Rosha AI Assistant).\n• Integration & Telemetry Data: Telemetry and interaction logs generated during software and platform execution.` },
           { num: "3", title: "3. How We Use Your Information", icon: "CheckCircle2", text: `We process personal data for explicit, legitimate purposes:\n\n1. Service Delivery & Operation: Deliver, configure, maintain, and administer software solutions, websites, and user accounts.\n2. Customer Support & Communication: Process support tickets, send technical notices, updates, and administrative news.\n3. Security & System Integrity: Monitor infrastructure stability, prevent unauthorized access, mitigate cyber threats, perform debugging.\n4. Optimization of Integrated Workflows: Ensure flawless functionality across workflows integrating 250+ cloud infrastructure services, AI platforms, and design tools.\n5. Analytics & Product Enhancement: Analyze usage trends, optimize UI performance, and build new capabilities.\n6. Legal Compliance: Comply with statutory duties under financial accounting laws, tax regulations, and lawful authority requests.` },
           { num: "4", title: "4. Legal Bases for Processing", icon: "Scale", text: `We process personal data based on Article 6 GDPR legal grounds:\n\n• Performance of a Contract (Art. 6.1(b) GDPR): Necessary to execute or perform a contract with you or your entity.\n• Legal Obligation (Art. 6.1(c) GDPR): Necessary to comply with statutory legal duties (e.g., Swedish Bookkeeping Act 1999:1078).\n• Legitimate Interests (Art. 6.1(f) GDPR): Based on legitimate interests in providing secure, high-performance IT solutions and preventing fraud.\n• Consent (Art. 6.1(a) GDPR): Where required by law (e.g., non-essential cookies), we obtain prior explicit consent. You may withdraw consent at any time.` },
           { num: "5", title: "5. Data Sharing & Third-Party Integrations", icon: "Server", text: `We NEVER sell your personal data.\n\nAs an advanced IT development firm, we seamlessly integrate 250+ cloud services, AI platforms, database systems, CDN providers, and design software tools.\n\nWe share data only with:\n• Processors & Cloud Providers: Cloud infrastructure (AWS, Google Cloud), AI APIs (OpenAI, Anthropic), analytics and monitoring tools bound by strict DPAs (Art. 28 GDPR).\n• Public Authorities: When mandated by applicable law, court order, or lawful authority request.\n• Professional Advisors: Legal counsel, auditors, and financial accountants bound by confidentiality obligations.` },
@@ -1691,7 +1691,7 @@ const resources = {
           { num: "8", title: "8. Your Rights Under GDPR", icon: "KeyRound", text: `Under GDPR, data subjects possess the following rights:\n\n• Right of Access (Art. 15): Request confirmation of processing and obtain a copy of your personal data.\n• Right to Rectification (Art. 16): Request correction of inaccurate or incomplete personal data.\n• Right to Erasure / "Right to be Forgotten" (Art. 17): Request deletion of personal data under statutory conditions.\n• Right to Restriction (Art. 18): Request limitation of processing activities.\n• Right to Data Portability (Art. 20): Receive personal data in a structured, machine-readable format.\n• Right to Object (Art. 21): Object to processing based on legitimate interests or direct marketing.\n• Right to Lodge a Complaint: File a complaint with the lead supervisory authority (Integritetsskyddsmyndigheten - IMY, www.imy.se).` },
           { num: "9", title: "9. Cookies and Tracking Technologies", icon: "Eye", text: `We utilize cookies to guarantee website stability, evaluate performance metrics, and enhance user navigation:\n\n• Essential Cookies: Mandatory for security, authentication, and core functionality. Cannot be disabled.\n• Analytics & Performance Cookies: Collect anonymized usage statistics to optimize speed and rendering.\n• Functional Cookies: Store preferences like language and theme configurations.\n\nYou may adjust or revoke cookie consent at any time via browser settings.` },
           { num: "10", title: "10. Security Measures", icon: "Lock", text: `We enforce robust technical and organizational security controls:\n\n• Encryption: Data in transit is protected via TLS 1.3; data at rest is encrypted using AES-256 standards.\n• Access Control: Zero-Trust architecture and Principle of Least Privilege (PoLP) strictly enforced across all accounts.\n• Security Hardening: Automated vulnerability scanning, intrusion detection systems, alignment with ISO 27001 standards.` },
-          { num: "11", title: "11. Contact Information", icon: "Mail", text: `For privacy inquiries or exercising GDPR rights, contact our Privacy Officer:\n\n• Entity: RoshaLink / Diara IT Infrastructure\n• Privacy Email: roshalinkcompany@gmail.com\n• Website: https://roshalink.com\n• Address: RoshaLink IT Operations, Stockholm, Sweden & San Francisco, CA` },
+          { num: "11", title: "11. Contact Information", icon: "Mail", text: `For privacy inquiries or exercising GDPR rights, contact our Privacy Officer:\n\n• Entity: RoshaLink IT Infrastructure\n• Privacy Email: contact@roshalink.com\n• Website: https://roshalink.com\n• Address: RoshaLink IT Operations, Stockholm, Sweden (Global Engineering Operations)` },
           { num: "12", title: "12. Changes to This Privacy Policy", icon: "RefreshCw", text: `We reserve the right to revise this Privacy Policy to reflect technical advancements, legal updates, or operational changes.\n\nMaterial revisions will be notified via prominent website banners or email prior to taking effect.` }
         ]
       },
@@ -1705,12 +1705,12 @@ const resources = {
           secondaryCta: "See What We Do",
           floatingPillTitle: "Cloud-native & built to scale",
           floatingPillSubtitle: "Fast, secure, and ready for growth",
-          metric1Value: "100/100",
-          metric1Label: "Google Lighthouse & SEO",
-          metric2Value: "< 20ms",
-          metric2Label: "Global response speed",
+          metric1Value: "Top Tier",
+          metric1Label: "Google Core Web Vitals & SEO",
+          metric2Value: "Sub-Second",
+          metric2Label: "Global latency",
           metric3Value: "ISO 27001",
-          metric3Label: "Secure & reliable",
+          metric3Label: "Standardized security",
           metric4Value: "5 Seniors",
           metric4Label: "You talk directly to who builds it"
         },
@@ -1738,12 +1738,12 @@ const resources = {
             id: "web-architecture",
             category: "FRONTEND & WEB",
             title: "Bespoke Web Architecture & React Engineering",
-            desc: "Ultra-fast web applications and enterprise portals engineered with clean React code, modular tokenized components, and 100/100 Google Lighthouse optimization.",
+            desc: "Ultra-fast web applications and enterprise portals engineered with clean React code, modular tokenized components, and Google Core Web Vitals optimization.",
             deliverables: [
               "Bespoke Single Page Apps (SPA) & Portals",
               "Tokenized UI/UX Design Systems",
               "WCAG 2.1 AA Accessibility & Responsiveness",
-              "100/100 Core Web Vitals & Search Indexing"
+              "Optimized Core Web Vitals & Search Indexing"
             ],
             techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
           },
@@ -1751,7 +1751,7 @@ const resources = {
             id: "cloud-backend",
             category: "BACKEND & INFRASTRUCTURE",
             title: "Enterprise Backend & Microservices Architecture",
-            desc: "Resilient server architectures, distributed databases, and event-driven API pipelines with sub-20ms transaction speeds and 99.99% guaranteed uptime.",
+            desc: "Resilient server architectures, distributed databases, and event-driven API pipelines engineered for ultra-low latency and fault-tolerant high availability.",
             deliverables: [
               "Event-driven microservices & REST/GraphQL APIs",
               "PostgreSQL, Redis & NoSQL Database Architecture",
@@ -1797,7 +1797,7 @@ const resources = {
               "Automated XML Sitemap & Search Console indexing",
               "Conversion rate optimization (CRO) & A/B testing"
             ],
-            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+            techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
           }
         ],
         techMatrix: {
@@ -1814,7 +1814,7 @@ const resources = {
             { title: "Vanilla CSS & Tailwind", desc: "Zero-runtime bloat, clean modular layout rules, and strict CSS architecture for optimal rendering." }
           ],
           backend: [
-            { title: "Node.js & Microservices", desc: "High-concurrency async runtime engineered for microservices with sub-20ms low-latency transaction pipelines." },
+            { title: "Node.js & Microservices", desc: "High-concurrency async runtime engineered for microservices with low-latency transaction pipelines." },
             { title: "PostgreSQL & Prisma", desc: "Robust ACID-compliant relational data modeling with automated type-safe database migrations." },
             { title: "Redis & Upstash", desc: "Distributed in-memory caching with sub-millisecond latency, distributed rate limiting, and pub/sub queues." },
             { title: "WebSockets & Telemetry", desc: "Bidirectional live synchronization streams with instant continuous event monitoring and telemetry." }
@@ -1854,7 +1854,7 @@ const resources = {
           step4Num: "04",
           step4Title: "Launch & Go Live",
           step4Desc: "We test everything thoroughly and deploy globally — without a single minute of downtime.",
-          step4Tags: ["100/100 Lighthouse", "Security review", "Global CDN & 99.99% uptime"],
+          step4Tags: ["Core Web Vitals", "Security review", "Global CDN & High Availability"],
           nextStage: "Next Step",
           stageCounter: "Step {{current}} of {{total}}"
         },
@@ -1872,7 +1872,7 @@ const resources = {
           f2Rosha: "Clean, custom React & Node.js code",
           f3: "How fast is it?",
           f3Agency: "Slow (2–5 seconds), poor scores",
-          f3Rosha: "Lightning fast (< 20ms), 100/100 Lighthouse",
+          f3Rosha: "Lightning fast, optimized for Core Web Vitals",
           f4: "Who owns the code?",
           f4Agency: "Unsafe plugins, unclear ownership",
           f4Rosha: "You own everything — 100% from day one",
@@ -1906,12 +1906,12 @@ const resources = {
         titleGradient: "Extraordinary",
         titleSuffix: " Together",
         subtitle: "Schedule a technical strategy session or reach out directly to our team to discuss your next project.",
-        diaraPillTitle: "RoshaLink Direct Channel",
-        diaraPillSubtitle: "24/7 Strategic Support",
+        roshaPillTitle: "RoshaLink Direct Channel",
+        roshaPillSubtitle: "24/7 Strategic Support",
         infoTitle: "Direct Partner Access",
         infoSubtitle: "No intermediate sales reps. Speak directly with our Systems Architects and Head of Design.",
         emailLabel: "Primary Email",
-        emailValue: "roshalinkcompany@gmail.com",
+        emailValue: "contact@roshalink.com",
         phoneLabel: "Location & Consultation",
         phoneValue: "Stockholm, Sweden & Global Remote",
         locationLabel: "Location & Consultation",
@@ -1979,7 +1979,7 @@ const resources = {
             role: "مدیر ارشد محصول و برندینگ"
           },
           sohrab: {
-            quote: "زیرساخت‌های توزیع‌شده ابری با زمان پاسخ زیر ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین می‌کنند پلتفرم شما زیر سنگین‌ترین ترافیک‌ها هم پایدار بماند.",
+            quote: "زیرساخت‌های توزیع‌شده ابری با دسترسی‌پذیری بالا و حداقل میزان تاخیر تضمین می‌کنند پلتفرم شما زیر سنگین‌ترین بار کاری پایدار بماند.",
             name: "Sam",
             role: "مهندس ارشد فول‌استک و کلاد"
           },
@@ -2014,12 +2014,12 @@ const resources = {
             stat1Val: "۱۰۰٪",
             stat1Label: "کدنویسی کاملاً اختصاصی",
             stat1Sub: "بدون استفاده از قالب‌های آماده",
-            stat2Val: "۹۹.۹۹٪",
-            stat2Label: "پایداری و آپ‌تایم سیستم",
-            stat2Sub: "زیرساخت ابری مدرن و پایدار",
-            stat3Val: "کمتر از ۲۰ms",
+            stat2Val: "دسترس‌پذیری بالا",
+            stat2Label: "زیرساخت ابری پایدار",
+            stat2Sub: "معماری توزیع‌شده و مقاوم در برابر اختلال",
+            stat3Val: "فوق‌العاده سریع",
             stat3Label: "سرعت پاسخگویی و لود",
-            stat3Sub: "امتیاز ۱۰۰/۱۰۰ گوگل و لایت‌هاوس",
+            stat3Sub: "بهینه‌سازی بر پایه Core Web Vitals و سئو",
             stat4Val: "۵+",
             stat4Label: "معمار و پارتنر ارشد",
             stat4Sub: "همکاری مستقیم بدون واسطه"
@@ -2078,7 +2078,7 @@ const resources = {
           card1Desc: "بسیاری از سازمان‌ها با سیستم‌های کند و قالب‌های آماده ناکارآمد دست‌وپنجه نرم می‌کنند. ما ابتدا مدل کسب‌وکار شما را تحلیل کرده و راهکاری سفارشی خلق می‌کنیم.",
           card2Badge: "آپ‌تایم و امنیت پایدار",
           card2Title: "عملکرد",
-          card2Desc: "معماری ماژولار و رویدادمحور با استاندارد امنیتی ISO 27001 و سرعت پاسخ کمتر از ۲۰ میلی‌ثانیه برای تضمین عملکرد بی‌وقفه.",
+          card2Desc: "معماری ماژولار و رویدادمحور با استاندارد امنیتی الهام‌گرفته از ISO 27001، پایداری بالا و کمترین زمان پاسخ برای تضمین عملکرد بی‌وقفه.",
           card3Badge: "همکاری مستقیم با تیم اصلی",
           card3Title: "مشارکت",
           card3Desc: "بدون برون‌سپاری یا واسطه؛ شما مستقیماً با ۵ پارتنر و معمار ارشد سیستم در ارتباط هستید که خود کدنویسی پروژه را انجام می‌دهند.",
@@ -2104,7 +2104,7 @@ const resources = {
           step3Desc: "برنامه‌نویسی تمیز با React، وب‌سرویس‌های ابری و فرانت‌اند بدون استفاده از هیچ قالب عمومی.",
           step4Num: "۰۴",
           step4Title: "بهینه‌سازی لایت‌هاوس و استقرار جهانی",
-          step4Desc: "دستیابی به امتیاز ۱۰۰/۱۰۰ سرعت و سئو، امنیت ایزو و استقرار در شبکه‌های ابری جهانی."
+          step4Desc: "بهینه‌سازی بر پایه استانداردهای Core Web Vitals و سئو، امنیت ایزو و استقرار در شبکه‌های ابری جهانی."
         },
         values: {
           badge: "اصول و ارزش‌های کلیدی",
@@ -2132,7 +2132,7 @@ const resources = {
           "a1": {
                   "badge": "کارایی و سرعت",
                   "title": "برترین معماری وب و کلاد",
-                  "subtitle": "امتیاز ۱۰۰ لایت‌هاوس گوگل، سرعت خارق‌العاده و حداکثر امنیت",
+                  "subtitle": "بهینه‌سازی برتر Core Web Vitals گوگل، سرعت خارق‌العاده و حداکثر امنیت",
                   "recipient": "استاندارد معماری روشالینک",
                   "date": "توسعه بدون نقص",
                   "level": "prestanda"
@@ -2198,7 +2198,7 @@ const resources = {
         card1Title: "اتوماسیون هوش مصنوعی",
         card1Sub: "فرآیندهای هوشمند و دستیارهای خودکار",
         card2Title: "عملکرد فوق‌العاده و دیده شدن در گوگل",
-        card2Sub: "امتیاز ۱۰۰ از ۱۰۰ گوگل و رتبه اول سئو",
+        card2Sub: "بهینه‌سازی برتر Core Web Vitals و سئو گوگل",
         card3Title: "توسعه اختصاصی",
         card3Sub: "طراحی سفارشی بدون استفاده از قالب‌های آماده"
       },
@@ -2213,7 +2213,7 @@ const resources = {
         badge: "ویژگی‌های برجسته",
         title: "فناوری نسل جدید در تمام راهکارهای وب و نرم‌افزار",
         subtitle: "سرعت فوق‌العاده، امنیت بالا و سیستم طراحی یکپارچه را همراه با پشتیبانی کامل تجربه کنید.",
-        bullet1: "امنیت پیشرفته با گواهینامه ISO 27001 و دسترسی امن",
+        bullet1: "امنیت پیشرفته بر پایه استانداردهای ISO 27001 و Zero-Trust",
         bullet2: "کتابخانه اختصاصی قطعات طراحی برای هماهنگی کامل برند",
         bullet3: "معماری ماژولار و تحلیل لحظه‌ای داده‌ها",
         exploreBtn: "مشاهده راهکارها",
@@ -2226,7 +2226,7 @@ const resources = {
         titleSuffix: " قرار می‌گیرد",
         subtitle: "با معماری فوق‌سریع روشالینک، بهینه‌سازی خودکار سئو و ایندکس آنی، وب‌سایت شما در صدر نتایج گوگل می‌درخشد و نخستین انتخاب مشتریان خواهد بود.",
         bullet1: "رتبه‌بندی برتر در نتایج جستجوی گوگل",
-        bullet2: "سرعت بارگذاری فوق‌العاده (امتیاز ۱۰۰ از ۱۰۰ گوگل)",
+        bullet2: "سرعت بارگذاری فوق‌العاده (منطبق با استانداردهای Core Web Vitals)",
         bullet3: "ساختار استاندارد سئو برای ثبت و نمایه سریع در گوگل",
         button: "ارتقای رتبه در گوگل"
       },
@@ -2235,7 +2235,7 @@ const resources = {
         titlePrefix: "ما کسب‌وکار شما را تحلیل کرده و ",
         titleGradient: "راهکارهای کاملاً اختصاصی",
         titleSuffix: "می‌سازیم",
-        subtitle: "هر کسب‌وکاری منحصر به‌فرد است. روشالینک مدل کاری شما را بررسی کرده، گلوگاه‌ها را شناسایی می‌کند و نرم‌افزار اختصاصی متناسب با اهداف دقیق شما می‌سازید.",
+        subtitle: "هر کسب‌وکاری منحصر به‌فرد است. روشالینک مدل کاری شما را بررسی کرده، گلوگاه‌ها را شناسایی می‌کند و نرم‌افزار اختصاصی متناسب با اهداف دقیق شما می‌سازد.",
         bullet1: "تحلیل عمیق مدل کسب‌وکار و مسیر مشتریان",
         bullet2: "توسعه نرم‌افزار اختصاصی بدون استفاده از قالب‌های عمومی",
         bullet3: "خودکارسازی فرآیندها و ارتقای ملموس بازدهی مالی",
@@ -2523,8 +2523,8 @@ const resources = {
       },
       testimonials: {
         badge: "نظرات و رضایت مشتریان",
-        title: "مورد اعتماد بیش از ۸۰ مدیر ارشد محصول",
-        rating: "امتیاز ۴.۶ از ۵.۰",
+        title: "رضایت تاییدشده و همکاری پایدار با مشتریان",
+        rating: "بالاترین سطح رضایت‌مندی کارفرمایان",
         roles: {
           r1: "مالک، رستوران پرسپولیس",
           r2: "مدیر کلینیک، Tandläkaren",
@@ -2659,8 +2659,8 @@ const resources = {
         updated: "آخرین بروزرسانی: ۱۰ اوت ۲۰۲۶",
         subtitle: "ما متعهد به حفظ کامل حریم خصوصی شما و حفاظت از داده‌های شخصی بر اساس بالاترین استانداردهای امنیتی اتحادیه اروپا هستیم.",
         fullSections: [
-          { num: "۱", title: "۱. مقدمه", icon: "ShieldCheck", text: `این سیاست حفظ حریم خصوصی («سیاست») نحوه جمع‌آوری، استفاده، ذخیره‌سازی، اشتراک‌گذاری و حفاظت از اطلاعات شخصی شما را توسط RoshaLink / Diara («شرکت»، «ما») در ارائه خدمات فناوری اطلاعات، توسعه نرم‌افزار، زیرساخت‌های ابری و پلتفرم‌های دیجیتال به روشنی توضیح می‌دهد.\n\nما متعهد به حفظ کامل حریم خصوصی شما و حفاظت از اطلاعات شخصی‌تان بر اساس مقررات عمومی حفاظت از داده‌های اتحادیه اروپا ("GDPR")، قانون حفاظت از داده‌های سوئد (Dataskyddslagen 2018:218) و تمامی قوانین بین‌المللی مرتبط هستیم.\n\nاستفاده شما از خدمات، وب‌سایت‌ها یا برنامه‌های ما به منزله مطالعه و قبول این سیاست حفظ حریم خصوصی است.` },
-          { num: "۲", title: "۲. اطلاعاتی که جمع‌آوری می‌کنیم", icon: "FileText", text: `ما تنها اطلاعات شخصی ضروری برای اجرای تعهدات قراردادی، حفظ امنیت زیرساخت و ارائه و بهبود خدمات IT را جمع‌آوری می‌کنیم:\n\n• اطلاعات تماس و هویتی: نام، آدرس ایمیل، شماره تلفن، سمت شغلی، نام شرکت، آدرس صورت‌حساب و آدرس IP.\n• اطلاعات حساب کاربری و احراز هویت: نام کاربری، رمز عبور هش‌شده و رمزنگاری‌شده، ثبت‌های امنیتی (Security Logs)، توکن‌های دسترسی و تنظیمات کاربر.\n• اطلاعات فنی و دستگاه: آدرس IP، نوع مرورگر، سیستم‌عامل، وضوح صفحه نمایش، برچسب‌های زمانی، گزارش‌های خطا و معیارهای سنجش عملکرد سرورها.\n• اطلاعات ارتباطی: پیام‌ها، تیکت‌های پشتیبانی، استعلام‌ها و مکاتبات ارسال‌شده از طریق ایمیل، فرم‌های تماس یا دستیار هوش مصنوعی (Diara AI Assistant).\n• داده‌های ادغام و دورسنجی (Telemetry): داده‌های تعاملی و فنی حاصل از اجرای نرم‌افزارها و زیرساخت‌های متصل.` },
+          { num: "۱", title: "۱. مقدمه", icon: "ShieldCheck", text: `این سیاست حفظ حریم خصوصی («سیاست») نحوه جمع‌آوری، استفاده، ذخیره‌سازی، اشتراک‌گذاری و حفاظت از اطلاعات شخصی شما را توسط RoshaLink («شرکت»، «ما») در ارائه خدمات فناوری اطلاعات، توسعه نرم‌افزار، زیرساخت‌های ابری و پلتفرم‌های دیجیتال به روشنی توضیح می‌دهد.\n\nما متعهد به حفظ کامل حریم خصوصی شما و حفاظت از اطلاعات شخصی‌تان بر اساس مقررات عمومی حفاظت از داده‌های اتحادیه اروپا ("GDPR")، قانون حفاظت از داده‌های سوئد (Dataskyddslagen 2018:218) و تمامی قوانین بین‌المللی مرتبط هستیم.\n\nاستفاده شما از خدمات، وب‌سایت‌ها یا برنامه‌های ما به منزله مطالعه و قبول این سیاست حفظ حریم خصوصی است.` },
+          { num: "۲", title: "۲. اطلاعاتی که جمع‌آوری می‌کنیم", icon: "FileText", text: `ما تنها اطلاعات شخصی ضروری برای اجرای تعهدات قراردادی، حفظ امنیت زیرساخت و ارائه و بهبود خدمات IT را جمع‌آوری می‌کنیم:\n\n• اطلاعات تماس و هویتی: نام، آدرس ایمیل، شماره تلفن، سمت شغلی، نام شرکت، آدرس صورت‌حساب و آدرس IP.\n• اطلاعات حساب کاربری و احراز هویت: نام کاربری، رمز عبور هش‌شده و رمزنگاری‌شده، ثبت‌های امنیتی (Security Logs)، توکن‌های دسترسی و تنظیمات کاربر.\n• اطلاعات فنی و دستگاه: آدرس IP، نوع مرورگر، سیستم‌عامل، وضوح صفحه نمایش، برچسب‌های زمانی، گزارش‌های خطا و معیارهای سنجش عملکرد سرورها.\n• اطلاعات ارتباطی: پیام‌ها، تیکت‌های پشتیبانی، استعلام‌ها و مکاتبات ارسال‌شده از طریق ایمیل، فرم‌های تماس یا دستیار هوش مصنوعی (Rosha AI Assistant).\n• داده‌های ادغام و دورسنجی (Telemetry): داده‌های تعاملی و فنی حاصل از اجرای نرم‌افزارها و زیرساخت‌های متصل.` },
           { num: "۳", title: "۳. نحوه استفاده از اطلاعات", icon: "CheckCircle2", text: `ما اطلاعات شخصی شما را برای اهداف شفاف زیر پردازش و استفاده می‌کنیم:\n\n۱. ارائه و مدیریت خدمات IT: جهت نصب، پیکربندی، نگهداری و مدیریت نرم‌افزارها، وب‌سایت‌ها و حساب‌های کاربری.\n۲. پشتیبانی و ارتباطات: جهت پاسخگویی به درخواست‌ها، مدیریت تیکت‌های پشتیبانی، ارسال اطلاعیه‌های فنی و به‌روزرسانی‌های اداری.\n۳. امنیت و عیب‌یابی: جهت پایش ثبات زیرساخت، جلوگیری از دسترسی‌های غیرمجاز، مقابله با حملات سایبری و رفع ایرادات فنی.\n۴. بهینه‌سازی گردش کارهای ادغام‌شده: جهت تضمین عملکرد روان و پرسرعت در بیش از ۲۵۰ ابزار ابری، پلتفرم هوش مصنوعی و نرم‌افزار طراحی.\n۵. تحلیل و توسعه محصول: جهت تحلیل روند استفاده از خدمات، ارتقای تجربه کاربری و توسعه امکانات جدید.\n۶. الزامات قانونی: جهت پایبندی به قوانین مالیاتی، حسابداری رسمی (قانون حسابداری سوئد 1999:1078) و پاسخگویی به دستورات قانونی مراجع ذی‌صلاح.` },
           { num: "۴", title: "۴. مبنای قانونی پردازش داده‌ها", icon: "Scale", text: `پردازش داده‌های شخصی شما بر اساس ماده ۶ مقررات GDPR و مبانی قانونی زیر انجام می‌شود:\n\n• اجرای قرارداد (بند ۱-ب ماده ۶ GDPR): پردازش برای انعقاد یا اجرای قرارداد با شما یا شرکت متبوع شما ضروری است.\n• الزام قانونی (بند ۱-ج ماده ۶ GDPR): پردازش برای انجام تکالیف قانونی شرکت (از جمله قانون حسابداری سوئد 1999:1078) الزامی است.\n• منافع مشروع (بند ۱-و ماده ۶ GDPR): پردازش بر اساس منافع مشروع ما جهت ارائه خدمات IT امن، جلوگیری از کلاهبرداری و بهبود پلتفرم‌ها صورت می‌گیرد.\n• رضایت کاربر (بند ۱-الف ماده ۶ GDPR): در مواردی که طبق قانون نیاز به اخذ رضایت باشد، رضایت صریح شما قبلاً اخذ می‌شود. شما در هر زمان حق لغو رضایت خود را دارید.` },
           { num: "۵", title: "۵. اشتراک‌گذاری داده‌ها و ادغام‌های شخص ثالث", icon: "Server", text: `ما هرگز اطلاعات شخصی شما را به فروش نمی‌رسانیم.\n\nبه عنوان یک شرکت پیشرفته توسعه IT، ما بیش از ۲۵۰ ابزار ابری، پلتفرم هوش مصنوعی، سرویس‌های پایگاه‌داده، شبکه‌های تحویل محتوا (CDN) و ابزارهای طراحی را در فرآیندهای مهندسی خود یکپارچه‌سازی می‌کنیم.\n\nاطلاعات شما تنها با گروه‌های زیر به اشتراک گذاشته می‌شود:\n• ارائه‌دهندگان سرویس و پردازنده‌ها (Processors): ارائه‌دهندگان زیرساخت ابری (مانند AWS، Google Cloud)، سرویس‌های API هوش مصنوعی (مانند OpenAI، Anthropic)، ابزارهای پایش امنیت و تحلیل طبق موافقت‌نامه پردازش داده‌ها (DPA).\n• مراجع قانونی و دولتی: در صورت الزامات قانونی، احکام دادگاه یا درخواست رسمی مراجع ذی‌صلاح.\n• مشاوران حرفه‌ای: مشاوران حقوقی، حسابرسان و حسابداران رسمی تحت تعهدات محرمانه بودن.` },
@@ -2668,45 +2668,9 @@ const resources = {
           { num: "۷", title: "۷. مدت زمان نگهداری داده‌ها", icon: "Clock", text: `اطلاعات شخصی تنها تا زمانی که برای تحقق اهداف جمع‌آوری ضرورت داشته باشد یا طبق قوانین الزام شده باشد نگهداری می‌شوند:\n\n• داده‌های مشتریان و قراردادها: در طول مدت قرارداد و تا ۷ سال پس از پایان همکاری بر اساس قانون حسابداری سوئد (1999:1078) نگهداری می‌شوند.\n• لاگ‌های فنی و امنیتی: به مدت ۳۰ روز تا ۱۲ ماه نگهداری شده و سپس به صورت خودکار حذف یا ناشناس‌سازی می‌شوند.\n• مکاتبات و تیکت‌های پشتیبانی: تا ۳ سال پس از بسته‌شدن تیکت جهت تضمین کیفیت نگهداری می‌شوند.` },
           { num: "۸", title: "۸. حقوق کاربران طبق مقررات GDPR", icon: "KeyRound", text: `طبق مقررات GDPR، شما دارای حقوق قانونی زیر هستید:\n\n• حق دسترسی (Right of Access): دریافت تاییدیه پردازش داده‌ها و دریافت نسخه‌ای از اطلاعات شخصی خود.\n• حق تصحیح (Right to Rectification): درخواست اصلاح داده‌های نادرست یا ناقص.\n• حق حذف یا «فراموشی» (Right to Erasure): درخواست حذف اطلاعات شخصی تحت شرایط قانونی مشخص.\n• حق محدودسازی پردازش (Right to Restriction): درخواست محدود کردن پردازش داده‌ها در شرایط خاص.\n• حق جابه‌جایی داده‌ها (Data Portability): دریافت اطلاعات در قالبی ساختاریافته و قابل خواندن توسط ماشین.\n• حق اعتراض (Right to Object): اعتراض به پردازش‌هایی که بر اساس منافع مشروع صورت می‌گیرند.\n• حق ثبت شکایت: ثبت شکایت نزد مرجع نظارتی سوئد (IMY - Integritetsskyddsmyndigheten, www.imy.se).` },
           { num: "۹", title: "۹. کوکی‌ها و فناوری‌های ردیابی", icon: "Eye", text: `ما از کوکی‌ها و فناوری‌های مشابه جهت تضمین ثبات وب‌سایت، تحلیل عملکرد و بهبود تجربه کاربری استفاده می‌کنیم:\n\n• کوکی‌های ضروری: برای امنیت، احراز هویت و عملکرد اصلی پلتفرم غیرقابل غیرفعال‌سازی هستند.\n• کوکی‌های تحلیلی و عملکرد: جمع‌آوری آمار ناشناس جهت بهینه‌سازی سرعت و نمایش برنامه‌ها.\n• کوکی‌های کاربردی: ذخیره تنظیماتی مانند زبان، پوسته و منطقه جغرافیایی.\n\nشما می‌توانید در هر زمان تنظیمات کوکی‌ها را از طریق مرورگر خود تغییر دهید یا لغو کنید.` },
-          { num: "۱۰", title: "۱۰. اقدامات امنیتی", icon: "Lock", text: `ما اقدامات امنیتی فنی و سازمانی پیشرفته‌ای برای محافظت از داده‌های شما اع�        awards: {
-          "sectionTitle": "مجالات تميزنا ومعاييرنا الهندسية",
-          "titlePrefix": "مجالات تميزنا و ",
-          "titleGradient": "معاييرنا الهندسية",
-          "titleSuffix": "",
-          "sectionSubtitle": "التزامنا الراسخ بالتميز الهندسي، والمعمارية البرمجية المتطورة، وتصميم المنتجات الرقمية الفائقة.",
-          "a1": {
-                  "badge": "الأداء والسرعة",
-                  "title": "أفضل هندسة معمارية للويب",
-                  "subtitle": "درجة 100 في Google Lighthouse وسرعة فائقة وأعلى درجات الأمان",
-                  "recipient": "معيار المعمارية روشالينك",
-                  "date": "بلا مساومة",
-                  "level": "prestanda"
-          },
-          "a2": {
-                  "badge": "تطوير شامل",
-                  "title": "أنظمة Full-Stack متقدمة",
-                  "subtitle": "كود مخصص ونظيف، واجهات برمجة قوية، وقابلية توسع سحابية",
-                  "recipient": "فريق الهندسة روشالينك",
-                  "date": "سرعة واستقرار",
-                  "level": "ingenjörskonst"
-          },
-          "a3": {
-                  "badge": "تصميم UI/UX",
-                  "title": "أعلى معايير تصميم UI/UX",
-                  "subtitle": "تصاميم عصرية تركز على سهولة الاستخدام وزيادة معدل التحويل",
-                  "recipient": "استودیو تصميم روشالينك",
-                  "date": "محور المستخدم",
-                  "level": "design"
-          },
-          "a4": {
-                  "badge": "ابتكار",
-                  "title": "الابتكار في الذكاء الاصطناعي",
-                  "subtitle": "أتمتة ذكية، وكلاء مؤسسيين، وتطبيقات متطورة للمستقبل",
-                  "recipient": "مختبرات الابتكار روشالينك",
-                  "date": "حلول للمستقبل",
-                  "level": "innovation"
-          }
-        },ل اطلاع‌رسانی خواهند شد.` }
+          { num: "۱۰", title: "۱۰. اقدامات امنیتی", icon: "Lock", text: `ما اقدامات امنیتی فنی و سازمانی پیشرفته‌ای برای محافظت از داده‌های شما اعمال می‌کنیم:\n\n• رمزنگاری: داده‌ها در حال انتقال با TLS 1.3 و داده‌های ذخیره‌شده با استاندارد AES-256 رمزنگاری می‌شوند.\n• کنترل دسترسی: معماری امنیت لایه صفر (Zero-Trust) و اصل حداقل دسترسی (PoLP) برای تمامی حساب‌ها اجرا می‌شود.\n• امنیتی‌سازی زیرساخت: پایش مداوم آسیب‌پذیری‌ها، سامانه‌های تشخیص نفوذ و انطباق با استانداردهای ISO 27001.` },
+          { num: "۱۱", title: "۱۱. اطلاعات تماس", icon: "Mail", text: `برای طرح سوالات درباره حریم خصوصی، اعمال حقوق GDPR یا ارتباط با مسئول حفاظت از داده‌ها:\n\n• نام شرکت: RoshaLink IT Infrastructure\n• ایمیل حریم خصوصی: contact@roshalink.com\n• وب‌سایت: https://roshalink.com\n• آدرس پستی: RoshaLink IT Operations, Stockholm, Sweden (Global Engineering Operations)` },
+          { num: "۱۲", title: "۱۲. تغییرات در سیاست حریم خصوصی", icon: "RefreshCw", text: `ما حق به‌روزرسانی این سیاست را جهت انطباق با پیشرفت‌های فنی، تغییرات قانونی یا فرآیندهای عملیاتی محفوظ می‌داریم. تغییرات عمده از طریق اطلاعیه‌های برجسته در وب‌سایت یا ایمیل اطلاع‌رسانی خواهند شد.` }
         ]
       },
       servicesPage: {
@@ -2719,10 +2683,10 @@ const resources = {
           secondaryCta: "ببین چی می‌سازیم",
           floatingPillTitle: "ابری، سریع و آماده رشد",
           floatingPillSubtitle: "امن، مطمئن و ساخته‌شده برای ماندگاری",
-          metric1Value: "۱۰۰/۱۰۰",
-          metric1Label: "امتیاز گوگل و سئو",
-          metric2Value: "< ۲۰ms",
-          metric2Label: "سرعت پاسخ جهانی",
+          metric1Value: "رتبه برتر",
+          metric1Label: "استاندارد Core Web Vitals و سئو",
+          metric2Value: "فوق سریع",
+          metric2Label: "پاسخ‌دهی بهینه جهانی",
           metric3Value: "ISO 27001",
           metric3Label: "امن و قابل اعتماد",
           metric4Value: "۵ متخصص ارشد",
@@ -2752,12 +2716,12 @@ const resources = {
             id: "web-architecture",
             category: "فرانت‌اند و وب",
             title: "معماری اختصاصی وب و توسعه با React",
-            desc: "وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع که با کدهای تمیز React، کامپوننت‌های ماژولار و بهینه‌سازی ۱۰۰/۱۰۰ لایت‌هاوس مهندسی شده‌اند.",
+            desc: "وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع که با کدهای تمیز React، کامپوننت‌های ماژولار و بهینه‌سازی استاندارد Core Web Vitals مهندسی شده‌اند.",
             deliverables: [
               "وب‌اپلیکیشن‌های تک‌صفحه‌ای (SPA) و پرتال‌ها",
               "سیستم دیزاین توکنیزه‌شده UI/UX",
               "انطباق با استاندارد دسترس‌پذیری WCAG 2.1 AA",
-              "امتیاز ۱۰۰/۱۰۰ Core Web Vitals و سئو گوگل"
+              "بهینه‌سازی برتر Core Web Vitals و سئو گوگل"
             ],
             techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
           },
@@ -2765,7 +2729,7 @@ const resources = {
             id: "cloud-backend",
             category: "بک‌اند و زیرساخت",
             title: "بک‌اند سازمانی و معماری میکروسرویس‌ها",
-            desc: "معماری سرورهای پایدار، پایگاه‌های داده توزیع‌شده و APIهای رویدادمحور با سرعت پاسخ کمتر از ۲۰ میلی‌ثانیه و آپ‌تایم ۹۹.۹۹٪ تضمین‌شده.",
+            desc: "معماری سرورهای پایدار، پایگاه‌های داده توزیع‌شده و APIهای رویدادمحور با دسترسی‌پذیری بالا و کمترین میزان تاخیر.",
             deliverables: [
               "میکروسرویس‌های رویدادمحور و APIهای REST/GraphQL",
               "معماری دیتابیس PostgreSQL، Redis و NoSQL",
@@ -2811,7 +2775,7 @@ const resources = {
               "نقشه سایت اتوماتیک و ایندکس سریع در سرچ کنسول",
               "بهینه‌سازی نرخ تبدیل (CRO) و تست‌های A/B"
             ],
-            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+            techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
           }
         ],
         techMatrix: {
@@ -2828,7 +2792,7 @@ const resources = {
             { title: "Vanilla CSS & Tailwind", desc: "معماری تمیز و ماژولار CSS با پرفورمنس حداکثری و لود سریع در تمامی پلتفرم‌ها." }
           ],
           backend: [
-            { title: "Node.js و میکروسرویس‌ها", desc: "محیط اجرایی ناهمگام پرسرعت برای پردازش خطوط داده با زمان پاسخگویی زیر ۲۰ میلی‌ثانیه." },
+            { title: "Node.js و میکروسرویس‌ها", desc: "محیط اجرایی ناهمگام پرسرعت برای پردازش خطوط داده با زمان پاسخگویی فوق‌سریع و حداقل تاخیر." },
             { title: "PostgreSQL و Prisma", desc: "مدل‌سازی پایگاه‌داده رابطه‌ای منطبق بر استاندارد ACID همراه با مایگریشن‌های تایپ‌سیف." },
             { title: "Redis و Upstash", desc: "کشینگ توزیع‌شده با تاخیر زیر میلی‌ثانیه، صف‌های Pub/Sub و کنترل همزمانی درخواست‌ها." },
             { title: "WebSockets و تله‌متری", desc: "ارتباط بلادرنگ دوطرفه کلاینت و سرور همراه با مانیتورینگ زنده جریان داده‌ها." }
@@ -2843,7 +2807,7 @@ const resources = {
             { title: "Docker و کانتینرسازی", desc: "محیط‌های ایزوله و یکپارچه برای توسعه و استقرار سریع و بدون ریسک در محیط پروداکشن." },
             { title: "AWS و Cloudflare Edge", desc: "توزیع سرورلس جهانی در بیش از ۳۰۰ شهر دنیا با محافظت پیشرفته سازمانی در برابر DDoS." },
             { title: "امنیت ISO 27001 و Zero-Trust", desc: "رمزنگاری سراسری AES-256 و TLS 1.3 با سیاست‌های دسترسی بدون اعتماد در تمامی لایه‌ها." },
-            { title: "خطوط اتوماتیک CI/CD", desc: "تست خودکار، ممیزی امنیتی و استقرار پیوسته روی GitHub Actions با پایداری ۹۹.۹۹٪." }
+            { title: "خطوط اتوماتیک CI/CD", desc: "تست خودکار، ممیزی امنیتی و استقرار پیوسته روی GitHub Actions با پایداری و دسترسی‌پذیری بالا." }
           ]
         },
         process: {
@@ -2868,7 +2832,7 @@ const resources = {
           step4Num: "۰۴",
           step4Title: "لانچ و راه‌اندازی",
           step4Desc: "همه چیز رو کامل تست می‌کنیم و بدون حتی یه ثانیه قطعی، راه‌اندازی می‌کنیم.",
-          step4Tags: ["امتیاز ۱۰۰ لایت‌هاوس", "بررسی امنیتی", "CDN جهانی و آپ‌تایم ۹۹.۹۹٪"],
+          step4Tags: ["استاندارد Core Web Vitals", "بررسی امنیتی", "CDN جهانی و دسترسی‌پذیری بالا"],
           nextStage: "مرحله بعدی",
           stageCounter: "مرحله {{current}} از {{total}}"
         },
@@ -2886,7 +2850,7 @@ const resources = {
           f2Rosha: "کد تمیز و اختصاصی React و Node.js",
           f3: "چقدر سریعه؟",
           f3Agency: "کُند (۲ تا ۵ ثانیه)، امتیاز پایین",
-          f3Rosha: "فوق‌العاده سریع (< ۲۰ms)، امتیاز ۱۰۰",
+          f3Rosha: "فوق‌العاده سریع، منطبق با Core Web Vitals",
           f4: "کد مال کیه؟",
           f4Agency: "پلاگین‌های ناامن، مالکیت نامشخص",
           f4Rosha: "از روز اول ۱۰۰٪ مال توئه",
@@ -2920,12 +2884,12 @@ const resources = {
         titleGradient: "فوق‌العاده و متمایز",
         titleSuffix: " بسازیم",
         subtitle: "یک جلسه استراتژی فنی رزرو کنید یا مستقیماً با تیم متخصص ما برای توسعه پروژه خود در تماس باشید.",
-        diaraPillTitle: "کانال ارتباط مستقیم روشالینک",
-        diaraPillSubtitle: "پشتیبانی استراتژیک ۲۴/۷",
+        roshaPillTitle: "کانال ارتباط مستقیم روشالینک",
+        roshaPillSubtitle: "پشتیبانی استراتژیک ۲۴/۷",
         infoTitle: "ارتباط مستقیم با تیم فنی",
         infoSubtitle: "بدون واسطه یا کارشناسان فروش. مستقیماً با معماران ارشد سیستم و مدیران طراحی گفتگو کنید.",
         emailLabel: "ایمیل اصلی",
-        emailValue: "roshalinkcompany@gmail.com",
+        emailValue: "contact@roshalink.com",
         phoneLabel: "موقعیت و مشاوره",
         phoneValue: "استکهلم، سوئد و ریموت جهانی",
         locationLabel: "موقعیت و جلسات",
@@ -2993,7 +2957,7 @@ const resources = {
             role: "رئيسة المنتجات والهوية البصرية"
           },
           sohrab: {
-            quote: "الأنظمة السحابية الموزعة بزمن استجابة أقل من 20 مللي ثانية وجاهزية 99.99% تضمن استقرار منصتكم حتى في أعلى ذروات الترافيك.",
+            quote: "الأنظمة السحابية الموزعة عالية التوافر ومقاومة الأعطال تضمن استقرار منصتكم حتى في أعلى ذروات حركة المرور.",
             name: "سام",
             role: "كبير مهندسي الويب والسحابة"
           },
@@ -3028,12 +2992,12 @@ const resources = {
             stat1Val: "100%",
             stat1Label: "كود برمجي مخصص بالكامل",
             stat1Sub: "بدون قوالب جاهزة أو حلول سريعة",
-            stat2Val: "99.99%",
+            stat2Val: "توافرية عالية",
             stat2Label: "جاهزية واستقرار النظام",
-            stat2Sub: "بنية تحتية سحابية متطورة",
-            stat3Val: "<20ms",
+            stat2Sub: "بنية تحتية سحابية متطورة ومقاومة للأعطال",
+            stat3Val: "فائق السرعة",
             stat3Label: "سرعة الاستجابة والأداء",
-            stat3Sub: "100/100 في Google Lighthouse",
+            stat3Sub: "توافق مثالي مع Core Web Vitals والسيو",
             stat4Val: "5+",
             stat4Label: "شركاء ومهندسون تنفيذيون",
             stat4Sub: "تعاون مباشر بدون وسطاء"
@@ -3092,7 +3056,7 @@ const resources = {
           card1Desc: "تعاني المؤسسات غالباً من أنظمة متباعدة وقوالب جاهزة غير ملائمة. نحلل نماذج أعمالكم أولاً ونبني برمجيات مفصلة خصيصاً لتحقيق الأرباح.",
           card2Badge: "جاهزية واستقرار مطلق",
           card2Title: "الأداء",
-          card2Desc: "معمارية معيارية حديثة متوافقة مع معايير ISO 27001 وسرعة استجابة أقل من 20 مللي ثانية لضمان استمرارية الأعمال دون انقطاع.",
+          card2Desc: "معمارية معيارية حديثة متوافقة مع معايير ISO 27001، توافرية عالية وأدنى زمن استجابة لضمان استمرارية الأعمال دون انقطاع.",
           card3Badge: "شراكة مباشرة",
           card3Title: "الشراكة",
           card3Desc: "لا يوجد مطورون مبتدئون أو وسطاء؛ تعملون مباشرة وبشكل فوري مع الشركاء الخمسة الذين يطورون كود مشروعكم بأنفسهم.",
@@ -3118,7 +3082,7 @@ const resources = {
           step3Desc: "كتابة كود برمجي نظيف بدون قوالب جاهزة باستخدام React وأحدث الأنظمة السحابية.",
           step4Num: "04",
           step4Title: "تحسين الأداء والنشر العالمي",
-          step4Desc: "تحقيق علامة 100/100 في معايير Google Lighthouse والنشر الآمن في السحابة مع المراقبة المستمرة."
+          step4Desc: "تحسين معايير Google Core Web Vitals والنشر الآمن في السحابة مع المراقبة المستمرة."
         },
         values: {
           badge: "القيم والمبادئ الأساسية",
@@ -3212,7 +3176,7 @@ const resources = {
         card1Title: "أتمتة قائمة على الذكاء الاصطناعي",
         card1Sub: "سير عمل ذكي ووكلاء ذكاء اصطناعي",
         card2Title: "سرعة فائقة للأداء",
-        card2Sub: "100/100 في اختبارات Google Lighthouse و SEO",
+        card2Sub: "أداء فائق متوافق مع معايير Core Web Vitals و SEO",
         card3Title: "كود برمجي مخصص",
         card3Sub: "معمارية فريدة بدون قوالب جاهزة"
       },
@@ -3227,7 +3191,7 @@ const resources = {
         badge: "أبرز الميزات",
         title: "جيل جديد من المعمارية البرمجية في كل حل نقدمه",
         subtitle: "استمتع بأداء متفوق وأمان المؤسسات ومعمارية أنظمة التصميم المرمزة جاهزة للاستخدام.",
-        bullet1: "أمان معتمد بشهادة ISO 27001 ووصول قائم على الثقة الصفرية Zero-Trust",
+        bullet1: "أمان قائم على معايير ISO 27001 وبنية الثقة الصفرية Zero-Trust",
         bullet2: "مكتبة مكونات React رمزيّة ومتعددة العلامات التجارية",
         bullet3: "واجهات ميكرو أنيّة مدعومة بالأحداث والتحليلات المباشرة",
         exploreBtn: "استكشف معمارية الحلول",
@@ -3240,7 +3204,7 @@ const resources = {
         titleSuffix: " في نتائج البحث",
         subtitle: "بفضل أداء روشالينك الفائق وكودها المحسّن لمحركات البحث والأرشفة التلقائية، سيتصدر موقعك نتائج البحث ليكون الخيار الأول لعملائك.",
         bullet1: "المراكز الأولى في نتائج بحث جوجل ووحدات البحث",
-        bullet2: "سرعة تحميل فائقة (100/100 في تقييم Lighthouse)",
+        bullet2: "سرعة تحميل فائقة متوافقة مع معايير Core Web Vitals",
         bullet3: "بنية SEO تلقائية ونتائج بحث غنية بالأشكال المميزة",
         button: "حسّن ترتيبك في البحث"
       },
@@ -3673,8 +3637,8 @@ const resources = {
         updated: "آخر تحديث: ۱۰ أغسطس ۲۰۲۶",
         subtitle: "نحن ملتزمون بالحفاظ على خصوصيتك وحماية بياناتك الشخصية وفقاً لأعلى معايير الأمان ولائحة حماية البيانات العامة في الاتحاد الأوروبي (GDPR).",
         fullSections: [
-          { num: "١", title: "١. المقدمة", icon: "ShieldCheck", text: `توضح سياسة الخصوصية هذه ("السياسة") كيفية جمع واستخدام وتخزين ومشاركة وحماية البيانات الشخصية بواسطة RoshaLink / Diara ("الشركة"، "نحن") فيما يتعلق بتقديم خدمات تكنولوجيا المعلومات، وتطوير البرمجيات، والحوسبة السحابية، والمنصات الرقمية.\n\nنحن ملتزمون بالحفاظ على خصوصيتك وفقاً للائحة العامة لحماية البيانات في الاتحاد الأوروبي (GDPR)، وقانون حماية البيانات السويدي (Dataskyddslagen 2018:218)، وجميع القوانين المعمول بها.\n\nيعتبر استخدامك لخدماتنا بمثابة إقرار منك بالاطلاع على سياسة الخصوصية هذه والموافقة عليها.` },
-          { num: "٢", title: "٢. البيانات الشخصية التي نجمعها", icon: "FileText", text: `نحن نجمع فقط البيانات الشخصية الضرورية لتنفيذ التزاماتنا التعاقدية والقانونية، والحفاظ على أمان النظام، وتقديم خدمات تكنولوجيا المعلومات:\n\n• بيانات الاتصال والهوية: الاسم، عنوان البريد الإلكتروني، رقم الهاتف، المسمى الوظيفي، اسم الشركة، عنوان الفواتير، وعنوان IP.\n• بيانات الحساب والمصادقة: اسم المستخدم، كلمة المرور المشفّرة، سجلات الأمان (Security Logs)، رموز الوصول، وتفضيلات المستخدم.\n• السجلات الفنية وبيانات الجهاز: عنوان IP، نوع المتصفح، نظام التشغيل، دقة الشاشة، الطوابع الزمنية، تقارير الأعطال، ومؤشرات أداء الخوادم.\n• بيانات الاتصالات: الرسائل، تذاكر الدعم، الاستفسارات والمراسلات عبر البريد الإلكتروني، نماذج الاتصال، أو الأدوات التفاعلية (مثل مساعد Diara الذكي).\n• بيانات التكامل والقياس عن بُعد (Telemetry): سجلات التفاعل والبيانات الفنية الناتجة عن تشغيل البرمجيات والبنية التحتية.` },
+          { num: "١", title: "١. المقدمة", icon: "ShieldCheck", text: `توضح سياسة الخصوصية هذه ("السياسة") كيفية جمع واستخدام وتخزين ومشاركة وحماية البيانات الشخصية بواسطة RoshaLink ("الشركة"، "نحن") فيما يتعلق بتقديم خدمات تكنولوجيا المعلومات، وتطوير البرمجيات، والحوسبة السحابية، والمنصات الرقمية.\n\nنحن ملتزمون بالحفاظ على خصوصيتك وفقاً للائحة العامة لحماية البيانات في الاتحاد الأوروبي (GDPR)، وقانون حماية البيانات السويدي (Dataskyddslagen 2018:218)، وجميع القوانين المعمول بها.\n\nيعتبر استخدامك لخدماتنا بمثابة إقرار منك بالاطلاع على سياسة الخصوصية هذه والموافقة عليها.` },
+          { num: "٢", title: "٢. البيانات الشخصية التي نجمعها", icon: "FileText", text: `نحن نجمع فقط البيانات الشخصية الضرورية لتنفيذ التزاماتنا التعاقدية والقانونية، والحفاظ على أمان النظام، وتقديم خدمات تكنولوجيا المعلومات:\n\n• بيانات الاتصال والهوية: الاسم، عنوان البريد الإلكتروني، رقم الهاتف، المسمى الوظيفي، اسم الشركة، عنوان الفواتير، وعنوان IP.\n• بيانات الحساب والمصادقة: اسم المستخدم، كلمة المرور المشفّرة، سجلات الأمان (Security Logs)، رموز الوصول، وتفضيلات المستخدم.\n• السجلات الفنية وبيانات الجهاز: عنوان IP، نوع المتصفح، نظام التشغيل، دقة الشاشة، الطوابع الزمنية، تقارير الأعطال، ومؤشرات أداء الخوادم.\n• بيانات الاتصالات: الرسائل، تذاكر الدعم، الاستفسارات والمراسلات عبر البريد الإلكتروني، نماذج الاتصال، أو الأدوات التفاعلية (مثل مساعد Rosha الذكي).\n• بيانات التكامل والقياس عن بُعد (Telemetry): سجلات التفاعل والبيانات الفنية الناتجة عن تشغيل البرمجيات والبنية التحتية.` },
           { num: "٣", title: "٣. كيفية استخدام البيانات", icon: "CheckCircle2", text: `نحن نعالج بياناتك الشخصية للأغراض التالية:\n\n١. تقديم وإدارة خدمات تكنولوجيا المعلومات: لتشغيل وتكوين وصيانة وإدارة الحلول البرمجية والمواقع وحسابات المستخدمين.\n٢. الدعم الفني والاتصالات: للرد على الاستفسارات، ومعالجة تذاكر الدعم، وإرسال الإشعارات الفنية والتحديثات الإدارية.\n٣. الأمان وسلامة النظام: لمراقبة استقرار البنية التحتية، ومنع الوصول غیر المصرح به، واكتشاف الهجمات السيبرانية ومكافحتها.\n٤. تحسين سير العمل المتكامل: لضمان أداء سلس وسريع عبر سير العمل الذي يدمج أكثر من ۲۵۰+ خدمة سحابية، ومنصة ذكاء اصطناعي، وأداة تصميم.\n٥. التحليل وتطوير المنتجات: لتقييم أنماط استخدام الخدمات، وتحسين تجربة المستخدم، وتطوير ميزات جدیدة.\n٦. الامتثال القانوني: للوفاء بالالتزامات القانونية بموجب قوانين المحاسبة المالية (قانون المحاسبة السويدي 1999:1078)، واللوائح الضريبية، والطلبات الرسمية من السلطات المختصة.` },
           { num: "٤", title: "٤. الأساس القانوني لمعالجة البيانات", icon: "Scale", text: `نعالج البيانات الشخصية بناءً على الأسس القانونية التالية بموجب المادة ٦ من لائحة GDPR:\n\n• تنفيذ العقد (المادة ٦.١-ب GDPR): المعالجة ضرورية لتنفيذ عقد معك أو مع المؤسسة التي تمثلها.\n• الالتزام القانوني (المادة ٦.١-ج GDPR): المعالجة ضرورية للالتزام بالقوانين المفروضة علينا (مثل قانون المحاسبة السويدي 1999:1078).\n• المصالح المشروعة (المادة ٦.١-ف GDPR): تستند المعالجة إلى مصلحتنا المشروعة في تقديم خدمات تكنولوجيا معلومات آمنة وعالية الأداء.\n• الموافقة (المادة ٦.١-أ GDPR): في الحالات التي تتطلب موافقة قانونية، نحصل على موافقتك الصريحة مسبقاً. يحق لك سحب موافقتك في أي وقت.` },
           { num: "٥", title: "٥. مشاركة البيانات والتكامل مع الأطراف الثالثة", icon: "Server", text: `نحن لا نبيع بياناتك الشخصية مطلقاً.\n\nباعتبارنا شركة متقدمة في تطوير تكنولوجيا المعلومات، فإننا ندمج أكثر من ۲۵۰+ خدمة سحابية، ومنصة ذكاء اصطناعي، وقواعد بيانات، وشبكات توصيل المحتوى (CDN)، وأدوات تصميم.\n\nنشارك البيانات فقط مع:\n• مزودو الخدمات ومعالجو البيانات (Processors): مزودو البنية التحتية السحابية (AWS، Google Cloud)، ومزودو واجهات الذكاء الاصطناعي (OpenAI، Anthropic)، وأدوات التحليل والأمان الخاضعين لاتفاقيات DPA.\n• السلطات الرسمية: عندما يتطلب القانون ذلك أو بناءً على أمر قضائي أو طلب رسمي من جهة حكومية مختصة.\n• المستشارون المهنيون: المستشارون القانونيون، والمدققون، والمحاسبون الماليون.` },
@@ -3683,7 +3647,7 @@ const resources = {
           { num: "٨", title: "٨. حقوق المستخدم بموجب لائحة GDPR", icon: "KeyRound", text: `بموجب لائحة GDPR، يحق لك ممارسة الحقوق التالية:\n\n• حق الوصول (Right of Access): الحصول على نسخة من بياناتك الشخصية.\n• حق تصحيح (Right to Rectification): طلب تصحيح البيانات غير الدقيقة.\n• حق المسح / "الحق في النسيان" (Right to Erasure): طلب حذف بياناتك الشخصية.\n• حق تقييد المعالجة (Right to Restriction): طلب الحد من معالجة البيانات.\n• حق نقل البيانات (Data Portability): الحصول على بياناتك بتنسيق قابل للقراءة آلياً.\n• حق اعتراض (Right to Object): الاعتراض على المعالجة القائمة على المصالح المشروعة.\n• حق تقديم شكوى: تقديم شكوى لدى سلطة الإشراف في السويد (IMY - www.imy.se).` },
           { num: "٩", title: "٩. ملفات تعریف الارتباط وتقنيات التتبع", icon: "Eye", text: `نستخدم ملفات تعریف الارتباط (Cookies) لضمان استقرار الموقع، وتحليل الأداء، وتحسين تجربة المستخدم:\n\n• ملفات تعریف الارتباط الضرورية: إلزامية للأمان، والمصادقة، والوظائف الأساسية.\n• ملفات التحليل والأداء: تجمع إحصاءات مجهولة الهوية لتحسين السرعة والعرض.\n• ملفات تعریف الارتباط الوظيفية: تحفظ تفضيلات مثل اللغة والتصميم.\n\nيمكنك تعديل تفضيلات ملفات تعریف الارتباط في أي وقت.` },
           { num: "١٠", title: "١٠. التدابير الأمنية", icon: "Lock", text: `نطبق تدابير أمنية فنية وتنظيمية متقدمة:\n\n• التشفير: تُشفر البيانات أثناء النقل باستخدام TLS 1.3؛ وتُشفر البيانات المخزنة باستخدام معيار AES-256.\n• إدارة الوصول: بنية الأمان ذات المستوى الصفر (Zero-Trust) ومبدأ الحد الأدنى من الصلاحيات (PoLP).\n• حماية البنية التحتية: الفحص المستمر للثغرات، وأنظمة اكتشاف التسلل، والالتزام بمعايير ISO 27001.` },
-          { num: "١١", title: "١١. معلومات الاتصال", icon: "Mail", text: `لأي استفسارات حول سياسة الخصوصية، يمكنك التواصل معنا عبر:\n\n• اسم الشركة: RoshaLink / Diara IT Infrastructure\n• البريد الإلكتروني للخصوصية: roshalinkcompany@gmail.com\n• الموقع الإلكتروني: https://roshalink.com\n• العنوان البريدي: RoshaLink IT Operations, Stockholm, Sweden & San Francisco, CA` },
+          { num: "١١", title: "١١. معلومات الاتصال", icon: "Mail", text: `لأي استفسارات حول سياسة الخصوصية، يمكنك التواصل معنا عبر:\n\n• اسم الشركة: RoshaLink IT Infrastructure\n• البريد الإلكتروني للخصوصية: contact@roshalink.com\n• الموقع الإلكتروني: https://roshalink.com\n• العنوان البريدي: RoshaLink IT Operations, Stockholm, Sweden (Global Engineering Operations)` },
           { num: "۱۲", title: "۱۲. التغييرات في سياسة الخصوصية", icon: "RefreshCw", text: `نحتفظ بالحق في تحديث سياسة الخصوصية هذه لمواكبة التطورات الفنية، أو التحديثات القانونية. سيتم الإعلان عن أي تغييرات جوهرية عبر إشعارات بارزة على موقعنا.` }
         ]
       },
@@ -3697,12 +3661,12 @@ const resources = {
           secondaryCta: "اكتشف ما نقدمه",
           floatingPillTitle: "سحابي، سريع وجاهز للنمو",
           floatingPillSubtitle: "آمن، موثوق، ومبني ليدوم",
-          metric1Value: "100/100",
-          metric1Label: "Google Lighthouse والسيو",
-          metric2Value: "< 20ms",
-          metric2Label: "سرعة الاستجابة عالمياً",
+          metric1Value: "أداء فائق",
+          metric1Label: "معايير Core Web Vitals والسيو",
+          metric2Value: "فائق السرعة",
+          metric2Label: "استجابة سحابية عالمية",
           metric3Value: "ISO 27001",
-          metric3Label: "آمن وموثوق",
+          metric3Label: "معايير أمان معتمدة",
           metric4Value: "5 خبراء",
           metric4Label: "تتحدث مباشرة مع من يبني لك"
         },
@@ -3730,12 +3694,12 @@ const resources = {
             id: "web-architecture",
             category: "الواجهات والويب",
             title: "معمارية الويب المخصصة وهندسة React",
-            desc: "تطبيقات ويب وبوابات مؤسسية فائقة السرعة مبنية بكود React نظيف ومكونات قياسية معيارية وأداء مثالي بنسبة 100/100.",
+            desc: "تطبيقات ويب وبوابات مؤسسية فائقة السرعة مبنية بكود React نظيف ومكونات قياسية معيارية وأداء مثالي متوافق مع Google Core Web Vitals.",
             deliverables: [
               "تطبيقات الصفحة الواحدة (SPA) والبوابات",
               "نظام تصميم معتمد بالرموز UI/UX Tokens",
               "إمكانية الوصول الشاملة WCAG 2.1 AA والتجاوب",
-              "توافق 100/100 مع Core Web Vitals ومحركات البحث"
+              "توافق كامل مع Core Web Vitals ومحركات البحث"
             ],
             techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
           },
@@ -3743,11 +3707,11 @@ const resources = {
             id: "cloud-backend",
             category: "الخوادم والبنية السحابية",
             title: "الأنظمة الخلفية والخدمات المصغرة",
-            desc: "بنية خوادم مرنة وقواعد بيانات موزعة وواجهات API متطورة بسرعة استجابة أقل من 20 مللي ثانية ونسبة تشغيل 99.99٪.",
+            desc: "بنية خوادم مرنة وقواعد بيانات موزعة وواجهات API متطورة عالية التوافر والاستقرار مع زمن استجابة منخفض.",
             deliverables: [
               "خدمات مصغرة معتمدة على الأحداث وواجهات REST/GraphQL",
               "معمارية قواعد بيانات PostgreSQL و Redis و NoSQL",
-              "أمان معتمد وفق ISO 27001 ومصادقة Zero-Trust",
+              "أمان متوافق مع معايير ISO 27001 ومصادقة Zero-Trust",
               "خطوط تسليم ونشر برمجية مؤتمتة CI/CD مع Docker"
             ],
             techTags: ["Node.js", "PostgreSQL", "Redis", "Docker", "AWS / GCP"]
@@ -3789,7 +3753,7 @@ const resources = {
               "أرشفة فورية وخرائط مواقع آلية في Search Console",
               "تحسين معدلات التحويل واختبارات A/B المتقدمة"
             ],
-            techTags: ["SEO Schema", "Cloudflare CDN", "Lighthouse 100", "Analytics"]
+            techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
           }
         ],
         techMatrix: {
@@ -3806,7 +3770,7 @@ const resources = {
             { title: "Vanilla CSS & Tailwind", desc: "انعدام الأعباء عند التشغيل، وهندسة CSS معيارية ونظيفة لتحقيق أقصى درجات الأداء." }
           ],
           backend: [
-            { title: "Node.js والخدمات المصغرة", desc: "بيئة تشغيل غير متزامنة فائقة السرعة مصممة لخدمات مصغرة بزمن استجابة أقل من 20 مللي ثانية." },
+            { title: "Node.js والخدمات المصغرة", desc: "بيئة تشغيل غير متزامنة فائقة السرعة مصممة لخدمات مصغرة فائقة السرعة وبأقل زمن استجابة." },
             { title: "PostgreSQL & Prisma", desc: "نمذجة قوية لقواعد البيانات العلائقية المتوافقة مع ACID مع هجرات آلية وموثوقة النوع." },
             { title: "Redis & Upstash", desc: "تخزين مؤقت موزع في الذاكرة بزمن وصول أقل من جزء من الثانية، وتحديد معدل الطلبات وقنوات Pub/Sub." },
             { title: "WebSockets والقياس عن بُعد", desc: "مزامنة تفاعلية ثنائية الاتجاه مع مراقبة مستمرة وتغذية راجعة فورية للبيانات." }
@@ -3821,7 +3785,7 @@ const resources = {
             { title: "Docker والحاويات السحابية", desc: "بيئات حاويات معزولة وقابلة لإعادة الإنتاج لتطوير ونشر البرمجيات بسلاسة وأمان تام." },
             { title: "AWS & Cloudflare Edge", desc: "تنفيذ سحابي عالمي بدون خوادم في أكثر من 300 مدينة مع حماية مؤسسية متقدمة من هجمات DDoS." },
             { title: "معايير الأمان ISO 27001", desc: "تشفير شامل AES-256 و TLS 1.3 مع تطبيق سياسات الأمان ذات المستوى الصفر Zero-Trust." },
-            { title: "خطوط النشر المؤتمتة CI/CD", desc: "فحص واختبار مؤتمت بدون توقف للنظام ونشر فوري عبر GitHub Actions بنسبة تشغيل 99.99%." }
+            { title: "خطوط النشر المؤتمتة CI/CD", desc: "فحص واختبار مؤتمت بدون توقف للنظام ونشر فوري عبر GitHub Actions بأعلى درجات الاستقرار والتوافرية." }
           ]
         },
         process: {
@@ -3846,7 +3810,7 @@ const resources = {
           step4Num: "٠٤",
           step4Title: "الإطلاق والنشر",
           step4Desc: "نختبر كل شيء بدقة وننشر على مستوى عالمي — دون توقف للموقع ولو للحظة.",
-          step4Tags: ["100/100 Lighthouse", "مراجعة أمنية", "CDN عالمي واستقرار 99.99%"],
+          step4Tags: ["معايير Core Web Vitals", "مراجعة أمنية", "CDN عالمي وتوافرية عالية"],
           nextStage: "الخطوة التالية",
           stageCounter: "الخطوة {{current}} من {{total}}"
         },
@@ -3864,7 +3828,7 @@ const resources = {
           f2Rosha: "كود نظيف ومخصص بـ React و Node.js",
           f3: "ما مدى سرعته؟",
           f3Agency: "بطيء (2-5 ثوانٍ)، تقييمات متدنية",
-          f3Rosha: "خاطف السرعة (< 20ms)، تقييم 100/100",
+          f3Rosha: "خاطف السرعة، متوافق مع Core Web Vitals",
           f4: "لمن ينتمي الكود؟",
           f4Agency: "إضافات غير آمنة، ملكية غير واضحة",
           f4Rosha: "ملكك بالكامل — 100٪ من اليوم الأول",
@@ -3898,12 +3862,12 @@ const resources = {
         titleGradient: "استثنائياً ومميزاً",
         titleSuffix: "",
         subtitle: "احجز جلسة استراتيجية تقنية أو تواصل مباشرة مع فريقنا لمناقشة مشروعك القادم.",
-        diaraPillTitle: "قناة روشالينك المباشرة",
-        diaraPillSubtitle: "دعم استراتيجي على مدار الساعة",
+        roshaPillTitle: "قناة روشالينك المباشرة",
+        roshaPillSubtitle: "دعم استراتيجي على مدار الساعة",
         infoTitle: "تواصل مباشر مع الفريق الهندسي",
         infoSubtitle: "بدون وسطاء أو مندوبي مبيعات. تحدث مباشرة مع مهندسي الأنظمة ومدراء التصميم لدينا.",
         emailLabel: "البريد الإلكتروني الرئيسي",
-        emailValue: "roshalinkcompany@gmail.com",
+        emailValue: "contact@roshalink.com",
         phoneLabel: "الموقع والاستشارات",
         phoneValue: "ستوكهولم، السويد والعمل عن بُعد عالمياً",
         locationLabel: "الموقع والاستشارات",

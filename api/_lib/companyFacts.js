@@ -61,7 +61,7 @@ business needs. There is no obligation. Visitors start that by opening the
 "Get Started" form on this site, which reaches the team directly.
 
 ## Contact details
-Our official contact email address is roshalinkcompany@gmail.com. Visitors can reach out directly via email or through the contact forms and "Get Started" dialog on this website. Our team is based in Stockholm, Sweden, and operates globally.
+Our official contact email address is contact@roshalink.com. Visitors can reach out directly via email or through the contact forms and "Get Started" dialog on this website. Our team is based in Stockholm, Sweden, and operates globally.
 
 
 ## Things you must never state

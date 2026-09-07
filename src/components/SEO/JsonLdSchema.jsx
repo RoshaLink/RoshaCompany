@@ -82,18 +82,31 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'roshalinkcompany@gmail.com',
+      email: 'contact@roshalink.com',
       // TODO: add telephone once confirmed: telephone: '+46-XX-XXX-XXXX',
       availableLanguage: ['Swedish', 'English', 'Persian', 'Arabic'],
     },
 
     // ── Founders ─────────────────────────────────────────────────────────
     founder: [
-      { '@type': 'Person', name: 'Morteza', jobTitle: 'CEO & Principal Architect' },
-      { '@type': 'Person', name: 'Bella',   jobTitle: 'Head of Product & Brand' },
-      { '@type': 'Person', name: 'Sam',     jobTitle: 'Senior Cloud Engineer' },
-      { '@type': 'Person', name: 'Mina',    jobTitle: 'Senior Business Analyst' },
-      { '@type': 'Person', name: 'Milad',   jobTitle: 'Senior Full-Stack Engineer' },
+      { '@type': 'Person', name: 'Morteza', jobTitle: 'CEO & Principal Architect', worksFor: { '@id': `${BASE_URL}/#organization` } },
+      { '@type': 'Person', name: 'Bella',   jobTitle: 'Head of Product & Brand', worksFor: { '@id': `${BASE_URL}/#organization` } },
+      { '@type': 'Person', name: 'Sam',     jobTitle: 'Senior Cloud Engineer', worksFor: { '@id': `${BASE_URL}/#organization` } },
+      { '@type': 'Person', name: 'Mina',    jobTitle: 'Senior Business Analyst', worksFor: { '@id': `${BASE_URL}/#organization` } },
+      { '@type': 'Person', name: 'Milad',   jobTitle: 'Senior Full-Stack Engineer', worksFor: { '@id': `${BASE_URL}/#organization` } },
+    ],
+
+    // ── Topical Competencies & Knowledge Graph ────────────────────────────
+    knowsAbout: [
+      'Custom Web Application Development',
+      'React & Modern Frontend Architecture',
+      'Enterprise Cloud Infrastructure',
+      'Microservices & Distributed Systems',
+      'Zero-Trust Cybersecurity & ISO 27001 Alignment',
+      'Business Process Analysis & Software Consulting',
+      'Mobile Application Development (iOS & Android)',
+      'Artificial Intelligence & Enterprise Chatbots',
+      'Core Web Vitals & Search Engine Optimization',
     ],
 
     // ── Social profiles (sameAs) ──────────────────────────────────────────
@@ -223,10 +236,10 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
         provider: { '@id': `${BASE_URL}/#organization` },
         areaServed: AREA_SERVED,
         description: t(
-          'Distribuerade molnsystem med under 20 ms latens och 99,99 % drifttidsgaranti på AWS och Azure.',
-          'سیستم‌های ابری توزیع‌شده با تأخیر کمتر از ۲۰ میلی‌ثانیه و تضمین ۹۹.۹۹٪ زمان کارکرد روی AWS و Azure.',
-          'أنظمة سحابية موزعة بزمن استجابة أقل من 20 مللي ثانية وضمان توفر 99.99٪ على AWS وAzure.',
-          'Distributed cloud systems with sub-20ms latency and 99.99% uptime guarantees on AWS and Azure.'
+          'Distribuerade och feltoleranta molnsystem med hög tillgänglighet och optimerad latens på AWS och Azure.',
+          'سیستم‌های ابری توزیع‌شده با دسترسی‌پذیری بالا، پایداری پیوسته و تاخیر حداقل روی AWS و Azure.',
+          'أنظمة سحابية موزعة عالية التوفر ومقاومة للأعطال مع زمن استجابة منخفض على AWS وAzure.',
+          'Distributed, fault-tolerant cloud systems with high availability and optimized latency on AWS and Azure.'
         ),
       },
       {
@@ -376,30 +389,55 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     portfolio: t('Portfölj',        'نمونه‌کارها',    'أعمالنا',         'Portfolio'),
     contact:   t('Kontakt',         'تماس با ما',     'تواصل معنا',      'Contact'),
     privacy:   t('Integritetspolicy', 'حریم خصوصی',  'سياسة الخصوصية',  'Privacy Policy'),
+    'services/discovery':        t('Affärsanalys & Roadmap',       'تحلیل کسب‌وکار و نقشه راه',       'التحليل الاستراتيجي وخريطة الطريق', 'Business Discovery & Roadmap'),
+    'services/web-architecture': t('Webbarkitektur & React',       'معماری وب و ری‌اکت',             'هندسة الويب وتطبيقات React',         'Web Architecture & React'),
+    'services/cloud-backend':    t('Molninfrastruktur & Backend',  'زیرساخت ابری و بک‌اند',          'البنية التحتية السحابية',            'Cloud Infrastructure & Backend'),
+    'services/ai-automation':    t('AI & Processautomatisering',   'هوش مصنوعی و اتوماسیون',         'الذكاء الاصطناعي والأتمتة',          'AI & Automation'),
+    'services/mobile-apps':      t('Mobilappar iOS & Android',     'اپلیکیشن موبایل',                 'تطبيقات الجوال',                     'Mobile Apps'),
+    'services/seo-performance':  t('Core Web Vitals & SEO',        'سئو و Core Web Vitals',          'معايير Core Web Vitals والسيو',      'Core Web Vitals & SEO'),
   };
+
+  const isSubRoute = page.includes('/');
+  const [parentSegment, childSegment] = isSubRoute ? page.split('/') : [page, null];
+
+  const breadcrumbItems = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: homeLabel,
+      item: `${BASE_URL}/${currentLang}`,
+    },
+  ];
+
+  if (page !== 'home') {
+    if (isSubRoute) {
+      breadcrumbItems.push({
+        '@type': 'ListItem',
+        position: 2,
+        name: pageLabels[parentSegment] || parentSegment,
+        item: `${BASE_URL}/${currentLang}/${parentSegment}`,
+      });
+      breadcrumbItems.push({
+        '@type': 'ListItem',
+        position: 3,
+        name: pageLabels[page] || childSegment,
+        item: `${BASE_URL}/${currentLang}/${page}`,
+      });
+    } else {
+      breadcrumbItems.push({
+        '@type': 'ListItem',
+        position: 2,
+        name: pageLabels[page] || page.charAt(0).toUpperCase() + page.slice(1),
+        item: `${BASE_URL}/${currentLang}/${page}`,
+      });
+    }
+  }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     '@id': `${pageUrl}#breadcrumb`,
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: homeLabel,
-        item: `${BASE_URL}/${currentLang}`,
-      },
-      ...(page !== 'home'
-        ? [
-            {
-              '@type': 'ListItem',
-              position: 2,
-              name: pageLabels[page] || page.charAt(0).toUpperCase() + page.slice(1),
-              item: `${BASE_URL}/${currentLang}/${page}`,
-            },
-          ]
-        : []),
-    ],
+    itemListElement: breadcrumbItems,
   };
 
   return (

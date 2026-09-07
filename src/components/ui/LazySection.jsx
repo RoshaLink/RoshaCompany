@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
  * LazySection
  * Defers rendering of heavy below-the-fold sections until they are within
  * 400px of the viewport. Eliminates main-thread blocking on initial load,
- * dramatically boosting FCP, LCP, and TBT to 100/100.
+ * dramatically boosting FCP, LCP, and TBT.
  */
 export default function LazySection({
   children,

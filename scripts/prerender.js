@@ -32,6 +32,13 @@ languages.forEach(lang => {
 });
 
 async function run() {
+  // On Vercel build servers, headless Chrome is not pre-installed in the build environment.
+  // The app is served as a high-performance SPA handled by vercel.json routing rewrites.
+  if (process.env.VERCEL || process.env.NOW_BUILDER) {
+    console.log('⚡ Vercel build environment detected: skipping Puppeteer prerender (served as SPA via vercel.json).');
+    return;
+  }
+
   console.log('Starting Express server for prerendering...');
   const app = express();
   
@@ -46,11 +53,19 @@ async function run() {
   const server = app.listen(PORT, async () => {
     console.log(`Server listening on port ${PORT}`);
     
-    console.log('Launching Puppeteer...');
-    const browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-    });
+    let browser;
+    try {
+      console.log('Launching Puppeteer...');
+      browser = await puppeteer.launch({
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+      });
+    } catch (err) {
+      console.warn(`⚠️ Puppeteer launch skipped (${err.message}). Continuing build as SPA.`);
+      server.close();
+      return;
+    }
+
     const page = await browser.newPage();
     
     // Set a large viewport

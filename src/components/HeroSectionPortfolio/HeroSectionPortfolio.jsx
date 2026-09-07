@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
-import diaraPortfolioImage from '../../assets/Diara/Portfolio/DiaraPotfolio.webp';
+import roshaPortfolioImage from '../../assets/Rosha/Portfolio/RoshaPortfolio.webp';
 import PortfolioServicesModal from './PortfolioServicesModal';
 import './HeroSectionPortfolio.css';
 
@@ -60,7 +60,7 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
 
           </div>
 
-          {/* Image Side (DiaraPortfolio Image with Glassmorphic Badge & Floating Accents) */}
+          {/* Image Side (RoshaPortfolio Image with Glassmorphic Badge & Floating Accents) */}
           <div className="portfolio-hero-image-side">
             <div className="relative w-full max-w-[540px] xl:max-w-[660px] 2xl:max-w-[760px] group">
 
@@ -70,8 +70,8 @@ export default function HeroSectionPortfolio({ onOpenGetStarted, setActivePage }
               {/* Glassmorphic Frame Card */}
               <div className="portfolio-hero-card-frame">
                 <img
-                  src={diaraPortfolioImage}
-                  alt="Diara Portfolio Showcase"
+                  src={roshaPortfolioImage}
+                  alt="RoshaLink Portfolio Showcase"
                   className="w-full h-auto max-h-[520px] xl:max-h-[620px] 2xl:max-h-[720px] object-cover rounded-2xl transform group-hover:scale-[1.02] transition-transform duration-500"
                  width="1376" height="768" />
               </div>

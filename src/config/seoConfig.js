@@ -217,6 +217,168 @@ export const seoPages = {
       ogImage: '/og-image.jpg',
     },
   },
+
+  'services/discovery': {
+    sv: {
+      title: 'Strategisk Affärsanalys & Teknisk Roadmap — RoshaLink Stockholm',
+      description: 'Djupgående verksamhetsanalys och teknisk förstudie som eliminerar teknisk skuld och optimerar investeringskalkylen för era digitala produkter.',
+      keywords: 'affärsanalys IT Stockholm, teknisk roadmap, förstudie mjukvara, IT-strategi Sverige',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Strategic Business Analysis & Technical Roadmap — RoshaLink Stockholm',
+      description: 'Comprehensive business discovery and technical roadmap architecture that prevents technical debt and maximizes digital product ROI.',
+      keywords: 'business analysis IT Stockholm, technical roadmap, software feasibility study, enterprise IT strategy',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'تحلیل استراتژیک کسب‌وکار و نقشه راه معماری نرم‌افزار — روشالینک',
+      description: 'تحلیل عمیق تجاری و تدوین نقشه راه فنی نرم‌افزار جهت حذف ریسک‌های توسعه و بازگشت حداکثری سرمایه.',
+      keywords: 'تحلیل کسب و کار IT, نقشه راه فنی نرم افزار, مشاوره معماری نرم افزار',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'التحليل الاستراتيجي للأعمال وخريطة الطريق التقنية — روشا لينك',
+      description: 'تحليل دقيق لمتطلبات الأعمال وبناء خارطة طريق تقنية تعزز استقرار الأنظمة وتضمن أعلى عائد استثماري.',
+      keywords: 'تحليل أعمال تقني ستوكهولم, خريطة طريق البرمجيات, استشارات معمارية تقنية',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
+
+  'services/web-architecture': {
+    sv: {
+      title: 'Skräddarsydd Webbarkitektur & React-utveckling — RoshaLink Stockholm',
+      description: 'Blixtsnabba webbapplikationer och företagsportaler byggda med ren React-kod, modulär arkitektur och kompromisslös Core Web Vitals-optimering.',
+      keywords: 'webbutveckling React Stockholm, skräddarsydd webbarkitektur, SPA utvecklare Sverige, företagsportal webb',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Bespoke Web Architecture & React Enterprise Development — RoshaLink',
+      description: 'Ultra-fast web applications and enterprise portals engineered with clean React code, modular design systems, and top Core Web Vitals.',
+      keywords: 'custom web architecture Stockholm, React developers Sweden, enterprise SPA engineering, bespoke web application',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'معماری اختصاصی وب و توسعه پورتال با React — روشالینک',
+      description: 'طراحی و توسعه وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع با معماری ماژولار React و بهینه‌سازی کامل Core Web Vitals.',
+      keywords: 'توسعه وب اختصاصی, برنامه نویسی React, وب اپلیکیشن سازمانی, معماری فرانت اند',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'هندسة الويب المخصصة وتطوير تطبيقات React — روشا لينك',
+      description: 'تطوير تطبيقات وب متقدمة وبوابات رقمية فائقة السرعة بأكواد React نقية ومعمارية ماژولار عالية الأداء.',
+      keywords: 'تطوير مواقع مخصصة ستوكهولم, مبرمجين React السويد, هندسة تطبيقات الويب',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
+
+  'services/cloud-backend': {
+    sv: {
+      title: 'Skalbar Molninfrastruktur & Resilient Backend — RoshaLink Stockholm',
+      description: 'Högpresterande mikrotjänster, serverless arkitektur och feltolerant molndrift på AWS och Azure med Zero-Trust-säkerhet.',
+      keywords: 'molninfrastruktur Stockholm, backend utveckling Node.js, AWS arkitektur Sverige, Zero Trust moln',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Scalable Cloud Infrastructure & Resilient Backend — RoshaLink',
+      description: 'High-availability microservices, serverless cloud platforms, and resilient database architectures on AWS and Azure with Zero-Trust security.',
+      keywords: 'cloud infrastructure Stockholm, resilient backend engineering, AWS Azure architects Sweden, microservices consulting',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'زیرساخت ابری مقیاس‌پذیر و توسعه بک‌اند پایدار — روشالینک',
+      description: 'معماری مایکروسرویس، سیستم‌های توزیع‌شده ابری با پایداری حداکثری روی AWS و امنیت پیشرفته Zero-Trust.',
+      keywords: 'زیرساخت ابری, توسعه بک اند, مهندسی میکروسرویس, کلود AWS روشالینک',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'البنية التحتية السحابية والأنظمة الخلفية المرنة — روشا لينك',
+      description: 'هندسة سحابية مرنة، خوادم بدون خادم وميكروسيرفس عالية التوفر ومقاومة للأعطال على AWS مع أمان Zero-Trust.',
+      keywords: 'بنية تحتية سحابية ستوكهولم, تطوير خوادم سحابية, أنظمة موزعة AWS',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
+
+  'services/ai-automation': {
+    sv: {
+      title: 'AI-assistenter & Intelligent Processautomatisering — RoshaLink',
+      description: 'Integrera kundanpassade AI-assistenter, intelligenta RAG-system och automatiserade verksamhetsflöden med full datasäkerhet och GDPR-kontroll.',
+      keywords: 'AI-utveckling Stockholm, intelligent automatisering Sverige, enterprise AI assistent, RAG modeller IT',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Enterprise AI Assistants & Workflow Automation — RoshaLink',
+      description: 'Integrate custom AI assistants, intelligent RAG pipelines, and automated business workflows with enterprise security and strict GDPR compliance.',
+      keywords: 'enterprise AI development Stockholm, AI workflow automation, custom AI assistant Europe, generative AI integration',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'یکپارچه‌سازی هوش مصنوعی اختصاصی و اتوماسیون سازمانی — روشالینک',
+      description: 'پیاده‌سازی چت‌بات‌ها و دستیاران هوشمند سازمانی، سیستم‌های RAG و اتوماسیون فرآیندهای کسب‌وکار با امنیت کامل داده‌ها.',
+      keywords: 'هوش مصنوعی سازمانی, دستیار هوشمند اختصاصی, اتوماسیون فرآیند کسب و کار, مدل های زبانی',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'مساعدات الذكاء الاصطناعي وأتمتة العمليات — روشا لينك',
+      description: 'تطوير ودمج مساعدات الذكاء الاصطناعي التوليدي وأنظمة RAG المخصصة لرفع كفاءة الأعمال مع الالتزام الكامل بالأمان والخصوصية.',
+      keywords: 'حلول الذكاء الاصطناعي ستوكهولم, أتمتة الأعمال الذكية, مساعدات AI مخصصة',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
+
+  'services/mobile-apps': {
+    sv: {
+      title: 'Skräddarsydd Apputveckling iOS & Android — RoshaLink Stockholm',
+      description: 'Design och utveckling av högpresterande mobilapplikationer för iOS och Android med offline-stöd och nativ prestandakänsla.',
+      keywords: 'apputveckling Stockholm, mobilappar iOS Android Sverige, React Native utvecklare, app utvecklingsbyrå',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Cross-Platform Mobile App Development (iOS & Android) — RoshaLink',
+      description: 'Engineering resilient mobile applications for iOS and Android with intuitive UI/UX, offline-first reliability, and near-native speed.',
+      keywords: 'mobile app development Stockholm, iOS Android app agency Sweden, React Native developers, cross-platform apps',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'طراحی و توسعه اپلیکیشن موبایل اختصاصی iOS و اندروید — روشالینک',
+      description: 'توسعه اپلیکیشن‌های چندسکویی موبایل با معماری مقاوم، سرعت روان و تجربه کاربری مدرن منطبق بر آخرین استانداردهای روز.',
+      keywords: 'توسعه اپلیکیشن موبایل, ساخت اپلیکیشن iOS و اندروید, برنامه نویسی موبایل استکهلم',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'تطوير تطبيقات الجوال المخصصة iOS وأندرويد — روشا لينك',
+      description: 'تصميم وبرمجة تطبيقات الهواتف الذكية بنظامي iOS وأندرويد بأداء فائق وتجربة مستخدم عصرية تلبي تطلعات عملائك.',
+      keywords: 'تطوير تطبيقات الجوال ستوكهولم, تطبيقات آيفون وأندرويد السويد, برمجة تطبيقات مخصصة',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
+
+  'services/seo-performance': {
+    sv: {
+      title: 'Core Web Vitals & Avancerad Teknisk SEO — RoshaLink Stockholm',
+      description: 'Total teknisk optimering av webbplatsens infrastruktur för topprankning på Google, blixtsnabb rendering och perfekt användarupplevelse.',
+      keywords: 'teknisk SEO Stockholm, Core Web Vitals optimering, sökmotoroptimering Sverige, snabbare hemsida Google',
+      ogImage: '/og-image-services.jpg',
+    },
+    en: {
+      title: 'Core Web Vitals & Advanced Technical SEO Optimization — RoshaLink',
+      description: 'Full-spectrum technical SEO and architectural optimization to dominate Google rankings, achieve instant page rendering, and scale organic reach.',
+      keywords: 'technical SEO Stockholm, Core Web Vitals optimization, enterprise search engine optimization, page speed agency Sweden',
+      ogImage: '/og-image-services.jpg',
+    },
+    fa: {
+      title: 'بهینه‌سازی پیشرفته فنی سئو و استاندارد Core Web Vitals — روشالینک',
+      description: 'معماری فنی وب‌سایت برای فتح رتبه‌های نخست گوگل، رندرینگ سریع و بهینه‌سازی بنیادین فاکتورهای حیاتی وب گوگل.',
+      keywords: 'سئو فنی تکنیکال, بهینه سازی Core Web Vitals, رتبه اول گوگل, افزایش سرعت سایت',
+      ogImage: '/og-image-services.jpg',
+    },
+    ar: {
+      title: 'تحسين معايير Core Web Vitals والسيو التقني المتقدم — روشا لينك',
+      description: 'تحسين شامل للبنية التقنية لموقعك لتصدر نتائج البحث في محركات جوجل وتحقيق أعلى سرعة تحميل وتجربة مستخدم خالية من العيوب.',
+      keywords: 'سيو تقني متقدم ستوكهولم, تحسين Core Web Vitals, تصدر نتائج بحث جوجل',
+      ogImage: '/og-image-services.jpg',
+    },
+  },
 };
 
 /**
@@ -224,6 +386,9 @@ export const seoPages = {
  */
 export function getSeoMetadata(pageKey, lang) {
   const currentLang = SUPPORTED_LANGS.includes(lang) ? lang : DEFAULT_LANG;
-  const page = seoPages[pageKey] || seoPages.home;
+  const page = seoPages[pageKey] || 
+               seoPages[pageKey?.replace('services/', 'service-')] || 
+               (pageKey?.startsWith('services') ? seoPages.services : null) || 
+               seoPages.home;
   return page[currentLang] || page[DEFAULT_LANG];
 }

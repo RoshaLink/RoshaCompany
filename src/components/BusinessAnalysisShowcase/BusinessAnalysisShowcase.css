@@ -113,39 +113,38 @@
 
 .business-title {
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 900; /* font-black */
   font-family: var(--font-headline);
   color: var(--color-slate-900);
   letter-spacing: -0.025em; /* tracking-tight */
   text-wrap: balance;
-  line-height: 1.625; /* leading-relaxed */
-  padding-top: 0.25rem; /* py-1 */
+  line-height: 1.3;
+  padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   word-break: break-word;
   margin: 0;
 }
 
-@media (min-width: 360px) { .business-title { font-size: 1.25rem; } }
 @media (min-width: 400px) { .business-title { font-size: 1.5rem; } }
-@media (min-width: 640px) { .business-title { font-size: 1.875rem; } }
+@media (min-width: 640px) { .business-title { font-size: 1.875rem; line-height: 1.25; } }
 @media (min-width: 768px) { .business-title { font-size: 2.25rem; } }
-@media (min-width: 1024px) { .business-title { font-size: 3rem; line-height: 1.5; } }
-@media (min-width: 1280px) { .business-title { font-size: 3.2rem; } }
+@media (min-width: 1024px) { .business-title { font-size: 2.85rem; line-height: 1.25; } }
+@media (min-width: 1280px) { .business-title { font-size: 3.15rem; } }
 
 .business-subtitle {
   color: var(--color-slate-600);
-  font-size: 0.875rem; /* text-sm */
+  font-size: 0.95rem;
   font-family: var(--font-body);
-  line-height: 1.625; /* leading-relaxed */
+  line-height: 1.65;
   margin-top: 1rem;
-  max-width: 48rem; /* max-w-3xl */
+  max-width: 42rem;
   text-wrap: pretty;
 }
 
 @media (min-width: 640px) { .business-subtitle { font-size: 1rem; } }
-@media (min-width: 1024px) { .business-subtitle { font-size: 1.25rem; } }
-@media (min-width: 1280px) { .business-subtitle { font-size: 1.5rem; } }
+@media (min-width: 1024px) { .business-subtitle { font-size: 1.15rem; max-width: 44rem; } }
+@media (min-width: 1280px) { .business-subtitle { font-size: 1.2rem; } }
 
 .business-action {
   padding-top: 1.5rem; /* pt-6 */

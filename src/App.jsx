@@ -52,6 +52,34 @@ function LocalizedPageWrapper({ pageId, children }) {
   );
 }
 
+/**
+ * Dedicated wrapper for service sub-routes (e.g. /:lang/services/web-architecture)
+ */
+function LocalizedServicePageWrapper({ onOpenGetStarted }) {
+  const { lang, serviceSlug } = useParams();
+  const { i18n } = useTranslation();
+
+  const currentLang = SUPPORTED_LANGS.includes(lang) ? lang : DEFAULT_LANG;
+
+  useEffect(() => {
+    if (lang && SUPPORTED_LANGS.includes(lang) && i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+      const isRtl = ['fa', 'ar'].includes(lang);
+      document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+    }
+  }, [lang, i18n]);
+
+  const pageId = serviceSlug ? `services/${serviceSlug}` : 'services';
+
+  return (
+    <>
+      <SEOHead page={pageId} lang={currentLang} />
+      <ServicesPage selectedSlug={serviceSlug} onOpenGetStarted={onOpenGetStarted} />
+    </>
+  );
+}
+
 export default function App() {
   const [isGetStartedOpen, setIsGetStartedOpen] = useState(false);
   const navigate = useNavigate();
@@ -137,6 +165,12 @@ export default function App() {
               }
             />
             <Route
+              path="/:lang/services/:serviceSlug"
+              element={
+                <LocalizedServicePageWrapper onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+              }
+            />
+            <Route
               path="/:lang/portfolio"
               element={
                 <LocalizedPageWrapper pageId="portfolio">
@@ -184,6 +218,12 @@ export default function App() {
                 <LocalizedPageWrapper pageId="services">
                   <ServicesPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
                 </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/services/:serviceSlug"
+              element={
+                <LocalizedServicePageWrapper onOpenGetStarted={() => setIsGetStartedOpen(true)} />
               }
             />
             <Route

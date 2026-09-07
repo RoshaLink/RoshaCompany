@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, X, Monitor, Smartphone, Tablet } from 'lucide-react';
 import HeroSectionPortfolio from '../../components/HeroSectionPortfolio/HeroSectionPortfolio';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import Breadcrumb from '../../components/Breadcrumb/Breadcrumb';
 import './PortfolioPage.css';
 
 export default function PortfolioPage({ onOpenGetStarted }) {
@@ -173,8 +172,6 @@ export default function PortfolioPage({ onOpenGetStarted }) {
 
   return (
     <div className="portfolio-page-wrapper">
-
-      <Breadcrumb page="portfolio" />
 
       {/* Integrated Standalone HeroSectionPortfolio Component */}
       <HeroSectionPortfolio

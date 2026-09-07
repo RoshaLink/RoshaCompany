@@ -9,7 +9,20 @@ const DIST_DIR = resolve(__dirname, '../dist');
 const PORT = 54321;
 
 const languages = ['en', 'sv', 'fa', 'ar'];
-const pages = ['', '/about', '/services', '/portfolio', '/contact', '/privacy'];
+const pages = [
+  '',
+  '/about',
+  '/services',
+  '/services/discovery',
+  '/services/web-architecture',
+  '/services/cloud-backend',
+  '/services/ai-automation',
+  '/services/mobile-apps',
+  '/services/seo-performance',
+  '/portfolio',
+  '/contact',
+  '/privacy',
+];
 
 const routes = ['/'];
 languages.forEach(lang => {
@@ -34,7 +47,10 @@ async function run() {
     console.log(`Server listening on port ${PORT}`);
     
     console.log('Launching Puppeteer...');
-    const browser = await puppeteer.launch({ headless: 'new' });
+    const browser = await puppeteer.launch({
+      headless: 'new',
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+    });
     const page = await browser.newPage();
     
     // Set a large viewport

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, Loader2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
-import diaraContactImage from '../../assets/Diara/Contact/DiaraContact.webp';
+import roshaContactImage from '../../assets/Rosha/Contact/RoshaContact.webp';
 import './ContactPage.css';
 
 export default function ContactPage() {
@@ -113,10 +113,10 @@ export default function ContactPage() {
       <section className="contact-container contact-main-grid-section">
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 items-start ${isRTL ? 'is-rtl' : ''}`}>
           
-          {/* Left Column (5 Cols on desktop): DiarContact Image & Quick Contact Cards */}
+          {/* Left Column (5 Cols on desktop): RoshaContact Image & Quick Contact Cards */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6">
             
-            {/* DiarContact Showcase Image Card */}
+            {/* RoshaContact Showcase Image Card */}
             <div className="relative w-full group">
               {/* Ambient Glow Backdrop */}
               <div className="absolute -inset-2 bg-gradient-to-r from-sky-400/20 via-indigo-500/20 to-purple-500/20 rounded-3xl blur-xl group-hover:opacity-100 transition duration-500" />
@@ -124,7 +124,7 @@ export default function ContactPage() {
               {/* Glassmorphic Frame Card */}
               <div className="contact-image-frame">
                 <img
-                  src={diaraContactImage}
+                  src={roshaContactImage}
                   alt="RoshaLink Strategic Advisor"
                   className="contact-img"
                  width="1200" height="896" loading="lazy" />

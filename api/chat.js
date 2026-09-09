@@ -1,6 +1,8 @@
 import { buildSystemPrompt } from './_lib/systemPrompt.js';
 import { rateLimit } from './_lib/rateLimit.js';
 import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
+import { detectAndCaptureChatLead } from './_lib/chatLeadCapture.js';
+import { sanitizeAssistantReply } from './_lib/securityFilter.js';
 
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 
@@ -140,6 +142,16 @@ export default async function handler(req, res) {
     .slice(-MAX_HISTORY)
     .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_MESSAGE_CHARS) }));
 
+  // Detect contact info and capture lead asynchronously without delaying the AI reply
+  void detectAndCaptureChatLead({
+    message,
+    history: safeHistory,
+    uiLang,
+    clientIp: clientIp(req),
+  }).catch((err) => {
+    console.error('[chat] lead detection background error:', err);
+  });
+
   const model = process.env.OPENAI_MODEL || DEFAULT_MODEL;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
@@ -170,7 +182,9 @@ export default async function handler(req, res) {
       return send(res, 502, { error: 'upstream_error' });
     }
 
-    return send(res, 200, { reply });
+    const safeReply = sanitizeAssistantReply(reply, uiLang);
+
+    return send(res, 200, { reply: safeReply });
   } catch (err) {
     // `instanceof Error` before reading .name: a throw of a non-Error value
     // would otherwise crash the catch block itself and turn a handled timeout

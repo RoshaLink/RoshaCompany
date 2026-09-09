@@ -333,6 +333,9 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background-clip: text;
   animation: universal-text-shine 6s ease-in-out infinite;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .emerald-text-shine {
@@ -352,6 +355,9 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background-clip: text;
   animation: universal-text-shine 6s ease-in-out infinite;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .indigo-text-shine {
@@ -371,6 +377,9 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background-clip: text;
   animation: universal-text-shine 6s ease-in-out infinite;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .purple-text-shine {
@@ -390,6 +399,9 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background-clip: text;
   animation: universal-text-shine 6s ease-in-out infinite;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .amber-text-shine {
@@ -409,4 +421,7 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   background-clip: text;
   animation: universal-text-shine 6s ease-in-out infinite;
   display: inline-block;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }

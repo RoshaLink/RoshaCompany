@@ -98,8 +98,22 @@ html.dark .privacy-badge-icon {
 
 @media (min-width: 768px) {
   .privacy-main-title {
-    font-size: 3.75rem;
-    line-height: 1.1;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .privacy-main-title {
+    font-size: 2.75rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .privacy-main-title {
+    font-size: 3rem;
+    line-height: 1.18;
   }
 }
 

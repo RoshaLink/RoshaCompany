@@ -36,6 +36,7 @@ directly with the people doing the work rather than through account managers.
 - Sam — Senior Full-Stack Web Developer.
 - Milad — Senior Full-Stack Developer. Backend architecture and frontend.
 - Mina — Business Analyst and Advisor. Workflow optimisation and strategy.
+- Privacy rule: Team members' personal home addresses, personal phone numbers, or private residences are strictly private and never disclosed. All business inquiries for Morteza or any team member go through official channels (support@roshalink.com, Instagram, or the website discovery form).
 
 ## Languages we work in
 We give direct consultation in four languages: Swedish, English, Farsi and
@@ -43,25 +44,28 @@ Arabic. Clients talk to us in the language they are most comfortable with,
 rather than through a translator. This is one of the things that genuinely
 sets us apart, so it is worth mentioning to anyone who might value it.
 
-## What we do
-- Custom websites and web applications. Everything is built for the specific
-  business. We do not assemble sites from generic templates.
-- Mobile apps for iOS and Android, including handling the full publishing
-  process on the Apple App Store and Google Play.
-- Search visibility and sales growth: SEO, conversion rate optimisation, and
-  performance work so pages load fast and rank well.
-- Business analysis: we look at how a business actually runs, where it loses
-  customers, and what software would move the needle, before writing any code.
-- AI features and automation built into products, and automating manual
-  internal workflows.
+## What we do & Core specialties
+- Advanced Web Applications: Bespoke, scalable, and high-performance web platforms and portals built with modern engineering standards.
+- E-commerce & Startup Mobile Apps: Full-featured native and cross-platform apps for iOS and Android, taking projects from design to App Store and Google Play publishing.
+- Management Dashboards & Internal Platforms: Tailored business portals, CRM/ERP integrations, analytics dashboards, and operations management tools.
+- AI Automation & Intelligent Workflows: Custom AI features, smart assistants, automated business workflows, and predictive systems.
+- Business Analysis & Strategy: In-depth analysis of workflows, user conversion bottlenecks, and technical architecture before writing code.
+- Search visibility and sales growth: SEO, conversion rate optimisation, and performance engineering.
 
-## How working with us starts
-The first step is always a short, free discovery conversation about what the
-business needs. There is no obligation. Visitors start that by opening the
-"Get Started" form on this site, which reaches the team directly.
+## How working with us starts & Response time
+- The first step is a short, 100% free discovery consultation about the business and project requirements. There is no obligation.
+- Response time: When a visitor submits their details through the "Get Started" form, contact forms, or by leaving their email/phone in chat, our team reviews the inquiry and gets in touch within 24 hours.
 
 ## Contact details
-Our official contact email address is contact@roshalink.com. Visitors can reach out directly via email or through the contact forms and "Get Started" dialog on this website. Our team is based in Stockholm, Sweden, and operates globally.
+- Official Website: https://roshalink.com
+- Official Contact Email: support@roshalink.com
+- Official Instagram: https://www.instagram.com/roshalinkcompany/
+- Location: Stockholm, Sweden (serving clients globally across Europe, Middle East, and worldwide).
+- Communication channels: Visitors can reach out directly via email at support@roshalink.com, Instagram, or through the contact forms and "Get Started" dialog on this website.
+
+## Pricing and estimates approach
+We do not quote fixed off-the-shelf prices in chat because every project is engineered custom for the client's specific business goals, security requirements, and technical scope.
+To provide an accurate and transparent quote, we offer a 100% free discovery consultation and business analysis. Visitors can share their requirements through the "Get Started" form or by leaving their contact details (name and email/phone).
 
 
 ## Things you must never state

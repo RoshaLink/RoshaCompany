@@ -59,6 +59,13 @@ html.dark .rolling-list-glow-2 {
   z-index: 10;
 }
 
+@media (max-width: 640px) {
+  .rolling-list-container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+}
+
 /* Header Section */
 .rolling-list-header {
   text-align: center;
@@ -72,8 +79,8 @@ html.dark .rolling-list-glow-2 {
 }
 
 .rolling-section-title {
-  font-size: 2.125rem;
-  line-height: 1.2;
+  font-size: clamp(1.35rem, 4.5vw, 2.5rem);
+  line-height: 1.25;
   font-weight: 800;
   font-family: var(--font-headline);
   color: var(--color-slate-900);
@@ -81,12 +88,41 @@ html.dark .rolling-list-glow-2 {
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .rolling-section-title {
     font-size: 2.75rem;
   }
+}
+
+@media (max-width: 640px) {
+  .rolling-section-title {
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .rolling-section-title {
+    font-size: clamp(1.12rem, 5.2vw, 1.45rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .rolling-section-title {
+    font-size: clamp(1.02rem, 5vw, 1.25rem);
+  }
+}
+
+.rolling-section-title span {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 html.dark .rolling-section-title {
@@ -278,7 +314,7 @@ html.dark .theme-color-purple:hover .rolling-item-number {
 }
 
 .rolling-title-text {
-  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-size: clamp(1.6rem, 5.5vw, 4.25rem);
   font-weight: 900;
   font-family: var(--font-headline);
   line-height: 1.15;
@@ -286,7 +322,22 @@ html.dark .theme-color-purple:hover .rolling-item-number {
   margin: 0;
   padding: 0 0.25rem;
   box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .rolling-title-text {
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .rolling-title-text {
+    font-size: clamp(1.1rem, 4.8vw, 1.35rem);
+  }
 }
 
 .rolling-title-normal {

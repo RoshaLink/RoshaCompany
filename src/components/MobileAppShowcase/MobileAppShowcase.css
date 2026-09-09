@@ -365,7 +365,7 @@
 /* Dark Mode Extensions */
 html.dark .mobile-section {
   background-color: #0b1120;
-  background-image: linear-gradient(to bottom, #0b1120, rgba(238, 242, 255, 0.05), #0b1120);
+  background-image: none;
 }
 html.dark .mobile-title { color: var(--color-slate-100); }
 html.dark .mobile-subtitle { color: var(--color-slate-400); }
@@ -387,6 +387,8 @@ html.dark .mobile-stat-pill {
   border-color: rgba(255, 255, 255, 0.1);
 }
 html.dark .mobile-stat-title { color: var(--color-slate-100); }
-html.dark .mobile-glow-1 { background-color: rgba(99, 102, 241, 0.15); }
 html.dark .mobile-btn-primary { color: var(--color-white); }
-html.dark .mobile-glow-2 { background-color: rgba(56, 189, 248, 0.15); }
+html.dark .mobile-glow-1,
+html.dark .mobile-glow-2 {
+  display: none;
+}

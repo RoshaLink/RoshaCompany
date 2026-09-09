@@ -113,7 +113,8 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     sameAs: [
       'https://www.linkedin.com/company/roshalink',
       'https://github.com/roshalink',
-      // TODO: add Twitter/X, Instagram, Facebook once confirmed
+      'https://www.instagram.com/roshalinkcompany/',
+      // TODO: add Twitter/X, Facebook once confirmed
     ],
 
     priceRange: '$$$$',

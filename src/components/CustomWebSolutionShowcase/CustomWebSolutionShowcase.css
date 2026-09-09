@@ -420,7 +420,7 @@
 /* Dark Mode Extensions */
 html.dark .custom-section {
   background-color: #0b1120;
-  background-image: linear-gradient(to bottom, #0b1120, rgba(254, 243, 199, 0.05), #0b1120);
+  background-image: none;
 }
 html.dark .custom-title { color: var(--color-slate-100); }
 html.dark .custom-subtitle { color: var(--color-slate-400); }
@@ -443,4 +443,7 @@ html.dark .custom-stat-pill {
 }
 html.dark .custom-stat-text-1 { color: var(--color-slate-100); }
 html.dark .custom-stat-title-2 { color: var(--color-slate-100); }
-html.dark .custom-glow-1 { background-color: rgba(16, 185, 129, 0.15); }
+html.dark .custom-glow-1,
+html.dark .custom-glow-2 {
+  display: none;
+}

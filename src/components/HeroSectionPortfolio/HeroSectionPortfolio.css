@@ -308,23 +308,15 @@
 
 @media (min-width: 1024px) {
   .portfolio-hero-title {
-    font-size: 2.25rem;
-    line-height: 1.22;
-    max-width: 36rem;
+    font-size: 2.75rem;
+    line-height: 1.2;
+    max-width: 42rem;
   }
 }
 
 @media (min-width: 1280px) {
   .portfolio-hero-title {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    max-width: 40rem;
-  }
-}
-
-@media (min-width: 1536px) {
-  .portfolio-hero-title {
-    font-size: 2.75rem;
+    font-size: 3rem;
     line-height: 1.18;
     max-width: 44rem;
   }

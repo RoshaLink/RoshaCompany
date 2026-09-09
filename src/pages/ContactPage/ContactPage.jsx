@@ -169,10 +169,10 @@ export default function ContactPage() {
 
                     <div className="space-y-1 sm:space-y-2">
                       <h2 className="text-lg sm:text-2xl font-bold contact-section-heading">
-                        {t('contactPage.successTitle')}
+                        {t('contactPage.submittedTitle', t('contactPage.successTitle'))}
                       </h2>
                       <p className="text-xs sm:text-sm max-w-md mx-auto contact-form-subtext">
-                        {t('contactPage.successDesc')}
+                        {t('contactPage.submittedSub', t('contactPage.successDesc'))}
                       </p>
                     </div>
 

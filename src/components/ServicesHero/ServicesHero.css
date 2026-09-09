@@ -208,13 +208,19 @@ html.dark .services-hero-glow-2 {
 
 @media (min-width: 1024px) {
   .services-hero-title {
-    font-size: clamp(2.1rem, 2.75vw, 3.15rem);
+    font-size: 2.75rem;
+    line-height: 1.2;
+  }
+  .services-hero-title-top,
+  .services-hero-title-bottom {
+    white-space: normal;
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1280px) {
   .services-hero-title {
-    font-size: 3.35rem;
+    font-size: 3rem;
+    line-height: 1.18;
   }
 }
 

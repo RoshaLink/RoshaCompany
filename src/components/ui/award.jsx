@@ -180,7 +180,7 @@ export function Awards({
             {(badgeText || level).toUpperCase()}
           </div>
 
-          <h3 className="award-title text-2xl md:text-3xl font-extrabold tracking-tight mb-2">
+          <h3 className="award-title font-extrabold tracking-tight mb-2">
             {title}
           </h3>
 

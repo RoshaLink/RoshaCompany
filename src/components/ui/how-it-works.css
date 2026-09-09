@@ -59,6 +59,13 @@ html.dark .how-ambient-glow {
   z-index: 10;
 }
 
+@media (max-width: 640px) {
+  .how-container {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+}
+
 /* Header Section */
 .how-header {
   text-align: center;
@@ -72,8 +79,8 @@ html.dark .how-ambient-glow {
 }
 
 .how-title {
-  font-size: 2.125rem;
-  line-height: 1.2;
+  font-size: clamp(1.35rem, 4.5vw, 2.5rem);
+  line-height: 1.25;
   font-weight: 800;
   font-family: var(--font-headline);
   color: var(--color-slate-900);
@@ -81,12 +88,41 @@ html.dark .how-ambient-glow {
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 @media (min-width: 768px) {
   .how-title {
     font-size: 2.75rem;
   }
+}
+
+@media (max-width: 640px) {
+  .how-title {
+    font-size: clamp(1.2rem, 5vw, 1.65rem);
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-title {
+    font-size: clamp(1.12rem, 5.2vw, 1.45rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .how-title {
+    font-size: clamp(1.02rem, 5vw, 1.25rem);
+  }
+}
+
+.how-title span {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 html.dark .how-title {
@@ -341,6 +377,9 @@ html.dark .how-card-icon-pill {
   color: var(--color-slate-900);
   margin-top: 0;
   margin-bottom: 0.6rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 html.dark .how-card-title {

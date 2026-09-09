@@ -401,6 +401,62 @@ html:not(.dark) .homepage-container .testimonial-col-section {
 /* Dark Mode Extensions for HomePage */
 html.dark .homepage-container {
   background-color: #0b1120;
+  background-image: none;
+}
+
+/* 
+  Sections 3 to 11 in Dark Mode:
+  Maintain the exact uniform dark background color (#0b1120) with no gradient light washes.
+  Section 1 (HeroSection) and Section 2 (BrandsWeWorkWith) are strictly untouched.
+*/
+html.dark .homepage-container .search-visibility-section,
+html.dark .homepage-container .search-visibility-wrapper,
+html.dark .homepage-container .whoweare-section,
+html.dark .homepage-container .whoweare-section .hero-section,
+html.dark .homepage-container .connect-section,
+html.dark .homepage-container .sales-section,
+html.dark .homepage-container .business-section,
+html.dark .homepage-container .custom-section,
+html.dark .homepage-container .mobile-section,
+html.dark .homepage-container .testimonial-col-section {
+  background-color: #0b1120 !important;
+  background-image: none !important;
+}
+
+/* Remove borders between sections in dark mode so they blend seamlessly */
+html.dark .homepage-container .testimonial-col-section {
+  border-color: transparent !important;
+}
+
+/*
+  Remove all extra ambient glow lights, light pools, and light backdrops across sections 3 to 11 in Dark Mode.
+  Strictly dark mode only (html.dark) - leaves Light Mode 100% untouched.
+*/
+html.dark .homepage-container .search-glow-1,
+html.dark .homepage-container .search-glow-2,
+html.dark .homepage-container .search-video-glow,
+html.dark .homepage-container .whoweare-glow-1,
+html.dark .homepage-container .whoweare-glow-2,
+html.dark .homepage-container .whoweare-section .hero-ambient-1,
+html.dark .homepage-container .whoweare-section .hero-ambient-2,
+html.dark .homepage-container .whoweare-section .hero-quote-ambient,
+html.dark .homepage-container .connect-glow-1,
+html.dark .homepage-container .connect-glow-2,
+html.dark .homepage-container .connect-image-glow,
+html.dark .homepage-container .sales-glow-1,
+html.dark .homepage-container .sales-glow-2,
+html.dark .homepage-container .business-glow-1,
+html.dark .homepage-container .business-video-glow,
+html.dark .homepage-container .custom-glow-1,
+html.dark .homepage-container .custom-glow-2,
+html.dark .homepage-container .custom-image-glow,
+html.dark .homepage-container .mobile-glow-1,
+html.dark .homepage-container .mobile-glow-2,
+html.dark .homepage-container .mobile-video-glow,
+html.dark .homepage-container .testimonial-col-glow,
+html.dark .homepage-container .cta-glow,
+html.dark .homepage-container .cta-image-backdrop {
+  display: none !important;
 }
 
 html.dark .cta-card {

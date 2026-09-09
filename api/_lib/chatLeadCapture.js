@@ -11,8 +11,8 @@ const MAX_MESSAGE_CHARS = 4000;
 export function normalizeDigits(str = '') {
   if (typeof str !== 'string') return '';
   return str
-    .replace(/[۰-۹]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
-    .replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+    .replace(/[\u06F0-\u06F9]/g, (d) => String(d.charCodeAt(0) - 1776))
+    .replace(/[\u0660-\u0669]/g, (d) => String(d.charCodeAt(0) - 1632));
 }
 
 const EMAIL_REGEX = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;

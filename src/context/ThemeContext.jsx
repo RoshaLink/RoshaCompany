@@ -1,35 +1,29 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem('theme') === 'dark';
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark') {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-      document.documentElement.setAttribute('data-theme', 'dark');
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
     } else {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-      document.documentElement.setAttribute('data-theme', 'light');
+      root.classList.remove('dark');
+      root.setAttribute('data-theme', 'light');
     }
-  }, []);
+  }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark(prev => {
       const next = !prev;
-      const root = document.documentElement;
-      if (next) {
-        root.classList.add('dark');
-        root.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        root.classList.remove('dark');
-        root.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('theme', next ? 'dark' : 'light');
       }
       return next;
     });

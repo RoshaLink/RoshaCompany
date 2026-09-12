@@ -40,7 +40,11 @@ export default function LazySection({
 
   return (
     <div ref={ref} style={{ minHeight: isVisible ? 'auto' : minHeight }}>
-      {isVisible ? children : null}
+      {isVisible ? (
+        <React.Suspense fallback={null}>
+          {children}
+        </React.Suspense>
+      ) : null}
     </div>
   );
 }

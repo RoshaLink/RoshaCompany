@@ -1,28 +1,26 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
-import { Button } from "../ui/button";
-import { Sparkles, ArrowRight } from "lucide-react";
 import "./BrandsWeWorkWith.css";
 
 const TECH_ICONS_ROW1 = [
-  { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "TypeScript", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-  { name: "Next.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-  { name: "Tailwind CSS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "AWS", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-  { name: "Docker", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "Kubernetes", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "React", src: "/tech-icons/react.svg" },
+  { name: "TypeScript", src: "/tech-icons/typescript.svg" },
+  { name: "Next.js", src: "/tech-icons/nextjs.svg" },
+  { name: "Tailwind CSS", src: "/tech-icons/tailwindcss.svg" },
+  { name: "AWS", src: "/tech-icons/aws.svg" },
+  { name: "Docker", src: "/tech-icons/docker.svg" },
+  { name: "Kubernetes", src: "/tech-icons/kubernetes.svg" },
 ];
 
 const TECH_ICONS_ROW2 = [
-  { name: "Python", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "Node.js", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "GraphQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-  { name: "PostgreSQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-  { name: "Figma", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-  { name: "GitHub", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-  { name: "GCP", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+  { name: "Python", src: "/tech-icons/python.svg" },
+  { name: "Node.js", src: "/tech-icons/nodejs.svg" },
+  { name: "GraphQL", src: "/tech-icons/graphql.svg" },
+  { name: "PostgreSQL", src: "/tech-icons/postgresql.svg" },
+  { name: "Figma", src: "/tech-icons/figma.svg" },
+  { name: "GitHub", src: "/tech-icons/github.svg" },
+  { name: "GCP", src: "/tech-icons/gcp.svg" },
 ];
 
 const repeatedIcons = (icons, repeat = 4) => Array.from({ length: repeat }).flatMap(() => icons);
@@ -73,7 +71,15 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
               className="brands-card brands-card-primary group"
               title={item.name}
             >
-              <img src={item.src} alt={item.name} className="brands-card-img" width="36" height="36" />
+              <img
+                src={item.src}
+                alt={item.name}
+                className="brands-card-img"
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </div>
@@ -86,7 +92,15 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
               className="brands-card brands-card-secondary group"
               title={item.name}
             >
-              <img src={item.src} alt={item.name} className="brands-card-img" width="36" height="36" />
+              <img
+                src={item.src}
+                alt={item.name}
+                className="brands-card-img"
+                width="36"
+                height="36"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </div>

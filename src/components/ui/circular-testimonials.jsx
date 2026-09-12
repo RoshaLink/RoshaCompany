@@ -72,15 +72,6 @@ export const CircularTestimonials = ({
     };
   }, [autoplay, testimonialsLength]);
 
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === "ArrowLeft") handlePrev();
-      if (e.key === "ArrowRight") handleNext();
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [activeIndex, testimonialsLength]);
-
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % testimonialsLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
@@ -90,6 +81,15 @@ export const CircularTestimonials = ({
     setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
   }, [testimonialsLength]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [handleNext, handlePrev]);
 
   function getImageStyle(index) {
     const calculatedGap = calculateGap(containerWidth);

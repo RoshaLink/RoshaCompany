@@ -1,36 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles, Home, Globe, Briefcase, Layers, Users, Mail, ChevronDown } from 'lucide-react';
+import { Home, Briefcase, Layers, Users, Mail, ChevronDown } from 'lucide-react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../context/ThemeContext';
 import { MenuBar } from '../ui/glow-menu';
 import CurvedMobileMenu from '../ui/curved-menu';
-import logoImg from '../../assets/Logo/RoshaLink_logo.webp';
+const logoImg = '/RoshaLink_logo_sm.webp';
 import './Navbar.css';
-
-// ponytail: the desktop pill/flip animation below is copy-pasted from
-// ../ui/glow-menu's MenuBar (rather than reusing MenuBar directly) because
-// this pass is scoped to Navbar.jsx/.css only -- MenuBar's internal <button>
-// can't become a real <Link> without editing glow-menu.jsx. If MenuBar ever
-// grows an `as`/`linkComponent` prop, drop this local copy and go back to
-// <MenuBar items={glowMenuItems} .../>.
-const glowMenuItemVariants = { initial: { rotateX: 0, opacity: 1 }, hover: { rotateX: -90, opacity: 0 } };
-const glowMenuBackVariants = { initial: { rotateX: 90, opacity: 0 }, hover: { rotateX: 0, opacity: 1 } };
-const glowMenuGlowVariants = {
-  initial: { opacity: 0, scale: 0.8 },
-  hover: {
-    opacity: 1,
-    scale: 2,
-    transition: {
-      opacity: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-      scale: { duration: 0.5, type: 'spring', stiffness: 300, damping: 25 },
-    },
-  },
-};
-const glowMenuNavGlowVariants = { initial: { opacity: 0 }, hover: { opacity: 1, transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } } };
-const glowMenuTransition = { type: 'spring', stiffness: 100, damping: 20, duration: 0.5 };
 
 const SwedenFlag = () => (
   <svg className="w-4 h-3 rounded-[2px] shadow-sm shrink-0 overflow-hidden inline-block" viewBox="0 0 16 10" fill="none">
@@ -84,14 +60,11 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const currentLang = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
-  const CurrentFlag = currentLang.Flag;
+  const FlagIcon = currentLang.Flag;
 
   const handleLanguageChange = (langCode) => {
     i18n.changeLanguage(langCode);
     setLangMenuOpen(false);
-    const isRtl = ['fa', 'ar'].includes(langCode);
-    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
-    document.documentElement.lang = langCode;
     if (onLanguageChange) {
       onLanguageChange(langCode);
     }
@@ -189,7 +162,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
               className="navbar-logo"
             >
               <div className="navbar-logo-icon">
-                <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" width="705" height="433" />
+                <img src={logoImg} alt="RoshaLink Logo" className="navbar-logo-img" width="140" height="86" />
               </div>
             </div>
 
@@ -222,7 +195,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
                   className="navbar-lang-btn"
                 >
-                  <CurrentFlag />
+                  <FlagIcon />
                   <span>{currentLang.label}</span>
                   <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                 </button>
@@ -273,10 +246,11 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
                   const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
                   handleLanguageChange(nextLang);
                 }}
-                className="px-2.5 py-1.5 min-h-11 rounded-full bg-white/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5 transition-colors"
-                aria-label="Switch language"
+                className="navbar-mobile-lang-btn"
+                aria-label={`Switch language (${currentLang.code.toUpperCase()})`}
               >
-                <CurrentFlag /> <span>{currentLang.code.toUpperCase()}</span>
+                <FlagIcon />
+                <span>{currentLang.code.toUpperCase()}</span>
               </button>
 
               {/* High-End Animated Hamburger Toggle Button */}

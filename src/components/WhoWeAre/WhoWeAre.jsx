@@ -32,7 +32,7 @@ const TEAM_IMAGES = [
   },
 ];
 
-export default function WhoWeAre({ setActivePage, onOpenGetStarted }) {
+export default function WhoWeAre({ _setActivePage, onOpenGetStarted }) {
   const { t, i18n } = useTranslation();
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
 

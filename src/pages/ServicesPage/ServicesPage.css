@@ -803,12 +803,7 @@ html.dark .services-cta-secondary-link:focus-visible {
   color: var(--color-sky-400, #38bdf8);
 }
 
-[dir="rtl"] .services-cta-secondary-link,
-.is-rtl .services-cta-secondary-link {
-  flex-direction: row-reverse;
-}
-
 [dir="rtl"] .services-cta-secondary-icon,
 .is-rtl .services-cta-secondary-icon {
-  transform: rotate(90deg);
+  transform: scaleX(-1);
 }

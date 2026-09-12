@@ -920,7 +920,9 @@ const resources = {
         cta: {
           title: "Redo att ta nästa steg?",
           subtitle: "Boka ett kort samtal med oss — utan förpliktelser. Vi lyssnar, ställer frågor och berättar ärligt vad vi kan göra för dig.",
-          button: "Boka ett samtal idag"
+          button: "Boka ett samtal idag",
+          portfolioLink: "Se våra projekt i praktiken",
+          aboutLink: "Möt senior-teamet bakom detta"
         }
       },
       contactPage: {
@@ -1901,7 +1903,9 @@ const resources = {
         cta: {
           title: "Ready to take the next step?",
           subtitle: "Book a quick call with us — no obligations. We'll listen, ask the right questions, and tell you honestly what we can do for you.",
-          button: "Book a Call Today"
+          button: "Book a Call Today",
+          portfolioLink: "See this work in action",
+          aboutLink: "Meet the senior team behind this"
         }
       },
       contactPage: {
@@ -2882,7 +2886,9 @@ const resources = {
         cta: {
           title: "آماده‌ای قدم بعدی رو برداری؟",
           subtitle: "یه مکالمه کوتاه با ما داشته باش — بدون تعهد. گوش می‌دیم، سوال می‌پرسیم و صادقانه می‌گیم چی می‌تونیم برات بکنیم.",
-          button: "امروز یه مکالمه رزرو کن"
+          button: "امروز یه مکالمه رزرو کن",
+          portfolioLink: "مشاهده نمونه‌کارهای ما در عمل",
+          aboutLink: "آشنایی با تیم ارشد سازنده"
         }
       },
       contactPage: {
@@ -3863,7 +3869,9 @@ const resources = {
         cta: {
           title: "جاهز لاتخاذ الخطوة التالية؟",
           subtitle: "احجز مكالمة قصيرة معنا — بلا التزامات. سنستمع، نسأل الأسئلة الصحيحة، ونخبرك بصدق ما يمكننا فعله لك.",
-          button: "احجز مكالمة اليوم"
+          button: "احجز مكالمة اليوم",
+          portfolioLink: "استعرض أعمالنا ومشاريعنا",
+          aboutLink: "تعرف على الفريق الخبير وراء هذا"
         }
       },
       contactPage: {

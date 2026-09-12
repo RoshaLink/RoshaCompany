@@ -89,7 +89,6 @@ export default defineConfig(({ mode }) => {
         // Emit companion .webp files next to every PNG/JPEG
         // so we can use <picture><source type="image/webp" ...></picture>
         // without changing any existing <img> src imports.
-        includePublic: true,
         logStats: true,
       }),
     ],
@@ -130,7 +129,7 @@ export default defineConfig(({ mode }) => {
           target: 'http://127.0.0.1:5000',
           changeOrigin: true,
           configure: (proxy) => {
-            proxy.on('error', (err, req, res) => {
+            proxy.on('error', (err, req, _res) => {
               console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
             });
           },
@@ -139,7 +138,7 @@ export default defineConfig(({ mode }) => {
           target: 'http://127.0.0.1:5000',
           changeOrigin: true,
           configure: (proxy) => {
-            proxy.on('error', (err, req, res) => {
+            proxy.on('error', (err, req, _res) => {
               console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
             });
           },
@@ -148,7 +147,7 @@ export default defineConfig(({ mode }) => {
           target: 'http://127.0.0.1:5000',
           changeOrigin: true,
           configure: (proxy) => {
-            proxy.on('error', (err, req, res) => {
+            proxy.on('error', (err, req, _res) => {
               console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
             });
           },

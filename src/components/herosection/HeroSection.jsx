@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, RotateCcw, Volume2, VolumeX, Play, Pause, Cpu, Zap, ShieldCheck } from "lucide-react";
+import { RotateCcw, Volume2, VolumeX, Play, Pause, Cpu, Zap, ShieldCheck } from "lucide-react";
 import { SUPPORTED_LANGS, DEFAULT_LANG } from "../../config/seoConfig";
 import videoEnglishMp4 from "../../assets/Rosha/Herosection/RoshaHeroSectionEnglish.mp4";
 import videoEnglishWebm from "../../assets/Rosha/Herosection/RoshaHeroSectionEnglish.webm";
@@ -20,6 +19,11 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true); // Start muted: unsolicited audio on load is jarring and blocked by most browsers anyway
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Select video based on selected language
   const getVideoSources = () => {
@@ -32,18 +36,23 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
   const { mp4: currentVideoMp4, webm: currentVideoWebm } = getVideoSources();
 
-  // Play video muted on initial load or language change; defer slightly so initial paint occurs immediately
+  // Play video muted on initial load for desktop; keep paused on mobile to preserve bandwidth & CPU
   useEffect(() => {
     let timer;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     if (videoRef.current) {
       videoRef.current.muted = true;
       setIsMuted(true);
-      timer = setTimeout(() => {
-        if (videoRef.current) {
-          videoRef.current.play().catch(() => { });
-          setIsPlaying(true);
-        }
-      }, 350);
+      if (isMobile) {
+        setIsPlaying(false);
+      } else {
+        timer = setTimeout(() => {
+          if (videoRef.current) {
+            videoRef.current.play().catch(() => { });
+            setIsPlaying(true);
+          }
+        }, 400);
+      }
     }
     return () => clearTimeout(timer);
   }, [currentVideoMp4]);
@@ -91,13 +100,8 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
       <div className="hero-container">
 
-        {/* Text Panel */}
-        <motion.div
-          className={`hero-text-panel ${rtlClass}`}
-          initial={{ opacity: 0, x: isRTL ? 40 : -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        {/* Text Panel — unblocked immediate paint for instantaneous LCP */}
+        <div className={`hero-text-panel ${rtlClass}`}>
           {/* Main Title Block */}
           <div className="hero-title-block">
             <h1 className="hero-title glass-text-shine">
@@ -145,24 +149,19 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
               ].map(({ Icon, title, sub }, idx) => (
                 <div key={idx} className={`hero-cap-card ${idx !== 0 ? 'hero-cap-border-s' : ''}`}>
                   <Icon className="hero-cap-icon" />
-                  <h4 className="hero-cap-title">{title}</h4>
+                  <h2 className="hero-cap-title">{title}</h2>
                   <p className="hero-cap-sub">{sub}</p>
                 </div>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Divider rail */}
         <div className="hidden lg:block relative w-px shrink-0 hero-divider" />
 
         {/* Video Panel */}
-        <motion.div
-          className="hero-video-panel"
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-        >
+        <div className="hero-video-panel">
           <div className="hero-video-wrapper">
             <video
               ref={videoRef}
@@ -176,8 +175,13 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
               onEnded={() => setIsPlaying(false)}
               className="hero-video-el"
             >
-              <source src={currentVideoWebm} type="video/webm" />
-              <source src={currentVideoMp4} type="video/mp4" />
+              {isMounted && (
+                <>
+                  <source src={currentVideoWebm} type="video/webm" />
+                  <source src={currentVideoMp4} type="video/mp4" />
+                </>
+              )}
+              <track kind="captions" src="data:text/vtt;charset=utf-8,WEBVTT" default={false} label="Captions" />
             </video>
 
 
@@ -222,7 +226,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

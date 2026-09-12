@@ -121,8 +121,12 @@
 
 .footer-logo-link-text {
   font-weight: 400;
-  color: #0ea5e9;
+  color: #0369a1;
   letter-spacing: 0.08em;
+}
+
+html.dark .footer-logo-link-text {
+  color: #38bdf8;
 }
 
 /* RTL / Farsi & Arabic Logo Text Styling */
@@ -276,11 +280,15 @@
 @media (min-width: 768px) { .footer-links-col { grid-column: span 2 / span 2; } }
 
 .footer-links-title {
-  color: var(--color-sky-600);
+  color: #0369a1;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+html.dark .footer-links-title {
+  color: #38bdf8;
 }
 
 .footer-links-list {
@@ -327,11 +335,15 @@
 @media (min-width: 768px) { .footer-cap-col { grid-column: span 3 / span 3; } }
 
 .footer-cap-title {
-  color: var(--color-indigo-600);
+  color: #4338ca;
   font-weight: 700;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+}
+
+html.dark .footer-cap-title {
+  color: #818cf8;
 }
 
 /* Plain summary list, not links -- see the comment in Footer.jsx for why

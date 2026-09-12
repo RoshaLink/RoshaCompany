@@ -542,6 +542,7 @@ html.dark .process-card-btn-next {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 2rem;
+  direction: ltr !important;
 }
 
 .process-deck-nav-btn {

@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { cn } from "../../lib/utils";
 import "./testimonial.css";
 
@@ -10,6 +10,14 @@ import BellaPortrait from "../../assets/OurPictures/BellaPortrait.webp";
 import SohrabPortrait from "../../assets/OurPictures/SohrabPortrait.webp";
 import MinaPortrait from "../../assets/OurPictures/MinaPortrait.webp";
 import MiladPortrait from "../../assets/OurPictures/MiladPortrait.webp";
+
+const MOTION_ELEMENTS = {
+  div: motion.div,
+  h2: motion.h2,
+  p: motion.p,
+  span: motion.span,
+  section: motion.section,
+};
 
 function TimelineContent({
   as: Component = "div",
@@ -34,7 +42,7 @@ function TimelineContent({
   };
 
   const variants = customVariants || defaultVariants;
-  const MotionComponent = motion.create(Component);
+  const MotionComponent = MOTION_ELEMENTS[Component] || motion.div;
 
   return (
     <MotionComponent
@@ -52,7 +60,7 @@ function TimelineContent({
 }
 
 export function ClientFeedback({
-  badge = null,
+  badge: _badge = null,
   title = "Direct Leadership Driving Enterprise Innovation",
   subtitle = "How our founding squad engineers solutions, eliminates friction, and guarantees measurable growth.",
   data,

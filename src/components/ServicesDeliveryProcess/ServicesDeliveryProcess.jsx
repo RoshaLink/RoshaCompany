@@ -273,17 +273,17 @@ export default function ServicesDeliveryProcess({ onOpenGetStarted }) {
           </div>
 
           {/* Navigation Controls below card deck */}
-          <div className="process-deck-controls">
+          <div className="process-deck-controls" dir="ltr">
             <button
               type="button"
               onClick={isRTL ? handleNext : handlePrev}
               className="process-deck-nav-btn"
-              aria-label="Previous delivery stage"
+              aria-label={isRTL ? t('servicesPage.process.nextStage') : "Previous delivery stage"}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
-            <div className="process-deck-status">
+            <div className="process-deck-status" dir={isRTL ? 'rtl' : 'ltr'}>
               <span>
                 {t('servicesPage.process.stageCounter', {
                   current: activeStageIdx + 1,
@@ -296,7 +296,7 @@ export default function ServicesDeliveryProcess({ onOpenGetStarted }) {
               type="button"
               onClick={isRTL ? handlePrev : handleNext}
               className="process-deck-nav-btn"
-              aria-label="Next delivery stage"
+              aria-label={isRTL ? "Previous delivery stage" : t('servicesPage.process.nextStage')}
             >
               <ChevronRight className="w-5 h-5" />
             </button>

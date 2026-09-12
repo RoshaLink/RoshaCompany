@@ -131,19 +131,21 @@ export const MinimalistHero = ({
             className="hero-circle"
           />
 
-          {/* Member Image with Framer Motion */}
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={`img-${currentIndex}`}
-              src={currentMember.src}
-              alt={currentMember.name}
-              initial={{ opacity: 0, y: 30, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1.18 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="hero-portrait"
-            />
-          </AnimatePresence>
+          {/* Circular Frame to clip portrait overflow to the circle boundary */}
+          <div className="hero-portrait-frame">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={`img-${currentIndex}`}
+                src={currentMember.src}
+                alt={currentMember.name}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1.18 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="hero-portrait"
+              />
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Right Side: Name & Navigation Controls */}

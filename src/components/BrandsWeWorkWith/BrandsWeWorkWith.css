@@ -217,6 +217,8 @@
   white-space: nowrap;
   width: max-content;
   animation: scroll-left 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @media (min-width: 1024px) { .brands-row-left { gap: 2.5rem; } }
@@ -228,6 +230,8 @@
   width: max-content;
   margin-top: 1.5rem;
   animation: scroll-right 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @media (min-width: 1024px) { .brands-row-right { gap: 2.5rem; margin-top: 2rem; } }

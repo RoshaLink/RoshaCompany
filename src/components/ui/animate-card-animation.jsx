@@ -52,7 +52,7 @@ function CardContent({ contentType }) {
           src={data.image || " placeholder.svg"}
           alt={data.title}
           className="h-full w-full select-none object-cover"
-        / />
+        />
       </div>
       <div className="flex w-full items-center justify-between gap-2 px-3 pb-6">
         <div className="flex min-w-0 flex-1 flex-col">

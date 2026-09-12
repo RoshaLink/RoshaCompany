@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Sparkles, Globe, Share2, ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import logoImg from '../../assets/Logo/RoshaLink_logo.webp';
+const logoImg = '/RoshaLink_logo_sm.webp';
 import './Footer.css';
 
 function InstagramIcon({ className = '', ...props }) {
@@ -146,7 +146,7 @@ export default function Footer({ setActivePage }) {
             className="footer-logo-link group"
           >
             <div className="footer-logo-icon">
-              <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" width="200" height="200"  loading="lazy" />
+              <img src={logoImg} alt="RoshaLink Logo" className="footer-logo-img" width="140" height="86" loading="lazy" />
             </div>
             <span className="footer-logo-text">
               <span className="footer-logo-rosha">{t('footer.brandRosha', 'ROSHA')}</span>
@@ -178,7 +178,7 @@ export default function Footer({ setActivePage }) {
 
         {/* Quick Links */}
         <div className="footer-links-col">
-          <h4 className="footer-links-title">{t('footer.navigation')}</h4>
+          <h3 className="footer-links-title">{t('footer.navigation')}</h3>
           <ul className="footer-links-list">
             <li><Link to={`/${i18n.language}`} onClick={() => setActivePage('home')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.home')}</span></Link></li>
             <li><Link to={`/${i18n.language}/portfolio`} onClick={() => setActivePage('portfolio')} className="footer-link-btn"><span className="footer-link-btn-text">{t('nav.portfolio')}</span></Link></li>
@@ -190,7 +190,7 @@ export default function Footer({ setActivePage }) {
 
         {/* Capabilities */}
         <div className="footer-cap-col">
-          <h4 className="footer-cap-title">{t('footer.capabilities')}</h4>
+          <h3 className="footer-cap-title">{t('footer.capabilities')}</h3>
           <ul className="footer-cap-list">
             {capabilities.map((label) => (
               <li key={label} className="footer-cap-item">{label}</li>
@@ -200,7 +200,7 @@ export default function Footer({ setActivePage }) {
 
         {/* Newsletter */}
         <div className="footer-news-col" ref={newsletterRef}>
-          <h4 className="footer-links-title">{t('footer.stayUpdated')}</h4>
+          <h3 className="footer-links-title">{t('footer.stayUpdated')}</h3>
           <p className="footer-news-sub">{t('footer.newsletterSub')}</p>
           <form onSubmit={handleSubmitNewsletter} className="footer-form" noValidate>
             <div className="footer-input-wrapper">

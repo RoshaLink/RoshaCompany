@@ -1,14 +1,17 @@
-import puppeteer from 'puppeteer';
-import express from 'express';
+process.env.NODE_ENV = 'production';
+
+import { createServer } from 'vite';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter } from 'react-router-dom';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = resolve(__dirname, '../dist');
-const PORT = 54321;
 
-const languages = ['en', 'sv', 'fa', 'ar'];
+const languages = ['sv', 'en', 'fa', 'ar'];
 const pages = [
   '',
   '/about',
@@ -31,95 +34,83 @@ languages.forEach(lang => {
   });
 });
 
-async function run() {
-  // On Vercel build servers, headless Chrome is not pre-installed in the build environment.
-  // The app is served as a high-performance SPA handled by vercel.json routing rewrites.
-  if (process.env.VERCEL || process.env.NOW_BUILDER) {
-    console.log('⚡ Vercel build environment detected: skipping Puppeteer prerender (served as SPA via vercel.json).');
+async function runPrerender() {
+  const templatePath = join(DIST_DIR, 'index.html');
+  if (!fs.existsSync(templatePath)) {
+    console.error('dist/index.html not found. Run vite build first.');
     return;
   }
+  const template = fs.readFileSync(templatePath, 'utf8');
 
-  console.log('Starting Express server for prerendering...');
-  const app = express();
-  
-  // Serve static files from dist
-  app.use(express.static(DIST_DIR));
-  
-  // Fallback to index.html for client-side routing
-  app.use((req, res) => {
-    res.sendFile(join(DIST_DIR, 'index.html'));
+  console.log(`Starting Vite SSR static site generation for ${routes.length} routes...`);
+  const startTime = Date.now();
+
+  const vite = await createServer({
+    server: { middlewareMode: true },
+    appType: 'custom',
+    mode: 'production',
+    logLevel: 'error',
   });
 
-  const server = app.listen(PORT, async () => {
-    console.log(`Server listening on port ${PORT}`);
-    
-    let browser;
-    try {
-      console.log('Launching Puppeteer...');
-      browser = await puppeteer.launch({
-        headless: 'new',
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
-      });
-    } catch (err) {
-      console.warn(`⚠️ Puppeteer launch skipped (${err.message}). Continuing build as SPA.`);
-      server.close();
-      return;
-    }
+  try {
+    const { default: i18n } = await vite.ssrLoadModule('/src/i18n.js');
+    const { default: App } = await vite.ssrLoadModule('/src/App.jsx');
+    const { ThemeProvider } = await vite.ssrLoadModule('/src/context/ThemeContext.jsx');
 
-    const page = await browser.newPage();
-    
-    // Set a large viewport
-    await page.setViewport({ width: 1440, height: 1080 });
+    let successCount = 0;
 
     for (const route of routes) {
-      console.log(`Prerendering ${route}...`);
-      
-      try {
-        // networkidle0 waits until there are no network connections for at least 500ms.
-        // If there are videos polling, it might hang, so we use a timeout and networkidle2.
-        await page.goto(`http://localhost:${PORT}${route}`, { 
-          waitUntil: 'networkidle2',
-          timeout: 15000 
-        });
-        
-        // Wait a tiny bit extra to ensure React has fully rendered and any initial useEffects have fired
-        await new Promise(r => setTimeout(r, 1000));
-        
-        // Remove scripts from the rendered HTML? 
-        // No, we need scripts for hydration, but we should make sure we grab the full document HTML.
-        let html = await page.evaluate(() => {
-          return document.documentElement.outerHTML;
-        });
-        
-        // Strip out the localhost:PORT absolute URLs injected by Vite during runtime
-        html = html.replace(new RegExp(`http://localhost:${PORT}`, 'g'), '');
-        
-        // Add DOCTYPE since outerHTML doesn't include it
-        const finalHtml = `<!DOCTYPE html>\n${html}`;
-        
-        // Determine file path
-        const filePath = route === '/' 
-          ? join(DIST_DIR, 'index.html')
-          : join(DIST_DIR, route, 'index.html');
-          
-        // Ensure directory exists
-        const dir = dirname(filePath);
-        if (!fs.existsSync(dir)) {
-          fs.mkdirSync(dir, { recursive: true });
-        }
-        
-        fs.writeFileSync(filePath, finalHtml, 'utf8');
-        console.log(`✅ Saved ${route}`);
-      } catch (err) {
-        console.error(`❌ Failed to prerender ${route}:`, err.message);
+      const parts = route.split('/').filter(Boolean);
+      const lang = languages.includes(parts[0]) ? parts[0] : 'sv';
+      const isRtl = ['fa', 'ar'].includes(lang);
+
+      if (i18n.language !== lang) {
+        await i18n.changeLanguage(lang);
       }
+
+      const appHtml = renderToString(
+        React.createElement(
+          MemoryRouter,
+          { initialEntries: [route] },
+          React.createElement(
+            ThemeProvider,
+            null,
+            React.createElement(App)
+          )
+        )
+      );
+
+      let finalHtml = template.replace(
+        '<div id="root"></div>',
+        `<div id="root">${appHtml}</div>`
+      );
+
+      finalHtml = finalHtml.replace(
+        /<html[^>]*>/,
+        `<html lang="${lang}" dir="${isRtl ? 'rtl' : 'ltr'}">`
+      );
+
+      const filePath = route === '/'
+        ? join(DIST_DIR, 'index.html')
+        : join(DIST_DIR, route.replace(/^\//, ''), 'index.html');
+
+      const fileDir = dirname(filePath);
+      if (!fs.existsSync(fileDir)) {
+        fs.mkdirSync(fileDir, { recursive: true });
+      }
+
+      fs.writeFileSync(filePath, finalHtml, 'utf8');
+      successCount++;
     }
-    
-    console.log('Closing browser and server...');
-    await browser.close();
-    server.close();
-    console.log('Prerendering complete!');
-  });
+
+    const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+    console.log(`✅ Successfully prerendered ${successCount}/${routes.length} routes in ${duration}s!`);
+  } catch (err) {
+    console.error('Prerender error:', err);
+    process.exitCode = 1;
+  } finally {
+    await vite.close();
+  }
 }
 
-run();
+runPrerender();

@@ -2,25 +2,9 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
-  Compass,
-  Code2,
-  Cpu,
-  Cloud,
-  Smartphone,
-  Search,
-  CheckCircle2,
   ArrowRight,
   ArrowUpRight,
-  ShieldCheck,
-  Zap,
   ChevronDown,
-  Layers,
-  Server,
-  Database,
-  Lock,
-  Workflow,
-  TrendingUp,
-  Activity,
   Check,
   X
 } from 'lucide-react';
@@ -294,17 +278,17 @@ export default function ServicesPage({ selectedSlug, onOpenGetStarted }) {
                     className="services-btn-primary services-cta-btn"
                   >
                     <span>{t('servicesPage.cta.button')}</span>
-                    <ArrowRight className="services-btn-icon" />
+                    <ArrowRight className={`services-btn-icon ${isRTL ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 
                 <div className="services-cta-secondary-links">
                   <Link to={`/${i18n.language}/portfolio`} className="services-cta-secondary-link">
-                    <span>{t('servicesPage.cta.portfolioLink', 'See this work in action')}</span>
+                    <span>{t('servicesPage.cta.portfolioLink')}</span>
                     <ArrowUpRight className="services-cta-secondary-icon" />
                   </Link>
                   <Link to={`/${i18n.language}/about`} className="services-cta-secondary-link">
-                    <span>{t('servicesPage.cta.aboutLink', 'Meet the senior team behind this')}</span>
+                    <span>{t('servicesPage.cta.aboutLink')}</span>
                     <ArrowUpRight className="services-cta-secondary-icon" />
                   </Link>
                 </div>

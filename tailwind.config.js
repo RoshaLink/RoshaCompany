@@ -1,13 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   // Replaces the Play CDN's runtime DOM scan — build-time Tailwind needs an
   // explicit content glob to know which files to scan for class names.
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
       fontFamily: {
-        grotesk: ['Anton', 'sans-serif'],
-        condiment: ['Condiment', 'cursive'],
         "headline-xl": ["Montserrat", "sans-serif"],
         "headline-lg": ["Montserrat", "sans-serif"],
         "headline-md": ["Montserrat", "sans-serif"],

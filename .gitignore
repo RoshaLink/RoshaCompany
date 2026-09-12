@@ -55,3 +55,16 @@ coverage
 ehthumbs.db
 Thumbs.db
 Desktop.ini
+
+# Temporary scratch & audit inspection
+scratch/
+scripts/inspect-lh.js
+scripts/parse-psi.js
+
+# Lighthouse & Performance audit reports
+lh-*.json
+pagespeed-*.json
+lighthouse-*.json
+*.report.json
+*.report.html
+

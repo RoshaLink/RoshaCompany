@@ -3,17 +3,18 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import HeroSection from '../../components/herosection/HeroSection';
 import BrandsWeWorkWith from '../../components/BrandsWeWorkWith/BrandsWeWorkWith';
-import SearchVisibilityShowcase from '../../components/SearchVisibilityShowcase/SearchVisibilityShowcase';
-import SalesAndSeoShowcase from '../../components/SalesAndSeoShowcase/SalesAndSeoShowcase';
-import BusinessAnalysisShowcase from '../../components/BusinessAnalysisShowcase/BusinessAnalysisShowcase';
-import CustomWebSolutionShowcase from '../../components/CustomWebSolutionShowcase/CustomWebSolutionShowcase';
-import MobileAppShowcase from '../../components/MobileAppShowcase/MobileAppShowcase';
-import ConnectWithUsShowcase from '../../components/ConnectWithUsShowcase/ConnectWithUsShowcase';
-import WhoWeAre from '../../components/WhoWeAre/WhoWeAre';
-import TestimonialsColumn from '../../components/TestimonialsColumn/TestimonialsColumn';
 import LazySection from '../../components/ui/LazySection';
 import roshaConnectImage from '../../assets/Rosha/ConnectWthUS/RoshaConnectWithUs.webp';
 import './HomePage.css';
+
+const SearchVisibilityShowcase = React.lazy(() => import('../../components/SearchVisibilityShowcase/SearchVisibilityShowcase'));
+const SalesAndSeoShowcase = React.lazy(() => import('../../components/SalesAndSeoShowcase/SalesAndSeoShowcase'));
+const BusinessAnalysisShowcase = React.lazy(() => import('../../components/BusinessAnalysisShowcase/BusinessAnalysisShowcase'));
+const CustomWebSolutionShowcase = React.lazy(() => import('../../components/CustomWebSolutionShowcase/CustomWebSolutionShowcase'));
+const MobileAppShowcase = React.lazy(() => import('../../components/MobileAppShowcase/MobileAppShowcase'));
+const ConnectWithUsShowcase = React.lazy(() => import('../../components/ConnectWithUsShowcase/ConnectWithUsShowcase'));
+const WhoWeAre = React.lazy(() => import('../../components/WhoWeAre/WhoWeAre'));
+const TestimonialsColumn = React.lazy(() => import('../../components/TestimonialsColumn/TestimonialsColumn'));
 
 export default function HomePage({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();

@@ -105,16 +105,25 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/')) {
+            const nid = id.replace(/\\/g, '/');
+            if (
+              nid.includes('/node_modules/react/') ||
+              nid.includes('/node_modules/react-dom/') ||
+              nid.includes('/node_modules/react-router-dom/') ||
+              nid.includes('/node_modules/scheduler/')
+            ) {
               return 'vendor-react';
             }
-            if (id.includes('node_modules/framer-motion/') || id.includes('node_modules/motion/')) {
-              return 'vendor-motion';
-            }
-            if (id.includes('node_modules/i18next') || id.includes('node_modules/react-i18next')) {
+            if (
+              nid.includes('/node_modules/i18next') ||
+              nid.includes('/node_modules/react-i18next')
+            ) {
               return 'vendor-i18n';
             }
-            if (id.includes('node_modules/lucide-react') || id.includes('node_modules/react-icons')) {
+            if (
+              nid.includes('/node_modules/lucide-react') ||
+              nid.includes('/node_modules/react-icons')
+            ) {
               return 'vendor-icons';
             }
           },

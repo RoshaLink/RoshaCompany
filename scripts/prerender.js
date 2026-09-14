@@ -2,11 +2,36 @@ process.env.NODE_ENV = 'production';
 
 import { createServer } from 'vite';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
+import { renderToPipeableStream } from 'react-dom/server';
+import { PassThrough } from 'stream';
 import { MemoryRouter } from 'react-router-dom';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+
+function renderAppToString(element) {
+  return new Promise((resolve, reject) => {
+    const passthrough = new PassThrough();
+    let html = '';
+    passthrough.on('data', chunk => {
+      html += chunk.toString();
+    });
+    passthrough.on('end', () => {
+      resolve(html);
+    });
+    passthrough.on('error', reject);
+
+    const stream = renderToPipeableStream(element, {
+      onAllReady() {
+        stream.pipe(passthrough);
+      },
+      onError(err) {
+        console.error('SSR stream error:', err);
+        reject(err);
+      },
+    });
+  });
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = resolve(__dirname, '../dist');
@@ -68,7 +93,7 @@ async function runPrerender() {
         await i18n.changeLanguage(lang);
       }
 
-      const appHtml = renderToString(
+      const appHtml = await renderAppToString(
         React.createElement(
           MemoryRouter,
           { initialEntries: [route] },
@@ -90,6 +115,15 @@ async function runPrerender() {
         `<html lang="${lang}" dir="${isRtl ? 'rtl' : 'ltr'}">`
       );
 
+      const targetFontPreload = (lang === 'fa' || lang === 'ar')
+        ? '<link rel="preload" href="https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2" as="font" type="font/woff2" crossorigin />'
+        : '<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin />';
+
+      finalHtml = finalHtml.replace(
+        /<link rel="preload" href="https:\/\/fonts\.gstatic\.com\/[^"]*" as="font"[^>]*\/>/,
+        targetFontPreload
+      );
+
       const filePath = route === '/'
         ? join(DIST_DIR, 'index.html')
         : join(DIST_DIR, route.replace(/^\//, ''), 'index.html');
@@ -100,6 +134,16 @@ async function runPrerender() {
       }
 
       fs.writeFileSync(filePath, finalHtml, 'utf8');
+
+      if (route !== '/') {
+        const cleanPath = join(DIST_DIR, `${route.replace(/^\//, '')}.html`);
+        const cleanDir = dirname(cleanPath);
+        if (!fs.existsSync(cleanDir)) {
+          fs.mkdirSync(cleanDir, { recursive: true });
+        }
+        fs.writeFileSync(cleanPath, finalHtml, 'utf8');
+      }
+
       successCount++;
     }
 

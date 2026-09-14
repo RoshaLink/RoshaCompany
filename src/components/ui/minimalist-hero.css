@@ -447,11 +447,23 @@
 
 .hero-portrait-frame {
   z-index: 10;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+}
+
+@media (max-width: 380px) {
+  .hero-circle,
+  .hero-portrait-frame {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-portrait {
+    width: 12rem;
+  }
 }
 
 @media (min-width: 640px) {

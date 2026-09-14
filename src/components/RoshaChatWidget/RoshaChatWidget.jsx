@@ -166,7 +166,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
         // reference by name. Footer.jsx uses this hook to fade the widget out
         // while its own newsletter form is in the widget's fixed-position
         // corner (see Footer.css's html.footer-form-visible rule).
-        <div className="rosha-chat-widget-root fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
+        <div dir="ltr" className="rosha-chat-widget-root fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pointer-events-none select-none">
 
           {/* Chat Window */}
           <AnimatePresence>

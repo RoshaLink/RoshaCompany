@@ -26,8 +26,9 @@ const TECH_ICONS_ROW2 = [
 const repeatedIcons = (icons, repeat = 4) => Array.from({ length: repeat }).flatMap(() => icons);
 
 export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { lang } = useParams();
+  const activeLang = lang || i18n.language || 'sv';
 
   return (
     <section className="brands-section">
@@ -52,7 +53,7 @@ export default function BrandsWeWorkWith({ onOpenGetStarted, setActivePage }) {
           </button>
 
           <Link
-            to={`/${lang}/services`}
+            to={`/${activeLang}/services`}
             className="brands-btn-secondary"
           >
             <span>{t('brands.exploreBtn')}</span>

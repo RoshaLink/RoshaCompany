@@ -18,16 +18,27 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   const location = useLocation();
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true); // Start muted: unsolicited audio on load is jarring and blocked by most browsers anyway
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasRequestedVideo, setHasRequestedVideo] = useState(false);
+
+  // Mirror App.jsx's URL-lang resolution so the localized route matches the active page
+  const pathLang = location.pathname.split('/').filter(Boolean)[0];
+  const activeLang = SUPPORTED_LANGS.includes(pathLang) ? pathLang : (i18n.language || DEFAULT_LANG);
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const shouldLoadVideo = isMounted && (!isMobile || hasRequestedVideo);
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    if (!isMobile) {
+      setIsPlaying(true);
+    }
+  }, [isMobile]);
 
   // Select video based on selected language
   const getVideoSources = () => {
-    const lang = (i18n.language || 'en').toLowerCase();
+    const lang = (activeLang || i18n.language || 'en').toLowerCase();
     if (lang.startsWith('ar')) return { mp4: videoArabicMp4, webm: videoArabicWebm };
     if (lang.startsWith('fa')) return { mp4: videoFarsiMp4, webm: videoFarsiWebm };
     if (lang.startsWith('sv')) return { mp4: videoSwedishMp4, webm: videoSwedishWebm };
@@ -39,11 +50,10 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   // Play video muted on initial load for desktop; keep paused on mobile to preserve bandwidth & CPU
   useEffect(() => {
     let timer;
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    if (videoRef.current) {
+    if (videoRef.current && shouldLoadVideo) {
       videoRef.current.muted = true;
       setIsMuted(true);
-      if (isMobile) {
+      if (isMobile && !hasRequestedVideo) {
         setIsPlaying(false);
       } else {
         timer = setTimeout(() => {
@@ -55,9 +65,10 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
       }
     }
     return () => clearTimeout(timer);
-  }, [currentVideoMp4]);
+  }, [currentVideoMp4, shouldLoadVideo, isMobile, hasRequestedVideo]);
 
   const handleReplay = () => {
+    if (!hasRequestedVideo) setHasRequestedVideo(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.play();
@@ -73,6 +84,9 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   };
 
   const togglePlayPause = () => {
+    if (!hasRequestedVideo) {
+      setHasRequestedVideo(true);
+    }
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -86,10 +100,6 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
   const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
   const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
-
-  // Mirror App.jsx's URL-lang resolution so the localized route matches the active page
-  const pathLang = location.pathname.split('/').filter(Boolean)[0];
-  const activeLang = SUPPORTED_LANGS.includes(pathLang) ? pathLang : (i18n.language || DEFAULT_LANG);
 
   return (
     <section className="hero-section">
@@ -175,7 +185,7 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
               onEnded={() => setIsPlaying(false)}
               className="hero-video-el"
             >
-              {isMounted && (
+              {shouldLoadVideo && (
                 <>
                   <source src={currentVideoWebm} type="video/webm" />
                   <source src={currentVideoMp4} type="video/mp4" />

@@ -17,4 +17,9 @@ const app = (
   </React.StrictMode>
 );
 
-ReactDOM.createRoot(rootElement).render(app);
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}
+

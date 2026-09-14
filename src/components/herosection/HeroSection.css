@@ -25,7 +25,7 @@
 
 @keyframes hero-scan {
   0% {
-    top: 6%;
+    transform: translateY(15px);
     opacity: 0;
   }
 
@@ -42,12 +42,14 @@
   }
 
   100% {
-    top: 94%;
+    transform: translateY(330px);
     opacity: 0;
   }
 }
 
 .hero-scanline {
+  top: 0;
+  will-change: transform, opacity;
   animation: hero-scan 6s ease-in-out infinite;
 }
 
@@ -55,7 +57,7 @@
   .hero-scanline {
     animation: none;
     opacity: 0.2;
-    top: 50%;
+    transform: translateY(180px);
   }
 }
 
@@ -139,11 +141,11 @@ html.dark .glass-text-shine span {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
   .hero-title-accent-1,
   .hero-title-accent-2 {
     animation: none;
-    /* Park the gradient mid-sweep so the text keeps its colour without motion. */
+    /* Park the gradient mid-sweep so the text keeps its colour without main-thread repainting. */
     background-position: 50% 0;
   }
 }

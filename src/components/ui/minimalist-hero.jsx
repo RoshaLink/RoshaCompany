@@ -131,7 +131,7 @@ export const MinimalistHero = ({
             className="hero-circle"
           />
 
-          {/* Circular Frame to clip portrait overflow to the circle boundary */}
+          {/* Portrait frame with overflow visible for 3D pop-out avatar effect */}
           <div className="hero-portrait-frame">
             <AnimatePresence mode="wait">
               <motion.img

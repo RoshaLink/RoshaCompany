@@ -213,7 +213,8 @@ const resources = {
           titleGradient: "vårt team?",
           titleSuffix: "",
           subtitle: "Boka en strategisk upptäcktsworkshop med oss och låt oss transformera er digitala vision.",
-          button: "Boka strategisamtal nu"
+          button: "Boka strategisamtal nu",
+          servicesLink: "Se vad vi kan bygga för er"
         }
       },
       nav: {
@@ -546,7 +547,8 @@ const resources = {
         ctaTitleGradient: "HÖGPRESTERANDE PRODUKT?",
         ctaTitleSuffix: "",
         ctaSubtitle: "Samarbeta med vårt team för att designa, utveckla och lansera högpresterande digitala applikationer anpassade för dina affärsmål.",
-        ctaBtn: "Bygg din produkt"
+        ctaBtn: "Bygg din produkt",
+        servicesLink: "Utforska kapaciteten och tekniken bakom dessa lösningar"
       },
       ourWork: {
         badge: "VÅRT SENASTE ARBETE",
@@ -1196,7 +1198,8 @@ const resources = {
           titleGradient: "Our Team?",
           titleSuffix: "",
           subtitle: "Schedule a strategic discovery workshop with us today and turn your digital ambition into reality.",
-          button: "Schedule Strategy Call Now"
+          button: "Schedule Strategy Call Now",
+          servicesLink: "See what we can build for you"
         }
       },
       nav: {
@@ -1529,7 +1532,8 @@ const resources = {
         ctaTitleGradient: "PRODUCT IN MIND?",
         ctaTitleSuffix: "",
         ctaSubtitle: "Partner with our team to design, engineer, and deploy high-performing digital applications tailored to your business goals.",
-        ctaBtn: "Build Your Product"
+        ctaBtn: "Build Your Product",
+        servicesLink: "Explore the capabilities behind these builds"
       },
       ourWork: {
         badge: "OUR LATEST WORK",
@@ -2179,7 +2183,8 @@ const resources = {
           titleGradient: "تیم ما",
           titleSuffix: " بسازید؟",
           subtitle: "همین امروز یک جلسه استراتژیک با ما رزرو کنید تا مسیر تحول دیجیتال کسب‌وکارتان را ترسیم کنیم.",
-          button: "رزرو جلسه استراتژیک اکنون"
+          button: "رزرو جلسه استراتژیک اکنون",
+          servicesLink: "مشاهده آنچه می‌توانیم برای شما بسازیم"
         }
       },
       nav: {
@@ -2512,7 +2517,8 @@ const resources = {
         ctaTitleGradient: "محصول برجسته و پرسرعت دارید؟",
         ctaTitleSuffix: "",
         ctaSubtitle: "با همکاری تیم متخصص ما، اپلیکیشن‌هایی قدرتمند و سفارشی بسازید که دقیقاً اهداف تجاری شما را محقق کنند.",
-        ctaBtn: "ساخت محصول اختصاصی"
+        ctaBtn: "ساخت محصول اختصاصی",
+        servicesLink: "مشاهده قابلیت‌ها و راهکارهای پشت این پروژه‌ها"
       },
       ourWork: {
         badge: "آخرین پروژه‌های ما",
@@ -3162,7 +3168,8 @@ const resources = {
           titleGradient: "فريقنا؟",
           titleSuffix: "",
           subtitle: "احجز جلسة استشارية استراتيجية معنا اليوم وحوّل رؤيتك الرقمية إلى واقع ملموس.",
-          button: "احجز الجلسة الاستشارية الآن"
+          button: "احجز الجلسة الاستشارية الآن",
+          servicesLink: "تعرف على ما يمكننا بناؤه لمؤسستك"
         }
       },
       nav: {
@@ -3495,7 +3502,8 @@ const resources = {
         ctaTitleGradient: "منتج رقمي عالي الأداء؟",
         ctaTitleSuffix: "",
         ctaSubtitle: "تعاون مع فريقنا الخبير لتصميم وهندسة وإطلاق تطبيقات رقمية عالية الأداء مصممة خصيصاً لتحقيق أهداف عملك.",
-        ctaBtn: "ابدأ بناء منتجك الآن"
+        ctaBtn: "ابدأ بناء منتجك الآن",
+        servicesLink: "استكشف القدرات والحلول التقنية وراء هذه المشاريع"
       },
       ourWork: {
         badge: "أحدث أعمالنا",

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Home, Briefcase, Layers, Users, Mail, ChevronDown } from 'lucide-react';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../context/ThemeContext';
 import { MenuBar } from '../ui/glow-menu';
-import CurvedMobileMenu from '../ui/curved-menu';
+const CurvedMobileMenu = React.lazy(() => import('../ui/curved-menu'));
 const logoImg = '/RoshaLink_logo_sm.webp';
 import './Navbar.css';
 
@@ -55,9 +55,14 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
   const { isDark, toggleTheme } = useTheme();
   const { t, i18n } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hasOpenedMenu, setHasOpenedMenu] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [mobileLangMenuOpen, setMobileLangMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const desktopLangRef = useRef(null);
+  const mobileLangRef = useRef(null);
 
   const currentLang = LANGUAGES.find(l => l.code === i18n.language) || LANGUAGES[0];
   const FlagIcon = currentLang.Flag;
@@ -65,10 +70,30 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
   const handleLanguageChange = (langCode) => {
     i18n.changeLanguage(langCode);
     setLangMenuOpen(false);
+    setMobileLangMenuOpen(false);
     if (onLanguageChange) {
       onLanguageChange(langCode);
     }
   };
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (desktopLangRef.current && !desktopLangRef.current.contains(event.target)) {
+        setLangMenuOpen(false);
+      }
+      if (mobileLangRef.current && !mobileLangRef.current.contains(event.target)) {
+        setMobileLangMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const isRtl = ['fa', 'ar'].includes(i18n.language);
@@ -189,7 +214,7 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
               <ThemeSwitch isDark={isDark} onToggle={toggleTheme} size="12px" />
 
               {/* Language Switcher Dropdown */}
-              <div className="relative">
+              <div className="relative" ref={desktopLangRef}>
                 <button
                   type="button"
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
@@ -239,24 +264,55 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
                 />
               </div>
 
-              {/* Quick Language Cycle Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  const nextLang = i18n.language === 'sv' ? 'en' : i18n.language === 'en' ? 'fa' : i18n.language === 'fa' ? 'ar' : 'sv';
-                  handleLanguageChange(nextLang);
-                }}
-                className="navbar-mobile-lang-btn"
-                aria-label={`Switch language (${currentLang.code.toUpperCase()})`}
-              >
-                <FlagIcon />
-                <span>{currentLang.code.toUpperCase()}</span>
-              </button>
+              {/* Mobile / Tablet Language Switcher with Dropdown */}
+              <div className="relative" ref={mobileLangRef}>
+                <button
+                  type="button"
+                  onClick={() => setMobileLangMenuOpen(prev => !prev)}
+                  className={`navbar-mobile-lang-btn ${mobileLangMenuOpen ? 'active' : ''}`}
+                  aria-label={`Select language (${currentLang.code.toUpperCase()})`}
+                  aria-expanded={mobileLangMenuOpen}
+                >
+                  <FlagIcon />
+                  <span>{currentLang.code.toUpperCase()}</span>
+                  <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${mobileLangMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {mobileLangMenuOpen && (
+                  <div className="navbar-mobile-lang-dropdown animate-in fade-in-0 slide-in-from-top-2 duration-150">
+                    {LANGUAGES.map((lang) => {
+                      const OptionFlag = lang.Flag;
+                      const isSelected = i18n.language === lang.code;
+                      return (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            handleLanguageChange(lang.code);
+                            setMobileLangMenuOpen(false);
+                          }}
+                          className={`navbar-lang-option ${isSelected ? 'active' : ''}`}
+                        >
+                          <OptionFlag />
+                          <span className="navbar-lang-label">{lang.label}</span>
+                          {isSelected && (
+                            <span className="navbar-lang-check">✓</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
               {/* High-End Animated Hamburger Toggle Button */}
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                onClick={() => {
+                  setMobileLangMenuOpen(false);
+                  setHasOpenedMenu(true);
+                  setMobileMenuOpen(!mobileMenuOpen);
+                }}
                 className="navbar-hamburger-btn"
                 aria-label={mobileMenuOpen ? (t('nav.closeMenu') || 'Close menu') : (t('nav.openMenu') || 'Open menu')}
                 aria-expanded={mobileMenuOpen}
@@ -273,24 +329,28 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
       </header>
 
       {/* High-End Curved Mobile & Tablet Editorial Drawer Menu */}
-      <CurvedMobileMenu
-        isOpen={mobileMenuOpen}
-        onClose={() => setMobileMenuOpen(false)}
-        navItems={mobileNavItems}
-        activeItem={activePage}
-        onItemClick={(id) => {
-          setActivePage(id);
-          setMobileMenuOpen(false);
-        }}
-        languages={LANGUAGES}
-        currentLangCode={i18n.language}
-        onLanguageChange={handleLanguageChange}
-        isDark={isDark}
-        onToggleTheme={toggleTheme}
-        onOpenGetStarted={onOpenGetStarted}
-        isRtl={['fa', 'ar'].includes(i18n.language)}
-        t={t}
-      />
+      {hasOpenedMenu && (
+        <React.Suspense fallback={null}>
+          <CurvedMobileMenu
+            isOpen={mobileMenuOpen}
+            onClose={() => setMobileMenuOpen(false)}
+            navItems={mobileNavItems}
+            activeItem={activePage}
+            onItemClick={(id) => {
+              setActivePage(id);
+              setMobileMenuOpen(false);
+            }}
+            languages={LANGUAGES}
+            currentLangCode={i18n.language}
+            onLanguageChange={handleLanguageChange}
+            isDark={isDark}
+            onToggleTheme={toggleTheme}
+            onOpenGetStarted={onOpenGetStarted}
+            isRtl={['fa', 'ar'].includes(i18n.language)}
+            t={t}
+          />
+        </React.Suspense>
+      )}
     </>
   );
 }

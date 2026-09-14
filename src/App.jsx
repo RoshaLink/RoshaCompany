@@ -82,6 +82,12 @@ function LocalizedServicePageWrapper({ onOpenGetStarted }) {
 
 export default function App() {
   const [isGetStartedOpen, setIsGetStartedOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const navigate = useNavigate();
   const location = useLocation();
   const { i18n } = useTranslation();
@@ -279,9 +285,11 @@ export default function App() {
         </Suspense>
       )}
 
-      <Suspense fallback={null}>
-        <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
-      </Suspense>
+      {isMounted && (
+        <Suspense fallback={null}>
+          <RoshaChatWidget onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+        </Suspense>
+      )}
     </div>
   );
 }

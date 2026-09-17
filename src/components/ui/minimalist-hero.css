@@ -435,6 +435,7 @@
 
 .hero-circle,
 .hero-portrait-frame {
+  --circle-radius: 140px;
   position: absolute;
   width: 280px;
   height: 280px;
@@ -452,6 +453,21 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  clip-path: inset(-100% 0 0 0 round 0 0 var(--circle-radius) var(--circle-radius));
+  -webkit-clip-path: inset(-100% 0 0 0 round 0 0 var(--circle-radius) var(--circle-radius));
+}
+
+@media (max-width: 380px) {
+  .hero-circle,
+  .hero-portrait-frame {
+    --circle-radius: 120px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-portrait {
+    width: 12rem;
+  }
 }
 
 @media (max-width: 380px) {
@@ -469,6 +485,7 @@
 @media (min-width: 640px) {
   .hero-circle,
   .hero-portrait-frame {
+    --circle-radius: 180px;
     width: 360px;
     height: 360px;
   }
@@ -477,6 +494,7 @@
 @media (min-width: 768px) {
   .hero-circle,
   .hero-portrait-frame {
+    --circle-radius: 100px;
     width: 200px;
     height: 200px;
   }
@@ -485,6 +503,7 @@
 @media (min-width: 1024px) {
   .hero-circle,
   .hero-portrait-frame {
+    --circle-radius: 180px;
     width: 360px;
     height: 360px;
   }
@@ -493,6 +512,7 @@
 @media (min-width: 1280px) {
   .hero-circle,
   .hero-portrait-frame {
+    --circle-radius: 240px;
     width: 480px;
     height: 480px;
   }

@@ -75,6 +75,7 @@ async function runPrerender() {
     appType: 'custom',
     mode: 'production',
     logLevel: 'error',
+    cacheDir: resolve(__dirname, '../node_modules/.vite-prerender'),
   });
 
   try {
@@ -117,7 +118,7 @@ async function runPrerender() {
 
       const targetFontPreload = (lang === 'fa' || lang === 'ar')
         ? '<link rel="preload" href="https://fonts.gstatic.com/s/vazirmatn/v16/Dxxo8j6PP2D_kU2muijlGMWWMmk.woff2" as="font" type="font/woff2" crossorigin />'
-        : '<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin />';
+        : '<link rel="preload" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" as="font" type="font/woff2" crossorigin />';
 
       finalHtml = finalHtml.replace(
         /<link rel="preload" href="https:\/\/fonts\.gstatic\.com\/[^"]*" as="font"[^>]*\/>/,

@@ -41,54 +41,6 @@ export default function PortfolioPage({ onOpenGetStarted }) {
       ]
     },
     {
-      id: "ffstech",
-      translationKey: "ffstechProject",
-      title: "FFSTECH Integrated Infrastructure Platform",
-      category: "Building Systems & Enterprise Tech",
-      desc: "High-performance digital enterprise application engineered for FFSTECH, featuring mission-critical building infrastructure management, intelligent fire & safety systems, smart access control, and low-voltage system architecture.",
-      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
-      metrics: "Live Production App",
-      liveUrl: "https://morinocode.github.io/FFSTECH/",
-      isFeatured: true,
-      features: [
-        "Fire & Life Safety Ecosystems",
-        "Smart Access Control & IP Surveillance",
-        "Integrated AV & Communication Backbone"
-      ]
-    },
-    {
-      id: "dentist-clinic",
-      translationKey: "dentistProject",
-      title: "Tandläkaren – Dental Clinic Platform",
-      category: "Dental & Healthcare Web App",
-      desc: "Comprehensive digital healthcare web application engineered for Dental Clinics, featuring online patient appointment booking, interactive treatment overview, patient portal, and responsive multi-language design.",
-      img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop",
-      metrics: "Live Production App",
-      liveUrl: "https://roshalink.github.io/Dentist/",
-      isFeatured: true,
-      features: [
-        "Online Patient Appointment Booking",
-        "Interactive Dental Care & Services",
-        "Patient Portal & Fast Responsive UI"
-      ]
-    },
-    {
-      id: "shirazi-associates",
-      translationKey: "shiraziProject",
-      title: "Shirazi Associates – Legal & Advisory Platform",
-      category: "Legal & Immigration Advisory Platform",
-      desc: "High-end digital legal platform engineered for Shirazi Associates, specializing in corporate law, immigration advisory, online consultation scheduling, and a responsive multi-language portal.",
-      img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
-      metrics: "Live Production App",
-      liveUrl: "https://roshalink.github.io/shirazi-associates/",
-      isFeatured: true,
-      features: [
-        "Online Consultation Booking & Legal Advisory",
-        "Corporate Law & Visa Immigration Services",
-        "Secure Case Handling & Multi-Language UX"
-      ]
-    },
-    {
       id: "pars-law-firm",
       translationKey: "parsLawProject",
       title: "Pars Law Firm – Premium Legal Practice",
@@ -102,22 +54,6 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         "Client Appointment Booking & Consultation",
         "Comprehensive Legal Practice Areas",
         "Rapid Performance & Trust-Building UX"
-      ]
-    },
-    {
-      id: "hogward-cafe",
-      translationKey: "hogwardCafeProject",
-      title: "HogWard Café & Restaurant",
-      category: "Café & Hospitality Dining Platform",
-      desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
-      img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop",
-      metrics: "Live Production App",
-      liveUrl: "https://roshalink.github.io/HogWard_Cafe/",
-      isFeatured: true,
-      features: [
-        "Interactive Digital Menu & Specialty Drinks",
-        "Online Table Booking & Event System",
-        "Multi-Language & Lightning-Fast UI"
       ]
     },
     {
@@ -166,6 +102,118 @@ export default function PortfolioPage({ onOpenGetStarted }) {
         "Smart Vehicle Search & Multi-Criteria Filtering",
         "Verified Listings, History & Inspection Overview",
         "Direct Buyer-Seller Chat & Responsive Design"
+      ]
+    },
+    {
+      id: "hanna-store",
+      translationKey: "hannaStoreProject",
+      title: "Hanna – Scandinavian Fashion & Essentials Studio",
+      category: "Fashion Boutique & Lifestyle E-Commerce",
+      desc: "Sophisticated digital boutique and lookbook web application crafted for Hanna Studio in Stockholm, showcasing modern wardrobe essentials, soft tailoring, outerwear, and editorial journal stories.",
+      img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/HannaStore/",
+      isFeatured: true,
+      features: [
+        "Curated Scandinavian fashion lookbook & catalog",
+        "Interactive product collections & styling journals",
+        "Minimalist editorial UI & seamless shopping flow"
+      ]
+    },
+    {
+      id: "hair-by-fariba",
+      translationKey: "hairByFaribaProject",
+      title: "HAIR BY FARIBA – Hair Studio Stockholm",
+      category: "Hair Salon & Beauty Styling Studio",
+      desc: "Elegant digital web application designed for HAIR BY FARIBA in Stockholm, featuring an interactive salon service catalog, online appointment booking, styling portfolio, and treatment guides.",
+      img: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/HairByFariba/",
+      isFeatured: true,
+      features: [
+        "Haircut, balayage, keratin & bridal styling catalog",
+        "Online appointment booking & client consultation",
+        "Visual showcase gallery & sleek responsive mobile UX"
+      ]
+    },
+    {
+      id: "beast-burger",
+      translationKey: "beastBurgerProject",
+      title: "Beast Burger – Gourmet Smash Burgers",
+      category: "Gourmet Smash Burger & Fast Casual Dining",
+      desc: "High-energy, appetizing web application built for Beast Burger featuring fiery smashed-to-order burger menus, secret Beast sauce showcase, online order integration, and bold street food branding.",
+      img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/BeastBurger/",
+      isFeatured: true,
+      features: [
+        "Interactive smash burger & gourmet combos menu",
+        "Online order ordering call-to-actions & store finder",
+        "Bold fire-grilled brand identity & lightning-fast mobile UX"
+      ]
+    },
+    {
+      id: "hogward-cafe",
+      translationKey: "hogwardCafeProject",
+      title: "HogWard Café & Restaurant",
+      category: "Café & Hospitality Dining Platform",
+      desc: "An enchanting and modern digital web application for HogWard Café featuring an interactive digital menu, themed beverage showcase, online table reservation, and sleek responsive design.",
+      img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/HogWard_Cafe/",
+      isFeatured: true,
+      features: [
+        "Interactive Digital Menu & Specialty Drinks",
+        "Online Table Booking & Event System",
+        "Multi-Language & Lightning-Fast UI"
+      ]
+    },
+    {
+      id: "shirazi-associates",
+      translationKey: "shiraziProject",
+      title: "Shirazi Associates – Legal & Advisory Platform",
+      category: "Legal & Immigration Advisory Platform",
+      desc: "High-end digital legal platform engineered for Shirazi Associates, specializing in corporate law, immigration advisory, online consultation scheduling, and a responsive multi-language portal.",
+      img: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/shirazi-associates/",
+      isFeatured: true,
+      features: [
+        "Online Consultation Booking & Legal Advisory",
+        "Corporate Law & Visa Immigration Services",
+        "Secure Case Handling & Multi-Language UX"
+      ]
+    },
+    {
+      id: "ffstech",
+      translationKey: "ffstechProject",
+      title: "FFSTECH Integrated Infrastructure Platform",
+      category: "Building Systems & Enterprise Tech",
+      desc: "High-performance digital enterprise application engineered for FFSTECH, featuring mission-critical building infrastructure management, intelligent fire & safety systems, smart access control, and low-voltage system architecture.",
+      img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://morinocode.github.io/FFSTECH/",
+      isFeatured: true,
+      features: [
+        "Fire & Life Safety Ecosystems",
+        "Smart Access Control & IP Surveillance",
+        "Integrated AV & Communication Backbone"
+      ]
+    },
+    {
+      id: "dentist-clinic",
+      translationKey: "dentistProject",
+      title: "Tandläkaren – Dental Clinic Platform",
+      category: "Dental & Healthcare Web App",
+      desc: "Comprehensive digital healthcare web application engineered for Dental Clinics, featuring online patient appointment booking, interactive treatment overview, patient portal, and responsive multi-language design.",
+      img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/Dentist/",
+      isFeatured: true,
+      features: [
+        "Online Patient Appointment Booking",
+        "Interactive Dental Care & Services",
+        "Patient Portal & Fast Responsive UI"
       ]
     }
   ];

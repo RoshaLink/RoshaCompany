@@ -510,6 +510,36 @@ const resources = {
         feature3: "Direktkontakt mellan köpare och säljare samt responsiv UX",
         previewBtn: "Förhandsgranska"
       },
+      hannaStoreProject: {
+        category: "MODEBUTIK & SKANDINAVISK E-HANDEL",
+        title: "Hanna – Skandinaviskt Mode & Livsstilsstudio",
+        desc: "Sofistikerad digital butik och lookbook-webbapplikation skapad för Hanna Studio i Stockholm, med fokus på moderna basplagg, mjuk skräddning, ytterplagg och redaktionella artiklar.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Skandinavisk modelookbook & utvalda basplagg",
+        feature2: "Interaktiva kollektioner & redaktionell journal",
+        feature3: "Minimalistisk skandinavisk UI & snabb e-handelsupplevelse",
+        previewBtn: "Förhandsgranska"
+      },
+      hairByFaribaProject: {
+        category: "HÅRSALONG & SKÖNHETSSTUDIO",
+        title: "HAIR BY FARIBA – Personlig Hårstudio i Stockholm",
+        desc: "Elegant och modern webbapplikation utvecklad för HAIR BY FARIBA i Stockholm med online tidsbokning, komplett behandlingskatalog för klippning, färg och keratin, samt inspirationsgalleri.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Katalog för klippning, balayage, keratin & brudstyling",
+        feature2: "Enkel online tidsbokning & personlig rådgivning",
+        feature3: "Inspirerande portföljgalleri & responsiv mobildesign",
+        previewBtn: "Förhandsgranska"
+      },
+      beastBurgerProject: {
+        category: "GOURMET-SMASHBURGARE & RESTAURANG",
+        title: "Beast Burger – Sveriges Saftigaste Smashburgare",
+        desc: "Färgstark och aptitretande webbapplikation skapad för Beast Burger med interaktiv meny för smashburgare, presentation av hemliga såser, smidiga beställningsvägar och energisk branding.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Interaktiv meny för gourmet-smashburgare & sides",
+        feature2: "Smidig integration för onlinebeställning & restauranginfo",
+        feature3: "Kraftfull visuell identitet & blixtsnabb mobilupplevelse",
+        previewBtn: "Förhandsgranska"
+      },
       portfolioHero: {
         badge: "VÅR PORTFÖLJ & KUNDCASES",
         pillTitle: "Skräddarsydda Lösningar",
@@ -1493,6 +1523,36 @@ const resources = {
         feature1: "Smart Vehicle Search & Multi-Criteria Filtering",
         feature2: "Verified Listings, History & Inspection Overview",
         feature3: "Direct Buyer-Seller Chat & Responsive Design",
+        previewBtn: "Live Preview"
+      },
+      hannaStoreProject: {
+        category: "FASHION BOUTIQUE & LIFESTYLE E-COMMERCE",
+        title: "Hanna – Scandinavian Fashion & Essentials Studio",
+        desc: "Sophisticated digital boutique and lookbook web application crafted for Hanna Studio in Stockholm, showcasing modern wardrobe essentials, soft tailoring, outerwear, and editorial journal stories.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Curated Scandinavian fashion lookbook & catalog",
+        feature2: "Interactive product collections & styling journals",
+        feature3: "Minimalist editorial UI & seamless shopping flow",
+        previewBtn: "Live Preview"
+      },
+      hairByFaribaProject: {
+        category: "HAIR SALON & BEAUTY STYLING STUDIO",
+        title: "HAIR BY FARIBA – Hair Studio Stockholm",
+        desc: "Elegant digital web application designed for HAIR BY FARIBA in Stockholm, featuring an interactive salon service catalog, online appointment booking, styling portfolio, and treatment guides.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Haircut, balayage, keratin & bridal styling catalog",
+        feature2: "Online appointment booking & client consultation",
+        feature3: "Visual showcase gallery & sleek responsive mobile UX",
+        previewBtn: "Live Preview"
+      },
+      beastBurgerProject: {
+        category: "GOURMET SMASH BURGER & FAST CASUAL DINING",
+        title: "Beast Burger – Gourmet Smash Burgers",
+        desc: "High-energy, appetizing web application built for Beast Burger featuring fiery smashed-to-order burger menus, secret Beast sauce showcase, online order integration, and bold street food branding.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Interactive smash burger & gourmet combos menu",
+        feature2: "Online order ordering call-to-actions & store finder",
+        feature3: "Bold fire-grilled brand identity & lightning-fast mobile UX",
         previewBtn: "Live Preview"
       },
       portfolioHero: {
@@ -2480,6 +2540,36 @@ const resources = {
         feature3: "ارتباط مستقیم خریدار و فروشنده و طراحی کاملاً ریسپانسیو",
         previewBtn: "پیش‌نمایش زنده"
       },
+      hannaStoreProject: {
+        category: "بوتیک آنلاین پوشاک و استودیو مد و لایف‌استایل",
+        title: "هانا استودیو – برند مد و پوشاک مدرن استکهلم (Hanna)",
+        desc: "وب‌اپلیکیشن شیک و مینیمال فشن و فروشگاه پوشاک برای استودیو هانا در استکهلم، با قابلیت نمایش ژورنال و لوک‌بوک تعاملی، معرفی کالکشن‌های فصلی، و تجربه خرید سریع و مدرن.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "لوک‌بوک تعاملی و ویترین کالکشن‌های پوشاک مدرن",
+        feature2: "ژورنال استایل و روایت برند با طراحی مینیمال اسکاندیناوی",
+        feature3: "رابط کاربری چندزبانه با سرعت لود فوق‌العاده و خرید روان",
+        previewBtn: "پیش‌نمایش زنده"
+      },
+      hairByFaribaProject: {
+        category: "سالن تخصصی مو و کلینیک زیبایی و استایلینگ",
+        title: "Hair By Fariba – استودیو تخصصی مو در استکهلم",
+        desc: "وب‌اپلیکیشن اختصاصی و لوکس طراحی‌شده برای سالن Hair By Fariba در استکهلم، شامل سیستم نوبت‌دهی آنلاین، کاتالوگ خدمات کوپ، بالیاژ، کراتین، استایلینگ عروس و گالری نمونه‌کارها.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "کاتالوگ جامع خدمات تخصصی کوتاهی، رنگ، بالیاژ و کراتین",
+        feature2: "رزرو آنلاین وقت و مشاوره اختصاصی مشتریان",
+        feature3: "گالری تصاویر نمونه‌کارها با طراحی لوکس و کاملاً ریسپانسیو",
+        previewBtn: "پیش‌نمایش زنده"
+      },
+      beastBurgerProject: {
+        category: "رستوران برگر تخصصی و فست‌فود گورمه",
+        title: "Beast Burger – برگرهای دست‌ساز و اسمش‌برگر گورمه",
+        desc: "یک وب‌اپلیکیشن پرانرژی، هیجان‌انگیز و مدرن برای برند Beast Burger با منوی تعاملی اسمش‌برگرهای لذیذ، معرفی سس‌های اختصاصی، سفارش آنلاین، و برندینگ جذاب خیابانی.",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "منوی دیجیتال تعاملی اسمش‌برگرها، سایدها و سس اختصاصی",
+        feature2: "سیستم سفارش آنلاین و دسترسی سریع به شعب",
+        feature3: "طراحی بصری پرانرژی و جذاب با سرعت لود فوق‌العاده",
+        previewBtn: "پیش‌نمایش زنده"
+      },
       portfolioHero: {
         badge: "نمونه کارها و پروژه‌های ما",
         pillTitle: "راهکارهای اختصاصی",
@@ -3463,6 +3553,36 @@ const resources = {
         feature1: "محرك بحث وفلترة ذكية للسيارات بمواصفات متعددة",
         feature2: "إعلانات موثوقة للسيارات مع فحص وسجل الحالة الفنية",
         feature3: "تواصل مباشر بين البائع والمشتري وتصميم متوافق مع كافة الأجهزة",
+        previewBtn: "معاينة مباشرة"
+      },
+      hannaStoreProject: {
+        category: "متجر أزياء إلكتروني واستوديو للموضة العصرية",
+        title: "استوديو هانا – منصة الأزياء الاسكندنافية الحديثة (Hanna)",
+        desc: "تطبيق ويب متكامل وأنيق مخصص لعلامة هانا ستوديو في ستوكهولم، يتميز بكتالوج تفاعلي للأزياء الراقية، استعراض مجموعات الملابس الموسمية، وتجربة تسوق رقمية عصرية وسريعة.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "كتالوج واستعراض تفاعلي لأحدث صيحات الموضة",
+        feature2: "مجموعات موسمية وتصميم اسكندنافي بسيط وراقٍ",
+        feature3: "واجهة مستخدم حديثة وسريعة متوافقة مع الأجهزة الذكية",
+        previewBtn: "معاينة مباشرة"
+      },
+      hairByFaribaProject: {
+        category: "صالون تصفيف الشعر واستوديو العناية بالجمال",
+        title: "Hair By Fariba – صالون العناية بالشعر في ستوكهولم",
+        desc: "تطبيق ويب راقٍ وأنيق لصالون Hair By Fariba في ستوكهولم، يشمل حجز المواعيد إلكترونياً، دليلاً متكاملاً لخدمات القص، الصبغات والبالياج، وعلاج الكيراتين وتصفيف العرائس.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "قائمة خدمات متكاملة تشمل القص، الصبغة والكيراتين",
+        feature2: "حجز المواعيد إلكترونياً واستشارات مخصصة",
+        feature3: "معرض أعمال بصري وتصميم عصري متجاوب بالكامل",
+        previewBtn: "معاينة مباشرة"
+      },
+      beastBurgerProject: {
+        category: "مطعم برجر عصري ووجبات سريعة فاخرة",
+        title: "Beast Burger – مطعم سماش برجر الفاخر",
+        desc: "تطبيق ويب ديناميكي وجذاب لمطعم Beast Burger يضم قائمة تفاعلية لأشهى أنواع السماش برجر المحضرة على الجريل، صلصة بيست الخاصة، وخيارات الطلب السريع عبر الإنترنت.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "قائمة طعام رقمية تفاعلية لوجبات البرجر والصلصات الخاصة",
+        feature2: "روابط طلب إلكتروني سريعة ومعلومات الفروع",
+        feature3: "هوية بصرية حيوية ومبتكرة وتجربة مستخدم سريعة على الجوال",
         previewBtn: "معاينة مباشرة"
       },
       portfolioHero: {

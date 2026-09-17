@@ -470,6 +470,18 @@
   }
 }
 
+@media (max-width: 380px) {
+  .hero-circle,
+  .hero-portrait-frame {
+    width: 240px;
+    height: 240px;
+  }
+
+  .hero-portrait {
+    width: 12rem;
+  }
+}
+
 @media (min-width: 640px) {
   .hero-circle,
   .hero-portrait-frame {

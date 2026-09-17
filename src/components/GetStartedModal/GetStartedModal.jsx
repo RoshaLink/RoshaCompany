@@ -234,7 +234,7 @@ export default function GetStartedModal({ isOpen, onClose }) {
                 {isSubmitting ? (
                   <Loader2 className="w-4 h-4 animate-spin shrink-0" />
                 ) : (
-                  <Send className={`w-4 h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                  <Send className={`w-4 h-4 shrink-0 ${isRTL ? '-scale-x-100' : ''}`} />
                 )}
               </button>
             </form>

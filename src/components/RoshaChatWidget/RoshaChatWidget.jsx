@@ -344,7 +344,7 @@ export default function RoshaChatWidget({ onOpenGetStarted }) {
                     {isSending ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
-                      <Send className="w-4 h-4 rtl:rotate-180" />
+                      <Send className={`w-4 h-4 rosha-chat-send-icon ${isRTL ? '-scale-x-100' : ''}`} />
                     )}
                   </button>
                 </form>

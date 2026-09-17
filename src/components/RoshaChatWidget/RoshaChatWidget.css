@@ -21,3 +21,8 @@
     box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
   }
 }
+
+[dir="rtl"] .rosha-chat-send-icon {
+  transform: scaleX(-1);
+}
+

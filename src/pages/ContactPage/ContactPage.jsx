@@ -330,7 +330,7 @@ export default function ContactPage() {
                         {isSubmitting ? (
                           <Loader2 className="w-4 h-4 animate-spin shrink-0" />
                         ) : (
-                          <Send className={`w-4 h-4 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
+                          <Send className={`w-4 h-4 shrink-0 ${isRTL ? '-scale-x-100' : ''}`} />
                         )}
                       </motion.button>
                     </motion.div>

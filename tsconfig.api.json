@@ -8,11 +8,17 @@
   // Scoped to api/ on purpose. The React code in src/ has no JSDoc coverage,
   // so checking it would produce hundreds of implicit-any errors that say
   // nothing useful about correctness.
+  //
+  // `jsx: "react-jsx"` is only here so the handlers that import the
+  // react-email templates under api/_lib/emails/*.jsx (server-only — never
+  // shipped to src/) can be type-resolved; it does not check those templates
+  // any more strictly than the rest of this config already does.
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "lib": ["ES2022"],
+    "jsx": "react-jsx",
     "types": ["node"],
     "allowJs": true,
     "checkJs": true,
@@ -22,6 +28,6 @@
     "noImplicitAny": false,
     "resolveJsonModule": true
   },
-  "include": ["api/**/*.js"],
+  "include": ["api/**/*.js", "api/**/*.jsx"],
   "exclude": ["api/**/*.test.js"]
 }

@@ -1,6 +1,11 @@
+// @ts-nocheck -- see tsconfig.api.json's compilerOptions comment: variadic
+// React.createElement(...) children don't type-check cleanly under `strict`
+// without JSX, for reasons unrelated to actual runtime correctness.
 import * as React from 'react';
 import { Column, Row } from '@react-email/components';
 import { colors, fonts } from './brand.js';
+
+const h = React.createElement;
 
 /**
  * One label/value line inside a field-list box (used by both
@@ -12,21 +17,23 @@ import { colors, fonts } from './brand.js';
  */
 export default function FieldRow({ label, value, mono = false, muted = false, spacing = '12px' }) {
   if (!value) return null;
-  return (
-    <Row style={{ marginBottom: spacing }}>
-      <Column style={{ fontFamily: fonts.body, fontSize: '13px', color: colors.textMuted }}>{label}</Column>
-      <Column
-        align="right"
-        style={{
+  return h(
+    Row,
+    { style: { marginBottom: spacing } },
+    h(Column, { style: { fontFamily: fonts.body, fontSize: '13px', color: colors.textMuted } }, label),
+    h(
+      Column,
+      {
+        align: 'right',
+        style: {
           fontFamily: mono ? fonts.mono : fonts.body,
           fontWeight: mono ? 400 : 500,
           fontSize: mono ? '12px' : '13px',
           color: muted ? colors.textMuted : colors.text,
           textAlign: 'right',
-        }}
-      >
-        {value}
-      </Column>
-    </Row>
+        },
+      },
+      value
+    )
   );
 }

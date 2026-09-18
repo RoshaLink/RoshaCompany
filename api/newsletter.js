@@ -1,6 +1,6 @@
 import { rateLimit } from './_lib/rateLimit.js';
 import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
-import WelcomeEmail from './_lib/emails/WelcomeEmail.jsx';
+import WelcomeEmail from './_lib/emails/WelcomeEmail.js';
 import { renderEmail } from './_lib/emails/render.js';
 import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
 

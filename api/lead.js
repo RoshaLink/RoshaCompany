@@ -1,7 +1,7 @@
 import { rateLimit } from './_lib/rateLimit.js';
 import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
-import LeadNotificationEmail from './_lib/emails/LeadNotificationEmail.jsx';
-import ContactConfirmationEmail from './_lib/emails/ContactConfirmationEmail.jsx';
+import LeadNotificationEmail from './_lib/emails/LeadNotificationEmail.js';
+import ContactConfirmationEmail from './_lib/emails/ContactConfirmationEmail.js';
 import { renderHtml } from './_lib/emails/render.js';
 import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
 
@@ -24,7 +24,7 @@ const CONFIRMABLE_SOURCES = new Set(['get-started', 'contact']);
  * auto-derived from the HTML: html-to-text (the library behind react-email's
  * `render(el, {plainText:true})`) doesn't insert any separator between
  * adjacent table cells, so the label/value rows in that template (see
- * FieldRow.jsx) would come out as "NameJane Doe" with no space or line break.
+ * FieldRow.js) would come out as "NameJane Doe" with no space or line break.
  */
 function notificationText(lead) {
   const rows = [

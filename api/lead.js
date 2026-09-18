@@ -1,8 +1,9 @@
 import { rateLimit } from './_lib/rateLimit.js';
 import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
-
-const RESEND_URL = 'https://api.resend.com/emails';
-const UPSTREAM_TIMEOUT_MS = 15_000;
+import LeadNotificationEmail from './_lib/emails/LeadNotificationEmail.jsx';
+import ContactConfirmationEmail from './_lib/emails/ContactConfirmationEmail.jsx';
+import { renderHtml } from './_lib/emails/render.js';
+import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
 
 const MAX_FIELD_CHARS = 200;
 const MAX_MESSAGE_CHARS = 4000;
@@ -13,19 +14,73 @@ const SOURCES = {
   chat: 'Rosha chat widget',
 };
 
+// A confirmation email only makes sense for the two form-shaped sources — a
+// chat-captured contact may only be a phone number, and "here's a copy of
+// your chat" doesn't fit the "thanks for your submission" framing anyway.
+const CONFIRMABLE_SOURCES = new Set(['get-started', 'contact']);
+
+/**
+ * Plain-text fallback for LeadNotificationEmail. Written by hand rather than
+ * auto-derived from the HTML: html-to-text (the library behind react-email's
+ * `render(el, {plainText:true})`) doesn't insert any separator between
+ * adjacent table cells, so the label/value rows in that template (see
+ * FieldRow.jsx) would come out as "NameJane Doe" with no space or line break.
+ */
+function notificationText(lead) {
+  const rows = [
+    ['Name', lead.name],
+    ['Email / Phone', lead.email],
+    ['Company / role', lead.company],
+    ['Primary focus', lead.service],
+    ['Budget', lead.budget],
+    ['Source', SOURCES[lead.source] || lead.source],
+    ['Site language', lead.lang],
+  ].filter(([, value]) => value);
+
+  return (
+    rows.map(([label, value]) => `${label}: ${value}`).join('\n') +
+    `\n\nMessage:\n${lead.message || '(none)'}`
+  );
+}
+
+/** Plain-text fallback for ContactConfirmationEmail — same reasoning as notificationText(). */
+function confirmationText({ firstName, name, email, service, message }) {
+  const rows = [
+    ['Name', name],
+    ['Email', email],
+    ['Service', service],
+  ].filter(([, value]) => value);
+
+  return (
+    `Thanks for reaching out, ${firstName}!\n\n` +
+    "We've received your enquiry and our team will be in touch within 1 business day.\n\n" +
+    'Your submission:\n' +
+    rows.map(([label, value]) => `${label}: ${value}`).join('\n') +
+    (message ? `\nMessage: ${message}` : '')
+  );
+}
+
 /** Strip control characters and cap length before putting text in an email. */
 function clean(value, maxChars) {
   if (typeof value !== 'string') return '';
   // eslint-disable-next-line no-control-regex
-  return value.replace(/[\u0000-\u001F\u007F]/g, ' ').trim().slice(0, maxChars);
+  return value.replace(/[\x00-\x1F\x7F]/g, ' ').trim().slice(0, maxChars);
 }
 
-function escapeHtml(value) {
-  return value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+/** "Sep 18, 2026 · 14:32 CET", for the notification email's header timestamp. */
+function formatTimestamp(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Stockholm',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZoneName: 'short',
+  }).formatToParts(date);
+  const get = (type) => parts.find((p) => p.type === type)?.value || '';
+  return `${get('month')} ${get('day')}, ${get('year')} · ${get('hour')}:${get('minute')} ${get('timeZoneName')}`;
 }
 
 function looksLikeEmail(value) {
@@ -39,37 +94,33 @@ function looksLikeEmailOrPhone(value) {
   return /^[\d\s+\-()]{6,25}$/.test(val) && val.replace(/\D/g, '').length >= 5;
 }
 
-function renderEmail(lead) {
-  const rows = [
-    ['Name', lead.name],
-    ['Email / Phone', lead.email],
-    ['Company / role', lead.company],
-    ['Primary focus', lead.service],
-    ['Budget', lead.budget],
-    ['Source', SOURCES[lead.source] || lead.source],
-    ['Site language', lead.lang],
-  ].filter(([, value]) => value);
-
-  const html = `
-    <h2>New enquiry from the RoshaLink website</h2>
-    <table cellpadding="6" style="border-collapse:collapse">
-      ${rows
-        .map(
-          ([label, value]) =>
-            `<tr><td style="border:1px solid #ddd"><strong>${escapeHtml(label)}</strong></td>` +
-            `<td style="border:1px solid #ddd">${escapeHtml(value)}</td></tr>`
-        )
-        .join('')}
-    </table>
-    <h3>Message</h3>
-    <p style="white-space:pre-wrap">${escapeHtml(lead.message || '(none)')}</p>
-  `;
-
-  const text =
-    rows.map(([label, value]) => `${label}: ${value}`).join('\n') +
-    `\n\nMessage:\n${lead.message || '(none)'}`;
-
-  return { html, text };
+/**
+ * Best-effort confirmation to the person who submitted the form. Never
+ * throws: a failure here must not turn an already-successful lead capture
+ * into an error response for the visitor.
+ */
+async function sendConfirmationEmail(lead) {
+  try {
+    const firstName = lead.name.split(' ')[0];
+    const html = await renderHtml(
+      ContactConfirmationEmail({
+        firstName,
+        name: lead.name,
+        email: lead.email,
+        service: lead.service,
+        message: lead.message,
+      })
+    );
+    await sendViaResend({
+      to: lead.email,
+      replyTo: process.env.LEAD_TO_EMAIL,
+      subject: "We've received your message — RoshaLink",
+      html,
+      text: confirmationText({ firstName, name: lead.name, email: lead.email, service: lead.service, message: lead.message }),
+    });
+  } catch (err) {
+    console.error('[lead] confirmation_email_error', err instanceof Error ? err.message : err);
+  }
 }
 
 export default async function handler(req, res) {
@@ -139,31 +190,39 @@ export default async function handler(req, res) {
     }
   }
 
-  // 2. Dispatch email via Resend if credentials are configured
+  // 2. Dispatch the internal notification email via Resend if credentials are configured
   let resendSent = false;
   if (RESEND_API_KEY && LEAD_TO_EMAIL) {
-    const { html, text } = renderEmail(lead);
+    const html = await renderHtml(
+      LeadNotificationEmail({
+        name: lead.name,
+        email: lead.email,
+        company: lead.company,
+        service: lead.service,
+        budget: lead.budget,
+        lang: lead.lang,
+        source: lead.source,
+        message: lead.message,
+        timestamp: formatTimestamp(),
+        // So hitting Reply in the inbox goes to the prospect when an email was provided.
+        replyToEmail: looksLikeEmail(lead.email) ? lead.email : undefined,
+      })
+    );
+    const text = notificationText(lead);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT_MS);
 
     try {
-      const response = await fetch(RESEND_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: process.env.LEAD_FROM_EMAIL || 'onboarding@resend.dev',
-          to: [LEAD_TO_EMAIL],
-          // So hitting Reply in the inbox goes to the prospect when an email was provided.
-          ...(looksLikeEmail(lead.email) ? { reply_to: lead.email } : {}),
+      const response = await sendViaResend(
+        {
+          to: LEAD_TO_EMAIL,
+          replyTo: looksLikeEmail(lead.email) ? lead.email : undefined,
           subject: `New enquiry from ${lead.name}${lead.company ? ` (${lead.company})` : ''}`,
           html,
           text,
-        }),
-        signal: controller.signal,
-      });
+        },
+        controller.signal
+      );
 
       if (!response.ok) {
         const detail = await response.text();
@@ -188,6 +247,14 @@ export default async function handler(req, res) {
       }
     } finally {
       clearTimeout(timer);
+    }
+
+    // 3. Best-effort confirmation to the submitter — only for the two form
+    // sources, and only when they gave a real email (source 'chat' may only
+    // have a phone number; the internal notification above already went out
+    // either way, so a failure here is logged and swallowed, never returned).
+    if (resendSent && CONFIRMABLE_SOURCES.has(lead.source) && looksLikeEmail(lead.email)) {
+      await sendConfirmationEmail(lead);
     }
   }
 

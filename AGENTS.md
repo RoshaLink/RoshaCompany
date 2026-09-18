@@ -170,16 +170,36 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
 
 ### Email templates (`api/_lib/emails/`)
 
-Three react-email components — `WelcomeEmail.jsx`, `LeadNotificationEmail.jsx`,
-`ContactConfirmationEmail.jsx` — built from three approved design mockups and
+Three react-email components — `WelcomeEmail.js`, `LeadNotificationEmail.js`,
+`ContactConfirmationEmail.js` — built from three approved design mockups and
 kept in sync with the live site's own design tokens (`src/index.css`'s
 `--color-*`/`--font-*`/`--radius-*` custom properties), not reimplemented from
 memory. `brand.js` is the single source of truth for colors/fonts/logo URLs/
 footer copy so the three templates can't drift from each other or from the
-site; `EmailLayout.jsx`, `EmailFooter.jsx` and `FieldRow.jsx` are the shared
+site; `EmailLayout.js`, `EmailFooter.js` and `FieldRow.js` are the shared
 structural pieces all three compose.
 
-- **Table layout, not flexbox.** `FieldRow.jsx` (a label/value line — "Name:
+- **`React.createElement`, never JSX syntax, in anything under `api/`.**
+  These files were originally written as `.jsx` with normal JSX markup; it
+  worked in every local check (`npm test`, `npm run build`, `npm run
+  typecheck`) because Vite/Vitest transform JSX automatically — and then
+  500'd every request in production, because Vercel deploys `api/` as raw ESM
+  source with **no bundling or JSX transform at all**. Node's native ESM
+  loader has no `.jsx` handling and throws `ERR_UNKNOWN_FILE_EXTENSION` the
+  instant the file is imported, before any of the handler's own try/catch
+  runs. The fix was rewriting every file in `api/_lib/emails/` with
+  `React.createElement(...)` (aliased to `h` for brevity) and renaming them
+  to plain `.js` — verified by importing the actual files with a raw
+  `node -e "import(...)"`, the same way Vercel's runtime does, not just
+  through Vitest. **Never reintroduce a `.jsx` file anywhere under `api/`,
+  and never trust a local test/build pass alone as proof a serverless
+  function change works — it doesn't exercise Vercel's actual unbundled
+  runtime.** Each of these files also carries a `// @ts-nocheck`, needed
+  because `@types/react`'s `createElement` overloads don't resolve variadic
+  children cleanly under `strict` without
+  JSX — see that file's own comment for why this is a type-checker quirk,
+  not a runtime bug.
+- **Table layout, not flexbox.** `FieldRow.js` (a label/value line — "Name:
   Jane Doe") renders a `<table>`/`<tr>`/`<td>` via `@react-email/components`'
   `Row`/`Column`, not a flex `<div>`. Outlook desktop's Word rendering engine
   ignores `display: flex` entirely; a `<table>` is the only layout primitive
@@ -281,9 +301,15 @@ everything except `/api/*` to `/index.html` so deep links work.
 - **Always** run `npm run build` before `npm run size` — it reads `dist/assets`.
 - **Always** put a new email design token (a color, font, radius, the logo
   URL) in `api/_lib/emails/brand.js`, never inline/duplicated across
-  `WelcomeEmail.jsx`/`LeadNotificationEmail.jsx`/`ContactConfirmationEmail.jsx`.
+  `WelcomeEmail.js`/`LeadNotificationEmail.js`/`ContactConfirmationEmail.js`.
 - **Never** lay out an email template with `display: flex` — see "Email
   templates" in the API section; Outlook desktop does not render it.
+- **Never** write a `.jsx` file (or use JSX syntax at all) anywhere under
+  `api/`. Vercel deploys serverless functions as raw, unbundled ESM — Node's
+  native loader throws `ERR_UNKNOWN_FILE_EXTENSION` on `.jsx` and has no JSX
+  transform for JSX syntax in a `.js` file either. Use
+  `React.createElement(...)` (see any file in `api/_lib/emails/`). This
+  shipped broken once already — see "Email templates" in the API section.
 - **Always** update this file in the same PR as a change it describes; CI flags
   the ones it can detect, but it cannot tell whether the prose is still true.
 - Use `module`-style ESM everywhere (`import`/`export`); `module.exports` fails at
@@ -341,6 +367,15 @@ through `npm run dev`.
   - All three templates share one token file (`brand.js`) and layout/footer/
     field-row components, verified against the approved design mockups via
     `npx react-email dev` + a headless-browser screenshot comparison.
+  - **Hotfix**: the templates originally shipped as `.jsx` and 500'd every
+    `/api/lead` and `/api/newsletter` request in production —
+    `ERR_UNKNOWN_FILE_EXTENSION`, since Vercel deploys `api/` unbundled and
+    Node's loader has no JSX transform. All local checks (tests, build,
+    typecheck) had passed because Vite/Vitest transform JSX automatically,
+    which none of them caught. Rewrote every file in `api/_lib/emails/` with
+    `React.createElement` and plain `.js`, this time verified with a raw
+    `node -e "import(...)"` matching Vercel's actual runtime. See "Email
+    templates" in the API section and the new Always/Never rule.
 - **Portfolio Page**:
   - Aligned project card action buttons and "Learn More" feature sub-menus to the bottom across all cards regardless of text length.
   - Styled expanded card feature items with solid sky-blue background in Light Mode with Dark Mode support.

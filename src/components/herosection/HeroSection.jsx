@@ -17,24 +17,12 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const videoRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(true); // Start muted: unsolicited audio on load is jarring and blocked by most browsers anyway
+  const [isMuted, setIsMuted] = useState(true); // Start muted: required for browser autoplay policies
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const [hasRequestedVideo, setHasRequestedVideo] = useState(false);
 
   // Mirror App.jsx's URL-lang resolution so the localized route matches the active page
   const pathLang = location.pathname.split('/').filter(Boolean)[0];
   const activeLang = SUPPORTED_LANGS.includes(pathLang) ? pathLang : (i18n.language || DEFAULT_LANG);
-
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const shouldLoadVideo = isMounted && (!isMobile || hasRequestedVideo);
-
-  useEffect(() => {
-    setIsMounted(true);
-    if (!isMobile) {
-      setIsPlaying(true);
-    }
-  }, [isMobile]);
 
   // Select video based on selected language
   const getVideoSources = () => {
@@ -47,32 +35,28 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
 
   const { mp4: currentVideoMp4, webm: currentVideoWebm } = getVideoSources();
 
-  // Play video muted on initial load for desktop; keep paused on mobile to preserve bandwidth & CPU
+  // Load and play video muted on initial load across all screen sizes
   useEffect(() => {
-    let timer;
-    if (videoRef.current && shouldLoadVideo) {
+    if (videoRef.current) {
       videoRef.current.muted = true;
       setIsMuted(true);
-      if (isMobile && !hasRequestedVideo) {
-        setIsPlaying(false);
-      } else {
-        timer = setTimeout(() => {
-          if (videoRef.current) {
-            videoRef.current.play().catch(() => { });
-            setIsPlaying(true);
-          }
-        }, 400);
+      videoRef.current.load();
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Autoplay policy prevented playback, but video is loaded and first frame is visible
+            setIsPlaying(false);
+          });
       }
     }
-    return () => clearTimeout(timer);
-  }, [currentVideoMp4, shouldLoadVideo, isMobile, hasRequestedVideo]);
+  }, [currentVideoMp4]);
 
   const handleReplay = () => {
-    if (!hasRequestedVideo) setHasRequestedVideo(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play();
-      setIsPlaying(true);
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
     }
   };
 
@@ -84,16 +68,12 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   };
 
   const togglePlayPause = () => {
-    if (!hasRequestedVideo) {
-      setHasRequestedVideo(true);
-    }
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
         setIsPlaying(false);
       } else {
-        videoRef.current.play();
-        setIsPlaying(true);
+        videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
       }
     }
   };
@@ -176,21 +156,21 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
             <video
               ref={videoRef}
               key={currentVideoMp4}
+              autoPlay
               muted={isMuted}
+              loop
               playsInline
-              preload="none"
+              preload="auto"
               aria-label="RoshaLink Engineering Product Reel"
               width="640"
               height="360"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
               className="hero-video-el"
             >
-              {shouldLoadVideo && (
-                <>
-                  <source src={currentVideoWebm} type="video/webm" />
-                  <source src={currentVideoMp4} type="video/mp4" />
-                </>
-              )}
+              <source src={currentVideoWebm} type="video/webm" />
+              <source src={currentVideoMp4} type="video/mp4" />
               <track kind="captions" src="data:text/vtt;charset=utf-8,WEBVTT" default={false} label="Captions" />
             </video>
 

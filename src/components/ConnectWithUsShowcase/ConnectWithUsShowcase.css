@@ -101,7 +101,7 @@
 
 @media (min-width: 1024px) {
   .connect-image-col { grid-column: span 5 / span 5; }
-  .connect-image-col.is-ltr { justify-content: flex-start; order: -1; } /* order-first */
+  .connect-image-col.is-ltr { justify-content: flex-end; order: 2; } /* order-last: image on right in LTR */
   .connect-image-col.is-rtl { justify-content: flex-end; order: 2; } /* order-last */
 }
 
@@ -205,7 +205,7 @@
     grid-column: span 7 / span 7;
     gap: 1.5rem;
   }
-  .connect-content-col.is-ltr { text-align: left; order: 2; } /* order-last */
+  .connect-content-col.is-ltr { text-align: left; order: -1; } /* order-first: text on left in LTR */
   .connect-content-col.is-rtl { text-align: right; order: -1; } /* order-first */
 }
 

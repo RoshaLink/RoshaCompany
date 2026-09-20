@@ -383,6 +383,7 @@ through `npm run dev`.
   - Applied the `.sky-blue-text-shine` animated gradient wave to both the hero headline and bottom CTA banner title.
   - Added a responsive public case-studies notice header above the project grid with full i18n support across 4 locales (`sv`, `en`, `fa`, `ar`).
   - Added HogWard Café live production case study (`https://roshalink.github.io/HogWard_Cafe/`) with full i18n translation and interactive live browser preview.
+  - Added Royal Beauty live production case study (`https://roshalink.github.io/royalbeauty/`), a beauty/aesthetic clinic platform, with full i18n translation and interactive live browser preview. Deployed from the sibling `royalbeauty` repo via a new GitHub Actions → GitHub Pages workflow (Next.js static export).
   - Enforced `uppercase` styling on titles for English and Swedish.
 - **Services Page**:
   - Enforced `uppercase` styling on all section titles across English and Swedish locales (Hero Headline, Capabilities, Tech Matrix, Delivery Process, Comparison, FAQ, Bottom CTA).

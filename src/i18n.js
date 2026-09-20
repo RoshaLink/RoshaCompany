@@ -480,6 +480,16 @@ const resources = {
         feature3: "Flerspråkig UI & snabb responsiv design",
         previewBtn: "Förhandsgranska"
       },
+      royalbeautyProject: {
+        category: "SKÖNHETSKLINIK & ESTETISK UPPLEVELSE",
+        title: "Royal Beauty – Skönhetsklinik Stockholm",
+        desc: "En filmisk och redaktionell digital upplevelse för Royal Beauty, en iransk-svensk skönhetsklinik i Stockholm, med GSAP-driven scrollberättelse, en interaktiv behandlingsmeny, jämförelseslider för före/efter och en presentation av VIP-medlemskapet.",
+        featuredBadge: "★ Utvalt Kundcase",
+        feature1: "Interaktiv Före- & Efter-jämförelseslider",
+        feature2: "Filmisk Scrollberättelse Driven av GSAP",
+        feature3: "VIP-Medlemskap & Onlinebokningsflöde",
+        previewBtn: "Förhandsgranska"
+      },
       auroraClinicProject: {
         category: "SKÖNHETSKLINIK & LASERBEHANDLINGAR",
         title: "Aurora – Skönhets- & Laserklinik Stockholm",
@@ -1493,6 +1503,16 @@ const resources = {
         feature1: "Interactive Digital Menu & Specialty Drinks",
         feature2: "Online Table Booking & Event System",
         feature3: "Multi-Language & Lightning-Fast UI",
+        previewBtn: "Live Preview"
+      },
+      royalbeautyProject: {
+        category: "BEAUTY & AESTHETIC CLINIC PLATFORM",
+        title: "Royal Beauty",
+        desc: "A cinematic, editorial digital experience for Royal Beauty, an Iranian-Swedish aesthetic clinic in Stockholm, featuring GSAP-powered scroll storytelling, an interactive treatments menu, before/after comparison sliders, and a VIP membership showcase.",
+        featuredBadge: "★ Featured Case Study",
+        feature1: "Interactive Before & After Comparison Sliders",
+        feature2: "GSAP-Powered Cinematic Scroll Storytelling",
+        feature3: "VIP Membership Showcase & Online Booking Flow",
         previewBtn: "Live Preview"
       },
       auroraClinicProject: {
@@ -2510,6 +2530,16 @@ const resources = {
         feature3: "پشتیبانی چندزبانه و تجربه کاربری روان",
         previewBtn: "پیش‌نمایش زنده"
       },
+      royalbeautyProject: {
+        category: "کلینیک زیبایی و درمان‌های آرایشی لوکس",
+        title: "رویال بیوتی – کلینیک زیبایی استکهلم (Royal Beauty)",
+        desc: "یک تجربه دیجیتال سینمایی و روایت‌محور برای رویال بیوتی، کلینیک زیبایی ایرانی-سوئدی در استکهلم، با روایت اسکرولی مبتنی بر GSAP، منوی تعاملی خدمات زیبایی، اسلایدر مقایسه قبل و بعد و معرفی باشگاه اعضای ویژه (VIP).",
+        featuredBadge: "★ نمونه پروژه برگزیده",
+        feature1: "اسلایدر تعاملی مقایسه تصاویر قبل و بعد",
+        feature2: "روایت سینمایی اسکرولی مبتنی بر GSAP",
+        feature3: "معرفی باشگاه VIP و فرآیند رزرو آنلاین",
+        previewBtn: "پیش‌نمایش زنده"
+      },
       auroraClinicProject: {
         category: "کلینیک زیبایی و لیزر پوست و مو",
         title: "کلینیک زیبایی و لیزر آرورا استکهلم (Aurora)",
@@ -3523,6 +3553,16 @@ const resources = {
         feature1: "قائمة طعام ومشروبات رقمية تفاعلية",
         feature2: "نظام حجز الطاولات والفعاليات إلكترونياً",
         feature3: "دعم متعدد اللغات وواجهة مستخدم سريعة",
+        previewBtn: "معاينة مباشرة"
+      },
+      royalbeautyProject: {
+        category: "عيادة تجميل وعناية فاخرة",
+        title: "رويال بيوتي – عيادة التجميل في ستوكهولم (Royal Beauty)",
+        desc: "تجربة رقمية سينمائية وتحريرية لعيادة رويال بيوتي، عيادة التجميل الإيرانية-السويدية في ستوكهولم، تتميز بسرد تفاعلي أثناء التمرير مدعوم بـ GSAP، وقائمة علاجات تفاعلية، ومنزلقات مقارنة قبل وبعد، وعرض لعضوية VIP الحصرية.",
+        featuredBadge: "★ دراسة حالة متميزة",
+        feature1: "منزلقات تفاعلية لمقارنة الصور قبل وبعد",
+        feature2: "سرد سينمائي أثناء التمرير مدعوم بـ GSAP",
+        feature3: "عرض عضوية VIP ونظام حجز إلكتروني",
         previewBtn: "معاينة مباشرة"
       },
       auroraClinicProject: {

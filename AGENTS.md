@@ -427,6 +427,21 @@ through `npm run dev`.
     screenshot method as the JSX hotfix above — see "Email templates" for
     a RTL-screenshot gotcha (`fullPage: true` on a `dir="rtl"` page) found
     and worked around along the way.
+  - **Pre-merge double-check**: beyond the unit tests in `i18n.test.js`,
+    `lead.test.js` and `newsletter.test.js`, this change was additionally
+    verified by importing the real `api/lead.js`/`api/newsletter.js`
+    handlers with a stubbed `fetch`/`req`/`res` (no test framework) and
+    driving them end-to-end for `lang` in `sv`/`en`/`fa`/`ar`/undefined/
+    `en-US`/an unsupported code — confirming the Resend payload actually
+    sent per case (subject, `dir`, body text), that the internal
+    notification's subject/body genuinely never changes with `lang` (the
+    only diff is the literal language-code value in its informational
+    "Site Language" field), and that all 8 locale × template renders look
+    correct as screenshots. This handler-level, framework-free replay is
+    the technique to reach for again on any future change to these three
+    routes, alongside the raw-Node-import check the JSX hotfix already
+    established — it catches payload-shape and copy regressions that
+    mocked-fetch unit tests can miss.
 - **Portfolio Page**:
   - Aligned project card action buttons and "Learn More" feature sub-menus to the bottom across all cards regardless of text length.
   - Styled expanded card feature items with solid sky-blue background in Light Mode with Dark Mode support.

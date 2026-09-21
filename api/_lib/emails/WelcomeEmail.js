@@ -5,35 +5,30 @@ import * as React from 'react';
 import { Button, Column, Img, Row, Section, Text } from '@react-email/components';
 import EmailLayout from './EmailLayout.js';
 import EmailFooter from './EmailFooter.js';
-import { colors, fonts, logo, radii } from './brand.js';
+import { colors, fonts, footerLinksFor, logo, radii } from './brand.js';
+import { dirFor, emailCopy, isRtl, resolveLocale } from './i18n.js';
 
 const h = React.createElement;
-
-const FEATURES = [
-  {
-    title: 'Book your kickoff call',
-    body: 'Pick a time that works and meet the team leading your project.',
-  },
-  {
-    title: 'Meet your project team',
-    body: 'Get introduced to the designers and engineers behind your build.',
-  },
-  {
-    title: 'Track progress in real time',
-    body: 'Follow every milestone from a shared project dashboard.',
-  },
-];
 
 /**
  * Sent on newsletter sign-up (`api/newsletter.js`) — the only "someone gave
  * us their email to hear more from us" moment this site currently has, there
  * being no user-account system to trigger a literal post-signup email from.
- * Matches the approved "Onboarding Email" mockup 1:1.
+ * Matches the approved "Onboarding Email" mockup 1:1, localized per the
+ * site's four supported locales (see i18n.js) — `lang` is whatever the
+ * subscriber's site language was, already captured on the newsletter form.
  */
-export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://roshalink.com' }) {
+export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://roshalink.com', lang }) {
+  const locale = resolveLocale(lang);
+  const dir = dirFor(locale);
+  const rtl = isRtl(locale);
+  const { common, welcome: strings } = emailCopy(lang);
+  const headline = strings.headline(firstName);
+  const links = footerLinksFor(locale);
+
   return h(
     EmailLayout,
-    { previewText: "Welcome to RoshaLink — let's build something great", width: 600 },
+    { previewText: strings.previewText, width: 600, lang: locale, dir },
     // Header
     h(
       Section,
@@ -67,7 +62,7 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
             padding: '4px 12px',
           },
         },
-        'Welcome'
+        strings.badge
       ),
       h(
         Text,
@@ -83,7 +78,7 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
             color: colors.text,
           },
         },
-        'Welcome ',
+        headline.before,
         h(
           'span',
           {
@@ -95,9 +90,9 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
               WebkitTextFillColor: 'transparent',
             },
           },
-          'aboard'
+          headline.highlight
         ),
-        `, ${firstName}!`
+        headline.after
       ),
       h(
         Text,
@@ -112,22 +107,23 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
             color: colors.textMuted,
           },
         },
-        "Thanks for choosing RoshaLink. We're excited to partner with you on your next digital project."
+        strings.subtitle
       )
     ),
     // Feature blocks
     h(
       Section,
       { key: 'features', style: { padding: '4px 32px 8px' } },
-      FEATURES.map((feature, index) =>
+      strings.features.map((feature, index) =>
         h(
           Row,
           {
             key: feature.title,
+            dir: rtl ? 'rtl' : undefined,
             style: {
               border: `1px solid ${colors.border}`,
               borderRadius: radii.md,
-              marginBottom: index < FEATURES.length - 1 ? '16px' : 0,
+              marginBottom: index < strings.features.length - 1 ? '16px' : 0,
             },
           },
           h(
@@ -157,12 +153,30 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
             { style: { verticalAlign: 'top', padding: '20px 22px 20px 0' } },
             h(
               Text,
-              { style: { margin: '0 0 4px', fontFamily: fonts.headline, fontWeight: 700, fontSize: '15px', color: colors.text } },
+              {
+                style: {
+                  margin: '0 0 4px',
+                  fontFamily: fonts.headline,
+                  fontWeight: 700,
+                  fontSize: '15px',
+                  color: colors.text,
+                  textAlign: rtl ? 'right' : 'left',
+                },
+              },
               feature.title
             ),
             h(
               Text,
-              { style: { margin: 0, fontFamily: fonts.body, fontSize: '14px', lineHeight: '1.65', color: colors.textMuted } },
+              {
+                style: {
+                  margin: 0,
+                  fontFamily: fonts.body,
+                  fontSize: '14px',
+                  lineHeight: '1.65',
+                  color: colors.textMuted,
+                  textAlign: rtl ? 'right' : 'left',
+                },
+              },
               feature.body
             )
           )
@@ -187,19 +201,21 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
             padding: '12px 32px',
           },
         },
-        'Get Started'
+        strings.cta
       )
     ),
     h(EmailFooter, {
       key: 'footer',
       variant: 'full',
+      tagline: common.tagline,
+      copyright: common.copyright(new Date().getFullYear()),
       links: [
-        { label: 'Privacy Policy', href: 'https://roshalink.com/en/privacy' },
-        { label: 'Contact', href: 'https://roshalink.com/en/contact' },
+        { label: common.footerPrivacy, href: links.privacyPolicy },
+        { label: common.footerContact, href: links.contact },
         // No unsubscribe endpoint exists yet (api/newsletter.js has no
         // opt-out route) — placeholder, same as Footer.jsx's own ToS/
         // Security links, until one is built. Required before real sends.
-        { label: 'Unsubscribe', href: '#' },
+        { label: common.footerUnsubscribe, href: '#' },
       ],
     })
   );
@@ -208,4 +224,5 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
 /** Sample data for the react-email dev preview — matches the approved mockup's own default props. */
 WelcomeEmail.PreviewProps = {
   firstName: 'Sam',
+  lang: 'en',
 };

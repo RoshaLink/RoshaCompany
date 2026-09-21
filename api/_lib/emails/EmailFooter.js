@@ -3,7 +3,7 @@
 // without JSX, for reasons unrelated to actual runtime correctness.
 import * as React from 'react';
 import { Img, Link, Section, Text } from '@react-email/components';
-import { colors, copyrightLine, fonts, logo, tagline } from './brand.js';
+import { colors, copyrightLine, fonts, logo, tagline as defaultTagline } from './brand.js';
 
 const h = React.createElement;
 
@@ -11,12 +11,15 @@ const h = React.createElement;
  * Shared footer used by all three templates. Two variants match the two
  * approved mockup footers:
  *  - "full"    (Welcome, Contact Confirmation): icon+wordmark, tagline, a row
- *              of links, copyright line.
- *  - "compact" (Lead Notification): icon+wordmark plus a single note line —
- *              an internal ops email has no tagline/links to show.
- * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string }>, note?: string, iconSize?: number }} props
+ *              of links, copyright line. `tagline`/`copyright` are passed in
+ *              already localized (see i18n.js's `common` strings) — this
+ *              component itself knows nothing about locale.
+ *  - "compact" (Lead Notification, never localized): icon+wordmark plus a
+ *              single note line — an internal ops email has no tagline/
+ *              links to show.
+ * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string }>, note?: string, iconSize?: number, tagline?: string, copyright?: string }} props
  */
-export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28 }) {
+export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28, tagline = defaultTagline, copyright = copyrightLine }) {
   const wordmark = [
     h(
       Img,
@@ -89,7 +92,7 @@ export default function EmailFooter({ variant = 'full', links = [], note, iconSi
               key: 'copyright',
               style: { margin: '10px 0 0', fontFamily: fonts.body, fontSize: '12px', color: colors.textMuted },
             },
-            copyrightLine
+            copyright
           ),
         ]
       : [

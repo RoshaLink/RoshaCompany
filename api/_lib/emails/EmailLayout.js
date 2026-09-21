@@ -22,6 +22,8 @@ export default function EmailLayout({
   width = 600,
   radius = '16px',
   shadow = '0 10px 30px rgba(15,23,42,0.04)',
+  lang = 'en',
+  dir = 'ltr',
   children,
 }) {
   const htmlChildren = [
@@ -33,6 +35,7 @@ export default function EmailLayout({
       Body,
       {
         key: 'body',
+        dir,
         style: {
           margin: 0,
           backgroundColor: colors.background,
@@ -58,5 +61,5 @@ export default function EmailLayout({
     )
   );
 
-  return h(Html, { lang: 'en' }, htmlChildren);
+  return h(Html, { lang, dir }, htmlChildren);
 }

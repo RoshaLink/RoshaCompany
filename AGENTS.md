@@ -221,6 +221,43 @@ structural pieces all three compose.
   `npx react-email dev` renders with; without it the preview shows literal
   `undefined`s, since none of the real props have hardcoded defaults (they're
   always supplied by the caller in `api/lead.js`/`api/newsletter.js`).
+- **Localized per the visitor's site language, via `i18n.js`.**
+  `WelcomeEmail` and `ContactConfirmationEmail` take a `lang` prop and render
+  in `sv`/`en`/`fa`/`ar` (the site's own four locales) — subject line, body
+  copy, and the `<Html dir>`/RTL layout all follow it. `lang` is whatever the
+  visitor's site language already was when they submitted the form/newsletter
+  (the same value the site was already sending to `api/lead.js`/
+  `api/newsletter.js` and storing, just not using yet before this).
+  `resolveLocale()` normalizes it (`'en-US'` → `en`, case-insensitive) and
+  falls back to `sv`, matching the site's own `i18n.language || 'sv'`
+  convention. `LeadNotificationEmail` (the internal, team-facing alert) is
+  **not** localized on purpose — always English, regardless of `lang` —
+  since it's read by the RoshaLink team, not the visitor.
+  - RTL (`fa`/`ar`) mirrors the layout rather than just swapping text: a
+    `dir="rtl"` `<table>` (`FieldRow.js`, the `WelcomeEmail` feature rows)
+    visually reverses column order on its own — label/number ends up on the
+    right, matching that direction's reading start — so the only extra work
+    is flipping that row's own remaining text-align. `welcome.headline` in
+    `i18n.js` is a function returning `{ before, highlight, after }` rather
+    than a fixed template, because a natural Farsi/Arabic greeting puts the
+    visitor's name *before* the highlighted word ("Sam عزیز، خوش آمدید")
+    where English/Swedish put it after ("Welcome aboard, Sam!") — forcing
+    one word order across languages reads as broken grammar, not just
+    unlocalized.
+  - **Known screenshot-tooling gotcha, not a rendering bug:** capturing an
+    RTL (`dir="rtl"`) page with Puppeteer's `page.screenshot({ fullPage:
+    true })` produces a horizontal-scroll-origin artifact — the whole card
+    renders shoved against the right edge with blank space on the left —
+    because Chromium anchors `scrollLeft: 0` at the right edge for RTL
+    documents and full-page capture doesn't compensate. Confirmed by an
+    isolated plain-viewport screenshot rendering correctly. When verifying
+    an RTL template visually, size the viewport to the actual content
+    height first and take a normal (non-`fullPage`) screenshot instead.
+  - The translations in `i18n.js` are original authored copy (not pulled
+    from `src/i18n.js`, whose `contactPage`/`footer` keys are UI copy for
+    the SPA, not transactional-email copy) and were not reviewed by a native
+    Farsi/Arabic speaker — worth a native-speaker pass before this is fully
+    trusted for real customer-facing sends, same caution as `COMPANY_FACTS`.
 
 Client routes (`src/App.jsx`): `/`, `/home`, `/about`, `/services`, `/portfolio`,
 `/contact`, `/privacy`, `/privacy-policy`, and `*` → home. `vercel.json` rewrites
@@ -350,6 +387,10 @@ through `npm run dev`.
    there is no unsubscribe endpoint or list-management route anywhere in this
    codebase. Needed before any real marketing send (CAN-SPAM/GDPR), not just
    as a nicety.
+8. The `fa`/`ar` copy in `api/_lib/emails/i18n.js` is original, unreviewed
+   translation — not pulled from a translation service or checked by a
+   native speaker. Worth a native-speaker review pass before fully trusting
+   it for real customer sends.
 
 ## Recent Branch Updates & Improvements
 
@@ -376,6 +417,31 @@ through `npm run dev`.
     `React.createElement` and plain `.js`, this time verified with a raw
     `node -e "import(...)"` matching Vercel's actual runtime. See "Email
     templates" in the API section and the new Always/Never rule.
+  - **Localization**: `WelcomeEmail` and `ContactConfirmationEmail` now
+    render in the visitor's own site language (`sv`/`en`/`fa`/`ar`, via a
+    new `lang` prop + `i18n.js`) instead of always English — subject line,
+    body copy, and RTL layout (`dir="rtl"`, mirrored field rows and feature
+    blocks for Farsi/Arabic) all follow it. `LeadNotificationEmail` stays
+    English-only on purpose (team-facing, not visitor-facing). Verified
+    across all four locales with the same raw-Node-import + headless-
+    screenshot method as the JSX hotfix above — see "Email templates" for
+    a RTL-screenshot gotcha (`fullPage: true` on a `dir="rtl"` page) found
+    and worked around along the way.
+  - **Pre-merge double-check**: beyond the unit tests in `i18n.test.js`,
+    `lead.test.js` and `newsletter.test.js`, this change was additionally
+    verified by importing the real `api/lead.js`/`api/newsletter.js`
+    handlers with a stubbed `fetch`/`req`/`res` (no test framework) and
+    driving them end-to-end for `lang` in `sv`/`en`/`fa`/`ar`/undefined/
+    `en-US`/an unsupported code — confirming the Resend payload actually
+    sent per case (subject, `dir`, body text), that the internal
+    notification's subject/body genuinely never changes with `lang` (the
+    only diff is the literal language-code value in its informational
+    "Site Language" field), and that all 8 locale × template renders look
+    correct as screenshots. This handler-level, framework-free replay is
+    the technique to reach for again on any future change to these three
+    routes, alongside the raw-Node-import check the JSX hotfix already
+    established — it catches payload-shape and copy regressions that
+    mocked-fetch unit tests can miss.
 - **Portfolio Page**:
   - Aligned project card action buttons and "Learn More" feature sub-menus to the bottom across all cards regardless of text length.
   - Styled expanded card feature items with solid sky-blue background in Light Mode with Dark Mode support.

@@ -325,7 +325,7 @@ describe('lead handler — outgoing email', () => {
 describe('lead handler — confirmation email to the submitter', () => {
   it.each(['contact', 'get-started'])('sends a confirmation for source %j', async (source) => {
     const res = makeRes()
-    await handler(makeReq({ body: { ...validLead, source } }), res)
+    await handler(makeReq({ body: { ...validLead, source, lang: 'en' } }), res)
 
     expect(res.statusCode).toBe(200)
     const confirmation = fetchBodyTo('jane@company.com')
@@ -335,6 +335,31 @@ describe('lead handler — confirmation email to the submitter', () => {
     expect(confirmation.text).toContain('Thanks for reaching out')
     // Two independent sends: the internal notification and this confirmation.
     expect(allFetchBodies()).toHaveLength(2)
+  })
+
+  it('defaults to Swedish when no lang is given, matching the site-wide fallback', async () => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'contact' } }), res)
+
+    expect(res.statusCode).toBe(200)
+    const confirmation = fetchBodyTo('jane@company.com')
+    expect(confirmation.html).toContain('Tack för att du hörde av dig')
+    expect(confirmation.text).toContain('Tack för att du hörde av dig')
+  })
+
+  it.each([
+    ['fa', 'از تماس شما سپاسگزاریم'],
+    ['ar', 'شكراً لتواصلك معنا'],
+  ])('localizes the confirmation for lang %j', async (lang, expectedSubstring) => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'contact', lang } }), res)
+
+    expect(res.statusCode).toBe(200)
+    const confirmation = fetchBodyTo('jane@company.com')
+    expect(confirmation.html).toContain(expectedSubstring)
+    expect(confirmation.text).toContain(expectedSubstring)
+    // Farsi/Arabic are RTL — the document direction must flip too.
+    expect(confirmation.html).toContain('dir="rtl"')
   })
 
   it('does not send a confirmation for the chat source', async () => {

@@ -4,6 +4,7 @@ import LeadNotificationEmail from './_lib/emails/LeadNotificationEmail.js';
 import ContactConfirmationEmail from './_lib/emails/ContactConfirmationEmail.js';
 import { renderHtml } from './_lib/emails/render.js';
 import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
+import { emailCopy } from './_lib/emails/i18n.js';
 
 const MAX_FIELD_CHARS = 200;
 const MAX_MESSAGE_CHARS = 4000;
@@ -43,20 +44,24 @@ function notificationText(lead) {
   );
 }
 
-/** Plain-text fallback for ContactConfirmationEmail — same reasoning as notificationText(). */
-function confirmationText({ firstName, name, email, service, message }) {
+/**
+ * Plain-text fallback for ContactConfirmationEmail — same reasoning as
+ * notificationText(), localized to match the HTML version (see i18n.js).
+ */
+function confirmationText({ firstName, name, email, service, message, lang }) {
+  const { confirmation: strings } = emailCopy(lang);
   const rows = [
-    ['Name', name],
-    ['Email', email],
-    ['Service', service],
+    [strings.fieldName, name],
+    [strings.fieldEmail, email],
+    [strings.fieldService, service],
   ].filter(([, value]) => value);
 
   return (
-    `Thanks for reaching out, ${firstName}!\n\n` +
-    "We've received your enquiry and our team will be in touch within 1 business day.\n\n" +
-    'Your submission:\n' +
+    `${strings.headline(firstName)}\n\n` +
+    `${strings.subtitle}\n\n` +
+    `${strings.yourSubmission}:\n` +
     rows.map(([label, value]) => `${label}: ${value}`).join('\n') +
-    (message ? `\nMessage: ${message}` : '')
+    (message ? `\n${strings.fieldMessage}: ${message}` : '')
   );
 }
 
@@ -102,6 +107,7 @@ function looksLikeEmailOrPhone(value) {
 async function sendConfirmationEmail(lead) {
   try {
     const firstName = lead.name.split(' ')[0];
+    const { confirmation: strings } = emailCopy(lead.lang);
     const html = await renderHtml(
       ContactConfirmationEmail({
         firstName,
@@ -109,14 +115,15 @@ async function sendConfirmationEmail(lead) {
         email: lead.email,
         service: lead.service,
         message: lead.message,
+        lang: lead.lang,
       })
     );
     await sendViaResend({
       to: lead.email,
       replyTo: process.env.LEAD_TO_EMAIL,
-      subject: "We've received your message — RoshaLink",
+      subject: strings.subject,
       html,
-      text: confirmationText({ firstName, name: lead.name, email: lead.email, service: lead.service, message: lead.message }),
+      text: confirmationText({ firstName, name: lead.name, email: lead.email, service: lead.service, message: lead.message, lang: lead.lang }),
     });
   } catch (err) {
     console.error('[lead] confirmation_email_error', err instanceof Error ? err.message : err);

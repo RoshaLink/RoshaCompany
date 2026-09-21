@@ -6,7 +6,8 @@ import { Img, Link, Section, Text } from '@react-email/components';
 import EmailLayout from './EmailLayout.js';
 import EmailFooter from './EmailFooter.js';
 import FieldRow from './FieldRow.js';
-import { colors, fonts, logo, radii } from './brand.js';
+import { SITE_URL, colors, fonts, footerLinksFor, logo, radii } from './brand.js';
+import { dirFor, emailCopy, isRtl, resolveLocale } from './i18n.js';
 
 const h = React.createElement;
 
@@ -15,12 +16,22 @@ const h = React.createElement;
  * — from api/lead.js, for the 'contact' and 'get-started' sources only (a
  * chat-widget-captured contact may only be a phone number, and "read your own
  * chat back as an email" doesn't fit that flow the way it does a form
- * submission). Matches the approved "Contact Form Confirmation" mockup 1:1.
+ * submission). Matches the approved "Contact Form Confirmation" mockup 1:1,
+ * localized per the site's four supported locales (see i18n.js) — `lang` is
+ * whatever the submitter's site language was when they filled out the form.
+ * @param {{ firstName: string, name?: string, email?: string, service?: string, message?: string, lang?: string, ctaHref?: string }} props
  */
-export default function ContactConfirmationEmail({ firstName, name, email, service, message, ctaHref = 'https://roshalink.com/en/portfolio' }) {
+export default function ContactConfirmationEmail({ firstName, name, email, service, message, lang, ctaHref }) {
+  const locale = resolveLocale(lang);
+  const dir = dirFor(locale);
+  const rtl = isRtl(locale);
+  const { common, confirmation: strings } = emailCopy(lang);
+  const links = footerLinksFor(locale);
+  const resolvedCtaHref = ctaHref || `${SITE_URL}/${locale}/portfolio`;
+
   return h(
     EmailLayout,
-    { previewText: "Thanks for reaching out — here's a copy of what you sent us", width: 600 },
+    { previewText: strings.previewText, width: 600, lang: locale, dir },
     // Header
     h(
       Section,
@@ -67,7 +78,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
           key: 'headline',
           style: { margin: '0 0 18px', fontFamily: fonts.headline, fontWeight: 700, letterSpacing: '-0.01em', fontSize: '26px', lineHeight: '1.3', color: colors.text },
         },
-        `Thanks for reaching out, ${firstName}!`
+        strings.headline(firstName)
       ),
       h(
         Text,
@@ -75,7 +86,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
           key: 'subtext',
           style: { margin: '0 auto', maxWidth: '440px', fontFamily: fonts.body, fontSize: '15px', lineHeight: '1.7', color: colors.textMuted },
         },
-        "We've received your enquiry and our team will be in touch within 1 business day."
+        strings.subtitle
       )
     ),
     // Submission summary
@@ -89,18 +100,31 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
           Text,
           {
             key: 'label',
-            style: { margin: '0 0 14px', fontFamily: fonts.body, fontWeight: 600, fontSize: '12px', letterSpacing: '0.04em', textTransform: 'uppercase', color: colors.textMuted },
+            style: {
+              margin: '0 0 14px',
+              fontFamily: fonts.body,
+              fontWeight: 600,
+              fontSize: '12px',
+              letterSpacing: '0.04em',
+              textTransform: 'uppercase',
+              color: colors.textMuted,
+              textAlign: rtl ? 'right' : 'left',
+            },
           },
-          'Your submission'
+          strings.yourSubmission
         ),
-        h(FieldRow, { key: 'name', label: 'Name', value: name, spacing: '10px' }),
-        h(FieldRow, { key: 'email', label: 'Email', value: email, spacing: '10px' }),
-        h(FieldRow, { key: 'service', label: 'Service', value: service, spacing: '10px' }),
+        h(FieldRow, { key: 'name', label: strings.fieldName, value: name, spacing: '10px', rtl }),
+        h(FieldRow, { key: 'email', label: strings.fieldEmail, value: email, spacing: '10px', rtl }),
+        h(FieldRow, { key: 'service', label: strings.fieldService, value: service, spacing: '10px', rtl }),
         message
           ? h(
               'div',
               { key: 'message', style: { marginTop: '6px' } },
-              h('div', { style: { fontFamily: fonts.body, fontSize: '13px', color: colors.textMuted, marginBottom: '6px' } }, 'Message'),
+              h(
+                'div',
+                { style: { fontFamily: fonts.body, fontSize: '13px', color: colors.textMuted, marginBottom: '6px', textAlign: rtl ? 'right' : 'left' } },
+                strings.fieldMessage
+              ),
               h(
                 'div',
                 {
@@ -109,6 +133,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
                     fontSize: '12px',
                     lineHeight: '1.6',
                     color: colors.textMuted,
+                    textAlign: rtl ? 'right' : 'left',
                     overflow: 'hidden',
                     display: '-webkit-box',
                     WebkitLineClamp: 2,
@@ -128,7 +153,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
       h(
         Link,
         {
-          href: ctaHref,
+          href: resolvedCtaHref,
           style: {
             display: 'inline-block',
             backgroundColor: 'transparent',
@@ -141,16 +166,18 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
             padding: '11px 30px',
           },
         },
-        'Explore Our Work'
+        strings.cta
       )
     ),
     h(EmailFooter, {
       key: 'footer',
       variant: 'full',
+      tagline: common.tagline,
+      copyright: common.copyright(new Date().getFullYear()),
       links: [
-        { label: 'Privacy Policy', href: 'https://roshalink.com/en/privacy' },
-        { label: 'Contact', href: 'https://roshalink.com/en/contact' },
-        { label: 'Website', href: 'https://roshalink.com' },
+        { label: common.footerPrivacy, href: links.privacyPolicy },
+        { label: common.footerContact, href: links.contact },
+        { label: common.footerWebsite, href: links.website },
       ],
     })
   );
@@ -163,4 +190,5 @@ ContactConfirmationEmail.PreviewProps = {
   email: 'sam@example.com',
   service: 'Website Redesign',
   message: 'We are looking to modernize our site and need a partner who can handle design and development end to end.',
+  lang: 'en',
 };

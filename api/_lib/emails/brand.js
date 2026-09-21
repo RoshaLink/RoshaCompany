@@ -64,15 +64,22 @@ export const logo = {
   smallHeight: 86,
 };
 
-/** Google Fonts stylesheet shared by all three templates (Outlook ignores it and falls back). */
+/**
+ * Google Fonts stylesheet shared by all three templates (Outlook ignores it
+ * and falls back). Vazirmatn covers the Farsi/Arabic locales, matching
+ * src/index.css's own RTL font-stack fallback.
+ */
 export const GOOGLE_FONTS_HREF =
-  'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@500&display=swap';
+  'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@500&family=Vazirmatn:wght@400;500;600;700&display=swap';
 
-export const footerLinks = {
-  privacyPolicy: `${SITE_URL}/en/privacy`,
-  contact: `${SITE_URL}/en/contact`,
-  website: SITE_URL,
-};
+/** Locale-prefixed footer links, matching the site's own `/:lang/...` route table (src/App.jsx). */
+export function footerLinksFor(locale) {
+  return {
+    privacyPolicy: `${SITE_URL}/${locale}/privacy`,
+    contact: `${SITE_URL}/${locale}/contact`,
+    website: SITE_URL,
+  };
+}
 
 export const tagline = 'Strategic Design & Tech Agency';
 export const copyrightLine = `© ${new Date().getFullYear()} RoshaLink. All rights reserved.`;

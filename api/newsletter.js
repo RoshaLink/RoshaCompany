@@ -3,6 +3,7 @@ import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
 import WelcomeEmail from './_lib/emails/WelcomeEmail.js';
 import { renderEmail } from './_lib/emails/render.js';
 import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
+import { emailCopy } from './_lib/emails/i18n.js';
 
 const MAX_EMAIL_CHARS = 254;
 
@@ -16,14 +17,15 @@ const MAX_EMAIL_CHARS = 254;
  * gave us their email to hear from us" moment that exists, so it's the
  * closest real equivalent.
  */
-async function sendWelcomeEmail(email) {
+async function sendWelcomeEmail(email, lang) {
   if (!process.env.RESEND_API_KEY) return;
   try {
-    const { html, text } = await renderEmail(WelcomeEmail({}));
+    const { welcome: strings } = emailCopy(lang);
+    const { html, text } = await renderEmail(WelcomeEmail({ lang }));
     await sendViaResend(
       {
         to: email,
-        subject: "Welcome to RoshaLink — let's build something great",
+        subject: strings.subject,
         html,
         text,
       },
@@ -95,7 +97,7 @@ export default async function handler(req, res) {
     }
   }
 
-  await sendWelcomeEmail(email);
+  await sendWelcomeEmail(email, lang);
 
   return send(res, 200, {
     success: true,

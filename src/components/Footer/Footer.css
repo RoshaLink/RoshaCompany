@@ -240,6 +240,50 @@ html.dark .footer-logo-link-text {
   max-width: 24rem;
 }
 
+.footer-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--color-slate-700);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.footer-contact-item:hover {
+  color: var(--color-sky-600);
+  transform: translateX(2px);
+}
+
+[dir="rtl"] .footer-contact-item:hover,
+.is-rtl .footer-contact-item:hover {
+  transform: translateX(-2px);
+}
+
+html.dark .footer-contact-item {
+  color: var(--color-slate-300);
+}
+
+html.dark .footer-contact-item:hover {
+  color: var(--color-sky-400);
+}
+
+.footer-contact-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-sky-500);
+  flex-shrink: 0;
+}
+
 .footer-socials {
   display: flex;
   gap: 0.75rem;

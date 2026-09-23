@@ -122,7 +122,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-on-background font-body-md flex flex-col justify-between selection:bg-secondary selection:text-surface">
+    <div className="min-h-screen bg-background dark:bg-[#0b1120] text-on-background dark:text-[#f8fafc] font-body-md flex flex-col justify-between selection:bg-secondary selection:text-surface">
       <ScrollToTop />
 
       <Navbar

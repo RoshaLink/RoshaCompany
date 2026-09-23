@@ -32,6 +32,10 @@
   background-color: var(--color-surface);
 }
 
+html.dark .brands-section {
+  background-color: #0b1120;
+}
+
 @media (min-width: 1024px) {
   .brands-section {
     padding-top: 6rem;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Sparkles, Globe, Share2, ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
+import { Sparkles, Mail, Phone, ArrowUpRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 const logoImg = '/RoshaLink_logo_sm.webp';
 import './Footer.css';
 
@@ -156,12 +156,32 @@ export default function Footer({ setActivePage }) {
           <p className="footer-desc">
             {t('footer.description')}
           </p>
-          <div className="footer-socials">
-            <a href="#" className="footer-social-link" title={t('footer.socialGlobal')} aria-label={t('footer.socialGlobal')}>
-              <Globe className="footer-social-icon" aria-hidden="true" />
+          <div className="footer-contact-details">
+            <a href="mailto:support@roshalink.com" className="footer-contact-item" aria-label="Email support@roshalink.com">
+              <Mail className="footer-contact-icon" aria-hidden="true" />
+              <span>support@roshalink.com</span>
             </a>
-            <a href="#" className="footer-social-link" title={t('footer.socialShare')} aria-label={t('footer.socialShare')}>
-              <Share2 className="footer-social-icon" aria-hidden="true" />
+            <a href="tel:0724453332" className="footer-contact-item" aria-label="Call 0724453332">
+              <Phone className="footer-contact-icon" aria-hidden="true" />
+              <span dir="ltr">0724453332</span>
+            </a>
+          </div>
+          <div className="footer-socials">
+            <a
+              href="mailto:support@roshalink.com"
+              className="footer-social-link"
+              title="support@roshalink.com"
+              aria-label="Email support@roshalink.com"
+            >
+              <Mail className="footer-social-icon" aria-hidden="true" />
+            </a>
+            <a
+              href="tel:0724453332"
+              className="footer-social-link"
+              title="0724453332"
+              aria-label="Call 0724453332"
+            >
+              <Phone className="footer-social-icon" aria-hidden="true" />
             </a>
             <a
               href="https://www.instagram.com/roshalinkcompany/"

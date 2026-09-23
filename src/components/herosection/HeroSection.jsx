@@ -84,6 +84,9 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
         videoRef.current.pause();
         setIsPlaying(false);
       } else {
+        if (videoRef.current.ended) {
+          videoRef.current.currentTime = 0;
+        }
         videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
       }
     }
@@ -169,7 +172,6 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
               key={currentVideoMp4}
               autoPlay
               muted={isMuted}
-              loop
               playsInline
               preload="auto"
               aria-label="RoshaLink Engineering Product Reel"

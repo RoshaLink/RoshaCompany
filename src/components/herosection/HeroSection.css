@@ -754,8 +754,10 @@ html.dark .hero-video-wrapper {
   object-fit: cover;
   object-position: center;
   border-radius: var(--radius-xl);
-  background-color: #0f172a;
+  background-color: #ffffff;
   display: block;
+  transform: scale(1.015);
+  transform-origin: center center;
 }
 
 @media (min-width: 640px) {
@@ -765,7 +767,7 @@ html.dark .hero-video-wrapper {
 }
 
 html.dark .hero-video-el {
-  background-color: rgba(15, 23, 42, 0.9);
+  background-color: #ffffff;
 }
 
 .hero-video-controls {

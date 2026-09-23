@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, Loader2, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Send, CheckCircle2, Loader2, ShieldCheck, ChevronLeft, ChevronRight, Mail, Phone } from 'lucide-react';
 import roshaContactImage from '../../assets/Rosha/Contact/RoshaContact.webp';
 import './ContactPage.css';
 
@@ -140,6 +140,45 @@ export default function ContactPage() {
               <p className="text-xs sm:text-sm leading-relaxed font-normal contact-card-desc">
                 {t('contactPage.infoSubtitle')}
               </p>
+            </div>
+
+            {/* Direct Contact Methods: Email & Phone */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <a
+                href="mailto:support@roshalink.com"
+                className={`p-3.5 sm:p-4 rounded-xl contact-card-glass flex items-center gap-3 transition-all hover:border-sky-400 group cursor-pointer ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
+                aria-label="support@roshalink.com"
+              >
+                <div className="w-10 h-10 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden min-w-0">
+                  <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                    {t('contactPage.emailLabel', 'E-post')}
+                  </div>
+                  <div className="text-xs sm:text-sm font-bold contact-card-title truncate">
+                    support@roshalink.com
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="tel:0724453332"
+                className={`p-3.5 sm:p-4 rounded-xl contact-card-glass flex items-center gap-3 transition-all hover:border-sky-400 group cursor-pointer ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}
+                aria-label="Call 0724453332"
+              >
+                <div className="w-10 h-10 rounded-lg bg-sky-500/10 dark:bg-sky-500/20 text-sky-500 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden min-w-0">
+                  <div className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                    {t('contactPage.phoneLabel', 'Telefon')}
+                  </div>
+                  <div className="text-xs sm:text-sm font-bold contact-card-title" dir="ltr">
+                    0724453332
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
 

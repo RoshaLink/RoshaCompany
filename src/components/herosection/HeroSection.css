@@ -78,12 +78,16 @@
   color: var(--color-sky-600);
 }
 
-/* This component's own dark-mode text colors. Note: .hero-section's dark
-   background currently comes from an unrelated class-name collision with
-   ui/minimalist-hero.css's ".hero-section" / ".hero-subtitle" rules (see
-   html.dark .hero-section there) rather than from anything in this file --
-   worth deduping later. Declaring our own overrides here means this
-   component's text stays correct even if that collision gets fixed. */
+/* HeroSection Dark Mode Styling */
+html.dark .hero-section {
+  background-color: #0b1120;
+  color: var(--color-slate-50);
+}
+
+html.dark .hero-grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+}
+
 html.dark .glass-text-shine {
   color: var(--color-slate-50);
 }

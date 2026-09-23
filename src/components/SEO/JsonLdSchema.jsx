@@ -82,8 +82,8 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      email: 'contact@roshalink.com',
-      // TODO: add telephone once confirmed: telephone: '+46-XX-XXX-XXXX',
+      email: 'support@roshalink.com',
+      telephone: '+46724453332',
       availableLanguage: ['Swedish', 'English', 'Persian', 'Arabic'],
     },
 

@@ -169,22 +169,6 @@ export default function PortfolioPage({ onOpenGetStarted }) {
       ]
     },
     {
-      id: "royalbeauty",
-      translationKey: "royalbeautyProject",
-      title: "Royal Beauty",
-      category: "Beauty & Aesthetic Clinic Platform",
-      desc: "A cinematic, editorial digital experience for Royal Beauty, an Iranian-Swedish aesthetic clinic in Stockholm, featuring GSAP-powered scroll storytelling, an interactive treatments menu, before/after comparison sliders, and a VIP membership showcase.",
-      img: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?q=80&w=1200&auto=format&fit=crop",
-      metrics: "Live Production App",
-      liveUrl: "https://roshalink.github.io/royalbeauty/",
-      isFeatured: true,
-      features: [
-        "Interactive Before & After Comparison Sliders",
-        "GSAP-Powered Cinematic Scroll Storytelling",
-        "VIP Membership Showcase & Online Booking Flow"
-      ]
-    },
-    {
       id: "shirazi-associates",
       translationKey: "shiraziProject",
       title: "Shirazi Associates – Legal & Advisory Platform",

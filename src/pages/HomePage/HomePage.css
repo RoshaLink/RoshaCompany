@@ -10,6 +10,11 @@
   background-size: 24px 24px;
 }
 
+html.dark .homepage-container {
+  background-color: #0b1120;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
 /* Allow the continuous dot-grid pattern to show through all sections in Light Mode */
 html:not(.dark) .homepage-container .hero-section,
 html:not(.dark) .homepage-container .brands-section,

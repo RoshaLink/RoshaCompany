@@ -3,15 +3,26 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { RotateCcw, Volume2, VolumeX, Play, Pause, Cpu, Zap, ShieldCheck } from "lucide-react";
 import { SUPPORTED_LANGS, DEFAULT_LANG } from "../../config/seoConfig";
-import videoEnglishMp4 from "../../assets/Rosha/Herosection/RoshaHeroSectionEnglish.mp4";
-import videoEnglishWebm from "../../assets/Rosha/Herosection/RoshaHeroSectionEnglish.webm";
-import videoFarsiMp4 from "../../assets/Rosha/Herosection/RoshaHeroSectionFarsi.mp4";
-import videoFarsiWebm from "../../assets/Rosha/Herosection/RoshaHeroSectionFarsi.webm";
-import videoSwedishMp4 from "../../assets/Rosha/Herosection/RoshaHeroSectionSwedish.mp4";
-import videoSwedishWebm from "../../assets/Rosha/Herosection/RoshaHeroSectionSwedish.webm";
-import videoArabicMp4 from "../../assets/Rosha/Herosection/RoshaHeroSectionArabic.mp4";
-import videoArabicWebm from "../../assets/Rosha/Herosection/RoshaHeroSectionArabic.webm";
 import "./HeroSection.css";
+
+const HERO_VIDEOS = {
+  ar: {
+    mp4: '/videos/hero/RoshaHeroSectionArabic.mp4',
+    webm: '/videos/hero/RoshaHeroSectionArabic.webm',
+  },
+  fa: {
+    mp4: '/videos/hero/RoshaHeroSectionFarsi.mp4',
+    webm: '/videos/hero/RoshaHeroSectionFarsi.webm',
+  },
+  sv: {
+    mp4: '/videos/hero/RoshaHeroSectionSwedish.mp4',
+    webm: '/videos/hero/RoshaHeroSectionSwedish.webm',
+  },
+  en: {
+    mp4: '/videos/hero/RoshaHeroSectionEnglish.mp4',
+    webm: '/videos/hero/RoshaHeroSectionEnglish.webm',
+  },
+};
 
 export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   const { t, i18n } = useTranslation();
@@ -27,10 +38,10 @@ export default function HeroSection({ onOpenGetStarted, setActivePage }) {
   // Select video based on selected language
   const getVideoSources = () => {
     const lang = (activeLang || i18n.language || 'en').toLowerCase();
-    if (lang.startsWith('ar')) return { mp4: videoArabicMp4, webm: videoArabicWebm };
-    if (lang.startsWith('fa')) return { mp4: videoFarsiMp4, webm: videoFarsiWebm };
-    if (lang.startsWith('sv')) return { mp4: videoSwedishMp4, webm: videoSwedishWebm };
-    return { mp4: videoEnglishMp4, webm: videoEnglishWebm };
+    if (lang.startsWith('ar')) return HERO_VIDEOS.ar;
+    if (lang.startsWith('fa')) return HERO_VIDEOS.fa;
+    if (lang.startsWith('sv')) return HERO_VIDEOS.sv;
+    return HERO_VIDEOS.en;
   };
 
   const { mp4: currentVideoMp4, webm: currentVideoWebm } = getVideoSources();

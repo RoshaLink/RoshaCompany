@@ -290,7 +290,11 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: blue-shine 6s ease-in-out infinite;
-  white-space: nowrap;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Dark Mode Extensions */

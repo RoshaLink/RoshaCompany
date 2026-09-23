@@ -40,6 +40,18 @@ function lastFetchBody() {
   return JSON.parse(init.body)
 }
 
+/** Every body passed to the mocked fetch (Resend may be called twice: notification + confirmation). */
+function allFetchBodies() {
+  return globalThis.fetch.mock.calls
+    .filter(([url]) => url === 'https://api.resend.com/emails')
+    .map(([, init]) => JSON.parse(init.body))
+}
+
+/** The Resend call addressed to a given recipient, parsed. */
+function fetchBodyTo(recipient) {
+  return allFetchBodies().find((body) => body.to?.includes(recipient))
+}
+
 beforeEach(() => {
   vi.stubEnv('RESEND_API_KEY', 'test-key')
   vi.stubEnv('LEAD_TO_EMAIL', 'leads@roshalink.com')
@@ -200,12 +212,12 @@ describe('lead handler — outgoing email', () => {
     expect(res.statusCode).toBe(200)
     expect(res.payload).toEqual({ ok: true })
 
-    const [url, init] = globalThis.fetch.mock.calls.at(-1)
+    const [url, init] = globalThis.fetch.mock.calls[0]
     expect(url).toBe('https://api.resend.com/emails')
     expect(init.method).toBe('POST')
     expect(init.headers.Authorization).toBe('Bearer test-key')
 
-    const sent = JSON.parse(init.body)
+    const sent = fetchBodyTo('leads@roshalink.com')
     expect(sent.to).toEqual(['leads@roshalink.com'])
     // Reply must go to the prospect, not to Resend.
     expect(sent.reply_to).toBe('jane@company.com')
@@ -217,7 +229,7 @@ describe('lead handler — outgoing email', () => {
     const res = makeRes()
     await handler(makeReq({ body: { ...validLead, source: 'get-started' } }), res)
 
-    expect(lastFetchBody().text).toContain('Get Started modal')
+    expect(fetchBodyTo('leads@roshalink.com').text).toContain('Get Started modal')
   })
 
   it('escapes HTML in user-supplied fields', async () => {
@@ -307,5 +319,86 @@ describe('lead handler — outgoing email', () => {
 
     expect(res.statusCode).toBe(500)
     expect(res.payload).toEqual({ error: 'server_error' })
+  })
+})
+
+describe('lead handler — confirmation email to the submitter', () => {
+  it.each(['contact', 'get-started'])('sends a confirmation for source %j', async (source) => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source, lang: 'en' } }), res)
+
+    expect(res.statusCode).toBe(200)
+    const confirmation = fetchBodyTo('jane@company.com')
+    expect(confirmation).toBeTruthy()
+    expect(confirmation.subject).toContain('RoshaLink')
+    expect(confirmation.html).toContain('Thanks for reaching out')
+    expect(confirmation.text).toContain('Thanks for reaching out')
+    // Two independent sends: the internal notification and this confirmation.
+    expect(allFetchBodies()).toHaveLength(2)
+  })
+
+  it('defaults to Swedish when no lang is given, matching the site-wide fallback', async () => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'contact' } }), res)
+
+    expect(res.statusCode).toBe(200)
+    const confirmation = fetchBodyTo('jane@company.com')
+    expect(confirmation.html).toContain('Tack för att du hörde av dig')
+    expect(confirmation.text).toContain('Tack för att du hörde av dig')
+  })
+
+  it.each([
+    ['fa', 'از تماس شما سپاسگزاریم'],
+    ['ar', 'شكراً لتواصلك معنا'],
+  ])('localizes the confirmation for lang %j', async (lang, expectedSubstring) => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'contact', lang } }), res)
+
+    expect(res.statusCode).toBe(200)
+    const confirmation = fetchBodyTo('jane@company.com')
+    expect(confirmation.html).toContain(expectedSubstring)
+    expect(confirmation.text).toContain(expectedSubstring)
+    // Farsi/Arabic are RTL — the document direction must flip too.
+    expect(confirmation.html).toContain('dir="rtl"')
+  })
+
+  it('does not send a confirmation for the chat source', async () => {
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'chat' } }), res)
+
+    expect(res.statusCode).toBe(200)
+    expect(fetchBodyTo('jane@company.com')).toBeUndefined()
+    expect(allFetchBodies()).toHaveLength(1)
+  })
+
+  it('does not send a confirmation when the contact value is a phone number, not an email', async () => {
+    const res = makeRes()
+    await handler(
+      makeReq({ body: { ...validLead, email: '+46 70 123 45 67', source: 'contact' } }),
+      res
+    )
+
+    expect(res.statusCode).toBe(200)
+    expect(allFetchBodies()).toHaveLength(1)
+  })
+
+  it('still returns 200 when the confirmation send itself fails', async () => {
+    // The first Resend call (internal notification) succeeds; the second
+    // (confirmation to the submitter) fails and must be swallowed.
+    let calls = 0
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => {
+        calls += 1
+        if (calls > 1) throw new Error('resend down')
+        return { ok: true, status: 200, text: async () => '' }
+      })
+    )
+
+    const res = makeRes()
+    await handler(makeReq({ body: { ...validLead, source: 'contact' } }), res)
+
+    expect(res.statusCode).toBe(200)
+    expect(res.payload).toEqual({ ok: true })
   })
 })

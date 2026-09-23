@@ -8,6 +8,19 @@
   // Scoped to api/ on purpose. The React code in src/ has no JSDoc coverage,
   // so checking it would produce hundreds of implicit-any errors that say
   // nothing useful about correctness.
+  //
+  // api/_lib/emails/*.js each carry their own `// @ts-nocheck` for a related
+  // reason: those files call `React.createElement(Component, props,
+  // ...children)` directly (no JSX — Vercel deploys api/ as raw ESM source
+  // with no JSX transform available), and @types/react's overloads for that
+  // variadic-children form don't resolve cleanly under `strict` when the
+  // component's own prop shape is inferred from untyped JS rather than
+  // declared. `exclude` alone doesn't suppress this: tsc still type-checks
+  // an excluded file when it's reached transitively through an import from
+  // an included one. Not a real bug — React's `createElement` merges
+  // trailing args into `children` at runtime regardless of what the type
+  // declarations expect; verified directly (see AGENTS.md's "Email
+  // templates" section for how).
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",

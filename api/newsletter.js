@@ -1,7 +1,40 @@
 import { rateLimit } from './_lib/rateLimit.js';
 import { readJsonBody, clientIp, send, originAllowed } from './_lib/http.js';
+import WelcomeEmail from './_lib/emails/WelcomeEmail.js';
+import { renderEmail } from './_lib/emails/render.js';
+import { sendViaResend, UPSTREAM_TIMEOUT_MS } from './_lib/emails/sendEmail.js';
+import { emailCopy } from './_lib/emails/i18n.js';
 
 const MAX_EMAIL_CHARS = 254;
+
+/**
+ * Best-effort welcome email for a new subscriber. Never throws: a failure
+ * here must not turn an already-successful subscription into an error
+ * response for the visitor.
+ *
+ * There's no user-account system on this site to trigger a literal
+ * "on signup" email from — a newsletter subscription is the only "someone
+ * gave us their email to hear from us" moment that exists, so it's the
+ * closest real equivalent.
+ */
+async function sendWelcomeEmail(email, lang) {
+  if (!process.env.RESEND_API_KEY) return;
+  try {
+    const { welcome: strings } = emailCopy(lang);
+    const { html, text } = await renderEmail(WelcomeEmail({ lang }));
+    await sendViaResend(
+      {
+        to: email,
+        subject: strings.subject,
+        html,
+        text,
+      },
+      AbortSignal.timeout(UPSTREAM_TIMEOUT_MS)
+    );
+  } catch (err) {
+    console.error('[newsletter] welcome_email_error', err instanceof Error ? err.message : err);
+  }
+}
 
 function looksLikeEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -57,12 +90,14 @@ export default async function handler(req, res) {
           'x-forwarded-for': clientIp(req),
         },
         body: JSON.stringify({ email, lang }),
-        signal: AbortSignal.timeout(15_000),
+        signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
       });
     } catch (err) {
       console.error('[newsletter] failed to persist to backend:', err instanceof Error ? err.message : err);
     }
   }
+
+  await sendWelcomeEmail(email, lang);
 
   return send(res, 200, {
     success: true,

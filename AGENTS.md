@@ -10,11 +10,14 @@ Marketing website for **RoshaLink**, a small Swedish digital agency (`index.html
 title: "RoshaLink — Strategic Design & Tech Agency"). It is a React single-page
 app — home, about, services, portfolio, contact and privacy-policy pages —
 translated into four locales (Swedish, English, Farsi, Arabic, with RTL support),
-aimed at prospective business clients. Two serverless functions back it: an
+aimed at prospective business clients. Three serverless functions back it: an
 OpenAI-powered chat assistant ("Rosha") that answers visitor questions from a
-curated fact sheet, and a lead endpoint that emails enquiries via Resend. The
-site's job is to convert visitors into leads; the chat widget and three lead
-forms all feed the same endpoint.
+curated fact sheet, a lead endpoint that emails enquiries via Resend, and a
+newsletter endpoint. The site's job is to convert visitors into leads; the
+chat widget and three lead forms all feed the same endpoint. All outbound
+email (the internal lead alert, the visitor's confirmation, the newsletter
+welcome email) is built from react-email templates in `api/_lib/emails/` and
+sent through Resend — see the API section below.
 
 ## Tech stack
 
@@ -37,6 +40,10 @@ From `package.json` (versions are the declared ranges):
 - `i18next` 26 + `react-i18next` 17; all strings live in `src/i18n.js`
 - `class-variance-authority`, `clsx`, `tailwind-merge`, `@radix-ui/react-slot` —
   shadcn-style primitives in `src/components/ui/`
+- `@react-email/components` + `@react-email/render` build and render the
+  transactional emails in `api/_lib/emails/`; `react-email` (the CLI) and
+  `@react-email/ui` are devDependencies for `npx react-email dev` local
+  previews only — neither ships to `api/` at runtime or to the browser bundle.
 - Vitest 4 + Testing Library + jsdom + `axe-core` for tests
 - ESLint 10 flat config; TypeScript 7 used **only** to typecheck `api/` from JSDoc
 - Node 22 in CI; Vercel for hosting and serverless functions
@@ -57,10 +64,17 @@ public/
   sitemap.xml           Multilingual XML Sitemap with alternate hreflang tags
   robots.txt            Search engine crawler directives
   manifest.json         PWA & mobile SEO manifest
+  RoshaLink_logo.png    Email-safe PNG logo (Outlook's WebP support is unreliable);
+  RoshaLink_logo_sm.png generated from the .webp originals, referenced by full
+                        production URL (https://roshalink.com/...) from the
+                        email templates below — email clients can't resolve
+                        relative paths.
 api/                    Vercel serverless functions (Node, ESM). One route per file.
-  chat.js               POST /api/chat  — proxies OpenAI, never exposes the key
-  lead.js               POST /api/lead  — sends the enquiry email via Resend
+  chat.js               POST /api/chat        — proxies OpenAI, never exposes the key
+  lead.js               POST /api/lead        — sends the enquiry emails via Resend
+  newsletter.js         POST /api/newsletter  — forwards to the backend + sends a welcome email
   _lib/                 Underscore prefix = not a route. Server-only shared code.
+    emails/             react-email templates + shared brand tokens (see API section)
 src/
   config/
     seoConfig.js        Multilingual SEO metadata matrix (SV, EN, FA, AR)
@@ -93,6 +107,7 @@ public/                 static assets served at /
 | `npm run typecheck` | `tsc -p tsconfig.api.json` — JSDoc type-check of `api/` only, `noEmit` |
 | `npm run size` | Bundle budget check; needs `npm run build` first |
 | `npm run lint` | ESLint over the repo |
+| `npx react-email dev --dir api/_lib/emails` | Local browser preview of the three email templates, with hot reload. Not in `package.json` scripts since it's a one-off design tool, not part of any workflow other components depend on. |
 
 CI (`.github/workflows/ci.yml`, on PRs to `main` and pushes to `main`) runs
 build → test → typecheck → size as **blocking** gates, then lint,
@@ -117,9 +132,9 @@ the Vercel dashboard for Production, Preview **and** Development.
 | `OPENAI_API_KEY` | Auth for the chat completions call in `api/chat.js` |
 | `OPENAI_MODEL` | Model id answering visitors; falls back to `DEFAULT_MODEL` in `api/chat.js` |
 | `ALLOWED_ORIGINS` | Optional comma-separated origin allowlist; check is skipped when unset |
-| `RESEND_API_KEY` | Auth for the Resend email send in `api/lead.js` |
-| `LEAD_TO_EMAIL` | Destination inbox for lead notifications |
-| `LEAD_FROM_EMAIL` | Sender address; must be a Resend-verified domain |
+| `RESEND_API_KEY` | Auth for every Resend send — `api/lead.js` (notification + confirmation) and `api/newsletter.js` (welcome email). Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
+| `LEAD_TO_EMAIL` | Destination inbox for lead notifications; also used as the `reply_to` on the visitor's confirmation email |
+| `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be a Resend-verified domain |
 
 ## API
 
@@ -134,7 +149,115 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
   requests/min/IP. `system` roles in client history are dropped.
 - `POST /api/lead` — body `{ name, email, company?, service?, budget?, message?, lang?, source }`
   where `source` is `get-started` | `contact` | `chat`. 5 requests/min/IP.
-  Requires `name` and an email-shaped `email`.
+  Requires `name` and an email-shaped `email`. On success it sends up to two
+  emails via Resend: always a `LeadNotificationEmail` to `LEAD_TO_EMAIL` (the
+  branded replacement for what used to be a bare, unstyled `<table>`), and —
+  only when `source` is `get-started` or `contact` **and** `email` is actually
+  email-shaped, not a phone number — a best-effort `ContactConfirmationEmail`
+  back to the submitter. The confirmation send is fire-and-forget: its failure
+  is logged and swallowed, never turned into an error response, since the
+  notification email (the part the team actually depends on) already
+  succeeded by that point. `source: 'chat'` never gets a confirmation — a
+  chat-captured contact may only be a phone number, and "here's a copy of
+  your chat" doesn't fit the "thanks for your form submission" framing.
+- `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/15min/IP. On a
+  valid, non-honeypot submission it forwards to the backend and — best-effort,
+  same fire-and-forget pattern as above — sends a `WelcomeEmail`. There is no
+  user-account system anywhere in this codebase, so a newsletter subscription
+  is the closest real substitute for "on signup"; see Open questions for what
+  that interpretation leaves unresolved (repeat-subscriber dedup, a real
+  unsubscribe link).
+
+### Email templates (`api/_lib/emails/`)
+
+Three react-email components — `WelcomeEmail.js`, `LeadNotificationEmail.js`,
+`ContactConfirmationEmail.js` — built from three approved design mockups and
+kept in sync with the live site's own design tokens (`src/index.css`'s
+`--color-*`/`--font-*`/`--radius-*` custom properties), not reimplemented from
+memory. `brand.js` is the single source of truth for colors/fonts/logo URLs/
+footer copy so the three templates can't drift from each other or from the
+site; `EmailLayout.js`, `EmailFooter.js` and `FieldRow.js` are the shared
+structural pieces all three compose.
+
+- **`React.createElement`, never JSX syntax, in anything under `api/`.**
+  These files were originally written as `.jsx` with normal JSX markup; it
+  worked in every local check (`npm test`, `npm run build`, `npm run
+  typecheck`) because Vite/Vitest transform JSX automatically — and then
+  500'd every request in production, because Vercel deploys `api/` as raw ESM
+  source with **no bundling or JSX transform at all**. Node's native ESM
+  loader has no `.jsx` handling and throws `ERR_UNKNOWN_FILE_EXTENSION` the
+  instant the file is imported, before any of the handler's own try/catch
+  runs. The fix was rewriting every file in `api/_lib/emails/` with
+  `React.createElement(...)` (aliased to `h` for brevity) and renaming them
+  to plain `.js` — verified by importing the actual files with a raw
+  `node -e "import(...)"`, the same way Vercel's runtime does, not just
+  through Vitest. **Never reintroduce a `.jsx` file anywhere under `api/`,
+  and never trust a local test/build pass alone as proof a serverless
+  function change works — it doesn't exercise Vercel's actual unbundled
+  runtime.** Each of these files also carries a `// @ts-nocheck`, needed
+  because `@types/react`'s `createElement` overloads don't resolve variadic
+  children cleanly under `strict` without
+  JSX — see that file's own comment for why this is a type-checker quirk,
+  not a runtime bug.
+- **Table layout, not flexbox.** `FieldRow.js` (a label/value line — "Name:
+  Jane Doe") renders a `<table>`/`<tr>`/`<td>` via `@react-email/components`'
+  `Row`/`Column`, not a flex `<div>`. Outlook desktop's Word rendering engine
+  ignores `display: flex` entirely; a `<table>` is the only layout primitive
+  every major email client supports.
+- **Hand-written plain-text bodies for table-based templates.** react-email's
+  `render(el, {plainText: true})` (html-to-text under the hood) inserts no
+  separator between adjacent table cells, so a template built from `FieldRow`s
+  would come out as `NameJane Doe` in the plain-text fallback. `LeadNotificationEmail`'s
+  and `ContactConfirmationEmail`'s text bodies are built by hand in `api/lead.js`
+  (`notificationText()`, `confirmationText()`) instead. `WelcomeEmail` has no
+  such rows (just flowing paragraphs), so its text body is safely auto-derived
+  via the same `render(..., {plainText:true})` call (see `renderEmail()` in
+  `render.js`).
+- **PNG logo, hosted, not the site's `.webp`.** Email `<img>` tags need an
+  absolute, publicly reachable URL (`brand.js`'s `SITE_URL` + `/RoshaLink_logo(_sm)?.png`)
+  — a relative path or the site's `.webp` (`public/RoshaLink_logo.webp`) either
+  won't resolve or won't render reliably in Outlook desktop.
+- **`PreviewProps`** on each default export supplies the sample data
+  `npx react-email dev` renders with; without it the preview shows literal
+  `undefined`s, since none of the real props have hardcoded defaults (they're
+  always supplied by the caller in `api/lead.js`/`api/newsletter.js`).
+- **Localized per the visitor's site language, via `i18n.js`.**
+  `WelcomeEmail` and `ContactConfirmationEmail` take a `lang` prop and render
+  in `sv`/`en`/`fa`/`ar` (the site's own four locales) — subject line, body
+  copy, and the `<Html dir>`/RTL layout all follow it. `lang` is whatever the
+  visitor's site language already was when they submitted the form/newsletter
+  (the same value the site was already sending to `api/lead.js`/
+  `api/newsletter.js` and storing, just not using yet before this).
+  `resolveLocale()` normalizes it (`'en-US'` → `en`, case-insensitive) and
+  falls back to `sv`, matching the site's own `i18n.language || 'sv'`
+  convention. `LeadNotificationEmail` (the internal, team-facing alert) is
+  **not** localized on purpose — always English, regardless of `lang` —
+  since it's read by the RoshaLink team, not the visitor.
+  - RTL (`fa`/`ar`) mirrors the layout rather than just swapping text: a
+    `dir="rtl"` `<table>` (`FieldRow.js`, the `WelcomeEmail` feature rows)
+    visually reverses column order on its own — label/number ends up on the
+    right, matching that direction's reading start — so the only extra work
+    is flipping that row's own remaining text-align. `welcome.headline` in
+    `i18n.js` is a function returning `{ before, highlight, after }` rather
+    than a fixed template, because a natural Farsi/Arabic greeting puts the
+    visitor's name *before* the highlighted word ("Sam عزیز، خوش آمدید")
+    where English/Swedish put it after ("Welcome aboard, Sam!") — forcing
+    one word order across languages reads as broken grammar, not just
+    unlocalized.
+  - **Known screenshot-tooling gotcha, not a rendering bug:** capturing an
+    RTL (`dir="rtl"`) page with Puppeteer's `page.screenshot({ fullPage:
+    true })` produces a horizontal-scroll-origin artifact — the whole card
+    renders shoved against the right edge with blank space on the left —
+    because Chromium anchors `scrollLeft: 0` at the right edge for RTL
+    documents and full-page capture doesn't compensate. Confirmed by an
+    isolated plain-viewport screenshot rendering correctly. When verifying
+    an RTL template visually, size the viewport to the actual content
+    height first and take a normal (non-`fullPage`) screenshot instead.
+  - The translations in `i18n.js` are original authored copy (not pulled
+    from `src/i18n.js`, whose `contactPage`/`footer` keys are UI copy for
+    the SPA, not transactional-email copy) and were not reviewed by a native
+    Farsi/Arabic speaker — worth a native-speaker pass before this is fully
+    trusted for real customer-facing sends, same caution as `COMPANY_FACTS`.
 
 Client routes (`src/App.jsx`): `/`, `/home`, `/about`, `/services`, `/portfolio`,
 `/contact`, `/privacy`, `/privacy-policy`, and `*` → home. `vercel.json` rewrites
@@ -213,6 +336,17 @@ everything except `/api/*` to `/index.html` so deep links work.
 - **Always** raise the matching budget in `scripts/check-bundle-size.js` in the
   same PR when a change legitimately grows the bundle.
 - **Always** run `npm run build` before `npm run size` — it reads `dist/assets`.
+- **Always** put a new email design token (a color, font, radius, the logo
+  URL) in `api/_lib/emails/brand.js`, never inline/duplicated across
+  `WelcomeEmail.js`/`LeadNotificationEmail.js`/`ContactConfirmationEmail.js`.
+- **Never** lay out an email template with `display: flex` — see "Email
+  templates" in the API section; Outlook desktop does not render it.
+- **Never** write a `.jsx` file (or use JSX syntax at all) anywhere under
+  `api/`. Vercel deploys serverless functions as raw, unbundled ESM — Node's
+  native loader throws `ERR_UNKNOWN_FILE_EXTENSION` on `.jsx` and has no JSX
+  transform for JSX syntax in a `.js` file either. Use
+  `React.createElement(...)` (see any file in `api/_lib/emails/`). This
+  shipped broken once already — see "Email templates" in the API section.
 - **Always** update this file in the same PR as a change it describes; CI flags
   the ones it can detect, but it cannot tell whether the prose is still true.
 - Use `module`-style ESM everywhere (`import`/`export`); `module.exports` fails at
@@ -243,9 +377,71 @@ through `npm run dev`.
    (roshalink.com appears in content) isn't configured anywhere in the repo.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
+6. `WelcomeEmail` fires on every successful `POST /api/newsletter`, with no
+   check for whether the address is already subscribed — the handler doesn't
+   read the backend's response before deciding success, so there's currently
+   no signal to skip a repeat send on. Is a duplicate welcome email for an
+   existing subscriber acceptable, or does `api/newsletter.js` need to inspect
+   the backend's response first?
+7. `WelcomeEmail`'s footer "Unsubscribe" link is a `href="#"` placeholder —
+   there is no unsubscribe endpoint or list-management route anywhere in this
+   codebase. Needed before any real marketing send (CAN-SPAM/GDPR), not just
+   as a nicety.
+8. The `fa`/`ar` copy in `api/_lib/emails/i18n.js` is original, unreviewed
+   translation — not pulled from a translation service or checked by a
+   native speaker. Worth a native-speaker review pass before fully trusting
+   it for real customer sends.
 
 ## Recent Branch Updates & Improvements
 
+- **Transactional Email System (`api/_lib/emails/`)**:
+  - Replaced `api/lead.js`'s bare, unstyled `<table>` internal notification
+    with a branded `LeadNotificationEmail` react-email component matching the
+    site's own design tokens.
+  - Added `ContactConfirmationEmail`, sent best-effort to the enquiry
+    submitter for `get-started`/`contact` sources with a real email address.
+  - Added `WelcomeEmail`, sent best-effort from `api/newsletter.js` on
+    subscribe (the closest real equivalent to "on signup" — this site has no
+    user-account system).
+  - Converted the site's `.webp` logo to PNG (`public/RoshaLink_logo(_sm)?.png`)
+    for Outlook-safe email rendering, hosted at an absolute URL.
+  - All three templates share one token file (`brand.js`) and layout/footer/
+    field-row components, verified against the approved design mockups via
+    `npx react-email dev` + a headless-browser screenshot comparison.
+  - **Hotfix**: the templates originally shipped as `.jsx` and 500'd every
+    `/api/lead` and `/api/newsletter` request in production —
+    `ERR_UNKNOWN_FILE_EXTENSION`, since Vercel deploys `api/` unbundled and
+    Node's loader has no JSX transform. All local checks (tests, build,
+    typecheck) had passed because Vite/Vitest transform JSX automatically,
+    which none of them caught. Rewrote every file in `api/_lib/emails/` with
+    `React.createElement` and plain `.js`, this time verified with a raw
+    `node -e "import(...)"` matching Vercel's actual runtime. See "Email
+    templates" in the API section and the new Always/Never rule.
+  - **Localization**: `WelcomeEmail` and `ContactConfirmationEmail` now
+    render in the visitor's own site language (`sv`/`en`/`fa`/`ar`, via a
+    new `lang` prop + `i18n.js`) instead of always English — subject line,
+    body copy, and RTL layout (`dir="rtl"`, mirrored field rows and feature
+    blocks for Farsi/Arabic) all follow it. `LeadNotificationEmail` stays
+    English-only on purpose (team-facing, not visitor-facing). Verified
+    across all four locales with the same raw-Node-import + headless-
+    screenshot method as the JSX hotfix above — see "Email templates" for
+    a RTL-screenshot gotcha (`fullPage: true` on a `dir="rtl"` page) found
+    and worked around along the way.
+  - **Pre-merge double-check**: beyond the unit tests in `i18n.test.js`,
+    `lead.test.js` and `newsletter.test.js`, this change was additionally
+    verified by importing the real `api/lead.js`/`api/newsletter.js`
+    handlers with a stubbed `fetch`/`req`/`res` (no test framework) and
+    driving them end-to-end for `lang` in `sv`/`en`/`fa`/`ar`/undefined/
+    `en-US`/an unsupported code — confirming the Resend payload actually
+    sent per case (subject, `dir`, body text), that the internal
+    notification's subject/body genuinely never changes with `lang` (the
+    only diff is the literal language-code value in its informational
+    "Site Language" field), and that all 8 locale × template renders look
+    correct as screenshots. This handler-level, framework-free replay is
+    the technique to reach for again on any future change to these three
+    routes, alongside the raw-Node-import check the JSX hotfix already
+    established — it catches payload-shape and copy regressions that
+    mocked-fetch unit tests can miss.
 - **Portfolio Page**:
   - Aligned project card action buttons and "Learn More" feature sub-menus to the bottom across all cards regardless of text length.
   - Styled expanded card feature items with solid sky-blue background in Light Mode with Dark Mode support.
@@ -253,6 +449,7 @@ through `npm run dev`.
   - Applied the `.sky-blue-text-shine` animated gradient wave to both the hero headline and bottom CTA banner title.
   - Added a responsive public case-studies notice header above the project grid with full i18n support across 4 locales (`sv`, `en`, `fa`, `ar`).
   - Added HogWard Café live production case study (`https://roshalink.github.io/HogWard_Cafe/`) with full i18n translation and interactive live browser preview.
+  - Added Royal Beauty live production case study (`https://roshalink.github.io/royalbeauty/`), a beauty/aesthetic clinic platform, with full i18n translation and interactive live browser preview. Deployed from the sibling `royalbeauty` repo via a new GitHub Actions → GitHub Pages workflow (Next.js static export).
   - Enforced `uppercase` styling on titles for English and Swedish.
 - **Services Page**:
   - Enforced `uppercase` styling on all section titles across English and Swedish locales (Hero Headline, Capabilities, Tech Matrix, Delivery Process, Comparison, FAQ, Bottom CTA).

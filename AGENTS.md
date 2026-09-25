@@ -17,7 +17,13 @@ newsletter endpoint. The site's job is to convert visitors into leads; the
 chat widget and three lead forms all feed the same endpoint. All outbound
 email (the internal lead alert, the visitor's confirmation, the newsletter
 welcome email) is built from react-email templates in `api/_lib/emails/` and
-sent through Resend — see the API section below.
+sent through Resend — see the API section below. `api/lead.js` and
+`api/newsletter.js` *also* forward every submission to an external MongoDB
+backend (`BACKEND_API_URL`, defaulting to `https://roshacompany-backend.onrender.com`)
+that is not part of this repo — see "Backend forwarding" in the API section;
+this means a submission can return `200 ok` from persisting to that backend
+alone even when the Resend email send fails, which is easy to mistake for the
+email pipeline working.
 
 ## Tech stack
 
@@ -134,7 +140,8 @@ the Vercel dashboard for Production, Preview **and** Development.
 | `ALLOWED_ORIGINS` | Optional comma-separated origin allowlist; check is skipped when unset |
 | `RESEND_API_KEY` | Auth for every Resend send — `api/lead.js` (notification + confirmation) and `api/newsletter.js` (welcome email). Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
 | `LEAD_TO_EMAIL` | Destination inbox for lead notifications; also used as the `reply_to` on the visitor's confirmation email |
-| `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be a Resend-verified domain |
+| `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be on a domain verified in Resend — **the exact hostname**, not just a domain whose parent is verified. `roshalink.com` being verified does **not** cover `leads@send.roshalink.com`: Resend treats a subdomain as a separate domain needing its own DNS records and verification. Sending from an address on an unverified (sub)domain fails with a 403 `validation_error`, logged as `[lead] resend_error` / `[newsletter] resend_error` — confirm which exact hostname shows "Verified" on the Resend dashboard's Domains page before assuming this var is correct. |
+| `BACKEND_API_URL` | Optional override for the external lead/newsletter persistence backend (see "Backend forwarding" below); defaults to `https://roshacompany-backend.onrender.com` outside test environments. Not in `.env.example` — undocumented until this entry. |
 
 ## API
 
@@ -149,24 +156,67 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
   requests/min/IP. `system` roles in client history are dropped.
 - `POST /api/lead` — body `{ name, email, company?, service?, budget?, message?, lang?, source }`
   where `source` is `get-started` | `contact` | `chat`. 5 requests/min/IP.
-  Requires `name` and an email-shaped `email`. On success it sends up to two
-  emails via Resend: always a `LeadNotificationEmail` to `LEAD_TO_EMAIL` (the
-  branded replacement for what used to be a bare, unstyled `<table>`), and —
-  only when `source` is `get-started` or `contact` **and** `email` is actually
-  email-shaped, not a phone number — a best-effort `ContactConfirmationEmail`
-  back to the submitter. The confirmation send is fire-and-forget: its failure
-  is logged and swallowed, never turned into an error response, since the
-  notification email (the part the team actually depends on) already
-  succeeded by that point. `source: 'chat'` never gets a confirmation — a
-  chat-captured contact may only be a phone number, and "here's a copy of
-  your chat" doesn't fit the "thanks for your form submission" framing.
+  Requires `name` and an email-or-phone-shaped `email` (validated by
+  `looksLikeEmailOrPhone`, not a strict email check — `source: 'chat'` may
+  only have a phone number). On success it sends up to two emails via Resend:
+  always a `LeadNotificationEmail` to `LEAD_TO_EMAIL` (the branded replacement
+  for what used to be a bare, unstyled `<table>`), and — only when `source`
+  is `get-started` or `contact` **and** `email` is actually email-shaped, not
+  a phone number — a best-effort `ContactConfirmationEmail` back to the
+  submitter. The confirmation send is fire-and-forget: its failure is logged
+  (`[lead] confirmation_email_error`) and swallowed, never turned into an
+  error response, since the notification email (the part the team actually
+  depends on) already succeeded by that point. `source: 'chat'` never gets a
+  confirmation — a chat-captured contact may only be a phone number, and
+  "here's a copy of your chat" doesn't fit the "thanks for your form
+  submission" framing. **The notification send is not fire-and-forget** in
+  the same way: a Resend failure there only gets swallowed into a `200`
+  response if the backend forward (below) already succeeded; if both fail,
+  the handler returns `502`/`504`/`500`.
 - `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/15min/IP. On a
   valid, non-honeypot submission it forwards to the backend and — best-effort,
-  same fire-and-forget pattern as above — sends a `WelcomeEmail`. There is no
-  user-account system anywhere in this codebase, so a newsletter subscription
-  is the closest real substitute for "on signup"; see Open questions for what
-  that interpretation leaves unresolved (repeat-subscriber dedup, a real
-  unsubscribe link).
+  same fire-and-forget pattern as above — sends a `WelcomeEmail`, logging any
+  Resend failure as `[newsletter] resend_error` (added along with the
+  `response.ok` check itself — the send previously failed silently with zero
+  log output, since `sendViaResend()` only rejects on a network-level
+  failure, not an HTTP error status, and the `catch` block never ran).
+  There is no user-account system anywhere in this codebase, so a newsletter
+  subscription is the closest real substitute for "on signup"; see Open
+  questions for what that interpretation leaves unresolved (repeat-subscriber
+  dedup, a real unsubscribe link).
+
+### Backend forwarding (`api/lead.js`, `api/newsletter.js`)
+
+Both handlers forward the submission to an external, non-Vercel MongoDB
+backend (`BACKEND_API_URL`, defaulting to `https://roshacompany-backend.onrender.com`
+when unset and not in a test environment) *in addition to* the Resend send —
+this is not mentioned anywhere else in this document and is easy to miss when
+reasoning about "does this endpoint work." Concretely, in `api/lead.js`:
+`savedToBackend` (from that forward) and `resendSent` (from the notification
+email) are each tracked independently, and the handler returns `200 { ok:
+true }` if **either** succeeds — so a request can report success to the
+visitor while every outbound email silently failed, as long as the backend
+save went through. `api/newsletter.js` doesn't even gate its `200` response
+on the backend forward's outcome — a `fetch` failure there is only logged
+(`[newsletter] failed to persist to backend`), never checked. When debugging
+"the form says it worked but no email arrived," check the server logs for
+`resend_error`/`confirmation_email_error`/`welcome_email_error`, not just the
+HTTP status the browser got back.
+
+`vite.config.js`'s dev server used to proxy `/api/lead` and `/api/newsletter`
+to `http://127.0.0.1:5000` — a leftover from before this backend-forwarding
+logic existed, pointing at a local backend service that isn't part of this
+repo and was never running, so every local form submission failed outright
+with `ECONNREFUSED` (silently, since the vite proxy only logs a `console.warn`).
+Fixed by routing both through the same `devApiPlugin` that already served
+`/api/chat` (`API_ROUTES` in `vite.config.js` now lists all three), which
+also removed a dead `/api/leads` (plural) proxy entry that no frontend code
+ever called. **If `npm run dev` throws `ECONNREFUSED` on a fetch to
+`127.0.0.1:5000` again, it means a new route was added under `api/` without
+also adding it to `API_ROUTES`** — the fallback behavior for an unlisted
+route is Vite's SPA history fallback (returns `index.html`), not a proxy, so
+that specific error would mean the stale proxy config crept back in, not a
+new bug.
 
 ### Email templates (`api/_lib/emails/`)
 
@@ -394,6 +444,30 @@ through `npm run dev`.
 
 ## Recent Branch Updates & Improvements
 
+- **Local dev email pipeline was broken end-to-end; fixed and verified live**:
+  - `vite.config.js` proxied `/api/lead`/`/api/newsletter` to a nonexistent
+    `127.0.0.1:5000` backend instead of the in-process `devApiPlugin` — every
+    local Contact/Get-Started/newsletter submission failed with
+    `ECONNREFUSED`. Fixed by adding both routes to `API_ROUTES` and removing
+    the dead proxy config (including an unused `/api/leads` plural entry).
+    See "Backend forwarding" in the API section.
+  - `api/newsletter.js`'s `sendWelcomeEmail()` never checked `response.ok` on
+    the Resend call, so a failed welcome email produced zero log output.
+    Fixed to check and log `[newsletter] resend_error`, matching the pattern
+    `api/lead.js` already used.
+  - Root-caused a Resend 403 (`The send.roshalink.com domain is not
+    verified`): `LEAD_FROM_EMAIL` was `leads@send.roshalink.com`, but only
+    the parent `roshalink.com` was verified in Resend — a subdomain needs its
+    own separate verification even under a verified parent. Fixed by
+    switching `LEAD_FROM_EMAIL` to `leads@roshalink.com` in `.env.local` (the
+    same change needs making in the Vercel dashboard for Production/Preview/
+    Development, followed by a redeploy, before real traffic hits this).
+  - Verified via real submissions against the running dev server (both
+    through the actual Contact page UI and direct `curl` calls to `/api/lead`
+    and `/api/newsletter`) that both the lead notification + confirmation
+    emails and the newsletter welcome email now send with no `resend_error`
+    in the logs. `npm test` (72 tests across `lead.test.js`,
+    `newsletter.test.js`, `chat.test.js`) still passes unchanged.
 - **Transactional Email System (`api/_lib/emails/`)**:
   - Replaced `api/lead.js`'s bare, unstyled `<table>` internal notification
     with a branded `LeadNotificationEmail` react-email component matching the

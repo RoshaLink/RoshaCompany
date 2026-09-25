@@ -16,7 +16,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 //
 // `apply: 'serve'` means this never runs during `vite build`, so it is
 // structurally impossible for any of it — or the API key — to reach `dist/`.
-const API_ROUTES = ['/api/chat']
+const API_ROUTES = ['/api/chat', '/api/lead', '/api/newsletter']
 
 function devApiPlugin(env) {
   return {
@@ -133,53 +133,13 @@ export default defineConfig(({ mode }) => {
     server: {
       host: '127.0.0.1',
       port: 3000,
-      proxy: {
-        '/api/lead': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-          configure: (proxy) => {
-            proxy.on('error', (err, req, _res) => {
-              console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
-            });
-          },
-        },
-        '/api/leads': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-          configure: (proxy) => {
-            proxy.on('error', (err, req, _res) => {
-              console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
-            });
-          },
-        },
-        '/api/newsletter': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-          configure: (proxy) => {
-            proxy.on('error', (err, req, _res) => {
-              console.warn(`[Vite Proxy] Backend connection error for ${req.url}: ${err.code || err.message}`);
-            });
-          },
-        },
-      },
     },
+    // `npm run preview` serves the built dist/ only; per AGENTS.md, api/ is
+    // not available there (no devApiPlugin, since apply: 'serve' excludes
+    // build/preview) — exercise API changes through `npm run dev`.
     preview: {
       host: '127.0.0.1',
       port: 3000,
-      proxy: {
-        '/api/lead': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-        },
-        '/api/leads': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-        },
-        '/api/newsletter': {
-          target: 'http://127.0.0.1:5000',
-          changeOrigin: true,
-        },
-      },
     },
   }
 })

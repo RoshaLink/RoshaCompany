@@ -22,7 +22,7 @@ async function sendWelcomeEmail(email, lang) {
   try {
     const { welcome: strings } = emailCopy(lang);
     const { html, text } = await renderEmail(WelcomeEmail({ lang }));
-    await sendViaResend(
+    const response = await sendViaResend(
       {
         to: email,
         subject: strings.subject,
@@ -31,6 +31,10 @@ async function sendWelcomeEmail(email, lang) {
       },
       AbortSignal.timeout(UPSTREAM_TIMEOUT_MS)
     );
+    if (!response.ok) {
+      const detail = await response.text();
+      console.error('[newsletter] resend_error', response.status, detail.slice(0, 500));
+    }
   } catch (err) {
     console.error('[newsletter] welcome_email_error', err instanceof Error ? err.message : err);
   }

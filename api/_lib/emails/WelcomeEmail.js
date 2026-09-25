@@ -17,8 +17,9 @@ const h = React.createElement;
  * Matches the approved "Onboarding Email" mockup 1:1, localized per the
  * site's four supported locales (see i18n.js) — `lang` is whatever the
  * subscriber's site language was, already captured on the newsletter form.
+ * @param {{ firstName?: string, ctaHref?: string, lang?: string, unsubscribeUrl?: string }} props
  */
-export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://roshalink.com', lang }) {
+export default function WelcomeEmail({ firstName, ctaHref = 'https://roshalink.com', lang, unsubscribeUrl }) {
   const locale = resolveLocale(lang);
   const dir = dirFor(locale);
   const rtl = isRtl(locale);
@@ -212,17 +213,16 @@ export default function WelcomeEmail({ firstName = 'there', ctaHref = 'https://r
       links: [
         { label: common.footerPrivacy, href: links.privacyPolicy },
         { label: common.footerContact, href: links.contact },
-        // No unsubscribe endpoint exists yet (api/newsletter.js has no
-        // opt-out route) — placeholder, same as Footer.jsx's own ToS/
-        // Security links, until one is built. Required before real sends.
-        { label: common.footerUnsubscribe, href: '#' },
+        // Signed per-recipient link built by api/_lib/unsubscribe.js; the
+        // same URL also goes in the List-Unsubscribe header (api/newsletter.js).
+        { label: common.footerUnsubscribe, href: unsubscribeUrl },
       ],
     })
   );
 }
 
-/** Sample data for the react-email dev preview — matches the approved mockup's own default props. */
+/** Sample data for the react-email dev preview. */
 WelcomeEmail.PreviewProps = {
-  firstName: 'Sam',
   lang: 'en',
+  unsubscribeUrl: 'https://roshalink.com/api/unsubscribe?e=sam%40example.com&t=preview&lang=en',
 };

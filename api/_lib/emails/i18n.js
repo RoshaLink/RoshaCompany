@@ -78,13 +78,17 @@ const common = {
  * Arabic greeting puts it before the highlighted word instead. `headline`
  * is a function returning `{ before, highlight, after }` so each locale can
  * choose its own word order rather than forcing one template shape.
+ *
+ * `firstName` is optional: the newsletter form collects no name, and a
+ * hardcoded English fallback like "there" produced "Välkommen ombord, there!"
+ * and "there عزیز" — mixed-language greetings that read as spam.
  */
 const welcome = {
   sv: {
     subject: "Välkommen till RoshaLink — låt oss bygga något fantastiskt",
     previewText: "Välkommen till RoshaLink — låt oss bygga något fantastiskt",
     badge: 'Välkommen',
-    headline: (firstName) => ({ before: 'Välkommen ', highlight: 'ombord', after: `, ${firstName}!` }),
+    headline: (firstName) => ({ before: 'Välkommen ', highlight: 'ombord', after: firstName ? `, ${firstName}!` : '!' }),
     subtitle: "Tack för att du valde RoshaLink. Vi ser fram emot att samarbeta med dig i ditt nästa digitala projekt.",
     features: [
       { title: 'Boka ditt uppstartsmöte', body: 'Välj en tid som passar och träffa teamet som leder ditt projekt.' },
@@ -97,7 +101,7 @@ const welcome = {
     subject: "Welcome to RoshaLink — let's build something great",
     previewText: "Welcome to RoshaLink — let's build something great",
     badge: 'Welcome',
-    headline: (firstName) => ({ before: 'Welcome ', highlight: 'aboard', after: `, ${firstName}!` }),
+    headline: (firstName) => ({ before: 'Welcome ', highlight: 'aboard', after: firstName ? `, ${firstName}!` : '!' }),
     subtitle: "Thanks for choosing RoshaLink. We're excited to partner with you on your next digital project.",
     features: [
       { title: 'Book your kickoff call', body: 'Pick a time that works and meet the team leading your project.' },
@@ -110,7 +114,7 @@ const welcome = {
     subject: 'به روشالینک خوش آمدید — بیایید چیزی فوق‌العاده بسازیم',
     previewText: 'به روشالینک خوش آمدید — بیایید چیزی فوق‌العاده بسازیم',
     badge: 'خوش آمدید',
-    headline: (firstName) => ({ before: `${firstName} عزیز، `, highlight: 'خوش آمدید', after: '' }),
+    headline: (firstName) => ({ before: firstName ? `${firstName} عزیز، ` : '', highlight: 'خوش آمدید', after: firstName ? '' : '!' }),
     subtitle: 'از اینکه روشالینک را انتخاب کردید سپاسگزاریم. مشتاقانه منتظریم تا در پروژه دیجیتال بعدی شما همکاری کنیم.',
     features: [
       { title: 'زمان جلسه شروع پروژه را رزرو کنید', body: 'زمانی مناسب انتخاب کنید و با تیمی که پروژه شما را هدایت می‌کند آشنا شوید.' },
@@ -123,7 +127,7 @@ const welcome = {
     subject: 'مرحباً بك في روشالينك — لنبنِ شيئاً رائعاً معاً',
     previewText: 'مرحباً بك في روشالينك — لنبنِ شيئاً رائعاً معاً',
     badge: 'أهلاً بك',
-    headline: (firstName) => ({ before: '', highlight: 'أهلاً بك', after: `، ${firstName}!` }),
+    headline: (firstName) => ({ before: '', highlight: 'أهلاً بك', after: firstName ? `، ${firstName}!` : '!' }),
     subtitle: 'شكراً لاختيارك روشالينك. يسعدنا التعاون معك في مشروعك الرقمي القادم.',
     features: [
       { title: 'احجز مكالمة الانطلاق', body: 'اختر موعداً يناسبك وتعرف على الفريق الذي سيقود مشروعك.' },
@@ -185,8 +189,70 @@ const confirmation = {
   },
 };
 
-/** `{ common, welcome, confirmation }` strings already resolved for one locale. */
+/** Copy for the small HTML pages `api/unsubscribe.js` renders in the browser. */
+const unsubscribe = {
+  sv: {
+    pageTitle: 'Avsluta prenumeration — RoshaLink',
+    confirmHeading: 'Avsluta prenumerationen?',
+    confirmBody: (email) => `Du kommer inte längre att få nyhetsbrev från RoshaLink till ${email}.`,
+    confirmButton: 'Ja, avsluta prenumerationen',
+    doneHeading: 'Du är avregistrerad',
+    doneBody: 'Du kommer inte att få fler nyhetsbrev från oss. Ångrat dig? Anmäl dig igen när som helst på roshalink.com.',
+    invalidHeading: 'Länken är ogiltig',
+    invalidBody: 'Den här avregistreringslänken är ofullständig eller har ändrats. Använd länken i det senaste mejlet, eller kontakta oss på support@roshalink.com.',
+    errorHeading: 'Något gick fel',
+    errorBody: 'Vi kunde inte avsluta din prenumeration just nu. Försök igen om en stund, eller mejla support@roshalink.com så hjälper vi dig.',
+    backToSite: 'Till roshalink.com',
+  },
+  en: {
+    pageTitle: 'Unsubscribe — RoshaLink',
+    confirmHeading: 'Unsubscribe?',
+    confirmBody: (email) => `You will no longer receive RoshaLink newsletters at ${email}.`,
+    confirmButton: 'Yes, unsubscribe me',
+    doneHeading: "You're unsubscribed",
+    doneBody: "You won't receive any more newsletters from us. Changed your mind? You can sign up again any time at roshalink.com.",
+    invalidHeading: 'This link is not valid',
+    invalidBody: 'This unsubscribe link is incomplete or has been changed. Please use the link in our most recent email, or contact us at support@roshalink.com.',
+    errorHeading: 'Something went wrong',
+    errorBody: "We couldn't unsubscribe you right now. Please try again in a moment, or email support@roshalink.com and we'll take care of it.",
+    backToSite: 'Go to roshalink.com',
+  },
+  fa: {
+    pageTitle: 'لغو اشتراک — روشالینک',
+    confirmHeading: 'اشتراک خود را لغو می‌کنید؟',
+    confirmBody: (email) => `دیگر خبرنامه‌های روشالینک به ${email} ارسال نخواهد شد.`,
+    confirmButton: 'بله، اشتراک من را لغو کنید',
+    doneHeading: 'اشتراک شما لغو شد',
+    doneBody: 'دیگر خبرنامه‌ای از ما دریافت نخواهید کرد. نظرتان تغییر کرد؟ هر زمان می‌توانید دوباره در roshalink.com عضو شوید.',
+    invalidHeading: 'این لینک معتبر نیست',
+    invalidBody: 'این لینک لغو اشتراک ناقص است یا تغییر کرده است. لطفاً از لینک آخرین ایمیل ما استفاده کنید یا با support@roshalink.com تماس بگیرید.',
+    errorHeading: 'مشکلی پیش آمد',
+    errorBody: 'در حال حاضر نتوانستیم اشتراک شما را لغو کنیم. لطفاً کمی بعد دوباره امتحان کنید یا به support@roshalink.com ایمیل بزنید تا پیگیری کنیم.',
+    backToSite: 'رفتن به roshalink.com',
+  },
+  ar: {
+    pageTitle: 'إلغاء الاشتراك — روشالينك',
+    confirmHeading: 'هل تريد إلغاء الاشتراك؟',
+    confirmBody: (email) => `لن تتلقى بعد الآن النشرات الإخبارية من روشالينك على ${email}.`,
+    confirmButton: 'نعم، ألغِ اشتراكي',
+    doneHeading: 'تم إلغاء اشتراكك',
+    doneBody: 'لن تتلقى أي نشرات إخبارية أخرى منا. غيّرت رأيك؟ يمكنك الاشتراك مجدداً في أي وقت عبر roshalink.com.',
+    invalidHeading: 'هذا الرابط غير صالح',
+    invalidBody: 'رابط إلغاء الاشتراك هذا غير مكتمل أو تم تغييره. يرجى استخدام الرابط الموجود في أحدث رسالة منا، أو التواصل معنا عبر support@roshalink.com.',
+    errorHeading: 'حدث خطأ ما',
+    errorBody: 'لم نتمكن من إلغاء اشتراكك الآن. يرجى المحاولة مرة أخرى بعد قليل، أو مراسلتنا على support@roshalink.com وسنتولى الأمر.',
+    backToSite: 'الانتقال إلى roshalink.com',
+  },
+};
+
+/** `{ common, welcome, confirmation, unsubscribe }` strings already resolved for one locale. */
 export function emailCopy(lang) {
   const locale = resolveLocale(lang);
-  return { locale, common: common[locale], welcome: welcome[locale], confirmation: confirmation[locale] };
+  return {
+    locale,
+    common: common[locale],
+    welcome: welcome[locale],
+    confirmation: confirmation[locale],
+    unsubscribe: unsubscribe[locale],
+  };
 }

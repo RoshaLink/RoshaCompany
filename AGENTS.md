@@ -78,8 +78,11 @@ public/
 api/                    Vercel serverless functions (Node, ESM). One route per file.
   chat.js               POST /api/chat        — proxies OpenAI, never exposes the key
   lead.js               POST /api/lead        — sends the enquiry emails via Resend
-  newsletter.js         POST /api/newsletter  — forwards to the backend + sends a welcome email
+  newsletter.js         POST /api/newsletter  — forwards to the backend, adds a Resend contact, sends a welcome email
+  unsubscribe.js        GET/POST /api/unsubscribe — signed one-click unsubscribe; returns HTML, not JSON
   _lib/                 Underscore prefix = not a route. Server-only shared code.
+    unsubscribe.js      HMAC-signed unsubscribe URLs (UNSUBSCRIBE_SECRET)
+    resendContacts.js   newsletter list as Resend contacts (needs a Full access key)
     emails/             react-email templates + shared brand tokens (see API section)
 src/
   config/
@@ -138,14 +141,16 @@ the Vercel dashboard for Production, Preview **and** Development.
 | `OPENAI_API_KEY` | Auth for the chat completions call in `api/chat.js` |
 | `OPENAI_MODEL` | Model id answering visitors; falls back to `DEFAULT_MODEL` in `api/chat.js` |
 | `ALLOWED_ORIGINS` | Optional comma-separated origin allowlist; check is skipped when unset |
-| `RESEND_API_KEY` | Auth for every Resend send — `api/lead.js` (notification + confirmation) and `api/newsletter.js` (welcome email). Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
+| `RESEND_API_KEY` | Auth for every Resend call — `api/lead.js` (notification + confirmation), `api/newsletter.js` (contact + welcome email), `api/unsubscribe.js` (contact update). **Must be a Full access key**: a "Sending access" key sends email fine but every contacts call fails with 401 `restricted_api_key`, which silently breaks the subscriber list and makes every unsubscribe attempt show an error page. Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
+| `UNSUBSCRIBE_SECRET` | HMAC key for the signed links in `api/_lib/unsubscribe.js`. Use a different random value per environment. Unset → the welcome email is **not sent** (logged as `[newsletter] UNSUBSCRIBE_SECRET is not set`), because a newsletter-type email without a working unsubscribe hurts deliverability and breaks GDPR/CAN-SPAM. Changing it invalidates every unsubscribe link already in inboxes. |
+| `RESEND_NEWSLETTER_SEGMENT_ID` | Optional. Resend segment new subscribers are added to — the segment a Broadcast targets. Unset → contacts are created with no segment. |
 | `LEAD_TO_EMAIL` | Destination inbox for lead notifications; also used as the `reply_to` on the visitor's confirmation email |
 | `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be on a domain verified in Resend — **the exact hostname**, not just a domain whose parent is verified. `roshalink.com` being verified does **not** cover `leads@send.roshalink.com`: Resend treats a subdomain as a separate domain needing its own DNS records and verification. Sending from an address on an unverified (sub)domain fails with a 403 `validation_error`, logged as `[lead] resend_error` / `[newsletter] resend_error` — confirm which exact hostname shows "Verified" on the Resend dashboard's Domains page before assuming this var is correct. |
 | `BACKEND_API_URL` | Optional override for the external lead/newsletter persistence backend (see "Backend forwarding" below); defaults to `https://roshacompany-backend.onrender.com` outside test environments. Not in `.env.example` — undocumented until this entry. |
 
 ## API
 
-Both routes are `POST`-only and return JSON with a coded `error` string
+`chat`, `lead` and `newsletter` are `POST`-only and return JSON with a coded `error` string
 (`method_not_allowed`, `forbidden`, `rate_limited`, `bad_request`, `too_long`,
 `upstream_error`, `timeout`, `server_error`). Every handler follows the same
 order: method check → `originAllowed` → `rateLimit` → env check → `readJsonBody`
@@ -181,9 +186,35 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
   log output, since `sendViaResend()` only rejects on a network-level
   failure, not an HTTP error status, and the `catch` block never ran).
   There is no user-account system anywhere in this codebase, so a newsletter
-  subscription is the closest real substitute for "on signup"; see Open
-  questions for what that interpretation leaves unresolved (repeat-subscriber
-  dedup, a real unsubscribe link).
+  subscription is the closest real substitute for "on signup".
+  Before the welcome email, the address is upserted as a **Resend contact**
+  (`api/_lib/resendContacts.js`): new → created (in `RESEND_NEWSLETTER_SEGMENT_ID`
+  if set); previously unsubscribed → re-subscribed; already subscribed → **no
+  second welcome email**. The visitor-facing response is identical in all
+  three cases so the endpoint can't be used to check who is subscribed. A
+  contacts failure is logged (`[newsletter] contact_sync_error`) and does not
+  block the welcome email. The welcome email carries RFC 8058 one-click
+  `List-Unsubscribe` / `List-Unsubscribe-Post` headers, the same signed link
+  in its footer, `reply_to: LEAD_TO_EMAIL`, and is not sent at all without
+  `UNSUBSCRIBE_SECRET`.
+- `GET|POST /api/unsubscribe?e=&t=&lang=` — the one route that returns
+  **HTML**, since it is opened from an email in a browser. `t` is an
+  HMAC-SHA256 of the lower-cased email (`api/_lib/unsubscribe.js`); a
+  mismatch → 400 page. **GET only shows a confirmation page with a button —
+  it never unsubscribes**, because corporate mail scanners and link
+  previewers fetch every URL in an email and would otherwise unsubscribe
+  people who never clicked. POST (the button, or Gmail/Yahoo's one-click
+  POST with body `List-Unsubscribe=One-Click`) PATCHes the Resend contact to
+  `unsubscribed: true`; a 404 contact counts as done. No `originAllowed`
+  check and no body parsing: one-click POSTs come from the mail provider's
+  servers, and the signed query string is the whole authorization. Pages are
+  localized via `emailCopy(lang).unsubscribe` in `api/_lib/emails/i18n.js`,
+  sent with `Referrer-Policy: no-referrer` (the URL carries the token), a
+  locked-down CSP and `X-Robots-Tag: noindex`. 30 requests/min/IP — kept
+  generous because Gmail's one-click POSTs can share a Google IP.
+- **Sender identity**: `sendViaResend()` wraps a bare `LEAD_FROM_EMAIL` as
+  `RoshaLink <address>` for every email (a brand display name instead of a
+  raw address); a value already containing `<` is used as-is.
 
 ### Backend forwarding (`api/lead.js`, `api/newsletter.js`)
 
@@ -427,23 +458,37 @@ through `npm run dev`.
    (roshalink.com appears in content) isn't configured anywhere in the repo.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
-6. `WelcomeEmail` fires on every successful `POST /api/newsletter`, with no
-   check for whether the address is already subscribed — the handler doesn't
-   read the backend's response before deciding success, so there's currently
-   no signal to skip a repeat send on. Is a duplicate welcome email for an
-   existing subscriber acceptable, or does `api/newsletter.js` need to inspect
-   the backend's response first?
-7. `WelcomeEmail`'s footer "Unsubscribe" link is a `href="#"` placeholder —
-   there is no unsubscribe endpoint or list-management route anywhere in this
-   codebase. Needed before any real marketing send (CAN-SPAM/GDPR), not just
-   as a nicety.
-8. The `fa`/`ar` copy in `api/_lib/emails/i18n.js` is original, unreviewed
-   translation — not pulled from a translation service or checked by a
-   native speaker. Worth a native-speaker review pass before fully trusting
-   it for real customer sends.
+6. The subscriber list now lives in two places: Resend contacts (source of
+   truth for Broadcasts and unsubscribes) and the external MongoDB backend
+   (`/api/newsletter` forward), which never hears about unsubscribes. Fine
+   while newsletters go out through Resend Broadcasts; if they ever go out
+   from the backend's list instead, it needs to read unsubscribe state from
+   Resend first.
+7. `WelcomeEmail`'s copy ("Book your kickoff call", "Meet your project
+   team") is written for a new *client*, but it is sent to newsletter
+   subscribers. Should it be rewritten for a newsletter sign-up?
+8. There is no double opt-in: anyone can subscribe any address. Double
+   opt-in (confirm-by-click before the contact becomes subscribed) is the
+   strongest remaining deliverability/GDPR improvement.
 
 ## Recent Branch Updates & Improvements
 
+- **Newsletter unsubscribe + deliverability** (`api/unsubscribe.js`,
+  `api/_lib/unsubscribe.js`, `api/_lib/resendContacts.js`):
+  - Real signed one-click unsubscribe replaces the welcome email's
+    `href="#"` placeholder, plus RFC 8058 `List-Unsubscribe` headers (which
+    Gmail and Yahoo expect on newsletter mail).
+  - Subscribers are stored as Resend contacts for Resend Broadcasts; repeat
+    sign-ups no longer get a second welcome email.
+  - The welcome email no longer greets nameless subscribers as "there" in
+    every language ("Välkommen ombord, there!", "there عزیز") — the headline
+    now reads naturally with no name.
+  - All email now comes from "RoshaLink <address>" instead of a bare
+    address; the welcome email's replies go to `LEAD_TO_EMAIL`.
+  - DNS for roshalink.com (outside this repo): Resend and Namecheap Private
+    Email are both DKIM-signed; DMARC set to `p=none` with reports to
+    support@roshalink.com on 2026-09-25, planned move to `p=quarantine`
+    after ~2 weeks of clean reports.
 - **Local dev email pipeline was broken end-to-end; fixed and verified live**:
   - `vite.config.js` proxied `/api/lead`/`/api/newsletter` to a nonexistent
     `127.0.0.1:5000` backend instead of the in-process `devApiPlugin` — every

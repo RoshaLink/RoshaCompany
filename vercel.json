@@ -61,6 +61,9 @@
     "api/newsletter.js": {
       "maxDuration": 30
     },
+    "api/confirm-subscription.js": {
+      "maxDuration": 30
+    },
     "api/unsubscribe.js": {
       "maxDuration": 30
     }

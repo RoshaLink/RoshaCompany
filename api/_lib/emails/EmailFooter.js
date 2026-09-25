@@ -17,9 +17,11 @@ const h = React.createElement;
  *  - "compact" (Lead Notification, never localized): icon+wordmark plus a
  *              single note line — an internal ops email has no tagline/
  *              links to show.
- * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string }>, note?: string, iconSize?: number, tagline?: string, copyright?: string }} props
+ * `rtl` swaps the tagline's letter-spaced monospace for the body font: both
+ * split apart the joined letters of a Farsi/Arabic tagline.
+ * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string }>, note?: string, iconSize?: number, tagline?: string, copyright?: string, rtl?: boolean }} props
  */
-export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28, tagline = defaultTagline, copyright = copyrightLine }) {
+export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28, tagline = defaultTagline, copyright = copyrightLine, rtl = false }) {
   const wordmark = [
     h(
       Img,
@@ -59,9 +61,9 @@ export default function EmailFooter({ variant = 'full', links = [], note, iconSi
               key: 'tagline',
               style: {
                 margin: '10px 0 0',
-                fontFamily: fonts.mono,
+                fontFamily: rtl ? fonts.body : fonts.mono,
                 fontSize: '10px',
-                letterSpacing: '0.08em',
+                letterSpacing: rtl ? 'normal' : '0.08em',
                 textTransform: 'uppercase',
                 color: colors.textMuted,
               },

@@ -71,70 +71,124 @@ const common = {
 };
 
 /**
- * The welcome-email headline is a highlighted single word/phrase inside a
- * bigger sentence (see WelcomeEmail.js's gradient-text span), and where a
- * name naturally lands in that sentence differs by language — Swedish/
- * English put it at the end ("Welcome aboard, {name}!"), a natural Farsi/
- * Arabic greeting puts it before the highlighted word instead. `headline`
- * is a function returning `{ before, highlight, after }` so each locale can
- * choose its own word order rather than forcing one template shape.
+ * Welcome email, sent once a subscriber confirms (double opt-in). The promise
+ * — "once a quarter" — matches the site footer's own "Get quarterly strategic
+ * insights and technical briefs"; don't change one without the other.
  *
- * `firstName` is optional: the newsletter form collects no name, and a
- * hardcoded English fallback like "there" produced "Välkommen ombord, there!"
- * and "there عزیز" — mixed-language greetings that read as spam.
+ * `headline` returns `{ before, highlight, after }` because the gradient-
+ * highlighted word sits at a different position in each language's natural
+ * phrasing (see WelcomeEmail.js). There's no name in it: the newsletter form
+ * collects none, and an English fallback like "there" produced mixed-language
+ * greetings ("Välkommen ombord, there!") that read as spam.
  */
 const welcome = {
   sv: {
-    subject: "Välkommen till RoshaLink — låt oss bygga något fantastiskt",
-    previewText: "Välkommen till RoshaLink — låt oss bygga något fantastiskt",
-    badge: 'Välkommen',
-    headline: (firstName) => ({ before: 'Välkommen ', highlight: 'ombord', after: firstName ? `, ${firstName}!` : '!' }),
-    subtitle: "Tack för att du valde RoshaLink. Vi ser fram emot att samarbeta med dig i ditt nästa digitala projekt.",
+    subject: 'Du prenumererar nu på RoshaLink Insights',
+    previewText: 'Det här kan du förvänta dig — och en titt på vad vi har byggt.',
+    badge: 'Prenumeration bekräftad',
+    headline: () => ({ before: 'Nu är du ', highlight: 'med', after: '!' }),
+    subtitle: 'Tack för att du bekräftade. En gång i kvartalet skickar vi korta, praktiska insikter om digital strategi, design och teknik — skrivna för företagare, inte för utvecklare.',
+    whatToExpect: 'Det här får du',
     features: [
-      { title: 'Boka ditt uppstartsmöte', body: 'Välj en tid som passar och träffa teamet som leder ditt projekt.' },
-      { title: 'Träffa ditt projektteam', body: 'Bli presenterad för designers och utvecklare bakom ditt projekt.' },
-      { title: 'Följ framstegen i realtid', body: 'Följ varje milstolpe via en delad projektdashboard.' },
+      { title: 'Insikter värda din tid', body: 'Trender inom strategi, design och teknik, sammanfattade på några minuters läsning.' },
+      { title: 'Lärdomar från riktiga projekt', body: 'Vad som fungerade, vad som inte gjorde det och varför — direkt från vårt arbete med kunder.' },
+      { title: 'Aldrig spam', body: 'Vi hör bara av oss när vi har något användbart att dela. Avsluta prenumerationen med ett klick när du vill.' },
     ],
-    cta: 'Kom igång',
+    cta: 'Se våra senaste projekt',
+    replyNote: 'Planerar du ett projekt? Svara bara på det här mejlet — det går direkt till vårt team.',
   },
   en: {
-    subject: "Welcome to RoshaLink — let's build something great",
-    previewText: "Welcome to RoshaLink — let's build something great",
-    badge: 'Welcome',
-    headline: (firstName) => ({ before: 'Welcome ', highlight: 'aboard', after: firstName ? `, ${firstName}!` : '!' }),
-    subtitle: "Thanks for choosing RoshaLink. We're excited to partner with you on your next digital project.",
+    subject: "You're subscribed to RoshaLink Insights",
+    previewText: "Here's what to expect — and a look at what we've been building.",
+    badge: 'Subscription confirmed',
+    headline: () => ({ before: "You're ", highlight: 'in', after: '!' }),
+    subtitle: "Thanks for confirming. Once a quarter, we'll send you short, practical insights on digital strategy, design and technology — written for business owners, not engineers.",
+    whatToExpect: "What you'll get",
     features: [
-      { title: 'Book your kickoff call', body: 'Pick a time that works and meet the team leading your project.' },
-      { title: 'Meet your project team', body: 'Get introduced to the designers and engineers behind your build.' },
-      { title: 'Track progress in real time', body: 'Follow every milestone from a shared project dashboard.' },
+      { title: 'Insights worth your time', body: 'Strategy, design and tech trends, distilled into a few minutes of reading.' },
+      { title: 'Lessons from real projects', body: "What worked, what didn't, and why — straight from our client work." },
+      { title: 'No spam, ever', body: 'We only write when we have something useful to share. Unsubscribe in one click, any time.' },
     ],
-    cta: 'Get Started',
+    cta: 'See our latest work',
+    replyNote: 'Planning a project? Just reply to this email — it goes straight to our team.',
   },
   fa: {
-    subject: 'به روشالینک خوش آمدید — بیایید چیزی فوق‌العاده بسازیم',
-    previewText: 'به روشالینک خوش آمدید — بیایید چیزی فوق‌العاده بسازیم',
-    badge: 'خوش آمدید',
-    headline: (firstName) => ({ before: firstName ? `${firstName} عزیز، ` : '', highlight: 'خوش آمدید', after: firstName ? '' : '!' }),
-    subtitle: 'از اینکه روشالینک را انتخاب کردید سپاسگزاریم. مشتاقانه منتظریم تا در پروژه دیجیتال بعدی شما همکاری کنیم.',
+    subject: 'عضویت شما در خبرنامه روشالینک تأیید شد',
+    previewText: 'آنچه در انتظار شماست — و نگاهی به کارهای اخیر ما.',
+    badge: 'عضویت تأیید شد',
+    headline: () => ({ before: 'به جمع ما ', highlight: 'خوش آمدید', after: '!' }),
+    subtitle: 'از تأیید شما سپاسگزاریم. هر سه ماه یک بار، نکات کوتاه و کاربردی درباره استراتژی دیجیتال، طراحی و فناوری برایتان می‌فرستیم — نوشته‌شده برای صاحبان کسب‌وکار، نه برنامه‌نویسان.',
+    whatToExpect: 'آنچه دریافت خواهید کرد',
     features: [
-      { title: 'زمان جلسه شروع پروژه را رزرو کنید', body: 'زمانی مناسب انتخاب کنید و با تیمی که پروژه شما را هدایت می‌کند آشنا شوید.' },
-      { title: 'با تیم پروژه خود آشنا شوید', body: 'با طراحان و مهندسانی که پروژه شما را می‌سازند آشنا شوید.' },
-      { title: 'پیشرفت پروژه را به‌صورت لحظه‌ای دنبال کنید', body: 'هر مرحله از پروژه را از طریق داشبورد مشترک پروژه دنبال کنید.' },
+      { title: 'نکاتی که ارزش وقتتان را دارد', body: 'روندهای استراتژی، طراحی و فناوری، خلاصه‌شده در چند دقیقه مطالعه.' },
+      { title: 'درس‌هایی از پروژه‌های واقعی', body: 'چه چیزی جواب داد، چه چیزی نه، و چرا — مستقیماً از تجربه کار با مشتریانمان.' },
+      { title: 'بدون هرزنامه', body: 'فقط زمانی ایمیل می‌زنیم که حرف مفیدی برای گفتن داشته باشیم. هر زمان خواستید با یک کلیک لغو اشتراک کنید.' },
     ],
-    cta: 'شروع کنید',
+    cta: 'آخرین نمونه‌کارهای ما را ببینید',
+    replyNote: 'پروژه‌ای در ذهن دارید؟ کافی است به همین ایمیل پاسخ دهید — مستقیماً به دست تیم ما می‌رسد.',
   },
   ar: {
-    subject: 'مرحباً بك في روشالينك — لنبنِ شيئاً رائعاً معاً',
-    previewText: 'مرحباً بك في روشالينك — لنبنِ شيئاً رائعاً معاً',
-    badge: 'أهلاً بك',
-    headline: (firstName) => ({ before: '', highlight: 'أهلاً بك', after: firstName ? `، ${firstName}!` : '!' }),
-    subtitle: 'شكراً لاختيارك روشالينك. يسعدنا التعاون معك في مشروعك الرقمي القادم.',
+    subject: 'تم تأكيد اشتراكك في نشرة روشالينك',
+    previewText: 'إليك ما يمكنك توقعه — ونظرة على ما نعمل عليه مؤخراً.',
+    badge: 'تم تأكيد الاشتراك',
+    headline: () => ({ before: 'أنت ', highlight: 'معنا الآن', after: '!' }),
+    subtitle: 'شكراً لتأكيد اشتراكك. مرة كل ثلاثة أشهر، سنرسل إليك رؤى قصيرة وعملية حول الاستراتيجية الرقمية والتصميم والتقنية — مكتوبة لأصحاب الأعمال، لا للمبرمجين.',
+    whatToExpect: 'ما الذي ستحصل عليه',
     features: [
-      { title: 'احجز مكالمة الانطلاق', body: 'اختر موعداً يناسبك وتعرف على الفريق الذي سيقود مشروعك.' },
-      { title: 'تعرف على فريق مشروعك', body: 'تعرف على المصممين والمهندسين الذين يعملون على مشروعك.' },
-      { title: 'تابع التقدم لحظة بلحظة', body: 'تابع كل مرحلة من خلال لوحة معلومات مشتركة للمشروع.' },
+      { title: 'رؤى تستحق وقتك', body: 'أبرز اتجاهات الاستراتيجية والتصميم والتقنية، في دقائق قليلة من القراءة.' },
+      { title: 'دروس من مشاريع حقيقية', body: 'ما الذي نجح، وما الذي لم ينجح، ولماذا — مباشرةً من عملنا مع عملائنا.' },
+      { title: 'بلا رسائل مزعجة', body: 'لا نراسلك إلا عندما يكون لدينا ما يفيدك. يمكنك إلغاء الاشتراك بنقرة واحدة في أي وقت.' },
     ],
-    cta: 'ابدأ الآن',
+    cta: 'شاهد أحدث أعمالنا',
+    replyNote: 'تخطط لمشروع؟ ما عليك سوى الرد على هذه الرسالة — ستصل مباشرةً إلى فريقنا.',
+  },
+};
+
+/** "Confirm your subscription" email — the first step of double opt-in. */
+const subscribeConfirm = {
+  sv: {
+    subject: 'Bekräfta din prenumeration på RoshaLink Insights',
+    previewText: 'Ett klick så är du med.',
+    badge: 'Ett sista steg',
+    heading: 'Bekräfta din prenumeration',
+    body: 'Någon — förhoppningsvis du — har bett om att få RoshaLinks nyhetsbrev till den här adressen. Tryck på knappen nedan för att bekräfta.',
+    button: 'Bekräfta prenumeration',
+    expiry: (days) => `Länken gäller i ${days} dagar.`,
+    fallbackLabel: 'Fungerar inte knappen? Kopiera och klistra in den här länken i din webbläsare:',
+    ignore: 'Har du inte anmält dig? Ignorera bara det här mejlet — du läggs inte till och vi mejlar dig inte igen.',
+  },
+  en: {
+    subject: 'Confirm your subscription to RoshaLink Insights',
+    previewText: "One click and you're in.",
+    badge: 'One last step',
+    heading: 'Confirm your subscription',
+    body: "Someone — hopefully you — asked to receive RoshaLink's newsletter at this address. Tap the button below to confirm.",
+    button: 'Confirm subscription',
+    expiry: (days) => `This link is valid for ${days} days.`,
+    fallbackLabel: "Button not working? Copy and paste this link into your browser:",
+    ignore: "Didn't sign up? Just ignore this email — you won't be subscribed and we won't email you again.",
+  },
+  fa: {
+    subject: 'عضویت خود را در خبرنامه روشالینک تأیید کنید',
+    previewText: 'فقط یک کلیک تا عضویت فاصله دارید.',
+    badge: 'آخرین مرحله',
+    heading: 'عضویت خود را تأیید کنید',
+    body: 'شخصی — امیدواریم خود شما — درخواست کرده است که خبرنامه روشالینک به این آدرس ارسال شود. برای تأیید، روی دکمه زیر بزنید.',
+    button: 'تأیید عضویت',
+    expiry: (days) => `این لینک به مدت ${days} روز معتبر است.`,
+    fallbackLabel: 'دکمه کار نمی‌کند؟ این لینک را کپی کرده و در مرورگر خود باز کنید:',
+    ignore: 'ثبت‌نام نکرده‌اید؟ کافی است این ایمیل را نادیده بگیرید — عضو نخواهید شد و دیگر ایمیلی از ما دریافت نمی‌کنید.',
+  },
+  ar: {
+    subject: 'أكّد اشتراكك في نشرة روشالينك',
+    previewText: 'نقرة واحدة وتصبح معنا.',
+    badge: 'خطوة أخيرة',
+    heading: 'أكّد اشتراكك',
+    body: 'طلب أحدهم — ونأمل أن تكون أنت — استلام النشرة الإخبارية من روشالينك على هذا العنوان. اضغط على الزر أدناه للتأكيد.',
+    button: 'تأكيد الاشتراك',
+    expiry: (days) => `هذا الرابط صالح لمدة ${days} أيام.`,
+    fallbackLabel: 'الزر لا يعمل؟ انسخ هذا الرابط والصقه في متصفحك:',
+    ignore: 'لم تشترك؟ تجاهل هذه الرسالة ببساطة — لن يتم اشتراكك ولن نراسلك مرة أخرى.',
   },
 };
 
@@ -245,14 +299,80 @@ const unsubscribe = {
   },
 };
 
-/** `{ common, welcome, confirmation, unsubscribe }` strings already resolved for one locale. */
+/** Copy for the HTML pages `api/confirm-subscription.js` renders in the browser. */
+const subscribePage = {
+  sv: {
+    pageTitle: 'Bekräfta prenumeration — RoshaLink',
+    confirmHeading: 'Bekräfta din prenumeration',
+    confirmBody: (email) => `Vill du börja få RoshaLinks nyhetsbrev till ${email}?`,
+    confirmButton: 'Ja, prenumerera',
+    doneHeading: 'Nu prenumererar du!',
+    doneBody: 'Välkommen! Vi har precis skickat ett välkomstmejl till dig — titta i din inkorg.',
+    invalidHeading: 'Länken är ogiltig',
+    invalidBody: 'Den här bekräftelselänken är ofullständig eller har ändrats. Anmäl dig igen på roshalink.com.',
+    expiredHeading: 'Länken har gått ut',
+    expiredBody: (days) => `Bekräftelselänkar gäller i ${days} dagar. Anmäl dig igen på roshalink.com — det tar bara en sekund.`,
+    errorHeading: 'Något gick fel',
+    errorBody: 'Vi kunde inte bekräfta din prenumeration just nu. Försök igen om en stund, eller mejla support@roshalink.com så hjälper vi dig.',
+    backToSite: 'Till roshalink.com',
+  },
+  en: {
+    pageTitle: 'Confirm subscription — RoshaLink',
+    confirmHeading: 'Confirm your subscription',
+    confirmBody: (email) => `Start receiving RoshaLink's newsletter at ${email}?`,
+    confirmButton: 'Yes, subscribe me',
+    doneHeading: "You're subscribed!",
+    doneBody: "Welcome aboard. We've just sent you a welcome email — check your inbox.",
+    invalidHeading: 'This link is not valid',
+    invalidBody: 'This confirmation link is incomplete or has been changed. Please sign up again on roshalink.com.',
+    expiredHeading: 'This link has expired',
+    expiredBody: (days) => `Confirmation links are valid for ${days} days. Please sign up again on roshalink.com — it only takes a second.`,
+    errorHeading: 'Something went wrong',
+    errorBody: "We couldn't confirm your subscription right now. Please try again in a moment, or email support@roshalink.com and we'll take care of it.",
+    backToSite: 'Go to roshalink.com',
+  },
+  fa: {
+    pageTitle: 'تأیید عضویت — روشالینک',
+    confirmHeading: 'عضویت خود را تأیید کنید',
+    confirmBody: (email) => `آیا می‌خواهید خبرنامه روشالینک به ${email} ارسال شود؟`,
+    confirmButton: 'بله، عضو می‌شوم',
+    doneHeading: 'عضویت شما تأیید شد!',
+    doneBody: 'خوش آمدید. همین حالا یک ایمیل خوشامدگویی برایتان فرستادیم — صندوق ایمیل خود را بررسی کنید.',
+    invalidHeading: 'این لینک معتبر نیست',
+    invalidBody: 'این لینک تأیید ناقص است یا تغییر کرده است. لطفاً دوباره در roshalink.com عضو شوید.',
+    expiredHeading: 'این لینک منقضی شده است',
+    expiredBody: (days) => `لینک‌های تأیید ${days} روز اعتبار دارند. لطفاً دوباره در roshalink.com عضو شوید — فقط چند ثانیه طول می‌کشد.`,
+    errorHeading: 'مشکلی پیش آمد',
+    errorBody: 'در حال حاضر نتوانستیم عضویت شما را تأیید کنیم. لطفاً کمی بعد دوباره امتحان کنید یا به support@roshalink.com ایمیل بزنید تا پیگیری کنیم.',
+    backToSite: 'رفتن به roshalink.com',
+  },
+  ar: {
+    pageTitle: 'تأكيد الاشتراك — روشالينك',
+    confirmHeading: 'أكّد اشتراكك',
+    confirmBody: (email) => `هل تريد البدء في استلام نشرة روشالينك على ${email}؟`,
+    confirmButton: 'نعم، اشترك',
+    doneHeading: 'تم اشتراكك!',
+    doneBody: 'أهلاً بك. أرسلنا إليك للتو رسالة ترحيب — تحقّق من بريدك الوارد.',
+    invalidHeading: 'هذا الرابط غير صالح',
+    invalidBody: 'رابط التأكيد هذا غير مكتمل أو تم تغييره. يرجى الاشتراك مجدداً عبر roshalink.com.',
+    expiredHeading: 'انتهت صلاحية هذا الرابط',
+    expiredBody: (days) => `روابط التأكيد صالحة لمدة ${days} أيام. يرجى الاشتراك مجدداً عبر roshalink.com — لن يستغرق الأمر سوى لحظة.`,
+    errorHeading: 'حدث خطأ ما',
+    errorBody: 'لم نتمكن من تأكيد اشتراكك الآن. يرجى المحاولة مرة أخرى بعد قليل، أو مراسلتنا على support@roshalink.com وسنتولى الأمر.',
+    backToSite: 'الانتقال إلى roshalink.com',
+  },
+};
+
+/** All strings, already resolved for one locale. */
 export function emailCopy(lang) {
   const locale = resolveLocale(lang);
   return {
     locale,
     common: common[locale],
     welcome: welcome[locale],
+    subscribeConfirm: subscribeConfirm[locale],
     confirmation: confirmation[locale],
     unsubscribe: unsubscribe[locale],
+    subscribePage: subscribePage[locale],
   };
 }

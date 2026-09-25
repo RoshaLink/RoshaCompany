@@ -105,7 +105,8 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
               fontFamily: fonts.body,
               fontWeight: 600,
               fontSize: '12px',
-              letterSpacing: '0.04em',
+              // Letter-spacing splits apart the joined letters of Farsi/Arabic.
+              letterSpacing: rtl ? 'normal' : '0.04em',
               textTransform: 'uppercase',
               color: colors.textMuted,
               textAlign: rtl ? 'right' : 'left',
@@ -129,7 +130,8 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
                 'div',
                 {
                   style: {
-                    fontFamily: fonts.mono,
+                    // Monospace can't join Farsi/Arabic letters.
+                    fontFamily: rtl ? fonts.body : fonts.mono,
                     fontSize: '12px',
                     lineHeight: '1.6',
                     color: colors.textMuted,
@@ -172,6 +174,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
     h(EmailFooter, {
       key: 'footer',
       variant: 'full',
+      rtl,
       tagline: common.tagline,
       copyright: common.copyright(new Date().getFullYear()),
       links: [

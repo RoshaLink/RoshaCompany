@@ -26,8 +26,18 @@ async function fail(action, response) {
   throw new Error(`${action} failed: ${response.status} ${detail.slice(0, 300)}`);
 }
 
+/** @returns {Promise<'subscribed' | 'unsubscribed' | 'none'>} */
+export async function getContactStatus(email) {
+  const response = await request('GET', `/${encodeURIComponent(email)}`);
+  if (response.status === 404) return 'none';
+  if (!response.ok) await fail('lookup', response);
+  const contact = /** @type {{ unsubscribed?: boolean }} */ (await response.json());
+  return contact.unsubscribed ? 'unsubscribed' : 'subscribed';
+}
+
 /**
- * Add `email` to the newsletter list, or re-subscribe it.
+ * Add `email` to the newsletter list, or re-subscribe it. Only called after
+ * the address owner confirmed (double opt-in).
  * @returns {Promise<'created' | 'resubscribed' | 'already_subscribed'>}
  */
 export async function upsertNewsletterContact(email) {

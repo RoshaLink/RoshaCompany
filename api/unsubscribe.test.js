@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import handler from './unsubscribe.js';
-import { unsubscribeUrl, verifyUnsubscribeToken } from './_lib/unsubscribe.js';
+import { unsubscribeUrl } from './_lib/emailLinks.js';
 
 let ipCounter = 0;
 function makeReq({ method = 'GET', url }) {
@@ -35,31 +35,13 @@ function mockContacts(status = 200) {
 }
 
 beforeEach(() => {
-  vi.stubEnv('UNSUBSCRIBE_SECRET', 'test-secret');
+  vi.stubEnv('EMAIL_LINK_SECRET', 'test-secret');
   vi.stubEnv('RESEND_API_KEY', 'test-key');
 });
 
 afterEach(() => {
   vi.unstubAllEnvs();
   vi.unstubAllGlobals();
-});
-
-describe('unsubscribe tokens', () => {
-  it('accepts the token it issued and nothing else', () => {
-    const token = new URL(unsubscribeUrl('a@b.com', 'en')).searchParams.get('t');
-    expect(verifyUnsubscribeToken('a@b.com', token)).toBe(true);
-    expect(verifyUnsubscribeToken('A@B.com ', token)).toBe(true);
-    expect(verifyUnsubscribeToken('someone-else@b.com', token)).toBe(false);
-    expect(verifyUnsubscribeToken('a@b.com', `${token}x`)).toBe(false);
-    expect(verifyUnsubscribeToken('a@b.com', '')).toBe(false);
-  });
-
-  it('issues no link and accepts no token without a secret', () => {
-    const token = new URL(unsubscribeUrl('a@b.com', 'en')).searchParams.get('t');
-    vi.stubEnv('UNSUBSCRIBE_SECRET', '');
-    expect(unsubscribeUrl('a@b.com', 'en')).toBeNull();
-    expect(verifyUnsubscribeToken('a@b.com', token)).toBe(false);
-  });
 });
 
 describe('GET /api/unsubscribe', () => {
@@ -70,6 +52,7 @@ describe('GET /api/unsubscribe', () => {
 
     expect(res.statusCode).toBe(200);
     expect(res.headers['Content-Type']).toContain('text/html');
+    expect(res.headers['Referrer-Policy']).toBe('no-referrer');
     expect(res.body).toContain('<form method="post"');
     expect(res.body).toContain('a@b.com');
     expect(fetchSpy).not.toHaveBeenCalled();

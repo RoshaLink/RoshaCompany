@@ -78,10 +78,13 @@ public/
 api/                    Vercel serverless functions (Node, ESM). One route per file.
   chat.js               POST /api/chat        — proxies OpenAI, never exposes the key
   lead.js               POST /api/lead        — sends the enquiry emails via Resend
-  newsletter.js         POST /api/newsletter  — forwards to the backend, adds a Resend contact, sends a welcome email
+  newsletter.js         POST /api/newsletter  — double opt-in step 1: emails a "confirm your subscription" link
+  confirm-subscription.js GET/POST /api/confirm-subscription — step 2: subscribes, sends welcome email; returns HTML
   unsubscribe.js        GET/POST /api/unsubscribe — signed one-click unsubscribe; returns HTML, not JSON
   _lib/                 Underscore prefix = not a route. Server-only shared code.
-    unsubscribe.js      HMAC-signed unsubscribe URLs (UNSUBSCRIBE_SECRET)
+    emailLinks.js       HMAC-signed confirm + unsubscribe URLs (EMAIL_LINK_SECRET)
+    newsletterEmails.js sends the confirmation and welcome emails
+    htmlPage.js         the small branded HTML pages the two link routes render
     resendContacts.js   newsletter list as Resend contacts (needs a Full access key)
     emails/             react-email templates + shared brand tokens (see API section)
 src/
@@ -142,7 +145,7 @@ the Vercel dashboard for Production, Preview **and** Development.
 | `OPENAI_MODEL` | Model id answering visitors; falls back to `DEFAULT_MODEL` in `api/chat.js` |
 | `ALLOWED_ORIGINS` | Optional comma-separated origin allowlist; check is skipped when unset |
 | `RESEND_API_KEY` | Auth for every Resend call — `api/lead.js` (notification + confirmation), `api/newsletter.js` (contact + welcome email), `api/unsubscribe.js` (contact update). **Must be a Full access key**: a "Sending access" key sends email fine but every contacts call fails with 401 `restricted_api_key`, which silently breaks the subscriber list and makes every unsubscribe attempt show an error page. Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
-| `UNSUBSCRIBE_SECRET` | HMAC key for the signed links in `api/_lib/unsubscribe.js`. Use a different random value per environment. Unset → the welcome email is **not sent** (logged as `[newsletter] UNSUBSCRIBE_SECRET is not set`), because a newsletter-type email without a working unsubscribe hurts deliverability and breaks GDPR/CAN-SPAM. Changing it invalidates every unsubscribe link already in inboxes. |
+| `EMAIL_LINK_SECRET` | HMAC key for the signed confirm and unsubscribe links in `api/_lib/emailLinks.js`. Use a different random value per environment. Unset → **no newsletter email is sent at all** (logged as `EMAIL_LINK_SECRET is not set`): no confirmation link can be built, and a welcome email without a working unsubscribe hurts deliverability and breaks GDPR/CAN-SPAM. Changing it invalidates every link already in inboxes. |
 | `RESEND_NEWSLETTER_SEGMENT_ID` | Optional. Resend segment new subscribers are added to — the segment a Broadcast targets. Unset → contacts are created with no segment. |
 | `LEAD_TO_EMAIL` | Destination inbox for lead notifications; also used as the `reply_to` on the visitor's confirmation email |
 | `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be on a domain verified in Resend — **the exact hostname**, not just a domain whose parent is verified. `roshalink.com` being verified does **not** cover `leads@send.roshalink.com`: Resend treats a subdomain as a separate domain needing its own DNS records and verification. Sending from an address on an unverified (sub)domain fails with a 403 `validation_error`, logged as `[lead] resend_error` / `[newsletter] resend_error` — confirm which exact hostname shows "Verified" on the Resend dashboard's Domains page before assuming this var is correct. |
@@ -178,28 +181,44 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
   the same way: a Resend failure there only gets swallowed into a `200`
   response if the backend forward (below) already succeeded; if both fail,
   the handler returns `502`/`504`/`500`.
-- `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/15min/IP. On a
-  valid, non-honeypot submission it forwards to the backend and — best-effort,
-  same fire-and-forget pattern as above — sends a `WelcomeEmail`, logging any
-  Resend failure as `[newsletter] resend_error` (added along with the
-  `response.ok` check itself — the send previously failed silently with zero
-  log output, since `sendViaResend()` only rejects on a network-level
-  failure, not an HTTP error status, and the `catch` block never ran).
-  There is no user-account system anywhere in this codebase, so a newsletter
-  subscription is the closest real substitute for "on signup".
-  Before the welcome email, the address is upserted as a **Resend contact**
-  (`api/_lib/resendContacts.js`): new → created (in `RESEND_NEWSLETTER_SEGMENT_ID`
-  if set); previously unsubscribed → re-subscribed; already subscribed → **no
-  second welcome email**. The visitor-facing response is identical in all
-  three cases so the endpoint can't be used to check who is subscribed. A
-  contacts failure is logged (`[newsletter] contact_sync_error`) and does not
-  block the welcome email. The welcome email carries RFC 8058 one-click
-  `List-Unsubscribe` / `List-Unsubscribe-Post` headers, the same signed link
-  in its footer, `reply_to: LEAD_TO_EMAIL`, and is not sent at all without
-  `UNSUBSCRIBE_SECRET`.
+- **Newsletter = double opt-in.** Nobody is added to the list until they click
+  a link sent to the address they typed. This keeps typos, bots and other
+  people's addresses off the list, which is the single biggest deliverability
+  and GDPR win for a sign-up form.
+  - `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/min/IP (the
+    only brake on using the form to flood someone with confirmation emails).
+    Looks the address up in Resend contacts: already subscribed → sends
+    nothing; otherwise sends a localized `ConfirmSubscriptionEmail` with a
+    signed, **7-day** `confirmUrl` (`api/_lib/emailLinks.js`). It writes
+    nothing to Resend and no longer forwards to the MongoDB backend. The
+    response is `200 { success, message: 'Confirmation email sent' }` in
+    every case, so the endpoint can't be used to check who is subscribed. A
+    failed lookup (`[newsletter] contact_lookup_error`) still sends the
+    confirmation.
+  - `GET|POST /api/confirm-subscription?e=&ts=&t=&lang=` — HTML, like
+    unsubscribe. `ts` is the issue time and is covered by the signature, so an
+    expired link can't be extended by editing it; an expired link → 410 page,
+    a bad one → 400. **GET only shows a "Confirm" button** — Microsoft Safe
+    Links and similar scanners open every link, and a subscribing GET would
+    record consent nobody gave. POST upserts the Resend contact (new → created
+    in `RESEND_NEWSLETTER_SEGMENT_ID`; previously unsubscribed →
+    re-subscribed), then — unless it was already subscribed — sends the
+    `WelcomeEmail` and forwards `{ email, lang }` to the backend, so the
+    backend only ever sees confirmed subscribers. A contacts failure here is
+    shown to the visitor (502 page), since subscribing is the whole point of
+    the request; a welcome-email failure is only logged.
+  - The welcome email carries RFC 8058 one-click `List-Unsubscribe` /
+    `List-Unsubscribe-Post` headers, the same signed link in its footer, and
+    `reply_to: LEAD_TO_EMAIL`. The confirmation email has no unsubscribe link
+    on purpose: the recipient isn't subscribed to anything yet, and its copy
+    says ignoring it is enough.
+  - Confirm and unsubscribe tokens are HMACs over `purpose + email (+ ts)`,
+    so one kind can never be replayed as the other.
+  - There is no user-account system in this codebase, so a confirmed
+    newsletter subscription is the closest real substitute for "on signup".
 - `GET|POST /api/unsubscribe?e=&t=&lang=` — the one route that returns
   **HTML**, since it is opened from an email in a browser. `t` is an
-  HMAC-SHA256 of the lower-cased email (`api/_lib/unsubscribe.js`); a
+  HMAC-SHA256 of the lower-cased email (`api/_lib/emailLinks.js`); a
   mismatch → 400 page. **GET only shows a confirmation page with a button —
   it never unsubscribes**, because corporate mail scanners and link
   previewers fetch every URL in an email and would otherwise unsubscribe
@@ -458,31 +477,39 @@ through `npm run dev`.
    (roshalink.com appears in content) isn't configured anywhere in the repo.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
-6. The subscriber list now lives in two places: Resend contacts (source of
-   truth for Broadcasts and unsubscribes) and the external MongoDB backend
-   (`/api/newsletter` forward), which never hears about unsubscribes. Fine
-   while newsletters go out through Resend Broadcasts; if they ever go out
-   from the backend's list instead, it needs to read unsubscribe state from
-   Resend first.
-7. `WelcomeEmail`'s copy ("Book your kickoff call", "Meet your project
-   team") is written for a new *client*, but it is sent to newsletter
-   subscribers. Should it be rewritten for a newsletter sign-up?
-8. There is no double opt-in: anyone can subscribe any address. Double
-   opt-in (confirm-by-click before the contact becomes subscribed) is the
-   strongest remaining deliverability/GDPR improvement.
+6. The subscriber list lives in two places: Resend contacts (source of truth
+   for Broadcasts and unsubscribes) and the external MongoDB backend (sent
+   each newly confirmed subscriber by `api/confirm-subscription.js`), which
+   never hears about unsubscribes. Fine while newsletters go out through
+   Resend Broadcasts; if they ever go out from the backend's list instead, it
+   needs to read unsubscribe state from Resend first.
+7. The welcome email promises a newsletter "once a quarter", matching the
+   site footer's "Get quarterly strategic insights". Someone has to actually
+   send one each quarter (Resend → Broadcasts → the "Newsletter" segment), or
+   the promise — and engagement, which inbox providers track — lapses.
+8. The rewritten welcome email and the new confirmation/subscribe-page copy
+   in `fa`/`ar` are original translations, not yet reviewed by a native
+   speaker.
 
 ## Recent Branch Updates & Improvements
 
-- **Newsletter unsubscribe + deliverability** (`api/unsubscribe.js`,
-  `api/_lib/unsubscribe.js`, `api/_lib/resendContacts.js`):
+- **Newsletter: double opt-in, unsubscribe, deliverability**
+  (`api/newsletter.js`, `api/confirm-subscription.js`, `api/unsubscribe.js`,
+  `api/_lib/emailLinks.js`, `api/_lib/resendContacts.js`):
+  - Double opt-in: sign-up sends a "confirm your subscription" email; only
+    the confirm click adds the Resend contact (in the "Newsletter" segment),
+    sends the welcome email, and forwards to the MongoDB backend. The site
+    footer's success message now says "check your inbox".
   - Real signed one-click unsubscribe replaces the welcome email's
     `href="#"` placeholder, plus RFC 8058 `List-Unsubscribe` headers (which
     Gmail and Yahoo expect on newsletter mail).
-  - Subscribers are stored as Resend contacts for Resend Broadcasts; repeat
-    sign-ups no longer get a second welcome email.
-  - The welcome email no longer greets nameless subscribers as "there" in
-    every language ("Välkommen ombord, there!", "there عزیز") — the headline
-    now reads naturally with no name.
+  - Welcome email rewritten for newsletter subscribers (it was client-
+    onboarding copy: "Book your kickoff call"); no more "there" greeting in
+    every language ("Välkommen ombord, there!", "there عزیز").
+  - RTL fix across the visitor-facing templates: letter-spaced monospace
+    labels (badges, taglines, the echoed message) split Farsi/Arabic letters
+    apart, and the numbered feature rows had their padding on the wrong side.
+    RTL now uses the body font with no letter-spacing, and mirrored padding.
   - All email now comes from "RoshaLink <address>" instead of a bare
     address; the welcome email's replies go to `LEAD_TO_EMAIL`.
   - DNS for roshalink.com (outside this repo): Resend and Namecheap Private

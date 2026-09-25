@@ -16,7 +16,7 @@ import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 //
 // `apply: 'serve'` means this never runs during `vite build`, so it is
 // structurally impossible for any of it — or the API key — to reach `dist/`.
-const API_ROUTES = ['/api/chat', '/api/lead', '/api/newsletter', '/api/unsubscribe']
+const API_ROUTES = ['/api/chat', '/api/lead', '/api/newsletter', '/api/confirm-subscription', '/api/unsubscribe']
 
 function devApiPlugin(env) {
   return {

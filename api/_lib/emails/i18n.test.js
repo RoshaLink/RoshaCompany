@@ -34,12 +34,12 @@ describe('isRtl / dirFor', () => {
 
 describe('emailCopy', () => {
   it.each(['sv', 'en', 'fa', 'ar'])('returns fully-populated strings for %j', (lang) => {
-    const { locale, common, welcome, confirmation, unsubscribe } = emailCopy(lang);
+    const { locale, ...groups } = emailCopy(lang);
     expect(locale).toBe(lang);
 
     // Every key that isn't a function must be a non-empty string; every
     // function must return a non-empty string when called.
-    for (const group of [common, welcome, confirmation, unsubscribe]) {
+    for (const group of Object.values(groups)) {
       for (const [key, value] of Object.entries(group)) {
         if (typeof value === 'function') {
           expect(value('Sam'), `${lang}.${key}('Sam')`).toBeTruthy();
@@ -52,21 +52,16 @@ describe('emailCopy', () => {
     }
   });
 
-  it("welcome.headline returns a {before, highlight, after} triplet", () => {
-    const { welcome } = emailCopy('en');
-    const headline = welcome.headline('Sam');
-    expect(headline).toHaveProperty('before');
-    expect(headline).toHaveProperty('highlight');
-    expect(headline).toHaveProperty('after');
-    expect(`${headline.before}${headline.highlight}${headline.after}`).toContain('Sam');
+  it.each(['sv', 'en', 'fa', 'ar'])('welcome.headline is a non-empty {before, highlight, after} triplet (%s)', (lang) => {
+    const { welcome } = emailCopy(lang);
+    const { before, highlight, after } = welcome.headline();
+    expect(highlight).toBeTruthy();
+    expect(`${before}${highlight}${after}`).not.toMatch(/undefined|there/);
   });
 
-  it.each(['sv', 'en', 'fa', 'ar'])('welcome.headline reads naturally without a name (%s)', (lang) => {
-    const { welcome } = emailCopy(lang);
-    const { before, highlight, after } = welcome.headline(undefined);
-    const text = `${before}${highlight}${after}`;
-    expect(text).not.toMatch(/undefined|there/);
-    expect(text).not.toMatch(/[,،]\s*!$/);
+  it('every locale has the same number of welcome features', () => {
+    const counts = ['sv', 'en', 'fa', 'ar'].map((lang) => emailCopy(lang).welcome.features.length);
+    expect(new Set(counts).size).toBe(1);
   });
 
   it('falls back to Swedish strings for an unsupported lang', () => {

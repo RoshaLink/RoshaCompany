@@ -5,7 +5,7 @@ import * as React from 'react';
 import { Button, Column, Img, Row, Section, Text } from '@react-email/components';
 import EmailLayout from './EmailLayout.js';
 import EmailFooter from './EmailFooter.js';
-import { SITE_URL, colors, fonts, footerLinksFor, logo, radii } from './brand.js';
+import { SITE_URL, colors, fonts, footerLinksFor, logo, phone, radii } from './brand.js';
 import { dirFor, emailCopy, isRtl, resolveLocale } from './i18n.js';
 
 const h = React.createElement;
@@ -250,6 +250,7 @@ export default function WelcomeEmail({ ctaHref, lang, unsubscribeUrl }) {
       links: [
         { label: common.footerPrivacy, href: links.privacyPolicy },
         { label: common.footerContact, href: links.contact },
+        { label: phone.display, href: phone.href, dir: 'ltr' },
         // Signed per-recipient link built by api/_lib/emailLinks.js; the same
         // URL also goes in the List-Unsubscribe header (newsletterEmails.js).
         { label: common.footerUnsubscribe, href: unsubscribeUrl },

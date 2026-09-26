@@ -87,6 +87,7 @@ api/                    Vercel serverless functions (Node, ESM). One route per f
     htmlPage.js         the small branded HTML pages the two link routes render
     resendContacts.js   newsletter list as Resend contacts (needs a Full access key)
     emails/             react-email templates + shared brand tokens (see API section)
+                        ColdOutreachEmail.js is preview-only, no send path
 src/
   config/
     seoConfig.js        Multilingual SEO metadata matrix (SV, EN, FA, AR)
@@ -358,6 +359,46 @@ structural pieces all three compose.
     the SPA, not transactional-email copy) and were not reviewed by a native
     Farsi/Arabic speaker — worth a native-speaker pass before this is fully
     trusted for real customer-facing sends, same caution as `COMPANY_FACTS`.
+
+**Cold outreach template (`ColdOutreachEmail.js`)**: a fourth template, not
+part of the three transactional ones above and **not wired to any api/ route
+or Resend send** — there is deliberately no handler, recipient list, or send
+script anywhere in this codebase. It exists only for the manual workflow:
+run `npx react-email dev --dir api/_lib/emails`, open it in the preview
+sidebar, edit its props for one specific recipient (`observation` must be
+genuinely written per-recipient — everything else has a generic default
+pulled from `COMPANY_FACTS`'s "what we do" list), then copy the rendered
+HTML out of the preview and paste it into a one-off compose window in a real
+mailbox and send by hand. Kept off the Resend/`LEAD_FROM_EMAIL` sending
+domain on purpose — unsolicited mail carries a much higher complaint/bounce
+rate than the opt-in traffic that domain's reputation otherwise depends on
+(see the DMARC rollout note below); send cold outreach from an individual
+mailbox instead (e.g. Namecheap Private Email). Copy is plain and personal
+(no gradient headline, no "subscribed" framing) so it reads as a note from a
+person, not a campaign. Localized via `i18n.js`'s `coldOutreach` section
+(sv/en/fa/ar, same `resolveLocale`/`dirFor` mechanism as the other three
+templates) — `observation` (the personalized hook) is the one field that's
+never looked up by locale, since it must always be hand-written for that
+specific recipient in whatever language you're sending in. Practical use so
+far: one saved "signature" per language in the sending mailbox's webmail
+settings (e.g. Namecheap Private Email → Settings → Mail → Signatures),
+inserted manually per email, with the placeholder recipient/company/
+observation text overwritten before sending — see `scripts/render-cold-
+outreach.js` and `scripts/cold-outreach.example.js` for the one-recipient-
+at-a-time render helper.
+
+**Phone number in the footer**: all three visitor-facing templates
+(WelcomeEmail, ContactConfirmationEmail, ColdOutreachEmail) now show the
+same phone number as the live site's `Footer.jsx` (`brand.js`'s `phone`
+export — the single source of truth, `0724453332` / `tel:0724453332`) as a
+link in `EmailFooter`'s link row, alongside Contact/Website/Privacy.
+`EmailFooter.js` gained an optional per-link `dir` so the phone number's
+digits stay LTR even inside an RTL (`fa`/`ar`) footer, matching
+`Footer.jsx`'s own `<span dir="ltr">` around the same number.
+**LeadNotificationEmail deliberately does not get this** — its footer is the
+minimal "compact" variant (an internal ops note, not a set of contact links)
+and it's read by the RoshaLink team, not a visitor who'd need a phone number
+to reach the company.
 
 Client routes (`src/App.jsx`): `/`, `/home`, `/about`, `/services`, `/portfolio`,
 `/contact`, `/privacy`, `/privacy-policy`, and `*` → home. `vercel.json` rewrites

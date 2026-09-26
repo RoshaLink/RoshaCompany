@@ -6,7 +6,7 @@ import { Img, Link, Section, Text } from '@react-email/components';
 import EmailLayout from './EmailLayout.js';
 import EmailFooter from './EmailFooter.js';
 import FieldRow from './FieldRow.js';
-import { SITE_URL, colors, fonts, footerLinksFor, logo, radii } from './brand.js';
+import { SITE_URL, colors, fonts, footerLinksFor, logo, phone, radii } from './brand.js';
 import { dirFor, emailCopy, isRtl, resolveLocale } from './i18n.js';
 
 const h = React.createElement;
@@ -180,6 +180,7 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
       links: [
         { label: common.footerPrivacy, href: links.privacyPolicy },
         { label: common.footerContact, href: links.contact },
+        { label: phone.display, href: phone.href, dir: 'ltr' },
         { label: common.footerWebsite, href: links.website },
       ],
     })

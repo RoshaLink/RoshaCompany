@@ -81,5 +81,8 @@ export function footerLinksFor(locale) {
   };
 }
 
+/** Matches the real, published number in Footer.jsx (`tel:0724453332`) — the site's only other phone reference. */
+export const phone = { display: '0724453332', href: 'tel:0724453332' };
+
 export const tagline = 'Strategic Design & Tech Agency';
 export const copyrightLine = `© ${new Date().getFullYear()} RoshaLink. All rights reserved.`;

@@ -243,6 +243,77 @@ const confirmation = {
   },
 };
 
+/**
+ * Cold outreach template (ColdOutreachEmail.js). Unlike the templates above,
+ * this one is never sent by any api/ route — it's rendered manually (see
+ * AGENTS.md's "Cold outreach template" note) and copy-pasted into a real
+ * mailbox one recipient at a time. `observation` (the personalized hook) is
+ * always hand-written per recipient regardless of locale, so it isn't a key
+ * here; everything else is the reusable, generic part of the email.
+ */
+const coldOutreach = {
+  sv: {
+    footerTagline: 'Strategisk Design & Teknikbyrå · Stockholm, Sverige',
+    greeting: (name) => `Hej ${name},`,
+    intro: 'Vi är RoshaLink — ett litet, senior team baserat i Stockholm. Vi är fem personer, så du jobbar direkt med den som faktiskt bygger din lösning, inte via en projektledare.',
+    focusAreas: [
+      { title: 'Skräddarsydda webb- & e-handelslösningar', body: 'Skräddarsydda webbappar, butiker och mobilappar, byggda och levererade från start till mål.' },
+      { title: 'Dashboards & interna verktyg', body: 'CRM/ERP-integrationer, analysdashboards och driftverktyg byggda utifrån hur teamet faktiskt arbetar.' },
+      { title: 'AI-assisterade arbetsflöden', body: 'Smarta assistenter och automation för de repetitiva delarna av verksamheten.' },
+    ],
+    ctaIntro: (company) => `Om det är intressant hjälper vi gärna till med en kort, kostnadsfri titt på ${company ? `${company}s` : 'er'} webbplats och skickar över vad vi hade ändrat — helt utan säljpitch.`,
+    ctaLabel: 'Boka ett kostnadsfritt uppstartssamtal',
+    replyNote: (firstName) => `Oavsett — svara bara på det här mejlet och säg till ${firstName} om du hellre inte vill höra från oss igen, inga hårda känslor.`,
+    signOff: 'Vänliga hälsningar,',
+    previewText: (company) => (company ? `En snabb notering om ${company}` : 'En snabb notering till dig'),
+  },
+  en: {
+    footerTagline: 'Strategic Design & Tech Agency · Stockholm, Sweden',
+    greeting: (name) => `Hi ${name},`,
+    intro: "We're RoshaLink — a small, senior team based in Stockholm. Five of us, so you'd work directly with whoever is building your thing rather than through account managers.",
+    focusAreas: [
+      { title: 'Custom web & e-commerce', body: 'Bespoke web apps, storefronts and mobile apps, built and shipped end to end.' },
+      { title: 'Dashboards & internal tools', body: 'CRM/ERP integrations, analytics dashboards and operations tooling built around how the team actually works.' },
+      { title: 'AI-assisted workflows', body: 'Smart assistants and automation for the repetitive parts of the business.' },
+    ],
+    ctaIntro: (company) => `If that's useful, happy to do a short, no-obligation look at ${company ? `${company}'s` : 'your'} site and send over what we'd change — no pitch attached.`,
+    ctaLabel: 'Book a free discovery call',
+    replyNote: (firstName) => `Either way — just reply and let ${firstName} know if you'd rather not hear from us again, no hard feelings.`,
+    signOff: 'Best,',
+    previewText: (company) => (company ? `A quick note about ${company}` : 'A quick note for you'),
+  },
+  fa: {
+    footerTagline: 'آژانس طراحی استراتژیک و فناوری · استکهلم، سوئد',
+    greeting: (name) => `${name} عزیز،`,
+    intro: 'ما روشالینک هستیم — یک تیم کوچک و باتجربه در استکهلم. پنج نفریم، پس مستقیماً با کسی که کار شما را می‌سازد در ارتباط خواهید بود، نه از طریق مدیر پروژه.',
+    focusAreas: [
+      { title: 'وب‌سایت و فروشگاه اینترنتی اختصاصی', body: 'اپلیکیشن‌های وب، فروشگاه‌های آنلاین و اپلیکیشن‌های موبایل، طراحی و تحویل‌شده به‌صورت کامل.' },
+      { title: 'داشبورد و ابزارهای داخلی', body: 'یکپارچه‌سازی CRM/ERP، داشبوردهای تحلیلی و ابزارهای عملیاتی متناسب با روش کار واقعی تیم شما.' },
+      { title: 'گردش‌کارهای مبتنی بر هوش مصنوعی', body: 'دستیارهای هوشمند و اتوماسیون برای بخش‌های تکراری کسب‌وکار.' },
+    ],
+    ctaIntro: (company) => `اگر مفید باشد، خوشحال می‌شویم یک بررسی کوتاه و رایگان از وب‌سایت ${company || 'شما'} انجام دهیم و آنچه تغییر می‌دادیم را برایتان بفرستیم — بدون هیچ پیشنهاد فروشی.`,
+    ctaLabel: 'رزرو یک مشاوره رایگان',
+    replyNote: (firstName) => `در هر صورت — کافی است به همین ایمیل پاسخ دهید و به ${firstName} بگویید اگر ترجیح می‌دهید دیگر از ما پیامی دریافت نکنید، بدون هیچ مشکلی.`,
+    signOff: 'با احترام،',
+    previewText: (company) => (company ? `یک یادداشت کوتاه درباره ${company}` : 'یک یادداشت کوتاه برای شما'),
+  },
+  ar: {
+    footerTagline: 'وكالة التصميم الاستراتيجي والتقنية · ستوكهولم، السويد',
+    greeting: (name) => `مرحباً ${name}،`,
+    intro: 'نحن روشالينك — فريق صغير وذو خبرة مقره ستوكهولم. نحن خمسة أشخاص فقط، لذا ستعمل مباشرة مع من يقوم فعلياً ببناء مشروعك، وليس عبر مدير حسابات.',
+    focusAreas: [
+      { title: 'مواقع ومتاجر إلكترونية مخصصة', body: 'تطبيقات ويب مخصصة، متاجر إلكترونية وتطبيقات جوال، مبنية ومسلَّمة من الألف إلى الياء.' },
+      { title: 'لوحات تحكم وأدوات داخلية', body: 'تكامل أنظمة CRM/ERP، لوحات تحليلات، وأدوات تشغيلية مصممة حسب طريقة عمل فريقك فعلياً.' },
+      { title: 'سير عمل مدعوم بالذكاء الاصطناعي', body: 'مساعدون أذكياء وأتمتة للمهام المتكررة في العمل.' },
+    ],
+    ctaIntro: (company) => `إن كان هذا مفيداً، يسعدنا إلقاء نظرة سريعة ومجانية على موقع ${company || 'موقعكم'} وإرسال ما كنا سنغيّره — دون أي عرض مبيعات.`,
+    ctaLabel: 'احجز مكالمة استكشافية مجانية',
+    replyNote: (firstName) => `على أي حال — يكفي أن ترد على هذه الرسالة وتخبر ${firstName} إن كنت تفضل عدم التواصل معك مرة أخرى، دون أي حرج.`,
+    signOff: 'مع أطيب التحيات،',
+    previewText: (company) => (company ? `ملاحظة سريعة حول ${company}` : 'ملاحظة سريعة لك'),
+  },
+};
+
 /** Copy for the small HTML pages `api/unsubscribe.js` renders in the browser. */
 const unsubscribe = {
   sv: {
@@ -372,6 +443,7 @@ export function emailCopy(lang) {
     welcome: welcome[locale],
     subscribeConfirm: subscribeConfirm[locale],
     confirmation: confirmation[locale],
+    coldOutreach: coldOutreach[locale],
     unsubscribe: unsubscribe[locale],
     subscribePage: subscribePage[locale],
   };

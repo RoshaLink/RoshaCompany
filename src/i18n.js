@@ -221,6 +221,7 @@ const resources = {
         home: "Hem",
         portfolio: "Portfölj",
         services: "Tjänster",
+        insights: "Blogg & Insikter",
         about: "Om oss",
         contact: "Kontakt",
         getStarted: "Börja nu",
@@ -230,6 +231,14 @@ const resources = {
         lightMode: "Ljust läge",
         closeMenu: "Stäng meny",
         openMenu: "Öppna meny"
+      },
+      insightsPage: {
+        subtitle: "Djupdykningar i mjukvaruteknik, molnarkitektur och strategier för digital tillväxt.",
+        empty: "Inga artiklar hittades för detta språk.",
+        partnerRole: "RoshaLink Partner",
+        minRead: "min läsning",
+        readNext: "Läs Nästa",
+        share: "Dela:"
       },
       hero: {
         badge: "DIGITAL AFFÄRSTRANSFORMATION & AI-ARKITEKTUR",
@@ -1246,6 +1255,7 @@ const resources = {
         home: "Home",
         portfolio: "Portfolio",
         services: "Services",
+        insights: "Blog & Insights",
         about: "About Us",
         contact: "Contact",
         getStarted: "Get Started",
@@ -1255,6 +1265,14 @@ const resources = {
         lightMode: "Light Mode",
         closeMenu: "Close menu",
         openMenu: "Open menu"
+      },
+      insightsPage: {
+        subtitle: "Deep dives into software engineering, cloud architecture, and digital growth strategies.",
+        empty: "No articles found for this language.",
+        partnerRole: "RoshaLink Partner",
+        minRead: "min read",
+        readNext: "Read Next",
+        share: "Share:"
       },
       hero: {
         badge: "DIGITAL BUSINESS TRANSFORMATION & AI ARCHITECTURE",
@@ -2271,6 +2289,7 @@ const resources = {
         home: "صفحه اصلی",
         portfolio: "نمونه‌کارها",
         services: "خدمات",
+        insights: "وبلاگ و مقالات",
         about: "درباره ما",
         contact: "تماس با ما",
         getStarted: "شروع کنید",
@@ -2280,6 +2299,14 @@ const resources = {
         lightMode: "حالت روز",
         closeMenu: "بستن منو",
         openMenu: "باز کردن منو"
+      },
+      insightsPage: {
+        subtitle: "مقالاتی تخصصی درباره مهندسی نرم‌افزار، معماری ابری و استراتژی‌های رشد دیجیتال.",
+        empty: "مقاله‌ای در این زبان یافت نشد.",
+        partnerRole: "شریک روشالینک",
+        minRead: "دقیقه مطالعه",
+        readNext: "مقالات مرتبط",
+        share: "اشتراک‌گذاری:"
       },
       hero: {
         badge: "تحول دیجیتال کسب‌وکار و معماری هوش مصنوعی",
@@ -3296,6 +3323,7 @@ const resources = {
         home: "الرئيسية",
         portfolio: "أعمالنا",
         services: "خدماتنا",
+        insights: "المدونة والمقالات",
         about: "من نحن",
         contact: "تواصل معنا",
         getStarted: "ابدأ الآن",
@@ -3305,6 +3333,14 @@ const resources = {
         lightMode: "الوضع النهاري",
         closeMenu: "إغلاق القائمة",
         openMenu: "فتح القائمة"
+      },
+      insightsPage: {
+        subtitle: "تحليلات متعمقة في هندسة البرمجيات، البنية التحتية السحابية، واستراتيجيات النمو الرقمي.",
+        empty: "لم يتم العثور على مقالات بهذه اللغة.",
+        partnerRole: "شريك روشالينك",
+        minRead: "دقيقة قراءة",
+        readNext: "اقرأ التالي",
+        share: "مشاركة:"
       },
       hero: {
         badge: "التحول الرقمي للأعمال وهندسة الذكاء الاصطناعي",

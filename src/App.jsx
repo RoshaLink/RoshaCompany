@@ -13,6 +13,8 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage/ServicesPage'));
 const PortfolioPage = lazy(() => import('./pages/PortfolioPage/PortfolioPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'));
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage/PrivacyPolicyPage'));
+const InsightsPage = lazy(() => import('./pages/InsightsPage/InsightsPage'));
+const InsightDetailsPage = lazy(() => import('./pages/InsightDetailsPage/InsightDetailsPage'));
 const RoshaChatWidget = lazy(() => import('./components/RoshaChatWidget/RoshaChatWidget'));
 const GetStartedModal = lazy(() => import('./components/GetStartedModal/GetStartedModal'));
 
@@ -104,6 +106,7 @@ export default function App() {
     if (lower.includes('about')) return 'about';
     if (lower.includes('services')) return 'services';
     if (lower.includes('portfolio')) return 'portfolio';
+    if (lower.includes('insights')) return 'insights';
     if (lower.includes('contact')) return 'contact';
     if (lower.includes('privacy')) return 'privacy';
     return 'home';
@@ -181,6 +184,22 @@ export default function App() {
               element={
                 <LocalizedPageWrapper pageId="portfolio">
                   <PortfolioPage onOpenGetStarted={() => setIsGetStartedOpen(true)} />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/insights"
+              element={
+                <LocalizedPageWrapper pageId="insights">
+                  <InsightsPage />
+                </LocalizedPageWrapper>
+              }
+            />
+            <Route
+              path="/:lang/insights/:slug"
+              element={
+                <LocalizedPageWrapper pageId="insights">
+                  <InsightDetailsPage />
                 </LocalizedPageWrapper>
               }
             />

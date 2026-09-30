@@ -5,35 +5,77 @@
   width: 100%;
   min-height: 90vh;
   background-color: transparent;
-  padding: 3rem 1.5rem 4rem;
+  padding: 3rem 1.25rem 4rem;
   overflow: hidden;
   font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  --circle-size: 260px;
+}
+
+@media (max-width: 380px) {
+  .hero-section {
+    --circle-size: 240px;
+  }
+}
+
+@media (min-width: 480px) {
+  .hero-section {
+    --circle-size: 290px;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
 }
 
 @media (min-width: 640px) {
   .hero-section {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    --circle-size: 340px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
 @media (min-width: 768px) {
   .hero-section {
     min-height: 100vh;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    --circle-size: 220px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     padding-bottom: 3rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-section {
-    padding-left: 6rem;
-    padding-right: 6rem;
+    --circle-size: 290px;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-section {
+    --circle-size: 350px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-section {
+    --circle-size: 410px;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-section {
+    --circle-size: 470px;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
   }
 }
 
@@ -81,7 +123,26 @@
 
 @media (min-width: 768px) {
   .hero-grid {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-grid {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-grid {
+    gap: 3.5rem;
   }
 }
 
@@ -92,12 +153,15 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
   .hero-content-col {
     order: 1;
-    grid-column: span 4 / span 4;
+    min-width: 0;
+    width: 100%;
   }
 
   .hero-content-col.is-ltr {
@@ -123,10 +187,17 @@
   .hero-quote-wrapper {
     margin-left: 0;
     margin-right: 0;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 1024px) {
+  .hero-quote-wrapper {
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
   .hero-quote-wrapper {
     gap: 1.75rem;
   }
@@ -157,11 +228,17 @@
 
 @media (min-width: 1024px) {
   .hero-quote-box {
-    padding: 1.75rem;
+    padding: 1.5rem;
   }
 }
 
 @media (min-width: 1280px) {
+  .hero-quote-box {
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1600px) {
   .hero-quote-box {
     padding: 2rem;
   }
@@ -275,19 +352,29 @@
 
 @media (min-width: 768px) {
   .hero-quote-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-quote-text {
-    font-size: 1rem;
+    font-size: 0.925rem;
+    line-height: 1.55;
   }
 }
 
 @media (min-width: 1280px) {
   .hero-quote-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-quote-text {
     font-size: 1.125rem;
+    line-height: 1.65;
   }
 }
 
@@ -333,7 +420,6 @@
   }
 
   .hero-controls-mobile .hero-btn-arrow {
-    /* 2.75rem (44px) touch-target minimum -- was 2.25rem (36px). */
     width: 2.75rem;
     height: 2.75rem;
     border-radius: var(--radius-xl);
@@ -368,7 +454,6 @@
   cursor: pointer;
   box-shadow: var(--shadow-md);
   margin-top: 0.5rem;
-  /* pt-2 */
 }
 
 .hero-btn-action:hover {
@@ -377,11 +462,6 @@
 
 @media (min-width: 768px) {
   .hero-btn-action {
-    /* Same tablet-range dip as .hero-btn-arrow above: this shrank the
-       button to ~38px tall, under the 44px minimum, while both the range
-       below (mobile) and above (1024px+) already clear it. min-height
-       keeps the more compact padding/font-size (the visual intent here)
-       but guarantees the tap target regardless. */
     font-size: 0.75rem;
     padding: 0.75rem 1.25rem;
     min-height: 44px;
@@ -390,8 +470,8 @@
 
 @media (min-width: 1024px) {
   .hero-btn-action {
-    font-size: 1rem;
-    padding: 0.875rem 1.75rem;
+    font-size: 0.95rem;
+    padding: 0.875rem 1.6rem;
   }
 }
 
@@ -405,6 +485,7 @@
   height: 360px;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  z-index: 1;
 }
 
 @media (min-width: 640px) {
@@ -415,19 +496,32 @@
 
 @media (min-width: 768px) {
   .hero-image-col {
-    grid-column: span 4 / span 4;
-    height: 280px;
+    width: var(--circle-size);
+    height: 300px;
+    flex-shrink: 0;
     margin: 0;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-image-col {
-    height: 480px;
+    height: 390px;
   }
 }
 
 @media (min-width: 1280px) {
+  .hero-image-col {
+    height: 460px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-image-col {
+    height: 510px;
+  }
+}
+
+@media (min-width: 1600px) {
   .hero-image-col {
     height: 540px;
   }
@@ -435,10 +529,9 @@
 
 .hero-circle,
 .hero-portrait-frame {
-  --circle-radius: 140px;
   position: absolute;
-  width: 280px;
-  height: 280px;
+  width: var(--circle-size);
+  height: var(--circle-size);
   border-radius: var(--radius-full);
 }
 
@@ -453,80 +546,31 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  clip-path: inset(-100% 0 0 0 round 0 0 var(--circle-radius) var(--circle-radius));
-  -webkit-clip-path: inset(-100% 0 0 0 round 0 0 var(--circle-radius) var(--circle-radius));
-}
-
-@media (max-width: 380px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    --circle-radius: 120px;
-    width: 240px;
-    height: 240px;
-  }
-
-  .hero-portrait {
-    width: 12rem;
-  }
-}
-
-@media (max-width: 380px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    width: 240px;
-    height: 240px;
-  }
-
-  .hero-portrait {
-    width: 12rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    --circle-radius: 180px;
-    width: 360px;
-    height: 360px;
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    --circle-radius: 100px;
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    --circle-radius: 180px;
-    width: 360px;
-    height: 360px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-circle,
-  .hero-portrait-frame {
-    --circle-radius: 240px;
-    width: 480px;
-    height: 480px;
-  }
+  clip-path: inset(-100% 0 0 0 round 0 0 50% 50%);
+  -webkit-clip-path: inset(-100% 0 0 0 round 0 0 50% 50%);
 }
 
 .hero-portrait {
   position: relative;
   z-index: 10;
   height: auto;
-  width: 14rem;
+  width: 13rem;
   object-fit: cover;
   filter: drop-shadow(0 6px 14px rgba(15, 23, 42, 0.08));
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.1) 74%, transparent 80%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 60%, rgba(0, 0, 0, 0.1) 74%, transparent 80%);
+}
+
+@media (max-width: 380px) {
+  .hero-portrait {
+    width: 11.5rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .hero-portrait {
+    width: 14rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -537,19 +581,31 @@
 
 @media (min-width: 768px) {
   .hero-portrait {
-    width: 10rem;
+    width: 10.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-portrait {
-    width: 15rem;
+    width: 13.5rem;
   }
 }
 
 @media (min-width: 1280px) {
   .hero-portrait {
-    width: 18rem;
+    width: 16rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-portrait {
+    width: 18.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-portrait {
+    width: 20rem;
   }
 }
 
@@ -560,12 +616,15 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 @media (min-width: 768px) {
   .hero-info-col {
     order: 3;
-    grid-column: span 4 / span 4;
+    min-width: 0;
+    width: 100%;
   }
 
   .hero-info-col.is-ltr {
@@ -589,6 +648,7 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   display: block;
+  word-break: normal;
 }
 
 @media (max-width: 767px) {
@@ -606,7 +666,7 @@
 
 @media (min-width: 1024px) {
   .hero-designation {
-    font-size: 0.875rem;
+    font-size: 0.825rem;
   }
 }
 
@@ -636,25 +696,31 @@
 
 @media (min-width: 768px) {
   .hero-name {
-    font-size: 2.5rem;
+    font-size: 1.85rem;
   }
 }
 
 @media (min-width: 1024px) {
   .hero-name {
-    font-size: 2.85rem;
+    font-size: 2.35rem;
   }
 }
 
 @media (min-width: 1280px) {
   .hero-name {
-    font-size: 3.25rem;
+    font-size: 2.75rem;
   }
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1440px) {
   .hero-name {
-    font-size: 3.5rem;
+    font-size: 3.1rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-name {
+    font-size: 3.35rem;
   }
 }
 
@@ -664,13 +730,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
 }
 
 
 .hero-dots-wrap {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .hero-dots-wrap {
+    gap: 1rem;
+  }
 }
 
 .hero-counter {

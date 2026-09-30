@@ -148,6 +148,14 @@ export default function Navbar({ activePage, setActivePage, onOpenGetStarted, on
       iconColor: "text-sky-500",
     },
     {
+      id: 'insights',
+      label: t('nav.insights') || 'Insights',
+      icon: Layers, // Can be BookOpen, but reusing Layers for now
+      href: '#',
+      gradient: "radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(52,211,153,0.08) 50%, rgba(255,255,255,0) 100%)",
+      iconColor: "text-emerald-500",
+    },
+    {
       id: 'about',
       label: t('nav.about'),
       icon: Users,

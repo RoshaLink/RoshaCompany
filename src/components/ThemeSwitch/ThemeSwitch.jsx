@@ -6,6 +6,7 @@ export default function ThemeSwitch({ isDark, onToggle, size = '12px', className
     <label 
       className={`theme-switch ${className}`} 
       style={{ '--toggle-size': size }}
+      aria-label="Toggle light and dark mode"
     >
       <input 
         type="checkbox" 

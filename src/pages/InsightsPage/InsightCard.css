@@ -1,0 +1,218 @@
+.insight-card-link {
+  display: block;
+  text-decoration: none;
+  height: 100%;
+}
+
+.insight-card {
+  position: relative;
+  height: 100%;
+  background-color: var(--color-white);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.insight-card-gradient-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.08);
+}
+
+.insight-card:hover .insight-card-gradient-border {
+  opacity: 1;
+}
+
+.insight-card-inner {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--color-slate-100);
+  border-radius: inherit;
+  transition: border-color 300ms ease;
+}
+
+.insight-card:hover .insight-card-inner {
+  border-color: transparent;
+}
+
+.insight-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.insight-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0ea5e9;
+  background-color: rgba(14, 165, 233, 0.1);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.insight-meta {
+  font-size: 0.8rem;
+  color: var(--color-slate-500);
+  font-weight: 500;
+}
+
+.insight-dot {
+  color: var(--color-slate-300);
+}
+
+.insight-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-slate-900);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  transition: color 300ms ease;
+  font-family: var(--font-headline);
+}
+
+.insight-card:hover .insight-card-title {
+  color: #0ea5e9;
+}
+
+.insight-card-excerpt {
+  color: var(--color-slate-600);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.insight-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-slate-100);
+}
+
+.insight-card-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.insight-author-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  color: var(--color-slate-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.insight-author-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-slate-800);
+}
+
+.insight-read-more {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0ea5e9;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.insight-arrow {
+  transition: transform 300ms ease;
+}
+
+html[dir="ltr"] .insight-card:hover .insight-arrow {
+  transform: translateX(4px);
+}
+
+html[dir="rtl"] .insight-card:hover .insight-arrow {
+  transform: translateX(-4px);
+}
+
+/* ==========================================
+   DARK MODE STYLES
+   ========================================== */
+
+html.dark .insight-card {
+  background-color: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+html.dark .insight-card-inner {
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+html.dark .insight-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .insight-category {
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+
+html.dark .insight-meta {
+  color: var(--color-slate-400);
+}
+
+html.dark .insight-dot {
+  color: var(--color-slate-600);
+}
+
+html.dark .insight-card-title {
+  color: var(--color-slate-50);
+}
+
+html.dark .insight-card:hover .insight-card-title {
+  color: #38bdf8;
+}
+
+html.dark .insight-card-excerpt {
+  color: var(--color-slate-400);
+}
+
+html.dark .insight-card-footer {
+  border-top-color: rgba(51, 65, 85, 0.5);
+}
+
+html.dark .insight-author-avatar {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: var(--color-slate-300);
+}
+
+html.dark .insight-author-name {
+  color: var(--color-slate-300);
+}
+
+html.dark .insight-read-more {
+  color: #38bdf8;
+}

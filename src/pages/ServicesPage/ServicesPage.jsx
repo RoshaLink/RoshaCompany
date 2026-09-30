@@ -58,7 +58,50 @@ export default function ServicesPage({ selectedSlug, onOpenGetStarted }) {
 
 
       {/* =========================================================================
-          5. SENIOR MODEL VS. TRADITIONAL AGENCY COMPARISON TABLE
+          5. SEO / LOCALIZED CONTENT SECTIONS
+          ========================================================================= */}
+      {i18n.language === 'sv' && (
+        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>Webbyrå i Stockholm med fokus på anpassad kod</h2>
+          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
+            RoshaLink är en ledande webbyrå i Stockholm. Vi skapar högpresterande, skräddarsydda digitala plattformar utan att förlita oss på färdiga mallar. Genom att integrera modern molnarkitektur, banbrytande design och djuptgående affärsanalys bygger vi lösningar som driver riktig affärsnytta. Vårt mål är att framtidssäkra din digitala närvaro och säkerställa en oslagbar kundupplevelse.
+          </p>
+          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>Vad kostar skräddarsydd webbutveckling och apputveckling?</h3>
+          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
+            Kostnaden för skräddarsydd webbutveckling och apputveckling varierar beroende på projektets komplexitet, funktionella krav och plattformsval. Vi erbjuder transparent prissättning och en detaljerad uppskattning efter vår första kostnadsfria strategiska konsultation. Kontakta oss för att få en exakt offert som är helt anpassad efter ditt företags unika behov och målsättningar.
+          </p>
+        </section>
+      )}
+
+      {i18n.language === 'en' && (
+        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>Guide: Choosing the Top Full-Stack Engineering Agency in Stockholm</h2>
+          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
+            Stockholm is home to some of the most innovative tech companies in the world. When selecting a full-stack engineering agency in Stockholm, it's crucial to evaluate their expertise in custom architecture, scalable cloud infrastructure, and modern frameworks like React and Node.js. A top-tier agency focuses on long-term scalability and business growth rather than quick, template-based fixes.
+          </p>
+          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>Why RoshaLink Stands Out in the Nordic Tech Scene</h3>
+          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
+            At RoshaLink, we merge rigorous business analysis with elite software engineering. Our direct-partnership model ensures you work directly with senior architects to build bespoke, high-performance web and mobile applications tailored to your exact strategic goals.
+          </p>
+        </section>
+      )}
+
+      {i18n.language === 'fa' && selectedSlug === 'mobile-apps' && (
+        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
+          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>طراحی اپلیکیشن اختصاصی با تکنولوژی‌های روز</h2>
+          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
+            ما در روشالینک با استفاده از قدرتمندترین فریم‌ورک‌های کراس‌پلتفرم مانند <strong>React Native</strong> و <strong>Flutter</strong>، اپلیکیشن‌هایی توسعه می‌دهیم که عملکردی کاملاً بومی (Native) روی سیستم‌عامل‌های iOS و اندروید ارائه می‌دهند. طراحی اپلیکیشن اختصاصی به معنای ساخت نرم‌افزاری است که دقیقاً منطبق بر نیازها و مدل کسب‌وکار شما مهندسی شده باشد، بدون استفاده از راهکارهای آماده و محدودکننده. این رویکرد بالاترین سرعت و بهترین تجربه کاربری را تضمین می‌کند.
+          </p>
+          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>زمان‌بندی پروژه‌های توسعه اپلیکیشن چقدر است؟</h3>
+          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
+            زمان‌بندی طراحی و توسعه یک اپلیکیشن موبایل بسته به پیچیدگی امکانات، نیاز به پنل مدیریت بک‌اند اختصاصی و یکپارچه‌سازی با سیستم‌های موجود متفاوت است. به طور معمول، یک نسخه پایه (MVP) طی ۲ تا ۳ ماه آماده می‌شود، در حالی که اپلیکیشن‌های سازمانی و پلتفرم‌های پیچیده‌تر ممکن است ۴ تا ۶ ماه زمان ببرند. ما از روز اول یک نقشه راه شفاف و زمان‌بندی دقیق مهندسی شده به شما ارائه می‌دهیم.
+          </p>
+        </section>
+      )}
+
+
+      {/* =========================================================================
+          6. SENIOR MODEL VS. TRADITIONAL AGENCY COMPARISON TABLE
           ========================================================================= */}
       <section className="services-comparison-section">
         <div className="services-container">

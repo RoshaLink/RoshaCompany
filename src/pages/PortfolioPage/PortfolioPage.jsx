@@ -25,6 +25,22 @@ export default function PortfolioPage({ onOpenGetStarted }) {
 
   const projects = [
     {
+      id: "royal-beauty",
+      translationKey: "royalbeautyProject",
+      title: "Royal Beauty – Skönhetsklinik Stockholm",
+      category: "Skönhetsklinik & Estetisk Upplevelse",
+      desc: "En filmisk och redaktionell digital upplevelse för Royal Beauty, en iransk-svensk skönhetsklinik i Stockholm, med GSAP-driven scrollberättelse, en interaktiv behandlingsmeny, jämförelseslider för före/efter och en presentation av VIP-medlemskapet.",
+      img: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=1200&auto=format&fit=crop",
+      metrics: "Live Production App",
+      liveUrl: "https://roshalink.github.io/royalbeauty/",
+      isFeatured: true,
+      features: [
+        "Interaktiv Före- & Efter-jämförelseslider",
+        "Filmisk Scrollberättelse Driven av GSAP",
+        "VIP-Medlemskap & Onlinebokningsflöde"
+      ]
+    },
+    {
       id: "perspolis-restaurant",
       translationKey: "perspolisProject",
       title: "Perspolis Restaurant Platform",

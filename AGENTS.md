@@ -17,7 +17,13 @@ newsletter endpoint. The site's job is to convert visitors into leads; the
 chat widget and three lead forms all feed the same endpoint. All outbound
 email (the internal lead alert, the visitor's confirmation, the newsletter
 welcome email) is built from react-email templates in `api/_lib/emails/` and
-sent through Resend — see the API section below.
+sent through Resend — see the API section below. `api/lead.js` and
+`api/newsletter.js` *also* forward every submission to an external MongoDB
+backend (`BACKEND_API_URL`, defaulting to `https://roshacompany-backend.onrender.com`)
+that is not part of this repo — see "Backend forwarding" in the API section;
+this means a submission can return `200 ok` from persisting to that backend
+alone even when the Resend email send fails, which is easy to mistake for the
+email pipeline working.
 
 ## Tech stack
 
@@ -72,9 +78,16 @@ public/
 api/                    Vercel serverless functions (Node, ESM). One route per file.
   chat.js               POST /api/chat        — proxies OpenAI, never exposes the key
   lead.js               POST /api/lead        — sends the enquiry emails via Resend
-  newsletter.js         POST /api/newsletter  — forwards to the backend + sends a welcome email
+  newsletter.js         POST /api/newsletter  — double opt-in step 1: emails a "confirm your subscription" link
+  confirm-subscription.js GET/POST /api/confirm-subscription — step 2: subscribes, sends welcome email; returns HTML
+  unsubscribe.js        GET/POST /api/unsubscribe — signed one-click unsubscribe; returns HTML, not JSON
   _lib/                 Underscore prefix = not a route. Server-only shared code.
+    emailLinks.js       HMAC-signed confirm + unsubscribe URLs (EMAIL_LINK_SECRET)
+    newsletterEmails.js sends the confirmation and welcome emails
+    htmlPage.js         the small branded HTML pages the two link routes render
+    resendContacts.js   newsletter list as Resend contacts (needs a Full access key)
     emails/             react-email templates + shared brand tokens (see API section)
+                        ColdOutreachEmail.js is preview-only, no send path
 src/
   config/
     seoConfig.js        Multilingual SEO metadata matrix (SV, EN, FA, AR)
@@ -132,13 +145,16 @@ the Vercel dashboard for Production, Preview **and** Development.
 | `OPENAI_API_KEY` | Auth for the chat completions call in `api/chat.js` |
 | `OPENAI_MODEL` | Model id answering visitors; falls back to `DEFAULT_MODEL` in `api/chat.js` |
 | `ALLOWED_ORIGINS` | Optional comma-separated origin allowlist; check is skipped when unset |
-| `RESEND_API_KEY` | Auth for every Resend send — `api/lead.js` (notification + confirmation) and `api/newsletter.js` (welcome email). Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
+| `RESEND_API_KEY` | Auth for every Resend call — `api/lead.js` (notification + confirmation), `api/newsletter.js` (contact + welcome email), `api/unsubscribe.js` (contact update). **Must be a Full access key**: a "Sending access" key sends email fine but every contacts call fails with 401 `restricted_api_key`, which silently breaks the subscriber list and makes every unsubscribe attempt show an error page. Unset means no email of any kind goes out; the affected handler still succeeds (lead saves to the backend / subscription still returns 200), it just skips the send. |
+| `EMAIL_LINK_SECRET` | HMAC key for the signed confirm and unsubscribe links in `api/_lib/emailLinks.js`. Use a different random value per environment. Unset → **no newsletter email is sent at all** (logged as `EMAIL_LINK_SECRET is not set`): no confirmation link can be built, and a welcome email without a working unsubscribe hurts deliverability and breaks GDPR/CAN-SPAM. Changing it invalidates every link already in inboxes. |
+| `RESEND_NEWSLETTER_SEGMENT_ID` | Optional. Resend segment new subscribers are added to — the segment a Broadcast targets. Unset → contacts are created with no segment. |
 | `LEAD_TO_EMAIL` | Destination inbox for lead notifications; also used as the `reply_to` on the visitor's confirmation email |
-| `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be a Resend-verified domain |
+| `LEAD_FROM_EMAIL` | Sender address for **all** outbound email (lead notification, contact confirmation, newsletter welcome), not lead-specific despite the name; must be on a domain verified in Resend — **the exact hostname**, not just a domain whose parent is verified. `roshalink.com` being verified does **not** cover `leads@send.roshalink.com`: Resend treats a subdomain as a separate domain needing its own DNS records and verification. Sending from an address on an unverified (sub)domain fails with a 403 `validation_error`, logged as `[lead] resend_error` / `[newsletter] resend_error` — confirm which exact hostname shows "Verified" on the Resend dashboard's Domains page before assuming this var is correct. |
+| `BACKEND_API_URL` | Optional override for the external lead/newsletter persistence backend (see "Backend forwarding" below); defaults to `https://roshacompany-backend.onrender.com` outside test environments. Not in `.env.example` — undocumented until this entry. |
 
 ## API
 
-Both routes are `POST`-only and return JSON with a coded `error` string
+`chat`, `lead` and `newsletter` are `POST`-only and return JSON with a coded `error` string
 (`method_not_allowed`, `forbidden`, `rate_limited`, `bad_request`, `too_long`,
 `upstream_error`, `timeout`, `server_error`). Every handler follows the same
 order: method check → `originAllowed` → `rateLimit` → env check → `readJsonBody`
@@ -149,24 +165,109 @@ order: method check → `originAllowed` → `rateLimit` → env check → `readJ
   requests/min/IP. `system` roles in client history are dropped.
 - `POST /api/lead` — body `{ name, email, company?, service?, budget?, message?, lang?, source }`
   where `source` is `get-started` | `contact` | `chat`. 5 requests/min/IP.
-  Requires `name` and an email-shaped `email`. On success it sends up to two
-  emails via Resend: always a `LeadNotificationEmail` to `LEAD_TO_EMAIL` (the
-  branded replacement for what used to be a bare, unstyled `<table>`), and —
-  only when `source` is `get-started` or `contact` **and** `email` is actually
-  email-shaped, not a phone number — a best-effort `ContactConfirmationEmail`
-  back to the submitter. The confirmation send is fire-and-forget: its failure
-  is logged and swallowed, never turned into an error response, since the
-  notification email (the part the team actually depends on) already
-  succeeded by that point. `source: 'chat'` never gets a confirmation — a
-  chat-captured contact may only be a phone number, and "here's a copy of
-  your chat" doesn't fit the "thanks for your form submission" framing.
-- `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/15min/IP. On a
-  valid, non-honeypot submission it forwards to the backend and — best-effort,
-  same fire-and-forget pattern as above — sends a `WelcomeEmail`. There is no
-  user-account system anywhere in this codebase, so a newsletter subscription
-  is the closest real substitute for "on signup"; see Open questions for what
-  that interpretation leaves unresolved (repeat-subscriber dedup, a real
-  unsubscribe link).
+  Requires `name` and an email-or-phone-shaped `email` (validated by
+  `looksLikeEmailOrPhone`, not a strict email check — `source: 'chat'` may
+  only have a phone number). On success it sends up to two emails via Resend:
+  always a `LeadNotificationEmail` to `LEAD_TO_EMAIL` (the branded replacement
+  for what used to be a bare, unstyled `<table>`), and — only when `source`
+  is `get-started` or `contact` **and** `email` is actually email-shaped, not
+  a phone number — a best-effort `ContactConfirmationEmail` back to the
+  submitter. The confirmation send is fire-and-forget: its failure is logged
+  (`[lead] confirmation_email_error`) and swallowed, never turned into an
+  error response, since the notification email (the part the team actually
+  depends on) already succeeded by that point. `source: 'chat'` never gets a
+  confirmation — a chat-captured contact may only be a phone number, and
+  "here's a copy of your chat" doesn't fit the "thanks for your form
+  submission" framing. **The notification send is not fire-and-forget** in
+  the same way: a Resend failure there only gets swallowed into a `200`
+  response if the backend forward (below) already succeeded; if both fail,
+  the handler returns `502`/`504`/`500`.
+- **Newsletter = double opt-in.** Nobody is added to the list until they click
+  a link sent to the address they typed. This keeps typos, bots and other
+  people's addresses off the list, which is the single biggest deliverability
+  and GDPR win for a sign-up form.
+  - `POST /api/newsletter` — body `{ email, lang? }`. 5 requests/min/IP (the
+    only brake on using the form to flood someone with confirmation emails).
+    Looks the address up in Resend contacts: already subscribed → sends
+    nothing; otherwise sends a localized `ConfirmSubscriptionEmail` with a
+    signed, **7-day** `confirmUrl` (`api/_lib/emailLinks.js`). It writes
+    nothing to Resend and no longer forwards to the MongoDB backend. The
+    response is `200 { success, message: 'Confirmation email sent' }` in
+    every case, so the endpoint can't be used to check who is subscribed. A
+    failed lookup (`[newsletter] contact_lookup_error`) still sends the
+    confirmation.
+  - `GET|POST /api/confirm-subscription?e=&ts=&t=&lang=` — HTML, like
+    unsubscribe. `ts` is the issue time and is covered by the signature, so an
+    expired link can't be extended by editing it; an expired link → 410 page,
+    a bad one → 400. **GET only shows a "Confirm" button** — Microsoft Safe
+    Links and similar scanners open every link, and a subscribing GET would
+    record consent nobody gave. POST upserts the Resend contact (new → created
+    in `RESEND_NEWSLETTER_SEGMENT_ID`; previously unsubscribed →
+    re-subscribed), then — unless it was already subscribed — sends the
+    `WelcomeEmail` and forwards `{ email, lang }` to the backend, so the
+    backend only ever sees confirmed subscribers. A contacts failure here is
+    shown to the visitor (502 page), since subscribing is the whole point of
+    the request; a welcome-email failure is only logged.
+  - The welcome email carries RFC 8058 one-click `List-Unsubscribe` /
+    `List-Unsubscribe-Post` headers, the same signed link in its footer, and
+    `reply_to: LEAD_TO_EMAIL`. The confirmation email has no unsubscribe link
+    on purpose: the recipient isn't subscribed to anything yet, and its copy
+    says ignoring it is enough.
+  - Confirm and unsubscribe tokens are HMACs over `purpose + email (+ ts)`,
+    so one kind can never be replayed as the other.
+  - There is no user-account system in this codebase, so a confirmed
+    newsletter subscription is the closest real substitute for "on signup".
+- `GET|POST /api/unsubscribe?e=&t=&lang=` — the one route that returns
+  **HTML**, since it is opened from an email in a browser. `t` is an
+  HMAC-SHA256 of the lower-cased email (`api/_lib/emailLinks.js`); a
+  mismatch → 400 page. **GET only shows a confirmation page with a button —
+  it never unsubscribes**, because corporate mail scanners and link
+  previewers fetch every URL in an email and would otherwise unsubscribe
+  people who never clicked. POST (the button, or Gmail/Yahoo's one-click
+  POST with body `List-Unsubscribe=One-Click`) PATCHes the Resend contact to
+  `unsubscribed: true`; a 404 contact counts as done. No `originAllowed`
+  check and no body parsing: one-click POSTs come from the mail provider's
+  servers, and the signed query string is the whole authorization. Pages are
+  localized via `emailCopy(lang).unsubscribe` in `api/_lib/emails/i18n.js`,
+  sent with `Referrer-Policy: no-referrer` (the URL carries the token), a
+  locked-down CSP and `X-Robots-Tag: noindex`. 30 requests/min/IP — kept
+  generous because Gmail's one-click POSTs can share a Google IP.
+- **Sender identity**: `sendViaResend()` wraps a bare `LEAD_FROM_EMAIL` as
+  `RoshaLink <address>` for every email (a brand display name instead of a
+  raw address); a value already containing `<` is used as-is.
+
+### Backend forwarding (`api/lead.js`, `api/newsletter.js`)
+
+Both handlers forward the submission to an external, non-Vercel MongoDB
+backend (`BACKEND_API_URL`, defaulting to `https://roshacompany-backend.onrender.com`
+when unset and not in a test environment) *in addition to* the Resend send —
+this is not mentioned anywhere else in this document and is easy to miss when
+reasoning about "does this endpoint work." Concretely, in `api/lead.js`:
+`savedToBackend` (from that forward) and `resendSent` (from the notification
+email) are each tracked independently, and the handler returns `200 { ok:
+true }` if **either** succeeds — so a request can report success to the
+visitor while every outbound email silently failed, as long as the backend
+save went through. `api/newsletter.js` doesn't even gate its `200` response
+on the backend forward's outcome — a `fetch` failure there is only logged
+(`[newsletter] failed to persist to backend`), never checked. When debugging
+"the form says it worked but no email arrived," check the server logs for
+`resend_error`/`confirmation_email_error`/`welcome_email_error`, not just the
+HTTP status the browser got back.
+
+`vite.config.js`'s dev server used to proxy `/api/lead` and `/api/newsletter`
+to `http://127.0.0.1:5000` — a leftover from before this backend-forwarding
+logic existed, pointing at a local backend service that isn't part of this
+repo and was never running, so every local form submission failed outright
+with `ECONNREFUSED` (silently, since the vite proxy only logs a `console.warn`).
+Fixed by routing both through the same `devApiPlugin` that already served
+`/api/chat` (`API_ROUTES` in `vite.config.js` now lists all three), which
+also removed a dead `/api/leads` (plural) proxy entry that no frontend code
+ever called. **If `npm run dev` throws `ECONNREFUSED` on a fetch to
+`127.0.0.1:5000` again, it means a new route was added under `api/` without
+also adding it to `API_ROUTES`** — the fallback behavior for an unlisted
+route is Vite's SPA history fallback (returns `index.html`), not a proxy, so
+that specific error would mean the stale proxy config crept back in, not a
+new bug.
 
 ### Email templates (`api/_lib/emails/`)
 
@@ -258,6 +359,46 @@ structural pieces all three compose.
     the SPA, not transactional-email copy) and were not reviewed by a native
     Farsi/Arabic speaker — worth a native-speaker pass before this is fully
     trusted for real customer-facing sends, same caution as `COMPANY_FACTS`.
+
+**Cold outreach template (`ColdOutreachEmail.js`)**: a fourth template, not
+part of the three transactional ones above and **not wired to any api/ route
+or Resend send** — there is deliberately no handler, recipient list, or send
+script anywhere in this codebase. It exists only for the manual workflow:
+run `npx react-email dev --dir api/_lib/emails`, open it in the preview
+sidebar, edit its props for one specific recipient (`observation` must be
+genuinely written per-recipient — everything else has a generic default
+pulled from `COMPANY_FACTS`'s "what we do" list), then copy the rendered
+HTML out of the preview and paste it into a one-off compose window in a real
+mailbox and send by hand. Kept off the Resend/`LEAD_FROM_EMAIL` sending
+domain on purpose — unsolicited mail carries a much higher complaint/bounce
+rate than the opt-in traffic that domain's reputation otherwise depends on
+(see the DMARC rollout note below); send cold outreach from an individual
+mailbox instead (e.g. Namecheap Private Email). Copy is plain and personal
+(no gradient headline, no "subscribed" framing) so it reads as a note from a
+person, not a campaign. Localized via `i18n.js`'s `coldOutreach` section
+(sv/en/fa/ar, same `resolveLocale`/`dirFor` mechanism as the other three
+templates) — `observation` (the personalized hook) is the one field that's
+never looked up by locale, since it must always be hand-written for that
+specific recipient in whatever language you're sending in. Practical use so
+far: one saved "signature" per language in the sending mailbox's webmail
+settings (e.g. Namecheap Private Email → Settings → Mail → Signatures),
+inserted manually per email, with the placeholder recipient/company/
+observation text overwritten before sending — see `scripts/render-cold-
+outreach.js` and `scripts/cold-outreach.example.js` for the one-recipient-
+at-a-time render helper.
+
+**Phone number in the footer**: all three visitor-facing templates
+(WelcomeEmail, ContactConfirmationEmail, ColdOutreachEmail) now show the
+same phone number as the live site's `Footer.jsx` (`brand.js`'s `phone`
+export — the single source of truth, `0724453332` / `tel:0724453332`) as a
+link in `EmailFooter`'s link row, alongside Contact/Website/Privacy.
+`EmailFooter.js` gained an optional per-link `dir` so the phone number's
+digits stay LTR even inside an RTL (`fa`/`ar`) footer, matching
+`Footer.jsx`'s own `<span dir="ltr">` around the same number.
+**LeadNotificationEmail deliberately does not get this** — its footer is the
+minimal "compact" variant (an internal ops note, not a set of contact links)
+and it's read by the RoshaLink team, not a visitor who'd need a phone number
+to reach the company.
 
 Client routes (`src/App.jsx`): `/`, `/home`, `/about`, `/services`, `/portfolio`,
 `/contact`, `/privacy`, `/privacy-policy`, and `*` → home. `vercel.json` rewrites
@@ -377,23 +518,69 @@ through `npm run dev`.
    (roshalink.com appears in content) isn't configured anywhere in the repo.
 5. Lint and `npm audit` are report-only in CI. Is clearing that backlog (the
    ~83 lint errors and the Vite major upgrade) planned work an agent should pick up?
-6. `WelcomeEmail` fires on every successful `POST /api/newsletter`, with no
-   check for whether the address is already subscribed — the handler doesn't
-   read the backend's response before deciding success, so there's currently
-   no signal to skip a repeat send on. Is a duplicate welcome email for an
-   existing subscriber acceptable, or does `api/newsletter.js` need to inspect
-   the backend's response first?
-7. `WelcomeEmail`'s footer "Unsubscribe" link is a `href="#"` placeholder —
-   there is no unsubscribe endpoint or list-management route anywhere in this
-   codebase. Needed before any real marketing send (CAN-SPAM/GDPR), not just
-   as a nicety.
-8. The `fa`/`ar` copy in `api/_lib/emails/i18n.js` is original, unreviewed
-   translation — not pulled from a translation service or checked by a
-   native speaker. Worth a native-speaker review pass before fully trusting
-   it for real customer sends.
+6. The subscriber list lives in two places: Resend contacts (source of truth
+   for Broadcasts and unsubscribes) and the external MongoDB backend (sent
+   each newly confirmed subscriber by `api/confirm-subscription.js`), which
+   never hears about unsubscribes. Fine while newsletters go out through
+   Resend Broadcasts; if they ever go out from the backend's list instead, it
+   needs to read unsubscribe state from Resend first.
+7. The welcome email promises a newsletter "once a quarter", matching the
+   site footer's "Get quarterly strategic insights". Someone has to actually
+   send one each quarter (Resend → Broadcasts → the "Newsletter" segment), or
+   the promise — and engagement, which inbox providers track — lapses.
+8. The rewritten welcome email and the new confirmation/subscribe-page copy
+   in `fa`/`ar` are original translations, not yet reviewed by a native
+   speaker.
 
 ## Recent Branch Updates & Improvements
 
+- **Newsletter: double opt-in, unsubscribe, deliverability**
+  (`api/newsletter.js`, `api/confirm-subscription.js`, `api/unsubscribe.js`,
+  `api/_lib/emailLinks.js`, `api/_lib/resendContacts.js`):
+  - Double opt-in: sign-up sends a "confirm your subscription" email; only
+    the confirm click adds the Resend contact (in the "Newsletter" segment),
+    sends the welcome email, and forwards to the MongoDB backend. The site
+    footer's success message now says "check your inbox".
+  - Real signed one-click unsubscribe replaces the welcome email's
+    `href="#"` placeholder, plus RFC 8058 `List-Unsubscribe` headers (which
+    Gmail and Yahoo expect on newsletter mail).
+  - Welcome email rewritten for newsletter subscribers (it was client-
+    onboarding copy: "Book your kickoff call"); no more "there" greeting in
+    every language ("Välkommen ombord, there!", "there عزیز").
+  - RTL fix across the visitor-facing templates: letter-spaced monospace
+    labels (badges, taglines, the echoed message) split Farsi/Arabic letters
+    apart, and the numbered feature rows had their padding on the wrong side.
+    RTL now uses the body font with no letter-spacing, and mirrored padding.
+  - All email now comes from "RoshaLink <address>" instead of a bare
+    address; the welcome email's replies go to `LEAD_TO_EMAIL`.
+  - DNS for roshalink.com (outside this repo): Resend and Namecheap Private
+    Email are both DKIM-signed; DMARC set to `p=none` with reports to
+    support@roshalink.com on 2026-09-25, planned move to `p=quarantine`
+    after ~2 weeks of clean reports.
+- **Local dev email pipeline was broken end-to-end; fixed and verified live**:
+  - `vite.config.js` proxied `/api/lead`/`/api/newsletter` to a nonexistent
+    `127.0.0.1:5000` backend instead of the in-process `devApiPlugin` — every
+    local Contact/Get-Started/newsletter submission failed with
+    `ECONNREFUSED`. Fixed by adding both routes to `API_ROUTES` and removing
+    the dead proxy config (including an unused `/api/leads` plural entry).
+    See "Backend forwarding" in the API section.
+  - `api/newsletter.js`'s `sendWelcomeEmail()` never checked `response.ok` on
+    the Resend call, so a failed welcome email produced zero log output.
+    Fixed to check and log `[newsletter] resend_error`, matching the pattern
+    `api/lead.js` already used.
+  - Root-caused a Resend 403 (`The send.roshalink.com domain is not
+    verified`): `LEAD_FROM_EMAIL` was `leads@send.roshalink.com`, but only
+    the parent `roshalink.com` was verified in Resend — a subdomain needs its
+    own separate verification even under a verified parent. Fixed by
+    switching `LEAD_FROM_EMAIL` to `leads@roshalink.com` in `.env.local` (the
+    same change needs making in the Vercel dashboard for Production/Preview/
+    Development, followed by a redeploy, before real traffic hits this).
+  - Verified via real submissions against the running dev server (both
+    through the actual Contact page UI and direct `curl` calls to `/api/lead`
+    and `/api/newsletter`) that both the lead notification + confirmation
+    emails and the newsletter welcome email now send with no `resend_error`
+    in the logs. `npm test` (72 tests across `lead.test.js`,
+    `newsletter.test.js`, `chat.test.js`) still passes unchanged.
 - **Transactional Email System (`api/_lib/emails/`)**:
   - Replaced `api/lead.js`'s bare, unstyled `<table>` internal notification
     with a branded `LeadNotificationEmail` react-email component matching the

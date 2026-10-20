@@ -61,6 +61,10 @@ scratch/
 scripts/inspect-lh.js
 scripts/parse-psi.js
 
+# Cold outreach recipient details & rendered output (never commit real prospect data)
+scripts/cold-outreach.local.js
+scripts/cold-outreach.local.html
+
 # Lighthouse & Performance audit reports
 lh-*.json
 pagespeed-*.json

@@ -17,9 +17,14 @@ const h = React.createElement;
  *  - "compact" (Lead Notification, never localized): icon+wordmark plus a
  *              single note line — an internal ops email has no tagline/
  *              links to show.
- * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string }>, note?: string, iconSize?: number, tagline?: string, copyright?: string }} props
+ * `rtl` swaps the tagline's letter-spaced monospace for the body font: both
+ * split apart the joined letters of a Farsi/Arabic tagline. A link item's own
+ * `dir` (e.g. `'ltr'` on a phone number) overrides the page direction for
+ * just that label — matching Footer.jsx's `<span dir="ltr">` around the same
+ * phone number, so digits don't get reordered inside an RTL footer.
+ * @param {{ variant?: 'full' | 'compact', links?: Array<{ label: string, href: string, dir?: 'ltr' | 'rtl' }>, note?: string, iconSize?: number, tagline?: string, copyright?: string, rtl?: boolean }} props
  */
-export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28, tagline = defaultTagline, copyright = copyrightLine }) {
+export default function EmailFooter({ variant = 'full', links = [], note, iconSize = 28, tagline = defaultTagline, copyright = copyrightLine, rtl = false }) {
   const wordmark = [
     h(
       Img,
@@ -59,9 +64,9 @@ export default function EmailFooter({ variant = 'full', links = [], note, iconSi
               key: 'tagline',
               style: {
                 margin: '10px 0 0',
-                fontFamily: fonts.mono,
+                fontFamily: rtl ? fonts.body : fonts.mono,
                 fontSize: '10px',
-                letterSpacing: '0.08em',
+                letterSpacing: rtl ? 'normal' : '0.08em',
                 textTransform: 'uppercase',
                 color: colors.textMuted,
               },
@@ -80,7 +85,7 @@ export default function EmailFooter({ variant = 'full', links = [], note, iconSi
                     h(
                       Link,
                       { href: item.href, style: { fontFamily: fonts.body, fontSize: '12px', color: colors.textMuted } },
-                      item.label
+                      item.dir ? h('span', { dir: item.dir }, item.label) : item.label
                     )
                   )
                 )

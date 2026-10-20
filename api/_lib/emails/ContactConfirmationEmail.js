@@ -6,7 +6,7 @@ import { Img, Link, Section, Text } from '@react-email/components';
 import EmailLayout from './EmailLayout.js';
 import EmailFooter from './EmailFooter.js';
 import FieldRow from './FieldRow.js';
-import { SITE_URL, colors, fonts, footerLinksFor, logo, radii } from './brand.js';
+import { SITE_URL, colors, fonts, footerLinksFor, logo, phone, radii } from './brand.js';
 import { dirFor, emailCopy, isRtl, resolveLocale } from './i18n.js';
 
 const h = React.createElement;
@@ -105,7 +105,8 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
               fontFamily: fonts.body,
               fontWeight: 600,
               fontSize: '12px',
-              letterSpacing: '0.04em',
+              // Letter-spacing splits apart the joined letters of Farsi/Arabic.
+              letterSpacing: rtl ? 'normal' : '0.04em',
               textTransform: 'uppercase',
               color: colors.textMuted,
               textAlign: rtl ? 'right' : 'left',
@@ -129,7 +130,8 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
                 'div',
                 {
                   style: {
-                    fontFamily: fonts.mono,
+                    // Monospace can't join Farsi/Arabic letters.
+                    fontFamily: rtl ? fonts.body : fonts.mono,
                     fontSize: '12px',
                     lineHeight: '1.6',
                     color: colors.textMuted,
@@ -172,11 +174,13 @@ export default function ContactConfirmationEmail({ firstName, name, email, servi
     h(EmailFooter, {
       key: 'footer',
       variant: 'full',
+      rtl,
       tagline: common.tagline,
       copyright: common.copyright(new Date().getFullYear()),
       links: [
         { label: common.footerPrivacy, href: links.privacyPolicy },
         { label: common.footerContact, href: links.contact },
+        { label: phone.display, href: phone.href, dir: 'ltr' },
         { label: common.footerWebsite, href: links.website },
       ],
     })

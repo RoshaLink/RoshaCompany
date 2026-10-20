@@ -55,6 +55,40 @@ export const GEO = {
 /** Markets we actively serve (used in LocalBusiness areaServed schema) */
 export const AREA_SERVED = ['SE', 'NO', 'DK', 'FI', 'GB', 'DE', 'NL', 'IR', 'AE', 'SA'];
 
+/** Service sub-route slugs (/:lang/services/:slug). Order matches servicesList in i18n.js. */
+export const SERVICE_SLUGS = [
+  'discovery',
+  'web-architecture',
+  'cloud-backend',
+  'ai-automation',
+  'mobile-apps',
+  'seo-performance',
+];
+
+/**
+ * Last meaningful content change for the static (non-blog) pages. Feeds the
+ * sitemap <lastmod>. Bump it when page copy actually changes — Google ignores
+ * lastmod values it learns are not trustworthy (e.g. "today" on every build).
+ */
+export const SITE_LASTMOD = '2026-10-20';
+
+/**
+ * Every indexable static page, per language. Single source of truth for both
+ * scripts/prerender.js (which routes get static HTML) and
+ * scripts/generate-sitemap.js (which URLs go in sitemap.xml), so the two can
+ * never drift apart. Blog posts are added from src/data/insightsData.js.
+ */
+export const SITE_PAGES = [
+  { page: 'home',      changefreq: 'weekly',  priority: '1.0' },
+  { page: 'services',  changefreq: 'weekly',  priority: '0.9' },
+  ...SERVICE_SLUGS.map((slug) => ({ page: `services/${slug}`, changefreq: 'monthly', priority: '0.8' })),
+  { page: 'portfolio', changefreq: 'monthly', priority: '0.8' },
+  { page: 'insights',  changefreq: 'weekly',  priority: '0.7' },
+  { page: 'about',     changefreq: 'monthly', priority: '0.7' },
+  { page: 'contact',   changefreq: 'monthly', priority: '0.7' },
+  { page: 'privacy',   changefreq: 'yearly',  priority: '0.3' },
+];
+
 export const seoPages = {
   home: {
     sv: {
@@ -112,15 +146,15 @@ export const seoPages = {
 
   services: {
     sv: {
-      title: 'Tjänster — Skräddarsydd Webbutveckling, Appar & Molnsystem | RoshaLink Stockholm',
-      description: 'Våra tekniska kapaciteter: Full-Stack Webbutveckling, Mobilappar (iOS & Android), Affärsanalys, SEO-optimering och Skalbar Molninfrastruktur. Prova kostnadsfri teknisk analys.',
-      keywords: 'webbutveckling tjänster Stockholm, mobilapp-utveckling Sverige, molninfrastruktur AWS Azure, SEO-analys Sverige, UI UX strategi Norden, full-stack webbutveckling, React-utvecklare Stockholm, Node.js-konsult Sverige',
+      title: 'Tjänster: Webbutveckling, Appar & SEO i Stockholm | RoshaLink',
+      description: 'Webbyrå i Stockholm för skräddarsydd webbutveckling i React och GraphQL, mobilappar för iOS och Android, molnbackend, AI-automation och teknisk SEO. Boka en kostnadsfri genomgång.',
+      keywords: 'webbyrå stockholm, webbutveckling stockholm, react webbyrå stockholm, graphql webbyrå stockholm, apputveckling stockholm, teknisk seo stockholm, full-stack utveckling stockholm',
       ogImage: '/og-image-services.jpg',
     },
     en: {
-      title: 'Services — Custom Web Solutions, Mobile Apps & Cloud Systems | RoshaLink',
-      description: 'Full-cycle engineering services: Custom Web Development, iOS & Android Apps, Business Architecture, SEO Growth Strategy, and High-Availability Cloud Systems. Free technical analysis included.',
-      keywords: 'web development services Stockholm, mobile app engineering Scandinavia, enterprise cloud solutions Europe, SEO optimization agency Sweden, UI UX design services, React development agency, Node.js consulting Stockholm, full-stack development Europe',
+      title: 'Web, App & SEO Development Services in Stockholm | RoshaLink',
+      description: 'Full-stack development services in Stockholm: custom React and GraphQL web apps, iOS and Android apps, cloud backends, AI automation and technical SEO. Free initial consultation.',
+      keywords: 'full-stack development services stockholm, web development agency stockholm, react graphql agency stockholm, mobile app development stockholm, technical seo stockholm',
       ogImage: '/og-image-services.jpg',
     },
     fa: {
@@ -218,6 +252,33 @@ export const seoPages = {
     },
   },
 
+  insights: {
+    sv: {
+      title: 'Guider om Webbutveckling, Appar & SEO | RoshaLink Insikter',
+      description: 'Praktiska guider från RoshaLinks seniora team i Stockholm: välja webbyrå, kostnader för skräddarsydd utveckling, React, GraphQL, apputveckling och teknisk SEO.',
+      keywords: 'webbutveckling guide, välja webbyrå stockholm, kostnad webbutveckling, react graphql, teknisk seo',
+      ogImage: '/og-image-sv.jpg',
+    },
+    en: {
+      title: 'Web Development, App & SEO Guides | RoshaLink Insights',
+      description: 'Practical guides from RoshaLink\'s senior team in Stockholm: choosing a development agency, custom software costs, React, GraphQL, mobile apps and technical SEO.',
+      keywords: 'web development guide, hire development agency stockholm, custom web development cost sweden, react graphql, technical seo',
+      ogImage: '/og-image-en.jpg',
+    },
+    fa: {
+      title: 'مقالات و راهنمای طراحی سایت، اپلیکیشن و سئو | روشالینک',
+      description: 'راهنماهای کاربردی تیم ارشد روشالینک در استکهلم درباره طراحی سایت اختصاصی، طراحی اپلیکیشن موبایل، هزینه‌ها و سئو فنی.',
+      keywords: 'مقالات طراحی سایت, راهنمای طراحی اپلیکیشن, هزینه طراحی سایت اختصاصی, سئو فنی',
+      ogImage: '/og-image-fa.jpg',
+    },
+    ar: {
+      title: 'مقالات وأدلة تطوير الويب والتطبيقات | روشا لينك',
+      description: 'أدلة عملية من فريق روشا لينك في ستوكهولم حول تطوير المواقع المخصصة وتطبيقات الجوال والتكاليف وتحسين محركات البحث التقني.',
+      keywords: 'مقالات تطوير الويب, دليل تطوير التطبيقات, تكلفة تطوير المواقع, السيو التقني',
+      ogImage: '/og-image-ar.jpg',
+    },
+  },
+
   'services/discovery': {
     sv: {
       title: 'Strategisk Affärsanalys & Teknisk Roadmap — RoshaLink Stockholm',
@@ -247,15 +308,15 @@ export const seoPages = {
 
   'services/web-architecture': {
     sv: {
-      title: 'Skräddarsydd Webbarkitektur & React-utveckling — RoshaLink Stockholm',
-      description: 'Blixtsnabba webbapplikationer och företagsportaler byggda med ren React-kod, modulär arkitektur och kompromisslös Core Web Vitals-optimering.',
-      keywords: 'webbutveckling React Stockholm, skräddarsydd webbarkitektur, SPA utvecklare Sverige, företagsportal webb',
+      title: 'React- & GraphQL-webbyrå i Stockholm | RoshaLink',
+      description: 'Webbyrå i Stockholm som bygger snabba, skräddarsydda webbapplikationer med React, TypeScript och GraphQL-API:er. Inga mallar – du pratar direkt med utvecklarna som skriver koden.',
+      keywords: 'react webbyrå stockholm, graphql webbyrå stockholm, graphql byrå stockholm, react utvecklare stockholm, skräddarsydd webbapplikation, webbutveckling react',
       ogImage: '/og-image-services.jpg',
     },
     en: {
-      title: 'Bespoke Web Architecture & React Enterprise Development — RoshaLink',
-      description: 'Ultra-fast web applications and enterprise portals engineered with clean React code, modular design systems, and top Core Web Vitals.',
-      keywords: 'custom web architecture Stockholm, React developers Sweden, enterprise SPA engineering, bespoke web application',
+      title: 'React & GraphQL Development Agency in Stockholm | RoshaLink',
+      description: 'High-performance web applications built with React, TypeScript and GraphQL by a senior full-stack team in Stockholm. Custom code, no templates, direct access to the engineers.',
+      keywords: 'react agency stockholm, graphql agency stockholm, full-stack development stockholm, high-performance web app development, custom web application stockholm',
       ogImage: '/og-image-services.jpg',
     },
     fa: {
@@ -328,21 +389,21 @@ export const seoPages = {
 
   'services/mobile-apps': {
     sv: {
-      title: 'Skräddarsydd Apputveckling iOS & Android — RoshaLink Stockholm',
-      description: 'Design och utveckling av högpresterande mobilapplikationer för iOS och Android med offline-stöd och nativ prestandakänsla.',
-      keywords: 'apputveckling Stockholm, mobilappar iOS Android Sverige, React Native utvecklare, app utvecklingsbyrå',
+      title: 'Apputveckling i Stockholm – iOS- & Android-appar | RoshaLink',
+      description: 'Vi designar och bygger skräddarsydda mobilappar för iOS och Android med React Native – från idé och prototyp till publicering i App Store och Google Play.',
+      keywords: 'apputveckling stockholm, apputvecklare stockholm, mobilappar iOS Android, React Native utvecklare, app utvecklingsbyrå',
       ogImage: '/og-image-services.jpg',
     },
     en: {
-      title: 'Cross-Platform Mobile App Development (iOS & Android) — RoshaLink',
-      description: 'Engineering resilient mobile applications for iOS and Android with intuitive UI/UX, offline-first reliability, and near-native speed.',
-      keywords: 'mobile app development Stockholm, iOS Android app agency Sweden, React Native developers, cross-platform apps',
+      title: 'Mobile App Development in Stockholm (iOS & Android) | RoshaLink',
+      description: 'Custom iOS and Android apps built with React Native by a senior team in Stockholm – from discovery and prototype to App Store and Google Play release.',
+      keywords: 'mobile app development stockholm, iOS Android app agency Sweden, React Native developers stockholm, custom mobile app',
       ogImage: '/og-image-services.jpg',
     },
     fa: {
-      title: 'طراحی و توسعه اپلیکیشن موبایل اختصاصی iOS و اندروید — روشالینک',
-      description: 'توسعه اپلیکیشن‌های چندسکویی موبایل با معماری مقاوم، سرعت روان و تجربه کاربری مدرن منطبق بر آخرین استانداردهای روز.',
-      keywords: 'توسعه اپلیکیشن موبایل, ساخت اپلیکیشن iOS و اندروید, برنامه نویسی موبایل استکهلم',
+      title: 'طراحی اپلیکیشن اختصاصی موبایل (iOS و اندروید) | روشالینک',
+      description: 'روشالینک، شرکت ساخت اپلیکیشن موبایل در استکهلم: طراحی اپلیکیشن اختصاصی iOS و اندروید با React Native، از تحلیل ایده تا انتشار در App Store و Google Play. مشاوره رایگان به زبان فارسی.',
+      keywords: 'طراحی اپلیکیشن اختصاصی, شرکت ساخت اپلیکیشن موبایل, سفارش ساخت اپلیکیشن, برنامه نویسی اپلیکیشن اندروید و iOS, ساخت اپلیکیشن در سوئد',
       ogImage: '/og-image-services.jpg',
     },
     ar: {
@@ -355,15 +416,15 @@ export const seoPages = {
 
   'services/seo-performance': {
     sv: {
-      title: 'Core Web Vitals & Avancerad Teknisk SEO — RoshaLink Stockholm',
-      description: 'Total teknisk optimering av webbplatsens infrastruktur för topprankning på Google, blixtsnabb rendering och perfekt användarupplevelse.',
-      keywords: 'teknisk SEO Stockholm, Core Web Vitals optimering, sökmotoroptimering Sverige, snabbare hemsida Google',
+      title: 'Automatiserad SEO-tjänst & Teknisk SEO i Stockholm | RoshaLink',
+      description: 'Teknisk och automatiserad SEO inbyggd i koden: strukturerad data, automatiska sitemaps, förrenderade sidor, Core Web Vitals-övervakning och uppföljning i Search Console.',
+      keywords: 'automatiserad seo tjänst stockholm, teknisk seo stockholm, seo byrå stockholm, core web vitals optimering, sökmotoroptimering stockholm',
       ogImage: '/og-image-services.jpg',
     },
     en: {
-      title: 'Core Web Vitals & Advanced Technical SEO Optimization — RoshaLink',
-      description: 'Full-spectrum technical SEO and architectural optimization to dominate Google rankings, achieve instant page rendering, and scale organic reach.',
-      keywords: 'technical SEO Stockholm, Core Web Vitals optimization, enterprise search engine optimization, page speed agency Sweden',
+      title: 'Technical & Automated SEO Services in Stockholm | RoshaLink',
+      description: 'Technical SEO engineered into your codebase: structured data, automated sitemaps, prerendering, Core Web Vitals monitoring and Search Console follow-up. Based in Stockholm.',
+      keywords: 'technical seo stockholm, automated seo service, core web vitals optimization, seo agency stockholm, structured data implementation',
       ogImage: '/og-image-services.jpg',
     },
     fa: {

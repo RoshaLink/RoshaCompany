@@ -11,7 +11,7 @@ import './InsightDetailsPage.css';
 export default function InsightDetailsPage() {
   const { lang, slug } = useParams();
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language || 'sv';
+  const currentLang = lang || i18n.language || 'sv';
   const isRTL = ['fa', 'ar'].includes(currentLang);
 
   const post = useMemo(() => {

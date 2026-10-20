@@ -807,3 +807,176 @@ html.dark .services-cta-secondary-link:focus-visible {
 .is-rtl .services-cta-secondary-icon {
   transform: scaleX(-1);
 }
+
+/* ==========================================================================
+   SERVICES SEO & REGIONAL ARCHITECTURE SECTION
+   ========================================================================== */
+.services-seo-section {
+  padding: 4.5rem 0 2rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.services-seo-card {
+  position: relative;
+  border-radius: 28px;
+  padding: 2.5rem 1.75rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 250, 252, 0.9) 100%);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+html.dark .services-seo-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(24, 33, 47, 0.7) 100%);
+  border-color: rgba(51, 65, 85, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .services-seo-card {
+    padding: 3.5rem 3rem;
+  }
+}
+
+.services-seo-ambient {
+  position: absolute;
+  top: -100px;
+  right: -50px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+html.dark .services-seo-ambient {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+}
+
+.services-seo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(14, 165, 233, 0.08);
+  color: #0284c7;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  margin-bottom: 1.25rem;
+}
+
+html.dark .services-seo-badge {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+.services-seo-title {
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  font-weight: 800;
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+html.dark .services-seo-title {
+  color: #f8fafc;
+}
+
+.services-seo-lead {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+  margin-bottom: 2rem;
+  max-width: 58rem;
+}
+
+html.dark .services-seo-lead {
+  color: #cbd5e1;
+}
+
+.services-seo-lead strong,
+.services-seo-card strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+html.dark .services-seo-lead strong,
+html.dark .services-seo-card strong {
+  color: #f1f5f9;
+}
+
+.services-seo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-seo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-seo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.services-seo-subcard {
+  padding: 1.5rem 1.35rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.services-seo-subcard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.08);
+}
+
+html.dark .services-seo-subcard {
+  background: rgba(30, 41, 59, 0.45);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+html.dark .services-seo-subcard:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.services-seo-subtitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  color: #0f172a;
+}
+
+html.dark .services-seo-subtitle {
+  color: #f8fafc;
+}
+
+.services-seo-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #475569;
+  margin: 0;
+}
+
+html.dark .services-seo-text {
+  color: #94a3b8;
+}

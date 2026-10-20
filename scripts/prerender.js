@@ -8,6 +8,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { resolve, join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { insightsData } from '../src/data/insightsData.js';
 
 function renderAppToString(element) {
   return new Promise((resolve, reject) => {
@@ -48,6 +49,7 @@ const pages = [
   '/services/mobile-apps',
   '/services/seo-performance',
   '/portfolio',
+  '/insights',
   '/contact',
   '/privacy',
 ];
@@ -57,6 +59,15 @@ languages.forEach(lang => {
   pages.forEach(page => {
     routes.push(`/${lang}${page}`);
   });
+});
+
+insightsData.forEach(article => {
+  if (article.lang && article.slug) {
+    const articleRoute = `/${article.lang}/insights/${article.slug}`;
+    if (!routes.includes(articleRoute)) {
+      routes.push(articleRoute);
+    }
+  }
 });
 
 async function runPrerender() {

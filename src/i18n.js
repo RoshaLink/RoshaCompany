@@ -811,15 +811,15 @@ const resources = {
           {
             id: "web-architecture",
             category: "FRONTEND & WEBB",
-            title: "Skräddarsydd Webbarkitektur & React",
-            desc: "Moderna, blixtsnabba webbapplikationer och företagsportaler konstruerade med ren React-kod, modulära komponenter och optimering för Google Core Web Vitals.",
+            title: "React- & GraphQL-Webbarkitektur",
+            desc: "Som specialiserad React & GraphQL webbyrå i Stockholm utvecklar vi blixtsnabba webbapplikationer och företagsportaler med ren React-kod, modulära komponenter och Core Web Vitals-optimering.",
             deliverables: [
               "Bespoke Single Page Apps (SPA) & Portaler",
+              "GraphQL- & REST API-arkitektur",
               "Tokeniserat UI/UX Designsystem",
-              "WCAG 2.1 AA Tillgänglighet & Responsivitet",
               "Optimerade Core Web Vitals & Google SEO"
             ],
-            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+            techTags: ["React 19", "GraphQL", "Vite", "Tailwind / CSS Tokens"]
           },
           {
             id: "cloud-backend",
@@ -850,8 +850,8 @@ const resources = {
           {
             id: "mobile-apps",
             category: "MOBILAPPAR",
-            title: "Mobilapplikationer iOS & Android",
-            desc: "Sömlösa mobilapplikationer med nativ prestanda, realtidssynkronisering mot webbens backend och intuitiv touch-design.",
+            title: "Apputveckling iOS & Android i Stockholm",
+            desc: "Sömlösa mobilapplikationer med nativ prestanda, realtidssynkronisering mot webbens backend och intuitiv touch-design byggda med React Native.",
             deliverables: [
               "Cross-platform iOS & Android-appar",
               "Realtidssynkronisering via WebSockets",
@@ -863,12 +863,12 @@ const resources = {
           {
             id: "seo-performance",
             category: "PRESTANDA & SÖK",
-            title: "SEO-Optimering & Global CDN",
-            desc: "Topplaceringar på Google och global räckvidd genom strukturerad semantisk kod, automatiserad indexering och blixtsnabb edge-infrastruktur.",
+            title: "Automatiserad SEO-tjänst & Prestanda",
+            desc: "Topplaceringar på Google och automatiserad SEO-tjänst i Stockholm genom strukturerad semantisk kod, automatiserad indexering och blixtsnabb edge-infrastruktur.",
             deliverables: [
               "Strukturerad JSON-LD & Schema Markup",
+              "Automatiserad teknisk SEO & Sitemaps",
               "Global Cloudflare Edge CDN & Caching",
-              "Automatiserad XML Sitemap & Search Console",
               "Konverteringsoptimering & A/B-testning"
             ],
             techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
@@ -1845,15 +1845,15 @@ const resources = {
           {
             id: "web-architecture",
             category: "FRONTEND & WEB",
-            title: "Bespoke Web Architecture & React Engineering",
-            desc: "Ultra-fast web applications and enterprise portals engineered with clean React code, modular tokenized components, and Google Core Web Vitals optimization.",
+            title: "React & GraphQL Web Architecture in Stockholm",
+            desc: "High-performance web applications and enterprise portals engineered with clean React code, GraphQL APIs, modular components, and Google Core Web Vitals optimization.",
             deliverables: [
               "Bespoke Single Page Apps (SPA) & Portals",
+              "GraphQL & REST Full-Stack Architecture",
               "Tokenized UI/UX Design Systems",
-              "WCAG 2.1 AA Accessibility & Responsiveness",
               "Optimized Core Web Vitals & Search Indexing"
             ],
-            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+            techTags: ["React 19", "GraphQL", "Vite", "Tailwind / CSS Tokens"]
           },
           {
             id: "cloud-backend",
@@ -1897,12 +1897,12 @@ const resources = {
           {
             id: "seo-performance",
             category: "PERFORMANCE & SEO",
-            title: "Organic SEO Engineering & Global Edge CDN",
-            desc: "Top rankings on Google and global low-latency distribution through structured semantic HTML, automated schema markup, and high-performance CDN routing.",
+            title: "Automated SEO Services & Global Edge CDN",
+            desc: "Top rankings on Google and automated SEO services in Stockholm through structured semantic HTML, automated schema markup, and high-performance CDN routing.",
             deliverables: [
               "Structured JSON-LD & Rich Search Schema Markup",
+              "Automated Technical SEO & Sitemap Indexing",
               "Global Cloudflare Edge CDN & Smart Caching",
-              "Automated XML Sitemap & Search Console indexing",
               "Conversion rate optimization (CRO) & A/B testing"
             ],
             techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]
@@ -2879,15 +2879,15 @@ const resources = {
           {
             id: "web-architecture",
             category: "فرانت‌اند و وب",
-            title: "معماری اختصاصی وب و توسعه با React",
-            desc: "وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع که با کدهای تمیز React، کامپوننت‌های ماژولار و بهینه‌سازی استاندارد Core Web Vitals مهندسی شده‌اند.",
+            title: "طراحی سایت اختصاصی و معماری React & GraphQL",
+            desc: "وب‌اپلیکیشن‌ها و پورتال‌های سازمانی فوق‌سریع که با کدهای تمیز React، معماری مدرن GraphQL و بهینه‌سازی استاندارد Core Web Vitals مهندسی شده‌اند.",
             deliverables: [
               "وب‌اپلیکیشن‌های تک‌صفحه‌ای (SPA) و پرتال‌ها",
+              "معماری فول استک با GraphQL و REST API",
               "سیستم دیزاین توکنیزه‌شده UI/UX",
-              "انطباق با استاندارد دسترس‌پذیری WCAG 2.1 AA",
               "بهینه‌سازی برتر Core Web Vitals و سئو گوگل"
             ],
-            techTags: ["React 19", "Vite", "Tailwind / CSS Tokens", "Framer Motion"]
+            techTags: ["React 19", "GraphQL", "Vite", "Tailwind / CSS Tokens"]
           },
           {
             id: "cloud-backend",
@@ -2918,8 +2918,8 @@ const resources = {
           {
             id: "mobile-apps",
             category: "اپلیکیشن موبایل",
-            title: "اپلیکیشن‌های موبایل کراس‌پلتفرم (iOS و Android)",
-            desc: "توسعه اپلیکیشن‌های موبایل با پرفورمنس نیتیو، همگام‌سازی بلادرنگ با بک‌اند وب، امنیت بیومتریک و طراحی لمسی جذاب.",
+            title: "طراحی اپلیکیشن اختصاصی موبایل (iOS و Android)",
+            desc: "طراحی اپلیکیشن اختصاصی توسط شرکت ساخت اپلیکیشن موبایل روشالینک با پرفورمنس نیتیو، همگام‌سازی بلادرنگ، امنیت بیومتریک و طراحی لمسی جذاب.",
             deliverables: [
               "اپلیکیشن‌های چندسکویی برای iOS و Android",
               "همگام‌سازی داده‌ها در زمان واقعی با WebSockets",
@@ -2931,12 +2931,12 @@ const resources = {
           {
             id: "seo-performance",
             category: "پرفورمنس و سئو",
-            title: "مهندسی سئو ارگانیک و توزیع ابری Edge CDN",
-            desc: "کسب رتبه‌های اول گوگل و توزیع جهانی محتوا با کمترین تاخیر از طریق کدهای سمانتیک، اسکیماهای ساختاریافته و شبکه Cloudflare CDN.",
+            title: "سئو تکنیکال اتوماتیک و توزیع ابری Edge CDN",
+            desc: "کسب رتبه‌های اول گوگل با خدمات سئو اتوماتیک و تکنیکال در استکهلم از طریق کدهای سمانتیک، اسکیماهای ساختاریافته و شبکه Cloudflare CDN.",
             deliverables: [
               "ساختار نشانه‌گذاری JSON-LD و ریچ اسنیپت‌ها",
+              "سئو اتوماتیک و نقشه‌های ساختاریافته سایت",
               "شبکه جهانی Cloudflare Edge CDN و کشینگ هوشمند",
-              "نقشه سایت اتوماتیک و ایندکس سریع در سرچ کنسول",
               "بهینه‌سازی نرخ تبدیل (CRO) و تست‌های A/B"
             ],
             techTags: ["SEO Schema", "Cloudflare CDN", "Core Web Vitals", "Analytics"]

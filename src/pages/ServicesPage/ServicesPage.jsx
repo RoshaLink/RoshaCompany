@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -16,8 +16,10 @@ import ServicesDeliveryProcess from '../../components/ServicesDeliveryProcess/Se
 import './ServicesPage.css';
 
 export default function ServicesPage({ selectedSlug, onOpenGetStarted }) {
+  const { lang: urlLang } = useParams();
   const { t, i18n } = useTranslation();
-  const isRTL = ['fa', 'ar'].includes((i18n.language || '').toLowerCase());
+  const langKey = (urlLang || i18n.language || 'sv').toLowerCase().slice(0, 2);
+  const isRTL = ['fa', 'ar'].includes(langKey);
   const rtlClass = isRTL ? 'is-rtl' : 'is-ltr';
 
   const [openFaq, setOpenFaq] = useState(0);
@@ -60,42 +62,155 @@ export default function ServicesPage({ selectedSlug, onOpenGetStarted }) {
       {/* =========================================================================
           5. SEO / LOCALIZED CONTENT SECTIONS
           ========================================================================= */}
-      {i18n.language === 'sv' && (
-        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>Webbyrå i Stockholm med fokus på anpassad kod</h2>
-          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
-            RoshaLink är en ledande webbyrå i Stockholm. Vi skapar högpresterande, skräddarsydda digitala plattformar utan att förlita oss på färdiga mallar. Genom att integrera modern molnarkitektur, banbrytande design och djuptgående affärsanalys bygger vi lösningar som driver riktig affärsnytta. Vårt mål är att framtidssäkra din digitala närvaro och säkerställa en oslagbar kundupplevelse.
-          </p>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>Vad kostar skräddarsydd webbutveckling och apputveckling?</h3>
-          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
-            Kostnaden för skräddarsydd webbutveckling och apputveckling varierar beroende på projektets komplexitet, funktionella krav och plattformsval. Vi erbjuder transparent prissättning och en detaljerad uppskattning efter vår första kostnadsfria strategiska konsultation. Kontakta oss för att få en exakt offert som är helt anpassad efter ditt företags unika behov och målsättningar.
-          </p>
+      {langKey === 'sv' && (
+        <section className="services-seo-section">
+          <div className="services-container">
+            <div className="services-seo-card">
+              <div className="services-seo-ambient" />
+              <span className="services-seo-badge">Senior Arkitektur & Webbyrå Stockholm</span>
+              <h2 className="services-seo-title">Webbyrå i Stockholm för Skräddarsydd Webbutveckling & Appar</h2>
+              <p className="services-seo-lead">
+                RoshaLink är en ledande <strong>webbyrå i Stockholm</strong> med specialistkompetens inom ren React- och modern full-stack arkitektur. Vi skapar högpresterande, skräddarsydda digitala plattformar utan att förlita oss på färdiga mallar. Genom att integrera modern molnarkitektur, banbrytande design och djupgående affärsanalys bygger vi lösningar som driver verklig tillväxt.
+              </p>
+
+              <div className="services-seo-grid">
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">React & GraphQL Webbyrå i Stockholm</h3>
+                  <p className="services-seo-text">
+                    Letar du efter en <strong>React- och GraphQL-webbyrå i Stockholm</strong>? Vi konstruerar skalbara webbapplikationer och mikrotjänster med GraphQL- och REST-gränssnitt som minimerar nätverkslatens och levererar blixtsnabba användarupplevelser. Du samarbetar direkt med seniora ingenjörer utan fördyrande mellanhänder.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">Automatiserad SEO-tjänst & Teknisk Prestanda</h3>
+                  <p className="services-seo-text">
+                    Med vår <strong>automatiserade SEO-tjänst</strong> bygger vi in sökmotoroptimering och Google Core Web Vitals-efterlevnad direkt i kodbasen. Från strukturerad JSON-LD-data till dynamiska sitemaps hjälper vi ditt företag i Stockholm att dominera Googles organiska sökresultat.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">Skräddarsydd Utveckling Utan Färdiga Mallar</h3>
+                  <p className="services-seo-text">
+                    Kostnaden för skräddarsydd webbutveckling och apputveckling anpassas efter projektets unika arkitektur. Vi erbjuder transparent prissättning och en detaljerad teknisk roadmap efter vår första kostnadsfria konsultation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       )}
 
-      {i18n.language === 'en' && (
-        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>Guide: Choosing the Top Full-Stack Engineering Agency in Stockholm</h2>
-          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
-            Stockholm is home to some of the most innovative tech companies in the world. When selecting a full-stack engineering agency in Stockholm, it's crucial to evaluate their expertise in custom architecture, scalable cloud infrastructure, and modern frameworks like React and Node.js. A top-tier agency focuses on long-term scalability and business growth rather than quick, template-based fixes.
-          </p>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>Why RoshaLink Stands Out in the Nordic Tech Scene</h3>
-          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
-            At RoshaLink, we merge rigorous business analysis with elite software engineering. Our direct-partnership model ensures you work directly with senior architects to build bespoke, high-performance web and mobile applications tailored to your exact strategic goals.
-          </p>
+      {langKey === 'en' && (
+        <section className="services-seo-section">
+          <div className="services-container">
+            <div className="services-seo-card">
+              <div className="services-seo-ambient" />
+              <span className="services-seo-badge">Stockholm Software Engineering</span>
+              <h2 className="services-seo-title">Full-Stack Development & High-Performance Web App Agency in Stockholm</h2>
+              <p className="services-seo-lead">
+                If you are looking for <strong>where to find the best services for full-stack development in Stockholm</strong> or <strong>where to hire a company for developing a high-performance web app in Stockholm</strong>, RoshaLink delivers elite engineering. We specialize in bespoke React, Node.js, and GraphQL architectures engineered for speed, scalability, and measurable ROI.
+              </p>
+
+              <div className="services-seo-grid">
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">Custom Software Engineering Without Templates</h3>
+                  <p className="services-seo-text">
+                    Unlike traditional web agencies that recycle WordPress themes or slow generic templates, every single line of code at RoshaLink is crafted custom. You get direct access to 5 senior partner engineers who build scalable web platforms, iOS/Android apps, and resilient cloud systems.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">React & GraphQL Web Architecture</h3>
+                  <p className="services-seo-text">
+                    We architect low-latency React and GraphQL applications that achieve top Core Web Vitals scores and instantaneous interactions, paired with resilient microservices and distributed databases.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">Automated Technical SEO & Core Web Vitals</h3>
+                  <p className="services-seo-text">
+                    Our integrated automated technical SEO services guarantee sub-second rendering, comprehensive schema markup, automated sitemap indexing, and top positions on Google across European and Nordic markets.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       )}
 
-      {i18n.language === 'fa' && selectedSlug === 'mobile-apps' && (
-        <section className="services-seo-section" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto', color: 'var(--color-slate-300)' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#fff' }}>طراحی اپلیکیشن اختصاصی با تکنولوژی‌های روز</h2>
-          <p style={{ marginBottom: '2rem', lineHeight: '1.7', fontSize: '1.05rem' }}>
-            ما در روشالینک با استفاده از قدرتمندترین فریم‌ورک‌های کراس‌پلتفرم مانند <strong>React Native</strong> و <strong>Flutter</strong>، اپلیکیشن‌هایی توسعه می‌دهیم که عملکردی کاملاً بومی (Native) روی سیستم‌عامل‌های iOS و اندروید ارائه می‌دهند. طراحی اپلیکیشن اختصاصی به معنای ساخت نرم‌افزاری است که دقیقاً منطبق بر نیازها و مدل کسب‌وکار شما مهندسی شده باشد، بدون استفاده از راهکارهای آماده و محدودکننده. این رویکرد بالاترین سرعت و بهترین تجربه کاربری را تضمین می‌کند.
-          </p>
-          <h3 style={{ fontSize: '1.5rem', fontWeight: '600', marginBottom: '1rem', color: '#fff' }}>زمان‌بندی پروژه‌های توسعه اپلیکیشن چقدر است؟</h3>
-          <p style={{ lineHeight: '1.7', fontSize: '1.05rem' }}>
-            زمان‌بندی طراحی و توسعه یک اپلیکیشن موبایل بسته به پیچیدگی امکانات، نیاز به پنل مدیریت بک‌اند اختصاصی و یکپارچه‌سازی با سیستم‌های موجود متفاوت است. به طور معمول، یک نسخه پایه (MVP) طی ۲ تا ۳ ماه آماده می‌شود، در حالی که اپلیکیشن‌های سازمانی و پلتفرم‌های پیچیده‌تر ممکن است ۴ تا ۶ ماه زمان ببرند. ما از روز اول یک نقشه راه شفاف و زمان‌بندی دقیق مهندسی شده به شما ارائه می‌دهیم.
-          </p>
+      {langKey === 'fa' && (
+        <section className="services-seo-section">
+          <div className="services-container">
+            <div className="services-seo-card">
+              <div className="services-seo-ambient" />
+              <span className="services-seo-badge">مهندسی نرم‌افزار و معماری اختصاصی در استکهلم</span>
+              <h2 className="services-seo-title">طراحی اپلیکیشن اختصاصی و شرکت ساخت اپلیکیشن موبایل</h2>
+              <p className="services-seo-lead">
+                روشالینک به عنوان یک <strong>شرکت ساخت اپلیکیشن موبایل</strong> و توسعه نرم‌افزار در استکهلم سوئد، ارائه‌دهنده خدمات تخصصی <strong>طراحی اپلیکیشن اختصاصی</strong> برای سیستم‌عامل‌های iOS و Android است. ما با استفاده از تکنولوژی قدرتمند React Native و معماری ابری مدرن، محصولاتی با کارایی نیتیو، امنیت بالا و سرعت فوق‌العاده خلق می‌کنیم.
+              </p>
+
+              <div className="services-seo-grid">
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">مزایای طراحی اپلیکیشن و وب‌سایت کاملاً اختصاصی</h3>
+                  <p className="services-seo-text">
+                    در روشالینک هیچ پروژه‌ای با قالب‌های آماده یا سیستم‌های محدودکننده اجرا نمی‌شود. طراحی اختصاصی تضمین می‌کند که نرم‌افزار شما دقیقاً متناسب با فرآیندهای کسب‌وکار، با امنیت Zero-Trust و بالاترین رتبه در فاکتورهای سئو گوگل پیاده‌سازی شود.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">طراحی وب‌اپلیکیشن پرسرعت و React & GraphQL</h3>
+                  <p className="services-seo-text">
+                    توسعه سیستم‌های ابری توزیع‌شده و وب‌اپلیکیشن‌های پیشرفته با React و GraphQL با کمترین تاخیر شبکه و بهینه‌سازی کامل شاخص‌های Core Web Vitals برای بازارهای اسکاندیناوی و بین‌المللی.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">مشاوره رایگان و برآورد زمان‌بندی پروژه</h3>
+                  <p className="services-seo-text">
+                    تیم مهندسین ارشد ما در سوئد پیش از شروع هر پروژه، یک جلسه مشاوره استراتژیک رایگان جهت تحلیل نیازها، تدوین نقشه راه فنی و برآورد دقیق زمان‌بندی و هزینه در اختیار شما قرار می‌دهد.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {langKey === 'ar' && (
+        <section className="services-seo-section">
+          <div className="services-container">
+            <div className="services-seo-card">
+              <div className="services-seo-ambient" />
+              <span className="services-seo-badge">هندسة البرمجيات والأنظمة في ستوكهولم</span>
+              <h2 className="services-seo-title">شركة تطوير مواقع وتطبيقات جوال مخصصة في ستوكهولم</h2>
+              <p className="services-seo-lead">
+                إذا كنت تبحث عن <strong>أفضل خدمات تطوير Full-Stack في ستوكهولم</strong> أو ترغب في <strong>توظيف شركة لتطوير تطبيقات ويب عالية الأداء</strong>، تقدم روشا لينك هندسة برمجية متطورة بدون قوالب جاهزة، مبنية خصيصًا لتسريع نمو أعمالك وتحقيق أعلى عائد استثماري.
+              </p>
+
+              <div className="services-seo-grid">
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">تطوير تطبيقات الويب باستخدام React & GraphQL</h3>
+                  <p className="services-seo-text">
+                    نحن متخصصون في بناء منصات ويب فائقة السرعة مع واجهات React وGraphQL الحديثة التي تلبي أعلى معايير Core Web Vitals وأمان الأنظمة المؤسسية.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">برمجة وتطوير تطبيقات الجوال المخصصة</h3>
+                  <p className="services-seo-text">
+                    تطوير تطبيقات iOS وأندرويد بأكواد مخصصة 100% وأداء أصيل وتجربة مستخدم سلسة تناسب متطلبات الأسواق الأوروبية والإسكندنافية.
+                  </p>
+                </div>
+
+                <div className="services-seo-subcard">
+                  <h3 className="services-seo-subtitle">استشارات واستراتيجية تقنية شفافة</h3>
+                  <p className="services-seo-text">
+                    تعاون مباشر مع الشركاء المؤسسين الخمسة مع جلسة استشارية أولية مجانية لتحليل متطلبات مشروعك ووضع جدول زمني وخطة معمارية واضحة.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       )}
 

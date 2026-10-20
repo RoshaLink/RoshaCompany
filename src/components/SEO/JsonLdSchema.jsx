@@ -100,13 +100,18 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     knowsAbout: [
       'Custom Web Application Development',
       'React & Modern Frontend Architecture',
+      'React Webbyrå Stockholm',
+      'GraphQL Stockholm Webbyrå & API Architecture',
       'Enterprise Cloud Infrastructure',
       'Microservices & Distributed Systems',
       'Zero-Trust Cybersecurity & ISO 27001 Alignment',
       'Business Process Analysis & Software Consulting',
       'Mobile Application Development (iOS & Android)',
+      'طراحی اپلیکیشن اختصاصی',
+      'شرکت ساخت اپلیکیشن موبایل',
       'Artificial Intelligence & Enterprise Chatbots',
       'Core Web Vitals & Search Engine Optimization',
+      'Automated Technical SEO & Sitemaps',
     ],
 
     // ── Social profiles (sameAs) ──────────────────────────────────────────
@@ -190,36 +195,36 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
         '@type': 'Service',
         position: 1,
         name: t(
-          'Skräddarsydd Webbutveckling',
-          'طراحی سایت و وب‌اپلیکیشن اختصاصی',
-          'تطوير مواقع الويب المخصصة',
-          'Custom Web Development'
+          'Skräddarsydd Webbutveckling (React & GraphQL Webbyrå Stockholm)',
+          'طراحی سایت و وب‌اپلیکیشن اختصاصی (React & GraphQL)',
+          'تطوير مواقع الويب المخصصة (React & GraphQL ستوكهولم)',
+          'Custom Web Development & High-Performance Web Apps'
         ),
         serviceType: 'Web Development',
         provider: { '@id': `${BASE_URL}/#organization` },
         areaServed: AREA_SERVED,
         description: t(
-          'Skräddarsydda, högpresterande webbapplikationer byggda med React, Node.js och moderna molnstackar utan färdiga mallar.',
-          'وب‌اپلیکیشن‌های اختصاصی و پرسرعت که با React، Node.js و زیرساخت‌های ابری مدرن بدون قالب آماده ساخته می‌شوند.',
-          'تطبيقات ويب مخصصة وعالية الأداء مبنية باستخدام React وNode.js وأحدث الحلول السحابية.',
-          'Bespoke, high-performance web applications built with React, Node.js, and modern cloud stacks — no templates, no shortcuts.'
+          'Skräddarsydda, högpresterande webbapplikationer byggda med React, GraphQL, Node.js och moderna molnstackar utan färdiga mallar.',
+          'وب‌اپلیکیشن‌های اختصاصی و پرسرعت که با React، GraphQL، Node.js و زیرساخت‌های ابری مدرن بدون قالب آماده ساخته می‌شوند.',
+          'تطبيقات ويب مخصصة وعالية الأداء مبنية باستخدام React وGraphQL وNode.js وأحدث الحلول السحابية.',
+          'Bespoke, high-performance web applications built with React, GraphQL, Node.js, and modern cloud stacks — no templates, no shortcuts.'
         ),
       },
       {
         '@type': 'Service',
         position: 2,
         name: t(
-          'Mobilapputveckling (iOS & Android)',
-          'توسعه اپلیکیشن موبایل iOS و اندروید',
-          'برمجة وتطوير تطبيقات الجوال',
-          'Mobile App Development'
+          'Mobilapputveckling iOS & Android i Stockholm',
+          'طراحی اپلیکیشن اختصاصی موبایل (شرکت ساخت اپلیکیشن)',
+          'برمجة وتطوير تطبيقات الجوال المخصصة',
+          'Mobile App Development (iOS & Android)'
         ),
         serviceType: 'Mobile Development',
         provider: { '@id': `${BASE_URL}/#organization` },
         areaServed: AREA_SERVED,
         description: t(
           'Native och plattformsoberoende mobilappar med hög prestanda och flytande användarupplevelse för iOS och Android.',
-          'اپلیکیشن‌های موبایل نیتیو و کراس‌پلتفرم با سرعت بالا و رابط کاربری روان برای iOS و اندروید.',
+          'طراحی اپلیکیشن اختصاصی موبایل نیتیو و کراس‌پلتفرم با سرعت بالا و رابط کاربری روان برای iOS و اندروید.',
           'تطبيقات جوال أصلية ومتعددة المنصات بسرعة عالية وتجربة استخدام سلسة لنظامي iOS وأندرويد.',
           'Native and cross-platform high-performance mobile applications with fluid UI/UX for iOS and Android.'
         ),
@@ -247,19 +252,19 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
         '@type': 'Service',
         position: 4,
         name: t(
-          'SEO & Digital Synlighet',
-          'سئو و بهینه‌سازی موتور جستجو',
-          'تحسين محركات البحث SEO',
-          'SEO & Digital Visibility'
+          'Automatiserad SEO-tjänst & Teknisk SEO',
+          'سئو تکنیکال و بهینه‌سازی موتور جستجو',
+          'تحسين محركات البحث SEO والأتمتة التقنية',
+          'Automated SEO Services & Technical SEO Consulting'
         ),
         serviceType: 'SEO Consulting',
         provider: { '@id': `${BASE_URL}/#organization` },
         areaServed: AREA_SERVED,
         description: t(
-          'Teknisk SEO, flerspråkig optimering och datadriven synlighetsstrategi för Norden och globala marknader.',
-          'سئو فنی، بهینه‌سازی چندزبانه و استراتژی دیده‌شدن در موتورهای جستجو برای بازارهای اسکاندیناوی و جهانی.',
+          'Automatiserad SEO-tjänst i Stockholm, teknisk SEO, flerspråkig optimering och datadriven synlighetsstrategi.',
+          'سئو فنی تکنیکال، بهینه‌سازی چندزبانه و استراتژی دیده‌شدن در موتورهای جستجو برای بازارهای اسکاندیناوی و جهانی.',
           'تحسين SEO التقني والتعددي اللغات وتطوير استراتيجية الظهور الرقمي للأسواق الإسكندنافية والعالمية.',
-          'Technical SEO, multilingual optimization, and data-driven visibility strategy for Nordic and global markets.'
+          'Automated technical SEO, multilingual optimization, and data-driven visibility strategy for Nordic and global markets.'
         ),
       },
       {
@@ -277,7 +282,7 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
         description: t(
           'Rigorös företagsanalys och strategisk IT-rådgivning som eliminerar onödig teknisk skuld och maximerar affärsvärdet.',
           'تحلیل دقیق کسب‌وکار و مشاوره IT استراتژیک که بدهی فنی غیرضروری را حذف و ارزش تجاری را به حداکثر می‌رساند.',
-          'تحليل أعمال دقيق واستشارات IT استراتيجية تقضي على الديون التقنية غير الضرورية وتعظم القيمة التجارية.',
+          'تحليل أعمال دقيق واستشارات IT استراتيجية تقضي على الديون التقنية غیر الضرورية وتعظم القيمة التجارية.',
           'Rigorous business analysis and strategic IT consulting that eliminates unnecessary technical debt and maximises business value.'
         ),
       },
@@ -370,6 +375,20 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
         'Yes, we offer technical SEO, multilingual optimization (Swedish, English, Persian, Arabic), Core Web Vitals optimization, and data-driven visibility strategies for Nordic and global markets.'
       ),
     },
+    {
+      q: t(
+        'Var kan man anlita en webbyrå för högpresterande webbappar och fullstack-utveckling i Stockholm?',
+        'کجا می‌توان بهترین شرکت طراحی اپلیکیشن و وب‌اپلیکیشن پرسرعت را در استکهلم پیدا کرد؟',
+        'أين يمكن توظيف أفضل شركة لتطوير تطبيقات الويب عالية الأداء في ستوكهولم؟',
+        'Where can I hire a company for developing a high-performance web app and full-stack development in Stockholm?'
+      ),
+      a: t(
+        'RoshaLink i Stockholm erbjuder senior expertis inom React, GraphQL, Node.js och skräddarsydd fullstack-arkitektur med 100 % anpassad kod utan mallar.',
+        'روشالینک در استکهلم تخصص مهندسی ارشد در React، GraphQL، Node.js و معماری فول‌استک اختصاصی را بدون استفاده از قالب‌های آماده ارائه می‌دهد.',
+        'تقدم روشا لينك في ستوكهولم خبرة معمارية متقدمة في React وGraphQL وNode.js وتطوير Full-stack مخصص بنسبة 100% وبدون قوالب جاهزة.',
+        'RoshaLink in Stockholm provides senior engineering leadership for high-performance React and GraphQL web apps, bespoke mobile apps, and robust full-stack cloud architectures built with 100% custom code.'
+      ),
+    },
   ];
 
   const faqSchema = {
@@ -390,6 +409,7 @@ export const JsonLdSchema = ({ page = 'home', lang = DEFAULT_LANG }) => {
     portfolio: t('Portfölj',        'نمونه‌کارها',    'أعمالنا',         'Portfolio'),
     contact:   t('Kontakt',         'تماس با ما',     'تواصل معنا',      'Contact'),
     privacy:   t('Integritetspolicy', 'حریم خصوصی',  'سياسة الخصوصية',  'Privacy Policy'),
+    insights:  t('Insikter & Blogg', 'بینش‌ها و وبلاگ', 'المقالات والأفكار', 'Insights & Articles'),
     'services/discovery':        t('Affärsanalys & Roadmap',       'تحلیل کسب‌وکار و نقشه راه',       'التحليل الاستراتيجي وخريطة الطريق', 'Business Discovery & Roadmap'),
     'services/web-architecture': t('Webbarkitektur & React',       'معماری وب و ری‌اکت',             'هندسة الويب وتطبيقات React',         'Web Architecture & React'),
     'services/cloud-backend':    t('Molninfrastruktur & Backend',  'زیرساخت ابری و بک‌اند',          'البنية التحتية السحابية',            'Cloud Infrastructure & Backend'),

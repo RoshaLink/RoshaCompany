@@ -1116,3 +1116,35 @@ html.dark .hero-stat-label {
   background-color: var(--color-amber-500);
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
 }
+
+/* Cyan Theme */
+.hero-theme-cyan .hero-quote-text {
+  color: #0891b2;
+}
+
+.hero-theme-cyan .hero-btn-action {
+  background-image: linear-gradient(to right, #06b6d4, #0e7490);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.35);
+}
+
+.hero-theme-cyan .hero-btn-action:hover {
+  background-image: linear-gradient(to right, #0891b2, #155e75);
+}
+
+.hero-theme-cyan .hero-circle {
+  background-image: linear-gradient(to top right, #22d3ee, #06b6d4, #0e7490);
+  box-shadow: 0 0 60px rgba(6, 182, 212, 0.35);
+}
+
+.hero-theme-cyan .hero-designation {
+  color: #0891b2;
+}
+
+.hero-theme-cyan .hero-counter-current {
+  color: #0891b2;
+}
+
+.hero-theme-cyan .hero-dot.is-active {
+  background-color: #06b6d4;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}

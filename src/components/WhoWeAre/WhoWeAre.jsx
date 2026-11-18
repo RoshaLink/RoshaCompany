@@ -8,6 +8,7 @@ import BellaPortrait from '../../assets/OurPictures/BellaPortrait.webp';
 import SohrabPortrait from '../../assets/OurPictures/SohrabPortrait.webp';
 import MinaPortrait from '../../assets/OurPictures/MinaPortrait.webp';
 import MiladPortrait from '../../assets/OurPictures/MiladPortrait.webp';
+import MehrshadPortrait from '../../assets/OurPictures/MehrshadPortrait.webp';
 
 const TEAM_IMAGES = [
   { 
@@ -29,6 +30,10 @@ const TEAM_IMAGES = [
   { 
     src: MiladPortrait,
     theme: "amber"
+  },
+  { 
+    src: MehrshadPortrait,
+    theme: "cyan"
   },
 ];
 

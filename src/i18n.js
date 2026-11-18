@@ -426,6 +426,11 @@ const resources = {
             name: "Milad",
             designation: "Senior Full-Stack Utvecklare",
             quote: "Från komplexa backend-arkitekturer till sömlösa frontend-gränssnitt, jag drivs av att konstruera robusta mjukvarusystem som driver moderna digitala upplevelser."
+          },
+          {
+            name: "Mero",
+            designation: "DevOps Engineer",
+            quote: "Jag bygger automatiserade CI/CD-flöden, skalbar molninfrastruktur och driftsäkra produktionsmiljöer som gör att varje lansering sker snabbt, säkert och utan avbrott."
           }
         ]
       },
@@ -1460,6 +1465,11 @@ const resources = {
             name: "Milad",
             designation: "Senior Full-Stack Developer",
             quote: "From complex backend architectures to seamless frontend interfaces, I thrive on engineering resilient software systems that power modern digital experiences."
+          },
+          {
+            name: "Mero",
+            designation: "DevOps Engineer",
+            quote: "I architect automated CI/CD pipelines, resilient cloud infrastructure, and high-availability production systems that keep deployments fast, secure, and effortless."
           }
         ]
       },
@@ -2494,6 +2504,11 @@ const resources = {
             name: "Milad",
             designation: "توسعه‌دهنده ارشد فول‌استک",
             quote: "از معماری‌های پیچیده سمت سرور تا رابط‌های کاربری چشم‌نواز و روان، انگیزه من ساخت سیستم‌های نرم‌افزاری پایدار و قدرتمند برای وب مدرن است."
+          },
+          {
+            name: "Mero",
+            designation: "مهندس دوآپس (DevOps Engineer)",
+            quote: "من زیرساخت‌های ابری مقیاس‌پذیر، پایپ‌لاین‌های خودکار CI/CD و سرورهای پایدار با دسترس‌پذیری بالا طراحی می‌کنم تا استقرار و اجرای پروژه‌ها همیشه سریع، امن و بدون وقفه باشد."
           }
         ]
       },
@@ -3528,6 +3543,11 @@ const resources = {
             name: "Milad",
             designation: "مطور ارشد Full-Stack",
             quote: "من المعماريات الخلفية المعقدة إلى الواجهات الأمامية السلسة، أنشط في هندسة أنظمة برمجية قوية تمنح الطاقة للتجارب الرقمية الحديثة."
+          },
+          {
+            name: "Mero",
+            designation: "مهندس DevOps",
+            quote: "أقوم ببناء خطوط CI/CD المؤتمتة والبنية التحتية السحابية القابلة للتوسع وأنظمة الإنتاج عالية التوافر لضمان نشر وتشغيل المشاريع بسرعة وأمان ودون انقطاع."
           }
         ]
       },
